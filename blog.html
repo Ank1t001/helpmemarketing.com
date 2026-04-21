@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient-growth Journal — HelpMeMarketing</title>
+<meta name="description" content="Tactics, data and honest essays from a healthcare-only agency. New pieces most Tuesdays.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app" data-screen-label="blog">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html" style="cursor:pointer">
+      <div class="logo-mark">H</div>
+      <span class="logo-text">Help<span style="color:var(--primary); font-style:italic; font-family:'Instrument Serif'; font-size:19px; padding:0 1px">Me</span>Marketing</span>
+      <span class="pill logo-pill" style="margin-left:6px; background:var(--mint-soft); color:var(--deep); font-size:10px; padding:3px 8px">Health &amp; Care</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="services.html">Services</a>
+      <a class="nav-link" href="work.html">Case Studies</a>
+      <a class="nav-link" href="about.html">About</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-accent nav-main-cta" href="contact.html">Book a free audit
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Menu" onclick="var m=document.querySelector('.nav-mobile-menu'); var o=m.classList.toggle('open'); this.classList.toggle('open', o);"><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile-menu">
+  <a class="nav-link" href="index.html">Home</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="work.html">Case Studies</a>
+  <a class="nav-link" href="about.html">About</a>
+  <div class="mobile-cta-row">
+    <a class="btn btn-accent" href="contact.html">Book a free audit</a>
+  </div>
+</div>
+
+<div class="page">
+
+<section style="padding:80px 0 40px; border-bottom:1px solid var(--line-soft)">
+  <div class="container">
+    <div class="eyebrow"><span class="eyebrow-dot"></span>Patient growth · Journal</div>
+    <h1 class="serif display-xl" style="font-size:clamp(46px, 5.4vw, 84px); margin-top:14px; line-height:1.02; color:var(--deep); max-width:980px; letter-spacing:-0.025em">
+      Tactics, data and honest essays from a healthcare-only agency.
+    </h1>
+    <p style="font-size:18px; color:var(--ink-60); margin-top:22px; max-width:640px; line-height:1.55">New pieces most Tuesdays. Written by the people actually running the campaigns — no ghostwriters, no thinkpieces.</p>
+    <div style="margin-top:28px; display:flex; gap:20px; flex-wrap:wrap; font-size:13px; color:var(--ink-60)">
+      <span>·&nbsp;&nbsp;8 published</span>
+      <span>·&nbsp;&nbsp;Avg read 5 min</span>
+      <span>·&nbsp;&nbsp;6,200+ subscribers</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding:56px 0 120px">
+  <div class="container">
+
+    <div id="blog-filter" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:48px; padding-bottom:20px; border-bottom:1px solid var(--line-soft)">
+      <button class="bcat active" data-cat="All" style="padding:8px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--deep); background:var(--deep); color:white; cursor:pointer; font-family:inherit">All</button>
+      <button class="bcat" data-cat="Paid media" style="padding:8px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--line); background:white; color:var(--ink-80); cursor:pointer; font-family:inherit">Paid media</button>
+      <button class="bcat" data-cat="SEO" style="padding:8px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--line); background:white; color:var(--ink-80); cursor:pointer; font-family:inherit">SEO</button>
+      <button class="bcat" data-cat="Compliance" style="padding:8px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--line); background:white; color:var(--ink-80); cursor:pointer; font-family:inherit">Compliance</button>
+      <button class="bcat" data-cat="Websites" style="padding:8px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--line); background:white; color:var(--ink-80); cursor:pointer; font-family:inherit">Websites</button>
+      <button class="bcat" data-cat="Retention" style="padding:8px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--line); background:white; color:var(--ink-80); cursor:pointer; font-family:inherit">Retention</button>
+      <button class="bcat" data-cat="Reputation" style="padding:8px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid var(--line); background:white; color:var(--ink-80); cursor:pointer; font-family:inherit">Reputation</button>
+    </div>
+
+    <!-- Feature post (id 1) -->
+    <a id="blog-feature" class="blog-feature bpost" data-cat="Paid media" style="display:grid; grid-template-columns:1.2fr 1fr; gap:40px; margin-bottom:72px; cursor:pointer">
+      <div style="border-radius:20px; overflow:hidden; border:1px solid var(--line-soft)">
+        <div style="aspect-ratio:16/10; background:linear-gradient(135deg, #F6B44B 0%, #E89A2E 100%); position:relative; overflow:hidden; border-radius:inherit">
+          <div style="position:absolute; inset:0; background:radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 50%)"></div>
+          <div style="position:absolute; inset:0; padding:22px; display:flex; flex-direction:column; justify-content:space-between">
+            <div style="font-family:'Instrument Serif'; font-size:48px; line-height:1; color:rgba(255,255,255,0.35); font-style:italic">&ldquo;</div>
+            <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:600">HelpMe · Journal</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:center">
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:18px; font-size:12px; color:var(--ink-60); font-weight:500; letter-spacing:0.02em">
+          <span style="color:var(--primary-dark); font-weight:600">Featured</span>
+          <span>·</span><span>Paid media</span><span>·</span><span>6 min read</span>
+        </div>
+        <h2 class="serif" style="font-size:clamp(30px, 3vw, 44px); line-height:1.1; color:var(--deep); letter-spacing:-0.015em; margin-bottom:18px">
+          The new rules of Google Ads for healthcare in 2026
+        </h2>
+        <p style="font-size:16px; color:var(--ink-60); line-height:1.6; margin-bottom:24px">Restricted categories expanded again. Here&rsquo;s what changed for dental, dermatology and medspa advertisers — and the creative tactics that still convert.</p>
+        <div style="display:flex; align-items:center; gap:12px">
+          <div style="width:36px; height:36px; border-radius:50%; background:var(--primary); color:white; display:grid; place-items:center; font-size:13px; font-family:'Instrument Serif'">PR</div>
+          <div>
+            <div style="font-size:13px; color:var(--deep); font-weight:600">Priya Raman</div>
+            <div style="font-size:12px; color:var(--ink-60)">Paid media lead · Mar 2026</div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Grid (posts 2-8) -->
+    <div class="blog-grid" id="blog-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:32px">
+
+      <a class="blog-card bpost" data-cat="Compliance" style="cursor:pointer; display:flex; flex-direction:column; gap:16px">
+        <div style="border-radius:14px; overflow:hidden; border:1px solid var(--line-soft)">
+          <div style="aspect-ratio:16/10; background:linear-gradient(135deg, #9FE4DB 0%, #00B5A5 100%); position:relative; overflow:hidden; border-radius:inherit">
+            <div style="position:absolute; inset:0; background:radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 50%)"></div>
+            <div style="position:absolute; inset:0; padding:22px; display:flex; flex-direction:column; justify-content:space-between">
+              <div style="font-family:'Instrument Serif'; font-size:48px; line-height:1; color:rgba(255,255,255,0.35); font-style:italic">&ldquo;</div>
+              <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:600">HelpMe · Journal</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; flex:1">
+          <div style="display:flex; gap:8px; align-items:center; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-60); font-weight:600">
+            <span>Compliance</span><span style="color:var(--line)">·</span><span>9 min</span>
+          </div>
+          <h3 class="serif" style="font-size:22px; line-height:1.2; color:var(--deep); letter-spacing:-0.01em">Server-side tracking without leaking PHI</h3>
+          <p style="font-size:14px; color:var(--ink-60); line-height:1.55; flex:1">A walk-through of a HIPAA-aware GTM setup: hashed conversions, Meta CAPI with identifier stripping, and the exact variables to blacklist.</p>
+          <div style="font-size:12px; color:var(--ink-60); margin-top:4px">Marcus Chen · Feb 2026</div>
+        </div>
+      </a>
+
+      <a class="blog-card bpost" data-cat="SEO" style="cursor:pointer; display:flex; flex-direction:column; gap:16px">
+        <div style="border-radius:14px; overflow:hidden; border:1px solid var(--line-soft)">
+          <div style="aspect-ratio:16/10; background:linear-gradient(135deg, #FFB4A0 0%, #FF8A65 100%); position:relative; overflow:hidden; border-radius:inherit">
+            <div style="position:absolute; inset:0; background:radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 50%)"></div>
+            <div style="position:absolute; inset:0; padding:22px; display:flex; flex-direction:column; justify-content:space-between">
+              <div style="font-family:'Instrument Serif'; font-size:48px; line-height:1; color:rgba(255,255,255,0.35); font-style:italic">&ldquo;</div>
+              <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:600">HelpMe · Journal</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; flex:1">
+          <div style="display:flex; gap:8px; align-items:center; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-60); font-weight:600">
+            <span>SEO</span><span style="color:var(--line)">·</span><span>5 min</span>
+          </div>
+          <h3 class="serif" style="font-size:22px; line-height:1.2; color:var(--deep); letter-spacing:-0.01em">How Vanguard Pharmacy doubled organic appointment bookings</h3>
+          <p style="font-size:14px; color:var(--ink-60); line-height:1.55; flex:1">Google Business Profile hygiene, location-page architecture, and a reviews cadence that outranked a national chain in 90 days.</p>
+          <div style="font-size:12px; color:var(--ink-60); margin-top:4px">Sana Ali · Feb 2026</div>
+        </div>
+      </a>
+
+      <a class="blog-card bpost" data-cat="Websites" style="cursor:pointer; display:flex; flex-direction:column; gap:16px">
+        <div style="border-radius:14px; overflow:hidden; border:1px solid var(--line-soft)">
+          <div style="aspect-ratio:16/10; background:linear-gradient(135deg, #FFE49A 0%, #F6B44B 100%); position:relative; overflow:hidden; border-radius:inherit">
+            <div style="position:absolute; inset:0; background:radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 50%)"></div>
+            <div style="position:absolute; inset:0; padding:22px; display:flex; flex-direction:column; justify-content:space-between">
+              <div style="font-family:'Instrument Serif'; font-size:48px; line-height:1; color:rgba(255,255,255,0.35); font-style:italic">&ldquo;</div>
+              <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:600">HelpMe · Journal</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; flex:1">
+          <div style="display:flex; gap:8px; align-items:center; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-60); font-weight:600">
+            <span>Websites</span><span style="color:var(--line)">·</span><span>4 min</span>
+          </div>
+          <h3 class="serif" style="font-size:22px; line-height:1.2; color:var(--deep); letter-spacing:-0.01em">Booking widgets are eating your conversion rate</h3>
+          <p style="font-size:14px; color:var(--ink-60); line-height:1.55; flex:1">Why the "open iframe and hope" pattern kills mobile flows, and a 6-step redesign we ship on every dental and medspa site.</p>
+          <div style="font-size:12px; color:var(--ink-60); margin-top:4px">Jules Park · Jan 2026</div>
+        </div>
+      </a>
+
+      <a class="blog-card bpost" data-cat="Paid media" style="cursor:pointer; display:flex; flex-direction:column; gap:16px">
+        <div style="border-radius:14px; overflow:hidden; border:1px solid var(--line-soft)">
+          <div style="aspect-ratio:16/10; background:linear-gradient(135deg, #9FE4DB 0%, #00B5A5 100%); position:relative; overflow:hidden; border-radius:inherit">
+            <div style="position:absolute; inset:0; background:radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 50%)"></div>
+            <div style="position:absolute; inset:0; padding:22px; display:flex; flex-direction:column; justify-content:space-between">
+              <div style="font-family:'Instrument Serif'; font-size:48px; line-height:1; color:rgba(255,255,255,0.35); font-style:italic">&ldquo;</div>
+              <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:600">HelpMe · Journal</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; flex:1">
+          <div style="display:flex; gap:8px; align-items:center; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-60); font-weight:600">
+            <span>Paid media</span><span style="color:var(--line)">·</span><span>3 min</span>
+          </div>
+          <h3 class="serif" style="font-size:22px; line-height:1.2; color:var(--deep); letter-spacing:-0.01em">2026 cost-per-lead benchmarks across 11 specialties</h3>
+          <p style="font-size:14px; color:var(--ink-60); line-height:1.55; flex:1">Anonymised data from 180+ accounts — what to actually expect for dermatology, dentistry, physio, optometry and more.</p>
+          <div style="font-size:12px; color:var(--ink-60); margin-top:4px">Priya Raman · Jan 2026</div>
+        </div>
+      </a>
+
+      <a class="blog-card bpost" data-cat="Retention" style="cursor:pointer; display:flex; flex-direction:column; gap:16px">
+        <div style="border-radius:14px; overflow:hidden; border:1px solid var(--line-soft)">
+          <div style="aspect-ratio:16/10; background:linear-gradient(135deg, #F6B44B 0%, #E89A2E 100%); position:relative; overflow:hidden; border-radius:inherit">
+            <div style="position:absolute; inset:0; background:radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 50%)"></div>
+            <div style="position:absolute; inset:0; padding:22px; display:flex; flex-direction:column; justify-content:space-between">
+              <div style="font-family:'Instrument Serif'; font-size:48px; line-height:1; color:rgba(255,255,255,0.35); font-style:italic">&ldquo;</div>
+              <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:600">HelpMe · Journal</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; flex:1">
+          <div style="display:flex; gap:8px; align-items:center; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-60); font-weight:600">
+            <span>Retention</span><span style="color:var(--line)">·</span><span>7 min</span>
+          </div>
+          <h3 class="serif" style="font-size:22px; line-height:1.2; color:var(--deep); letter-spacing:-0.01em">The email cadence that cut our clients&rsquo; no-show rate by 38%</h3>
+          <p style="font-size:14px; color:var(--ink-60); line-height:1.55; flex:1">Timing, copy, and the single segment trigger that matters more than the rest combined.</p>
+          <div style="font-size:12px; color:var(--ink-60); margin-top:4px">Marcus Chen · Dec 2025</div>
+        </div>
+      </a>
+
+      <a class="blog-card bpost" data-cat="Compliance" style="cursor:pointer; display:flex; flex-direction:column; gap:16px">
+        <div style="border-radius:14px; overflow:hidden; border:1px solid var(--line-soft)">
+          <div style="aspect-ratio:16/10; background:linear-gradient(135deg, #FFB4A0 0%, #FF8A65 100%); position:relative; overflow:hidden; border-radius:inherit">
+            <div style="position:absolute; inset:0; background:radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 50%)"></div>
+            <div style="position:absolute; inset:0; padding:22px; display:flex; flex-direction:column; justify-content:space-between">
+              <div style="font-family:'Instrument Serif'; font-size:48px; line-height:1; color:rgba(255,255,255,0.35); font-style:italic">&ldquo;</div>
+              <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:600">HelpMe · Journal</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; flex:1">
+          <div style="display:flex; gap:8px; align-items:center; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-60); font-weight:600">
+            <span>Compliance</span><span style="color:var(--line)">·</span><span>5 min</span>
+          </div>
+          <h3 class="serif" style="font-size:22px; line-height:1.2; color:var(--deep); letter-spacing:-0.01em">PHIPA vs PIPEDA vs HIPAA — what Canadian clinics actually need</h3>
+          <p style="font-size:14px; color:var(--ink-60); line-height:1.55; flex:1">A plain-language map of which law applies, when, and the three forms most clinics are still getting wrong.</p>
+          <div style="font-size:12px; color:var(--ink-60); margin-top:4px">Sana Ali · Dec 2025</div>
+        </div>
+      </a>
+
+      <a class="blog-card bpost" data-cat="Reputation" style="cursor:pointer; display:flex; flex-direction:column; gap:16px">
+        <div style="border-radius:14px; overflow:hidden; border:1px solid var(--line-soft)">
+          <div style="aspect-ratio:16/10; background:linear-gradient(135deg, #FFE49A 0%, #F6B44B 100%); position:relative; overflow:hidden; border-radius:inherit">
+            <div style="position:absolute; inset:0; background:radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 50%)"></div>
+            <div style="position:absolute; inset:0; padding:22px; display:flex; flex-direction:column; justify-content:space-between">
+              <div style="font-family:'Instrument Serif'; font-size:48px; line-height:1; color:rgba(255,255,255,0.35); font-style:italic">&ldquo;</div>
+              <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:600">HelpMe · Journal</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; flex:1">
+          <div style="display:flex; gap:8px; align-items:center; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-60); font-weight:600">
+            <span>Reputation</span><span style="color:var(--line)">·</span><span>4 min</span>
+          </div>
+          <h3 class="serif" style="font-size:22px; line-height:1.2; color:var(--deep); letter-spacing:-0.01em">Why we stopped asking for 5-star reviews</h3>
+          <p style="font-size:14px; color:var(--ink-60); line-height:1.55; flex:1">The review-gating crackdown, the CRTC letter one of our clients got, and the request flow that replaced it.</p>
+          <div style="font-size:12px; color:var(--ink-60); margin-top:4px">Jules Park · Nov 2025</div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Newsletter -->
+    <div class="blog-news" style="margin-top:96px; padding:48px; border-radius:24px; background:var(--deep); color:white; display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:center">
+      <div>
+        <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--mint); font-weight:600; margin-bottom:14px">The Tuesday note</div>
+        <h3 class="serif" style="font-size:34px; line-height:1.1; letter-spacing:-0.015em; margin-bottom:14px">One tactic, one data point, once a week.</h3>
+        <p style="font-size:15px; color:rgba(255,255,255,0.7); line-height:1.6">No fluff, no funnels. Unsubscribe in one click. 6,200 practice owners read it on Tuesday mornings.</p>
+      </div>
+      <div id="news-form-wrap">
+        <form id="news-form" style="display:flex; gap:8px; flex-direction:column">
+          <input type="email" required placeholder="you@clinic.com" id="news-email" style="padding:16px 18px; border-radius:12px; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.06); color:white; font-size:15px; font-family:inherit">
+          <button type="submit" style="padding:16px 22px; border-radius:12px; border:none; background:var(--primary); color:white; font-size:15px; font-weight:500; cursor:pointer; font-family:inherit">Subscribe</button>
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:4px">We use your email only for the newsletter. Privacy policy.</div>
+        </form>
+      </div>
+      <div id="news-thanks" style="display:none; padding:22px 24px; border-radius:14px; background:rgba(0,181,165,0.14); border:1px solid rgba(0,181,165,0.4); color:white; font-size:15px; align-items:center; gap:12px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--mint)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:10px"><path d="M20 6L9 17l-5-5"/></svg>
+        You&rsquo;re in. First issue lands next Tuesday.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <div class="logo" style="color:white; margin-bottom:18px">
+          <div class="logo-mark" style="background:var(--primary); color:white">H</div>
+          <span>HelpMeMarketing</span>
+        </div>
+        <p style="color:rgba(255,255,255,0.65); font-size:14px; line-height:1.6; max-width:300px">
+          A growth partner built for healthcare. Ethical marketing that brings the right patients to the right practice.
+        </p>
+        <div style="display:flex; gap:10px; margin-top:20px">
+          <span style="font-size:11px; color:rgba(255,255,255,0.75); border:1px solid rgba(255,255,255,0.15); padding:5px 10px; border-radius:999px">HIPAA-aware</span>
+          <span style="font-size:11px; color:rgba(255,255,255,0.75); border:1px solid rgba(255,255,255,0.15); padding:5px 10px; border-radius:999px">Google Partner</span>
+          <span style="font-size:11px; color:rgba(255,255,255,0.75); border:1px solid rgba(255,255,255,0.15); padding:5px 10px; border-radius:999px">Meta Partner</span>
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="services.html">Healthcare SEO</a>
+        <a href="services.html">Google Ads</a>
+        <a href="services.html">Social Media</a>
+        <a href="services.html">Website Design</a>
+        <a href="services.html">Reputation Mgmt</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About us</a>
+        <a href="work.html">Case studies</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="blog.html">Patient-growth blog</a>
+        <a href="hipaa-checklist.html">HIPAA checklist</a>
+        <a href="ad-calculator.html">Ad-spend calculator</a>
+        <a href="contact.html">Free clinic audit</a>
+      </div>
+      <div class="footer-contact-col">
+        <h4>Get in touch</h4>
+        <a href="mailto:hello@helpmemarketing.com" style="color:white; font-weight:500">hello@helpmemarketing.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 HelpMeMarketing Inc.</div>
+      <div style="display:flex; gap:24px">
+        <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var btns = document.querySelectorAll('#blog-filter .bcat');
+  var posts = document.querySelectorAll('.bpost');
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      var cat = b.getAttribute('data-cat');
+      btns.forEach(function(x){
+        x.classList.remove('active');
+        x.style.background = 'white';
+        x.style.color = 'var(--ink-80)';
+        x.style.border = '1px solid var(--line)';
+      });
+      b.classList.add('active');
+      b.style.background = 'var(--deep)';
+      b.style.color = 'white';
+      b.style.border = '1px solid var(--deep)';
+      posts.forEach(function(p){
+        var show = cat === 'All' || p.getAttribute('data-cat') === cat;
+        p.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  var form = document.getElementById('news-form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('news-email').value.trim();
+    if (!email) return;
+    document.getElementById('news-form-wrap').style.display = 'none';
+    var thanks = document.getElementById('news-thanks');
+    thanks.style.display = 'flex';
+  });
+})();
+</script>
+</body>
+</html>

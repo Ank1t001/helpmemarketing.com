@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /pricing
+Disallow: /pricing.html
+
+Sitemap: https://helpmemarketing.com/sitemap.xml
