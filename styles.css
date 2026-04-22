@@ -1,29 +1,62 @@
-/* ============ Health & Care — HelpMeMarketing ============ */
+/* ============ HelpMeMarketing — Premium Generalist ============ */
+/* Canonical tokens live in DESIGN.md. Phase 1 re-points the old token names
+   at the new palette so layouts keep rendering while colors shift. Legacy
+   aliases are removed progressively as pages migrate (Phases 3-6). */
 :root {
-  --primary: #1E4D8C;
-  --primary-dark: #0A2540;
-  --deep: #0A2E2C;
-  --deep-soft: #143D3A;
-  --mint: #9EC5F7;
-  --mint-soft: #DCEAFB;
-  --cream: #F4F7FC;
-  --cream-warm: #FAF7F2;
-  --ink: #0F1A1A;
-  --ink-60: #4A5655;
-  --ink-40: #8A9391;
-  --ink-80: #2A3534;
-  --line: #E5EEEC;
-  --line-soft: #EFF5F4;
-  --coral: #FF8A65;
-  --gold: #D4A574;
-  --butter: #F6B44B;
-  --sand: #E89A2E;
-  --white: #ffffff;
-  --radius: 14px;
+  /* Surfaces */
+  --ivory:          #FAF9F6;
+  --gray-surface:   #F1EFEB;
+  --border:         #E8E4DC;
+
+  /* Text */
+  --text-primary:   #1A1A1A;
+  --text-secondary: #6B7280;
+  --text-tertiary:  #9CA3AF;
+
+  /* Dark sections */
+  --navy:           #0A1628;
+  --navy-dark:      #050B14;
+  --navy-light:     #1E2D47;
+
+  /* Accent */
+  --gold:           #C9A96E;
+  --gold-soft:      #E4D4A8;
+
+  /* Data-viz only — never UI chrome */
+  --chart-blue:     #2563EB;
+  --chart-green:    #10B981;
+  --chart-red:      #EF4444;
+
+  /* ----- Legacy aliases (pre-repositioning code still references these) ----- */
+  --primary:       var(--navy);
+  --primary-dark:  var(--navy-dark);
+  --deep:          var(--navy);
+  --deep-soft:     var(--navy-light);
+  --mint:          var(--gold);
+  --mint-soft:     #F5EDD8;
+  --cream:         var(--gray-surface);
+  --cream-warm:    var(--gray-surface);
+  --ink:           var(--text-primary);
+  --ink-60:        var(--text-secondary);
+  --ink-40:        var(--text-tertiary);
+  --ink-80:        #2A3534;
+  --line:          var(--border);
+  --line-soft:     var(--border);
+  --coral:         var(--chart-red);
+  --butter:        #F6B44B;
+  --sand:          #E89A2E;
+  --white:         #ffffff;
+
+  /* Radii + shadows (warmer tint to match ivory base) */
+  --radius:    14px;
   --radius-lg: 22px;
-  --shadow-sm: 0 1px 2px rgba(10,46,44,0.04), 0 2px 6px rgba(10,46,44,0.03);
-  --shadow-md: 0 4px 14px rgba(10,46,44,0.06), 0 12px 28px rgba(10,46,44,0.05);
-  --shadow-lg: 0 10px 30px rgba(10,46,44,0.08), 0 30px 60px rgba(10,46,44,0.08);
+  --shadow-sm: 0 1px 2px rgba(26,22,14,0.04), 0 2px 6px rgba(26,22,14,0.03);
+  --shadow-md: 0 4px 14px rgba(26,22,14,0.06), 0 12px 28px rgba(26,22,14,0.05);
+  --shadow-lg: 0 10px 30px rgba(26,22,14,0.08), 0 30px 60px rgba(26,22,14,0.08);
+
+  /* Type */
+  --serif: 'Fraunces', Georgia, serif;
+  --sans:  'Inter', -apple-system, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -49,7 +82,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
 
-.serif { font-family: 'Instrument Serif', 'Times New Roman', serif; font-weight: 400; letter-spacing: -0.01em;}
+.serif { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em;}
 .mono { font-family: 'JetBrains Mono', monospace; }
 
 .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
@@ -77,7 +110,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 30px; height: 30px; border-radius: 9px;
   background: var(--deep);
   display: grid; place-items: center; color: var(--mint);
-  font-family: 'Instrument Serif', serif; font-size: 20px;
+  font-family: var(--serif); font-size: 20px;
   position: relative;
 }
 .logo-mark::after{
@@ -369,7 +402,7 @@ section { padding: 96px 0; }
   border-top: 1px dashed var(--line);
 }
 .compliance-foot-num {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: var(--serif);
   font-size: 44px;
   line-height: 1;
   color: var(--deep);
@@ -418,7 +451,7 @@ section { padding: 96px 0; }
 }
 .legal-page .legal-toc li::before {
   content: counter(toc, decimal-leading-zero);
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: var(--serif);
   color: var(--ink-60);
   margin-right: 10px;
   font-size: 13px;
@@ -741,7 +774,7 @@ section { padding: 96px 0; }
 }
 
 .review-quote {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: var(--serif);
   font-size: 19px;
   line-height: 1.35;
   color: var(--deep);

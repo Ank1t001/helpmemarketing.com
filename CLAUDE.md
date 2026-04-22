@@ -23,7 +23,7 @@ Vercel serves the site with `cleanUrls: true`, so links in-source point to `foo.
 Every page is a standalone, fully self-contained HTML document. There is **no templating, no includes, no shared partials** — the nav and footer are copy-pasted into each page. When you change the nav, footer, or any shared UI element, you must update every `.html` file.
 
 Each page shares this skeleton:
-- Same `<head>`: Google Fonts (Inter + Instrument Serif) preconnect + link, then `<link rel="stylesheet" href="styles.css">`.
+- Same `<head>`: Google Fonts (Fraunces + Inter) preconnect + link, then `<link rel="stylesheet" href="styles.css">`.
 - `<div class="app" data-screen-label="{page-id}">` — the `data-screen-label` identifies the page type (`home`, `services`, `service-detail`, `contact`, `blog`, `pricing`, `privacy`, `terms`, `about`, `work`, `ad-calculator`, `hipaa-checklist`). Service-detail pages all share the label `service-detail`.
 - `<nav class="nav">` + hidden `<div class="nav-mobile-menu">`, with a mobile hamburger toggled by an inline `onclick` handler that calls `classList.toggle('open')`.
 - `<div class="page-enter">` wraps the body content for the entry animation.
