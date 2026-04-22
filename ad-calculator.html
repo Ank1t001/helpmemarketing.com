@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ad-spend Calculator — HelpMeMarketing</title>
-<meta name="description" content="How much should you actually spend on ads? Pick your specialty and a monthly patient goal. We'll show a rough budget range based on aggregated benchmarks.">
+<meta name="description" content="How much should you actually spend on ads? Pick your segment and a monthly customer goal. We'll show a rough budget range based on aggregated benchmarks.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -43,15 +43,15 @@
   </div>
 </div>
 
-<div class="page">
+<div class="page-enter">
 
-<section style="padding:80px 0 40px; border-bottom:1px solid var(--line-soft)">
+<section style="padding:80px 0 40px; border-bottom:1px solid var(--border)">
   <div class="container">
-    <div class="eyebrow"><span class="eyebrow-dot"></span>Free tool · Resource</div>
-    <h1 class="serif display-xl" style="font-size:clamp(46px, 5.4vw, 84px); margin-top:14px; line-height:1.02; color:var(--deep); max-width:980px; letter-spacing:-0.025em">
-      How much should you actually spend on ads?
+    <span class="eyebrow"><span class="eyebrow-dot"></span>Free tool · Resource</span>
+    <h1 class="serif" style="font-size:clamp(46px, 5.4vw, 84px); margin-top:14px; line-height:1.02; color:var(--text-primary); max-width:980px; letter-spacing:-0.02em; font-weight:400">
+      How much should you actually <span class="italic-accent">spend</span> on ads?
     </h1>
-    <p style="font-size:18px; color:var(--ink-60); margin-top:22px; max-width:640px; line-height:1.55">Pick your specialty and a monthly patient goal. We'll show a rough budget range based on aggregated benchmarks. Numbers shown are averages and approximations — your real numbers will vary with market, creative and seasonality.</p>
+    <p style="font-size:18px; color:var(--text-secondary); margin-top:22px; max-width:640px; line-height:1.55">Pick your segment and a monthly customer goal. We&rsquo;ll show a rough budget range based on aggregated benchmarks. Numbers are averages — your real numbers will vary with market, creative, and seasonality.</p>
   </div>
 </section>
 
@@ -60,124 +60,123 @@
 
     <div class="calc-grid" style="display:grid; grid-template-columns:420px 1fr; gap:40px; align-items:start">
 
-      <div class="calc-inputs" style="background:var(--cream); border:1px solid var(--line-soft); border-radius:20px; padding:32px; position:sticky; top:100px">
-        <div style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-60); font-weight:600; margin-bottom:24px">Inputs</div>
+      <div class="calc-inputs" style="background:var(--gray-surface); border:1px solid var(--border); border-radius:20px; padding:32px; position:sticky; top:100px">
+        <div style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:24px">Inputs</div>
 
         <div style="margin-bottom:28px">
-          <label style="font-size:14px; color:var(--deep); font-weight:600; display:block; margin-bottom:12px">Specialty</label>
-          <div id="spec-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:6px">
-            <button class="sbtn active" data-s="Dentistry">Dentistry</button>
-            <button class="sbtn" data-s="Orthodontics">Orthodontics</button>
-            <button class="sbtn" data-s="Dermatology">Dermatology</button>
-            <button class="sbtn" data-s="Medspa">Medspa</button>
-            <button class="sbtn" data-s="Physiotherapy">Physiotherapy</button>
-            <button class="sbtn" data-s="Optometry">Optometry</button>
-            <button class="sbtn" data-s="Chiropractic">Chiropractic</button>
-            <button class="sbtn" data-s="Pharmacy">Pharmacy</button>
-            <button class="sbtn" data-s="Mental health">Mental health</button>
-            <button class="sbtn" data-s="Veterinary">Veterinary</button>
-            <button class="sbtn" data-s="Cosmetic surgery">Cosmetic surgery</button>
+          <label style="font-size:14px; color:var(--text-primary); font-weight:500; display:block; margin-bottom:12px">Industry</label>
+          <div id="ind-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:6px">
+            <button class="ibtn active" data-i="DTC">DTC &amp; E-com</button>
+            <button class="ibtn" data-i="SaaS">SaaS &amp; Tech</button>
+            <button class="ibtn" data-i="Healthcare">Healthcare</button>
+            <button class="ibtn" data-i="Finance">Finance</button>
           </div>
-          <div id="spec-label" style="margin-top:10px; font-size:12px; color:var(--ink-60)">General &amp; cosmetic</div>
+        </div>
+
+        <div style="margin-bottom:28px">
+          <label style="font-size:14px; color:var(--text-primary); font-weight:500; display:block; margin-bottom:12px">Segment</label>
+          <div id="seg-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:6px"></div>
+          <div id="seg-label" style="margin-top:10px; font-size:12px; color:var(--text-secondary)">Premium apparel &amp; accessories</div>
         </div>
 
         <div style="margin-bottom:28px">
           <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px">
-            <label style="font-size:14px; color:var(--deep); font-weight:600">New patients per month</label>
-            <span class="serif" id="goal-val" style="font-size:28px; color:var(--primary-dark); line-height:1">40</span>
+            <label style="font-size:14px; color:var(--text-primary); font-weight:500">New customers per month</label>
+            <span class="serif" id="goal-val" style="font-size:28px; color:var(--navy); line-height:1">80</span>
           </div>
-          <input type="range" id="goal" min="5" max="200" value="40" style="width:100%; accent-color:var(--primary)">
-          <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--ink-60); margin-top:6px">
-            <span>5</span><span>200</span>
+          <input type="range" id="goal" min="5" max="500" value="80" style="width:100%; accent-color:var(--navy)">
+          <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-secondary); margin-top:6px">
+            <span>5</span><span>500</span>
           </div>
         </div>
 
-        <details style="margin-top:8px; border-top:1px dashed var(--line); padding-top:18px">
-          <summary style="font-size:13px; color:var(--ink-60); cursor:pointer; font-weight:500; margin-bottom:14px">Override benchmarks</summary>
+        <details style="margin-top:8px; border-top:1px dashed var(--border); padding-top:18px">
+          <summary style="font-size:13px; color:var(--text-secondary); cursor:pointer; font-weight:500; margin-bottom:14px">Override benchmarks</summary>
           <div style="display:grid; gap:14px; padding-top:6px">
             <div>
-              <label style="font-size:12px; color:var(--ink-60); font-weight:500; display:block; margin-bottom:6px">Patient lifetime value ($)</label>
-              <input type="number" id="ltv" placeholder="Default 1800" style="width:100%; padding:10px 12px; border-radius:8px; border:1px solid var(--line); font-size:14px; font-family:inherit; background:white">
+              <label style="font-size:12px; color:var(--text-secondary); font-weight:500; display:block; margin-bottom:6px">Customer lifetime value ($)</label>
+              <input type="number" id="ltv" placeholder="Default 220" style="width:100%; padding:10px 12px; border-radius:8px; border:1px solid var(--border); font-size:14px; font-family:inherit; background:white">
             </div>
             <div>
-              <label style="font-size:12px; color:var(--ink-60); font-weight:500; display:block; margin-bottom:6px">Lead → patient conv. (%)</label>
-              <input type="number" id="conv" placeholder="Default 35" style="width:100%; padding:10px 12px; border-radius:8px; border:1px solid var(--line); font-size:14px; font-family:inherit; background:white">
+              <label style="font-size:12px; color:var(--text-secondary); font-weight:500; display:block; margin-bottom:6px">Lead → customer conv. (%)</label>
+              <input type="number" id="conv" placeholder="Default 5" style="width:100%; padding:10px 12px; border-radius:8px; border:1px solid var(--border); font-size:14px; font-family:inherit; background:white">
             </div>
           </div>
         </details>
       </div>
 
       <div>
-        <div style="background:var(--deep); color:white; border-radius:20px; padding:40px; margin-bottom:24px; position:relative; overflow:hidden">
-          <div style="position:absolute; top:-60px; right:-60px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle, rgba(0,181,165,0.25) 0%, transparent 70%); pointer-events:none"></div>
-          <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--mint); font-weight:600; margin-bottom:14px; position:relative">Approximate monthly ad spend</div>
-          <div class="serif" style="font-size:clamp(56px, 7vw, 96px); line-height:1; letter-spacing:-0.025em; margin-bottom:18px; position:relative">
-            $<span id="out-low">9,079</span> <span style="color:var(--mint); font-size:0.5em; font-style:italic; font-weight:400">—</span> $<span id="out-high">12,284</span>
+        <!-- [PLACEHOLDER: CPL / conversion / LTV benchmarks in the BENCH object below are industry approximations — replace with user-owned benchmarks before launch] -->
+        <div style="background:var(--navy); color:var(--ivory); border-radius:20px; padding:40px; margin-bottom:24px; position:relative; overflow:hidden">
+          <div style="position:absolute; top:-60px; right:-60px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, rgba(201,169,110,0.2) 0%, transparent 70%); pointer-events:none"></div>
+          <div style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-soft); font-weight:500; margin-bottom:14px; position:relative">Approximate monthly ad spend</div>
+          <div class="serif" style="font-size:clamp(56px, 7vw, 96px); line-height:1; letter-spacing:-0.025em; margin-bottom:18px; position:relative; font-weight:400">
+            $<span id="out-low">7,480</span> <span style="color:var(--gold); font-size:0.5em; font-style:italic; font-weight:400">—</span> $<span id="out-high">10,120</span>
           </div>
-          <div id="out-note" style="font-size:15px; color:rgba(255,255,255,0.7); max-width:480px; line-height:1.55; position:relative">
-            An average approximation for dentistry (aggregated CPL ~$95, lead→patient ~35%). Real numbers will vary with geography, seasonality, creative and market competition.
+          <div id="out-note" style="font-size:15px; color:rgba(250,249,246,0.75); max-width:520px; line-height:1.55; position:relative">
+            An average approximation for premium apparel &amp; accessories (aggregated CPL ~$22, lead→customer ~5%). Real numbers will vary with geography, seasonality, creative, and market competition.
           </div>
         </div>
 
         <div class="calc-stats" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-bottom:32px">
-          <div style="background:white; border:1px solid var(--line-soft); border-radius:14px; padding:20px">
-            <div style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-60); font-weight:600; margin-bottom:10px">Leads needed / mo</div>
-            <div class="serif" id="out-leads" style="font-size:36px; color:var(--deep); line-height:1; letter-spacing:-0.01em; margin-bottom:8px">115</div>
-            <div id="out-leads-sub" style="font-size:12px; color:var(--ink-60)">at 35% conversion</div>
+          <div style="background:white; border:1px solid var(--border); border-radius:14px; padding:20px">
+            <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:10px">Leads needed / mo</div>
+            <div class="serif" id="out-leads" style="font-size:36px; color:var(--text-primary); line-height:1; letter-spacing:-0.01em; margin-bottom:8px">1,600</div>
+            <div id="out-leads-sub" style="font-size:12px; color:var(--text-secondary)">at 5% conversion</div>
           </div>
-          <div style="background:white; border:1px solid var(--line-soft); border-radius:14px; padding:20px">
-            <div style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-60); font-weight:600; margin-bottom:10px">Target CPL</div>
-            <div class="serif" id="out-cpl" style="font-size:36px; color:var(--deep); line-height:1; letter-spacing:-0.01em; margin-bottom:8px">$95</div>
-            <div id="out-cpl-sub" style="font-size:12px; color:var(--ink-60)">Dentistry benchmark</div>
+          <div style="background:white; border:1px solid var(--border); border-radius:14px; padding:20px">
+            <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:10px">Target CPL</div>
+            <div class="serif" id="out-cpl" style="font-size:36px; color:var(--text-primary); line-height:1; letter-spacing:-0.01em; margin-bottom:8px">$22</div>
+            <div id="out-cpl-sub" style="font-size:12px; color:var(--text-secondary)">DTC benchmark</div>
           </div>
-          <div style="background:white; border:1px solid var(--line-soft); border-radius:14px; padding:20px">
-            <div style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-60); font-weight:600; margin-bottom:10px">Projected ROAS</div>
-            <div class="serif" id="out-roas" style="font-size:36px; color:var(--deep); line-height:1; letter-spacing:-0.01em; margin-bottom:8px">6.6×</div>
-            <div id="out-roas-sub" style="font-size:12px; color:var(--ink-60)">on $1,800 patient LTV</div>
+          <div style="background:white; border:1px solid var(--border); border-radius:14px; padding:20px">
+            <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:10px">Projected ROAS</div>
+            <div class="serif" id="out-roas" style="font-size:36px; color:var(--text-primary); line-height:1; letter-spacing:-0.01em; margin-bottom:8px">2.0×</div>
+            <div id="out-roas-sub" style="font-size:12px; color:var(--text-secondary)">on $220 customer LTV</div>
           </div>
         </div>
 
-        <div style="background:white; border:1px solid var(--line-soft); border-radius:16px; overflow:hidden">
-          <div style="padding:20px 24px; border-bottom:1px solid var(--line-soft); display:flex; justify-content:space-between; align-items:center">
-            <div class="serif" style="font-size:20px; color:var(--deep)">How we got there</div>
-            <div style="font-size:12px; color:var(--ink-60)">Monthly projection</div>
+        <div style="background:white; border:1px solid var(--border); border-radius:16px; overflow:hidden">
+          <div style="padding:20px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center">
+            <div class="serif" style="font-size:20px; color:var(--text-primary)">How we got there</div>
+            <div style="font-size:12px; color:var(--text-secondary)">Monthly projection</div>
           </div>
-          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line-soft)">
-            <div style="font-size:14px; color:var(--ink-80)">Your patient goal</div>
-            <div id="row-goal" style="font-size:15px; color:var(--deep); font-weight:600; font-variant-numeric:tabular-nums">40 new patients / mo</div>
+          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border)">
+            <div style="font-size:14px; color:var(--text-primary)">Your customer goal</div>
+            <div id="row-goal" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">80 new customers / mo</div>
           </div>
-          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line-soft)">
-            <div style="font-size:14px; color:var(--ink-80)">Lead → patient conversion</div>
-            <div id="row-conv" style="font-size:15px; color:var(--deep); font-weight:600; font-variant-numeric:tabular-nums">35%</div>
+          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border)">
+            <div style="font-size:14px; color:var(--text-primary)">Lead → customer conversion</div>
+            <div id="row-conv" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">5%</div>
           </div>
-          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line-soft)">
-            <div style="font-size:14px; color:var(--ink-80)">Leads we need to generate</div>
-            <div id="row-leads" style="font-size:15px; color:var(--deep); font-weight:600; font-variant-numeric:tabular-nums">115 leads</div>
+          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border)">
+            <div style="font-size:14px; color:var(--text-primary)">Leads we need to generate</div>
+            <div id="row-leads" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">1,600 leads</div>
           </div>
-          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line-soft)">
-            <div style="font-size:14px; color:var(--ink-80)">Target CPL (specialty average)</div>
-            <div id="row-cpl" style="font-size:15px; color:var(--deep); font-weight:600; font-variant-numeric:tabular-nums">~$95</div>
+          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border)">
+            <div style="font-size:14px; color:var(--text-primary)">Target CPL (segment average)</div>
+            <div id="row-cpl" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">~$22</div>
           </div>
-          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line-soft); background:var(--mint-soft)">
-            <div style="font-size:14px; color:var(--primary-dark); font-weight:600">Estimated monthly ad spend</div>
-            <div id="row-spend" style="font-size:15px; color:var(--primary-dark); font-weight:600; font-variant-numeric:tabular-nums">~$10,681</div>
+          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); background:#F5EDD8">
+            <div style="font-size:14px; color:var(--navy); font-weight:500">Estimated monthly ad spend</div>
+            <div id="row-spend" style="font-size:15px; color:var(--navy); font-weight:500; font-variant-numeric:tabular-nums">~$8,800</div>
           </div>
           <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center">
-            <div style="font-size:14px; color:var(--ink-80)">Illustrative patient revenue</div>
-            <div id="row-rev" style="font-size:15px; color:var(--deep); font-weight:600; font-variant-numeric:tabular-nums">~$72,000</div>
+            <div style="font-size:14px; color:var(--text-primary)">Illustrative customer revenue</div>
+            <div id="row-rev" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">~$17,600</div>
           </div>
         </div>
 
-        <div style="margin-top:40px; padding:28px 32px; border:1px dashed var(--line); border-radius:16px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap">
+        <div style="margin-top:40px; padding:28px 32px; border:1px dashed var(--border); border-radius:16px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap">
           <div>
-            <div class="serif" style="font-size:22px; color:var(--deep); margin-bottom:6px">Want a plan built on your actual numbers?</div>
-            <div style="font-size:14px; color:var(--ink-60)">We&rsquo;ll look at your current spend and suggest a directional plan — 20 minutes, no deck.</div>
+            <div class="serif" style="font-size:22px; color:var(--text-primary); margin-bottom:6px">Want a plan built on <em style="color:var(--gold)">your</em> actual numbers?</div>
+            <div style="font-size:14px; color:var(--text-secondary)">We&rsquo;ll look at your current spend and suggest a directional plan — 20 minutes, no deck.</div>
           </div>
           <a href="contact.html" class="btn btn-primary">Start a conversation →</a>
         </div>
 
-        <div style="margin-top:24px; font-size:12px; color:var(--ink-60); line-height:1.55">
-          <b>A note on these numbers —</b> everything above is an average approximation drawn from aggregated industry data, not a forecast of your account. Actual CPL, conversion rate and revenue depend on your market, creative, landing-page performance and seasonality. Treat the output as a starting directional estimate, not a promise.
+        <div style="margin-top:24px; font-size:12px; color:var(--text-secondary); line-height:1.55">
+          <b>A note on these numbers —</b> everything above is an average approximation drawn from aggregated industry data, not a forecast of your account. Actual CPL, conversion rate, and LTV depend on your market, creative, landing-page performance, and seasonality. Treat the output as a starting directional estimate, not a promise.
         </div>
       </div>
 
@@ -245,65 +244,111 @@
 </div>
 
 <style>
-.sbtn {
+.ibtn, .sbtn {
   padding:10px 10px; border-radius:10px; font-size:12px; font-weight:500; cursor:pointer; text-align:left;
-  border:1px solid var(--line); background:white; color:var(--ink-80);
+  border:1px solid var(--border); background:white; color:var(--text-primary);
   font-family:inherit; transition:all 0.15s ease;
 }
-.sbtn.active {
-  border:1px solid var(--primary-dark); background:var(--mint-soft); color:var(--primary-dark);
+.ibtn.active, .sbtn.active {
+  border:1px solid var(--navy); background:#F5EDD8; color:var(--navy);
 }
 </style>
 
 <script>
 (function(){
+  // [PLACEHOLDER: CPL / conv / LTV benchmarks are aggregated industry approximations — replace with user-owned benchmarks]
   var BENCH = {
-    'Dentistry':        { cpl: 95,  convRate: 0.35, ltv: 1800, label:'General & cosmetic' },
-    'Orthodontics':     { cpl: 145, convRate: 0.30, ltv: 5200, label:'Braces & Invisalign' },
-    'Dermatology':      { cpl: 120, convRate: 0.32, ltv: 900,  label:'Medical & cosmetic' },
-    'Medspa':           { cpl: 78,  convRate: 0.28, ltv: 1200, label:'Aesthetics & injectables' },
-    'Physiotherapy':    { cpl: 48,  convRate: 0.42, ltv: 780,  label:'PT & rehab' },
-    'Optometry':        { cpl: 62,  convRate: 0.38, ltv: 550,  label:'Eye exams & frames' },
-    'Chiropractic':     { cpl: 55,  convRate: 0.40, ltv: 650,  label:'Spine & wellness' },
-    'Pharmacy':         { cpl: 32,  convRate: 0.48, ltv: 420,  label:'Retail & compounding' },
-    'Mental health':    { cpl: 82,  convRate: 0.34, ltv: 2200, label:'Therapy & psychiatry' },
-    'Veterinary':       { cpl: 45,  convRate: 0.44, ltv: 680,  label:'Small animal' },
-    'Cosmetic surgery': { cpl: 220, convRate: 0.18, ltv: 8400, label:'Plastic & elective' }
+    DTC: {
+      default: 'Apparel',
+      segments: {
+        'Apparel':       { cpl: 22, convRate: 0.05, ltv: 220,  label: 'Premium apparel & accessories' },
+        'Beauty':        { cpl: 28, convRate: 0.06, ltv: 320,  label: 'Beauty & skincare' },
+        'Home goods':    { cpl: 34, convRate: 0.04, ltv: 480,  label: 'Home, furniture & decor' },
+        'Food & bev':    { cpl: 18, convRate: 0.07, ltv: 180,  label: 'CPG food & beverage' }
+      }
+    },
+    SaaS: {
+      default: 'SMB',
+      segments: {
+        'SMB':         { cpl: 65,  convRate: 0.12, ltv: 2400,  label: 'SMB SaaS · self-serve' },
+        'Mid-market':  { cpl: 180, convRate: 0.08, ltv: 14000, label: 'Mid-market · sales-led' },
+        'Enterprise':  { cpl: 420, convRate: 0.04, ltv: 85000, label: 'Enterprise · field sales' },
+        'Dev tools':   { cpl: 85,  convRate: 0.09, ltv: 4200,  label: 'Dev tools · PLG' }
+      }
+    },
+    Healthcare: {
+      default: 'Clinical',
+      segments: {
+        'Clinical':   { cpl: 95,  convRate: 0.35, ltv: 1800, label: 'Dental, medical, physiotherapy' },
+        'Aesthetics': { cpl: 78,  convRate: 0.28, ltv: 1200, label: 'Medspa, cosmetic, aesthetics' },
+        'Wellness':   { cpl: 55,  convRate: 0.40, ltv: 650,  label: 'Chiropractic, therapy, wellness' }
+      }
+    },
+    Finance: {
+      default: 'Advisory',
+      segments: {
+        'Advisory':   { cpl: 180, convRate: 0.20, ltv: 12000, label: 'Wealth advisors & RIAs' },
+        'Fintech':    { cpl: 95,  convRate: 0.10, ltv: 1800,  label: 'Consumer fintech' },
+        'Insurance':  { cpl: 85,  convRate: 0.14, ltv: 2400,  label: 'Insurance brokers & agents' },
+        'Tax & accounting': { cpl: 72, convRate: 0.22, ltv: 2100, label: 'Tax, accounting, bookkeeping' }
+      }
+    }
   };
 
-  var specialty = 'Dentistry';
+  var industry = 'DTC';
+  var segment = BENCH.DTC.default;
   var goalEl = document.getElementById('goal');
   var ltvEl = document.getElementById('ltv');
   var convEl = document.getElementById('conv');
+  var segGrid = document.getElementById('seg-grid');
 
   function fmt(n){ return n.toLocaleString('en-US'); }
+
+  function renderSegmentButtons(){
+    segGrid.innerHTML = '';
+    var segments = BENCH[industry].segments;
+    Object.keys(segments).forEach(function(key){
+      var btn = document.createElement('button');
+      btn.className = 'sbtn' + (key === segment ? ' active' : '');
+      btn.setAttribute('data-s', key);
+      btn.textContent = key;
+      btn.addEventListener('click', function(){
+        segment = key;
+        Array.prototype.forEach.call(segGrid.querySelectorAll('.sbtn'), function(x){ x.classList.remove('active'); });
+        btn.classList.add('active');
+        render();
+      });
+      segGrid.appendChild(btn);
+    });
+  }
+
   function render(){
-    var bench = BENCH[specialty];
+    var bench = BENCH[industry].segments[segment];
     var goal = Number(goalEl.value);
     var ltv = ltvEl.value ? Number(ltvEl.value) : bench.ltv;
     var conv = convEl.value ? Number(convEl.value)/100 : bench.convRate;
-    var leadsNeeded = Math.ceil(goal / Math.max(conv, 0.01));
+    var leadsNeeded = Math.ceil(goal / Math.max(conv, 0.001));
     var monthlySpend = Math.round(leadsNeeded * bench.cpl);
     var revenue = goal * ltv;
     var roas = monthlySpend > 0 ? (revenue / monthlySpend) : 0;
 
     document.getElementById('goal-val').textContent = goal;
-    document.getElementById('spec-label').textContent = bench.label;
+    document.getElementById('seg-label').textContent = bench.label;
     ltvEl.placeholder = 'Default ' + bench.ltv;
     convEl.placeholder = 'Default ' + Math.round(bench.convRate*100);
 
     document.getElementById('out-low').textContent = fmt(Math.round(monthlySpend * 0.85));
     document.getElementById('out-high').textContent = fmt(Math.round(monthlySpend * 1.15));
-    document.getElementById('out-note').textContent = 'An average approximation for ' + specialty.toLowerCase() + ' (aggregated CPL ~$' + bench.cpl + ', lead→patient ~' + Math.round(bench.convRate*100) + '%). Real numbers will vary with geography, seasonality, creative and market competition.';
+    document.getElementById('out-note').textContent = 'An average approximation for ' + bench.label.toLowerCase() + ' (aggregated CPL ~$' + bench.cpl + ', lead→customer ~' + Math.round(bench.convRate*100) + '%). Real numbers will vary with geography, seasonality, creative, and market competition.';
 
     document.getElementById('out-leads').textContent = fmt(leadsNeeded);
     document.getElementById('out-leads-sub').textContent = 'at ' + Math.round(conv*100) + '% conversion';
     document.getElementById('out-cpl').textContent = '$' + bench.cpl;
-    document.getElementById('out-cpl-sub').textContent = specialty + ' benchmark';
+    document.getElementById('out-cpl-sub').textContent = industry + ' benchmark';
     document.getElementById('out-roas').textContent = roas.toFixed(1) + '×';
-    document.getElementById('out-roas-sub').textContent = 'on $' + fmt(ltv) + ' patient LTV';
+    document.getElementById('out-roas-sub').textContent = 'on $' + fmt(ltv) + ' customer LTV';
 
-    document.getElementById('row-goal').textContent = goal + ' new patients / mo';
+    document.getElementById('row-goal').textContent = goal + ' new customers / mo';
     document.getElementById('row-conv').textContent = Math.round(conv*100) + '%';
     document.getElementById('row-leads').textContent = fmt(leadsNeeded) + ' leads';
     document.getElementById('row-cpl').textContent = '~$' + bench.cpl;
@@ -311,17 +356,21 @@
     document.getElementById('row-rev').textContent = '~$' + fmt(revenue);
   }
 
-  document.querySelectorAll('.sbtn').forEach(function(b){
+  document.querySelectorAll('.ibtn').forEach(function(b){
     b.addEventListener('click', function(){
-      specialty = b.getAttribute('data-s');
-      document.querySelectorAll('.sbtn').forEach(function(x){ x.classList.remove('active'); });
+      industry = b.getAttribute('data-i');
+      segment = BENCH[industry].default;
+      document.querySelectorAll('.ibtn').forEach(function(x){ x.classList.remove('active'); });
       b.classList.add('active');
+      renderSegmentButtons();
       render();
     });
   });
   goalEl.addEventListener('input', render);
   ltvEl.addEventListener('input', render);
   convEl.addEventListener('input', render);
+
+  renderSegmentButtons();
   render();
 })();
 </script>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — HelpMeMarketing</title>
-<meta name="description" content="Let's map your patient pipeline. Tell us the basics. We'll reply within one business day and set up a 30-minute chat.">
+<meta name="description" content="Let's map your growth pipeline. Tell us the basics. We'll reply within one business day and set up a 30-minute chat.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -48,17 +48,17 @@
   <div class="container stack-contact">
 
     <div class="contact-aside">
-      <div class="eyebrow"><span class="eyebrow-dot"></span>Say hello</div>
-      <h1 class="serif hero-h1" style="font-size:clamp(48px, 5.6vw, 72px); line-height:1.02; margin-top:14px; letter-spacing:-0.025em">
-        Let&rsquo;s map your <em style="color:var(--primary)">patient pipeline.</em>
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Say hello</span>
+      <h1 class="serif hero-h1" style="font-size:clamp(48px, 5.6vw, 72px); line-height:1.02; margin-top:14px; letter-spacing:-0.02em; font-weight:400">
+        Let&rsquo;s map your <span class="italic-accent">growth</span> pipeline.
       </h1>
-      <p style="font-size:16.5px; color:var(--ink-60); margin-top:20px; line-height:1.6; max-width:400px">
-        Tell us the basics. We&rsquo;ll reply within one business day and set up a 30-minute chat.
+      <p style="font-size:16.5px; color:var(--text-secondary); margin-top:20px; line-height:1.6; max-width:400px">
+        Tell us the basics. We&rsquo;ll reply within one business day and set up a 30-minute chat — no deck, no pitch.
       </p>
       <div class="contact-contacts">
         <div>
-          <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-60); font-weight:600; margin-bottom:6px">Email us directly</div>
-          <a href="mailto:hello@helpmemarketing.com" style="font-size:16px; color:var(--deep); font-weight:500; text-decoration:none">hello@helpmemarketing.com</a>
+          <div style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:6px">Email us directly</div>
+          <a href="mailto:hello@helpmemarketing.com" style="font-size:16px; color:var(--text-primary); font-weight:500; text-decoration:none">hello@helpmemarketing.com</a>
         </div>
       </div>
     </div>
@@ -69,25 +69,25 @@
           <div style="padding:36px 40px 28px">
             <div class="form-2col">
               <div>
-                <label class="form-label">Your name<span style="color:var(--coral)"> *</span></label>
-                <input type="text" name="name" placeholder="Dr. Jamie Chen" required class="form-input">
+                <label class="form-label">Your name<span style="color:var(--chart-red)"> *</span></label>
+                <input type="text" name="name" placeholder="Jamie Chen" required class="form-input">
               </div>
               <div>
-                <label class="form-label">Email<span style="color:var(--coral)"> *</span></label>
-                <input type="email" name="email" placeholder="you@practice.com" required class="form-input">
+                <label class="form-label">Email<span style="color:var(--chart-red)"> *</span></label>
+                <input type="email" name="email" placeholder="you@yourbrand.com" required class="form-input">
               </div>
             </div>
 
             <div class="form-2col" style="margin-top:18px">
               <div>
-                <label class="form-label">Practice name</label>
-                <input type="text" name="practice" placeholder="Vanguard Pharmacy &amp; Clinic" class="form-input">
+                <label class="form-label">Company / brand</label>
+                <input type="text" name="company" placeholder="Your brand name" class="form-input">
               </div>
               <div>
                 <label class="form-label">Website</label>
                 <div class="form-prefix-wrap">
                   <span class="form-prefix">https://</span>
-                  <input type="text" name="website" placeholder="yourpractice.com" class="form-input form-input-prefixed">
+                  <input type="text" name="website" placeholder="yourbrand.com" class="form-input form-input-prefixed">
                 </div>
               </div>
             </div>
@@ -96,12 +96,13 @@
               <label class="form-label">I&rsquo;m interested in <span class="form-label-hint">(pick any)</span></label>
               <div class="chip-group" id="service-chips">
                 <button type="button" class="chip" data-service="SEO">SEO</button>
-                <button type="button" class="chip" data-service="Ads">Ads</button>
-                <button type="button" class="chip" data-service="Website">Website</button>
-                <button type="button" class="chip" data-service="Reputation">Reputation</button>
+                <button type="button" class="chip" data-service="Ads">Google &amp; Meta Ads</button>
+                <button type="button" class="chip" data-service="Websites">Websites</button>
                 <button type="button" class="chip" data-service="Social">Social</button>
-                <button type="button" class="chip" data-service="Retention">Retention</button>
-                <button type="button" class="chip" data-service="Brand">Brand</button>
+                <button type="button" class="chip" data-service="Brand">Brand &amp; Content</button>
+                <button type="button" class="chip" data-service="Lifecycle">Lifecycle</button>
+                <button type="button" class="chip" data-service="Reviews">Reviews</button>
+                <button type="button" class="chip" data-service="Analytics">Analytics</button>
                 <button type="button" class="chip" data-service="Not sure yet">Not sure yet</button>
               </div>
             </div>
@@ -120,8 +121,8 @@
           </button>
 
           <div class="contact-privacy-mini">
-            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z" stroke="var(--primary-dark)" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
-            <span>HIPAA-aware &amp; confidential. We&rsquo;ll never share your info.</span>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z" stroke="var(--navy)" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
+            <span>Confidential. We&rsquo;ll never share your info.</span>
           </div>
         </form>
 
@@ -135,7 +136,7 @@
           </p>
           <div style="margin-top:40px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap">
             <a class="btn btn-outline" href="index.html">Back to home</a>
-            <a class="btn btn-primary" href="blog.html">Read the journal →</a>
+            <a class="btn btn-primary" href="blog.html">Read the growth journal →</a>
           </div>
         </div>
       </div>
@@ -236,7 +237,7 @@
     var payload = {
       name: fd.get('name') || '',
       email: fd.get('email') || '',
-      practice: fd.get('practice') || '',
+      company: fd.get('company') || '',
       website: fd.get('website') || '',
       services: services.slice(),
       message: fd.get('message') || '',

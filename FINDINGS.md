@@ -6,6 +6,16 @@ Format: one bullet per finding, newest at top. Include file path + line number w
 
 ---
 
+## Phase 6 — final pages + archive
+
+- Blog posts (8 items in `blog.html`) are still 100% healthcare-themed (Google Ads for healthcare 2026, HIPAA-aware GTM, PHIPA vs PIPEDA, Vanguard Pharmacy, etc). Per plan these stay until the user refreshes with new posts. Hero + newsletter copy are now generalized but the post cards themselves surface healthcare-specific topics — acceptable for a historical archive.
+- `/work.html` shows 6 placeholder cases (1 Healthcare, 2 DTC, 2 SaaS, 1 Finance). The `Vanguard Pharmacy & Clinic` card is kept as a real case that straddles verticals — user may want to promote it off the main case grid once real cases arrive, in which case it lives verbatim in `/_healthcare/case-studies.html` already.
+- Ad-calculator BENCH values are aggregated industry approximations (CPL, conversion, LTV per DTC/SaaS/Healthcare/Finance segment). Flagged with a `[PLACEHOLDER]` comment in the file header. User should confirm or replace with owned benchmarks before shipping.
+- `/_healthcare/` folder now contains four pages: healthcare-seo, hipaa-checklist, ad-calculator, case-studies. All asset paths have been rewritten to `../styles.css` and `../{page}.html` for subfolder hosting. `robots.txt` has `Disallow: /_healthcare/`; `sitemap.xml` omits the archive. The healthcare industry page (`/industries/healthcare`) links to `/_healthcare/hipaa-checklist` as a resource bridge.
+- About.html founding story is a placeholder-friendly generic narrative ("We spent years inside agencies…"). If the user has a real origin story they want on the page, it swaps in cleanly — the structure and principles stay.
+- Privacy.html and Terms.html were generalized: "healthcare-only" → "premium brands across DTC, SaaS, healthcare, and finance"; "patient" → contextualized to "client, patient, or prospective buyer"; "practice" → "business"; PHI references expanded to cover regulated data broadly. Compliance bona fides preserved for healthcare engagements via BAA/DPA references.
+- Pricing FAQ replaced the healthcare-specific HIPAA/PHIPA entry with a regulated-industries FAQ that covers both healthcare (HIPAA-aware tracking) and finance (consent-first creative) — keeps the signal value without locking positioning back to healthcare.
+
 ## Phase 5 — industry pages
 
 - Industry pages deliberately omit the dark-navy Process section (per user's option B choice: hero + pain + services + case + CTA). If UX review wants process added for consistency with service pages, a single line in each industry file inserts it.
