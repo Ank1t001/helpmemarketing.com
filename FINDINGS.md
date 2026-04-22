@@ -6,6 +6,15 @@ Format: one bullet per finding, newest at top. Include file path + line number w
 
 ---
 
+## Phase 5 — industry pages
+
+- Industry pages deliberately omit the dark-navy Process section (per user's option B choice: hero + pain + services + case + CTA). If UX review wants process added for consistency with service pages, a single line in each industry file inserts it.
+- The same three placeholder gradient classes (`case-1/2/3`) are reused across homepage + all 4 industry case grids. That means DTC's "Arden & Oak" card, Healthcare's "Vanguard Pharmacy" card, etc. all share visual backgrounds. When real photography ships, each case gets its own image — no conflict, but today the repetition is visible when you scroll across pages.
+- Every industry page has a reordered services grid showing all 6 homepage services. I chose to reorder rather than filter (showing 4 instead of 6) to keep cross-sell potential open. If the user wants literal filtering per industry, it's a small edit per page.
+- The healthcare industry page surfaces a link to `/_healthcare/hipaa-checklist` in its hero secondary CTA. That's the only main-site page that references the archive; intentional for conversion-asset surfacing.
+- Industry case studies are all PLACEHOLDER invented clients (Arden & Oak, Fieldline Ops, Maison Noord, Meridian Wealth, etc). Each industry page has one `[PLACEHOLDER]` comment wrapping all three cards. User replaces when real client assignments come in.
+- `data-screen-label="industry"` is new — used on all 4 pages for analytics and any future industry-specific overrides.
+
 ## Phase 4 — service pages
 
 - All 8 service pages share the same 4-step Process section verbatim. When a service needs a truly service-specific process (e.g. Websites might warrant design-review / launch-rehearsal phases), that's worth revisiting. Out of scope for repositioning.

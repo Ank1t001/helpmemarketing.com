@@ -51,6 +51,26 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://helpmemarketing.com/industries/dtc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://helpmemarketing.com/industries/saas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://helpmemarketing.com/industries/healthcare</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://helpmemarketing.com/industries/finance</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://helpmemarketing.com/work</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
