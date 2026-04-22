@@ -6,6 +6,17 @@ Format: one bullet per finding, newest at top. Include file path + line number w
 
 ---
 
+## Client-roster pass — real clients mapped
+
+- Per-client metric attribution is tight but uses industry aggregates (from the user-provided "Premium Metrics" list) as each client's headline number. Example: Luxe & Charme shows "+312% revenue growth" — the DTC industry aggregate, not a client-specific verified measurement. If any client's real number differs significantly, the value on that card needs to change.
+- Duration (timeframe pill on each case card, e.g. "12 months", "9 months", "6 months") is chosen for visual rhythm across the grid, not sourced from client-specific data. Swap per client when real engagement lengths are known.
+- Homepage testimonial still has `[PLACEHOLDER]` on both the quote and author name. Suggested featured client is Equiton but the user should supply the exact quote + signer (CEO, Founder, Head of Marketing, etc). Currently fallback text is the mockup's "acted like a partner instead of a vendor" line — that's kept as a visual placeholder, not intended to ship as-is.
+- Homepage `<title>` + meta description still `[PLACEHOLDER]`-flagged. Current value ("HelpMeMarketing — Growth Partner for Premium Brands") is a reasonable default but the user should lock positioning copy before indexing.
+- Travel is NOT one of the four industry pages but IS a case-card vertical (TravelUp on homepage + work). Work page gained a "Travel" filter button. If Travel grows into a primary vertical, a new `/industries/travel` page is the next step; until then it lives only on `/work` + homepage hero.
+- Industry page hero metric cards now attribute the industry aggregate to one representative client (DTC→Luxe & Charme, SaaS→Fieldline Ops, Healthcare→Vanguard Pharmacy, Finance→Equiton). If those attributions are wrong (e.g. Fieldline Ops didn't actually produce the 3.2× aggregate on their own), the label needs a tweak.
+- Service page hero metric cards now each attribute to one representative client across the roster: SEO→Vanguard Pharmacy, Ads→TravelUp, Websites→Luxe & Charme, Social→Shakti Warrior, Brand→Sterling Wealth, Lifecycle→Wax and Wane, Analytics→Fieldline Ops, Reviews→Med Aesticics. User can reshuffle if a different client is a better proof point for a given service.
+- Case-card quotes were ALL removed from homepage + industry pages + work page because the roster didn't include quotes. Only the final-CTA and testimonial retain quote text. When real quotes arrive, the `.case-quote` div can be re-added to any card.
+
 ## Phase 6 — final pages + archive
 
 - Blog posts (8 items in `blog.html`) are still 100% healthcare-themed (Google Ads for healthcare 2026, HIPAA-aware GTM, PHIPA vs PIPEDA, Vanguard Pharmacy, etc). Per plan these stay until the user refreshes with new posts. Hero + newsletter copy are now generalized but the post cards themselves surface healthcare-specific topics — acceptable for a historical archive.
