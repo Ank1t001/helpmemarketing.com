@@ -1,6 +1,20 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/healthcare-seo",      "destination": "/seo",                "permanent": true },
+    { "source": "/healthcare-seo.html", "destination": "/seo",                "permanent": true },
+    { "source": "/clinic-websites",      "destination": "/websites",          "permanent": true },
+    { "source": "/clinic-websites.html", "destination": "/websites",          "permanent": true },
+    { "source": "/retention",      "destination": "/lifecycle-retention",     "permanent": true },
+    { "source": "/retention.html", "destination": "/lifecycle-retention",     "permanent": true },
+    { "source": "/reputation",      "destination": "/reviews-reputation",     "permanent": true },
+    { "source": "/reputation.html", "destination": "/reviews-reputation",     "permanent": true },
+    { "source": "/brand",      "destination": "/brand-content",               "permanent": true },
+    { "source": "/brand.html", "destination": "/brand-content",               "permanent": true },
+    { "source": "/hipaa-checklist",      "destination": "/_healthcare/hipaa-checklist", "permanent": true },
+    { "source": "/hipaa-checklist.html", "destination": "/_healthcare/hipaa-checklist", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

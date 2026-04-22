@@ -6,6 +6,14 @@ Format: one bullet per finding, newest at top. Include file path + line number w
 
 ---
 
+## Phase 4 — service pages
+
+- All 8 service pages share the same 4-step Process section verbatim. When a service needs a truly service-specific process (e.g. Websites might warrant design-review / launch-rehearsal phases), that's worth revisiting. Out of scope for repositioning.
+- Hero metric values on every service page are invented benchmarks (+42%, ↓32%, 2.3×, 3.8×, +124%, +48%, 4.9★, 95%). Each page has a single `[PLACEHOLDER]` comment at the metric card wiring point; user replaces with real client numbers pre-ship.
+- Icon color mapping reuses 6 classes across 8 services: Analytics + Brand both use `ic-navy`; Ads + Reviews both use `ic-gold`. Not a conflict per se (only 6 appear on the homepage), but worth noting if a 7th/8th distinct accent color is ever wanted.
+- `services.html` splits into two sections: "Core services" (6 cards, 3-col) and "Supporting services" (2 cards, 2-col). The 2-col override uses an inline style on the grid; if a third supporting service is ever added, the override should turn into a dedicated class.
+- The old service slugs (`/clinic-websites`, `/retention`, `/reputation`, `/brand`, `/healthcare-seo`, `/hipaa-checklist`) now return 301s via `vercel.json`. Both the `.html` and clean-URL variants are covered. Verify on Vercel preview with `curl -I` before any go-live.
+
 ## Phase 0 — seed
 
 - `contact.html:204` — Google Apps Script endpoint is hardcoded in an inline `<script>`. Not a problem to fix now, but worth noting for future infrastructure hardening (env var / config file / CSP).

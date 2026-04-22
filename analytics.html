@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Analytics &amp; Reporting — HelpMeMarketing</title>
-<meta name="description" content="Live dashboards that show every dollar, every booking, every call. You always know where you stand.">
+<title>Analytics — HelpMeMarketing</title>
+<meta name="description" content="Attribution from ad spend to revenue. GA4, server-side tracking, dashboards, and reporting rhythms that leadership actually uses.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -45,64 +45,45 @@
 
 <div class="page-enter">
 
-<section style="padding:60px 0 40px; background:var(--cream)">
+<section class="home-hero">
   <div class="container">
-    <div style="font-size:13px; color:var(--ink-60); margin-bottom:16px">
-      <a href="services.html" style="cursor:pointer; color:inherit">Services</a> / Analytics &amp; Reporting
+    <div style="font-size:13px; color:var(--text-secondary); margin-bottom:20px">
+      <a href="services.html" style="color:inherit">Services</a> <span style="color:var(--text-tertiary); margin:0 6px">/</span> Analytics
     </div>
-    <div class="stack-asym-lg">
+    <div class="hero-grid">
       <div>
-        <span class="pill">Transparency</span>
-        <h1 class="serif hero-h1" style="font-size:clamp(52px,6vw,84px); line-height:1.02; margin-top:16px">
-          No more agency <em style="color:var(--primary)">black boxes.</em>
-        </h1>
-        <p style="font-size:18px; color:var(--ink-60); margin-top:20px; line-height:1.6; max-width:520px">
-          Live dashboards that show every dollar, every booking, every call. You always know where you stand.
-        </p>
-        <div style="display:flex; gap:12px; margin-top:32px; flex-wrap:wrap">
-          <a class="btn btn-primary btn-lg" href="contact.html">See a sample dashboard
-            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Measurement</span>
+        <h1>Attribution from ad spend to <span class="italic-accent">revenue</span>.</h1>
+        <p class="hero-subtitle">GA4, server-side tracking, consent-aware event streams, and dashboards your CFO actually opens. Less data theater, more decisions.</p>
+        <div class="hero-ctas-row">
+          <a class="btn btn-primary" href="contact.html">Get my free analytics audit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a class="btn btn-outline btn-lg" href="pricing.html">See pricing</a>
+          <a class="text-link" href="ad-calculator.html">Ad-spend calculator →</a>
         </div>
       </div>
 
-      <!-- Visual: dashboard -->
-      <div style="background:var(--deep); border-radius:20px; padding:24px; box-shadow:var(--shadow-lg); color:white">
-        <div style="display:flex; justify-content:space-between; margin-bottom:20px">
-          <div>
-            <div style="font-size:11px; opacity:0.6; letter-spacing:0.08em; text-transform:uppercase">November · Live</div>
-            <div style="font-family:var(--serif); font-size:34px; margin-top:4px">Vanguard Pharmacy</div>
+      <!-- [PLACEHOLDER: wire hero metric card to a real coverage/attribution number from a client] -->
+      <div class="hero-visual">
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="metric-label">Tracked revenue coverage</span>
+            <span class="live-indicator"><span class="live-dot"></span> Live</span>
           </div>
-          <span style="font-size:11px; background:var(--primary); color:white; padding:4px 10px; border-radius:999px; font-weight:600; align-self:start">● Live</span>
-        </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px">
-          <div style="background:rgba(159,228,219,0.08); border:1px solid rgba(159,228,219,0.15); border-radius:12px; padding:14px">
-            <div style="font-size:11px; opacity:0.7">Bookings</div>
-            <div style="font-family:var(--serif); font-size:28px; margin-top:4px">354</div>
-            <div style="font-size:11px; color:var(--mint); margin-top:2px; font-weight:600">+42%</div>
-          </div>
-          <div style="background:rgba(159,228,219,0.08); border:1px solid rgba(159,228,219,0.15); border-radius:12px; padding:14px">
-            <div style="font-size:11px; opacity:0.7">Ad spend</div>
-            <div style="font-family:var(--serif); font-size:28px; margin-top:4px">$6,372</div>
-            <div style="font-size:11px; color:var(--mint); margin-top:2px; font-weight:600">-8%</div>
-          </div>
-          <div style="background:rgba(159,228,219,0.08); border:1px solid rgba(159,228,219,0.15); border-radius:12px; padding:14px">
-            <div style="font-size:11px; opacity:0.7">CPA</div>
-            <div style="font-family:var(--serif); font-size:28px; margin-top:4px">$18.02</div>
-            <div style="font-size:11px; color:var(--mint); margin-top:2px; font-weight:600">-32%</div>
-          </div>
-          <div style="background:rgba(159,228,219,0.08); border:1px solid rgba(159,228,219,0.15); border-radius:12px; padding:14px">
-            <div style="font-size:11px; opacity:0.7">Revenue</div>
-            <div style="font-family:var(--serif); font-size:28px; margin-top:4px">$48.2k</div>
-            <div style="font-size:11px; color:var(--mint); margin-top:2px; font-weight:600">+67%</div>
+          <div class="metric-value">95% <span class="metric-delta">of CRM revenue</span></div>
+          <div class="metric-sparkline">
+            <svg viewBox="0 0 300 60" width="100%" height="60" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="anaSpark" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2563EB" stop-opacity="0.18"/>
+                  <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,48 L30,44 L60,38 L90,32 L120,24 L150,18 L180,14 L210,10 L240,8 L270,6 L300,4 L300,60 L0,60 Z" fill="url(#anaSpark)"/>
+              <path d="M0,48 L30,44 L60,38 L90,32 L120,24 L150,18 L180,14 L210,10 L240,8 L270,6 L300,4" stroke="#2563EB" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
         </div>
-        <svg viewBox="0 0 320 80" style="width:100%">
-          <defs><linearGradient id="dashG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(159,228,219,0.5)"/><stop offset="100%" stop-color="rgba(159,228,219,0)"/></linearGradient></defs>
-          <path d="M 0 60 Q 40 55 60 50 T 120 40 T 180 30 T 240 20 T 320 8 L 320 80 L 0 80 Z" fill="url(#dashG)"/>
-          <path d="M 0 60 Q 40 55 60 50 T 120 40 T 180 30 T 240 20 T 320 8" stroke="var(--mint)" stroke-width="2" fill="none"/>
-        </svg>
       </div>
     </div>
   </div>
@@ -110,40 +91,146 @@
 
 <section>
   <div class="container">
-    <div style="max-width:700px; margin:0 auto 60px; text-align:center">
-      <div class="eyebrow" style="justify-content:center"><span class="eyebrow-dot"></span>What's included</div>
-      <h2 class="serif display-md" style="font-size:52px; margin-top:16px">Every lever. Every month.</h2>
+    <div class="section-header centered">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>What's included</span>
+      <h2>Every <span class="italic-accent">lever</span>. Every month.</h2>
     </div>
-    <div class="service-features">
-      <div style="padding:28px 0; border-top:1px solid var(--line)">
-        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6" stroke="var(--primary)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <h3 style="font-size:19px; margin-top:16px">Live dashboards</h3>
-        <p style="font-size:14px; color:var(--ink-60); margin-top:8px; line-height:1.55">Real-time view of spend, leads, bookings, revenue — one login.</p>
+
+    <div class="home-services-grid">
+      <div class="service-card">
+        <div class="service-icon ic-navy">
+          <svg class="svc-icon-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 16V8M10 16V4M16 16v-5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>GA4 + dataLayer</h3>
+        <p>Event taxonomy, custom dimensions, audiences. GA4 that actually reflects how your business works.</p>
       </div>
-      <div style="padding:28px 0; border-top:1px solid var(--line)">
-        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z" stroke="var(--primary)" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
-        <h3 style="font-size:19px; margin-top:16px">Call tracking</h3>
-        <p style="font-size:14px; color:var(--ink-60); margin-top:8px; line-height:1.55">CallRail integration. Hear every call, score every lead.</p>
+
+      <div class="service-card">
+        <div class="service-icon ic-navy">
+          <svg class="svc-icon-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="14" height="12" rx="1.5"/><path d="M3 8h14M8 11h4" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Server-side tracking</h3>
+        <p>GTM SS, Meta CAPI, consent-mode. The events survive iOS 17, Safari ITP, and whatever ships next.</p>
       </div>
-      <div style="padding:28px 0; border-top:1px solid var(--line)">
-        <svg width="22" height="22" viewBox="0 0 24 24"><g stroke="var(--primary)" stroke-width="1.5" fill="none"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="var(--primary)"/></g></svg>
-        <h3 style="font-size:19px; margin-top:16px">Revenue attribution</h3>
-        <p style="font-size:14px; color:var(--ink-60); margin-top:8px; line-height:1.55">Connect booking-system revenue back to the source channel.</p>
+
+      <div class="service-card">
+        <div class="service-icon ic-navy">
+          <svg class="svc-icon-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="14" height="14" rx="1.5"/><path d="M3 8h14M11 8v9" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Dashboard design</h3>
+        <p>Looker Studio, Metabase, or Tableau. One dashboard per stakeholder — not a hundred tabs nobody reads.</p>
       </div>
-      <div style="padding:28px 0; border-top:1px solid var(--line)">
-        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4l-5 4v-4H6a2 2 0 0 1-2-2V6z" stroke="var(--primary)" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
-        <h3 style="font-size:19px; margin-top:16px">Weekly &amp; monthly reports</h3>
-        <p style="font-size:14px; color:var(--ink-60); margin-top:8px; line-height:1.55">Clean PDFs you can share with partners or your board.</p>
+
+      <div class="service-card">
+        <div class="service-icon ic-navy">
+          <svg class="svc-icon-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="10" r="3"/><circle cx="14" cy="10" r="3"/><path d="M9 10h2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Custom attribution</h3>
+        <p>Multi-touch, position-based, or data-driven — tuned to your sales cycle. Not the platform's default.</p>
       </div>
-      <div style="padding:28px 0; border-top:1px solid var(--line)">
-        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 12h4l2-6 4 12 2-6h6" stroke="var(--primary)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <h3 style="font-size:19px; margin-top:16px">KPI alerts</h3>
-        <p style="font-size:14px; color:var(--ink-60); margin-top:8px; line-height:1.55">Slack/email alerts when anything moves outside tolerance.</p>
+
+      <div class="service-card">
+        <div class="service-icon ic-navy">
+          <svg class="svc-icon-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3v14M3 10h14M6 6l8 8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>A/B test infra</h3>
+        <p>Experiment assignment, exposure logging, and CUPED analysis. Statistically sound — not just dashboard theater.</p>
       </div>
-      <div style="padding:28px 0; border-top:1px solid var(--line)">
-        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <h3 style="font-size:19px; margin-top:16px">Strategy reviews</h3>
-        <p style="font-size:14px; color:var(--ink-60); margin-top:8px; line-height:1.55">Monthly 60-min review of data, wins, and next bets.</p>
+
+      <div class="service-card">
+        <div class="service-icon ic-navy">
+          <svg class="svc-icon-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="14" height="13" rx="1.5"/><path d="M3 8h14M7 4V3M13 4V3" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Reporting rhythms</h3>
+        <p>Weekly exec summary, monthly deep dive, quarterly board pack. The cadence, not just the data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="pain-grid">
+      <div class="pain-left">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Sound familiar?</span>
+        <h2>If the numbers don't <span class="italic-accent">match</span>, trust erodes fast.</h2>
+        <p>Four patterns we see in every audit — the ones that quietly destroy confidence in every growth decision.</p>
+      </div>
+
+      <ul class="pain-list">
+        <li class="pain-item">
+          <span class="pain-num">01</span>
+          <div class="pain-text">
+            <h4>Attribution holes</h4>
+            <p>Meta says one number, GA4 says another, Shopify says a third. Nobody knows which to trust.</p>
+          </div>
+          <span class="pain-arrow">→</span>
+        </li>
+        <li class="pain-item">
+          <span class="pain-num">02</span>
+          <div class="pain-text">
+            <h4>Can't trust GA4</h4>
+            <p>Events are misfiring or miscounted. The whole reporting stack needs foundational cleanup.</p>
+          </div>
+          <span class="pain-arrow">→</span>
+        </li>
+        <li class="pain-item">
+          <span class="pain-num">03</span>
+          <div class="pain-text">
+            <h4>No revenue view</h4>
+            <p>You can see sessions and clicks. You can't see which channels drove actual paid revenue.</p>
+          </div>
+          <span class="pain-arrow">→</span>
+        </li>
+        <li class="pain-item">
+          <span class="pain-num">04</span>
+          <div class="pain-text">
+            <h4>CFO skepticism</h4>
+            <p>Finance has stopped believing marketing's numbers. Every budget ask is an uphill fight.</p>
+          </div>
+          <span class="pain-arrow">→</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="eyebrow on-dark"><span class="eyebrow-dot"></span>How we work</span>
+      <h2>A process built around <span class="italic-accent">your</span> brand, not a playbook.</h2>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-line"></div>
+
+      <div class="process-step">
+        <div class="step-circle">01</div>
+        <div class="process-step-label">Step 01</div>
+        <h3>Discovery audit</h3>
+        <p>Free 45-min deep dive. We review your funnel, spend, and competitive landscape.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-circle">02</div>
+        <div class="process-step-label">Step 02</div>
+        <h3>Growth blueprint</h3>
+        <p>A brand-specific plan with projected outcomes, budget, and 90-day milestones.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-circle">03</div>
+        <div class="process-step-label">Step 03</div>
+        <h3>Launch &amp; iterate</h3>
+        <p>We build, launch, optimize. Weekly check-ins, monthly strategy reviews.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-circle">04</div>
+        <div class="process-step-label">Step 04</div>
+        <h3>Scale</h3>
+        <p>Once we hit targets, we reinvest into channels that work. Compound growth.</p>
       </div>
     </div>
   </div>
@@ -186,12 +273,12 @@
       </div>
       <div>
         <h4>Services</h4>
-        <a href="healthcare-seo.html">SEO</a>
+        <a href="seo.html">SEO</a>
         <a href="google-meta-ads.html">Google &amp; Meta Ads</a>
-        <a href="clinic-websites.html">Website Design</a>
+        <a href="websites.html">Website Design</a>
         <a href="social-media.html">Social Media</a>
-        <a href="brand.html">Brand &amp; Content</a>
-        <a href="retention.html">Lifecycle &amp; Retention</a>
+        <a href="brand-content.html">Brand &amp; Content</a>
+        <a href="lifecycle-retention.html">Lifecycle &amp; Retention</a>
       </div>
       <div>
         <h4>Industries</h4>
