@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/blog/dtc-cac-reduction", "destination": "/blog/dtc-cac-reduction.html" }
+  ],
   "redirects": [
     { "source": "/healthcare-seo",      "destination": "/seo",                "permanent": true },
     { "source": "/healthcare-seo.html", "destination": "/seo",                "permanent": true },
