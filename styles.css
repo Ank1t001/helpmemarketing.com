@@ -1477,6 +1477,21 @@ section.alt { background: var(--gray-surface); }
 .case-2 { background: linear-gradient(135deg, #4A6B8A 0%, #1E2D47 100%); }
 .case-3 { background: linear-gradient(135deg, #A8AFB8 0%, #4A5159 100%); }
 
+/* Proof card (single, centered, above final-CTA on service pages) */
+.proof-section { padding: 56px 0; background: var(--gray-surface); }
+@media (max-width: 900px) { .proof-section { padding: 40px 0; } }
+.proof-section .section-header { margin-bottom: 40px; }
+.proof-card-wrap { max-width: 480px; margin: 0 auto; padding: 0 8px; }
+.proof-section .case-card { aspect-ratio: 4 / 5; }
+.case-context {
+  font-size: 13px;
+  color: rgba(255, 249, 246, 0.82);
+  margin-top: 14px;
+  padding-top: 14px;
+  line-height: 1.5;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
 /* Process section (dark navy) */
 .process {
   background: var(--navy); color: var(--ivory);
