@@ -1531,37 +1531,64 @@ section.alt { background: var(--gray-surface); }
   line-height: 1.5; margin: 0;
 }
 
-/* Testimonial (3-card grid, left-aligned inside a centered-header section) */
+/* Testimonial carousel — scroll-snap, auto-advance, keyboard-accessible */
 .testimonial-section { padding: 96px 0; text-align: center; }
 @media (max-width: 900px) { .testimonial-section { padding: 64px 0; } }
-.testimonial-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 24px; text-align: left; margin-top: 8px;
+
+.testimonial-carousel {
+  position: relative;
+  margin: 16px 0 0;
+  padding: 0 56px;
 }
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  outline: none;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  display: flex;
+  justify-content: center;
+  padding: 16px 8px 24px;
+}
+
 .testimonial-card {
-  background: var(--ivory);
+  background: #fff;
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px 28px;
+  border-radius: 18px;
+  padding: 40px 36px;
   margin: 0;
+  max-width: 680px;
+  width: 100%;
+  text-align: left;
   display: flex; flex-direction: column; gap: 28px;
+  box-shadow: 0 2px 4px rgba(26,22,14,0.03), 0 12px 32px rgba(26,22,14,0.06);
 }
-.testimonial-card .testimonial-text {
+.testimonial-text {
   font-family: var(--serif);
-  font-size: 22px; line-height: 1.35;
+  font-size: 24px; line-height: 1.4;
   letter-spacing: -0.01em;
   color: var(--text-primary); font-weight: 400;
   flex: 1;
 }
+
 .testimonial-footer {
   display: flex; align-items: center; gap: 14px;
   padding-top: 20px; border-top: 1px solid var(--border);
 }
 .author-avatar {
   width: 44px; height: 44px; border-radius: 50%;
-  background: linear-gradient(135deg, #D4A574 0%, #8B5A3C 100%);
+  background: var(--navy); color: #fff;
   display: flex; align-items: center; justify-content: center;
-  color: white; font-family: var(--serif); font-size: 16px;
+  font-family: var(--sans); font-size: 14px; font-weight: 500;
+  letter-spacing: 0.02em;
   flex-shrink: 0;
 }
 .author-info { text-align: left; }
@@ -1569,9 +1596,58 @@ section.alt { background: var(--gray-surface); }
   font-size: 15px; font-weight: 500; color: var(--text-primary);
 }
 .author-title { font-size: 13px; color: var(--text-secondary); }
-@media (max-width: 960px) {
-  .testimonial-grid { grid-template-columns: 1fr; gap: 16px; }
-  .testimonial-card .testimonial-text { font-size: 20px; }
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--navy);
+  color: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  padding: 0; cursor: pointer;
+  z-index: 2;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+.carousel-arrow:hover {
+  color: var(--gold); border-color: var(--gold);
+}
+.carousel-arrow:focus-visible {
+  outline: 2px solid var(--gold); outline-offset: 3px;
+}
+.carousel-arrow-prev { left: 0; }
+.carousel-arrow-next { right: 0; }
+
+.carousel-dots {
+  display: flex; justify-content: center; gap: 10px;
+  margin-top: 20px;
+}
+.carousel-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--border);
+  border: none; padding: 0; cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.carousel-dot:hover { background: var(--text-tertiary); }
+.carousel-dot.is-active { background: var(--navy); transform: scale(1.15); }
+.carousel-dot.is-active:hover { background: var(--navy); }
+.carousel-dot:focus-visible {
+  outline: 2px solid var(--gold); outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .testimonial-carousel { padding: 0 8px 0; }
+  .testimonial-card { padding: 32px 24px; }
+  .testimonial-text { font-size: 20px; }
+  .carousel-arrow {
+    top: auto; bottom: 0; transform: none;
+    width: 40px; height: 40px;
+  }
+  .carousel-arrow-prev { left: calc(50% - 84px); }
+  .carousel-arrow-next { right: calc(50% - 84px); }
+  .carousel-dots { margin-top: 56px; }
 }
 
 /* Stats strip (homepage, below hero) — reinforces stats-driven messaging */

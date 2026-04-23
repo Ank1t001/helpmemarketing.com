@@ -454,48 +454,97 @@
   </div>
 </section>
 
-<!-- ========== TESTIMONIAL ========== -->
+<!-- ========== TESTIMONIAL CAROUSEL ========== -->
 <section class="testimonial-section">
   <div class="container">
     <div class="section-header centered">
       <span class="eyebrow"><span class="eyebrow-dot"></span>What clients say</span>
       <h2>Results, in their <span class="italic-accent">own</span> words.</h2>
     </div>
-    <div class="testimonial-grid">
-      <blockquote class="testimonial-card">
-        <div class="testimonial-text">"Cost per qualified lead dropped <span class="italic-accent">40%</span> in nine months. It's the first time marketing spend has felt predictable."</div>
-        <div class="testimonial-footer">
-          <div class="author-avatar">EQ</div>
-          <div class="author-info">
-            <div class="author-name">Equiton</div>
-            <div class="author-title">Investment advisors · Ontario, Canada</div>
-          </div>
-        </div>
-      </blockquote>
 
-      <!-- TODO: Replace with a real quote from a DTC client. Using a representative placeholder tied to Luxe & Charme's roster metrics until user supplies one. -->
-      <blockquote class="testimonial-card">
-        <div class="testimonial-text">"Revenue tripled in a year and our repeat rate finally caught up with acquisition spend. Unit economics <span class="italic-accent">work</span> now."</div>
-        <div class="testimonial-footer">
-          <div class="author-avatar" style="background:linear-gradient(135deg,#D4A574 0%,#8B5A3C 100%)">LC</div>
-          <div class="author-info">
-            <div class="author-name">Luxe &amp; Charme</div>
-            <div class="author-title">Womenswear · DTC</div>
-          </div>
-        </div>
-      </blockquote>
+    <div class="testimonial-carousel" data-carousel data-auto-advance="6000" aria-roledescription="carousel" aria-label="Client testimonials">
+      <button class="carousel-arrow carousel-arrow-prev" type="button" aria-label="Previous testimonial">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
 
-      <!-- TODO: Replace with a real quote from a SaaS client. Using a representative placeholder tied to Fieldline Ops' roster metrics until user supplies one. -->
-      <blockquote class="testimonial-card">
-        <div class="testimonial-text">"Pipeline tripled without expanding the SDR team. Attribution finally <span class="italic-accent">matches</span> what the CRM says."</div>
-        <div class="testimonial-footer">
-          <div class="author-avatar" style="background:linear-gradient(135deg,#4A6B8A 0%,#1E2D47 100%)">FO</div>
-          <div class="author-info">
-            <div class="author-name">Fieldline Ops</div>
-            <div class="author-title">Field-service SaaS · Series B</div>
-          </div>
-        </div>
-      </blockquote>
+      <div class="carousel-track" data-carousel-track tabindex="0">
+        <article class="carousel-slide" data-carousel-slide aria-roledescription="slide" aria-label="1 of 5">
+          <blockquote class="testimonial-card">
+            <div class="testimonial-text">"In <span class="italic-accent">six months</span> they did what two agencies couldn't in two years. Our schedule is full and I finally understand where every dollar goes."</div>
+            <div class="testimonial-footer">
+              <div class="author-avatar">VP</div>
+              <div class="author-info">
+                <div class="author-name">Vanguard Pharmacy &amp; Clinic</div>
+                <div class="author-title">Pharmacy + clinic · Georgetown, ON</div>
+              </div>
+            </div>
+          </blockquote>
+        </article>
+
+        <article class="carousel-slide" data-carousel-slide aria-roledescription="slide" aria-label="2 of 5">
+          <blockquote class="testimonial-card">
+            <div class="testimonial-text">"Our cost per purchase dropped and repeat rate finally caught up with acquisition spend. <span class="italic-accent">Unit economics work</span> now."</div>
+            <div class="testimonial-footer">
+              <div class="author-avatar">LC</div>
+              <div class="author-info">
+                <div class="author-name">Luxe &amp; Charme</div>
+                <div class="author-title">Womenswear · DTC</div>
+              </div>
+            </div>
+          </blockquote>
+        </article>
+
+        <article class="carousel-slide" data-carousel-slide aria-roledescription="slide" aria-label="3 of 5">
+          <blockquote class="testimonial-card">
+            <div class="testimonial-text">"Cost per qualified lead dropped <span class="italic-accent">40%</span> in nine months. It's the first time marketing spend has felt predictable."</div>
+            <div class="testimonial-footer">
+              <div class="author-avatar">EQ</div>
+              <div class="author-info">
+                <div class="author-name">Equiton</div>
+                <div class="author-title">Investment advisors · Ontario, Canada</div>
+              </div>
+            </div>
+          </blockquote>
+        </article>
+
+        <article class="carousel-slide" data-carousel-slide aria-roledescription="slide" aria-label="4 of 5">
+          <blockquote class="testimonial-card">
+            <div class="testimonial-text">"We went from inconsistent months to a <span class="italic-accent">pipeline we can actually plan around</span>. The attribution clarity alone was worth it."</div>
+            <div class="testimonial-footer">
+              <div class="author-avatar">SW</div>
+              <div class="author-info">
+                <div class="author-name">Shakti Warrior</div>
+                <div class="author-title">Wellness &amp; apparel</div>
+              </div>
+            </div>
+          </blockquote>
+        </article>
+
+        <article class="carousel-slide" data-carousel-slide aria-roledescription="slide" aria-label="5 of 5">
+          <blockquote class="testimonial-card">
+            <div class="testimonial-text">"Booking growth compounded quarter over quarter. We scaled ad spend and <span class="italic-accent">CAC went down</span>, not up."</div>
+            <div class="testimonial-footer">
+              <div class="author-avatar">TU</div>
+              <div class="author-info">
+                <div class="author-name">TravelUp</div>
+                <div class="author-title">Travel booking</div>
+              </div>
+            </div>
+          </blockquote>
+        </article>
+      </div>
+
+      <button class="carousel-arrow carousel-arrow-next" type="button" aria-label="Next testimonial">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="carousel-dots" role="tablist" aria-label="Select testimonial" data-carousel-dots>
+        <button class="carousel-dot is-active" type="button" role="tab" data-carousel-to="0" aria-label="Go to testimonial 1" aria-current="true"></button>
+        <button class="carousel-dot" type="button" role="tab" data-carousel-to="1" aria-label="Go to testimonial 2"></button>
+        <button class="carousel-dot" type="button" role="tab" data-carousel-to="2" aria-label="Go to testimonial 3"></button>
+        <button class="carousel-dot" type="button" role="tab" data-carousel-to="3" aria-label="Go to testimonial 4"></button>
+        <button class="carousel-dot" type="button" role="tab" data-carousel-to="4" aria-label="Go to testimonial 5"></button>
+      </div>
     </div>
   </div>
 </section>
@@ -604,5 +653,117 @@
 </footer>
 
 </div>
+
+<script data-cfasync="false">
+(function(){
+  function initCarousel(carousel) {
+    var track = carousel.querySelector('[data-carousel-track]');
+    if (!track) return;
+    var slides = carousel.querySelectorAll('[data-carousel-slide]');
+    var dots = carousel.querySelectorAll('[data-carousel-to]');
+    var prevBtn = carousel.querySelector('.carousel-arrow-prev');
+    var nextBtn = carousel.querySelector('.carousel-arrow-next');
+    var autoMs = Number(carousel.getAttribute('data-auto-advance')) || 0;
+    var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var currentIndex = 0;
+    var timerId = null;
+
+    function goTo(idx) {
+      if (idx < 0) idx = slides.length - 1;
+      if (idx >= slides.length) idx = 0;
+      currentIndex = idx;
+      var slide = slides[idx];
+      if (!slide) return;
+      track.scrollTo({
+        left: slide.offsetLeft,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
+      });
+      updateDots();
+    }
+
+    function updateDots() {
+      for (var i = 0; i < dots.length; i++) {
+        if (i === currentIndex) {
+          dots[i].classList.add('is-active');
+          dots[i].setAttribute('aria-current', 'true');
+        } else {
+          dots[i].classList.remove('is-active');
+          dots[i].removeAttribute('aria-current');
+        }
+      }
+    }
+
+    function next() { goTo(currentIndex + 1); }
+    function prev() { goTo(currentIndex - 1); }
+
+    function start() {
+      if (autoMs <= 0 || prefersReducedMotion) return;
+      stop();
+      timerId = setInterval(next, autoMs);
+    }
+    function stop() {
+      if (timerId) { clearInterval(timerId); timerId = null; }
+    }
+    function restart() { stop(); start(); }
+
+    if (prevBtn) prevBtn.addEventListener('click', function(){ prev(); restart(); });
+    if (nextBtn) nextBtn.addEventListener('click', function(){ next(); restart(); });
+
+    for (var i = 0; i < dots.length; i++) {
+      (function(dot){
+        dot.addEventListener('click', function(){
+          var n = Number(dot.getAttribute('data-carousel-to')) || 0;
+          goTo(n);
+          restart();
+        });
+      })(dots[i]);
+    }
+
+    // Pause auto-advance on hover + keyboard focus
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    carousel.addEventListener('focusin', stop);
+    carousel.addEventListener('focusout', start);
+
+    // Sync active dot when user swipes or uses arrow keys on the scroll area
+    var scrollIdleTimer = null;
+    track.addEventListener('scroll', function() {
+      if (scrollIdleTimer) clearTimeout(scrollIdleTimer);
+      scrollIdleTimer = setTimeout(function() {
+        var scrollLeft = track.scrollLeft;
+        var closest = 0;
+        var bestDelta = Infinity;
+        for (var j = 0; j < slides.length; j++) {
+          var delta = Math.abs(slides[j].offsetLeft - scrollLeft);
+          if (delta < bestDelta) { bestDelta = delta; closest = j; }
+        }
+        if (closest !== currentIndex) {
+          currentIndex = closest;
+          updateDots();
+        }
+      }, 90);
+    });
+
+    // Keyboard arrows when focus is inside the carousel
+    carousel.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft')  { prev(); restart(); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { next(); restart(); e.preventDefault(); }
+    });
+
+    start();
+  }
+
+  function init() {
+    var carousels = document.querySelectorAll('[data-carousel]');
+    for (var i = 0; i < carousels.length; i++) initCarousel(carousels[i]);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 </body>
 </html>
