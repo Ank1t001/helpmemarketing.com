@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="100%" stop-color="#0F1F3A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="85%" cy="15%" r="55%">
+      <stop offset="0%" stop-color="#C9A96E" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#C9A96E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Eyebrow -->
+  <g transform="translate(96,150)">
+    <circle cx="6" cy="10" r="3.5" fill="#C9A96E"/>
+    <text x="22" y="16" font-family="Inter, sans-serif" font-size="16" font-weight="500"
+          letter-spacing="3" fill="#C9A96E" text-transform="uppercase">
+      GROWTH MARKETING · PRICED ON OUTCOMES
+    </text>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(96,250)">
+    <text font-family="Fraunces, Georgia, serif" font-size="108" font-weight="400"
+          letter-spacing="-3" fill="#FAF9F6">
+      <tspan>Help</tspan><tspan font-style="italic" fill="#C9A96E">Me</tspan><tspan>Marketing</tspan>
+    </text>
+  </g>
+
+  <!-- Subhead -->
+  <g transform="translate(96,380)">
+    <text font-family="Fraunces, Georgia, serif" font-size="44" font-weight="400"
+          letter-spacing="-1" fill="#FAF9F6">
+      Revenue up. CAC down. Pipeline
+    </text>
+    <text y="62" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="400"
+          letter-spacing="-1" fill="#FAF9F6">
+      <tspan font-style="italic" fill="#C9A96E">compounds.</tspan>
+    </text>
+  </g>
+
+  <!-- Verticals row -->
+  <g transform="translate(96,560)">
+    <text font-family="Inter, sans-serif" font-size="18" font-weight="500"
+          letter-spacing="1" fill="rgba(250,249,246,0.55)">
+      DTC  ·  SaaS  ·  HEALTHCARE  ·  FINANCE
+    </text>
+  </g>
+
+  <!-- Accent corner mark -->
+  <g transform="translate(1050,108)">
+    <rect x="0" y="0" width="54" height="54" rx="10" fill="#FAF9F6"/>
+    <text x="27" y="38" font-family="Fraunces, Georgia, serif" font-size="30" font-weight="500"
+          text-anchor="middle" fill="#0A1628">
+      H<tspan font-style="italic" fill="#C9A96E" font-size="22">m</tspan>
+    </text>
+  </g>
+</svg>
