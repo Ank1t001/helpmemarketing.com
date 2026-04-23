@@ -1241,6 +1241,11 @@ section.alt { background: var(--gray-surface); }
   font-size: 14px; color: var(--chart-green); font-weight: 500;
 }
 .metric-sparkline { margin-top: 20px; height: 60px; }
+.metric-value-label {
+  font-size: 13px; font-weight: 500;
+  color: var(--text-secondary); margin-top: 6px;
+  letter-spacing: 0.01em;
+}
 .metric-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 12px; margin-top: 12px;
@@ -1518,6 +1523,17 @@ section.alt { background: var(--gray-surface); }
   padding: 40px 0;
   border-bottom: 1px solid var(--border);
   background: var(--ivory);
+}
+.trust-anchor-line {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  letter-spacing: 0.01em;
+}
+.trust-anchor-line strong {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 .stats-grid {
   display: grid; grid-template-columns: repeat(4, 1fr);
