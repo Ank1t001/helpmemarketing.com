@@ -4,8 +4,10 @@
   "redirects": [
     { "source": "/healthcare-seo",      "destination": "/seo",                "permanent": true },
     { "source": "/healthcare-seo.html", "destination": "/seo",                "permanent": true },
-    { "source": "/clinic-websites",      "destination": "/websites",          "permanent": true },
-    { "source": "/clinic-websites.html", "destination": "/websites",          "permanent": true },
+    { "source": "/clinic-websites",      "destination": "/website-design",    "permanent": true },
+    { "source": "/clinic-websites.html", "destination": "/website-design",    "permanent": true },
+    { "source": "/websites",      "destination": "/website-design",           "permanent": true },
+    { "source": "/websites.html", "destination": "/website-design",           "permanent": true },
     { "source": "/retention",      "destination": "/lifecycle-retention",     "permanent": true },
     { "source": "/retention.html", "destination": "/lifecycle-retention",     "permanent": true },
     { "source": "/reputation",      "destination": "/reviews-reputation",     "permanent": true },
