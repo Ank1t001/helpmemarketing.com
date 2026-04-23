@@ -237,6 +237,11 @@ section { padding: 88px 0; }
   color: rgba(250, 249, 246, 0.6); font-size: 14px;
   line-height: 1.6; max-width: 280px;
 }
+.footer-brand-col p.footer-roster {
+  font-size: 12px; line-height: 1.55;
+  color: rgba(250, 249, 246, 0.4);
+  margin-top: 14px; max-width: 320px;
+}
 .footer-badges {
   display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px;
 }
@@ -1490,6 +1495,45 @@ section.alt { background: var(--gray-surface); }
   padding-top: 14px;
   line-height: 1.5;
   border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Service prose — methodology + who-for + success */
+.svc-prose { padding: 96px 0; background: var(--ivory); }
+@media (max-width: 900px) { .svc-prose { padding: 64px 0; } }
+.svc-prose-inner { max-width: 920px; margin: 0 auto; }
+.svc-prose-block h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 3.6vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0 0 28px;
+  color: var(--text-primary);
+}
+.svc-prose-block p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0 0 18px;
+}
+.svc-prose-block p:last-child { margin-bottom: 0; }
+.svc-prose-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(10, 22, 40, 0.08);
+}
+@media (max-width: 700px) {
+  .svc-prose-meta { grid-template-columns: 1fr; gap: 24px; }
+}
+.svc-prose-meta .eyebrow { margin-bottom: 12px; display: inline-flex; }
+.svc-prose-meta p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
 }
 
 /* Process section (dark navy) */
