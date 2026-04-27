@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Your Meta ROAS Is Lying to You (And What to Trust Instead) | HelpMeMarketing</title>
+<meta name="description" content="Meta's reported ROAS is almost always wrong. Here is why platform attribution overstates results by 30–60% — and the three-step fix that gives you numbers you can actually act on.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="canonical" href="https://helpmemarketing.com/blog/meta-attribution">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="HelpMeMarketing">
+<meta property="og:title" content="Why Your Meta ROAS Is Lying to You (And What to Trust Instead) | HelpMeMarketing">
+<meta property="og:description" content="Meta's reported ROAS is almost always wrong. Here is why platform attribution overstates results by 30–60% — and the three-step fix that gives you numbers you can actually act on.">
+<meta property="og:url" content="https://helpmemarketing.com/blog/meta-attribution">
+<meta property="og:image" content="https://helpmemarketing.com/og-image.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-05-13">
+<meta property="article:section" content="Paid Media">
+<meta property="article:tag" content="Meta Ads">
+<meta property="article:tag" content="Attribution">
+<meta property="article:tag" content="ROAS">
+<meta property="article:tag" content="Analytics">
+<meta property="article:tag" content="Performance Marketing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why Your Meta ROAS Is Lying to You (And What to Trust Instead) | HelpMeMarketing">
+<meta name="twitter:description" content="Meta's reported ROAS is almost always wrong. Here is why platform attribution overstates results by 30–60% — and the three-step fix that gives you numbers you can actually act on.">
+<meta name="twitter:image" content="https://helpmemarketing.com/og-image.svg">
+<script type="application/ld+json" data-cfasync="false">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Why Your Meta ROAS Is Lying to You (And What to Trust Instead)","description":"Meta platform attribution overstates results by 30 to 60 percent. Here is the three-step fix.","datePublished":"2026-05-13","dateModified":"2026-05-13","keywords":["Meta ROAS","Meta attribution","Facebook ads attribution","server-side tracking","marketing attribution 2026","Meta Ads Manager accuracy"],"author":{"@type":"Organization","name":"HelpMeMarketing","url":"https://helpmemarketing.com"},"publisher":{"@type":"Organization","name":"HelpMeMarketing","url":"https://helpmemarketing.com"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://helpmemarketing.com/blog/meta-attribution"},"image":"https://helpmemarketing.com/og-image.svg"}
+</script>
+<script type="application/ld+json" data-cfasync="false">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is Meta ROAS inaccurate?","acceptedAnswer":{"@type":"Answer","text":"Meta reports ROAS using a 7-day click and 1-day view attribution window by default. This means Meta claims credit for any purchase made within 7 days of a click or 1 day of someone merely seeing your ad — even if that person would have bought anyway. It also double-counts conversions that Google and other platforms are simultaneously claiming. The result is platform ROAS that overstates true impact by 30 to 60 percent in most accounts."}},{"@type":"Question","name":"What attribution window should I use for Meta Ads?","acceptedAnswer":{"@type":"Answer","text":"For most DTC and lead-generation accounts, a 7-day click, 1-day view window is the Meta default but overstates results. A more conservative and accurate setting is 7-day click only — removing view-through attribution entirely. For high-consideration purchases with longer decision cycles, 7-day click is still appropriate. Always compare platform-reported conversions against your own analytics as a sanity check."}},{"@type":"Question","name":"What is server-side tracking and why does it matter for Meta?","acceptedAnswer":{"@type":"Answer","text":"Server-side tracking sends conversion data directly from your server to Meta via the Conversions API, rather than relying on a browser pixel. This bypasses iOS privacy restrictions, ad blockers, and browser limitations that cause the Meta pixel to miss 20 to 40 percent of conversions. Server-side tracking improves event match quality, which improves Meta's ability to optimise campaigns and report results more accurately."}},{"@type":"Question","name":"How do I know if my Meta attribution is wrong?","acceptedAnswer":{"@type":"Answer","text":"Compare Meta Ads Manager reported conversions against the same period in your own analytics platform — Google Analytics 4, Shopify, or your CRM. If Meta is claiming 40 percent or more conversions than your analytics shows, your attribution is overstated. A gap of 20 to 30 percent is normal due to cross-device journeys. A gap above 40 percent indicates a view-through attribution or double-counting problem."}}]}
+</script>
+<script type="application/ld+json" data-cfasync="false">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://helpmemarketing.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://helpmemarketing.com/blog"},{"@type":"ListItem","position":3,"name":"Paid Media","item":"https://helpmemarketing.com/blog"},{"@type":"ListItem","position":4,"name":"Why Your Meta ROAS Is Lying to You","item":"https://helpmemarketing.com/blog/meta-attribution"}]}
+</script>
+</head>
+<body>
+<div class="app" data-screen-label="blog-post">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="../index.html" style="cursor:pointer">
+      <div class="logo-mark">H<span class="me-italic">m</span></div>
+      <span class="logo-text">Help<span style="color:var(--gold); font-style:italic; font-family:var(--serif); font-size:19px; padding:0 1px">Me</span>Marketing</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="../services.html">Services</a>
+      <a class="nav-link" href="../work.html">Case Studies</a>
+      <a class="nav-link" href="../about.html">About</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-accent nav-main-cta" href="../contact.html">Book a free audit
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Menu" onclick="var m=document.querySelector('.nav-mobile-menu'); var o=m.classList.toggle('open'); this.classList.toggle('open', o);"><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile-menu">
+  <a class="nav-link" href="../index.html">Home</a>
+  <a class="nav-link" href="../services.html">Services</a>
+  <a class="nav-link" href="../work.html">Case Studies</a>
+  <a class="nav-link" href="../about.html">About</a>
+  <div class="mobile-cta-row">
+    <a class="btn btn-accent" href="../contact.html">Book a free audit</a>
+  </div>
+</div>
+
+<div class="page-enter">
+
+<!-- Back-to-blog strip -->
+<div class="blog-breadcrumb-strip">
+  <div class="container">
+    <a href="../blog.html">&larr; Back to Blog</a>
+  </div>
+</div>
+
+<article>
+  <!-- Article hero -->
+  <header style="background:var(--cream); padding:80px 0 48px">
+    <div class="blog-article" style="max-width:780px">
+      <div style="display:flex; gap:10px; flex-wrap:wrap; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; margin-bottom:24px">
+        <span>· Paid Media ·</span>
+        <span>· Attribution ·</span>
+        <span>· 7 min read ·</span>
+        <span>· May 13 2026 ·</span>
+      </div>
+      <h1 class="serif" style="font-size:clamp(40px, 5vw, 64px); line-height:1.05; letter-spacing:-0.02em; font-weight:400; margin:0 0 24px; color:var(--text-primary)">
+        Why your Meta ROAS is <span class="italic-accent">lying</span> to you &mdash; and what to trust instead.
+      </h1>
+      <p style="font-size:18px; color:var(--text-secondary); line-height:1.6; max-width:640px; margin:0">
+        Meta Ads Manager is almost certainly overstating your results by 30 to 60 percent. Here is why it happens, how to measure the real gap, and the three-step fix.
+      </p>
+    </div>
+  </header>
+
+  <!-- Article body -->
+  <section style="padding:56px 0 80px">
+    <div class="blog-article">
+
+      <div class="blog-tldr">
+        <div class="blog-tldr-label">TL;DR</div>
+        <ul>
+          <li>Meta's default attribution claims credit for purchases it did not cause &mdash; overstating ROAS by 30&ndash;60% in most accounts.</li>
+          <li>The fix has three steps: switch to 7-day click only, implement server-side tracking via Conversions API, and build a single source of truth outside the ad platform.</li>
+          <li>Never optimise your campaigns against Meta's own numbers.</li>
+        </ul>
+      </div>
+
+      <h2>The attribution problem most Meta advertisers never catch</h2>
+      <p>Most advertisers trust what Meta Ads Manager shows them. It is a natural thing to do &mdash; the number is right there on the dashboard, with a green arrow next to it.</p>
+      <p>The problem: Meta is the scorekeeper <em>and</em> the player. It has a financial incentive to report high ROAS. Its default settings are designed to maximise the numbers it shows you, not to give you a faithful read on what your ads actually caused.</p>
+      <p>Two specific mechanisms cause the inflation.</p>
+      <p><strong>(1) View-through attribution.</strong> Meta claims credit for any purchase made within 24 hours of someone seeing your ad &mdash; even if they never clicked it. A person who saw your ad while scrolling past, searched your brand on Google an hour later, and bought is counted as a Meta conversion. Meta did not cause that purchase. Meta is taking credit for it.</p>
+      <p><strong>(2) Cross-platform double counting.</strong> Google also claims that same conversion. So does your email platform if the person was in a nurture sequence. You have three platforms each claiming 100% credit for one purchase.</p>
+      <!-- [PLACEHOLDER: verify the 40-120% aggregate over-attribution claim against internal book or a public source (Northbeam, Triple Whale, or audit data) before publishing] -->
+      <p>The result: add up all your platform-reported conversions and they typically exceed actual orders by <strong>40 to 120 percent</strong>.</p>
+
+      <div class="blog-pullquote">
+        &ldquo;Add up every platform's reported conversions and they typically exceed actual orders by 40 to 120 percent. Someone is lying. Usually everyone is.&rdquo;
+      </div>
+
+      <div class="blog-cta-inline">
+        <strong>Not sure how far off your Meta numbers are?</strong>
+        <p>We run a free attribution audit &mdash; we pull your platform data, compare it to your actual analytics, and show you the real gap in 45 minutes.</p>
+        <a class="btn" href="../contact.html">Book a free attribution audit
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <h2>How to measure the real gap in your account</h2>
+      <ol>
+        <li><strong>Pull Meta Ads Manager.</strong> Last 30 days, purchases column. Note the number.</li>
+        <li><strong>Open your own analytics.</strong> GA4, Shopify analytics, or your CRM. Pull the same 30-day period. Note total orders and the channel breakdown.</li>
+        <li><strong>Calculate the gap:</strong> (Meta reported conversions &minus; Your analytics Meta-attributed orders) &divide; Your analytics Meta-attributed orders = overstatement percentage.</li>
+        <!-- [PLACEHOLDER: confirm the 20% / 20-40% / 40%+ thresholds match internal audit heuristics — these are agency rules of thumb, not from a published source] -->
+        <li><strong>Interpret the result.</strong> Under 20% gap is normal &mdash; cross-device journeys explain this. A 20&ndash;40% gap means view-through attribution is inflating results; fix the window. Over 40% gap means you have a serious attribution problem and campaigns are being optimised against fiction.</li>
+        <li><strong>Check your attribution window setting.</strong> In Meta, go to Ads Manager &rarr; Columns &rarr; Attribution settings. If it shows &ldquo;7-day click, 1-day view&rdquo; you are counting view-throughs.</li>
+      </ol>
+
+      <h2>The three-step fix</h2>
+
+      <h3>Step 1 &mdash; Change your attribution window</h3>
+      <p>Go to Meta Ads Manager &rarr; Columns &rarr; Attribution settings. Switch from &ldquo;7-day click, 1-day view&rdquo; to <strong>&ldquo;7-day click&rdquo; only</strong>. This removes view-through credit immediately. Your reported ROAS will drop. That is not bad news &mdash; it is accurate news.</p>
+      <p>For high-consideration products with long purchase cycles (finance, B2B, healthcare) you may want to keep a 28-day click window. For everything else, 7-day click is the right default. Do this today. It costs nothing and takes two minutes.</p>
+
+      <h3>Step 2 &mdash; Implement the Conversions API</h3>
+      <!-- [PLACEHOLDER: verify the 20-40% pixel-miss range against a public source (Meta CAPI docs, Northbeam, or audit data) before press use] -->
+      <p>The Meta pixel running in a browser misses <strong>20&ndash;40% of conversions</strong> due to iOS privacy changes, Safari ITP, and ad blockers. The Conversions API (CAPI) sends conversion data directly from your server to Meta &mdash; bypassing every browser restriction in one move.</p>
+      <p>This improves event match quality score in Meta, which improves optimisation and reduces wasted spend on poor-match audiences. Implementation: your developer sends purchase events server-side with hashed email and phone. Meta deduplicates against pixel events so you do not double-count.</p>
+      <p><a class="blog-inline-link" href="../analytics.html">How we set up server-side tracking &rarr;</a></p>
+
+      <h3>Step 3 &mdash; Build a source of truth outside Meta</h3>
+      <p>Once CAPI is live and your attribution window is corrected, you need a single dashboard that aggregates all channels into one view. Your source of truth: total orders from your analytics platform, broken down by first-touch and last-touch channel, with a blended ROAS column that divides total revenue by total ad spend.</p>
+      <p>Never run a campaign optimisation meeting using only platform dashboards. Always open your own analytics first. This is what separates brands that scale efficiently from brands that scale spend and wonder why profit stays flat.</p>
+      <p><a class="blog-inline-link" href="../analytics.html">See our analytics and attribution service &rarr;</a></p>
+
+      <h3>Meta attribution windows &mdash; what each setting actually means</h3>
+      <table class="blog-data-table">
+        <thead>
+          <tr>
+            <th>Window setting</th>
+            <th>What Meta claims credit for</th>
+            <th>Best for</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1-day click only</td>
+            <td>Purchases within 24 hrs of clicking your ad</td>
+            <td>Short purchase cycles, impulse buys</td>
+            <td>Misses delayed converters</td>
+          </tr>
+          <tr>
+            <td>7-day click only</td>
+            <td>Purchases within 7 days of clicking</td>
+            <td>Most DTC and lead gen</td>
+            <td>Slight overcount on assisted conversions</td>
+          </tr>
+          <tr>
+            <td>7-day click, 1-day view <em>(default)</em></td>
+            <td>All above + anyone who saw your ad in last 24 hrs and bought</td>
+            <td>Meta's preferred setting</td>
+            <td>Significant inflation &mdash; not recommended</td>
+          </tr>
+          <tr>
+            <td>7-day click, 7-day view</td>
+            <td>All above + anyone who saw the ad in last 7 days</td>
+            <td>Almost never appropriate</td>
+            <td>Severe inflation &mdash; avoid entirely</td>
+          </tr>
+          <tr>
+            <td>28-day click</td>
+            <td>Purchases within 28 days of clicking</td>
+            <td>High-consideration purchases, B2B, finance</td>
+            <td>Can mask underperforming campaigns</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="blog-table-note">
+        Attribution window settings do not change which ads are shown. They only change what Meta takes credit for. Tighter windows give more accurate data, not worse performance.
+      </p>
+
+      <div class="blog-cta-inline">
+        <strong>Running Meta ads without server-side tracking?</strong>
+        <p>You are likely missing 20&ndash;40% of conversion signals and optimising against incomplete data. We fix this in the first two weeks of every engagement.</p>
+        <a class="btn" href="../contact.html">Talk to us about your setup
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <h2>What to do when Meta ROAS drops after fixing attribution</h2>
+      <p>When you tighten the attribution window and implement CAPI, your reported Meta ROAS will almost certainly drop. This is the right outcome. You are now seeing a number closer to reality.</p>
+      <p>How to respond:</p>
+      <ul>
+        <li><strong>Do not panic and cut budget.</strong> The campaigns did not get worse &mdash; your measurement got better.</li>
+        <li><strong>Recalibrate your ROAS targets.</strong> If you were hitting 4&times; on the old setting, your real ROAS might be 2.5&times;. Adjust targets and margin calculations accordingly.</li>
+        <li><strong>Look at blended ROAS.</strong> Total revenue divided by total ad spend across all channels. This is the number that actually matters.</li>
+        <li><strong>Run a holdout test.</strong> Pause Meta spend for one week in a small geographic region and measure the revenue impact. This is the only way to measure true incrementality.</li>
+      </ul>
+
+      <div class="blog-pullquote">
+        &ldquo;The campaigns did not get worse. Your measurement got better. Those are two very different things.&rdquo;
+      </div>
+
+      <h2>The incrementality question &mdash; what would have happened anyway</h2>
+      <p>The deepest attribution question is not which platform gets credit. It is: <em>would this purchase have happened without the ad at all?</em></p>
+      <p>A customer who has bought from you three times, is on your email list, and searches your brand name every month is going to buy again. Running a retargeting ad at them and claiming the conversion is not growth &mdash; it is expensive revenue you would have kept anyway.</p>
+      <p>Incrementality testing (geo holdouts, conversion lift studies) is the only rigorous answer to this question. Most brands are not ready for that level of rigour. But fixing the attribution window and implementing CAPI gets you 80% of the benefit with 10% of the effort &mdash; and gets you out of the worst of the over-attribution trap.</p>
+      <p><a class="blog-inline-link" href="../analytics.html">See how we run attribution for DTC and SaaS brands &rarr;</a></p>
+
+      <!-- Author block -->
+      <div class="blog-author">
+        <div class="blog-author-avatar">HM</div>
+        <div>
+          <div class="blog-author-name">HelpMeMarketing</div>
+          <div class="blog-author-role">Growth marketing for DTC, SaaS, Healthcare &amp; Finance brands</div>
+          <!-- [PLACEHOLDER: confirm "$12M+ / 180+ brands / since 2020" bio stat against real book before publishing] -->
+          <p class="blog-author-bio">We have managed $12M+ in ad spend across 180+ brands since 2020.</p>
+        </div>
+      </div>
+
+      <!-- Related articles -->
+      <div class="blog-related">
+        <h3 class="blog-related-title">Related reading</h3>
+        <div class="blog-related-grid">
+          <a class="blog-related-card" href="../blog/dtc-cac-reduction.html">
+            <div class="blog-related-tag">DTC Marketing</div>
+            <div class="blog-related-headline">How to reduce customer acquisition cost for a DTC brand in 2026</div>
+            <div class="blog-related-meta">8 min read &middot; Apr 29 2026</div>
+          </a>
+          <a class="blog-related-card" href="../blog.html">
+            <div class="blog-related-tag">Analytics</div>
+            <div class="blog-related-headline">Server-side tracking explained &mdash; why every brand needs it in 2026</div>
+            <div class="blog-related-meta">Coming Jul 8 2026</div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</article>
+
+<!-- Final CTA — full width navy -->
+<section class="blog-final-cta">
+  <div class="container">
+    <span class="eyebrow"><span class="eyebrow-dot"></span>Free · No obligation</span>
+    <h2>Spending on Meta without <span class="italic-accent">trusting</span> the numbers?</h2>
+    <p>Book a free attribution audit. We will pull your platform data, compare it to your actual analytics, and show you the real gap &mdash; in 45 minutes.</p>
+    <div class="blog-final-cta-actions">
+      <a class="btn-primary-solid" href="../contact.html">Book a free audit
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn-ghost-inverse" href="../work.html">See client results
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <div class="logo" style="color:white; margin-bottom:18px">
+          <div class="logo-mark" style="background:var(--ivory); color:var(--navy)">H<span class="me-italic">m</span></div>
+          <span>HelpMeMarketing</span>
+        </div>
+        <p>Growth marketing priced on outcomes, not hours. Flat quarters and rising CAC, made measurable. DTC, SaaS, healthcare, finance.</p>
+        <div class="footer-badges">
+          <span class="footer-badge">Google Partner</span>
+          <span class="footer-badge">Meta Partner</span>
+          <span class="footer-badge">Shopify Partner</span>
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="../seo.html">SEO</a>
+        <a href="../google-meta-ads.html">Google &amp; Meta Ads</a>
+        <a href="../website-design.html">Website Design</a>
+        <a href="../social-media.html">Social Media</a>
+        <a href="../brand-content.html">Brand &amp; Content</a>
+        <a href="../lifecycle-retention.html">Lifecycle &amp; Retention</a>
+      </div>
+      <div>
+        <h4>Industries</h4>
+        <a href="../industries/dtc.html">DTC &amp; E-commerce</a>
+        <a href="../industries/saas.html">SaaS &amp; Tech</a>
+        <a href="../industries/healthcare.html">Healthcare</a>
+        <a href="../industries/finance.html">Finance</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="../about.html">About</a>
+        <a href="../work.html">Case studies</a>
+        <a href="../pricing.html">Pricing</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="../blog.html">Blog</a>
+        <a href="../ad-calculator.html">Ad-spend calculator</a>
+        <a href="../contact.html">Free audit</a>
+        <a href="mailto:hello@helpmemarketing.com">hello@helpmemarketing.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 HelpMeMarketing Inc.</div>
+      <div style="display:flex; gap:24px">
+        <a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
