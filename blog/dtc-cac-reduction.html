@@ -121,7 +121,7 @@ body {
 .blog-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 32px 24px 80px;
+  padding: 56px 24px 80px;
 }
 
 /* Breadcrumbs */
@@ -139,7 +139,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
-  margin-bottom: 56px;
+  margin-bottom: 40px;
+  padding-top: 16px;
   align-items: start;
 }
 
@@ -148,6 +149,7 @@ body {
   font-weight: 700;
   letter-spacing: 1.5px;
   color: var(--accent-blue);
+  margin-top: 8px;
   margin-bottom: 16px;
   text-transform: uppercase;
 }
@@ -254,8 +256,8 @@ body {
   background: var(--soft-bg);
   border-radius: 12px;
   padding: 24px 28px;
-  margin: 0 0 40px;
-  max-width: 540px;
+  margin: 40px 0 0 0;
+  max-width: 100%;
 }
 .takeaways h3 {
   font-size: 16px; font-weight: 700;
@@ -281,8 +283,10 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
+  margin-top: 56px;
   align-items: start;
 }
+.visual-content { padding-top: 4px; }
 
 /* Article text */
 .article-content h2 {
@@ -302,7 +306,7 @@ body {
   background: var(--soft-bg);
   border-radius: 12px;
   padding: 24px 28px 28px 36px;
-  margin: 24px 0;
+  margin: 36px 0;
   position: relative;
   font-size: 15px; color: var(--text); line-height: 1.55;
 }
@@ -325,7 +329,7 @@ body {
   background: var(--navy-deep);
   border-radius: 14px;
   padding: 24px 28px;
-  margin: 24px 0; color: white;
+  margin: 36px 0; color: white;
 }
 .dark-cta h4 {
   font-size: 16px; font-weight: 700;
@@ -369,7 +373,7 @@ body {
 .lever-content p { font-size: 13px; color: var(--muted); line-height: 1.55; }
 .rule-of-thumb {
   display: flex; gap: 8px; align-items: center;
-  margin-top: 16px; padding: 12px;
+  margin-top: 20px; padding: 12px;
   font-size: 13px; color: var(--text);
   background: var(--soft-bg); border-radius: 10px;
 }
@@ -379,7 +383,7 @@ body {
 .framework-diagram {
   background: var(--soft-bg);
   border-radius: 14px;
-  padding: 28px 24px; margin-bottom: 32px;
+  padding: 28px 24px; margin-top: 0; margin-bottom: 32px;
 }
 .framework-diagram h3 {
   font-size: 14px; font-weight: 700;
@@ -426,7 +430,7 @@ body {
 .outcome-diagram {
   background: var(--soft-bg);
   border-radius: 14px;
-  padding: 32px 24px; margin-bottom: 32px; text-align: center;
+  padding: 32px 24px; margin-bottom: 24px; text-align: center;
 }
 .outcome-diagram h3 {
   font-size: 20px; font-weight: 700;
@@ -475,7 +479,7 @@ body {
 .table-section { margin-bottom: 32px; }
 .table-section h3 {
   font-size: 18px; font-weight: 700;
-  color: var(--text); margin-bottom: 16px;
+  color: var(--text); margin-top: 32px; margin-bottom: 16px;
 }
 .comparison-table {
   width: 100%; border-collapse: collapse;
@@ -516,7 +520,7 @@ body {
 /* Bottom row */
 .bottom-row {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 32px; margin: 56px 0 32px;
+  gap: 32px; margin: 80px 0 32px;
 }
 .insight-card {
   background: var(--soft-bg); border-radius: 12px; padding: 24px 28px;
@@ -545,9 +549,11 @@ body {
 /* Element 9 — Audit checklist */
 .audit-list { list-style: none; padding: 0; }
 .audit-list li {
-  display: flex; gap: 10px; padding: 7px 0;
+  display: flex; gap: 10px; padding: 10px 0;
   font-size: 13px; color: var(--text); line-height: 1.5;
+  border-bottom: 1px solid var(--border);
 }
+.audit-list li:last-child { border-bottom: none; }
 .audit-badge {
   flex-shrink: 0; width: 22px; height: 22px;
   border-radius: 50%; background: var(--accent-blue);
@@ -559,7 +565,7 @@ body {
 /* Related + final CTA */
 .related-and-cta {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 32px; margin-top: 32px;
+  gap: 32px; margin-top: 64px;
 }
 .related-section h3 {
   font-size: 16px; font-weight: 700;
@@ -610,7 +616,7 @@ body {
 /* Author bio */
 .author-bio {
   display: flex; gap: 16px; align-items: flex-start;
-  margin-top: 56px; padding-top: 32px;
+  margin-top: 72px; padding-top: 40px;
   border-top: 1px solid var(--border);
 }
 .bio-avatar {
