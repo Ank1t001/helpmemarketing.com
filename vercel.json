@@ -2,10 +2,12 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/blog/dtc-cac-reduction", "destination": "/blog/dtc-cac-reduction.html" },
-    { "source": "/blog/meta-attribution",  "destination": "/blog/meta-attribution.html" }
+    { "source": "/blog/dtc-cac-reduction",     "destination": "/blog/dtc-cac-reduction.html" },
+    { "source": "/blog/meta-roas-attribution", "destination": "/blog/meta-roas-attribution.html" }
   ],
   "redirects": [
+    { "source": "/blog/meta-attribution",      "destination": "/blog/meta-roas-attribution", "permanent": true },
+    { "source": "/blog/meta-attribution.html", "destination": "/blog/meta-roas-attribution", "permanent": true },
     { "source": "/healthcare-seo",      "destination": "/seo",                "permanent": true },
     { "source": "/healthcare-seo.html", "destination": "/seo",                "permanent": true },
     { "source": "/clinic-websites",      "destination": "/website-design",    "permanent": true },
