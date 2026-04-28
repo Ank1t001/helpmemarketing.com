@@ -5,7 +5,8 @@
     { "source": "/blog/dtc-cac-reduction",     "destination": "/blog/dtc-cac-reduction.html" },
     { "source": "/blog/meta-roas-attribution", "destination": "/blog/meta-roas-attribution.html" },
     { "source": "/blog/choose-marketing-agency", "destination": "/blog/choose-marketing-agency.html" },
-    { "source": "/blog/paid-ads-vs-organic",     "destination": "/blog/paid-ads-vs-organic.html" }
+    { "source": "/blog/paid-ads-vs-organic",     "destination": "/blog/paid-ads-vs-organic.html" },
+    { "source": "/blog/seo-ppc-or-social",       "destination": "/blog/seo-ppc-or-social.html" }
   ],
   "redirects": [
     { "source": "/blog/meta-attribution",      "destination": "/blog/meta-roas-attribution", "permanent": true },
