@@ -9,7 +9,8 @@
     { "source": "/blog/seo-ppc-or-social",       "destination": "/blog/seo-ppc-or-social.html" },
     { "source": "/blog/marketing-kpis",          "destination": "/blog/marketing-kpis.html" },
     { "source": "/blog/digital-marketing-cost",  "destination": "/blog/digital-marketing-cost.html" },
-    { "source": "/blog/what-marketing-do-i-need", "destination": "/blog/what-marketing-do-i-need.html" }
+    { "source": "/blog/what-marketing-do-i-need", "destination": "/blog/what-marketing-do-i-need.html" },
+    { "source": "/blog/what-services-do-i-need",  "destination": "/blog/what-services-do-i-need.html" }
   ],
   "redirects": [
     { "source": "/blog/meta-attribution",      "destination": "/blog/meta-roas-attribution", "permanent": true },
