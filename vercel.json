@@ -10,7 +10,8 @@
     { "source": "/blog/marketing-kpis",          "destination": "/blog/marketing-kpis.html" },
     { "source": "/blog/digital-marketing-cost",  "destination": "/blog/digital-marketing-cost.html" },
     { "source": "/blog/what-marketing-do-i-need", "destination": "/blog/what-marketing-do-i-need.html" },
-    { "source": "/blog/what-services-do-i-need",  "destination": "/blog/what-services-do-i-need.html" }
+    { "source": "/blog/what-services-do-i-need",  "destination": "/blog/what-services-do-i-need.html" },
+    { "source": "/blog/marketing-mistakes",        "destination": "/blog/marketing-mistakes.html" }
   ],
   "redirects": [
     { "source": "/blog/meta-attribution",      "destination": "/blog/meta-roas-attribution", "permanent": true },
