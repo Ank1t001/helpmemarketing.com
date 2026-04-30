@@ -28,7 +28,7 @@
   "datePublished": "2026-04-30",
   "dateModified": "2026-04-30",
   "keywords": ["what digital marketing do I need", "which marketing services for my business", "digital marketing for small business", "marketing channel selection", "digital marketing services guide"],
-  "author": {"@type": "Person", "name": "Ankit Kumar", "url": "https://helpmemarketing.com"},
+  "author": {"@type": "Person", "name": "Ankit Kumar", "jobTitle": "Founder", "worksFor": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"}, "url": "https://helpmemarketing.com/about"},
   "publisher": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://helpmemarketing.com/blog/what-marketing-do-i-need"}
 }
@@ -622,6 +622,70 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* AEO: FAQ section */
+.blog-faq {
+  max-width: 720px;
+  margin: 64px auto 0;
+  padding: 0 32px;
+}
+.blog-faq-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding: 0;
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 18px 40px 18px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--accent-blue);
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+details[open] .faq-question::after {
+  content: "\D7";
+}
+.faq-answer {
+  padding: 0 0 18px;
+}
+.faq-answer p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+.table-source {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+  font-style: italic;
+}
 </style>
 
 <!--
@@ -684,6 +748,53 @@ STRUCTURE THAT WORKS:
 - Tell them what to do this week
 - CTA that follows naturally
 -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to find the right marketing channels for your business",
+  "description": "A six-question filter to identify which marketing channels fit your business model.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "How did your last 10 customers find you",
+      "text": "How did your last 10 customers find you? That channel deserves more investment."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Can someone Google what you sell and find…",
+      "text": "Can someone Google what you sell and find a result? Yes → SEO and Google Ads are your channels."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Is your product visual",
+      "text": "Is your product visual? Yes → Instagram, TikTok, Meta Ads deserve budget."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Are you selling to businesses",
+      "text": "Are you selling to businesses? Yes → LinkedIn and content marketing, not social media."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Do you need customers in the next 30…",
+      "text": "Do you need customers in the next 30 days? Yes → paid ads first, everything else second."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Do you have under $1,500/month",
+      "text": "Do you have under $1,500/month? Yes → one channel only. Do not split a small budget."
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -843,7 +954,7 @@ STRUCTURE THAT WORKS:
             <div class="lever-icon blue">&#128269;</div>
             <div class="lever-content">
               <h4>2. Do your customers search before they buy?</h4>
-              <p>If someone can Google what you sell and find relevant results &mdash; you need to be in those results. Local businesses (&ldquo;dentist near me&rdquo;): Local SEO + Google Ads non-optional. E-commerce (&ldquo;best running shoes for flat feet&rdquo;): Google Shopping + SEO. B2B (&ldquo;project management software for agencies&rdquo;): Content marketing + SEO. If nobody is searching for what you sell &mdash; skip SEO for now and use paid ads to create demand. <a href="/blog/seo-ppc-or-social" style="color:var(--accent-blue);">SEO, PPC, or social: which first &rarr;</a></p>
+              <p>If someone can Google what you sell and find relevant results &mdash; you need to be in those results (per <a href="https://www.thinkwithgoogle.com" target="_blank" rel="noopener">Think With Google</a>&rsquo;s search behaviour research). Local businesses (&ldquo;dentist near me&rdquo;): Local SEO + Google Ads non-optional. E-commerce (&ldquo;best running shoes for flat feet&rdquo;): Google Shopping + SEO. B2B (&ldquo;project management software for agencies&rdquo;): Content marketing + SEO. If nobody is searching for what you sell &mdash; skip SEO for now and use paid ads to create demand. <a href="/blog/seo-ppc-or-social" style="color:var(--accent-blue);">SEO, PPC, or social: which first &rarr;</a></p>
             </div>
           </li>
           <li>
@@ -857,7 +968,7 @@ STRUCTURE THAT WORKS:
             <div class="lever-icon orange">&#129309;</div>
             <div class="lever-content">
               <h4>4. Are you selling to businesses?</h4>
-              <p>B2B requires different channels entirely. Your buyers are on LinkedIn, reading industry newsletters, and Googling specific problem queries. B2B channels: LinkedIn Ads, content marketing targeting search queries, email outreach, industry partnerships. B2B does not work well on Instagram, TikTok, Google Shopping. The exception: B2B with visual products (architecture, furniture, fashion wholesale) can use Instagram effectively.</p>
+              <p>B2B requires different channels entirely. Your buyers are on LinkedIn, reading industry newsletters, and Googling specific problem queries (per <a href="https://www.hubspot.com/marketing-statistics" target="_blank" rel="noopener">HubSpot&rsquo;s B2B marketing data</a>). B2B channels: LinkedIn Ads, content marketing targeting search queries, email outreach, industry partnerships. B2B does not work well on Instagram, TikTok, Google Shopping. The exception: B2B with visual products (architecture, furniture, fashion wholesale) can use Instagram effectively.</p>
             </div>
           </li>
           <li>
@@ -1092,6 +1203,40 @@ STRUCTURE THAT WORKS:
   </div>
 
   <!-- Related + final CTA -->
+  <!-- AEO: Visible FAQ — mirrors FAQPage JSON-LD for extraction by AI models -->
+  <section class="blog-faq">
+    <h2 class="blog-faq-title">Frequently asked questions</h2>
+    <div class="blog-faq-list">
+      <details class="faq-item">
+        <summary class="faq-question">What digital marketing services does a small business need?</summary>
+        <div class="faq-answer">
+          <p>Most small businesses need three things to start: a converting website, one paid acquisition channel (Google or Meta Ads), and local SEO if they serve a geographic area. Social media, email, and content marketing can be added as the business grows. The mistake is buying six services before the first two are working.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Do small businesses need SEO?</summary>
+        <div class="faq-answer">
+          <p>Yes, if your customers search for what you sell before buying. A plumber, dentist, or accountant absolutely needs SEO — those are searched categories. A business selling a novel product nobody is searching for yet should start with paid ads to create demand, not SEO to capture it.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Do I need social media for my business?</summary>
+        <div class="faq-answer">
+          <p>Depends on what you sell. Visual products — food, fashion, beauty, home — benefit significantly from social media. Service businesses and B2B companies typically see better ROI from SEO and paid search than social media. Social media works best as a supporting channel that validates your business, not as a primary acquisition channel.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">How do I know which marketing channel is right for my business?</summary>
+        <div class="faq-answer">
+          <p>Ask three questions: Do my customers search for what I sell? If yes, SEO and Google Ads. Is my product visual and impulse-driven? If yes, social and Meta Ads. Am I selling to other businesses? If yes, LinkedIn and content marketing. Start with the channel that matches how your customers find and decide to buy.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
   <div class="related-and-cta">
     <div class="related-section">
       <h3>Related reading</h3>

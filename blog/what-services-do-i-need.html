@@ -28,7 +28,7 @@
   "datePublished": "2026-04-30",
   "dateModified": "2026-04-30",
   "keywords": ["digital marketing package", "what does digital marketing include", "marketing agency deliverables", "digital marketing services list", "what to expect from marketing agency"],
-  "author": {"@type": "Person", "name": "Ankit Kumar", "url": "https://helpmemarketing.com"},
+  "author": {"@type": "Person", "name": "Ankit Kumar", "jobTitle": "Founder", "worksFor": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"}, "url": "https://helpmemarketing.com/about"},
   "publisher": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://helpmemarketing.com/blog/what-services-do-i-need"}
 }
@@ -605,6 +605,70 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* AEO: FAQ section */
+.blog-faq {
+  max-width: 720px;
+  margin: 64px auto 0;
+  padding: 0 32px;
+}
+.blog-faq-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding: 0;
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 18px 40px 18px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--accent-blue);
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+details[open] .faq-question::after {
+  content: "\D7";
+}
+.faq-answer {
+  padding: 0 0 18px;
+}
+.faq-answer p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+.table-source {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+  font-style: italic;
+}
 </style>
 
 <!--
@@ -658,6 +722,53 @@ BANNED WORDS AND PHRASES — never use these:
 - touch base, circle back, move the needle
 - synergy, ecosystem (in a marketing context)
 -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to evaluate what a digital marketing package includes",
+  "description": "A six-point checklist to confirm a marketing package has the deliverables it should.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Every deliverable listed by specific output — not…",
+      "text": "Every deliverable listed by specific output — not category."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Reporting includes cost per lead and cost per…",
+      "text": "Reporting includes cost per lead and cost per customer — not reach."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "You have seen a real report from a…",
+      "text": "You have seen a real report from a current client — not a sample."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Contract is month-to-month after an initial period",
+      "text": "Contract is month-to-month after an initial period."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "You know who works on your account day-to-day",
+      "text": "You know who works on your account day-to-day."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "You understand what success looks like in month…",
+      "text": "You understand what success looks like in month 3, 6, and 12."
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -791,7 +902,7 @@ BANNED WORDS AND PHRASES — never use these:
             <div class="lever-icon purple">&#128269;</div>
             <div class="lever-content">
               <h4>1. SEO</h4>
-              <p><strong>Minimum per month:</strong> keyword rank tracking for 20+ terms, one technical audit action resolved, two pieces of content published, Google Business Profile updates if local, monthly report showing organic traffic and leads &mdash; not just rankings.<br>
+              <p><strong>Minimum per month:</strong> keyword rank tracking for 20+ terms (against <a href="https://developers.google.com/search/docs" target="_blank" rel="noopener">Google Search Central documentation</a>), one technical audit action resolved, two pieces of content published, Google Business Profile updates if local, monthly report showing organic traffic and leads &mdash; not just rankings.<br>
               <strong>NOT:</strong> &ldquo;SEO consulting&rdquo; with no content output. Rank reports with no context. <a href="/seo" style="color:var(--accent-blue);">See our SEO service &rarr;</a></p>
             </div>
           </li>
@@ -824,7 +935,7 @@ BANNED WORDS AND PHRASES — never use these:
             <div class="lever-icon pink">&#128202;</div>
             <div class="lever-content">
               <h4>5. Analytics &amp; reporting</h4>
-              <p><strong>Real analytics includes:</strong> GA4 setup with conversion tracking, live dashboard you access anytime, monthly reports showing cost per lead and revenue by channel, quarterly attribution review.<br>
+              <p><strong>Real analytics includes:</strong> GA4 setup with conversion tracking (use <a href="https://analytics.google.com/analytics/academy/" target="_blank" rel="noopener">Google Analytics Academy</a> as the reference), live dashboard you access anytime, monthly reports showing cost per lead and revenue by channel, quarterly attribution review.<br>
               <strong>NOT:</strong> A PDF of platform screenshots sent monthly. <a href="/analytics" style="color:var(--accent-blue);">See our analytics service &rarr;</a></p>
             </div>
           </li>
@@ -1024,6 +1135,40 @@ BANNED WORDS AND PHRASES — never use these:
       </ol>
     </div>
   </div>
+  <!-- AEO: Visible FAQ — mirrors FAQPage JSON-LD for extraction by AI models -->
+  <section class="blog-faq">
+    <h2 class="blog-faq-title">Frequently asked questions</h2>
+    <div class="blog-faq-list">
+      <details class="faq-item">
+        <summary class="faq-question">What should a basic digital marketing package include?</summary>
+        <div class="faq-answer">
+          <p>A basic package should include at minimum: one primary channel (SEO or paid ads), monthly reporting with real metrics — leads and cost per acquisition, not impressions — and a clear scope of deliverables per month. If a package does not specify exactly what is delivered each month, it is too vague to evaluate.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">How many services should I buy from one agency?</summary>
+        <div class="faq-answer">
+          <p>Start with one or two channels and expand as results compound. Buying six services from day one spreads budget too thin and makes it impossible to measure what is working. A focused package on two channels consistently outperforms a diluted package across six.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">What should NOT be in a marketing package?</summary>
+        <div class="faq-answer">
+          <p>Vanity metrics as the primary KPI. Deliverables described only in categories rather than specific outputs. Any guarantee of rankings or ROAS in the first 30 days. Long contracts with no performance exit clause. Vague strategy deliverables with no executional component.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Is it better to buy a package or pay per service?</summary>
+        <div class="faq-answer">
+          <p>For most growing businesses a bundled package from one agency is more efficient. Channels work better when they share data — paid ads keywords inform SEO content, SEO rankings reduce paid ad dependency. Separate specialists rarely coordinate this well.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
 
   <div class="related-and-cta">
     <div class="related-section">

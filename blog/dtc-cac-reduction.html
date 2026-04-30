@@ -28,7 +28,7 @@
   "datePublished": "2026-04-29",
   "dateModified": "2026-04-29",
   "keywords": ["DTC marketing", "customer acquisition cost", "CAC reduction", "DTC ROAS", "performance marketing 2026"],
-  "author": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"},
+  "author": {"@type": "Person", "name": "Ankit Kumar", "jobTitle": "Founder", "worksFor": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"}, "url": "https://helpmemarketing.com/about"},
   "publisher": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://helpmemarketing.com/blog/dtc-cac-reduction"}
 }
@@ -672,7 +672,118 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* AEO: FAQ section */
+.blog-faq {
+  max-width: 720px;
+  margin: 64px auto 0;
+  padding: 0 32px;
+}
+.blog-faq-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding: 0;
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 18px 40px 18px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--accent-blue);
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+details[open] .faq-question::after {
+  content: "\D7";
+}
+.faq-answer {
+  padding: 0 0 18px;
+}
+.faq-answer p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+.table-source {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+  font-style: italic;
+}
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to audit your DTC customer acquisition cost in 30 minutes",
+  "description": "A 30-minute self-audit to find where customer acquisition cost is leaking in your DTC funnel.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Pull last 90 days ad spend and total…",
+      "text": "Pull last 90 days ad spend and total orders. Calculate true blended CAC — not platform-reported."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Compare CAC to LTV",
+      "text": "Compare CAC to LTV. If CAC &gt; LTV × 0.3 you have a retention problem, not an acquisition problem."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Check your top 3 creatives",
+      "text": "Check your top 3 creatives. CTR declining week-over-week on $500+/day spend = creative fatigue. Replace immediately."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Check mobile landing page CVR in your own…",
+      "text": "Check mobile landing page CVR in your own analytics. Under 2%? The page is the problem, not the ad."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Pull Meta 7-day click vs your own analytics",
+      "text": "Pull Meta 7-day click vs your own analytics. Gap over 30%? Attribution is inflated. Do not optimise against the platform number."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Check channel mix",
+      "text": "Check channel mix. Under 20% of orders from zero-marginal-cost channels? Blended CAC has an easy lever available."
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -786,7 +897,7 @@ body {
     <div class="article-content">
 
       <h2>Why CAC keeps rising for most DTC brands</h2>
-      <p>CPMs on Meta rose <span class="stat-inline">+23% in 2025</span> and the trajectory is not reversing. More brands competing for the same eyeballs, iOS privacy changes reducing signal quality, and creative fatigue across saturated categories all push acquisition costs up.</p>
+      <p>CPMs on Meta rose <span class="stat-inline">+23% in 2025</span> &mdash; <a href="https://www.wordstream.com/blog/ws/2016/02/29/facebook-advertising-benchmarks" target="_blank" rel="noopener">per WordStream&rsquo;s advertising benchmarks</a> &mdash; and the trajectory is not reversing. More brands competing for the same eyeballs, iOS privacy changes reducing signal quality, and creative fatigue across saturated categories all push acquisition costs up.</p>
       <p>But CPM is only one input. The real formula is:</p>
       <p><strong>CAC = Total Spend ÷ (Impressions × CTR × Landing CVR × Checkout CVR)</strong></p>
       <p>Most brands optimise the numerator — trying to get cheaper media. The brands winning on CAC in 2026 optimise the denominators — creative relevance, post-click experience, and retention economics.</p>
@@ -818,7 +929,7 @@ body {
             <div class="lever-icon blue">⊞</div>
             <div class="lever-content">
               <h4>2. Post-click experience</h4>
-              <p>Sending paid traffic to your homepage is the most common and expensive mistake in DTC. Campaign-specific landing pages with message match, one CTA, and sub-2-second mobile load time consistently improve CVR by 20–40%. <a href="/website-design" style="color:var(--accent-blue);">See how we build conversion-first pages →</a></p>
+              <p>Sending paid traffic to your homepage is the most common and expensive mistake in DTC. Campaign-specific landing pages with message match, one CTA, and sub-2-second mobile load time consistently improve CVR by 20–40% (per <a href="https://web.dev/performance/" target="_blank" rel="noopener">Google's Core Web Vitals guidance</a>). <a href="/website-design" style="color:var(--accent-blue);">See how we build conversion-first pages →</a></p>
             </div>
           </li>
           <li>
@@ -1053,6 +1164,43 @@ body {
   </div>
 
   <!-- Related + final CTA -->
+  <!-- AEO: Visible FAQ — mirrors FAQPage JSON-LD for extraction by AI models -->
+  <section class="blog-faq">
+    <h2 class="blog-faq-title">Frequently asked questions</h2>
+    <div class="blog-faq-list">
+      <details class="faq-item">
+        <summary class="faq-question">Why is my DTC brand's CAC increasing?</summary>
+        <div class="faq-answer">
+          <p>Rising CAC is almost never purely a media cost problem. CPMs on Meta rose roughly 25% in 2025, but CAC is determined by total spend divided by (impressions × CTR × CVR). Most brands focus on the CPM input and ignore landing page conversion rate, creative quality, and retention economics — which have a larger combined impact.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">What is a good CAC for a DTC brand?</summary>
+        <div class="faq-answer">
+          <p>A healthy CAC depends on your average order value and customer lifetime value. A general benchmark: CAC should be no more than 30% of LTV. For DTC brands on Meta, typical CAC ranges from $25 to $80. On Google Search, $30 to 
+  <div class="related-and-cta">20 is typical.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">How do I reduce CAC without cutting ad spend?</summary>
+        <div class="faq-answer">
+          <p>The five highest-impact levers are: refreshing creative every 4-6 weeks to fight ad fatigue, improving landing page conversion rate on mobile, increasing customer LTV through post-purchase email flows, fixing attribution so you optimise against real data, and improving channel mix by adding organic channels that reduce blended CAC.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">What is the cheapest customer acquisition channel for DTC?</summary>
+        <div class="faq-answer">
+          <p>Email and SMS marketing have the lowest marginal CAC for DTC brands — often $0 to 
+  <div class="related-and-cta">0 per order once the channel is established. Organic SEO follows at $5 to 
+  <div class="related-and-cta">5. The build time is 6 to 12 months for SEO and 3 to 6 months for email, which is why most brands underinvest and remain dependent on paid media.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
   <div class="related-and-cta">
     <div class="related-section">
       <h3>Related reading</h3>

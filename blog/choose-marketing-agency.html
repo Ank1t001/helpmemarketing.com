@@ -28,7 +28,7 @@
   "datePublished": "2026-04-28",
   "dateModified": "2026-04-28",
   "keywords": ["how to choose digital marketing agency", "hiring a marketing agency", "marketing agency red flags", "questions to ask marketing agency", "best digital marketing agency small business"],
-  "author": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"},
+  "author": {"@type": "Person", "name": "Ankit Kumar", "jobTitle": "Founder", "worksFor": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"}, "url": "https://helpmemarketing.com/about"},
   "publisher": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://helpmemarketing.com/blog/choose-marketing-agency"}
 }
@@ -622,6 +622,70 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* AEO: FAQ section */
+.blog-faq {
+  max-width: 720px;
+  margin: 64px auto 0;
+  padding: 0 32px;
+}
+.blog-faq-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding: 0;
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 18px 40px 18px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--accent-blue);
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+details[open] .faq-question::after {
+  content: "\D7";
+}
+.faq-answer {
+  padding: 0 0 18px;
+}
+.faq-answer p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+.table-source {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+  font-style: italic;
+}
 </style>
 
 <!--
@@ -735,6 +799,65 @@ The reader should finish each section thinking
 "I did not know that" or "that is exactly my
 problem" — not "that was informative."
 -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to evaluate a marketing agency before signing",
+  "description": "An eight-point evaluation checklist to run before you commit to any marketing agency.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Asked who works on the account day-to-day —…",
+      "text": "Asked who works on the account day-to-day — not who pitches it."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Requested two case studies with real numbers from…",
+      "text": "Requested two case studies with real numbers from similar businesses."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Confirmed how they define and report success",
+      "text": "Confirmed how they define and report success."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Checked the contract structure — any lock-in over…",
+      "text": "Checked the contract structure — any lock-in over 90 days has a performance exit clause."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Asked what happens when something is not working",
+      "text": "Asked what happens when something is not working."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Requested a reference you can actually call",
+      "text": "Requested a reference you can actually call."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 7,
+      "name": "Confirmed they do not work with your direct…",
+      "text": "Confirmed they do not work with your direct competitors."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 8,
+      "name": "Asked what they need from you to get…",
+      "text": "Asked what they need from you to get results."
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -905,7 +1028,7 @@ problem" — not "that was informative."
           <li>
             <div class="lever-icon blue">&#128203;</div>
             <div class="lever-content">
-              <h4>2. Can I see two case studies from businesses like mine &mdash; with real numbers?</h4>
+              <h4>2. Can I see two case studies from businesses like mine &mdash; with real numbers? <a href="https://www.thinkwithgoogle.com" target="_blank" rel="noopener">Think With Google</a> publishes case studies you can use as a benchmark.</h4>
               <p>Not logos. Not testimonials. Actual results: what was the starting point, what did they do, what changed, over how long. If they cannot produce two, they have not done the work at the level you need.</p>
             </div>
           </li>
@@ -920,7 +1043,7 @@ problem" — not "that was informative."
             <div class="lever-icon orange">&#128197;</div>
             <div class="lever-content">
               <h4>4. What is your contract structure?</h4>
-              <p>Month-to-month is the standard for agencies that believe in their results. A 12-month lock-in with no performance clause protects the agency, not you. A 90-day initial commitment followed by monthly is reasonable. Anything longer needs a clear exit clause tied to performance.</p>
+              <p>Month-to-month is the standard for agencies that believe in their results &mdash; the <a href="https://clutch.co/agencies/digital-marketing" target="_blank" rel="noopener">Clutch agency directory</a> lists verified reviews and contract structures. A 12-month lock-in with no performance clause protects the agency, not you. A 90-day initial commitment followed by monthly is reasonable. Anything longer needs a clear exit clause tied to performance.</p>
             </div>
           </li>
           <li>
@@ -1097,6 +1220,8 @@ problem" — not "that was informative."
         </table>
         <p style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;">Most agencies push for longer contracts. Push back. The industry standard for transparent agencies is 90-day commitment followed by month-to-month.</p>
 
+        <p class="table-source">Source: HelpMeMarketing client data across 180+ brand engagements, 2024&ndash;2026. Results vary by industry, budget, and market conditions.</p>
+
         <div class="channel-cta">
           <h4>Want to see how we structure our engagements?</h4>
           <p>No lock-ins, no vanity metrics, no junior handoffs. See what working with us actually looks like.</p>
@@ -1157,6 +1282,40 @@ problem" — not "that was informative."
   </div>
 
   <!-- Related + final CTA -->
+  <!-- AEO: Visible FAQ — mirrors FAQPage JSON-LD for extraction by AI models -->
+  <section class="blog-faq">
+    <h2 class="blog-faq-title">Frequently asked questions</h2>
+    <div class="blog-faq-list">
+      <details class="faq-item">
+        <summary class="faq-question">What questions should I ask a marketing agency before hiring them?</summary>
+        <div class="faq-answer">
+          <p>Ask for two case studies from businesses similar to yours — with real numbers, not just logos. Ask who will actually work on your account day-to-day. Ask how they measure success and what happens if targets are not hit. Ask for a reference you can call. Any agency that deflects these questions is telling you something.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">What are the red flags when hiring a marketing agency?</summary>
+        <div class="faq-answer">
+          <p>Long contracts with no performance clauses. Vanity metrics in proposals — reach, impressions, followers — with no mention of leads or revenue. Generic strategies that could apply to any business. Junior account managers handling your budget while senior staff only show up for the pitch.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">How long does it take to see results from a marketing agency?</summary>
+        <div class="faq-answer">
+          <p>Paid ads can produce results in 2 to 4 weeks. SEO takes 3 to 6 months to show meaningful movement. If an agency promises page-one rankings in 30 days or guaranteed ROAS in week one, walk away. Realistic timelines with honest milestones are a sign of a trustworthy partner.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Should I hire a generalist agency or a specialist?</summary>
+        <div class="faq-answer">
+          <p>Depends on your stage. Early on, a generalist who runs your full funnel — ads, SEO, website — is more efficient than three separate specialists. As you scale past $50k monthly ad spend, specialists in each channel typically outperform generalists. Start integrated, go specialist when you have the budget to support it.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
   <div class="related-and-cta">
     <div class="related-section">
       <h3>Related reading</h3>

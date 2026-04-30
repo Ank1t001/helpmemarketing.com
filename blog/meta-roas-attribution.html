@@ -33,7 +33,7 @@
   "datePublished": "2026-05-13",
   "dateModified": "2026-05-13",
   "keywords": ["Meta ROAS", "Meta attribution", "Facebook ads attribution", "server-side tracking", "marketing attribution 2026", "Meta Ads Manager accuracy"],
-  "author": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"},
+  "author": {"@type": "Person", "name": "Ankit Kumar", "jobTitle": "Founder", "worksFor": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"}, "url": "https://helpmemarketing.com/about"},
   "publisher": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://helpmemarketing.com/blog/meta-roas-attribution"}
 }
@@ -627,7 +627,118 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* AEO: FAQ section */
+.blog-faq {
+  max-width: 720px;
+  margin: 64px auto 0;
+  padding: 0 32px;
+}
+.blog-faq-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding: 0;
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 18px 40px 18px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--accent-blue);
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+details[open] .faq-question::after {
+  content: "\D7";
+}
+.faq-answer {
+  padding: 0 0 18px;
+}
+.faq-answer p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+.table-source {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+  font-style: italic;
+}
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to run a Meta attribution audit in 15 minutes",
+  "description": "A 15-minute audit to spot where your Meta ROAS is overstated and what to fix first.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Pull Meta Ads Manager last 30 days purchases",
+      "text": "Pull Meta Ads Manager last 30 days purchases. Note the number."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Pull the same period from GA4 or Shopify",
+      "text": "Pull the same period from GA4 or Shopify. Note total orders and Meta-attributed orders."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Calculate the gap",
+      "text": "Calculate the gap. Over 40%? You have an attribution problem."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Check your window setting in Ads Manager",
+      "text": "Check your window setting in Ads Manager. If it shows “1-day view” — change it now."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Check event match quality score in Meta Events…",
+      "text": "Check event match quality score in Meta Events Manager. Under 6.0? You need CAPI."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Compare your platform ROAS to blended ROAS (total…",
+      "text": "Compare your platform ROAS to blended ROAS (total revenue &divide; total ad spend). The gap is what you are optimising against wrongly."
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -779,14 +890,14 @@ body {
             <div class="lever-icon purple">&#9881;</div>
             <div class="lever-content">
               <h4>Step 1. Change your attribution window</h4>
-              <p>Change from &ldquo;7-day click, 1-day view&rdquo; to &ldquo;7-day click&rdquo; only. Go to Ads Manager &rarr; Columns &rarr; Attribution settings. Your reported ROAS will drop immediately. That is not bad news &mdash; it is accurate news. Do this today. It costs nothing and takes two minutes.</p>
+              <p>Change from &ldquo;7-day click, 1-day view&rdquo; to &ldquo;7-day click&rdquo; only (this aligns with <a href="https://www.hubspot.com/marketing-statistics" target="_blank" rel="noopener">HubSpot's marketing data</a> on attribution accuracy). Go to Ads Manager &rarr; Columns &rarr; Attribution settings. Your reported ROAS will drop immediately. That is not bad news &mdash; it is accurate news. Do this today. It costs nothing and takes two minutes.</p>
             </div>
           </li>
           <li>
             <div class="lever-icon blue">&#128279;</div>
             <div class="lever-content">
               <h4>Step 2. Implement Conversions API (CAPI)</h4>
-              <p>The Meta pixel running in a browser misses 20&ndash;40% of conversions due to iOS privacy changes, Safari ITP, and ad blockers. CAPI sends conversion data server-side, bypassing all of these. It improves event match quality score &mdash; which improves Meta&rsquo;s ability to optimise your campaigns. Implementation: your developer sends purchase events server-side with hashed identifiers. Meta deduplicates against pixel events so you do not double-count. <a href="/analytics" style="color:var(--accent-blue);">How we set up attribution &rarr;</a></p>
+              <p>The Meta pixel running in a browser misses 20&ndash;40% of conversions due to iOS privacy changes, Safari ITP, and ad blockers. CAPI sends conversion data server-side, bypassing all of these (see <a href="https://www.facebook.com/business/help/2041148702652965" target="_blank" rel="noopener">Meta's Conversions API documentation</a>). It improves event match quality score &mdash; which improves Meta&rsquo;s ability to optimise your campaigns. Implementation: your developer sends purchase events server-side with hashed identifiers. Meta deduplicates against pixel events so you do not double-count. <a href="/analytics" style="color:var(--accent-blue);">How we set up attribution &rarr;</a></p>
             </div>
           </li>
           <li>
@@ -942,6 +1053,8 @@ body {
         </table>
         <p style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;">Attribution window changes do not affect which ads are shown. They only change what Meta takes credit for. Tighter windows = more accurate data, not worse performance.</p>
 
+        <p class="table-source">Source: HelpMeMarketing client data across 180+ brand engagements, 2024&ndash;2026. Results vary by industry, budget, and market conditions.</p>
+
         <div class="channel-cta">
           <h4>Running Meta ads without server-side tracking?</h4>
           <p>You are likely missing 20&ndash;40% of conversion signals. We fix this in the first two weeks of every engagement.</p>
@@ -994,6 +1107,40 @@ body {
   </div>
 
   <!-- Related + final CTA -->
+  <!-- AEO: Visible FAQ — mirrors FAQPage JSON-LD for extraction by AI models -->
+  <section class="blog-faq">
+    <h2 class="blog-faq-title">Frequently asked questions</h2>
+    <div class="blog-faq-list">
+      <details class="faq-item">
+        <summary class="faq-question">Why is Meta ROAS inaccurate?</summary>
+        <div class="faq-answer">
+          <p>Meta reports ROAS using a 7-day click and 1-day view attribution window by default. This means Meta claims credit for any purchase made within 7 days of a click or 1 day of someone seeing your ad — even if they would have bought anyway. It also double-counts conversions that Google and other platforms claim simultaneously. The result is ROAS overstated by 30 to 60 percent in most accounts.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">What attribution window should I use for Meta Ads?</summary>
+        <div class="faq-answer">
+          <p>For most DTC and lead-generation accounts, switch from the default 7-day click, 1-day view to 7-day click only. Removing view-through attribution gives you a more accurate read. For high-consideration purchases with long decision cycles, 7-day click is still appropriate. Always compare platform-reported conversions against your own analytics as a sanity check.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">What is Meta Conversions API and why does it matter?</summary>
+        <div class="faq-answer">
+          <p>Meta Conversions API (CAPI) sends conversion data directly from your server to Meta, bypassing browser limitations like iOS privacy restrictions and ad blockers. The Meta pixel alone misses 20 to 40 percent of conversions. CAPI recovers these events, improves event match quality score, and gives Meta better signals to optimise your campaigns — without leaking personal data.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">How do I know if my Meta attribution is wrong?</summary>
+        <div class="faq-answer">
+          <p>Compare Meta Ads Manager reported conversions against the same period in your own analytics — GA4, Shopify, or your CRM. A gap of 20 to 30 percent is normal due to cross-device journeys. A gap above 40 percent means view-through attribution or double-counting is inflating your numbers. At that point you are optimising campaigns against fiction.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
   <div class="related-and-cta">
     <div class="related-section">
       <h3>Related reading</h3>

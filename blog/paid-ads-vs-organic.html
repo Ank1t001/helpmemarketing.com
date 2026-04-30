@@ -28,7 +28,7 @@
   "datePublished": "2026-04-28",
   "dateModified": "2026-04-28",
   "keywords": ["paid ads vs organic growth", "SEO vs paid advertising", "should I run paid ads or SEO first", "organic vs paid marketing strategy", "digital marketing investment priority"],
-  "author": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"},
+  "author": {"@type": "Person", "name": "Ankit Kumar", "jobTitle": "Founder", "worksFor": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"}, "url": "https://helpmemarketing.com/about"},
   "publisher": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://helpmemarketing.com/blog/paid-ads-vs-organic"}
 }
@@ -622,6 +622,70 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* AEO: FAQ section */
+.blog-faq {
+  max-width: 720px;
+  margin: 64px auto 0;
+  padding: 0 32px;
+}
+.blog-faq-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding: 0;
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 18px 40px 18px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--accent-blue);
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+details[open] .faq-question::after {
+  content: "\D7";
+}
+.faq-answer {
+  padding: 0 0 18px;
+}
+.faq-answer p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+.table-source {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+  font-style: italic;
+}
 </style>
 
 <!--
@@ -735,6 +799,53 @@ The reader should finish each section thinking
 "I did not know that" or "that is exactly my
 problem" — not "that was informative."
 -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to decide between paid ads and organic marketing",
+  "description": "A short decision exercise to choose your starting marketing channel based on runway and goals.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "How many months of runway do you have",
+      "text": "How many months of runway do you have? Under 3 months → paid first, full stop."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Do you need customers in the next 30…",
+      "text": "Do you need customers in the next 30 days? Yes → paid first."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Do your customers Google before they buy",
+      "text": "Do your customers Google before they buy? Yes → organic investment is non-optional."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Do you have content (blogs, case studies, guides)…",
+      "text": "Do you have content (blogs, case studies, guides) that rank anywhere? No → you have 0 organic asset. Start building."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "What % of your current leads come from…",
+      "text": "What % of your current leads come from organic? Under 20% → you are over-reliant on paid. Ring-fence budget for organic now."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "What did your best customers Google before they…",
+      "text": "What did your best customers Google before they found you? That is your first organic content brief."
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -898,14 +1009,14 @@ problem" — not "that was informative."
 
       <h2>When to start with paid ads</h2>
       <p>Start with paid when:</p>
-      <p><strong>You need revenue in the next 30 to 60 days.</strong> Paid ads can produce leads in 2 to 4 weeks when set up correctly.</p>
+      <p><strong>You need revenue in the next 30 to 60 days.</strong> Paid ads can produce leads in 2 to 4 weeks when set up correctly (per <a href="https://www.hubspot.com/marketing-statistics" target="_blank" rel="noopener">HubSpot&rsquo;s marketing benchmarks</a>).</p>
       <p><strong>You are testing a new offer.</strong> Paid ads give you real market feedback in days, not months. Before you invest 6 months into SEO for a product page, run $500 in ads and see if anyone buys.</p>
       <p><strong>You have a proven product but no audience.</strong> Organic channels require an existing audience or a lot of patience to build one. Paid skips the queue.</p>
       <p>The risk: paid ads stop the moment you stop paying. Every customer acquired through paid ads costs money. There is no asset being built. <a href="/google-meta-ads" style="color:var(--accent-blue);">See how we run paid ads &rarr;</a></p>
 
       <h2>When to start with organic</h2>
       <p>Start with organic when:</p>
-      <p><strong>You have 6+ months of runway and can wait for results.</strong> SEO takes 3 to 6 months to show meaningful traffic. Content marketing takes longer.</p>
+      <p><strong>You have 6+ months of runway and can wait for results.</strong> SEO takes 3 to 6 months to show meaningful traffic (per <a href="https://moz.com/beginners-guide-to-seo" target="_blank" rel="noopener">Moz&rsquo;s SEO research</a>). Content marketing takes longer.</p>
       <p><strong>Your customers research before buying.</strong> If your buyers Google questions before making a decision &mdash; and most do &mdash; organic search puts you in front of them at exactly the right moment.</p>
       <p><strong>You want to reduce long-term customer acquisition costs.</strong> Organic channels have near-zero marginal cost once established. A blog post that ranks on page one keeps generating leads without a monthly ad bill.</p>
       <p>The risk: slow start. Most businesses underestimate how long organic takes and abandon it before it compounds. <a href="/seo" style="color:var(--accent-blue);">See how we approach SEO &rarr;</a></p>
@@ -1068,6 +1179,8 @@ problem" — not "that was informative."
         </table>
         <p style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;">The businesses with the lowest long-term CAC run both. The ratio shifts over time &mdash; but neither gets abandoned.</p>
 
+        <p class="table-source">Source: HelpMeMarketing client data across 180+ brand engagements, 2024&ndash;2026. Results vary by industry, budget, and market conditions.</p>
+
         <div class="channel-cta">
           <h4>Want to know the right mix for your business specifically?</h4>
           <p>We build channel strategies around your runway, your market, and your current revenue &mdash; not a template.</p>
@@ -1120,6 +1233,40 @@ problem" — not "that was informative."
   </div>
 
   <!-- Related + final CTA -->
+  <!-- AEO: Visible FAQ — mirrors FAQPage JSON-LD for extraction by AI models -->
+  <section class="blog-faq">
+    <h2 class="blog-faq-title">Frequently asked questions</h2>
+    <div class="blog-faq-list">
+      <details class="faq-item">
+        <summary class="faq-question">Should I start with paid ads or SEO first?</summary>
+        <div class="faq-answer">
+          <p>It depends on two things: how much runway you have and how fast you need results. Paid ads produce leads in 2 to 4 weeks. SEO takes 3 to 6 months to show meaningful traffic. If you need customers this month, start with paid. If you have 6 months of runway, invest in both — SEO compounds while paid ads pay the bills.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">What is the main difference between paid ads and organic marketing?</summary>
+        <div class="faq-answer">
+          <p>Paid ads stop the moment you stop paying. Organic — SEO, content, email — compounds over time and keeps working after you invest. Think of paid as renting customers and organic as building an asset. Most businesses need both, but the ratio depends on your stage and cash flow.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">How much should I budget for paid ads vs organic?</summary>
+        <div class="faq-answer">
+          <p>A common starting split is 70% paid, 30% organic when you are early and need fast results. As your organic channels mature — typically 6 to 12 months in — shift toward 50/50. The goal is to reduce your dependence on paid over time without sacrificing growth. Most businesses never make this shift and stay permanently dependent on ad spend.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Can I do paid ads and SEO at the same time?</summary>
+        <div class="faq-answer">
+          <p>Yes — and the data from paid ads makes your SEO better. Keywords that convert in your ad campaigns are the exact terms to build organic content around. Running both from the start gives you speed now and compounding returns later. The mistake is running paid ads for 2 years and having nothing to show for it organically.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
   <div class="related-and-cta">
     <div class="related-section">
       <h3>Related reading</h3>

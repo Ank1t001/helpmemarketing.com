@@ -28,7 +28,7 @@
   "datePublished": "2026-04-30",
   "dateModified": "2026-04-30",
   "keywords": ["digital marketing strategy for beginners", "how to start digital marketing", "marketing strategy from scratch", "small business marketing plan", "digital marketing for new business"],
-  "author": {"@type": "Person", "name": "Ankit Kumar", "url": "https://helpmemarketing.com"},
+  "author": {"@type": "Person", "name": "Ankit Kumar", "jobTitle": "Founder", "worksFor": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"}, "url": "https://helpmemarketing.com/about"},
   "publisher": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://helpmemarketing.com/blog/marketing-strategy-from-zero"}
 }
@@ -604,6 +604,70 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* AEO: FAQ section */
+.blog-faq {
+  max-width: 720px;
+  margin: 64px auto 0;
+  padding: 0 32px;
+}
+.blog-faq-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding: 0;
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 18px 40px 18px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--accent-blue);
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+details[open] .faq-question::after {
+  content: "\D7";
+}
+.faq-answer {
+  padding: 0 0 18px;
+}
+.faq-answer p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+.table-source {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+  font-style: italic;
+}
 </style>
 
 <!--
@@ -657,6 +721,53 @@ BANNED WORDS AND PHRASES — never use these:
 - touch base, circle back, move the needle
 - synergy, ecosystem (in a marketing context)
 -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to assess where you are in your marketing build",
+  "description": "A six-step diagnostic to find which marketing stage you are in and what to fix first.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Does your website load under 3 seconds on…",
+      "text": "Does your website load under 3 seconds on mobile? Test at <a href="https://pagespeed.web.dev" target="_blank" rel="noopener">Google PageSpeed Insights</a>"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Do you have conversion tracking in GA4 —…",
+      "text": "Do you have conversion tracking in GA4 — can you see when someone fills your contact form?"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Is your Google Business Profile complete with photos,…",
+      "text": "Is your Google Business Profile complete with photos, hours, recent reviews?"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Do you have one paid channel generating consistent…",
+      "text": "Do you have one paid channel generating consistent leads at a known cost?"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Are you publishing at least one content piece…",
+      "text": "Are you publishing at least one content piece per month targeting a real customer question?"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Do you have an email list you contact…",
+      "text": "Do you have an email list you contact at least monthly?"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -798,7 +909,7 @@ BANNED WORDS AND PHRASES — never use these:
             <div class="lever-icon purple">&#127959;</div>
             <div class="lever-content">
               <h4>1. Stage 1 &mdash; Foundation (Month 1&ndash;2)</h4>
-              <p>Before spending anything on marketing: <strong>Website</strong> &mdash; loads in under 3 seconds, works on mobile, one clear CTA per page. <strong>Analytics</strong> &mdash; GA4 installed with conversion tracking. Know when someone fills your form or calls. <strong>Google Business Profile</strong> &mdash; if you serve local customers, non-negotiable. Free, 2 hours to set up, ranks in local search faster than your website. <strong>Email capture</strong> &mdash; simple opt-in on your website. 10 emails/month compounds into a real list over a year.</p>
+              <p>Before spending anything on marketing: <strong>Website</strong> &mdash; loads in under 3 seconds, works on mobile, one clear CTA per page. <strong>Analytics</strong> &mdash; GA4 installed with conversion tracking. Know when someone fills your form or calls. <strong><a href="https://www.google.com/business/" target="_blank" rel="noopener">Google Business Profile</a></strong> &mdash; if you serve local customers, non-negotiable. Free, 2 hours to set up, ranks in local search faster than your website. <strong>Email capture</strong> &mdash; simple opt-in on your website. 10 emails/month compounds into a real list over a year.</p>
             </div>
           </li>
           <li>
@@ -1025,6 +1136,42 @@ BANNED WORDS AND PHRASES — never use these:
       </ol>
     </div>
   </div>
+  <!-- AEO: Visible FAQ — mirrors FAQPage JSON-LD for extraction by AI models -->
+  <section class="blog-faq">
+    <h2 class="blog-faq-title">Frequently asked questions</h2>
+    <div class="blog-faq-list">
+      <details class="faq-item">
+        <summary class="faq-question">Where do I start with digital marketing for my business?</summary>
+        <div class="faq-answer">
+          <p>Start with the foundation before channels. That means: a website that converts (loads fast, one clear call to action, works on mobile), Google Analytics with conversion tracking, and a Google Business Profile if you serve local customers. Without these three, any money spent on ads or SEO is wasted — you have no way to measure what works.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">How long does it take to see results from digital marketing?</summary>
+        <div class="faq-answer">
+          <p>Paid ads: 2 to 4 weeks for first results, 60 days to optimise. SEO: 3 to 6 months for meaningful organic traffic. Email: 3 months to build a useful list, 6 months for retention impact. Social media: 90 days for consistent reach, 6 months before it influences revenue. The mistake is expecting all channels to work at the same speed.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">How much should a small business spend on marketing?</summary>
+        <div class="faq-answer">
+          <p>A common benchmark is 7 to 10 percent of revenue for established businesses and 10 to 20 percent for growth-phase businesses. Starting from zero, the priority is spending enough on one channel to generate real data. 
+
+  <div class="related-and-cta">,500 per month on one channel consistently outperforms $500 per month across three.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Do I need to be on every social media platform?</summary>
+        <div class="faq-answer">
+          <p>No. Pick one platform where your customers actually spend time and do it well. A B2B business should be on LinkedIn. A visual consumer product should be on Instagram or TikTok. Being mediocre on five platforms is worse than being strong on one.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
 
   <div class="related-and-cta">
     <div class="related-section">

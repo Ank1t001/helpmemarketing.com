@@ -28,7 +28,7 @@
   "datePublished": "2026-04-30",
   "dateModified": "2026-04-30",
   "keywords": ["digital marketing mistakes", "marketing mistakes small business", "why is my marketing not working", "common marketing errors", "digital marketing failures"],
-  "author": {"@type": "Person", "name": "Ankit Kumar", "url": "https://helpmemarketing.com"},
+  "author": {"@type": "Person", "name": "Ankit Kumar", "jobTitle": "Founder", "worksFor": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"}, "url": "https://helpmemarketing.com/about"},
   "publisher": {"@type": "Organization", "name": "HelpMeMarketing", "url": "https://helpmemarketing.com"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://helpmemarketing.com/blog/marketing-mistakes"}
 }
@@ -604,6 +604,70 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* AEO: FAQ section */
+.blog-faq {
+  max-width: 720px;
+  margin: 64px auto 0;
+  padding: 0 32px;
+}
+.blog-faq-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding: 0;
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 18px 40px 18px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--accent-blue);
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+details[open] .faq-question::after {
+  content: "\D7";
+}
+.faq-answer {
+  padding: 0 0 18px;
+}
+.faq-answer p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+.table-source {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+  font-style: italic;
+}
 </style>
 
 <!--
@@ -657,6 +721,53 @@ BANNED WORDS AND PHRASES — never use these:
 - touch base, circle back, move the needle
 - synergy, ecosystem (in a marketing context)
 -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to audit your marketing for common mistakes",
+  "description": "A six-question audit to spot the most common marketing mistakes in your account.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Can you name the cost per customer for…",
+      "text": "Can you name the cost per customer for each channel right now without looking it up?"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Is any ad creative more than 6 weeks…",
+      "text": "Is any ad creative more than 6 weeks old?"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Are you sending paid traffic to your homepage",
+      "text": "Are you sending paid traffic to your homepage?"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Have you changed strategy in the last 60…",
+      "text": "Have you changed strategy in the last 60 days without enough data?"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Can you trace your last 10 customers to…",
+      "text": "Can you trace your last 10 customers to the channel that generated them?"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Has your agency shown lead or revenue improvement…",
+      "text": "Has your agency shown lead or revenue improvement in the last 90 days?"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -808,7 +919,7 @@ BANNED WORDS AND PHRASES — never use these:
             <div class="lever-icon green">&#127912;</div>
             <div class="lever-content">
               <h4>3. Not refreshing creative</h4>
-              <p>Same ad for 4 months &mdash; the most common paid media mistake. Ad fatigue is silent. CPMs rise, CTR falls, the account looks fine until results collapse. <strong>Fix:</strong> refresh at least one creative per channel per month. Test hooks first. <a href="/blog/meta-roas-attribution" style="color:var(--accent-blue);">Why your Meta ROAS is falling &rarr;</a></p>
+              <p>Same ad for 4 months &mdash; the most common paid media mistake (see <a href="https://www.wordstream.com/blog/ws/2016/02/29/facebook-advertising-benchmarks" target="_blank" rel="noopener">WordStream&rsquo;s ad benchmarks</a> on creative fatigue). Ad fatigue is silent. CPMs rise, CTR falls, the account looks fine until results collapse. <strong>Fix:</strong> refresh at least one creative per channel per month. Test hooks first. <a href="/blog/meta-roas-attribution" style="color:var(--accent-blue);">Why your Meta ROAS is falling &rarr;</a></p>
             </div>
           </li>
           <li>
@@ -829,7 +940,7 @@ BANNED WORDS AND PHRASES — never use these:
             <div class="lever-icon purple">&#128269;</div>
             <div class="lever-content">
               <h4>6. No attribution setup</h4>
-              <p>Most businesses cannot tell you which channel generated their last 10 customers. Budget gets allocated by gut feel &mdash; the loudest channel wins, not the most effective one. <strong>Fix:</strong> set up a single source of truth in GA4. Every channel reports leads and revenue &mdash; not just traffic.</p>
+              <p>Most businesses cannot tell you which channel generated their last 10 customers (a pattern <a href="https://www.hubspot.com/marketing-statistics" target="_blank" rel="noopener">HubSpot&rsquo;s marketing research</a> documents repeatedly). Budget gets allocated by gut feel &mdash; the loudest channel wins, not the most effective one. <strong>Fix:</strong> set up a single source of truth in GA4. Every channel reports leads and revenue &mdash; not just traffic.</p>
             </div>
           </li>
           <li>
@@ -993,6 +1104,8 @@ BANNED WORDS AND PHRASES — never use these:
         </table>
         <p style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;">Based on HelpMeMarketing audits across 180+ brand engagements, 2024&ndash;2026.</p>
 
+        <p class="table-source">Source: HelpMeMarketing client data across 180+ brand engagements, 2024&ndash;2026. Results vary by industry, budget, and market conditions.</p>
+
         <div class="channel-cta">
           <h4>Want to know which of these are in your account right now?</h4>
           <p>We audit marketing setups free. 45 minutes and you know exactly what to fix first.</p>
@@ -1041,6 +1154,40 @@ BANNED WORDS AND PHRASES — never use these:
       </ol>
     </div>
   </div>
+  <!-- AEO: Visible FAQ — mirrors FAQPage JSON-LD for extraction by AI models -->
+  <section class="blog-faq">
+    <h2 class="blog-faq-title">Frequently asked questions</h2>
+    <div class="blog-faq-list">
+      <details class="faq-item">
+        <summary class="faq-question">Why is my digital marketing not working?</summary>
+        <div class="faq-answer">
+          <p>The most common reasons: tracking that does not connect activity to revenue, budget spread too thin across too many channels, creative not refreshed in months, and a landing page that does not match the ad. Most businesses that feel like their marketing is not working are running all four problems simultaneously.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">What is the biggest digital marketing mistake businesses make?</summary>
+        <div class="faq-answer">
+          <p>Tracking vanity metrics instead of revenue metrics. Businesses optimise for impressions, followers, likes because those numbers are easy to find. Cost per lead, cost per customer, revenue by channel require setup to track. Most businesses never do the setup and spend years optimising the wrong things.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">How much should I spend on digital marketing?</summary>
+        <div class="faq-answer">
+          <p>Most growing businesses spend 7 to 12 percent of revenue on marketing. Early-stage businesses acquiring first customers often spend 15 to 20 percent until they find what works. The more important number is cost per customer — if that is lower than customer value, spend level is secondary.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">How long should I give a marketing channel before deciding it does not work?</summary>
+        <div class="faq-answer">
+          <p>Paid ads need 60 days minimum before major changes. SEO needs 6 months before judging performance. Social media needs 90 days. The most common mistake is changing strategy every 3 to 4 weeks based on incomplete data. Consistency beats cleverness in marketing.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
 
   <div class="related-and-cta">
     <div class="related-section">
