@@ -29,8 +29,12 @@
     { "source": "/reputation.html", "destination": "/reviews-reputation",     "permanent": true },
     { "source": "/brand",      "destination": "/brand-content",               "permanent": true },
     { "source": "/brand.html", "destination": "/brand-content",               "permanent": true },
-    { "source": "/hipaa-checklist",      "destination": "/_healthcare/hipaa-checklist", "permanent": true },
-    { "source": "/hipaa-checklist.html", "destination": "/_healthcare/hipaa-checklist", "permanent": true }
+    { "source": "/hipaa-checklist",      "destination": "/industries/healthcare/hipaa-checklist", "permanent": true },
+    { "source": "/hipaa-checklist.html", "destination": "/industries/healthcare/hipaa-checklist", "permanent": true },
+    { "source": "/_healthcare/healthcare-seo.html",  "destination": "/industries/healthcare",                       "permanent": true },
+    { "source": "/_healthcare/case-studies.html",    "destination": "/industries/healthcare#case-studies",          "permanent": true },
+    { "source": "/_healthcare/hipaa-checklist.html", "destination": "/industries/healthcare/hipaa-checklist",       "permanent": true },
+    { "source": "/_healthcare/ad-calculator.html",   "destination": "/ad-calculator",                                "permanent": true }
   ],
   "headers": [
     {
