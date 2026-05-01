@@ -31,10 +31,10 @@
     { "source": "/brand.html", "destination": "/brand-content",               "permanent": true },
     { "source": "/hipaa-checklist",      "destination": "/industries/healthcare/hipaa-checklist", "permanent": true },
     { "source": "/hipaa-checklist.html", "destination": "/industries/healthcare/hipaa-checklist", "permanent": true },
-    { "source": "/_healthcare/healthcare-seo.html",  "destination": "/industries/healthcare",                       "permanent": true },
-    { "source": "/_healthcare/case-studies.html",    "destination": "/industries/healthcare#case-studies",          "permanent": true },
-    { "source": "/_healthcare/hipaa-checklist.html", "destination": "/industries/healthcare/hipaa-checklist",       "permanent": true },
-    { "source": "/_healthcare/ad-calculator.html",   "destination": "/ad-calculator",                                "permanent": true }
+    { "source": "/_healthcare/healthcare-seo",  "destination": "/industries/healthcare",                 "permanent": true },
+    { "source": "/_healthcare/case-studies",    "destination": "/industries/healthcare#case-studies",    "permanent": true },
+    { "source": "/_healthcare/hipaa-checklist", "destination": "/industries/healthcare/hipaa-checklist", "permanent": true },
+    { "source": "/_healthcare/ad-calculator",   "destination": "/ad-calculator",                          "permanent": true }
   ],
   "headers": [
     {
