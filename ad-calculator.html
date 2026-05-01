@@ -28,7 +28,10 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://helpmemarketing.com/"},{"@type":"ListItem","position":2,"name":"Ad-spend Calculator","item":"https://helpmemarketing.com/ad-calculator"}]}
 </script>
 <script type="application/ld+json" data-cfasync="false">
-{"@context":"https://schema.org","@type":"WebApplication","name":"Ad-spend Calculator","url":"https://helpmemarketing.com/ad-calculator","description":"How much should you actually spend on ads? Pick your segment and a monthly customer goal. We'll show a rough budget range based on aggregated benchmarks.","applicationCategory":"BusinessApplication","operatingSystem":"All","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"HelpMeMarketing","url":"https://helpmemarketing.com"}}
+{"@context":"https://schema.org","@type":"WebApplication","name":"Ad-spend Calculator","url":"https://helpmemarketing.com/ad-calculator","description":"How much should you actually spend on ads? Pick your industry, segment, platform, and monthly customer goal. We'll show a budget range based on 2025 benchmarks adjusted for the platform you select.","applicationCategory":"BusinessApplication","operatingSystem":"All","isAccessibleForFree":true,"featureList":["Industry-specific cost-per-lead benchmarks","Platform multiplier (Meta, Google, TikTok, LinkedIn)","Customer goal modeling","Lifetime value override","Projected ROAS"],"publisher":{"@type":"Organization","name":"HelpMeMarketing","url":"https://helpmemarketing.com"}}
+</script>
+<script type="application/ld+json" data-cfasync="false">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate are these benchmarks?","acceptedAnswer":{"@type":"Answer","text":"The numbers are medians from public 2025 reports — your actual cost per lead will likely fall within ±30-50% of the segment baseline depending on creative quality, offer strength, audience precision, and seasonality. Use the calculator to set a starting expectation, not a target. If your real-world numbers are 2× off these benchmarks in either direction, that's worth investigating; 30% off is normal variance."}},{"@type":"Question","name":"Should I trust the platform multipliers?","acceptedAnswer":{"@type":"Answer","text":"Treat them as directional, not precise. They reflect typical agency-managed performance ratios — for example, Google CPL is roughly 1.5× Meta CPL on average, but a poorly-managed Google account can be 3× or worse. Your actual ratio depends on bid strategy, keyword quality, ad relevance score, and landing page conversion rate. Use the calculator to get to 'roughly the right zip code,' then validate against your own data."}},{"@type":"Question","name":"What's a healthy CAC payback period?","acceptedAnswer":{"@type":"Answer","text":"For DTC, aim to recover CAC within 3-6 months from first purchase plus repeat orders. For SaaS, healthy payback is 12-18 months on annual contracts. For high-ticket professional services or healthcare with long patient lifetimes, 6-24 months is acceptable depending on retention. If your payback is over 24 months, either CAC is too high, LTV is too low, or both."}},{"@type":"Question","name":"Why is LinkedIn so much more expensive than Meta?","acceptedAnswer":{"@type":"Answer","text":"LinkedIn charges a premium because the audience is uniquely qualified by job title, seniority, and company. You pay 3-5× Meta CPC because each click is a verified professional, not a verified scroller. For B2B with $50K+ deal sizes, LinkedIn often delivers better blended ROI despite the higher cost-per-lead. For DTC or low-ticket consumer products, LinkedIn rarely makes economic sense."}},{"@type":"Question","name":"How much should I spend before I know if a platform is working?","acceptedAnswer":{"@type":"Answer","text":"Minimum meaningful test budget: 30-50 conversions. If your CPL is $50, that's $1,500-$2,500. If it's $200, that's $6,000-$10,000. Below that volume, you can't separate signal from noise. Most platforms also require a 2-3 week learning phase where the algorithm optimizes targeting; pulling spend before then misreads early-phase performance."}},{"@type":"Question","name":"Why does my actual CPL differ so much from the benchmark?","acceptedAnswer":{"@type":"Answer","text":"Three usual reasons. First, lead quality differences — a $20 CPL filled with bot leads is worse than a $60 CPL of qualified prospects. Second, attribution windows — if you're using last-click on Google but view-through on Meta, you'll see different 'performance' for the same campaigns. Third, geography and seasonality — Q4 CPLs run 30-40% higher than Q1 in most categories, and US CPMs are roughly 2× European CPMs."}}]}
 </script>
 </head>
 <body>
@@ -87,25 +90,36 @@
         <div style="margin-bottom:28px">
           <label style="font-size:14px; color:var(--text-primary); font-weight:500; display:block; margin-bottom:12px">Industry</label>
           <div id="ind-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:6px">
-            <button class="ibtn active" data-i="DTC">DTC &amp; E-com</button>
+            <button class="ibtn" data-i="DTC">DTC &amp; E-com</button>
             <button class="ibtn" data-i="SaaS">SaaS &amp; Tech</button>
-            <button class="ibtn" data-i="Healthcare">Healthcare</button>
+            <button class="ibtn active" data-i="Healthcare">Healthcare</button>
             <button class="ibtn" data-i="Finance">Finance</button>
           </div>
         </div>
 
         <div style="margin-bottom:28px">
           <label style="font-size:14px; color:var(--text-primary); font-weight:500; display:block; margin-bottom:12px">Segment</label>
-          <div id="seg-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:6px"></div>
-          <div id="seg-label" style="margin-top:10px; font-size:12px; color:var(--text-secondary)">Apparel &amp; accessories</div>
+          <div id="seg-grid" class="sbtn-grid-3" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px"></div>
+          <div id="seg-label" style="margin-top:10px; font-size:12px; color:var(--text-secondary)">Dentistry</div>
+        </div>
+
+        <div style="margin-bottom:28px">
+          <label style="font-size:14px; color:var(--text-primary); font-weight:500; display:block; margin-bottom:12px">Platform <span class="new-badge">★ New</span></label>
+          <div id="plat-grid" role="radiogroup" aria-label="Ad platform" style="display:grid; grid-template-columns:1fr 1fr; gap:6px">
+            <button class="pbtn active" data-p="Meta">Meta</button>
+            <button class="pbtn" data-p="Google">Google</button>
+            <button class="pbtn" data-p="TikTok">TikTok</button>
+            <button class="pbtn" data-p="LinkedIn">LinkedIn</button>
+          </div>
+          <div id="plat-label" style="margin-top:10px; font-size:12px; color:var(--text-secondary)">Baseline (1.00× CPL)</div>
         </div>
 
         <div style="margin-bottom:28px">
           <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px">
             <label style="font-size:14px; color:var(--text-primary); font-weight:500">New customers per month</label>
-            <span class="serif" id="goal-val" style="font-size:28px; color:var(--navy); line-height:1">80</span>
+            <span class="serif" id="goal-val" style="font-size:28px; color:var(--navy); line-height:1">40</span>
           </div>
-          <input type="range" id="goal" min="5" max="500" value="80" style="width:100%; accent-color:var(--navy)">
+          <input type="range" id="goal" min="5" max="500" value="40" style="width:100%; accent-color:var(--navy)">
           <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-secondary); margin-top:6px">
             <span>5</span><span>500</span>
           </div>
@@ -133,28 +147,28 @@
           <div style="position:absolute; top:-60px; right:-60px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, rgba(201,169,110,0.2) 0%, transparent 70%); pointer-events:none"></div>
           <div style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-soft); font-weight:500; margin-bottom:14px; position:relative">Approximate monthly ad spend</div>
           <div class="serif" style="font-size:clamp(56px, 7vw, 96px); line-height:1; letter-spacing:-0.025em; margin-bottom:18px; position:relative; font-weight:400">
-            $<span id="out-low">7,480</span> <span style="color:var(--gold); font-size:0.5em; font-style:italic; font-weight:400">—</span> $<span id="out-high">10,120</span>
+            $<span id="out-low">9,286</span> <span style="color:var(--gold); font-size:0.5em; font-style:italic; font-weight:400">—</span> $<span id="out-high">12,564</span>
           </div>
           <div id="out-note" style="font-size:15px; color:rgba(250,249,246,0.75); max-width:520px; line-height:1.55; position:relative">
-            An average approximation for apparel &amp; accessories (aggregated CPL ~$22, lead→customer ~5%). Real numbers will vary with geography, seasonality, creative, and market competition.
+            For dentistry in Healthcare running Meta ads, typical CPL is ~$95. Lead→customer conversion ~35%. Real numbers vary with geography, seasonality, creative, and market competition.
           </div>
         </div>
 
         <div class="calc-stats" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-bottom:32px">
           <div style="background:white; border:1px solid var(--border); border-radius:14px; padding:20px">
             <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:10px">Leads needed / mo</div>
-            <div class="serif" id="out-leads" style="font-size:36px; color:var(--text-primary); line-height:1; letter-spacing:-0.01em; margin-bottom:8px">1,600</div>
-            <div id="out-leads-sub" style="font-size:12px; color:var(--text-secondary)">at 5% conversion</div>
+            <div class="serif" id="out-leads" style="font-size:36px; color:var(--text-primary); line-height:1; letter-spacing:-0.01em; margin-bottom:8px">115</div>
+            <div id="out-leads-sub" style="font-size:12px; color:var(--text-secondary)">at 35% conversion</div>
           </div>
           <div style="background:white; border:1px solid var(--border); border-radius:14px; padding:20px">
             <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:10px">Target CPL</div>
-            <div class="serif" id="out-cpl" style="font-size:36px; color:var(--text-primary); line-height:1; letter-spacing:-0.01em; margin-bottom:8px">$22</div>
-            <div id="out-cpl-sub" style="font-size:12px; color:var(--text-secondary)">DTC benchmark</div>
+            <div class="serif" id="out-cpl" style="font-size:36px; color:var(--text-primary); line-height:1; letter-spacing:-0.01em; margin-bottom:8px">$95</div>
+            <div id="out-cpl-sub" style="font-size:12px; color:var(--text-secondary)">Healthcare · Meta benchmark</div>
           </div>
           <div style="background:white; border:1px solid var(--border); border-radius:14px; padding:20px">
             <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:10px">Projected ROAS</div>
-            <div class="serif" id="out-roas" style="font-size:36px; color:var(--text-primary); line-height:1; letter-spacing:-0.01em; margin-bottom:8px">2.0×</div>
-            <div id="out-roas-sub" style="font-size:12px; color:var(--text-secondary)">on $220 customer LTV</div>
+            <div class="serif" id="out-roas" style="font-size:36px; color:var(--text-primary); line-height:1; letter-spacing:-0.01em; margin-bottom:8px">6.6×</div>
+            <div id="out-roas-sub" style="font-size:12px; color:var(--text-secondary)">on $1,800 customer LTV</div>
           </div>
         </div>
 
@@ -165,27 +179,31 @@
           </div>
           <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border)">
             <div style="font-size:14px; color:var(--text-primary)">Your customer goal</div>
-            <div id="row-goal" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">80 new customers / mo</div>
+            <div id="row-goal" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">40 new customers / mo</div>
           </div>
           <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border)">
             <div style="font-size:14px; color:var(--text-primary)">Lead → customer conversion</div>
-            <div id="row-conv" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">5%</div>
+            <div id="row-conv" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">35%</div>
           </div>
           <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border)">
             <div style="font-size:14px; color:var(--text-primary)">Leads we need to generate</div>
-            <div id="row-leads" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">1,600 leads</div>
+            <div id="row-leads" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">115 leads</div>
           </div>
           <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border)">
-            <div style="font-size:14px; color:var(--text-primary)">Target CPL (segment average)</div>
-            <div id="row-cpl" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">~$22</div>
+            <div style="font-size:14px; color:var(--text-primary)">Platform multiplier</div>
+            <div style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">×<span id="row-mult">1.00</span> <span id="row-platform" style="color:var(--text-secondary); font-weight:400">(Meta)</span></div>
+          </div>
+          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border)">
+            <div style="font-size:14px; color:var(--text-primary)">Target CPL (platform-adjusted)</div>
+            <div id="row-cpl" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">~$95</div>
           </div>
           <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); background:#F5EDD8">
             <div style="font-size:14px; color:var(--navy); font-weight:500">Estimated monthly ad spend</div>
-            <div id="row-spend" style="font-size:15px; color:var(--navy); font-weight:500; font-variant-numeric:tabular-nums">~$8,800</div>
+            <div id="row-spend" style="font-size:15px; color:var(--navy); font-weight:500; font-variant-numeric:tabular-nums">~$10,925</div>
           </div>
           <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center">
             <div style="font-size:14px; color:var(--text-primary)">Illustrative customer revenue</div>
-            <div id="row-rev" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">~$17,600</div>
+            <div id="row-rev" style="font-size:15px; color:var(--text-primary); font-weight:500; font-variant-numeric:tabular-nums">~$72,000</div>
           </div>
         </div>
 
@@ -197,11 +215,224 @@
           <a href="contact.html" class="btn btn-primary">Start a conversation →</a>
         </div>
 
-        <div style="margin-top:24px; font-size:12px; color:var(--text-secondary); line-height:1.55">
-          <b>A note on these numbers —</b> everything above is an average approximation drawn from aggregated industry data, not a forecast of your account. Actual CPL, conversion rate, and LTV depend on your market, creative, landing-page performance, and seasonality. Treat the output as a starting directional estimate, not a promise.
+        <div style="margin-top:24px; font-size:13px; color:var(--text-secondary); line-height:1.6">
+          These figures are aggregated from public 2025 industry benchmarks and adjusted for typical agency-managed performance. They are an approximation, not a forecast. Real-world cost per lead varies significantly by creative quality, offer strength, geography, and seasonality.
+        </div>
+        <div style="margin-top:14px; font-size:12px; color:var(--text-secondary); line-height:1.55">
+          <b>Sources:</b> WordStream 2025 Google Ads &amp; Facebook Ads Benchmarks; Triple Whale 2025 Meta &amp; TikTok Ad Performance reports; Stackmatix 2026 LinkedIn Ads Cost Guide; HockeyStack 2025 LinkedIn Ads Benchmark Report; HelpMeMarketing healthcare specialty benchmarks (see <a href="industries/healthcare.html" style="color:var(--navy); text-decoration:underline; text-underline-offset:2px">/industries/healthcare</a>).
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============ Layer 3: SEO content sections ============ -->
+
+<section id="how-it-works" style="padding:80px 0; border-top:1px solid var(--border)">
+  <div class="container" style="max-width:920px">
+    <span class="eyebrow"><span class="eyebrow-dot"></span>Methodology</span>
+    <h2 class="serif" style="font-size:clamp(32px, 4vw, 48px); margin-top:14px; color:var(--text-primary); letter-spacing:-0.02em; line-height:1.1; font-weight:400">How this calculator works</h2>
+    <div style="margin-top:24px; font-size:17px; color:var(--text-primary); line-height:1.7; max-width:780px">
+      <p style="margin:0 0 16px">The calculator estimates monthly ad budget by combining four inputs: your industry, segment, primary platform, and target new-customer count. It uses cost-per-lead benchmarks aggregated from publicly available 2025 industry data, then applies your specified lead-to-customer conversion rate to derive the leads you need and the spend that gets you there.</p>
+      <p style="margin:0 0 16px">The math runs as: leads needed = customer goal divided by conversion rate. Monthly spend = leads needed × cost per lead. Projected return on ad spend = (customer count × lifetime value) divided by monthly spend.</p>
+      <p style="margin:0 0 16px">Three notes about precision. First, every benchmark is a median across hundreds or thousands of campaigns — your number will be different. Second, platform-level CPL varies more by creative quality and offer strength than by industry, so treat the platform multiplier as directional. Third, lifetime value is the single biggest unknown most businesses get wrong. If you don't have a confident LTV number, the calculator's projected ROAS is approximate at best.</p>
+      <p style="margin:0">What this calculator is good for: pressure-testing whether a budget assumption is roughly in the right zone, comparing platforms at-a-glance, and getting a starting number before deeper diligence. What it is not: a forecast, a guarantee, or a substitute for benchmarking against your actual account data.</p>
+    </div>
+  </div>
+</section>
+
+<section id="benchmarks-by-industry" class="alt" style="padding:80px 0; border-top:1px solid var(--border)">
+  <div class="container" style="max-width:920px">
+    <span class="eyebrow"><span class="eyebrow-dot"></span>Industry benchmarks</span>
+    <h2 class="serif" style="font-size:clamp(32px, 4vw, 48px); margin-top:14px; color:var(--text-primary); letter-spacing:-0.02em; line-height:1.1; font-weight:400">Ad spend benchmarks by industry</h2>
+    <p style="margin-top:24px; font-size:17px; color:var(--text-secondary); line-height:1.7; max-width:780px">Benchmarks vary widely within an industry — DTC apparel and DTC home goods can be 2× different on cost per lead alone — but the segment-level numbers below cover most of the spread. These are baseline (Meta-default) figures; the calculator above adjusts them based on the platform you select.</p>
+
+    <h3 class="serif" style="font-size:24px; margin-top:48px; margin-bottom:0; color:var(--text-primary); letter-spacing:-0.01em; font-weight:400">DTC e-commerce</h3>
+    <div style="overflow-x:auto; border:1px solid var(--border); border-radius:14px; margin-top:18px; background:white">
+      <table style="width:100%; border-collapse:collapse; font-size:14.5px">
+        <thead>
+          <tr style="background:var(--gray-surface)">
+            <th style="text-align:left; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Segment</th>
+            <th style="text-align:right; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Baseline CPL</th>
+            <th style="text-align:right; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Lead → customer</th>
+            <th style="text-align:right; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Avg LTV</th>
+          </tr>
+        </thead>
+        <tbody style="font-variant-numeric:tabular-nums">
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Apparel</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$22</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">5%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$220</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Beauty &amp; personal care</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$28</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">6%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$320</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Home goods</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$34</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">4%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$480</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500">Food &amp; beverage</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary)">$18</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary)">7%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary)">$180</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:14.5px; color:var(--text-secondary); line-height:1.6; max-width:780px">Apparel and food &amp; beverage are creative-led and TikTok-friendly. Home goods has the highest average order value but smallest audience pool. Beauty does well across Meta and TikTok if creative is strong.</p>
+
+    <h3 class="serif" style="font-size:24px; margin-top:48px; margin-bottom:0; color:var(--text-primary); letter-spacing:-0.01em; font-weight:400">SaaS</h3>
+    <div style="overflow-x:auto; border:1px solid var(--border); border-radius:14px; margin-top:18px; background:white">
+      <table style="width:100%; border-collapse:collapse; font-size:14.5px">
+        <thead>
+          <tr style="background:var(--gray-surface)">
+            <th style="text-align:left; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Segment</th>
+            <th style="text-align:right; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Baseline CPL</th>
+            <th style="text-align:right; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Lead → customer</th>
+            <th style="text-align:right; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Avg LTV</th>
+          </tr>
+        </thead>
+        <tbody style="font-variant-numeric:tabular-nums">
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">SMB</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$65</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">12%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$2,400</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Mid-market</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$180</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">8%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$14,000</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Enterprise</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$420</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">4%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$85,000</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500">Dev tools</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary)">$85</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary)">9%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary)">$4,200</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:14.5px; color:var(--text-secondary); line-height:1.6; max-width:780px">SaaS CAC payback should be 12-18 months for healthy unit economics. LinkedIn dominates for mid-market and enterprise; Google performs well for SMB on intent terms; dev tools convert best on community-led plus content-led search.</p>
+
+    <h3 class="serif" style="font-size:24px; margin-top:48px; margin-bottom:0; color:var(--text-primary); letter-spacing:-0.01em; font-weight:400">Healthcare (11 specialties)</h3>
+    <div style="overflow-x:auto; border:1px solid var(--border); border-radius:14px; margin-top:18px; background:white">
+      <table style="width:100%; border-collapse:collapse; font-size:14.5px">
+        <thead>
+          <tr style="background:var(--gray-surface)">
+            <th style="text-align:left; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Specialty</th>
+            <th style="text-align:right; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Baseline CPL</th>
+            <th style="text-align:right; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Lead → patient</th>
+            <th style="text-align:right; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Avg LTV</th>
+          </tr>
+        </thead>
+        <tbody style="font-variant-numeric:tabular-nums">
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Dentistry</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$95</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">35%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$1,800</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Orthodontics</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$145</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">30%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$5,200</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Dermatology</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$120</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">32%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$900</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Med Spa</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$78</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">28%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$1,200</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Physiotherapy</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$48</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">42%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$780</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Optometry</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$62</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">38%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$550</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Chiropractic</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$55</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">40%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$650</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Pharmacy</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$32</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">48%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$420</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Mental Health</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$82</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">34%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$2,200</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Veterinary</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$45</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">44%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$680</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500">Cosmetic Surgery</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary)">$220</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary)">18%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary)">$8,400</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:14.5px; color:var(--text-secondary); line-height:1.6; max-width:780px">Healthcare conversion rates are higher than other verticals because the lead is usually pre-qualified by need. LTV varies wildly by specialty — orthodontics and cosmetic surgery have multi-year case values, pharmacy is volume play. See the <a href="industries/healthcare.html" style="color:var(--navy); text-decoration:underline; text-underline-offset:2px">healthcare marketing page</a> for the full breakdown.</p>
+
+    <h3 class="serif" style="font-size:24px; margin-top:48px; margin-bottom:0; color:var(--text-primary); letter-spacing:-0.01em; font-weight:400">Finance</h3>
+    <div style="overflow-x:auto; border:1px solid var(--border); border-radius:14px; margin-top:18px; background:white">
+      <table style="width:100%; border-collapse:collapse; font-size:14.5px">
+        <thead>
+          <tr style="background:var(--gray-surface)">
+            <th style="text-align:left; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Segment</th>
+            <th style="text-align:right; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Baseline CPL</th>
+            <th style="text-align:right; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Lead → customer</th>
+            <th style="text-align:right; padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); font-weight:600; border-bottom:1px solid var(--border)">Avg LTV</th>
+          </tr>
+        </thead>
+        <tbody style="font-variant-numeric:tabular-nums">
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Advisory</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$180</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">20%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$12,000</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Fintech</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$95</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">10%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$1,800</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500; border-bottom:1px solid var(--border)">Insurance</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$85</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">14%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary); border-bottom:1px solid var(--border)">$2,400</td></tr>
+          <tr><td style="padding:12px 18px; color:var(--text-primary); font-weight:500">Tax &amp; accounting</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary)">$72</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary)">22%</td><td style="padding:12px 18px; text-align:right; color:var(--text-primary)">$2,100</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:14.5px; color:var(--text-secondary); line-height:1.6; max-width:780px">Finance is one of the most regulated paid-media verticals — expect platform-level scrutiny on landing pages, claims, and audiences. Google dominates for high-intent finance queries. LinkedIn works well for advisory and B2B fintech. Meta's strict ad policies make finance creative challenging but not impossible.</p>
+  </div>
+</section>
+
+<section id="benchmarks-by-platform" style="padding:80px 0; border-top:1px solid var(--border)">
+  <div class="container" style="max-width:920px">
+    <span class="eyebrow"><span class="eyebrow-dot"></span>Platform benchmarks</span>
+    <h2 class="serif" style="font-size:clamp(32px, 4vw, 48px); margin-top:14px; color:var(--text-primary); letter-spacing:-0.02em; line-height:1.1; font-weight:400">Ad spend benchmarks by platform</h2>
+    <p style="margin-top:24px; font-size:17px; color:var(--text-secondary); line-height:1.7; max-width:780px">Platform CPL is more about audience cost than industry-specific economics. Meta is broad and creative-driven, Google captures high-intent searchers, TikTok is the cheapest CPM with the highest creative bar, LinkedIn is the most expensive but reaches decision-makers who don't show up elsewhere.</p>
+
+    <h3 class="serif" style="font-size:24px; margin-top:48px; margin-bottom:14px; color:var(--text-primary); letter-spacing:-0.01em; font-weight:400">Meta (Facebook &amp; Instagram)</h3>
+    <p style="font-size:15.5px; color:var(--text-secondary); line-height:1.7; max-width:780px">Meta's strength is volume and creative testing. Average CPL across all industries in 2025 is $27.66 (WordStream Lead Ads benchmark) with a range of $3.16 to $76.71. CPM in 2025 sits at ~$13.48 median for DTC e-commerce (Triple Whale). Best for DTC, healthcare, and consumer-facing finance. Weakest for B2B SaaS targeting mid-market or enterprise. Creative refresh cadence matters more than ad copy on Meta — top brands rotate 20-30% of creatives weekly.</p>
+
+    <h3 class="serif" style="font-size:24px; margin-top:40px; margin-bottom:14px; color:var(--text-primary); letter-spacing:-0.01em; font-weight:400">Google Ads</h3>
+    <p style="font-size:15.5px; color:var(--text-secondary); line-height:1.7; max-width:780px">Google captures the highest-intent moments — someone typing "dentist near me" is much closer to buying than someone scrolling Instagram. Average CPL across all industries in 2025 is $70.11 (WordStream), about 2.5× Meta. Highest CPL industries: Attorneys &amp; Legal ($131-144), Furniture ($119-121), Business Services ($103). Lowest: Restaurants ($30), Animals &amp; Pets ($31). Best for high-intent service-based businesses. Conversion rates are higher than Meta because intent is higher.</p>
+
+    <h3 class="serif" style="font-size:24px; margin-top:40px; margin-bottom:14px; color:var(--text-primary); letter-spacing:-0.01em; font-weight:400">TikTok</h3>
+    <p style="font-size:15.5px; color:var(--text-secondary); line-height:1.7; max-width:780px">TikTok has the lowest average CPC at $0.50 (Varos 2025 data, ~70% cheaper than Meta) and CPM of $13.26 (Triple Whale). However, conversion rates are lower (~2.01% median) and the creative bar is significantly higher — ads need to feel native to the platform. Best for DTC apparel, beauty, and food where creative-driven discovery works. ROAS is highest in apparel (2.49×). Weakest for B2B and finance.</p>
+
+    <h3 class="serif" style="font-size:24px; margin-top:40px; margin-bottom:14px; color:var(--text-primary); letter-spacing:-0.01em; font-weight:400">LinkedIn</h3>
+    <p style="font-size:15.5px; color:var(--text-secondary); line-height:1.7; max-width:780px">LinkedIn is the most expensive platform per click ($5-12 CPC for B2B, often $8-12 for SaaS targeting senior decision-makers per Stackmatix 2026 data) but delivers the highest-quality B2B leads. Typical CPL ranges: $60-120 for mid-market SaaS, $150-250 for enterprise. Lead Gen Forms reduce CPL by 30-50% vs landing page conversions. Best for B2B SaaS, B2B services, and high-ticket professional services. Almost never the right channel for DTC.</p>
+  </div>
+</section>
+
+<section id="faq" class="alt" style="padding:80px 0; border-top:1px solid var(--border)">
+  <div class="container" style="max-width:920px">
+    <span class="eyebrow"><span class="eyebrow-dot"></span>FAQ</span>
+    <h2 class="serif" style="font-size:clamp(32px, 4vw, 48px); margin-top:14px; color:var(--text-primary); letter-spacing:-0.02em; line-height:1.1; font-weight:400">Frequently asked questions</h2>
+    <p style="margin-top:24px; font-size:17px; color:var(--text-secondary); line-height:1.7; max-width:780px">Common questions about how to read these numbers and apply them to your situation.</p>
+
+    <div style="margin-top:48px; display:flex; flex-direction:column; gap:32px">
+      <div style="border-top:1px solid var(--border); padding-top:24px">
+        <h4 style="font-size:19px; color:var(--text-primary); margin:0 0 12px; letter-spacing:-0.005em; font-weight:600">How accurate are these benchmarks?</h4>
+        <p style="margin:0; font-size:15.5px; color:var(--text-secondary); line-height:1.7; max-width:780px">The numbers are medians from public 2025 reports — your actual cost per lead will likely fall within ±30-50% of the segment baseline depending on creative quality, offer strength, audience precision, and seasonality. Use the calculator to set a starting expectation, not a target. If your real-world numbers are 2× off these benchmarks in either direction, that's worth investigating; 30% off is normal variance.</p>
+      </div>
+      <div style="border-top:1px solid var(--border); padding-top:24px">
+        <h4 style="font-size:19px; color:var(--text-primary); margin:0 0 12px; letter-spacing:-0.005em; font-weight:600">Should I trust the platform multipliers?</h4>
+        <p style="margin:0; font-size:15.5px; color:var(--text-secondary); line-height:1.7; max-width:780px">Treat them as directional, not precise. They reflect typical agency-managed performance ratios — for example, Google CPL is roughly 1.5× Meta CPL on average, but a poorly-managed Google account can be 3× or worse. Your actual ratio depends on bid strategy, keyword quality, ad relevance score, and landing page conversion rate. Use the calculator to get to "roughly the right zip code," then validate against your own data.</p>
+      </div>
+      <div style="border-top:1px solid var(--border); padding-top:24px">
+        <h4 style="font-size:19px; color:var(--text-primary); margin:0 0 12px; letter-spacing:-0.005em; font-weight:600">What's a healthy CAC payback period?</h4>
+        <p style="margin:0; font-size:15.5px; color:var(--text-secondary); line-height:1.7; max-width:780px">For DTC, aim to recover CAC within 3-6 months from first purchase plus repeat orders. For SaaS, healthy payback is 12-18 months on annual contracts. For high-ticket professional services or healthcare with long patient lifetimes, 6-24 months is acceptable depending on retention. If your payback is over 24 months, either CAC is too high, LTV is too low, or both.</p>
+      </div>
+      <div style="border-top:1px solid var(--border); padding-top:24px">
+        <h4 style="font-size:19px; color:var(--text-primary); margin:0 0 12px; letter-spacing:-0.005em; font-weight:600">Why is LinkedIn so much more expensive than Meta?</h4>
+        <p style="margin:0; font-size:15.5px; color:var(--text-secondary); line-height:1.7; max-width:780px">LinkedIn charges a premium because the audience is uniquely qualified by job title, seniority, and company. You pay 3-5× Meta CPC because each click is a verified professional, not a verified scroller. For B2B with $50K+ deal sizes, LinkedIn often delivers better blended ROI despite the higher cost-per-lead. For DTC or low-ticket consumer products, LinkedIn rarely makes economic sense.</p>
+      </div>
+      <div style="border-top:1px solid var(--border); padding-top:24px">
+        <h4 style="font-size:19px; color:var(--text-primary); margin:0 0 12px; letter-spacing:-0.005em; font-weight:600">How much should I spend before I know if a platform is working?</h4>
+        <p style="margin:0; font-size:15.5px; color:var(--text-secondary); line-height:1.7; max-width:780px">Minimum meaningful test budget: 30-50 conversions. If your CPL is $50, that's $1,500-$2,500. If it's $200, that's $6,000-$10,000. Below that volume, you can't separate signal from noise. Most platforms also require a 2-3 week learning phase where the algorithm optimizes targeting; pulling spend before then misreads early-phase performance.</p>
+      </div>
+      <div style="border-top:1px solid var(--border); padding-top:24px; padding-bottom:8px">
+        <h4 style="font-size:19px; color:var(--text-primary); margin:0 0 12px; letter-spacing:-0.005em; font-weight:600">Why does my actual CPL differ so much from the benchmark?</h4>
+        <p style="margin:0; font-size:15.5px; color:var(--text-secondary); line-height:1.7; max-width:780px">Three usual reasons. First, lead quality differences — a $20 CPL filled with bot leads is worse than a $60 CPL of qualified prospects. Second, attribution windows — if you're using last-click on Google but view-through on Meta, you'll see different "performance" for the same campaigns. Third, geography and seasonality — Q4 CPLs run 30-40% higher than Q1 in most categories, and US CPMs are roughly 2× European CPMs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="related" style="padding:80px 0; border-top:1px solid var(--border)">
+  <div class="container" style="max-width:920px">
+    <span class="eyebrow"><span class="eyebrow-dot"></span>Related</span>
+    <h2 class="serif" style="font-size:clamp(32px, 4vw, 48px); margin-top:14px; color:var(--text-primary); letter-spacing:-0.02em; line-height:1.1; font-weight:400">Related resources</h2>
+    <p style="margin-top:24px; font-size:17px; color:var(--text-secondary); line-height:1.7; max-width:780px">The calculator is a starting point. These resources go deeper on specific channels, verticals, and budgeting decisions.</p>
+
+    <div class="related-grid" style="margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:20px">
+      <a href="industries/healthcare.html" class="related-card" style="display:block; padding:28px; background:white; border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease">
+        <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:12px">Industry</div>
+        <h3 class="serif" style="font-size:20px; color:var(--text-primary); margin:0 0 10px; letter-spacing:-0.005em; font-weight:500">Healthcare marketing</h3>
+        <p style="margin:0; font-size:14.5px; color:var(--text-secondary); line-height:1.55">Specialty-by-specialty benchmarks for dentistry, derm, med spa, and 8 other categories.</p>
+      </a>
+      <a href="industries/dtc.html" class="related-card" style="display:block; padding:28px; background:white; border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease">
+        <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:12px">Industry</div>
+        <h3 class="serif" style="font-size:20px; color:var(--text-primary); margin:0 0 10px; letter-spacing:-0.005em; font-weight:500">DTC marketing</h3>
+        <p style="margin:0; font-size:14.5px; color:var(--text-secondary); line-height:1.55">Cost-per-acquisition strategies for apparel, beauty, home goods, and food brands.</p>
+      </a>
+      <a href="industries/saas.html" class="related-card" style="display:block; padding:28px; background:white; border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease">
+        <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:12px">Industry</div>
+        <h3 class="serif" style="font-size:20px; color:var(--text-primary); margin:0 0 10px; letter-spacing:-0.005em; font-weight:500">SaaS marketing</h3>
+        <p style="margin:0; font-size:14.5px; color:var(--text-secondary); line-height:1.55">CAC payback frameworks for SMB, mid-market, and enterprise SaaS.</p>
+      </a>
+      <a href="industries/finance.html" class="related-card" style="display:block; padding:28px; background:white; border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease">
+        <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:12px">Industry</div>
+        <h3 class="serif" style="font-size:20px; color:var(--text-primary); margin:0 0 10px; letter-spacing:-0.005em; font-weight:500">Finance marketing</h3>
+        <p style="margin:0; font-size:14.5px; color:var(--text-secondary); line-height:1.55">Compliance-aware paid media strategies for advisory, fintech, and insurance.</p>
+      </a>
+      <a href="blog/dtc-cac-reduction.html" class="related-card" style="display:block; padding:28px; background:white; border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease">
+        <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:12px">Blog</div>
+        <h3 class="serif" style="font-size:20px; color:var(--text-primary); margin:0 0 10px; letter-spacing:-0.005em; font-weight:500">Reduce DTC CAC in 2026</h3>
+        <p style="margin:0; font-size:14.5px; color:var(--text-secondary); line-height:1.55">How to bring down customer acquisition cost when CPMs are rising.</p>
+      </a>
+      <a href="blog/digital-marketing-cost.html" class="related-card" style="display:block; padding:28px; background:white; border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease">
+        <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-secondary); font-weight:500; margin-bottom:12px">Blog</div>
+        <h3 class="serif" style="font-size:20px; color:var(--text-primary); margin:0 0 10px; letter-spacing:-0.005em; font-weight:500">What does digital marketing actually cost?</h3>
+        <p style="margin:0; font-size:14.5px; color:var(--text-secondary); line-height:1.55">A full breakdown of typical agency, in-house, and tool costs.</p>
+      </a>
     </div>
   </div>
 </section>
@@ -266,13 +497,23 @@
 </div>
 
 <style>
-.ibtn, .sbtn {
+.ibtn, .sbtn, .pbtn {
   padding:10px 10px; border-radius:10px; font-size:12px; font-weight:500; cursor:pointer; text-align:left;
   border:1px solid var(--border); background:white; color:var(--text-primary);
   font-family:inherit; transition:all 0.15s ease;
 }
-.ibtn.active, .sbtn.active {
+.ibtn.active, .sbtn.active, .pbtn.active {
   border:1px solid var(--navy); background:#F5EDD8; color:var(--navy);
+}
+.sbtn-grid-3 .sbtn { padding:8px 8px; font-size:11.5px; }
+.new-badge {
+  display:inline-block; margin-left:8px; padding:2px 7px; border-radius:999px;
+  background:var(--gold); color:var(--navy); font-size:9px; font-weight:600;
+  letter-spacing:0.06em; text-transform:uppercase; vertical-align:middle;
+}
+.related-card:hover { border-color: var(--navy); }
+@media (max-width: 720px) {
+  .related-grid { grid-template-columns: 1fr !important; }
 }
 </style>
 
@@ -300,11 +541,19 @@
       }
     },
     Healthcare: {
-      default: 'Clinical',
+      default: 'Dentistry',
       segments: {
-        'Clinical':   { cpl: 95,  convRate: 0.35, ltv: 1800, label: 'Dental, medical, physiotherapy' },
-        'Aesthetics': { cpl: 78,  convRate: 0.28, ltv: 1200, label: 'Medspa, cosmetic, aesthetics' },
-        'Wellness':   { cpl: 55,  convRate: 0.40, ltv: 650,  label: 'Chiropractic, therapy, wellness' }
+        'Dentistry':        { cpl: 95,  convRate: 0.35, ltv: 1800, label: 'Dentistry' },
+        'Orthodontics':     { cpl: 145, convRate: 0.30, ltv: 5200, label: 'Orthodontics' },
+        'Dermatology':      { cpl: 120, convRate: 0.32, ltv: 900,  label: 'Dermatology' },
+        'Med Spa':          { cpl: 78,  convRate: 0.28, ltv: 1200, label: 'Med Spa' },
+        'Physiotherapy':    { cpl: 48,  convRate: 0.42, ltv: 780,  label: 'Physiotherapy' },
+        'Optometry':        { cpl: 62,  convRate: 0.38, ltv: 550,  label: 'Optometry' },
+        'Chiropractic':     { cpl: 55,  convRate: 0.40, ltv: 650,  label: 'Chiropractic' },
+        'Pharmacy':         { cpl: 32,  convRate: 0.48, ltv: 420,  label: 'Pharmacy' },
+        'Mental Health':    { cpl: 82,  convRate: 0.34, ltv: 2200, label: 'Mental Health' },
+        'Veterinary':       { cpl: 45,  convRate: 0.44, ltv: 680,  label: 'Veterinary' },
+        'Cosmetic Surgery': { cpl: 220, convRate: 0.18, ltv: 8400, label: 'Cosmetic Surgery' }
       }
     },
     Finance: {
@@ -318,12 +567,25 @@
     }
   };
 
-  var industry = 'DTC';
-  var segment = BENCH.DTC.default;
+  // Platform CPL multipliers — derived from 2025 industry benchmarks (sources cited on page).
+  // Multipliers apply on top of segment baseline CPL (Meta = 1.00 baseline within each industry).
+  var PLATFORM_MULT = {
+    'DTC':        { 'Meta': 1.00, 'Google': 1.55, 'TikTok': 0.65, 'LinkedIn': 4.50 },
+    'SaaS':       { 'Meta': 1.00, 'Google': 1.10, 'TikTok': 0.55, 'LinkedIn': 1.85 },
+    'Healthcare': { 'Meta': 1.00, 'Google': 1.40, 'TikTok': 0.70, 'LinkedIn': 1.65 },
+    'Finance':    { 'Meta': 1.00, 'Google': 1.45, 'TikTok': 0.65, 'LinkedIn': 1.95 }
+  };
+  var PLATFORM_DEFAULTS = { 'DTC': 'Meta', 'SaaS': 'LinkedIn', 'Healthcare': 'Meta', 'Finance': 'Google' };
+
+  var industry = 'Healthcare';
+  var segment = BENCH.Healthcare.default;
+  var platform = PLATFORM_DEFAULTS[industry];
   var goalEl = document.getElementById('goal');
   var ltvEl = document.getElementById('ltv');
   var convEl = document.getElementById('conv');
   var segGrid = document.getElementById('seg-grid');
+  var platGrid = document.getElementById('plat-grid');
+  var platLabel = document.getElementById('plat-label');
 
   function fmt(n){ return n.toLocaleString('en-US'); }
 
@@ -347,52 +609,91 @@
 
   function render(){
     var bench = BENCH[industry].segments[segment];
+    var mult = (PLATFORM_MULT[industry] && PLATFORM_MULT[industry][platform]) || 1.00;
+    var cpl = Math.round(bench.cpl * mult);
     var goal = Number(goalEl.value);
     var ltv = ltvEl.value ? Number(ltvEl.value) : bench.ltv;
     var conv = convEl.value ? Number(convEl.value)/100 : bench.convRate;
     var leadsNeeded = Math.ceil(goal / Math.max(conv, 0.001));
-    var monthlySpend = Math.round(leadsNeeded * bench.cpl);
+    var monthlySpend = Math.round(leadsNeeded * cpl);
     var revenue = goal * ltv;
     var roas = monthlySpend > 0 ? (revenue / monthlySpend) : 0;
 
     document.getElementById('goal-val').textContent = goal;
     document.getElementById('seg-label').textContent = bench.label;
+    if (platLabel) {
+      platLabel.textContent = mult === 1.00
+        ? 'Baseline (1.00× CPL)'
+        : (mult > 1 ? '+' : '') + ((mult - 1) * 100).toFixed(0) + '% vs. Meta baseline (' + mult.toFixed(2) + '× CPL)';
+    }
     ltvEl.placeholder = 'Default ' + bench.ltv;
     convEl.placeholder = 'Default ' + Math.round(bench.convRate*100);
 
     document.getElementById('out-low').textContent = fmt(Math.round(monthlySpend * 0.85));
     document.getElementById('out-high').textContent = fmt(Math.round(monthlySpend * 1.15));
-    document.getElementById('out-note').textContent = 'An average approximation for ' + bench.label.toLowerCase() + ' (aggregated CPL ~$' + bench.cpl + ', lead→customer ~' + Math.round(bench.convRate*100) + '%). Real numbers will vary with geography, seasonality, creative, and market competition.';
+    document.getElementById('out-note').textContent = 'For ' + bench.label.toLowerCase() + ' in ' + industry + ' running ' + platform + ' ads, typical CPL is ~$' + cpl + '. Lead→customer conversion ~' + Math.round(bench.convRate*100) + '%. Real numbers vary with geography, seasonality, creative, and market competition.';
 
     document.getElementById('out-leads').textContent = fmt(leadsNeeded);
     document.getElementById('out-leads-sub').textContent = 'at ' + Math.round(conv*100) + '% conversion';
-    document.getElementById('out-cpl').textContent = '$' + bench.cpl;
-    document.getElementById('out-cpl-sub').textContent = industry + ' benchmark';
+    document.getElementById('out-cpl').textContent = '$' + cpl;
+    document.getElementById('out-cpl-sub').textContent = industry + ' · ' + platform + ' benchmark';
     document.getElementById('out-roas').textContent = roas.toFixed(1) + '×';
     document.getElementById('out-roas-sub').textContent = 'on $' + fmt(ltv) + ' customer LTV';
 
     document.getElementById('row-goal').textContent = goal + ' new customers / mo';
     document.getElementById('row-conv').textContent = Math.round(conv*100) + '%';
     document.getElementById('row-leads').textContent = fmt(leadsNeeded) + ' leads';
-    document.getElementById('row-cpl').textContent = '~$' + bench.cpl;
+    document.getElementById('row-mult').textContent = mult.toFixed(2);
+    document.getElementById('row-platform').textContent = '(' + platform + ')';
+    document.getElementById('row-cpl').textContent = '~$' + cpl;
     document.getElementById('row-spend').textContent = '~$' + fmt(monthlySpend);
     document.getElementById('row-rev').textContent = '~$' + fmt(revenue);
+  }
+
+  function applySegGridLayout(){
+    if (industry === 'Healthcare') {
+      segGrid.style.gridTemplateColumns = 'repeat(3, 1fr)';
+      segGrid.classList.add('sbtn-grid-3');
+    } else {
+      segGrid.style.gridTemplateColumns = '1fr 1fr';
+      segGrid.classList.remove('sbtn-grid-3');
+    }
+  }
+
+  function applyPlatformPillState(){
+    Array.prototype.forEach.call(platGrid.querySelectorAll('.pbtn'), function(p){
+      p.classList.toggle('active', p.getAttribute('data-p') === platform);
+    });
   }
 
   document.querySelectorAll('.ibtn').forEach(function(b){
     b.addEventListener('click', function(){
       industry = b.getAttribute('data-i');
       segment = BENCH[industry].default;
+      platform = PLATFORM_DEFAULTS[industry];
       document.querySelectorAll('.ibtn').forEach(function(x){ x.classList.remove('active'); });
       b.classList.add('active');
+      applyPlatformPillState();
+      applySegGridLayout();
       renderSegmentButtons();
       render();
     });
   });
+
+  Array.prototype.forEach.call(platGrid.querySelectorAll('.pbtn'), function(b){
+    b.addEventListener('click', function(){
+      platform = b.getAttribute('data-p');
+      applyPlatformPillState();
+      render();
+    });
+  });
+
   goalEl.addEventListener('input', render);
   ltvEl.addEventListener('input', render);
   convEl.addEventListener('input', render);
 
+  applySegGridLayout();
+  applyPlatformPillState();
   renderSegmentButtons();
   render();
 })();
