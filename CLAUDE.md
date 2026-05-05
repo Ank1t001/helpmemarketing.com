@@ -72,3 +72,55 @@ Elsewhere, the only JS is tiny inline `onclick` attributes (mobile-menu toggle).
 - **New pages**: copy the structure of an existing similar page (service pages from `healthcare-seo.html`, marketing pages from `about.html`), set `data-screen-label` appropriately, add an entry to `sitemap.xml`, and decide whether robots.txt or internal links need updating.
 - **Color/theme changes** go in the `:root` variable block in `styles.css` — don't hardcode hex values in HTML inline styles if a variable already covers it.
 - **Forms that submit data** should follow the `contact.html` pattern (Google Apps Script endpoint + `no-cors` JSON POST + success/error UI swap) unless there's a reason to introduce a different backend.
+
+## Blog template
+
+All blog work follows the V2 D-hybrid template (sticky TOC sidebar, featured cards, hero image workflow). Master reference at:
+
+`/docs/HMM_Blog_Template_V2_Master_Reference.md`
+
+When asked to write a new blog or retrofit an existing one:
+
+1. Read the master reference first
+2. Follow the 5-question confirm-before-writing checklist (Part 1 Section A)
+3. Apply 6-element rule per H2 section (Part 1 Section C)
+4. Use V2 visual template (Part 3) — sticky TOC sidebar, featured cards, mobile collapsible TOC
+5. Reference shared CSS in `styles.css` under the `BLOG TEMPLATE V2 — D-HYBRID LAYOUT` section header
+6. Reference shared JS at `/blog/blog-template.js`
+7. Use 5-checkpoint discipline for all builds (Part 7 Section C)
+
+The reference blog implementing all V2 patterns is:
+`/blog/healthcare-marketing-channels.html`
+
+### Hero images
+- Generated with nano-banana-pro skill
+- 16:9, 2K, PNG, brand-aligned (muted gold + ivory)
+- Stored at `/blog/images/[slug]-hero.png`
+- JSON spec template in Part 6 Section B of master reference
+
+### Voice rules (summary)
+- Plain English; no banned phrases (leverage, unlock, supercharge, in today's fast-paced world, etc.)
+- Sentence-case headings always
+- Canadian spelling
+- Second person ("you" + "we")
+- See Part 1 Section B of master reference for full list
+
+### Visual hierarchy
+- H2: 22px / 500 weight / navy / 32px gold accent rule above
+- Pull quotes: serif italic, gold left border, tinted background
+- Featured tables: wrapped in `.featured-table-card`
+- Featured conclusions: wrapped in `.featured-conclusion-card` with star marker
+- Author bio: standard text in Part 1 Section D — update via single sweep when changes
+
+### Standard internal linking floor
+- 6+ internal links for posts 1,500+ words
+- Standard slot positions in Part 2 Section D
+
+### Common gotchas
+- Cloudflare strips inline `onclick` — always use `addEventListener`
+- "branches" in image specs reads as biological tree — use "ribbons" / "paths" / "strands"
+- `position: sticky` parent must NOT have overflow set
+- Don't propagate corrupted FAQ markup from older blogs (stray `<div class="related-and-cta">` inside FAQ items)
+
+### Updating the template
+When the template evolves (new pattern, voice rule change, layout shift), update `/docs/HMM_Blog_Template_V2_Master_Reference.md` in the same commit. Bump version + changelog at the bottom of the doc.
