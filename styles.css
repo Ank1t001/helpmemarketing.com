@@ -2099,3 +2099,510 @@ section.alt { background: var(--gray-surface); }
   .blog-related-grid { grid-template-columns: 1fr; }
   .blog-final-cta { padding: 64px 0; }
 }
+
+/* ========================================
+   BLOG TEMPLATE V2 — D-HYBRID LAYOUT
+   Sticky TOC sidebar + hero, applied to all blog pages
+   First applied: /blog/healthcare-marketing-channels
+   Pass 2: retrofit existing 11 blogs to use these classes
+   ======================================== */
+
+/* Two-column layout: article + sticky sidebar */
+.blog-body {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+.blog-content {
+  min-width: 0;
+  max-width: 760px;
+}
+
+.blog-sidebar {
+  position: sticky;
+  top: 80px;
+  align-self: start;
+  height: fit-content;
+}
+
+/* Hero block */
+.blog-hero { margin-bottom: 32px; }
+
+.blog-hero .breadcrumb {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+.blog-hero .breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.blog-hero .breadcrumb a:hover { color: var(--navy); }
+.blog-hero .breadcrumb span { margin: 0 8px; }
+
+.blog-hero .author-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.blog-hero .author-block .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.blog-hero .author-block .author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-right: auto;
+}
+.blog-hero .author-block .author-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.blog-hero .author-block .author-title {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.blog-hero .author-block .meta-icons {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Article body typography */
+.blog-content h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 40px 0 16px;
+  position: relative;
+}
+.blog-content h2::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--gold);
+  margin-bottom: 16px;
+}
+.blog-content h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.blog-content h2[id] {
+  scroll-margin-top: 100px;
+}
+
+.blog-content p {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+/* Pull quote — overrides legacy inline styles when inside .blog-content */
+.blog-content .pull-quote,
+.blog-content blockquote.pull-quote {
+  margin: 24px 0;
+  padding: 18px 24px;
+  border-left: 3px solid var(--gold);
+  background: rgba(201, 169, 110, 0.06);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--navy);
+  border-radius: 0;
+}
+.blog-content .pull-quote::before,
+.blog-content .pull-quote::after,
+.blog-content blockquote.pull-quote::before,
+.blog-content blockquote.pull-quote::after {
+  content: none;
+}
+.blog-content .pull-quote em {
+  font-family: inherit;
+  font-style: italic;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Featured table card — wraps the specialty recommendations table */
+.blog-content .featured-table-card {
+  background: #fff;
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+  box-shadow: 0 1px 3px rgba(10, 22, 40, 0.04);
+}
+.blog-content .featured-table-card .comparison-table {
+  margin: 0;
+}
+.blog-content .featured-table-card .table-source {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 0.5px solid var(--border);
+  font-size: 11px;
+  font-style: italic;
+  color: var(--text-tertiary);
+}
+
+/* Featured conclusion card — relocated "honest answer" content */
+.blog-content .featured-conclusion-card {
+  background: #fff;
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+  box-shadow: 0 1px 3px rgba(10, 22, 40, 0.04);
+}
+.blog-content .featured-conclusion-card h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--navy);
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+.blog-content .featured-conclusion-card p {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+.blog-content .featured-conclusion-card .conclusion-emphasis {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+  padding-top: 14px;
+  margin-top: 4px;
+  border-top: 0.5px solid var(--border);
+}
+.blog-content .featured-conclusion-card .conclusion-emphasis::before {
+  content: "★";
+  color: var(--gold);
+  font-size: 14px;
+  flex-shrink: 0;
+  line-height: 1.5;
+}
+
+/* Inline diagram breakouts (framework + outcome moved from old right column) */
+.blog-content .framework-diagram,
+.blog-content .outcome-diagram {
+  margin: 28px auto;
+  max-width: 560px;
+}
+
+/* TOC card (desktop sidebar) */
+.toc-card {
+  background: #fff;
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 14px;
+}
+
+.toc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.toc-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.toc-share {
+  display: flex;
+  gap: 6px;
+}
+
+.share-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  cursor: pointer;
+  background: var(--ivory);
+  border: 0.5px solid var(--border);
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+  text-decoration: none;
+  position: relative;
+}
+.share-icon:hover {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+
+.share-icon-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy);
+  color: var(--ivory);
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+.share-icon-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--navy);
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-item {
+  padding: 6px 0 6px 16px;
+  font-size: 12px;
+  line-height: 1.45;
+  cursor: pointer;
+  color: var(--text-secondary);
+  position: relative;
+  transition: color 0.15s ease;
+}
+.toc-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.5;
+  transition: all 0.15s ease;
+}
+.toc-item:hover {
+  color: var(--navy);
+}
+.toc-item:hover::before {
+  opacity: 1;
+}
+.toc-item.active {
+  color: var(--navy);
+  font-weight: 500;
+}
+.toc-item.active::before {
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  top: 10px;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.2);
+}
+.toc-item:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Sidebar CTA card */
+.sidebar-cta {
+  background: var(--navy);
+  color: var(--ivory);
+  border-radius: 10px;
+  padding: 18px;
+  position: relative;
+}
+
+.sidebar-cta .cta-eyebrow {
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+}
+
+.sidebar-cta .cta-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 10px;
+  line-height: 1.3;
+  color: var(--ivory);
+}
+
+.sidebar-cta .cta-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+}
+
+.sidebar-cta .cta-list li {
+  padding: 4px 0 4px 18px;
+  position: relative;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--ivory);
+  opacity: 0.85;
+}
+
+.sidebar-cta .cta-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.sidebar-cta .cta-button {
+  display: block;
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  background: var(--gold);
+  color: var(--navy);
+  text-decoration: none;
+  transition: background 0.15s ease;
+  box-sizing: border-box;
+}
+.sidebar-cta .cta-button:hover {
+  background: var(--gold-soft);
+}
+
+.sidebar-cta .cta-subnote {
+  font-size: 9px;
+  color: var(--ivory);
+  opacity: 0.55;
+  text-align: center;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Mobile collapsible TOC (visible only at <900px) */
+.toc-mobile {
+  display: none;
+  margin: 16px 0 24px;
+}
+
+.toc-mobile-toggle {
+  width: 100%;
+  background: var(--ivory);
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: inherit;
+}
+.toc-mobile-toggle.open .toc-mobile-chevron {
+  transform: rotate(180deg);
+}
+
+.toc-mobile-chevron {
+  transition: transform 0.2s ease;
+  font-size: 10px;
+  color: var(--gold);
+}
+
+.toc-mobile-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.toc-mobile-panel.open {
+  max-height: 600px;
+  padding-top: 8px;
+}
+
+.toc-list-mobile {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.toc-list-mobile li {
+  padding: 12px 16px;
+  border-bottom: 0.5px solid var(--border);
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+.toc-list-mobile li:last-child {
+  border-bottom: none;
+}
+.toc-list-mobile li:hover {
+  background: var(--ivory);
+  color: var(--navy);
+}
+
+/* Mobile breakpoint — sidebar hides, mobile TOC shows, single column */
+@media (max-width: 900px) {
+  .blog-body {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 24px 16px 64px;
+  }
+  .blog-sidebar {
+    display: none;
+  }
+  .blog-content {
+    max-width: 100%;
+  }
+  .toc-mobile {
+    display: block;
+  }
+}
