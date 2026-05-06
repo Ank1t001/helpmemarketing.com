@@ -113,6 +113,12 @@
               </div>
             </div>
 
+            <!-- Honeypot field — hidden from humans, bots fill it in -->
+            <div class="hp-field" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+              <label for="company_url_secondary">Leave this field blank</label>
+              <input type="text" name="company_url_secondary" id="company_url_secondary" tabindex="-1" autocomplete="off">
+            </div>
+
             <div style="margin-top:22px">
               <label class="form-label">I&rsquo;m interested in <span class="form-label-hint">(pick any)</span></label>
               <div class="chip-group" id="service-chips">
@@ -260,6 +266,7 @@
       email: fd.get('email') || '',
       company: fd.get('company') || '',
       website: fd.get('website') || '',
+      company_url_secondary: fd.get('company_url_secondary') || '',
       services: services.slice(),
       message: fd.get('message') || '',
       source: 'helpmemarketing.com',
