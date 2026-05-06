@@ -1,0 +1,8 @@
+# Vercel deploy exclusions — internal docs not for public serving.
+# Files stay in git for GitHub access and /init discoverability.
+
+/CLAUDE.md
+/DESIGN.md
+/FINDINGS.md
+/PLAN.md
+/docs/
