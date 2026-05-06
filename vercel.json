@@ -2,6 +2,11 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/docs/:path*", "destination": "/404" },
+    { "source": "/CLAUDE.md",   "destination": "/404" },
+    { "source": "/DESIGN.md",   "destination": "/404" },
+    { "source": "/FINDINGS.md", "destination": "/404" },
+    { "source": "/PLAN.md",     "destination": "/404" },
     { "source": "/blog/dtc-cac-reduction",     "destination": "/blog/dtc-cac-reduction.html" },
     { "source": "/blog/meta-roas-attribution", "destination": "/blog/meta-roas-attribution.html" },
     { "source": "/blog/choose-marketing-agency", "destination": "/blog/choose-marketing-agency.html" },
