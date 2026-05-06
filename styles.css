@@ -2213,10 +2213,33 @@ section.alt { background: var(--gray-surface); }
 }
 
 .blog-content p {
-  margin: 0 0 14px;
-  font-size: 15px;
-  line-height: 1.7;
+  margin: 0 0 16px;
+  font-size: 17px;
+  line-height: 1.65;
   color: var(--text-primary);
+}
+
+/* Inline prose links — gold, always underlined, scoped to <p> and <li>
+   so .related-card / .btn / .cta-button / .breadcrumb / .share-icon are excluded. */
+.blog-content p a,
+.blog-content li a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+.blog-content p a:hover,
+.blog-content li a:hover {
+  color: #B8945F;
+  text-decoration-color: #B8945F;
+}
+.blog-content p a:focus-visible,
+.blog-content li a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 /* Pull quote — overrides legacy inline styles when inside .blog-content */
@@ -2400,9 +2423,9 @@ section.alt { background: var(--gray-surface); }
 }
 
 .toc-item {
-  padding: 6px 0 6px 16px;
-  font-size: 12px;
-  line-height: 1.45;
+  padding: 8px 0 8px 16px;
+  font-size: 14px;
+  line-height: 1.5;
   cursor: pointer;
   color: var(--text-secondary);
   position: relative;
@@ -2428,13 +2451,13 @@ section.alt { background: var(--gray-surface); }
 }
 .toc-item.active {
   color: var(--navy);
-  font-weight: 500;
+  font-weight: 600;
 }
 .toc-item.active::before {
   opacity: 1;
-  width: 8px;
-  height: 8px;
-  top: 10px;
+  width: 9px;
+  height: 9px;
+  top: 12px;
   background: var(--gold);
   box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.2);
 }
@@ -2577,7 +2600,7 @@ section.alt { background: var(--gray-surface); }
 .toc-list-mobile li {
   padding: 12px 16px;
   border-bottom: 0.5px solid var(--border);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-secondary);
   cursor: pointer;
 }
