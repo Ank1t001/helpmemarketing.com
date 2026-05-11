@@ -126,9 +126,20 @@
 
   <p class="audit-intro">Most marketing audits sell you something. This one diagnoses you. Answer 8 questions across foundation, acquisition, conversion, retention, and measurement, and we'll tell you where you actually are, what's typical at that tier, and the three things that will move you forward, whether you hire us or not.</p>
 
-  <form id="audit-form" class="audit-questions" novalidate>
+  <div class="audit-progress" id="audit-progress">
+    <div class="audit-progress-bar" aria-hidden="true">
+      <div class="audit-progress-fill" id="audit-progress-fill" style="width: 0%"></div>
+    </div>
+    <div class="audit-progress-meta" aria-live="polite">
+      <span id="audit-progress-counter">Question 1 of 8</span>
+      <span class="audit-progress-dot" aria-hidden="true">·</span>
+      <span id="audit-progress-dimension">Foundation</span>
+    </div>
+  </div>
 
-    <fieldset class="audit-question" data-q="1">
+  <form id="audit-form" class="audit-questions audit-wizard" novalidate>
+
+    <fieldset class="audit-question audit-question--active" data-question="q1">
       <legend>
         <span class="audit-dimension">Foundation</span>
         <span class="audit-q-text">How clearly defined is your target customer?</span>
@@ -142,7 +153,7 @@
       </div>
     </fieldset>
 
-    <fieldset class="audit-question" data-q="2">
+    <fieldset class="audit-question" data-question="q2" hidden>
       <legend>
         <span class="audit-dimension">Acquisition</span>
         <span class="audit-q-text">How are you currently acquiring customers?</span>
@@ -156,7 +167,7 @@
       </div>
     </fieldset>
 
-    <fieldset class="audit-question" data-q="3">
+    <fieldset class="audit-question" data-question="q3" hidden>
       <legend>
         <span class="audit-dimension">Acquisition</span>
         <span class="audit-q-text">How do you decide how much to spend on marketing?</span>
@@ -169,7 +180,7 @@
       </div>
     </fieldset>
 
-    <fieldset class="audit-question" data-q="4">
+    <fieldset class="audit-question" data-question="q4" hidden>
       <legend>
         <span class="audit-dimension">Conversion</span>
         <span class="audit-q-text">How do you think about what happens between someone seeing your marketing and becoming a customer?</span>
@@ -183,7 +194,7 @@
       </div>
     </fieldset>
 
-    <fieldset class="audit-question" data-q="5">
+    <fieldset class="audit-question" data-question="q5" hidden>
       <legend>
         <span class="audit-dimension">Conversion</span>
         <span class="audit-q-text">When someone clicks an ad or finds you through search, where do they land?</span>
@@ -196,7 +207,7 @@
       </div>
     </fieldset>
 
-    <fieldset class="audit-question" data-q="6">
+    <fieldset class="audit-question" data-question="q6" hidden>
       <legend>
         <span class="audit-dimension">Retention</span>
         <span class="audit-q-text">What happens after someone becomes a customer?</span>
@@ -210,7 +221,7 @@
       </div>
     </fieldset>
 
-    <fieldset class="audit-question" data-q="7">
+    <fieldset class="audit-question" data-question="q7" hidden>
       <legend>
         <span class="audit-dimension">Measurement</span>
         <span class="audit-q-text">When a customer becomes a customer, do you know which marketing activity brought them in?</span>
@@ -224,7 +235,7 @@
       </div>
     </fieldset>
 
-    <fieldset class="audit-question" data-q="8">
+    <fieldset class="audit-question" data-question="q8" hidden>
       <legend>
         <span class="audit-dimension">Measurement</span>
         <span class="audit-q-text">How often do you review marketing performance and act on it?</span>
@@ -243,10 +254,14 @@
       <input type="text" name="company_url_secondary" id="audit-hp" tabindex="-1" autocomplete="off">
     </div>
 
-    <button type="submit" class="audit-submit" id="audit-submit" disabled>
-      <span class="audit-submit-label">See my results</span>
-      <span class="audit-submit-progress" id="audit-progress">0 of 8 answered</span>
-    </button>
+    <div class="audit-wizard-nav">
+      <button type="button" id="audit-prev" class="audit-nav-btn audit-nav-btn--prev" disabled aria-label="Previous question">
+        <span aria-hidden="true">←</span> Previous
+      </button>
+      <button type="button" id="audit-next" class="audit-nav-btn audit-nav-btn--next" disabled aria-label="Next question">
+        Next <span aria-hidden="true">→</span>
+      </button>
+    </div>
 
   </form>
 

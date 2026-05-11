@@ -3061,3 +3061,199 @@ section.alt { background: var(--gray-surface); }
   .audit-intro { font-size: 16px; }
   .audit-tier-badge { font-size: 17px; padding: 12px 18px; }
 }
+
+/* ============================================
+   MARKETING AUDIT — WIZARD UX (refactor)
+   ============================================
+   One-question-at-a-time wizard pattern on top of the
+   audit-questions form. Coexists with the original
+   .audit-questions layout (form keeps both classes).
+*/
+
+/* ----- Sticky progress bar (sits below sticky .nav) -----
+   The 64px / 56px values are tied to .nav inner padding (14px top/bottom
+   desktop, 12px top/bottom at <=520px). If nav padding changes, update
+   these offsets in lockstep. */
+.audit-progress {
+  position: sticky;
+  top: 64px;
+  z-index: 50;
+  background: var(--ivory);
+  border-bottom: 0.5px solid var(--border);
+  padding: 16px 0;
+  margin: 0 0 32px;
+}
+
+.audit-progress-bar {
+  background: var(--border);
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.audit-progress-fill {
+  background: var(--gold);
+  height: 100%;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.audit-progress-meta {
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.3px;
+}
+
+.audit-progress-dot {
+  color: var(--text-tertiary);
+}
+
+#audit-progress-dimension {
+  color: var(--navy);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11px;
+}
+
+/* ----- Wizard question visibility (one at a time) ----- */
+.audit-wizard .audit-question {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  scroll-margin-top: 80px; /* offset for sticky progress bar (Finding 4) */
+}
+
+.audit-wizard .audit-question--active {
+  display: block;
+  opacity: 1;
+}
+
+.audit-wizard .audit-question--fading {
+  display: block;  /* keep rendered while opacity transitions to 0 */
+  opacity: 0;
+}
+
+/* ----- Wizard navigation (inline on desktop, sticky on mobile) ----- */
+.audit-wizard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: 32px 0 16px;
+  padding: 16px 0;
+  border-top: 0.5px solid var(--border);
+}
+
+.audit-nav-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--navy);
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  letter-spacing: 0.2px;
+}
+
+.audit-nav-btn:hover:not(:disabled) {
+  background: var(--ivory);
+  border-color: var(--navy);
+}
+
+.audit-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.audit-nav-btn--next {
+  background: var(--navy);
+  color: var(--ivory);
+  border-color: var(--navy);
+}
+
+.audit-nav-btn--next:hover:not(:disabled) {
+  background: #1a2940;
+}
+
+.audit-nav-btn--next:disabled {
+  background: var(--text-tertiary);
+  border-color: var(--text-tertiary);
+}
+
+/* Q8 variant: "See my results" */
+.audit-nav-btn--final {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+  padding: 12px 32px;
+  font-weight: 600;
+}
+
+.audit-nav-btn--final:hover:not(:disabled) {
+  background: #B89B5F;
+}
+
+.audit-nav-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ----- Mobile sticky bottom nav ----- */
+@media (max-width: 768px) {
+  .audit-progress {
+    top: 56px;  /* tied to .nav padding shrink at small breakpoints */
+    padding: 12px 0;
+    margin-bottom: 24px;
+  }
+
+  .audit-wizard-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--ivory);
+    border-top: 0.5px solid var(--border);
+    padding: 12px 16px;
+    margin: 0;
+    z-index: 50;
+    box-shadow: 0 -2px 12px rgba(10, 22, 40, 0.06);
+  }
+
+  .audit-wizard {
+    padding-bottom: 80px; /* clear sticky nav */
+  }
+
+  .audit-nav-btn {
+    padding: 12px 18px;
+    font-size: 13px;
+    flex: 1;
+    max-width: 48%;
+  }
+}
+
+@media (max-width: 380px) {
+  .audit-progress-meta {
+    font-size: 11px;
+  }
+
+  .audit-nav-btn {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+}
+
+/* ----- Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  .audit-progress-fill,
+  .audit-wizard .audit-question {
+    transition: none;
+  }
+}

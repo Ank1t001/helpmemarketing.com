@@ -1,6 +1,7 @@
 /* HelpMeMarketing — Marketing Maturity Audit behaviour
  *
- * Question state tracking, scoring, tier matching, email capture, results rendering.
+ * One-question-at-a-time wizard with sticky progress bar + Previous/Next nav.
+ * Question state, scoring, tier matching, email capture, results rendering.
  * Content data comes from window.MARKETING_AUDIT_CONTENT (loaded by marketing-audit-content.js).
  *
  * Storage policy: NONE. No localStorage, no sessionStorage, no cookies.
@@ -16,18 +17,22 @@
   // CONFIGURATION
   // ============================================================
 
-  // CP4 wiring target: replace with the deployed Apps Script /exec URL.
-  // Pattern follows /contact.html SHEET_URL convention.
+  // Deployed Apps Script /exec URL for audit submissions.
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxei2sZjxF410RIcu4ynzA29cqAHtXI3sql90h57qEYFvDjJAWhZUAxi1Xy16a60RWM/exec';
 
-  // Tier thresholds — matches PART 2 of HMM_Marketing_Audit_Content.md.
-  // First match wins, evaluated in order: ≤30, ≤55, ≤80, else Advanced.
+  // Tier thresholds — first match wins, evaluated in order: <=30, <=55, <=80, else Advanced.
   const TIER_THRESHOLDS = [
     { max: 30,  key: 'foundational' },
     { max: 55,  key: 'growing' },
     { max: 80,  key: 'scaling' },
     { max: 100, key: 'advanced' }
   ];
+
+  // Wizard transition timing. Must match CSS .audit-question opacity transition (0.3s).
+  const TRANSITION_DURATION_MS = 300;
+
+  // Wizard question order. Matches data-question attributes on fieldsets.
+  const QUESTION_IDS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8'];
 
   // ============================================================
   // STATE (closure-local, not persisted)
@@ -39,26 +44,34 @@
   let currentScaledScore = 0;
   let submitting = false;        // prevents double-submit on email form
 
+  // Wizard state
+  let currentQuestionIndex = 0;  // 0-based; 0 = q1
+  let transitioning = false;     // race guard for rapid Next/Prev clicks (Finding 5)
+
   // ============================================================
   // INIT
   // ============================================================
 
   function init() {
     setupQuestionTracking();
-    setupAuditSubmit();
+    setupWizardNavigation();
     setupEmailForm();
     setupNavHamburger();
+
+    // Initialize wizard UI (progress fill, counter, dimension label, button states)
+    updateProgress();
+    updateNavButtons();
   }
 
   // ============================================================
-  // QUESTION TRACKING
+  // QUESTION TRACKING (radio change -> answer state)
   // ============================================================
 
   function setupQuestionTracking() {
     const form = document.getElementById('audit-form');
     if (!form) return;
 
-    // Single delegated listener handles all 8 questions × 37 radio options.
+    // Single delegated listener handles all 8 questions x 37 radio options.
     form.addEventListener('change', function (e) {
       const target = e.target;
       if (!target || target.type !== 'radio' || !target.name) return;
@@ -66,7 +79,7 @@
       const score = parseInt(target.dataset.score, 10);
       if (Number.isNaN(score)) return;
       answers[target.name] = score;
-      updateSubmitState();
+      updateNavButtons();
     });
   }
 
@@ -74,19 +87,199 @@
     return Object.keys(answers).length;
   }
 
-  function updateSubmitState() {
-    const submit = document.getElementById('audit-submit');
-    const progress = document.getElementById('audit-progress');
-    if (!submit) return;
+  // ============================================================
+  // WIZARD HELPERS
+  // ============================================================
 
-    const count = getAnsweredCount();
-    submit.disabled = count < 8;
+  function getCurrentQuestionId() {
+    return QUESTION_IDS[currentQuestionIndex];
+  }
 
-    if (progress) {
-      progress.textContent = count < 8
-        ? count + ' of 8 answered'
-        : 'Ready';
+  // Reads dimension from the current fieldset's .audit-dimension span
+  // (single source of truth — no duplicate data-dimension attribute needed).
+  function getCurrentDimension() {
+    const id = getCurrentQuestionId();
+    const fieldset = document.querySelector('[data-question="' + id + '"]');
+    if (!fieldset) return '';
+    const dimSpan = fieldset.querySelector('.audit-dimension');
+    return dimSpan ? dimSpan.textContent.trim() : '';
+  }
+
+  function isCurrentQuestionAnswered() {
+    return Object.prototype.hasOwnProperty.call(answers, getCurrentQuestionId());
+  }
+
+  // ============================================================
+  // WIZARD UI UPDATES
+  // ============================================================
+
+  function updateProgress() {
+    const total = QUESTION_IDS.length;
+    const current = currentQuestionIndex + 1;
+    const fill = document.getElementById('audit-progress-fill');
+    const counter = document.getElementById('audit-progress-counter');
+    const dimension = document.getElementById('audit-progress-dimension');
+
+    if (fill) fill.style.width = ((current / total) * 100) + '%';
+    if (counter) counter.textContent = 'Question ' + current + ' of ' + total;
+    if (dimension) dimension.textContent = getCurrentDimension();
+  }
+
+  function updateNavButtons() {
+    const prevBtn = document.getElementById('audit-prev');
+    const nextBtn = document.getElementById('audit-next');
+    if (!prevBtn || !nextBtn) return;
+
+    prevBtn.disabled = (currentQuestionIndex === 0);
+    nextBtn.disabled = !isCurrentQuestionAnswered();
+
+    // Final question: transform Next into "See my results" (gold variant)
+    if (currentQuestionIndex === QUESTION_IDS.length - 1) {
+      nextBtn.classList.add('audit-nav-btn--final');
+      nextBtn.innerHTML = 'See my results';
+      nextBtn.setAttribute('aria-label', 'See my results');
+    } else {
+      nextBtn.classList.remove('audit-nav-btn--final');
+      nextBtn.innerHTML = 'Next <span aria-hidden="true">&rarr;</span>';
+      nextBtn.setAttribute('aria-label', 'Next question');
     }
+  }
+
+  // ============================================================
+  // QUESTION TRANSITION (fade out -> swap -> fade in)
+  // Locked by `transitioning` flag for full ~600ms cycle to prevent
+  // rapid-click race conditions (Finding 5).
+  // ============================================================
+
+  function showQuestion(index, direction) {
+    if (transitioning) return;
+    transitioning = true;
+
+    const currentFieldset = document.querySelector('.audit-question--active');
+    const targetId = QUESTION_IDS[index];
+    const targetFieldset = document.querySelector('[data-question="' + targetId + '"]');
+
+    if (!targetFieldset) {
+      transitioning = false;
+      return;
+    }
+
+    // Fade out current: --active -> --fading (display:block kept, opacity 1 -> 0)
+    if (currentFieldset) {
+      currentFieldset.classList.add('audit-question--fading');
+      currentFieldset.classList.remove('audit-question--active');
+    }
+
+    window.setTimeout(function () {
+      // Hide previous fully (remove --fading, base display:none kicks in)
+      if (currentFieldset) {
+        currentFieldset.classList.remove('audit-question--fading');
+        currentFieldset.hidden = true;
+      }
+
+      // Reveal target at opacity 0 (--fading: display:block, opacity:0)
+      targetFieldset.hidden = false;
+      targetFieldset.classList.add('audit-question--fading');
+
+      // Force layout so the transparent state paints before the transition starts
+      // (otherwise some browsers batch class changes and skip the animation).
+      void targetFieldset.offsetHeight;
+
+      // Trigger fade-in: --fading -> --active (opacity 0 -> 1 transitions over 300ms)
+      window.requestAnimationFrame(function () {
+        targetFieldset.classList.remove('audit-question--fading');
+        targetFieldset.classList.add('audit-question--active');
+      });
+
+      currentQuestionIndex = index;
+      updateProgress();
+      updateNavButtons();
+
+      // Scroll to question. CSS scroll-margin-top: 80px (Finding 4) keeps the
+      // heading below the sticky progress bar + nav.
+      targetFieldset.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Focus the previously-selected radio (or first if none) on desktop only.
+      // Skip on mobile to avoid spawning the on-screen keyboard.
+      if (window.innerWidth > 768) {
+        const selected = targetFieldset.querySelector('input[type="radio"]:checked');
+        const focusTarget = selected || targetFieldset.querySelector('input[type="radio"]');
+        if (focusTarget) {
+          try { focusTarget.focus({ preventScroll: true }); }
+          catch (_) { focusTarget.focus(); }
+        }
+      }
+
+      // Release transition lock only after the fade-in also completes,
+      // so a second rapid click can't overlap two opacity transitions.
+      window.setTimeout(function () {
+        transitioning = false;
+      }, TRANSITION_DURATION_MS);
+    }, TRANSITION_DURATION_MS);
+  }
+
+  function goToNext() {
+    if (transitioning) return;
+    if (!isCurrentQuestionAnswered()) return;
+
+    if (currentQuestionIndex === QUESTION_IDS.length - 1) {
+      handleSubmit();
+      return;
+    }
+    showQuestion(currentQuestionIndex + 1, 'forward');
+  }
+
+  function goToPrevious() {
+    if (transitioning) return;
+    if (currentQuestionIndex === 0) return;
+    showQuestion(currentQuestionIndex - 1, 'backward');
+  }
+
+  // ============================================================
+  // WIZARD WIRING (clicks + Enter + arrow keys)
+  // ============================================================
+
+  function setupWizardNavigation() {
+    const form = document.getElementById('audit-form');
+    const prevBtn = document.getElementById('audit-prev');
+    const nextBtn = document.getElementById('audit-next');
+
+    if (prevBtn) prevBtn.addEventListener('click', goToPrevious);
+    if (nextBtn) nextBtn.addEventListener('click', goToNext);
+
+    // Enter on a focused radio submits the form by HTML default. Route through
+    // goToNext for wizard-consistent behavior, including Q8 -> handleSubmit (Finding 6).
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        goToNext();
+      });
+    }
+
+    // Arrow keys advance/retreat — but ONLY when focus is outside a form input.
+    // Native radio groups use arrow keys to step between options; let that win
+    // when the user is interacting with a question (Finding 3).
+    document.addEventListener('keydown', function (e) {
+      const tag = e.target && e.target.tagName;
+      if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return;
+
+      // Suppress wizard nav when past the audit (email gate or results visible)
+      const gate = document.getElementById('audit-email-gate');
+      const results = document.getElementById('audit-results');
+      if ((gate && !gate.hidden) || (results && !results.hidden)) return;
+
+      if (e.key === 'ArrowRight') {
+        if (nextBtn && !nextBtn.disabled) {
+          e.preventDefault();
+          goToNext();
+        }
+      } else if (e.key === 'ArrowLeft') {
+        if (prevBtn && !prevBtn.disabled) {
+          e.preventDefault();
+          goToPrevious();
+        }
+      }
+    });
   }
 
   // ============================================================
@@ -113,29 +306,30 @@
   }
 
   // ============================================================
-  // AUDIT SUBMIT — reveal email gate with tier preview
+  // SUBMIT (final question -> email gate)
   // ============================================================
 
-  function setupAuditSubmit() {
-    const form = document.getElementById('audit-form');
-    if (!form) return;
+  function handleSubmit() {
+    // Defensive guard: should never trigger with <8 answers because goToNext
+    // checks isCurrentQuestionAnswered first. But cheap to verify.
+    if (getAnsweredCount() < 8) return;
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (getAnsweredCount() < 8) return;
+    currentRawScore = calculateRawScore();
+    currentScaledScore = Math.round(currentRawScore * 1.25);
+    currentTier = getTier(currentScaledScore);
 
-      currentRawScore = calculateRawScore();
-      currentScaledScore = Math.round(currentRawScore * 1.25);
-      currentTier = getTier(currentScaledScore);
+    // Hide wizard chrome — the email gate takes over from here.
+    const nav = document.querySelector('.audit-wizard-nav');
+    const progress = document.getElementById('audit-progress');
+    if (nav) nav.style.display = 'none';
+    if (progress) progress.style.display = 'none';
 
-      revealEmailGate();
-    });
+    revealEmailGate();
   }
 
   function revealEmailGate() {
     const gate = document.getElementById('audit-email-gate');
     const preview = document.getElementById('audit-tier-preview');
-    const submit = document.getElementById('audit-submit');
     if (!gate || !preview) return;
 
     const tierData = getTierData(currentTier);
@@ -146,9 +340,6 @@
       '<span class="audit-tier-score">' + currentScaledScore + '/100</span>';
 
     gate.hidden = false;
-
-    // Hide submit button (audit flow has moved past it)
-    if (submit) submit.style.display = 'none';
 
     // Smooth-scroll + focus email input
     window.setTimeout(function () {
@@ -178,7 +369,6 @@
       const errorEl = document.getElementById('audit-email-error');
 
       // Honeypot check — silent reject (treat as no-op, don't reveal results).
-      // A real user won't have this filled; a bot will.
       if (honeypot && honeypot.value && honeypot.value.trim().length > 0) {
         return;
       }
@@ -217,7 +407,6 @@
 
   function isValidEmail(email) {
     if (!email || email.length < 5 || email.length > 254) return false;
-    // Lightweight format check: token@token.tld
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
@@ -252,15 +441,11 @@
       userAgent: navigator.userAgent || '',
       referrer: document.referrer || '',
       submittedAt: new Date().toISOString(),
-      // Honeypot value — intentionally empty here; Apps Script side enforces.
       company_url_secondary: ''
     };
   }
 
   function submitToBackend(payload) {
-    // no-cors POST follows the /contact.html pattern — Apps Script receives
-    // text/plain body and parses e.postData.contents. Response is opaque
-    // (browser can't read it) so we treat fetch resolution as success.
     return fetch(APPS_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -312,7 +497,6 @@
         '<span class="audit-final-cta-text">Start a conversation</span>' +
       '</a>';
 
-    // Swap: hide email gate, show results
     if (gate) gate.hidden = true;
     results.hidden = false;
 
@@ -336,7 +520,7 @@
   }
 
   // ============================================================
-  // NAV HAMBURGER (sitewide chrome — handled here so this page
+  // NAV HAMBURGER (sitewide chrome — kept here so this page
   // is fully Cloudflare-safe with no inline onclick handlers)
   // ============================================================
 
@@ -351,7 +535,6 @@
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
-    // Close on click outside
     document.addEventListener('click', function (e) {
       if (!menu.classList.contains('open')) return;
       if (menu.contains(e.target) || btn.contains(e.target)) return;
