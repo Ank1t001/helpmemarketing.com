@@ -2816,6 +2816,41 @@ section.alt { background: var(--gray-surface); }
   font-style: italic;
   font-weight: 400;
 }
+.audit-gate-preview {
+  margin: 22px 0;
+}
+.audit-gate-preview-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 10px;
+}
+.audit-gate-preview-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--navy);
+}
+.audit-gate-preview-list li {
+  padding: 0 0 0 22px;
+  position: relative;
+}
+.audit-gate-preview-list li + li {
+  margin-top: 9px;
+}
+.audit-gate-preview-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 600;
+}
 .audit-email-prompt {
   font-size: 15px;
   color: var(--text-secondary);
