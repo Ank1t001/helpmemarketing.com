@@ -1138,6 +1138,7 @@ section { padding: 88px 0; }
 .outcome-card {
   background: var(--ivory);
   border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
   border-radius: 14px;
   padding: 24px;
   margin-bottom: 16px;
