@@ -3647,8 +3647,8 @@ body.redesign-prototype {
   --cta-hover: #FF7038;
   --mint: #00D4AA;
   --border: rgba(255, 255, 255, 0.08);
-  --grid-line: rgba(255, 255, 255, 0.025);
-  --orange-glow: rgba(255, 92, 26, 0.12);
+  --grid-line: rgba(255, 255, 255, 0.045);
+  --orange-glow: rgba(255, 92, 26, 0.18);
   --warm-bg: #F8F4ED;
   --warm-text: #1A1A1A;
   --warm-cta: #C8542B;
@@ -3740,7 +3740,7 @@ body.redesign-prototype .container {
 
 body.redesign-prototype section.content-section {
   padding: 96px 0;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 body.redesign-prototype .hero {
@@ -3754,8 +3754,8 @@ body.redesign-prototype .hero::before {
   position: absolute;
   top: 20%;
   left: 10%;
-  width: 600px;
-  height: 600px;
+  width: 800px;
+  height: 800px;
   background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
   pointer-events: none;
 }
@@ -3813,11 +3813,11 @@ body.redesign-prototype .eyebrow {
 
 body.redesign-prototype .eyebrow::before {
   content: "";
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--mint);
-  box-shadow: 0 0 12px var(--mint);
+  box-shadow: 0 0 16px var(--mint), 0 0 4px var(--mint);
 }
 
 /* Buttons */
@@ -3917,7 +3917,7 @@ body.redesign-prototype .service-card {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 32px;
+  padding: 36px;
   text-decoration: none;
   color: inherit;
   transition: all 0.2s ease;
@@ -3939,7 +3939,7 @@ body.redesign-prototype .service-card h3 {
 
 body.redesign-prototype .service-card p {
   color: var(--text-muted);
-  margin: 0 0 16px;
+  margin: 0 0 24px;
   font-size: 15px;
   line-height: 1.6;
 }
