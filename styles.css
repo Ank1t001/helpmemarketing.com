@@ -4130,16 +4130,29 @@ body.redesign-prototype .nav .logo em {
   color: var(--cta);
 }
 
+/* Logo mark dark variant: H is a bare text node (color cascades from .logo-mark); m uses existing .me-italic class */
+body.redesign-prototype .logo-mark {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+body.redesign-prototype .logo-mark .me-italic {
+  color: var(--cta);
+}
+
 body.redesign-prototype .nav-link {
   color: var(--text-muted);
 }
 
 body.redesign-prototype .nav-link:hover {
   color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 body.redesign-prototype .nav-link.active {
   color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 body.redesign-prototype .btn-accent {
