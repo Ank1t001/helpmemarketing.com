@@ -3719,6 +3719,7 @@ body.redesign-prototype .section-deck {
   line-height: 1.6;
   color: var(--text-muted);
   margin: 24px 0 0;
+  max-width: 720px;
 }
 
 body.redesign-prototype .table-leadin {
@@ -3859,50 +3860,59 @@ body.redesign-prototype .btn-outline:hover {
   background: rgba(255, 255, 255, 0.02);
 }
 
-/* Comparison table */
-body.redesign-prototype .comparison-table {
-  width: 100%;
-  border-collapse: collapse;
+/* Comparison cards (side-by-side) */
+body.redesign-prototype .comparison-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
   margin: 40px 0 32px;
-  font-size: 16px;
 }
 
-body.redesign-prototype .comparison-table thead {
-  border-bottom: 1px solid var(--border);
+body.redesign-prototype .comparison-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
 }
 
-body.redesign-prototype .comparison-table th {
-  text-align: left;
-  padding: 16px 20px;
+body.redesign-prototype .comparison-card-hmm {
+  border-color: rgba(255, 92, 26, 0.2);
+}
+
+body.redesign-prototype .comparison-card-title {
   font-family: var(--sans);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-tertiary);
+  margin: 0 0 24px;
 }
 
-body.redesign-prototype .comparison-table th:first-child {
-  color: var(--text-muted);
-}
-
-body.redesign-prototype .comparison-table th:last-child {
+body.redesign-prototype .comparison-card-hmm .comparison-card-title {
   color: var(--cta);
 }
 
-body.redesign-prototype .comparison-table td {
-  padding: 18px 20px;
-  border-bottom: 1px solid var(--border);
+body.redesign-prototype .comparison-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body.redesign-prototype .comparison-list li {
+  padding: 14px 0;
+  font-size: 15px;
+  line-height: 1.55;
   color: var(--text-muted);
-  line-height: 1.5;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-body.redesign-prototype .comparison-table td:last-child {
-  color: var(--text);
-}
-
-body.redesign-prototype .comparison-table tr:last-child td {
+body.redesign-prototype .comparison-list li:last-child {
   border-bottom: none;
+}
+
+body.redesign-prototype .comparison-card-hmm .comparison-list li {
+  color: var(--text);
 }
 
 /* Service card grid */
@@ -3988,7 +3998,6 @@ body.redesign-prototype .final-cta {
   border-radius: 24px;
   padding: 56px 64px;
   text-align: center;
-  margin: 96px 0;
 }
 
 body.redesign-prototype .final-cta h2 {
@@ -4094,34 +4103,62 @@ body.redesign-prototype .footer-baseline a:hover {
 
   body.redesign-prototype .service-grid { grid-template-columns: 1fr; gap: 16px; }
   body.redesign-prototype .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-  body.redesign-prototype .final-cta { padding: 40px 24px; margin: 64px 0; }
+  body.redesign-prototype .final-cta { padding: 40px 24px; }
 
-  /* Comparison table — stack on mobile */
-  body.redesign-prototype .comparison-table thead { display: none; }
-  body.redesign-prototype .comparison-table tr {
-    display: block;
-    border-bottom: 1px solid var(--border);
-    padding: 16px 0;
-  }
-  body.redesign-prototype .comparison-table td {
-    display: block;
-    padding: 8px 0;
-    border: none;
-  }
-  body.redesign-prototype .comparison-table td:first-child::before {
-    content: "Most agencies: ";
-    color: var(--text-tertiary);
-    font-size: 12px;
-  }
-  body.redesign-prototype .comparison-table td:last-child::before {
-    content: "HMM: ";
-    color: var(--cta);
-    font-size: 12px;
+  /* Comparison cards stack on mobile */
+  body.redesign-prototype .comparison-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   /* Hero CTAs stack on mobile */
   body.redesign-prototype .hero-ctas { flex-direction: column; align-items: flex-start; }
   body.redesign-prototype .hero-ctas .btn { width: auto; }
+}
+
+/* Dark-mode nav variant (overrides legacy nav, scoped to prototype only) */
+body.redesign-prototype .nav {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+body.redesign-prototype .nav .logo {
+  color: var(--text);
+}
+
+body.redesign-prototype .nav .logo em {
+  color: var(--cta);
+}
+
+body.redesign-prototype .nav-link {
+  color: var(--text-muted);
+}
+
+body.redesign-prototype .nav-link:hover {
+  color: var(--text);
+}
+
+body.redesign-prototype .nav-link.active {
+  color: var(--text);
+}
+
+body.redesign-prototype .btn-accent {
+  background: var(--cta);
+  color: var(--bg);
+  border: none;
+  box-shadow: 0 4px 16px rgba(255, 92, 26, 0.25);
+}
+
+body.redesign-prototype .btn-accent:hover {
+  background: var(--cta-hover);
+}
+
+body.redesign-prototype .nav-mobile-menu {
+  background: var(--bg);
+}
+
+body.redesign-prototype .nav-mobile-menu a {
+  color: var(--text);
 }
 
 /* === END REDESIGN PROTOTYPE — DARK MODE === */
