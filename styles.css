@@ -3744,7 +3744,7 @@ body.redesign-prototype section.content-section {
 }
 
 body.redesign-prototype .hero {
-  padding: 96px 0 120px;
+  padding: 96px 0;
   position: relative;
   overflow: hidden;
 }
@@ -3986,7 +3986,7 @@ body.redesign-prototype .bullet-list li strong {
 body.redesign-prototype .final-cta {
   background: var(--bg-elevated);
   border-radius: 24px;
-  padding: 80px 64px;
+  padding: 56px 64px;
   text-align: center;
   margin: 96px 0;
 }
@@ -4013,7 +4013,7 @@ body.redesign-prototype .final-cta .microcopy {
 body.redesign-prototype .footer {
   background: var(--bg);
   border-top: 1px solid var(--border);
-  padding: 80px 0 40px;
+  padding: 96px 0 40px;
 }
 
 body.redesign-prototype .footer-grid {
@@ -4085,7 +4085,7 @@ body.redesign-prototype .footer-baseline a:hover {
 
   body.redesign-prototype .container { padding: 0 20px; }
   body.redesign-prototype section.content-section { padding: 64px 0; }
-  body.redesign-prototype .hero { padding: 64px 0 80px; }
+  body.redesign-prototype .hero { padding: 64px 0; }
 
   body.redesign-prototype .hero-grid {
     grid-template-columns: 1fr;
@@ -4094,7 +4094,7 @@ body.redesign-prototype .footer-baseline a:hover {
 
   body.redesign-prototype .service-grid { grid-template-columns: 1fr; gap: 16px; }
   body.redesign-prototype .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-  body.redesign-prototype .final-cta { padding: 48px 24px; margin: 64px 0; }
+  body.redesign-prototype .final-cta { padding: 40px 24px; margin: 64px 0; }
 
   /* Comparison table — stack on mobile */
   body.redesign-prototype .comparison-table thead { display: none; }
