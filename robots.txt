@@ -4,6 +4,7 @@ Disallow: /pricing
 Disallow: /pricing.html
 Disallow: /_healthcare/
 Disallow: /docs/
+Disallow: /memory/
 Disallow: /CLAUDE.md
 Disallow: /FINDINGS.md
 Disallow: /PLAN.md
