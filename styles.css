@@ -3784,6 +3784,8 @@ body.redesign-prototype .hero-ctas {
 }
 
 body.redesign-prototype .hero-visual {
+  display: block;
+  height: auto;
   min-width: 0;
 }
 
