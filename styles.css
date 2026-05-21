@@ -3675,6 +3675,15 @@ body.redesign-prototype {
   background-size: 56px 56px;
 }
 
+/* .app wrapper is sitewide infrastructure (29 pages). Legacy sets
+   background: var(--white) at styles.css:92. For dark prototype
+   pages, transparent lets body's var(--bg) Obsidian + grid pattern
+   show through naturally. Auto-applies to all future Phase 2 pages
+   that adopt body.redesign-prototype. */
+body.redesign-prototype .app {
+  background: transparent;
+}
+
 /* Headings */
 body.redesign-prototype h1.hero-headline {
   font-family: var(--serif);
