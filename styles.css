@@ -3790,17 +3790,11 @@ body.redesign-prototype .hero-visual {
 body.redesign-prototype .hero-image {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 5 / 3;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center center;
   border-radius: 16px;
   display: block;
-}
-
-@media (max-width: 900px) {
-  body.redesign-prototype .hero-image {
-    aspect-ratio: 16 / 9;
-  }
 }
 
 /* Eyebrow with Mint dot */
