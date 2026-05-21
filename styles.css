@@ -3653,6 +3653,11 @@ body.redesign-prototype {
   --warm-bg: #F8F4ED;
   --warm-text: #1A1A1A;
   --warm-cta: #C8542B;
+  /* Error surface — derived from legacy --chart-red (#EF4444), tuned
+     for dark-theme contrast. Used by forms (any prototype page). */
+  --error-bg: rgba(239, 68, 68, 0.08);
+  --error-border: rgba(239, 68, 68, 0.35);
+  --error-text: #FCA5A5;
   --serif: 'Fraunces', Georgia, serif;
   --sans: 'Inter', -apple-system, system-ui, sans-serif;
 }
@@ -4199,6 +4204,206 @@ body.redesign-prototype .nav-hamburger span,
 body.redesign-prototype .nav-hamburger span::before,
 body.redesign-prototype .nav-hamburger span::after {
   background: var(--text);
+}
+
+/* ============================================================
+   PROTOTYPE — CONTACT PAGE
+   ============================================================ */
+
+/* Token shimming: redefine custom properties locally to override
+   inline style="color:var(--text-primary)" without !important.
+   Inline-style custom-property lookups resolve at the element's
+   effective scope, so redefining here repaints the inline rules.
+   Mechanism is intentional — do not refactor without understanding.
+
+   Specifics: the contact page uses inline style="color:var(--text-primary)"
+   and var(--text-secondary) on .contact-aside, and var(--deep) +
+   var(--ink-60) inside .contact-thanks. Those legacy tokens aren't
+   redefined at body scope, so they fall back to :root dark values
+   (invisible on Obsidian). Local redefinition here avoids both the
+   !important pattern and the sitewide cascade risk of redefining
+   them at body.redesign-prototype scope. */
+body.redesign-prototype .contact-aside {
+  --text-primary: var(--text);
+  --text-secondary: var(--text-muted);
+}
+
+body.redesign-prototype .contact-thanks {
+  --deep: var(--text);
+  --ink-60: var(--text-muted);
+}
+
+/* Contact form card — dark elevated surface */
+body.redesign-prototype .contact-form {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+/* Form labels */
+body.redesign-prototype .form-label {
+  color: var(--text-muted);
+}
+
+body.redesign-prototype .form-label-hint {
+  color: var(--text-tertiary);
+}
+
+/* Form inputs + textarea */
+body.redesign-prototype .form-input,
+body.redesign-prototype .form-textarea {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+body.redesign-prototype .form-input::placeholder,
+body.redesign-prototype .form-textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+body.redesign-prototype .form-input:hover,
+body.redesign-prototype .form-textarea:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.redesign-prototype .form-input:focus,
+body.redesign-prototype .form-textarea:focus {
+  border-color: var(--cta);
+  background: var(--bg);
+  box-shadow: 0 0 0 4px rgba(255, 92, 26, 0.15);
+}
+
+/* Prefixed input (https:// + website) */
+body.redesign-prototype .form-prefix-wrap {
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+body.redesign-prototype .form-prefix-wrap:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.redesign-prototype .form-prefix-wrap:focus-within {
+  border-color: var(--cta);
+  box-shadow: 0 0 0 4px rgba(255, 92, 26, 0.15);
+}
+
+body.redesign-prototype .form-prefix {
+  background: rgba(255, 255, 255, 0.03);
+  border-right: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+body.redesign-prototype .form-input-prefixed {
+  background: transparent;
+  color: var(--text);
+}
+
+/* Chips */
+body.redesign-prototype .chip {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
+}
+
+body.redesign-prototype .chip:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--text);
+}
+
+body.redesign-prototype .chip.chip-on {
+  background: rgba(255, 92, 26, 0.1);
+  border-color: var(--cta);
+  color: var(--cta);
+}
+
+/* Error banner (replaces legacy inline light styles). Uses the
+   prototype-scope --error-* tokens declared at the top of the
+   prototype section. Reusable across any prototype-scoped form. */
+body.redesign-prototype .contact-err {
+  margin: 0 40px;
+  padding: 12px 14px;
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--error-text);
+  line-height: 1.5;
+}
+
+/* Submit button — Signal Orange CTA, matches prototype primary button */
+body.redesign-prototype .contact-submit {
+  background: var(--cta);
+  color: var(--bg);
+}
+
+body.redesign-prototype .contact-submit:hover {
+  background: var(--cta-hover);
+}
+
+/* Privacy mini strip at bottom of form */
+body.redesign-prototype .contact-privacy-mini {
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid var(--border);
+  color: var(--text-tertiary);
+}
+
+/* Thank-you panel */
+body.redesign-prototype .contact-thanks {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+body.redesign-prototype .contact-thanks-glyph {
+  background: var(--cta);
+  box-shadow: 0 12px 24px -10px rgba(255, 92, 26, 0.45);
+}
+
+/* Footer-baseline right-side meta cluster (badges + email) */
+body.redesign-prototype .footer-baseline-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Reset the inherited margin: 0 12px from .footer-baseline a so the
+   email link sits cleanly inside the flex-gap layout of meta. */
+body.redesign-prototype .footer-baseline-meta a {
+  margin: 0;
+}
+
+/* Partner badges (dark variant) */
+body.redesign-prototype .footer-badges {
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+body.redesign-prototype .footer-badge {
+  font-size: 11px;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: transparent;
+}
+
+/* Mobile — footer-baseline stacks below ~720px so badges + email don't
+   crush the copyright/legal row. */
+@media (max-width: 720px) {
+  body.redesign-prototype .footer-baseline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  body.redesign-prototype .footer-baseline-meta {
+    width: 100%;
+  }
 }
 
 /* === END REDESIGN PROTOTYPE — DARK MODE === */
