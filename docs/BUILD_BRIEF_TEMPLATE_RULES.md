@@ -79,7 +79,7 @@
 
 ## Rule 6 — Prose consistency with brand positioning
 
-**Rule:** When prose lists specific industries, verticals, or use cases, verify the list against HMM's broader positioning doc (DESIGN.md, homepage, services hub) to avoid implying exclusion of verticals HMM actually serves.
+**Rule:** When prose lists specific industries, verticals, or use cases, verify the list against HMM's broader positioning doc (`docs/HMM_Design_System.md`, homepage, services hub) to avoid implying exclusion of verticals HMM actually serves.
 
 **Why:** HMM serves four verticals: DTC, SaaS, Healthcare, Finance. Prose that names three of them (e.g., "healthcare practices, DTC brands, and SaaS companies") can read as exhaustive if framed wrong. Wording like *"we currently focus on..."* or *"the verticals we serve are..."* implies exclusivity — Finance buyers reading the page would feel un-served.
 
@@ -202,8 +202,8 @@ If the brief author skips this audit, the executor (Claude Code) catches the gap
 
 See `memory/project_pricing_rebuild_followups.md` for items to address post-sprint:
 - CLAUDE.md Cloudflare rule correction
-- DESIGN.md hero/section padding drift
-- Template-establishing decisions to retroactively document in DESIGN.md
+- Hero/section padding drift between v0 design doc (now archived at `docs/archive/DESIGN_v0_pre_canonical.md`) and live CSS — reconcile against `docs/HMM_Design_System.md`
+- Template-establishing decisions to retroactively document in `docs/HMM_Design_System.md`
 
 ---
 

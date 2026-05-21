@@ -1,12 +1,12 @@
 # PLAN.md — Repositioning Migration
 
-Repo-local execution checklist. See `DESIGN.md` for the design system and the full plan in `C:\Users\AnkitKumar\.claude\plans\i-m-repositioning-helpmemarketing-com-fr-soft-ritchie.md` for full context.
+Repo-local execution checklist. See `docs/HMM_Design_System.md` for the canonical design system (original `DESIGN.md` archived to `docs/archive/DESIGN_v0_pre_canonical.md`) and the full plan in `C:\Users\AnkitKumar\.claude\plans\i-m-repositioning-helpmemarketing-com-fr-soft-ritchie.md` for full context.
 
 ## Phase summary
 
 | Phase | Scope | Gate |
 |---|---|---|
-| 0 | Produce DESIGN.md, PLAN.md, FINDINGS.md | ✅ current commit — review DESIGN.md before Phase 1 |
+| 0 | Produce design system, PLAN.md, FINDINGS.md (design system later consolidated as `docs/HMM_Design_System.md`) | ✅ historical — see `docs/archive/DESIGN_v0_pre_canonical.md` for the v0 snapshot |
 | 1 | Update `:root` tokens + Fraunces font link across all 19 pages | Visual sweep of 3 pages |
 | 2 | Nav, footer, CTA card — across all 19 pages (Hm mark, navy, gold, Industries column) | Visual check of nav/footer on 3 pages |
 | 3 | Homepage rebuild (`index.html`) to mockup spec | `/` live review |

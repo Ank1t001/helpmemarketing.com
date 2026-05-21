@@ -1,5 +1,5 @@
 /* ============ HelpMeMarketing — Premium Generalist ============ */
-/* Canonical tokens live in DESIGN.md. Phase 1 re-points the old token names
+/* Canonical tokens live in docs/HMM_Design_System.md. Phase 1 re-points the old token names
    at the new palette so layouts keep rendering while colors shift. Legacy
    aliases are removed progressively as pages migrate (Phases 3-6). */
 :root {

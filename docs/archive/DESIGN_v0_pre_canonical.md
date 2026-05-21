@@ -1,3 +1,14 @@
+# DESIGN.md — Archived
+
+**Status:** SUPERSEDED by `docs/HMM_Design_System.md` (v1.0, May 21, 2026)
+**Reason:** Canonical design system documentation now consolidates all design specs into one structured document. This file is preserved for historical reference only.
+
+---
+
+[original DESIGN.md content below]
+
+---
+
 # DESIGN.md — HelpMeMarketing Design System
 
 Canonical reference for the repositioned helpmemarketing.com (premium generalist agency: DTC, SaaS, Healthcare, Finance).
@@ -87,7 +98,7 @@ These are decorative, paired with monoline SVG icons. One color per service, hel
 - `.italic-accent` (see rule below)
 - Testimonial-quote italic variant
 - Case-quote on case cards
-- Logo wordmark's `Me` and logo-mark's small `m`
+- Logo wordmark's `Me` and logo-mark's trailing `MM`
 
 ### 1.3 Spacing + layout
 
@@ -187,7 +198,7 @@ Opacity: 0.08 + 0.05 on process; 0.12 + 0.08 on CTA card (slightly warmer, punch
 <nav>
   <div class="nav-inner">
     <div class="logo">
-      <div class="logo-mark">H<span class="me-italic">m</span></div>
+      <div class="logo-mark">H<span class="me-italic">MM</span></div>
       Help<span class="wordmark-italic">Me</span>Marketing
     </div>
     <ul class="nav-links">
@@ -218,7 +229,8 @@ nav {
   width: 32px; height: 32px; background: var(--navy); color: var(--ivory);
   border-radius: 6px;
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--serif); font-size: 16px; font-weight: 500;
+  font-family: var(--serif); font-size: 13px; font-weight: 500;
+  letter-spacing: -0.02em;
 }
 .logo-mark .me-italic { font-style: italic; color: var(--gold); margin-left: 1px; }
 .wordmark-italic { font-style: italic; color: var(--gold); font-weight: 400; }
@@ -227,6 +239,8 @@ nav {
 .nav-links a:hover { color: var(--gold); }
 .nav-links a.active { font-weight: 500; }
 ```
+
+**Logo mark rule**: The mark reads `HMM` — an anchored serif `H` followed by `MM` wrapped in `.me-italic`. The H takes the surrounding text color (ivory on navy, `--text` on the dark prototype). The trailing `MM` is always italic + accent: `--gold` on light surfaces, `--cta` (Signal Orange) on the dark prototype. Class name `.me-italic` is retained from the original `Hm` mark — it now applies to whatever italic-accent letters trail the anchored H, not specifically a lowercase `m`. Three characters in a 32px box → `font-size: 13px` with `letter-spacing: -0.02em` for clean fit.
 
 **Do NOT** include a "Health & Care" pill or any vertical pill. No industries link in main nav.
 
@@ -237,7 +251,7 @@ nav {
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="logo"> …Hm mark + wordmark… </div>
+        <div class="logo"> …HMM mark + wordmark… </div>
         <p>A growth partner built for premium brands. Ethical marketing that scales — across industries, without the playbook.</p>
         <div class="footer-badges">
           <span class="footer-badge">Google Partner</span>
