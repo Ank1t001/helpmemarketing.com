@@ -6,15 +6,84 @@
 <title>HelpMeMarketing: AI-native marketing</title>
 <meta name="description" content="We use AI to find your next 100 customers before your competitors do. SEO, paid media, and content engineered to deliver results, not impressions.">
 <link rel="canonical" href="https://helpmemarketing.com/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
-<!-- PROTOTYPE: noindex while design system is under evaluation. Remove if migration approved. -->
-<meta name="robots" content="noindex,nofollow">
-
-<!-- OG / Twitter -->
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="HelpMeMarketing">
 <meta property="og:title" content="HelpMeMarketing: AI-native marketing">
 <meta property="og:description" content="We use AI to find your next 100 customers before your competitors do.">
 <meta property="og:url" content="https://helpmemarketing.com/">
+<meta property="og:image" content="https://helpmemarketing.com/images/hero-particle-wave.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="Particles forming a wave representing the signal HMM finds in marketing noise">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HelpMeMarketing: AI-native marketing">
+<meta name="twitter:description" content="We use AI to find your next 100 customers before your competitors do.">
+<meta name="twitter:image" content="https://helpmemarketing.com/images/hero-particle-wave.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Help Me Marketing",
+  "alternateName": "HelpMeMarketing",
+  "url": "https://helpmemarketing.com",
+  "logo": "https://helpmemarketing.com/logo.png",
+  "image": "https://helpmemarketing.com/images/hero-particle-wave.png",
+  "description": "Growth marketing agency in Ontario, Canada, serving DTC, SaaS, healthcare and finance brands across Canada and the US. Performance marketing, SEO, website development, branding, analytics.",
+  "foundingDate": "2022",
+  "areaServed": ["Canada", "United States"],
+  "email": "hello@helpmemarketing.com",
+  "sameAs": [
+    "https://linkedin.com/company/helpmemarketing",
+    "https://www.google.com/maps/place/Help+Me+Marketing/@43.6372421,-79.8708458,17z/data=!3m1!4b1!4m6!3m5!1s0x882b6da3edd6f17d:0x6d03a634daff5ede!8m2!3d43.6372421!4d-79.8708458!16s%2Fg%2F11nbzhw91j"
+  ],
+  "knowsAbout": [
+    "Growth Marketing",
+    "DTC Marketing",
+    "SaaS Marketing",
+    "Healthcare Marketing",
+    "Finance Marketing",
+    "SEO",
+    "Google Ads",
+    "Meta Ads",
+    "Lifecycle Marketing",
+    "Brand Strategy"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "230 Niagara Trail",
+    "addressLocality": "Norval",
+    "addressRegion": "ON",
+    "postalCode": "L0P 1K0",
+    "addressCountry": "CA"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "hello@helpmemarketing.com",
+    "contactType": "customer support",
+    "areaServed": ["CA", "US"],
+    "availableLanguage": ["English"]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HelpMeMarketing",
+  "url": "https://helpmemarketing.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://helpmemarketing.com/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +95,6 @@
 </head>
 <body class="redesign-prototype">
 
-<!-- NAVIGATION: KEEP CURRENT SITE NAV for now (prototype scope) -->
 <nav class="nav">
   <div class="nav-inner">
     <a class="logo" href="index.html" style="cursor:pointer">
@@ -64,13 +132,7 @@
       <div class="hero-text">
         <p class="eyebrow">AI-Native Marketing</p>
 
-        <!-- H1: two versions. Final choice at build review. -->
-        <!-- VERSION A: single line -->
         <h1 class="hero-headline">We use AI to find your next <em>100 customers</em> before your competitors do.</h1>
-
-        <!-- VERSION B: two-line with period break (commented out)
-        <h1 class="hero-headline">We use AI to find your next <em>100 customers</em>.<br>Before your competitors do.</h1>
-        -->
 
         <p class="hero-subtitle">SEO, paid media, and content. Engineered to deliver results, not impressions. Published pricing. No fluff.</p>
 
@@ -81,8 +143,12 @@
       </div>
 
       <div class="hero-visual">
-        <!-- PLACEHOLDER: hero image generation deferred -->
-        <div class="hero-visual-placeholder">[Hero visual placeholder]</div>
+        <img src="/images/hero-particle-wave.png"
+             alt="Particles forming a wave representing the signal HMM finds in marketing noise"
+             class="hero-image"
+             width="1200"
+             height="900"
+             loading="eager">
       </div>
     </div>
   </div>
@@ -134,7 +200,7 @@
     <p class="section-deck">Each service stands alone or fits with the others. Most clients start with one and add as they scale.</p>
 
     <div class="service-grid">
-      <a href="/services/performance-marketing" class="service-card">
+      <a href="/services" class="service-card">
         <h3>Performance Marketing</h3>
         <p>Google Ads, Meta, TikTok, LinkedIn. Paid media built around attribution, not clicks. Every dollar tracked from impression to revenue.</p>
         <span class="card-arrow">See pricing →</span>
@@ -146,25 +212,25 @@
         <span class="card-arrow">See pricing →</span>
       </a>
 
-      <a href="/services/branding-social" class="service-card">
+      <a href="/services" class="service-card">
         <h3>Branding + Social</h3>
         <p>Brand identity, content, and community management. Positioned to convert, not perform. Less posting for posting's sake. More content that compounds.</p>
         <span class="card-arrow">See pricing →</span>
       </a>
 
-      <a href="/services/website-development" class="service-card">
+      <a href="/services" class="service-card">
         <h3>Website Development</h3>
         <p>Fast, modern websites. Built with SEO and AI search citations from day one. Conversion-optimized at launch, not bolted on six months later.</p>
         <span class="card-arrow">See pricing →</span>
       </a>
 
-      <a href="/services/analytics-attribution" class="service-card">
+      <a href="/services" class="service-card">
         <h3>Analytics + Attribution</h3>
         <p>Know which channel drove which dollar, not which post got likes. Custom dashboards in GA4, Looker Studio, or Power BI, built to your decisions.</p>
         <span class="card-arrow">See pricing →</span>
       </a>
 
-      <a href="/services/ai-automation" class="service-card">
+      <a href="/services" class="service-card">
         <h3>AI Automation &amp; Workflow Systems</h3>
         <p>Custom AI automation built around your specific workflow. Lead capture, reporting, ops sequences. Each engagement scoped to your stack, your team, your decisions.</p>
         <span class="card-arrow">See pricing →</span>
@@ -192,12 +258,12 @@
       <div class="footer-column">
         <h4>Services</h4>
         <ul>
-          <li><a href="/services/performance-marketing">Performance Marketing</a></li>
+          <li><a href="/services">Performance Marketing</a></li>
           <li><a href="/services/seo">SEO + AEO</a></li>
-          <li><a href="/services/branding-social">Branding + Social</a></li>
-          <li><a href="/services/website-development">Website Development</a></li>
-          <li><a href="/services/analytics-attribution">Analytics + Attribution</a></li>
-          <li><a href="/services/ai-automation">AI Automation &amp; Workflow Systems</a></li>
+          <li><a href="/services">Branding + Social</a></li>
+          <li><a href="/services">Website Development</a></li>
+          <li><a href="/services">Analytics + Attribution</a></li>
+          <li><a href="/services">AI Automation &amp; Workflow Systems</a></li>
         </ul>
       </div>
 
@@ -215,7 +281,7 @@
         <h4>Company</h4>
         <ul>
           <li><a href="/about">About</a></li>
-          <li><a href="/how-we-work">How we work</a></li>
+          <li><a href="/about">How we work</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>

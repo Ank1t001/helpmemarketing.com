@@ -3787,16 +3787,20 @@ body.redesign-prototype .hero-visual {
   min-width: 0;
 }
 
-body.redesign-prototype .hero-visual-placeholder {
+body.redesign-prototype .hero-image {
+  width: 100%;
+  height: auto;
   aspect-ratio: 4 / 3;
-  background: var(--bg-elevated);
-  border: 1px dashed var(--border);
+  object-fit: cover;
+  object-position: center bottom;
   border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-tertiary);
-  font-size: 14px;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  body.redesign-prototype .hero-image {
+    aspect-ratio: 16 / 9;
+  }
 }
 
 /* Eyebrow with Mint dot */
@@ -4173,6 +4177,24 @@ body.redesign-prototype .nav-mobile-menu {
 
 body.redesign-prototype .nav-mobile-menu a {
   color: var(--text);
+}
+
+/* Hamburger dark variant: transparent box, hairline border, white lines */
+body.redesign-prototype .nav-hamburger {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+body.redesign-prototype .nav-hamburger:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.redesign-prototype .nav-hamburger span,
+body.redesign-prototype .nav-hamburger span::before,
+body.redesign-prototype .nav-hamburger span::after {
+  background: var(--text);
 }
 
 /* === END REDESIGN PROTOTYPE — DARK MODE === */
