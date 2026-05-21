@@ -4115,6 +4115,11 @@ body.redesign-prototype .footer-baseline a:hover {
   /* Hero CTAs stack on mobile */
   body.redesign-prototype .hero-ctas { flex-direction: column; align-items: flex-start; }
   body.redesign-prototype .hero-ctas .btn { width: auto; }
+
+  /* Hide nav CTA on mobile — hamburger takes over nav access at this breakpoint.
+     Higher specificity than the legacy `.btn` rule that was unintentionally
+     overriding the legacy `.nav-main-cta { display: none }` at <=680px. */
+  body.redesign-prototype .nav-main-cta { display: none; }
 }
 
 /* Dark-mode nav variant (overrides legacy nav, scoped to prototype only) */
@@ -4175,15 +4180,18 @@ body.redesign-prototype .nav-mobile-menu a {
   color: var(--text);
 }
 
-/* Hamburger dark variant: transparent box, hairline border, white lines */
+/* Hamburger dark variant: transparent box, visible border, white lines.
+   Border was previously var(--border) (rgba(255,255,255,0.08) — 8% white),
+   invisible on the Obsidian background. Bumped to 25% (base) / 45% (hover)
+   so the button is findable on real devices. */
 body.redesign-prototype .nav-hamburger {
   background: transparent;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: var(--text);
 }
 
 body.redesign-prototype .nav-hamburger:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.45);
   background: rgba(255, 255, 255, 0.05);
 }
 
