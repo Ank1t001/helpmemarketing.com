@@ -31,14 +31,14 @@
 {"@context":"https://schema.org","@type":"Service","name":"Brand & Content","alternateName":"Brand Strategy & Content Marketing","description":"Positioning, identity, and voice for brands ready to stand out. Editorial content and thought leadership that compounds.","serviceType":"Brand Strategy and Content Marketing","areaServed":[{"@type":"Country","name":"Canada"},{"@type":"Country","name":"United States"}],"provider":{"@type":"Organization","name":"HelpMeMarketing","url":"https://helpmemarketing.com"},"url":"https://helpmemarketing.com/brand-content"}
 </script>
 </head>
-<body>
+<body class="redesign-prototype">
 <div class="app" data-screen-label="service-detail">
 
 <nav class="nav">
   <div class="nav-inner">
-    <a class="logo" href="index.html" style="cursor:pointer">
-      <div class="logo-mark">H<span class="me-italic">m</span></div>
-      <span class="logo-text">Help<span style="color:var(--gold); font-style:italic; font-family:var(--serif); font-size:19px; padding:0 1px">Me</span>Marketing</span>
+    <a class="logo" href="index.html">
+      <div class="logo-mark">H<span class="me-italic">MM</span></div>
+      <span class="logo-text">Help<em style="font-family:var(--serif); font-size:19px; padding:0 1px">Me</em>Marketing</span>
     </a>
     <div class="nav-links">
       <a class="nav-link" href="index.html">Home</a>
@@ -329,55 +329,101 @@
 </div>
 
 <footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand-col">
-        <div class="logo" style="color:white; margin-bottom:18px">
-          <div class="logo-mark" style="background:var(--ivory); color:var(--navy)">H<span class="me-italic">m</span></div>
-          <span>HelpMeMarketing</span>
+  <!-- BAND 1: brand + tools -->
+  <div class="footer-band-brand">
+    <div class="container">
+      <div class="footer-brand-row">
+        <div class="footer-brand-statement">
+          <h3 class="footer-brand-headline">Try a tool. <em class="italic-accent">No email gate.</em></h3>
+          <p class="footer-brand-descriptor">Free utilities built from our actual client work. Use them, share them, run the numbers yourself.</p>
         </div>
-        <p>Growth marketing priced on outcomes, not hours. Flat quarters and rising CAC, made measurable. DTC, SaaS, healthcare, finance.</p>
-        <div class="footer-badges">
-          <span class="footer-badge">Google Partner</span>
-          <span class="footer-badge">Meta Partner</span>
-          <span class="footer-badge">Shopify Partner</span>
+        <div class="footer-tools-grid">
+          <a href="/ad-calculator" class="footer-tool-card">
+            <div class="footer-tool-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Tabler ti-calculator -->
+                <path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/>
+                <path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z"/>
+                <path d="M8 14l0 .01"/>
+                <path d="M12 14l0 .01"/>
+                <path d="M16 14l0 .01"/>
+                <path d="M8 17l0 .01"/>
+                <path d="M12 17l0 .01"/>
+                <path d="M16 17l0 .01"/>
+              </svg>
+            </div>
+            <div class="footer-tool-title">Ad Spend Calculator</div>
+            <div class="footer-tool-description">Model CPL, ROAS, and budget across 4 platforms × 11 verticals.</div>
+            <div class="footer-tool-affordance">Run the numbers →</div>
+          </a>
+          <a href="/tools/marketing-audit" class="footer-tool-card">
+            <div class="footer-tool-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Tabler ti-checkup-list -->
+                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/>
+                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/>
+                <path d="M9 14h.01"/>
+                <path d="M9 17h.01"/>
+                <path d="M12 16l1 1l3 -3"/>
+              </svg>
+            </div>
+            <div class="footer-tool-title">Marketing Audit</div>
+            <div class="footer-tool-description">Score your marketing maturity across 5 dimensions in 10 min.</div>
+            <div class="footer-tool-affordance">Take the audit →</div>
+          </a>
         </div>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <a href="seo.html">SEO</a>
-        <a href="google-meta-ads.html">Google &amp; Meta Ads</a>
-        <a href="website-design.html">Website Design</a>
-        <a href="social-media.html">Social Media</a>
-        <a href="brand-content.html">Brand &amp; Content</a>
-        <a href="lifecycle-retention.html">Lifecycle &amp; Retention</a>
-      </div>
-      <div>
-        <h4>Industries</h4>
-        <a href="industries/dtc.html">DTC &amp; E-commerce</a>
-        <a href="industries/saas.html">SaaS &amp; Tech</a>
-        <a href="industries/healthcare.html">Healthcare</a>
-        <a href="industries/finance.html">Finance</a>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <a href="about.html">About</a>
-        <a href="work.html">Case studies</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Resources</h4>
-        <a href="blog.html">Blog</a>
-        <a href="ad-calculator.html">Ad-spend calculator</a>
-        <a href="contact.html">Free audit</a>
-        <a href="mailto:hello@helpmemarketing.com">hello@helpmemarketing.com</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>© 2026 HelpMeMarketing Inc.</div>
-      <div style="display:flex; gap:24px">
-        <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
+  </div>
+
+  <!-- BAND 2: sitemap + baseline -->
+  <div class="footer-band-utility">
+    <div class="container">
+      <div class="footer-utility-grid">
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/performance-marketing">Performance Marketing</a></li>
+            <li><a href="/services/seo">SEO &amp; AEO</a></li>
+            <li><a href="/services/branding-social">Branding &amp; Social</a></li>
+            <li><a href="/services/website-development">Website Development</a></li>
+            <li><a href="/services/analytics-attribution">Analytics &amp; Attribution</a></li>
+            <li><a href="/services/ai-automation">AI Automation &amp; Workflow Systems</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Industries</h4>
+          <ul>
+            <li><a href="/industries/dtc">DTC</a></li>
+            <li><a href="/industries/saas">SaaS</a></li>
+            <li><a href="/industries/healthcare">Healthcare</a></li>
+            <li><a href="/industries/finance">Finance</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/work">Case Studies</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-baseline">
+        <div class="footer-baseline-left">
+          <div class="footer-badges">
+            <span class="footer-badge">Google Partner</span>
+            <span class="footer-badge">Meta Partner</span>
+          </div>
+          <p class="footer-baseline-meta">HelpMeMarketing · Mississauga, Ontario · Hello@helpmemarketing.com</p>
+        </div>
+        <div class="footer-baseline-right">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <span>&copy; 2026 HelpMeMarketing</span>
+        </div>
       </div>
     </div>
   </div>
