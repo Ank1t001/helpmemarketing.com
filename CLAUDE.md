@@ -57,22 +57,62 @@ These docs do **not** apply to legacy-page work on the `main` branch. They apply
 
 ### Locked Phase 2 architectural decisions
 
-- **Service architecture (C1):** 6 categories — Performance Marketing, SEO + AEO, Branding & Social, Website Development, Analytics & Attribution, Lifecycle & Retention
+- **Service architecture (C1):** 6 categories — Performance Marketing, SEO + AEO, Branding & Social, Website Development, Analytics & Attribution, AI Automation & Workflow Systems
 - **URL scheme:** `/services/[category-slug]` (no channel sub-pages; channels live as H2 sections inside category pages)
-- **Footer pattern:** 3-column `.footer-grid` + `.footer-baseline` (stacks at ≤720px)
+- **Footer pattern:** F2 two-band layout (brand+tools strip + sitemap strip). Spec in `/docs/HMM_Design_System.md` §8. (F1 3-column flat is deprecated.)
 - **Form taxonomy:** 7 chips in buyer language — SEO | Ads | Brand & Social | Website | Analytics | Email & retention | Not sure yet
 - **`data-service` attrs:** use category slugs (`performance-marketing`, `branding-social`, etc.)
+  - **Note:** "Email & retention" chip routes to `data-service="lifecycle-retention"` for now. Service category was deprecated in Phase 2.5 (replaced by AI Automation & Workflow Systems), but the chip's data-service tag is retained as a routing label for the contact form payload. Implicit category bundling: leads from this chip are handled within existing service categories (Performance Marketing covers most email & lifecycle work). Backend routing label rename deferred to the next form-code commit.
 - **Logo:** "HMM" with italic Signal Orange "MM" using `<span class="me-italic">` pattern
 - **Email casing:** `Hello@helpmemarketing.com` in visible UI; lowercase `hello@` acceptable in schema/metadata
+
+### Phase 2.5 Sweep Decisions (locked 2026-05-25)
+
+Phase 2.5 sweep brings nav + footer to canonical consistency across all 29 in-scope HTML pages. Decisions locked in planning session:
+
+#### Decision 1 — Footer canon: F2 two-band
+
+F2 replaces F1 as the canonical footer pattern. Two-band layout: brand + tools (upper) and sitemap + baseline (lower). Full spec in `/docs/HMM_Design_System.md` §8.
+
+#### Decision 2 — Service architecture swap
+
+AI Automation & Workflow Systems replaces Lifecycle & Retention as the 6th canonical service category. URL: `/services/ai-automation`. No legacy URL redirect (new category, no existing page).
+
+Strategic context: Lifecycle & Retention was originally included to capture signal data for a potential future service launch. Founder decision to swap to AI Automation reflects evolving service offering and current demand signal.
+
+#### Decision 3 — Labels and casing
+
+Sitewide canon:
+- "DTC" (not "DTC & E-commerce")
+- "Case Studies" Title Case (not "Case studies")
+- "© 2026 HelpMeMarketing" (drop "Inc.")
+- `Hello@helpmemarketing.com` (capitalized H)
+
+#### Decision 4 — Top nav stays unchanged
+
+Home / Services / Case Studies / About + "Book a free audit" CTA. Blog stays in footer. Tools stay in footer (showcased in F2 upper band). No new top-nav items added during Phase 2.5.
+
+#### Decision 5 — Sweep sequencing
+
+1. Update canon docs (this commit)
+2. Implement F2 on 3 prototype pages (homepage, /contact, /services) — separate session
+3. Sweep 26 legacy pages to F2 + canonical nav in 2 batches:
+   - Batch 1: 15 root pages
+   - Batch 2: 11 nested/special pages (industries/*, services/seo, _healthcare/*, tools/*, industries/healthcare/*)
+
+#### Decision 6 — Tool cards in F2 upper band
+
+Two cards: Ad Spend Calculator (`/ad-calculator`) and Marketing Audit (`/tools/marketing-audit`). Both ship at footer rollout; Marketing Audit content is still in development but link resolves.
 
 ### Phase 2 progress
 
 - ✓ Homepage prototype (Phase 1) — commits `0cc3e9d`, `b60ac6e`, `d232097`
 - ✓ /contact migration — commits `d232097`, `ce577a6`, `27eb63b`
-- ✓ Canon docs in repo — commits `bc2afd7` (Color), `0bfba56` (Content), `cad7398` (Design)
-- ⏳ /services overview page — pending
-- ⏳ /services/seo — pending
-- ⏳ 5 future category pages — pending
+- ✓ Canon docs in repo — commits `bc2afd7` (Color), `0bfba56` (Content), `cad7398` (Design), `82fba35` (CLAUDE.md)
+- ✓ /services overview page — commit `87d560c`
+- ⏳ Phase 2.5 sweep — queued for next session (canon docs updated this commit; F2 implementation + 26-page sweep follow)
+- ⏳ /services/seo migration — pending (Item 15 commitment soft-deadline 2026-05-24 slipped; deprioritized in favor of Phase 2.5 sweep)
+- ⏳ 5 remaining category pages — pending (Performance Marketing, Branding & Social, Website Development, Analytics & Attribution, AI Automation & Workflow Systems)
 - ⏳ Phase 3 merge `redesign-prototype-homepage` → `main` — pending
 
 ## Architecture (both legacy and prototype)
@@ -142,7 +182,7 @@ Elsewhere, the only JS is tiny inline event handlers (mobile-menu toggle). **Not
 - Read the three canon docs first. No exceptions.
 - Use prototype tokens only. Never legacy tokens.
 - Inline `style="..."` attributes forbidden by default. Tactical exceptions require explicit founder approval and an inline CSS comment.
-- Follow the 3-column `.footer-grid` + `.footer-baseline` pattern.
+- Follow the F2 footer pattern (see `/docs/HMM_Design_System.md` §8).
 - All new components and patterns must be added to `/docs/HMM_Design_System.md` in the same commit.
 
 ### Universal (both systems)

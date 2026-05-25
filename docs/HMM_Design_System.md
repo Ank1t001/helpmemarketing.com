@@ -396,28 +396,7 @@ Mobile (≤900px) hides `.nav-main-cta` (`styles.css:4133-4136`).
 
 ### Footer
 
-3-column grid + footer-baseline pattern. See Section 6 for grid spec.
-
-Footer column heading (`styles.css:4050-4058`):
-```css
-font-family: var(--sans);
-font-size: 11px;
-font-weight: 600;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: var(--text-tertiary);
-margin: 0 0 20px;
-```
-
-Footer column links (`styles.css:4070-4078`):
-- Color: `var(--text-muted)`, font-size 14px
-- Hover: `var(--text)`
-
-`.footer-baseline` (`styles.css:4081-4091`):
-- padding-top 32px, border-top `var(--border)`, flex space-between, font-size 13px, color `var(--text-tertiary)`
-- Stacks vertically at ≤720px (`styles.css:4406-4416`)
-
-Footer baseline additions (`.footer-baseline-meta`, `.footer-badges`, `.footer-badge`): see CSS at `styles.css:4375-4402`.
+Footer architecture has its own dedicated section. See **§8 — Footer Architecture (F2 two-band)** below.
 
 ### Eyebrow
 
@@ -461,7 +440,157 @@ Mobile (`styles.css:4129-4131`): column, align-items flex-start.
 
 ---
 
-## 8. Form Pattern (reusable across prototype forms)
+## 8. Footer Architecture (F2 two-band)
+
+Pattern: Two-band horizontal layout. Upper band carries brand identity and tool discovery. Lower band carries sitemap and baseline.
+
+Purpose: Tool discovery is the primary engagement goal. Upper band gives tools featured visual real estate. Lower band serves utility navigation without dominating.
+
+Status: F2 supersedes F1 (3-column flat). F1 is deprecated. All migrated prototype pages and all Phase 2.5 sweep pages use F2.
+
+#### Structural blocks
+
+```
+.footer
+  .footer-band-brand           (upper band: brand statement + tool cards)
+    .footer-brand-statement    (left: logo + headline + descriptor)
+    .footer-tools-grid         (right: 2-up tool cards)
+      .footer-tool-card        (icon + title + description + affordance)
+  .footer-band-utility         (lower band: sitemap + baseline)
+    .footer-utility-grid       (3-col: Services / Industries / Company)
+      .footer-column
+    .footer-baseline           (location + email + copyright + legal)
+```
+
+#### Colors
+
+Single-band dark background per the locked Color System; no separate token introduced for the lower band. Both bands use `var(--bg)` = `#0E0E0E`. Visual band separation comes from a hairline divider, not a background color change.
+
+- Footer background: `var(--bg)` = `#0E0E0E`
+- Band separator: `1px solid var(--border)` = `rgba(255,255,255,0.08)`
+- Tool card surface: `var(--bg-elevated)` = `#1A1A1A`
+- Tool card border (default): `var(--border)` = `rgba(255,255,255,0.08)`
+- Tool card border (hover): `rgba(255,255,255,0.16)` — Tier system token `--border-strong` once shipped
+- Tool card icon background: `var(--orange-glow)` = `rgba(255,92,26,0.18)`
+- Tool card icon color: `var(--cta)` = `#FF5C1A`
+- Sitemap heading: `var(--text-tertiary)` = `#737373`
+- Sitemap link: `var(--text-muted)` = `#999999`
+- Baseline text: `var(--text-tertiary)` = `#737373`
+
+#### Typography
+
+- Brand statement headline: `22px` / `400` / `Georgia, serif` / line-height `1.35`. The accent word uses `<em class="italic-accent">` with `color: var(--cta)`.
+- Brand statement descriptor: `13px` / `400` / sans / `var(--text-muted)` / line-height `1.65`
+- Tool card title: `14px` / `500` / sans / `var(--text)`
+- Tool card description: `12px` / `400` / sans / `var(--text-muted)` / line-height `1.55`
+- Tool card affordance: `12px` / `500` / sans / `var(--cta)` with trailing arrow
+- Sitemap column heading: `10px` / `600` / sans / `var(--text-tertiary)` / letter-spacing `1.5px` / uppercase
+- Sitemap link: `12px` / `400` / sans / `var(--text-muted)`
+- Baseline text: `11px` / `400` / sans / `var(--text-tertiary)`
+
+#### Spacing
+
+- Footer outer wrapper: no padding; each band sets its own padding
+- Upper band padding: `48px 40px` (desktop), `32px 24px` (≤900px)
+- Lower band padding: `36px 40px 24px` (desktop), `28px 24px 20px` (≤900px)
+- Brand-statement-to-tools gap: `56px` (desktop); wraps to column at `≤900px`
+- Tool cards gap: `16px`
+- Sitemap columns gap: `40px` (desktop); collapses to 2-col at `≤900px`, 1-col at `≤720px`
+- Band separator: hairline divider, spans full width between bands
+- Baseline separator: `1px solid var(--border)` above baseline within lower band
+
+#### Tool card component
+
+Each `.footer-tool-card` contains:
+1. Icon block: `28px × 28px`, rounded `6px`, Orange Glow background, CTA-color tabler icon
+2. Title: `14px` medium, white
+3. Description: `12px` regular, muted, single-line constrained
+4. Affordance: `12px` medium CTA-color with trailing arrow
+
+Hover state: border color brightens from `var(--border)` to `rgba(255,255,255,0.16)`. No translate. No shadow.
+
+#### Mobile breakpoints
+
+- `≤900px`: Upper band stacks (brand statement above tool cards). Lower band sitemap collapses to 2-column. Baseline horizontal but wraps if narrow.
+- `≤720px`: Lower band sitemap collapses to single column. Baseline stacks vertically.
+
+#### Tool cards content (current)
+
+Card 1 — Ad Spend Calculator
+- Icon: `ti-calculator`
+- Title: "Ad Spend Calculator"
+- Description: "Model CPL, ROAS, and budget across 4 platforms × 11 verticals."
+- Affordance: "Run the numbers →"
+- Link: `/ad-calculator`
+
+Card 2 — Marketing Audit
+- Icon: `ti-checkup-list`
+- Title: "Marketing Audit"
+- Description: "Score your marketing maturity across 5 dimensions in 10 min."
+- Affordance: "Take the audit →"
+- Link: `/tools/marketing-audit`
+
+#### Brand statement (canonical text)
+
+Headline (with serif italic accent on the second sentence):
+> **Try a tool. *No email gate.***
+
+Descriptor:
+> Free utilities built from our actual client work. Use them, share them, run the numbers yourself.
+
+Markup: `<em class="italic-accent">No email gate.</em>` for the orange accent.
+
+#### Lower band — utility grid
+
+3 columns: Services / Industries / Company
+
+Services column (6 items, all link to `/services/[slug]`):
+- Performance Marketing → `/services/performance-marketing`
+- SEO & AEO → `/services/seo`
+- Branding & Social → `/services/branding-social`
+- Website Development → `/services/website-development`
+- Analytics & Attribution → `/services/analytics-attribution`
+- AI Automation & Workflow Systems → `/services/ai-automation`
+
+Industries column (4 items):
+- DTC → `/industries/dtc`
+- SaaS → `/industries/saas`
+- Healthcare → `/industries/healthcare`
+- Finance → `/industries/finance`
+
+Company column (5 items):
+- About → `/about`
+- Case Studies → `/work`
+- Pricing → `/pricing`
+- Blog → `/blog`
+- Contact → `/contact`
+
+#### Baseline
+
+Two-line layout on the left, vertical-stacked legal on the right:
+
+Left cluster (vertical):
+- Partner badges (Google Partner · Meta Partner) inline
+- "HelpMeMarketing · Mississauga, Ontario · Hello@helpmemarketing.com"
+
+Right cluster (vertical stack):
+- Privacy Policy
+- Terms of Service
+- © 2026 HelpMeMarketing
+
+#### Forbidden patterns specific to footer
+
+- No "Shopify Partner" badge
+- No "DTC & E-commerce" label (use "DTC")
+- No "Case studies" lowercase (use "Case Studies")
+- No "© 2026 HelpMeMarketing Inc." (drop "Inc.")
+- No lowercase `hello@helpmemarketing.com` in visible text (use `Hello@`)
+- No inline styles on any `.footer-*` element
+- No "Lifecycle & Retention" as a service category (deprecated; replaced by AI Automation & Workflow Systems)
+
+---
+
+## 9. Form Pattern (reusable across prototype forms)
 
 The contact-page CSS block (`styles.css:4218-4416`) ships a complete dark-variant form pattern that's not contact-specific. **Every future prototype-scoped form (service inquiry, audit request, future contact variants) should reuse these components.**
 
@@ -501,7 +630,7 @@ These selectors live under the "PROTOTYPE — CONTACT PAGE" section header in st
 
 ---
 
-## 9. Local Token Shim Mechanism (tactical pattern)
+## 10. Local Token Shim Mechanism (tactical pattern)
 
 Two local token shims exist in prototype scope (`styles.css:4235-4243`):
 
@@ -536,7 +665,7 @@ Local token shims are **fragile**. If a future contributor removes the inline st
 
 ---
 
-## 10. Decision 9 — Tokens Currently Hardcoded as Literals
+## 11. Decision 9 — Tokens Currently Hardcoded as Literals
 
 Color System Section 7 lists 5 "reserved" tokens. The diagnostic against HEAD `0bfba56` revealed these tokens are **not actually reserved** — the rgba values are already used as hardcoded literals throughout prototype CSS.
 
@@ -556,7 +685,7 @@ The 5 "reserved" tokens are deduplication candidates, not new design language. W
 
 ---
 
-## 11. Additional Opacity Values — Pending Founder Review
+## 12. Additional Opacity Values — Pending Founder Review
 
 The diagnostic surfaced additional rgba opacities used in prototype CSS that aren't covered by the 5 reserved tokens above. **These are NOT yet named tokens. Founder decision pending on whether to tokenize them.**
 
@@ -577,7 +706,7 @@ The diagnostic surfaced additional rgba opacities used in prototype CSS that are
 
 ---
 
-## 12. Breakpoints
+## 13. Breakpoints
 
 Per Color System Decision 5, two breakpoints in active use under prototype scope. The diagnostic confirmed no others.
 
@@ -607,7 +736,7 @@ Do NOT use any of these inside prototype-scoped rules: 1200, 1100, 1000, 960, 68
 
 ---
 
-## 13. Transitions & Hover Patterns
+## 14. Transitions & Hover Patterns
 
 | Selector | Transition | CSS location |
 |---|---|---|
@@ -625,22 +754,22 @@ The pattern: 0.2s ease, lift by 1-2px, increase shadow on CTAs.
 
 ---
 
-## 14. Migration Standards (Phase 2 page builds)
+## 15. Migration Standards (Phase 2 page builds)
 
 Every Phase 2 page migration must:
 1. Use `<body class="redesign-prototype">` 
 2. Use `<div class="app">` wrapper
-3. Use the 3-column footer pattern (`.footer-grid` + `.footer-baseline`)
+3. Use the F2 footer pattern (see §8 — Footer Architecture)
 4. Use the canonical italic accent patterns (Section 4) — no `.italic-accent` class, no inline color styles
 5. Use `.hero-headline` for hero H1s, `.section-heading` for H2s, `.subsection` or `.card-title` for H3s
-6. Reference shared form components from Section 8 if the page has a form
-7. Use only the 2 codified breakpoints from Section 12
+6. Reference shared form components from Section 9 if the page has a form
+7. Use only the 2 codified breakpoints from Section 13
 8. Use only the color tokens defined in `/docs/HMM_Color_System.md`
 9. Follow voice rules from `/docs/HMM_Content_Rules.md`
 
 ### Locked Phase 2 architectural decisions
 
-- **Service architecture:** 6 categories (C1) — Performance Marketing, SEO + AEO, Branding & Social, Website Development, Analytics & Attribution, Lifecycle & Retention
+- **Service architecture:** 6 categories (C1) — Performance Marketing, SEO + AEO, Branding & Social, Website Development, Analytics & Attribution, AI Automation & Workflow Systems
 - **URL scheme:** `/services/[category-slug]`
 - **Form taxonomy (7 chips):** SEO | Ads | Brand & Social | Website | Analytics | Email & retention | Not sure yet
 - **`data-service` attrs** use category slugs (`performance-marketing`, `branding-social`, etc.)
@@ -649,17 +778,17 @@ Every Phase 2 page migration must:
 
 ---
 
-## 15. Open Items
+## 16. Open Items
 
 ### Known followups (not blocking current work)
 
 - `.bullet-list` usage check (Color System Decision 7) — class defined but unused on homepage
-- 5 "reserved" tokens implementation (Color System Decision 9) — see Section 10 above
+- 5 "reserved" tokens implementation (Color System Decision 9) — see Section 11 above
 - `.service-card h3` mobile font-size override (Decision 8) — add 20px at ≤900px in separate commit
-- Additional opacity values founder review (Section 11)
+- Additional opacity values founder review (Section 12)
 - `/services` Phase 2 migration — uses this doc as primary brief authority
 - HMM_Content_Rules v0.2 → v1.0 lock — currently DRAFT awaiting founder approval
-- Thank-you panel H2 anti-pattern at `contact.html:158` — inline `style="color:var(--deep)"` rescued by local token shim (Section 9); codify canonical H2 pattern when `/services` migration begins
+- Thank-you panel H2 anti-pattern at `contact.html:158` — inline `style="color:var(--deep)"` rescued by local token shim (Section 10); codify canonical H2 pattern when `/services` migration begins
 
 ### Site state caveat
 
@@ -667,7 +796,7 @@ Every Phase 2 page migration must:
 
 ---
 
-## 16. Updating This Doc
+## 17. Updating This Doc
 
 When the prototype's design system evolves:
 1. Update `styles.css` first
