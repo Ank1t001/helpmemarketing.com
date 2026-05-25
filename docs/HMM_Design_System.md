@@ -502,7 +502,7 @@ Single-band dark background per the locked Color System; no separate token intro
 #### Tool card component
 
 Each `.footer-tool-card` contains:
-1. Icon block: `28px × 28px`, rounded `6px`, Orange Glow background, CTA-color tabler icon
+1. Icon block: `28px × 28px`, rounded `6px`, Orange Glow background, CTA-color icon. Implementation: inline SVG copying Tabler Icons path data (24×24 viewBox, currentColor stroke, round caps). Tabler Icons library is NOT loaded in the project; icons are inline only.
 2. Title: `14px` medium, white
 3. Description: `12px` regular, muted, single-line constrained
 4. Affordance: `12px` medium CTA-color with trailing arrow
@@ -517,14 +517,14 @@ Hover state: border color brightens from `var(--border)` to `rgba(255,255,255,0.
 #### Tool cards content (current)
 
 Card 1 — Ad Spend Calculator
-- Icon: `ti-calculator`
+- Icon: Tabler `ti-calculator` (inline SVG, path data copied from tabler-icons.io)
 - Title: "Ad Spend Calculator"
 - Description: "Model CPL, ROAS, and budget across 4 platforms × 11 verticals."
 - Affordance: "Run the numbers →"
 - Link: `/ad-calculator`
 
 Card 2 — Marketing Audit
-- Icon: `ti-checkup-list`
+- Icon: Tabler `ti-checkup-list` (inline SVG, path data copied from tabler-icons.io)
 - Title: "Marketing Audit"
 - Description: "Score your marketing maturity across 5 dimensions in 10 min."
 - Affordance: "Take the audit →"

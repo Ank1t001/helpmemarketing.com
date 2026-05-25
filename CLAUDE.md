@@ -129,7 +129,7 @@ Each page shares this skeleton:
 - `<div class="page-enter">` wraps the body content for the entry animation.
 - Shared `<footer class="footer">`.
 
-Prototype-scoped pages additionally set `<body class="redesign-prototype">` and use the 3-column footer pattern instead of the legacy 4-column footer.
+Prototype-scoped pages additionally set `<body class="redesign-prototype">` and use the F2 two-band footer pattern (see `/docs/HMM_Design_System.md` §8) instead of the legacy 4-column footer.
 
 Active nav state is set manually per page by adding `.active` to the matching `<a class="nav-link">` in **both** the desktop nav (`.nav-links`) and the mobile menu (`.nav-mobile-menu`).
 
