@@ -3936,6 +3936,8 @@ body.redesign-prototype .service-grid {
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin-top: 40px;
+  max-width: 1080px;
+  margin-right: auto;
 }
 
 body.redesign-prototype .service-card {
