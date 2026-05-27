@@ -3755,7 +3755,7 @@ body.redesign-prototype .container {
 }
 
 body.redesign-prototype section.content-section {
-  padding: 96px 0;
+  padding: 64px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
@@ -3981,7 +3981,7 @@ body.redesign-prototype .service-card .card-arrow {
 body.redesign-prototype .bullet-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 24px 0 0;
 }
 
 body.redesign-prototype .bullet-list li {
@@ -4116,7 +4116,7 @@ body.redesign-prototype .footer-baseline a:hover {
   body.redesign-prototype h3.card-title { font-size: 20px; }
 
   body.redesign-prototype .container { padding: 0 20px; }
-  body.redesign-prototype section.content-section { padding: 64px 0; }
+  body.redesign-prototype section.content-section { padding: 40px 0; }
   body.redesign-prototype .hero { padding: 64px 0; }
 
   body.redesign-prototype .hero-grid {
