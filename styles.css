@@ -4045,7 +4045,7 @@ body.redesign-prototype .final-cta .microcopy {
 body.redesign-prototype .footer {
   background: var(--bg);
   border-top: 1px solid var(--border);
-  padding: 96px 0 40px;
+  padding: 64px 0 40px;
 }
 
 body.redesign-prototype .footer-grid {
@@ -4125,6 +4125,7 @@ body.redesign-prototype .footer-baseline a:hover {
   }
 
   body.redesign-prototype .service-grid { grid-template-columns: 1fr; gap: 16px; }
+  body.redesign-prototype .footer { padding: 40px 0 40px; }
   body.redesign-prototype .footer-grid { grid-template-columns: 1fr; gap: 40px; }
   body.redesign-prototype .final-cta { padding: 40px 24px; }
 
