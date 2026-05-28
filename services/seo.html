@@ -148,7 +148,7 @@
       <span class="eyebrow"><span class="eyebrow-dot"></span>SEO &amp; AEO Services</span>
       <h1 class="hero-headline">SEO that <em class="italic-accent">compounds</em>, not chases.</h1>
       <p class="hero-subtitle">Own the queries your buyers actually run. Technical depth, content built for real buyer intent, and authority that compounds, measured by revenue, not rankings.</p>
-      <div class="hero-ctas-row">
+      <div class="hero-ctas">
         <a href="/contact" class="btn btn-primary">Book a free SEO audit</a>
         <a href="#what-we-run" class="btn btn-outline">See what we run →</a>
       </div>
@@ -306,29 +306,55 @@
 </section>
 
 <!-- SECTION 7: FAQ -->
-<section class="faq-section">
-  <div class="container container-narrow">
-    <h2>Frequently asked questions</h2>
-    <details class="faq-item">
-      <summary>How long does SEO take to show results?<span class="faq-icon" aria-hidden="true">+</span></summary>
-      <p>Meaningful ranking shifts typically take 6-12 months. Most engagements show early signals by month 3-4, with fuller ranking and traffic results landing between months 6 and 12.</p>
-    </details>
-    <details class="faq-item">
-      <summary>What's the difference between SEO and AEO?<span class="faq-icon" aria-hidden="true">+</span></summary>
-      <p>SEO wins clicks on traditional search engines like Google. AEO (Answer Engine Optimization) gets you cited inside AI engines like ChatGPT and Perplexity. Both matter now, because buyers search both ways.</p>
-    </details>
-    <details class="faq-item">
-      <summary>What do you include that cheaper SEO retainers don't?<span class="faq-icon" aria-hidden="true">+</span></summary>
-      <p>Ongoing content production, AEO setup, Google Business Profile management, citations, and schema, not just an audit and a few on-page tweaks. Content is the biggest cost in real SEO, and it's where cheap retainers cut corners.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Do you guarantee rankings?<span class="faq-icon" aria-hidden="true">+</span></summary>
-      <p>No. Ranking algorithms aren't public and change constantly, so no one can honestly guarantee rankings. We commit to consistent execution and transparent monthly reporting on what's working and what isn't.</p>
-    </details>
-    <details class="faq-item">
-      <summary>What's included in your AEO work?<span class="faq-icon" aria-hidden="true">+</span></summary>
-      <p>We structure content so AI engines can extract and cite it, implement schema that makes it machine-readable, track where you're cited, and write content built to be the cited answer, not just a blue link.</p>
-    </details>
+<!-- FAQ uses bare <details>/<summary> with tactical inline styles using prototype tokens.
+     Follow-up: add canonical .faq-item class to styles.css when next service page ships. -->
+<section class="content-section">
+  <div class="container">
+    <h2 class="section-heading">Frequently asked questions.</h2>
+
+    <div style="max-width: 1080px; margin: 32px 0 0">
+
+      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
+        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+          <span>How long does SEO take to show results?</span>
+          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+        </summary>
+        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">Meaningful ranking shifts typically take 6-12 months. Most engagements show early signals by month 3-4, with fuller ranking and traffic results landing between months 6 and 12.</p>
+      </details>
+
+      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
+        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+          <span>What's the difference between SEO and AEO?</span>
+          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+        </summary>
+        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">SEO wins clicks on traditional search engines like Google. AEO (Answer Engine Optimization) gets you cited inside AI engines like ChatGPT and Perplexity. Both matter now, because buyers search both ways.</p>
+      </details>
+
+      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
+        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+          <span>What do you include that cheaper SEO retainers don't?</span>
+          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+        </summary>
+        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">Ongoing content production, AEO setup, Google Business Profile management, citations, and schema, not just an audit and a few on-page tweaks. Content is the biggest cost in real SEO, and it's where cheap retainers cut corners.</p>
+      </details>
+
+      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
+        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+          <span>Do you guarantee rankings?</span>
+          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+        </summary>
+        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">No. Ranking algorithms aren't public and change constantly, so no one can honestly guarantee rankings. We commit to consistent execution and transparent monthly reporting on what's working and what isn't.</p>
+      </details>
+
+      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
+        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+          <span>What's included in your AEO work?</span>
+          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+        </summary>
+        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">We structure content so AI engines can extract and cite it, implement schema that makes it machine-readable, track where you're cited, and write content built to be the cited answer, not just a blue link.</p>
+      </details>
+
+    </div>
   </div>
 </section>
 

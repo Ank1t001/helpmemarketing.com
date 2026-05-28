@@ -3759,6 +3759,8 @@ body.redesign-prototype section.content-section {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+body.redesign-prototype .hero-zone { background: transparent; }
+
 body.redesign-prototype .hero {
   padding: 96px 0;
   position: relative;
