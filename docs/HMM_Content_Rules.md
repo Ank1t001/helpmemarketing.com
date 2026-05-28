@@ -430,33 +430,27 @@ When data isn't available (R&D services), be explicit. Don't invent numbers.
 
 ## Section 10 — Service pages (additional rules)
 
-These rules apply to `/services/[service-name]` pages specifically.
+These rules apply to `/services/[service-slug]` pages specifically.
 
-### 10.1 Required sections (12 in order)
+### 10.1 Required sections (lean 9-section skeleton, in order)
 
-1. Hero (H1 + subhead + 2 CTAs + image)
-2. Why most [service] in Toronto still does it wrong
-3. How we approach [service]
-4. [Service]-specific differentiator (e.g., AEO for SEO)
-5. Three engagement tiers
-6. What this looks like in practice
-7. About our pricing
-8. Terms & commitment
-9. Not for you if
-10. FAQ (5 questions)
-10b. Related reading (3 blog cards)
-11. Final CTA
+1. Hero (H1 with italic accent + subhead + 2 CTAs + hero image)
+2. Problem framing (H2 with italic accent + subhead + bold-colon bullets + closing line)
+3. Methodology (3-step horizontal step-flow; inline-styled pattern pending canonical `.step-flow` promotion)
+4. What we run (3-5 service cards: H3 + plain descriptor `<p>` + plain bullets, no bold leads)
+5. Engagement scenarios (3-4 cards: "A [type]" titles, Situation / What we built / The shift colon labels, past tense)
+6. FAQ (3-5 questions, 25-30 word answers; FAQPage schema mirrored byte-for-byte)
+7. Not for you if (H2 with italic accent + plain bullets + closing positioning line)
+8. Related reading (compact pattern: bare section with 32px padding + eyebrow label + horizontal flex list)
+9. Final CTA (wrapper padding `64px 0 0`, `.final-cta` padding `40px 64px`, microcopy as `.subhead` with `margin: 0 auto` and bullet-separator format)
+
+The Final CTA is the last content section before the footer. Related reading sits above it, never after.
+
+Keep all section language national and location-agnostic. Do not hardcode a city.
 
 ### 10.2 Pricing presentation
 
-Pricing always visible. No gating. Format per tier:
-- Tier name
-- Who it's for (1-2 sentences)
-- Price range (specific, with min/max)
-- Setup fee, minimum commitment, expected results timeline
-- What's included (5-10 bullets)
-- What's not included (3-5 bullets)
-- Typical focus at this tier
+Pricing is gated behind a conversation. Service pages signal value through scenarios, methodology, and proof, not published tiers. Do not publish price ranges on the page or in the Service schema `offers` array.
 
 ### 10.3 "Not for you if"
 
@@ -472,14 +466,17 @@ Required. 3-5 bullets. Honest disqualifiers.
 
 ### 10.4 Internal linking
 
-Minimum 10 internal links per service page. Distribution:
-- 2-3 to other service pages
-- 2-3 to industry pages
-- 2-3 to relevant blog posts
-- 2 CTAs to /contact
-- 1 to /services/bundle (when it exists)
+Minimum 6-8 internal links per service page (sister pages run 7-8: performance-marketing 7, ai-automation 8, seo 8). Distribution:
+- 2 CTAs to /contact (hero + Final CTA)
+- Final CTA secondary to a relevant page (e.g. /work or a sister service), where it aids conversion
+- 1-2 to industry pages, woven into engagement scenarios where natural
+- 3 to relevant blog posts in Related reading
 
 Descriptive anchor text. No "click here" or "learn more" as link text.
+
+### 10.5 Changelog
+
+- 2026-05-28: Amended to the lean 9-section canon. Replaces the prior 12-section spec. Published-pricing rule removed (pricing now gated behind a conversation). `/services/bundle` link requirement dropped. Internal-link floor recounted from 10 to 6-8.
 
 ---
 
