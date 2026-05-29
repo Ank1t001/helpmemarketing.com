@@ -43,7 +43,7 @@
 
     { "source": "/seo",              "destination": "/services/seo",                       "permanent": true },
     { "source": "/google-meta-ads",  "destination": "/services",                           "permanent": true },
-    { "source": "/website-design",   "destination": "/services/web-design-development",    "permanent": true },
+    { "source": "/website-design",   "destination": "/services/website-development",       "permanent": true },
     { "source": "/social-media",     "destination": "/services/social-media-management",   "permanent": true },
     { "source": "/brand-content",    "destination": "/services/branding",                  "permanent": true },
     { "source": "/lifecycle-retention", "destination": "/services",                        "permanent": true },
