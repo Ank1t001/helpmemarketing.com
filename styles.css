@@ -4105,6 +4105,68 @@ body.redesign-prototype .final-cta .subhead.final-cta-note {
   font-style: normal; opacity: 0.6; font-size: 13px; margin: 0 auto;
 }
 
+/* ============================================================
+   WORK PAGE PATTERNS
+   Page-specific dark patterns for /work (Case Studies).
+   Scoped under body.redesign-prototype.
+   ============================================================ */
+
+/* Proof strip — 7 metrics, Signal-Orange figures, wraps responsively */
+body.redesign-prototype .proof-strip {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 32px 24px; max-width: 1080px;
+}
+body.redesign-prototype .proof-strip-item {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  flex: 1 1 120px; min-width: 120px; max-width: 180px; text-align: center;
+}
+body.redesign-prototype .proof-strip-figure {
+  font-family: var(--serif); font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500; color: var(--cta); line-height: 1;
+}
+body.redesign-prototype .proof-strip-label {
+  font-size: 12px; color: var(--text-muted); line-height: 1.3;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+
+/* Case-study grid + cards */
+body.redesign-prototype .case-study-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 40px; max-width: 1080px;
+}
+@media (max-width: 900px) {
+  body.redesign-prototype .case-study-grid { grid-template-columns: 1fr; }
+}
+body.redesign-prototype .case-study-card {
+  background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px;
+}
+body.redesign-prototype .case-study-card-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 16px; margin-bottom: 16px;
+}
+body.redesign-prototype .case-study-card h3 {
+  font-family: var(--serif); font-size: 22px; font-weight: 500;
+  color: var(--text); margin: 0;
+}
+body.redesign-prototype .case-study-tag {
+  font-size: 11px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--text-muted); white-space: nowrap;
+}
+body.redesign-prototype .case-study-metric {
+  font-family: var(--serif); font-size: 32px; font-weight: 500;
+  color: var(--cta); line-height: 1.1; margin: 0 0 20px;
+}
+body.redesign-prototype .case-study-metric-qual {
+  font-family: var(--sans); font-size: 14px; color: var(--text-muted);
+  font-weight: 400; margin-left: 4px;
+}
+body.redesign-prototype .case-study-card p {
+  font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0 0 12px;
+}
+body.redesign-prototype .case-study-card p:last-child { margin-bottom: 0; }
+
 /* DEPRECATED: F1 footer styles, superseded by F2 below (canon locked at a53cddd).
    F1 markup classes (.footer-grid, .footer-column wrapper, .footer-baseline original
    variant) are no longer used by F2-migrated prototype pages. Retained here because
