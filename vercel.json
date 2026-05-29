@@ -42,7 +42,7 @@
     { "source": "/_healthcare/ad-calculator",   "destination": "/ad-calculator",                          "permanent": true },
 
     { "source": "/seo",              "destination": "/services/seo",                       "permanent": true },
-    { "source": "/google-meta-ads",  "destination": "/services",                           "permanent": true },
+    { "source": "/google-meta-ads",  "destination": "/services/performance-marketing",     "permanent": true },
     { "source": "/website-design",   "destination": "/services/website-development",       "permanent": true },
     { "source": "/social-media",     "destination": "/services/branding-social",           "permanent": true },
     { "source": "/brand-content",    "destination": "/services/branding-social",           "permanent": true },
