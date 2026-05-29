@@ -103,28 +103,26 @@
 
     <p class="section-deck">You can't attribute what you didn't track, and you can't act on what you can't read. We build all three in order.</p>
 
-    <!-- Tactical inline-style: horizontal 3-column step flow with connecting line.
-         Promote to canonical .step-flow class in styles.css when next service page needs this pattern. -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; margin-top: 40px; max-width: 1080px; position: relative">
+    <div class="step-flow">
       <!-- Connecting line (positioned behind step numbers, runs horizontally) -->
-      <div style="position: absolute; top: 28px; left: 11%; right: 11%; height: 2px; background: rgba(255, 255, 255, 0.08); z-index: 0"></div>
+      <div class="step-line"></div>
       <!-- Step 1 -->
-      <div style="position: relative; z-index: 1">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--bg); border: 2px solid var(--cta); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--cta); margin-bottom: 20px">1</div>
-        <h3 style="font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--text); margin: 0 0 12px">Track it right.</h3>
-        <p style="font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0">Tag and event architecture, server-side tracking, clean data at the source.</p>
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Track it right.</h3>
+        <p>Tag and event architecture, server-side tracking, clean data at the source.</p>
       </div>
       <!-- Step 2 -->
-      <div style="position: relative; z-index: 1">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--bg); border: 2px solid var(--cta); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--cta); margin-bottom: 20px">2</div>
-        <h3 style="font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--text); margin: 0 0 12px">Attribute honestly.</h3>
-        <p style="font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0">Models that show what actually drove the sale, not what each platform claims.</p>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Attribute honestly.</h3>
+        <p>Models that show what actually drove the sale, not what each platform claims.</p>
       </div>
       <!-- Step 3 -->
-      <div style="position: relative; z-index: 1">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--bg); border: 2px solid var(--cta); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--cta); margin-bottom: 20px">3</div>
-        <h3 style="font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--text); margin: 0 0 12px">Report what matters.</h3>
-        <p style="font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0">Dashboards built around decisions, not vanity metrics.</p>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Report what matters.</h3>
+        <p>Dashboards built around decisions, not vanity metrics.</p>
       </div>
     </div>
   </div>
@@ -225,52 +223,50 @@
 </section>
 
 <!-- SECTION 7: FAQ -->
-<!-- FAQ uses bare <details>/<summary> with tactical inline styles using prototype tokens.
-     Follow-up: add canonical .faq-item class to styles.css when next service page ships. -->
 <section class="content-section">
   <div class="container">
     <h2 class="section-heading">Frequently asked questions.</h2>
 
     <div style="max-width: 1080px; margin: 32px 0 0">
 
-      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
-        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+      <details class="svc-faq-item">
+        <summary>
           <span>Isn't GA4 enough on its own?</span>
-          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+          <span aria-hidden="true">+</span>
         </summary>
-        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">Rarely. A default GA4 install misses conversions, mistracks events, and can't de-duplicate across channels. The tool is capable; most setups don't use it correctly. We configure it to tell the truth.</p>
+        <p>Rarely. A default GA4 install misses conversions, mistracks events, and can't de-duplicate across channels. The tool is capable; most setups don't use it correctly. We configure it to tell the truth.</p>
       </details>
 
-      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
-        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+      <details class="svc-faq-item">
+        <summary>
           <span>What is attribution, in plain terms?</span>
-          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+          <span aria-hidden="true">+</span>
         </summary>
-        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">It's figuring out which touchpoints actually earned a sale when a customer saw several. Good attribution stops every platform from claiming the same conversion and shows you where budget really works.</p>
+        <p>It's figuring out which touchpoints actually earned a sale when a customer saw several. Good attribution stops every platform from claiming the same conversion and shows you where budget really works.</p>
       </details>
 
-      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
-        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+      <details class="svc-faq-item">
+        <summary>
           <span>Do you fix our existing setup or start over?</span>
-          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+          <span aria-hidden="true">+</span>
         </summary>
-        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">We audit first. Often a targeted fix to tags, events, and tracking gets you trustworthy data fast. Sometimes a rebuild is the honest answer. We tell you which, and why.</p>
+        <p>We audit first. Often a targeted fix to tags, events, and tracking gets you trustworthy data fast. Sometimes a rebuild is the honest answer. We tell you which, and why.</p>
       </details>
 
-      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
-        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+      <details class="svc-faq-item">
+        <summary>
           <span>Can you connect marketing data to actual revenue?</span>
-          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+          <span aria-hidden="true">+</span>
         </summary>
-        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">Yes, where the data allows. We wire tracking from first click through to conversion or closed deal, so reporting ties spend to outcomes, not just clicks and impressions.</p>
+        <p>Yes, where the data allows. We wire tracking from first click through to conversion or closed deal, so reporting ties spend to outcomes, not just clicks and impressions.</p>
       </details>
 
-      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
-        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+      <details class="svc-faq-item">
+        <summary>
           <span>Will I understand the reports, or do I need an analyst?</span>
-          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+          <span aria-hidden="true">+</span>
         </summary>
-        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">You'll understand them. We build dashboards around decisions and write plain-language readouts, so the numbers tell you what to do without needing someone to translate them.</p>
+        <p>You'll understand them. We build dashboards around decisions and write plain-language readouts, so the numbers tell you what to do without needing someone to translate them.</p>
       </details>
 
     </div>
@@ -294,12 +290,10 @@
 </section>
 
 <!-- RELATED READING -->
-<!-- Tactical inline-style: compact related reading with eyebrow label.
-     Promote to canonical .related-reading-compact class when next service page needs it. -->
-<section style="padding: 32px 0">
+<section class="related-reading-compact">
   <div class="container">
-    <p style="font-size: 12px; font-weight: 500; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 1.5px; margin: 0 0 16px">Related reading</p>
-    <ul style="list-style: none; padding: 0; margin: 0; display: flex; gap: 24px; flex-wrap: wrap">
+    <p>Related reading</p>
+    <ul>
       <li><a href="/blog/marketing-kpis">Marketing KPIs that matter</a></li>
       <li><a href="/blog/meta-roas-attribution">Meta ROAS and attribution</a></li>
       <li><a href="/blog/what-services-do-i-need">What marketing services do I need?</a></li>
@@ -308,17 +302,17 @@
 </section>
 
 <!-- SECTION 9: FINAL CTA -->
-<section style="padding: 64px 0 0">
+<section class="final-cta-section">
   <div class="container">
-    <div class="final-cta" style="padding: 40px 64px">
+    <div class="final-cta">
       <h2 class="section-heading">Ready to see what's actually <em class="italic-accent">working</em>?</h2>
       <p class="subhead">Book a free analytics audit. We'll review your tracking, attribution, and reporting, and show you where the numbers are misleading you and what it takes to fix it.</p>
       <!-- Button group: matches established prototype pattern in /contact.html thanks panel (line 162) -->
-      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 32px 0 20px">
+      <div class="final-cta-actions">
         <a href="/contact" class="btn btn-primary">Book a free analytics audit →</a>
         <a href="/work" class="btn btn-outline">See our work →</a>
       </div>
-      <p class="subhead" style="font-style: normal; opacity: 0.6; font-size: 13px; margin: 0 auto">30 minutes • Honest assessment • No obligation</p>
+      <p class="subhead final-cta-note">30 minutes • Honest assessment • No obligation</p>
     </div>
   </div>
 </section>

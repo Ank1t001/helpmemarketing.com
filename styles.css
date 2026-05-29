@@ -4035,6 +4035,76 @@ body.redesign-prototype .final-cta .microcopy {
   font-style: italic;
 }
 
+/* ============================================================
+   PROTOTYPE SERVICE-PAGE PATTERNS
+   Promoted from byte-identical inline styles on the 6
+   /services/* category pages (zero drift, verified). These
+   reproduce the prior inline rendering exactly.
+   Deferred enhancements (NOT applied here, refactor only):
+   step-flow 720px mobile stacking; FAQ summary
+   ::-webkit-details-marker hardening.
+   ============================================================ */
+
+/* Methodology 3-step flow */
+body.redesign-prototype .step-flow {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;
+  margin-top: 40px; max-width: 1080px; position: relative;
+}
+body.redesign-prototype .step-flow .step-line {
+  position: absolute; top: 28px; left: 11%; right: 11%;
+  height: 2px; background: rgba(255, 255, 255, 0.08); z-index: 0;
+}
+body.redesign-prototype .step-flow .step { position: relative; z-index: 1; }
+body.redesign-prototype .step-flow .step-num {
+  width: 56px; height: 56px; border-radius: 50%; background: var(--bg);
+  border: 2px solid var(--cta); display: flex; align-items: center;
+  justify-content: center; font-family: var(--serif); font-size: 24px;
+  font-weight: 500; color: var(--cta); margin-bottom: 20px;
+}
+body.redesign-prototype .step-flow .step h3 {
+  font-family: var(--serif); font-size: 20px; font-weight: 500;
+  color: var(--text); margin: 0 0 12px;
+}
+body.redesign-prototype .step-flow .step p {
+  font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0;
+}
+
+/* Compact related reading */
+body.redesign-prototype .related-reading-compact { padding: 32px 0; }
+body.redesign-prototype .related-reading-compact p {
+  font-size: 12px; font-weight: 500; color: var(--text-tertiary);
+  text-transform: uppercase; letter-spacing: 1.5px; margin: 0 0 16px;
+}
+body.redesign-prototype .related-reading-compact ul {
+  list-style: none; padding: 0; margin: 0; display: flex; gap: 24px; flex-wrap: wrap;
+}
+
+/* Inline-details FAQ (svc- prefix: .faq-item is owned by legacy pages) */
+body.redesign-prototype .svc-faq-item {
+  border-bottom: 1px solid var(--border); padding: 20px 0;
+}
+body.redesign-prototype .svc-faq-item summary {
+  font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer;
+  list-style: none; display: flex; justify-content: space-between;
+  align-items: center; gap: 16px;
+}
+body.redesign-prototype .svc-faq-item summary span[aria-hidden] {
+  color: var(--cta); font-size: 22px; line-height: 1;
+}
+body.redesign-prototype .svc-faq-item > p {
+  margin: 16px 0 0; color: var(--text-muted); line-height: 1.65;
+}
+
+/* Final CTA section wrapper (inner .final-cta is the existing shared class) */
+body.redesign-prototype .final-cta-section { padding: 64px 0 0; }
+body.redesign-prototype .final-cta-section .final-cta { padding: 40px 64px; }
+body.redesign-prototype .final-cta-section .final-cta-actions {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 32px 0 20px;
+}
+body.redesign-prototype .final-cta .subhead.final-cta-note {
+  font-style: normal; opacity: 0.6; font-size: 13px; margin: 0 auto;
+}
+
 /* DEPRECATED: F1 footer styles, superseded by F2 below (canon locked at a53cddd).
    F1 markup classes (.footer-grid, .footer-column wrapper, .footer-baseline original
    variant) are no longer used by F2-migrated prototype pages. Retained here because

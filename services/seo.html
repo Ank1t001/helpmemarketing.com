@@ -179,28 +179,26 @@
 
     <p class="section-deck">Most agencies pick keywords and publish. We build the technical and content foundation before chasing rankings.</p>
 
-    <!-- Tactical inline-style: horizontal 3-column step flow with connecting line.
-         Promote to canonical .step-flow class in styles.css when next service page needs this pattern. -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; margin-top: 40px; max-width: 1080px; position: relative">
+    <div class="step-flow">
       <!-- Connecting line (positioned behind step numbers, runs horizontally) -->
-      <div style="position: absolute; top: 28px; left: 11%; right: 11%; height: 2px; background: rgba(255, 255, 255, 0.08); z-index: 0"></div>
+      <div class="step-line"></div>
       <!-- Step 1 -->
-      <div style="position: relative; z-index: 1">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--bg); border: 2px solid var(--cta); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--cta); margin-bottom: 20px">1</div>
-        <h3 style="font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--text); margin: 0 0 12px">Fix the foundation.</h3>
-        <p style="font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0">Technical audit, site health, schema, and the crawl issues capping your ceiling.</p>
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Fix the foundation.</h3>
+        <p>Technical audit, site health, schema, and the crawl issues capping your ceiling.</p>
       </div>
       <!-- Step 2 -->
-      <div style="position: relative; z-index: 1">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--bg); border: 2px solid var(--cta); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--cta); margin-bottom: 20px">2</div>
-        <h3 style="font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--text); margin: 0 0 12px">Earn the rankings.</h3>
-        <p style="font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0">Content built for real buyer intent, plus the authority signals that hold over time.</p>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Earn the rankings.</h3>
+        <p>Content built for real buyer intent, plus the authority signals that hold over time.</p>
       </div>
       <!-- Step 3 -->
-      <div style="position: relative; z-index: 1">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--bg); border: 2px solid var(--cta); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--cta); margin-bottom: 20px">3</div>
-        <h3 style="font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--text); margin: 0 0 12px">Tie it to revenue.</h3>
-        <p style="font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0">Attribution that connects organic traffic to bookings, not just dashboard metrics.</p>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Tie it to revenue.</h3>
+        <p>Attribution that connects organic traffic to bookings, not just dashboard metrics.</p>
       </div>
     </div>
   </div>
@@ -301,52 +299,50 @@
 </section>
 
 <!-- SECTION 7: FAQ -->
-<!-- FAQ uses bare <details>/<summary> with tactical inline styles using prototype tokens.
-     Follow-up: add canonical .faq-item class to styles.css when next service page ships. -->
 <section class="content-section">
   <div class="container">
     <h2 class="section-heading">Frequently asked questions.</h2>
 
     <div style="max-width: 1080px; margin: 32px 0 0">
 
-      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
-        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+      <details class="svc-faq-item">
+        <summary>
           <span>How long does SEO take to show results?</span>
-          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+          <span aria-hidden="true">+</span>
         </summary>
-        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">Meaningful ranking shifts typically take 6-12 months. Most engagements show early signals by month 3-4, with fuller ranking and traffic results landing between months 6 and 12.</p>
+        <p>Meaningful ranking shifts typically take 6-12 months. Most engagements show early signals by month 3-4, with fuller ranking and traffic results landing between months 6 and 12.</p>
       </details>
 
-      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
-        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+      <details class="svc-faq-item">
+        <summary>
           <span>What's the difference between SEO and AEO?</span>
-          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+          <span aria-hidden="true">+</span>
         </summary>
-        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">SEO wins clicks on traditional search engines like Google. AEO (Answer Engine Optimization) gets you cited inside AI engines like ChatGPT and Perplexity. Both matter now, because buyers search both ways.</p>
+        <p>SEO wins clicks on traditional search engines like Google. AEO (Answer Engine Optimization) gets you cited inside AI engines like ChatGPT and Perplexity. Both matter now, because buyers search both ways.</p>
       </details>
 
-      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
-        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+      <details class="svc-faq-item">
+        <summary>
           <span>What do you include that cheaper SEO retainers don't?</span>
-          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+          <span aria-hidden="true">+</span>
         </summary>
-        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">Ongoing content production, AEO setup, Google Business Profile management, citations, and schema, not just an audit and a few on-page tweaks. Content is the biggest cost in real SEO, and it's where cheap retainers cut corners.</p>
+        <p>Ongoing content production, AEO setup, Google Business Profile management, citations, and schema, not just an audit and a few on-page tweaks. Content is the biggest cost in real SEO, and it's where cheap retainers cut corners.</p>
       </details>
 
-      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
-        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+      <details class="svc-faq-item">
+        <summary>
           <span>Do you guarantee rankings?</span>
-          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+          <span aria-hidden="true">+</span>
         </summary>
-        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">No. Ranking algorithms aren't public and change constantly, so no one can honestly guarantee rankings. We commit to consistent execution and transparent monthly reporting on what's working and what isn't.</p>
+        <p>No. Ranking algorithms aren't public and change constantly, so no one can honestly guarantee rankings. We commit to consistent execution and transparent monthly reporting on what's working and what isn't.</p>
       </details>
 
-      <details style="border-bottom: 1px solid var(--border); padding: 20px 0">
-        <summary style="font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+      <details class="svc-faq-item">
+        <summary>
           <span>What's included in your AEO work?</span>
-          <span aria-hidden="true" style="color: var(--cta); font-size: 22px; line-height: 1">+</span>
+          <span aria-hidden="true">+</span>
         </summary>
-        <p style="margin: 16px 0 0; color: var(--text-muted); line-height: 1.65">We structure content so AI engines can extract and cite it, implement schema that makes it machine-readable, track where you're cited, and write content built to be the cited answer, not just a blue link.</p>
+        <p>We structure content so AI engines can extract and cite it, implement schema that makes it machine-readable, track where you're cited, and write content built to be the cited answer, not just a blue link.</p>
       </details>
 
     </div>
@@ -370,12 +366,10 @@
 </section>
 
 <!-- RELATED READING -->
-<!-- Tactical inline-style: compact related reading with eyebrow label.
-     Promote to canonical .related-reading-compact class when next service page needs it. -->
-<section style="padding: 32px 0">
+<section class="related-reading-compact">
   <div class="container">
-    <p style="font-size: 12px; font-weight: 500; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 1.5px; margin: 0 0 16px">Related reading</p>
-    <ul style="list-style: none; padding: 0; margin: 0; display: flex; gap: 24px; flex-wrap: wrap">
+    <p>Related reading</p>
+    <ul>
       <li><a href="/blog/what-services-do-i-need">What marketing services do I need?</a></li>
       <li><a href="/blog/digital-marketing-cost">How much does digital marketing cost?</a></li>
       <li><a href="/blog/seo-ppc-or-social">SEO, PPC, or social?</a></li>
@@ -384,17 +378,17 @@
 </section>
 
 <!-- SECTION 9: FINAL CTA -->
-<section style="padding: 64px 0 0">
+<section class="final-cta-section">
   <div class="container">
-    <div class="final-cta" style="padding: 40px 64px">
+    <div class="final-cta">
       <h2 class="section-heading">Ready to make organic your <em class="italic-accent">best channel</em>?</h2>
       <p class="subhead">Book a free SEO audit. We'll review your rankings, technical health, and content, then show you the highest-impact opportunities, honestly.</p>
       <!-- Button group: matches established prototype pattern in /contact.html thanks panel (line 162) -->
-      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 32px 0 20px">
+      <div class="final-cta-actions">
         <a href="/contact" class="btn btn-primary">Book a free SEO audit →</a>
         <a href="/work" class="btn btn-outline">See our work →</a>
       </div>
-      <p class="subhead" style="font-style: normal; opacity: 0.6; font-size: 13px; margin: 0 auto">45 minutes • Honest assessment • No obligation</p>
+      <p class="subhead final-cta-note">45 minutes • Honest assessment • No obligation</p>
     </div>
   </div>
 </section>
