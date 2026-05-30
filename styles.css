@@ -3610,6 +3610,915 @@ details[open] .faq-question::after {
   font-style: italic;
 }
 
+/* ===================================================================
+   BLOG DARK THEME (body.blog-dark)
+   ===================================================================
+   Scoped dark theme for D-hybrid blog pages carrying class="blog-dark"
+   on <body>. Other blogs (no body class) inherit existing light styles
+   via the BLOG TEMPLATE V2 section above; non-blog pages unaffected.
+
+   Token strategy: 11 dark tokens defined under body.blog-dark scope. A
+   handful of legacy blog tokens (--soft-bg, --muted, --accent-blue) are
+   remapped to dark equivalents so existing component rules that use
+   var(--soft-bg) etc. automatically pick up dark surfaces without
+   touching the BLOG TEMPLATE V2 section above.
+
+   Color discipline (per HMM Color System Golden Rules):
+   - Signal Orange (--cta): CTAs (nav, sidebar button, dark-cta button),
+     H2 accent rules, title italic accent, hero glow, "Paid wins" cells,
+     center "Lower CAC" node ring.
+   - Mint (--mint): functional/positive ONLY — takeaway checks, "Organic
+     wins" cells, sidebar bullet ticks, compounding-phase icons, all four
+     outcome-quadrant icons. NEVER a CTA.
+   - Neutral grey (--text-tertiary): owned-asset phase, structural muted.
+   =================================================================== */
+
+body.blog-dark {
+  /* Dark theme tokens */
+  --bg: #0E0E0E;
+  --bg-elevated: #1A1A1A;
+  --text: #FFFFFF;
+  --text-muted: #999999;
+  --text-tertiary: #737373;
+  --cta: #FF5C1A;
+  --cta-hover: #FF7038;
+  --mint: #00D4AA;
+  --border: rgba(255, 255, 255, 0.08);
+  --grid-line: rgba(255, 255, 255, 0.045);
+  --orange-glow: rgba(255, 92, 26, 0.18);
+
+  /* Legacy blog-token remaps so existing component rules pick up dark surfaces */
+  --soft-bg: var(--bg-elevated);
+  --muted: var(--text-muted);
+  --accent-blue: var(--cta);
+  --accent-blue-light: rgba(255, 92, 26, 0.12);
+  --navy: var(--bg-elevated);
+  --navy-deep: #0A0A0A;
+  --navy-light: var(--text-tertiary);
+  --light: var(--text-tertiary);
+
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============= NAV (dark) ============= */
+body.blog-dark .nav {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+body.blog-dark .nav-link {
+  color: var(--text-muted);
+}
+body.blog-dark .nav-link:hover {
+  color: var(--text);
+}
+body.blog-dark .nav-cta .btn-accent {
+  background: var(--cta);
+  color: var(--text);
+}
+body.blog-dark .nav-cta .btn-accent:hover {
+  background: var(--cta-hover);
+}
+
+/* ============= LAYOUT ============= */
+body.blog-dark .blog-body {
+  background: var(--bg);
+}
+body.blog-dark article.blog-content {
+  background: transparent;
+  color: var(--text);
+}
+
+/* ============= HERO ============= */
+body.blog-dark .blog-hero {
+  background: transparent;
+  color: var(--text);
+}
+body.blog-dark .breadcrumb {
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+body.blog-dark .breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+body.blog-dark .breadcrumb a:hover {
+  color: var(--cta);
+}
+body.blog-dark .breadcrumb span {
+  color: var(--text-tertiary);
+  margin: 0 8px;
+}
+body.blog-dark .post-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.015em;
+}
+body.blog-dark .post-title .accent {
+  color: var(--cta);
+  font-style: italic;
+  font-weight: 400;
+}
+body.blog-dark .post-subtitle {
+  color: var(--text-muted);
+}
+body.blog-dark .category-tags {
+  color: var(--text-tertiary);
+}
+body.blog-dark .category-tags .sep {
+  color: var(--text-tertiary);
+}
+body.blog-dark .author-line {
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+body.blog-dark .author-line .dot {
+  background: var(--text-tertiary);
+}
+body.blog-dark .author-avatar {
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+body.blog-dark .author-block {
+  color: var(--text-muted);
+}
+body.blog-dark .author-block .avatar {
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+body.blog-dark .author-block .author-name {
+  color: var(--text);
+}
+body.blog-dark .author-block .author-title {
+  color: var(--text-muted);
+}
+body.blog-dark .author-block .meta-icons {
+  color: var(--text-muted);
+}
+body.blog-dark .hero-illustration {
+  background: transparent;
+  padding: 0;
+}
+body.blog-dark .hero-illustration--image {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 60px var(--orange-glow);
+}
+body.blog-dark .hero-illustration--image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+/* ============= MOBILE TOC ============= */
+body.blog-dark .toc-mobile {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+body.blog-dark .toc-mobile-toggle {
+  background: transparent;
+  color: var(--text);
+  border: none;
+}
+body.blog-dark .toc-mobile-toggle:hover {
+  color: var(--cta);
+}
+body.blog-dark .toc-mobile-chevron {
+  color: var(--text-tertiary);
+  transition: transform 0.2s ease;
+}
+body.blog-dark .toc-mobile-toggle.open .toc-mobile-chevron {
+  transform: rotate(180deg);
+  color: var(--cta);
+}
+body.blog-dark .toc-mobile-panel {
+  border-top: 1px solid var(--border);
+}
+body.blog-dark .toc-list-mobile li {
+  border-bottom: 1px solid var(--border);
+}
+body.blog-dark .toc-list-mobile li:last-child {
+  border-bottom: none;
+}
+body.blog-dark .toc-list-mobile li a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+body.blog-dark .toc-list-mobile li a:hover,
+body.blog-dark .toc-list-mobile li a.active {
+  color: var(--cta);
+}
+
+/* ============= TAKEAWAYS ============= */
+body.blog-dark .takeaways {
+  background: var(--bg-elevated);
+  border-left: 3px solid var(--cta);
+  border-radius: 12px;
+  color: var(--text);
+}
+body.blog-dark .takeaways h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+body.blog-dark .takeaways li {
+  color: var(--text-muted);
+  padding-left: 34px;
+}
+body.blog-dark .takeaways li::before {
+  content: "\2713";
+  background: rgba(0, 212, 170, 0.12);
+  color: var(--mint);
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+/* ============= PROSE (h2 with orange accent rule, p, a, strong) ============= */
+body.blog-dark article.blog-content h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin: 56px 0 20px;
+  position: relative;
+  padding-top: 18px;
+}
+body.blog-dark article.blog-content h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 2px;
+  background: var(--cta);
+  border-radius: 1px;
+}
+body.blog-dark article.blog-content h2:first-of-type {
+  margin-top: 24px;
+}
+body.blog-dark article.blog-content p {
+  color: var(--text-muted);
+}
+body.blog-dark article.blog-content p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+body.blog-dark article.blog-content a {
+  color: var(--cta);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+body.blog-dark article.blog-content a:hover {
+  color: var(--cta-hover);
+}
+body.blog-dark .stat-inline {
+  color: var(--cta);
+  font-weight: 600;
+}
+
+/* ============= PULL QUOTE ============= */
+body.blog-dark .pull-quote {
+  background: var(--orange-glow);
+  border-left: 3px solid var(--cta);
+  border-radius: 12px;
+  color: var(--text);
+}
+body.blog-dark .pull-quote em {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text);
+}
+body.blog-dark .pull-quote::before,
+body.blog-dark .pull-quote::after {
+  color: var(--cta);
+}
+
+/* ============= DARK CTA box ============= */
+body.blog-dark .dark-cta {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+}
+body.blog-dark .dark-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cta), transparent);
+}
+body.blog-dark .dark-cta h4 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  color: var(--text);
+}
+body.blog-dark .dark-cta p {
+  color: var(--text-muted);
+}
+body.blog-dark .dark-cta .btn {
+  background: var(--cta);
+  color: var(--text);
+}
+body.blog-dark .dark-cta .btn:hover {
+  background: var(--cta-hover);
+}
+
+/* ============= LEVERS ============= */
+body.blog-dark .levers-list li {
+  border-bottom: 1px solid var(--border);
+}
+body.blog-dark .levers-list li:last-child {
+  border-bottom: none;
+}
+body.blog-dark .lever-icon {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+}
+body.blog-dark .lever-icon.purple,
+body.blog-dark .lever-icon.blue,
+body.blog-dark .lever-icon.green,
+body.blog-dark .lever-icon.orange,
+body.blog-dark .lever-icon.pink {
+  background: var(--bg-elevated);
+  color: var(--cta);
+}
+body.blog-dark .lever-content h4 {
+  color: var(--text);
+  font-weight: 600;
+}
+body.blog-dark .lever-content p {
+  color: var(--text-muted);
+}
+body.blog-dark .rule-of-thumb {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+body.blog-dark .rule-of-thumb strong {
+  color: var(--mint);
+}
+
+/* ============= FRAMEWORK DIAGRAM (timeline) ============= */
+body.blog-dark .framework-diagram {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+}
+body.blog-dark .framework-diagram::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cta), transparent);
+}
+body.blog-dark .framework-diagram h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--cta);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+}
+body.blog-dark .framework-row {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+body.blog-dark .framework-stage {
+  background: transparent;
+  border: none;
+}
+body.blog-dark .framework-stage.s1 {
+  color: var(--cta);
+  background: transparent;
+}
+body.blog-dark .framework-stage.s2 {
+  color: var(--mint);
+  background: transparent;
+}
+body.blog-dark .framework-stage.s3,
+body.blog-dark .framework-stage.s4 {
+  color: var(--text-tertiary);
+  background: transparent;
+}
+body.blog-dark .stage-icon {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: inherit;
+}
+body.blog-dark .framework-stage.s1 .stage-icon {
+  background: var(--orange-glow);
+  border-color: rgba(255, 92, 26, 0.3);
+}
+body.blog-dark .framework-stage.s2 .stage-icon {
+  background: rgba(0, 212, 170, 0.12);
+  border-color: rgba(0, 212, 170, 0.3);
+}
+body.blog-dark .stage-text h5 {
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+body.blog-dark .stage-text p {
+  color: var(--text-muted);
+}
+body.blog-dark .framework-arrow {
+  color: var(--text-tertiary);
+}
+body.blog-dark .framework-issue {
+  color: var(--text-muted);
+}
+body.blog-dark .framework-issue strong {
+  color: var(--text);
+}
+
+/* SVG icon defaults in diagrams */
+body.blog-dark .stage-icon svg,
+body.blog-dark .outcome-card .icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ============= OUTCOME DIAGRAM (quadrant) ============= */
+body.blog-dark .outcome-diagram {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+}
+body.blog-dark .outcome-diagram::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cta), transparent);
+}
+body.blog-dark .outcome-diagram h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--cta);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+}
+body.blog-dark .outcome-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+body.blog-dark .outcome-card span {
+  color: var(--text);
+}
+body.blog-dark .outcome-card .icon {
+  color: var(--mint);
+  background: rgba(0, 212, 170, 0.12);
+  border: 1px solid rgba(0, 212, 170, 0.25);
+}
+body.blog-dark .outcome-card.tl .icon,
+body.blog-dark .outcome-card.tr .icon,
+body.blog-dark .outcome-card.bl .icon,
+body.blog-dark .outcome-card.br .icon {
+  color: var(--mint);
+  background: rgba(0, 212, 170, 0.12);
+  border-color: rgba(0, 212, 170, 0.25);
+}
+body.blog-dark .outcome-center {
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 2px solid var(--cta);
+  box-shadow: 0 0 40px var(--orange-glow);
+}
+body.blog-dark .outcome-center .lower {
+  color: var(--text-tertiary);
+  opacity: 1;
+}
+
+/* ============= COMPARISON TABLE ============= */
+body.blog-dark .table-section {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+}
+body.blog-dark .table-section h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--cta);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+}
+body.blog-dark .comparison-table {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+body.blog-dark .comparison-table thead,
+body.blog-dark .comparison-table th {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border);
+}
+body.blog-dark .comparison-table td {
+  background: transparent;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+body.blog-dark .comparison-table td:first-child {
+  color: var(--text);
+  font-weight: 600;
+}
+body.blog-dark .comparison-table td.cac {
+  color: var(--cta);
+  font-weight: 700;
+}
+body.blog-dark .comparison-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+body.blog-dark .comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+/* Winner column semantics: cells with .win-paid orange, .win-organic mint */
+body.blog-dark .comparison-table td.win-paid {
+  color: var(--cta);
+  font-weight: 700;
+}
+body.blog-dark .comparison-table td.win-organic {
+  color: var(--mint);
+  font-weight: 700;
+}
+body.blog-dark .comparison-table td.win-either {
+  color: var(--text);
+  font-weight: 700;
+}
+body.blog-dark .table-source {
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+/* ============= CHANNEL CTA ============= */
+body.blog-dark .channel-cta {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+}
+body.blog-dark .channel-cta h4 {
+  color: var(--text);
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+}
+body.blog-dark .channel-cta p {
+  color: var(--text-muted);
+}
+body.blog-dark .channel-cta .btn {
+  background: var(--cta);
+  color: var(--text);
+}
+body.blog-dark .channel-cta .btn:hover {
+  background: var(--cta-hover);
+}
+
+/* ============= INSIGHT + AUDIT CARDS (post-content) ============= */
+body.blog-dark .insight-card,
+body.blog-dark .audit-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+body.blog-dark .insight-card h3,
+body.blog-dark .audit-card h3 {
+  color: var(--text);
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+}
+body.blog-dark .insight-card p {
+  color: var(--text-muted);
+}
+body.blog-dark .insight-card .think-long {
+  color: var(--cta);
+  font-weight: 600;
+}
+body.blog-dark .audit-list li {
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+body.blog-dark .audit-list li:last-child {
+  border-bottom: none;
+}
+body.blog-dark .audit-badge {
+  background: var(--mint);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+/* ============= RELATED + FINAL CTA ============= */
+body.blog-dark .related-section h3 {
+  color: var(--text);
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+}
+body.blog-dark .related-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+body.blog-dark .related-card:hover {
+  border-color: var(--cta);
+  box-shadow: 0 4px 24px var(--orange-glow);
+}
+body.blog-dark .related-card h4 {
+  color: var(--text);
+  font-weight: 600;
+}
+body.blog-dark .related-card .read-link {
+  color: var(--cta);
+  font-weight: 600;
+}
+body.blog-dark .final-cta {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+}
+body.blog-dark .final-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cta), transparent);
+}
+body.blog-dark .final-cta h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  color: var(--text);
+}
+body.blog-dark .final-cta p {
+  color: var(--text-muted);
+}
+body.blog-dark .final-cta .btn {
+  border-radius: 999px;
+  font-weight: 600;
+}
+body.blog-dark .final-cta .btn.primary {
+  background: var(--cta);
+  color: var(--text);
+}
+body.blog-dark .final-cta .btn.primary:hover {
+  background: var(--cta-hover);
+}
+body.blog-dark .final-cta .btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+body.blog-dark .final-cta .btn.secondary:hover {
+  border-color: var(--cta);
+  color: var(--cta);
+}
+
+/* ============= AUTHOR BIO ============= */
+body.blog-dark .author-bio {
+  border-top: 1px solid var(--border);
+}
+body.blog-dark .bio-avatar {
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
+  font-weight: 700;
+}
+body.blog-dark .bio-text h4 {
+  color: var(--text);
+  font-weight: 600;
+}
+body.blog-dark .bio-text p {
+  color: var(--text-muted);
+}
+
+/* ============= FAQ ============= */
+body.blog-dark .blog-faq {
+  color: var(--text);
+}
+body.blog-dark .blog-faq-title {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+body.blog-dark .faq-item {
+  border-top: 1px solid var(--border);
+}
+body.blog-dark .faq-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+body.blog-dark .faq-question {
+  color: var(--text);
+  font-weight: 600;
+}
+body.blog-dark .faq-question:hover {
+  color: var(--cta);
+}
+body.blog-dark .faq-question::after {
+  color: var(--cta);
+}
+body.blog-dark details[open] .faq-question::after {
+  color: var(--cta);
+}
+body.blog-dark .faq-answer p {
+  color: var(--text-muted);
+}
+
+/* ============= SIDEBAR ============= */
+body.blog-dark .blog-sidebar {
+  background: transparent;
+}
+body.blog-dark .toc-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+}
+body.blog-dark .toc-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cta), transparent);
+}
+body.blog-dark .toc-header {
+  border-bottom: 1px solid var(--border);
+}
+body.blog-dark .toc-title {
+  color: var(--text-tertiary);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+body.blog-dark .toc-share .share-icon {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s ease;
+}
+body.blog-dark .toc-share .share-icon:hover {
+  color: var(--cta);
+  border-color: var(--cta);
+  background: var(--orange-glow);
+}
+body.blog-dark .toc-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+body.blog-dark .toc-item {
+  color: var(--text-muted);
+  padding: 8px 0 8px 18px;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+body.blog-dark .toc-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 1px;
+  background: var(--text-tertiary);
+  transition: background 0.15s ease, width 0.15s ease;
+}
+body.blog-dark .toc-item:hover {
+  color: var(--text);
+}
+body.blog-dark .toc-item:hover::before {
+  background: var(--cta);
+  width: 12px;
+}
+body.blog-dark .toc-item.active {
+  color: var(--cta);
+  font-weight: 600;
+}
+body.blog-dark .toc-item.active::before {
+  background: var(--cta);
+  width: 12px;
+}
+
+/* ============= SIDEBAR CTA ============= */
+body.blog-dark .sidebar-cta {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+}
+body.blog-dark .sidebar-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cta), transparent);
+}
+body.blog-dark .sidebar-cta .cta-eyebrow {
+  color: var(--text-tertiary);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+body.blog-dark .sidebar-cta .cta-title {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+body.blog-dark .sidebar-cta .cta-list {
+  list-style: none;
+  padding: 0;
+}
+body.blog-dark .sidebar-cta .cta-list li {
+  color: var(--text-muted);
+  padding-left: 24px;
+  position: relative;
+}
+body.blog-dark .sidebar-cta .cta-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--mint);
+  font-weight: 700;
+}
+body.blog-dark .sidebar-cta .cta-button {
+  background: var(--cta);
+  color: var(--text);
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+body.blog-dark .sidebar-cta .cta-button:hover {
+  background: var(--cta-hover);
+}
+body.blog-dark .sidebar-cta .cta-subnote {
+  color: var(--text-tertiary);
+  font-size: 11px;
+  font-style: italic;
+}
+
+/* ============= RESPONSIVE (mobile) ============= */
+@media (max-width: 900px) {
+  body.blog-dark article.blog-content h2 {
+    font-size: 22px;
+    margin-top: 40px;
+  }
+}
+
 /* ============================================
    MARKETING AUDIT TOOL
    ============================================
