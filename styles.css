@@ -3695,6 +3695,9 @@ body.blog-dark .blog-hero {
   background: transparent;
   color: var(--text);
 }
+body.blog-dark .hero-zone {
+  background: transparent;
+}
 body.blog-dark .breadcrumb {
   color: var(--text-tertiary);
   font-size: 13px;
