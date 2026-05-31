@@ -4549,6 +4549,17 @@ body.blog-dark .sidebar-cta .cta-subnote {
   font-style: italic;
 }
 
+/* ============= COMPOUND-CLASS OVERRIDES (option-c chrome adoption) =============
+   Reasserts dark-blog Tier-C .final-cta tuning (from e06841c) over
+   body.redesign-prototype .final-cta (which sets 56px 64px / 24px radius
+   for prototype hero CTAs). Specificity 0,3,0 + later source order wins.
+   Required only on blogs that carry BOTH class="blog-dark" AND
+   class="redesign-prototype" on <body> (option-c multi-class). */
+body.blog-dark.redesign-prototype .final-cta {
+  padding: 48px;
+  border-radius: 20px;
+}
+
 /* ============= RESPONSIVE (mobile) ============= */
 @media (max-width: 900px) {
   body.blog-dark article.blog-content h2 {
