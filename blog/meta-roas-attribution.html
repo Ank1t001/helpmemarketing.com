@@ -47,7 +47,7 @@
     {
       "@type": "Question",
       "name": "Why is Meta ROAS inaccurate?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Meta reports ROAS using a 7-day click and 1-day view attribution window by default. This means Meta claims credit for any purchase made within 7 days of a click or 1 day of someone seeing your ad — even if they would have bought anyway. It also double-counts conversions that Google and other platforms claim simultaneously. The result is ROAS overstated by 30 to 60 percent in most accounts."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Meta reports ROAS using a 7-day click and 1-day view attribution window by default. This means Meta claims credit for any purchase made within 7 days of a click or 1 day of someone seeing your ad, even if they would have bought anyway. It also double-counts conversions that Google and other platforms claim simultaneously. The result is ROAS overstated by 30 to 60 percent in most accounts."}
     },
     {
       "@type": "Question",
@@ -57,12 +57,12 @@
     {
       "@type": "Question",
       "name": "What is Meta Conversions API and why does it matter?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Meta Conversions API (CAPI) sends conversion data directly from your server to Meta, bypassing browser limitations like iOS privacy restrictions and ad blockers. The Meta pixel alone misses 20 to 40 percent of conversions. CAPI recovers these events, improves event match quality score, and gives Meta better signals to optimise your campaigns — without leaking personal data."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Meta Conversions API (CAPI) sends conversion data directly from your server to Meta, bypassing browser limitations like iOS privacy restrictions and ad blockers. The Meta pixel alone misses 20 to 40 percent of conversions. CAPI recovers these events, improves event match quality score, and gives Meta better signals to optimise your campaigns, without leaking personal data."}
     },
     {
       "@type": "Question",
       "name": "How do I know if my Meta attribution is wrong?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Compare Meta Ads Manager reported conversions against the same period in your own analytics — GA4, Shopify, or your CRM. A gap of 20 to 30 percent is normal due to cross-device journeys. A gap above 40 percent means view-through attribution or double-counting is inflating your numbers. At that point you are optimising campaigns against fiction."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Compare Meta Ads Manager reported conversions against the same period in your own analytics: GA4, Shopify, or your CRM. A gap of 20 to 30 percent is normal due to cross-device journeys. A gap above 40 percent means view-through attribution or double-counting is inflating your numbers. At that point you are optimising campaigns against fiction."}
     }
   ]
 }
@@ -123,7 +123,7 @@
       "@type": "HowToStep",
       "position": 4,
       "name": "Check your window setting in Ads Manager",
-      "text": "Check your window setting in Ads Manager. If it shows “1-day view” — change it now."
+      "text": "Check your window setting in Ads Manager. If it shows “1-day view”, change it now."
     },
     {
       "@type": "HowToStep",
@@ -195,7 +195,7 @@
         Paid Media<span class="sep">|</span>Attribution<span class="sep">|</span>Performance
       </div>
       <h1 class="post-title">
-        Why your Meta ROAS is lying to you &mdash; and
+        Why your Meta ROAS is lying to you, and
         <span class="accent">what to trust instead.</span>
       </h1>
       <p class="post-subtitle">
@@ -227,7 +227,7 @@
         <div class="takeaways">
     <h3>Key Takeaways</h3>
     <ul>
-      <li>Meta&rsquo;s default attribution overstates ROAS by 30&ndash;60% &mdash; it claims credit for purchases it did not cause.</li>
+      <li>Meta&rsquo;s default attribution overstates ROAS by 30&ndash;60%. It claims credit for purchases it did not cause.</li>
       <li>Two mechanisms drive the inflation: view-through attribution and cross-platform double-counting.</li>
       <li>The fix has three steps: change the attribution window, implement Conversions API, build a source of truth outside Meta.</li>
       <li>Never optimise your campaigns against Meta&rsquo;s own dashboard numbers.</li>
@@ -236,9 +236,9 @@
 
         <h2 id="attribution-problem">The attribution problem most Meta advertisers never catch</h2>
       <p>Most advertisers trust what Meta Ads Manager shows them. The number is right there on the dashboard, it goes up when you spend more, and it looks like proof the ads are working.</p>
-      <p>The problem: Meta is simultaneously the scorekeeper and the player. Its default settings are designed to maximise the numbers it shows you &mdash; not to give you an accurate picture of what the ads actually caused.</p>
+      <p>The problem: Meta is simultaneously the scorekeeper and the player. Its default settings are designed to maximise the numbers it shows you, not to give you an accurate picture of what the ads actually caused.</p>
       <p>Two specific mechanisms create the inflation:</p>
-      <p><strong>View-through attribution.</strong> Meta claims credit for any purchase made within 24 hours of someone seeing your ad, even if they never clicked it. Someone scrolls past your ad, searches your brand on Google, and buys &mdash; Meta counts that as its conversion.</p>
+      <p><strong>View-through attribution.</strong> Meta claims credit for any purchase made within 24 hours of someone seeing your ad, even if they never clicked it. Someone scrolls past your ad, searches your brand on Google, and buys. Meta counts that as its conversion.</p>
       <!-- [PLACEHOLDER: 30-60%, 40-120% over-attribution figures are HMM-internal audit estimates. Verify against published audit data before any external citation.] -->
       <p><strong>Cross-platform double-counting.</strong> Google claims that same conversion. So does your email platform if the person was in a flow. Add up every platform&rsquo;s reported conversions and they typically exceed actual orders by <span class="stat-inline">40&ndash;120%</span>. Someone is lying. Usually everyone is.</p>
 
@@ -250,16 +250,16 @@
       <!-- Element 4: Dark CTA (mid-post) -->
       <div class="dark-cta">
         <h4>Not sure how far off your Meta numbers are?</h4>
-        <p>We run a free attribution audit &mdash; we pull your platform data, compare it to your actual analytics, and show you the real gap in 45 minutes.</p>
+        <p>We run a free attribution audit: we pull your platform data, compare it to your actual analytics, and show you the real gap in 45 minutes.</p>
         <a href="/contact" class="btn">Book a free attribution audit &rarr;</a>
       </div>
 
         <h2 id="measure-the-gap">How to measure the real gap in your account</h2>
-      <p><strong>Step 1.</strong> Pull Meta Ads Manager &mdash; last 30 days, purchases reported. Note the number.</p>
-      <p><strong>Step 2.</strong> Open your own analytics &mdash; GA4, Shopify, or your CRM. Pull total orders and the channel breakdown for the same period.</p>
+      <p><strong>Step 1.</strong> Pull Meta Ads Manager: last 30 days, purchases reported. Note the number.</p>
+      <p><strong>Step 2.</strong> Open your own analytics: GA4, Shopify, or your CRM. Pull total orders and the channel breakdown for the same period.</p>
       <p><strong>Step 3.</strong> Calculate the gap:<br>(Meta reported &minus; your analytics Meta-attributed) &divide; your analytics number = overstatement %.</p>
       <p><strong>Step 4.</strong> Interpret the result:</p>
-      <p>&middot; Under 20% &mdash; normal. Cross-device journeys explain this.<br>&middot; 20&ndash;40% &mdash; view-through attribution is inflating results. Fix the window.<br>&middot; Over 40% &mdash; serious problem. You are optimising against fiction.</p>
+      <p>&middot; Under 20%: normal. Cross-device journeys explain this.<br>&middot; 20&ndash;40%: view-through attribution is inflating results. Fix the window.<br>&middot; Over 40%: serious problem. You are optimising against fiction.</p>
       <p><strong>Step 5.</strong> Check your attribution window in Meta. Go to Ads Manager &rarr; Columns &rarr; Attribution settings. If it shows &ldquo;7-day click, 1-day view&rdquo; you are counting view-throughs.</p>
 
         <div class="framework-diagram">
@@ -323,7 +323,7 @@
       </div>
 
         <div class="table-section">
-        <h3>Meta attribution windows &mdash; what each setting actually means</h3>
+        <h3>Meta attribution windows: what each setting actually means</h3>
         <table class="comparison-table">
           <thead>
             <tr>
@@ -338,31 +338,31 @@
               <td>1-day click</td>
               <td>Purchases within 24hrs of click</td>
               <td>Impulse buys, short cycles</td>
-              <td>Low &mdash; misses some real conversions</td>
+              <td>Low: misses some real conversions</td>
             </tr>
             <tr>
               <td>7-day click</td>
               <td>Purchases within 7 days of click</td>
               <td>Most DTC and lead gen</td>
-              <td>Low &mdash; slight assist overcount</td>
+              <td>Low: slight assist overcount</td>
             </tr>
             <tr>
               <td>7-day click, 1-day view <em>(default)</em></td>
               <td>Above + saw ad in last 24hrs</td>
               <td>Meta&rsquo;s preferred setting</td>
-              <td>High &mdash; significant inflation</td>
+              <td>High: significant inflation</td>
             </tr>
             <tr>
               <td>7-day click, 7-day view</td>
               <td>Above + saw ad in last 7 days</td>
               <td>Almost never appropriate</td>
-              <td>Very high &mdash; avoid</td>
+              <td>Very high: avoid</td>
             </tr>
             <tr>
               <td>28-day click</td>
               <td>Purchases within 28 days</td>
               <td>High-consideration, B2B, finance</td>
-              <td>Medium &mdash; can mask poor performers</td>
+              <td>Medium: can mask poor performers</td>
             </tr>
           </tbody>
         </table>
@@ -385,21 +385,21 @@
             <div class="lever-icon purple"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-settings --><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/></svg></div>
             <div class="lever-content">
               <h4>Step 1. Change your attribution window</h4>
-              <p>Change from &ldquo;7-day click, 1-day view&rdquo; to &ldquo;7-day click&rdquo; only (this aligns with <a href="https://www.hubspot.com/marketing-statistics" target="_blank" rel="noopener">HubSpot's marketing data</a> on attribution accuracy). Go to Ads Manager &rarr; Columns &rarr; Attribution settings. Your reported ROAS will drop immediately. That is not bad news &mdash; it is accurate news. Do this today. It costs nothing and takes two minutes.</p>
+              <p>Change from &ldquo;7-day click, 1-day view&rdquo; to &ldquo;7-day click&rdquo; only (this aligns with <a href="https://www.hubspot.com/marketing-statistics" target="_blank" rel="noopener">HubSpot's marketing data</a> on attribution accuracy). Go to Ads Manager &rarr; Columns &rarr; Attribution settings. Your reported ROAS will drop immediately. That is not bad news. It is accurate news. Do this today. It costs nothing and takes two minutes.</p>
             </div>
           </li>
           <li>
             <div class="lever-icon blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-link --><path d="M9 15l6 -6"/><path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464"/><path d="M13 18l-.397 .534a5.07 5.07 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463"/></svg></div>
             <div class="lever-content">
               <h4>Step 2. Implement Conversions API (CAPI)</h4>
-              <p>The Meta pixel running in a browser misses 20&ndash;40% of conversions due to iOS privacy changes, Safari ITP, and ad blockers. CAPI sends conversion data server-side, bypassing all of these (see <a href="https://www.facebook.com/business/help/2041148702652965" target="_blank" rel="noopener">Meta's Conversions API documentation</a>). It improves event match quality score &mdash; which improves Meta&rsquo;s ability to optimise your campaigns. Implementation: your developer sends purchase events server-side with hashed identifiers. Meta deduplicates against pixel events so you do not double-count. <a href="/analytics" style="color:var(--accent-blue);">How we set up attribution &rarr;</a></p>
+              <p>The Meta pixel running in a browser misses 20&ndash;40% of conversions due to iOS privacy changes, Safari ITP, and ad blockers. CAPI sends conversion data server-side, bypassing all of these (see <a href="https://www.facebook.com/business/help/2041148702652965" target="_blank" rel="noopener">Meta's Conversions API documentation</a>). It improves event match quality score, which improves Meta&rsquo;s ability to optimise your campaigns. Implementation: your developer sends purchase events server-side with hashed identifiers. Meta deduplicates against pixel events so you do not double-count. <a href="/analytics" style="color:var(--accent-blue);">How we set up attribution &rarr;</a></p>
             </div>
           </li>
           <li>
             <div class="lever-icon green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-chart-bar --><path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M4 20l14 0"/></svg></div>
             <div class="lever-content">
               <h4>Step 3. Build a source of truth outside Meta</h4>
-              <p>Once CAPI is live and the window is fixed, you need a single dashboard that shows total orders from your own analytics &mdash; broken down by channel, with a blended ROAS column that divides total revenue by total ad spend. Never run a campaign review using only platform dashboards. Open your own analytics first, every time. <a href="/analytics" style="color:var(--accent-blue);">See how we build attribution dashboards &rarr;</a></p>
+              <p>Once CAPI is live and the window is fixed, you need a single dashboard that shows total orders from your own analytics, broken down by channel, with a blended ROAS column that divides total revenue by total ad spend. Never run a campaign review using only platform dashboards. Open your own analytics first, every time. <a href="/analytics" style="color:var(--accent-blue);">See how we build attribution dashboards &rarr;</a></p>
             </div>
           </li>
         </ul>
@@ -437,7 +437,7 @@
         <div class="insight-card">
       <h3>What to do when ROAS drops after fixing attribution</h3>
       <p>When you tighten the window and implement CAPI, your reported Meta ROAS will drop. This is the right outcome.</p>
-      <p>Do not panic and cut budget. The campaigns did not get worse &mdash; your measurement got better. Recalibrate your targets, look at blended ROAS, and run a holdout test to measure true incrementality.</p>
+      <p>Do not panic and cut budget. The campaigns did not get worse. Your measurement got better. Recalibrate your targets, look at blended ROAS, and run a holdout test to measure true incrementality.</p>
       <div class="think-long">&#9733; The campaigns did not get worse. Your measurement got better.</div>
     </div>
 
@@ -459,7 +459,7 @@
         </li>
         <li>
           <div class="audit-badge">4</div>
-          <div>Check your window setting in Ads Manager. If it shows &ldquo;1-day view&rdquo; &mdash; change it now.</div>
+          <div>Check your window setting in Ads Manager. If it shows &ldquo;1-day view&rdquo;, change it now.</div>
         </li>
         <li>
           <div class="audit-badge">5</div>
@@ -478,7 +478,7 @@
       <details class="faq-item">
         <summary class="faq-question">Why is Meta ROAS inaccurate?</summary>
         <div class="faq-answer">
-          <p>Meta reports ROAS using a 7-day click and 1-day view attribution window by default. This means Meta claims credit for any purchase made within 7 days of a click or 1 day of someone seeing your ad — even if they would have bought anyway. It also double-counts conversions that Google and other platforms claim simultaneously. The result is ROAS overstated by 30 to 60 percent in most accounts.</p>
+          <p>Meta reports ROAS using a 7-day click and 1-day view attribution window by default. This means Meta claims credit for any purchase made within 7 days of a click or 1 day of someone seeing your ad, even if they would have bought anyway. It also double-counts conversions that Google and other platforms claim simultaneously. The result is ROAS overstated by 30 to 60 percent in most accounts.</p>
         </div>
       </details>
 
@@ -492,14 +492,14 @@
       <details class="faq-item">
         <summary class="faq-question">What is Meta Conversions API and why does it matter?</summary>
         <div class="faq-answer">
-          <p>Meta Conversions API (CAPI) sends conversion data directly from your server to Meta, bypassing browser limitations like iOS privacy restrictions and ad blockers. The Meta pixel alone misses 20 to 40 percent of conversions. CAPI recovers these events, improves event match quality score, and gives Meta better signals to optimise your campaigns — without leaking personal data.</p>
+          <p>Meta Conversions API (CAPI) sends conversion data directly from your server to Meta, bypassing browser limitations like iOS privacy restrictions and ad blockers. The Meta pixel alone misses 20 to 40 percent of conversions. CAPI recovers these events, improves event match quality score, and gives Meta better signals to optimise your campaigns, without leaking personal data.</p>
         </div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">How do I know if my Meta attribution is wrong?</summary>
         <div class="faq-answer">
-          <p>Compare Meta Ads Manager reported conversions against the same period in your own analytics — GA4, Shopify, or your CRM. A gap of 20 to 30 percent is normal due to cross-device journeys. A gap above 40 percent means view-through attribution or double-counting is inflating your numbers. At that point you are optimising campaigns against fiction.</p>
+          <p>Compare Meta Ads Manager reported conversions against the same period in your own analytics: GA4, Shopify, or your CRM. A gap of 20 to 30 percent is normal due to cross-device journeys. A gap above 40 percent means view-through attribution or double-counting is inflating your numbers. At that point you are optimising campaigns against fiction.</p>
         </div>
       </details>
     </div>
@@ -514,7 +514,7 @@
           <span class="read-link">Read more &rarr;</span>
         </a>
         <a href="/blog" class="related-card">
-          <h4>Server-side tracking explained &mdash; why every brand needs it in 2026</h4>
+          <h4>Server-side tracking explained: why every brand needs it in 2026</h4>
           <span class="read-link">Coming Jul 8 &rarr;</span>
         </a>
       </div>
