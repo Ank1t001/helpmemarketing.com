@@ -198,34 +198,36 @@ STRUCTURE THAT WORKS:
 </script>
 <script src="/blog/blog-template.js" defer></script>
 </head>
-<body>
+<body class="redesign-prototype blog-dark">
 
 <!-- Use site nav from styles.css -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="logo" style="text-decoration:none;color:inherit;">
-      <div class="logo-mark">H</div>
-      <span class="logo-text">Help<span style="color:var(--gold);font-style:italic;font-family:'Instrument Serif',serif;font-size:19px;padding:0 1px">Me</span>Marketing</span>
+    <a class="logo" href="/">
+      <div class="logo-mark">H<span class="me-italic">MM</span></div>
+      <span class="logo-text">Help<em style="font-family:var(--serif); font-size:19px; padding:0 1px">Me</em>Marketing</span>
     </a>
     <div class="nav-links">
-      <a href="/" class="nav-link">Home</a>
-      <a href="/services" class="nav-link">Services</a>
-      <a href="/work" class="nav-link">Case Studies</a>
-      <a href="/about" class="nav-link">About</a>
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/services">Services</a>
+      <a class="nav-link" href="/work">Case Studies</a>
+      <a class="nav-link" href="/about">About</a>
     </div>
     <div class="nav-cta">
-      <a href="/contact" class="btn btn-accent nav-main-cta">Book a free audit</a>
-      <button class="nav-hamburger" id="navHam" aria-label="Menu"><span></span></button>
+      <a class="btn btn-accent nav-main-cta" href="/contact">Book a free audit
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Menu" onclick="var m=document.querySelector('.nav-mobile-menu'); var o=m.classList.toggle('open'); this.classList.toggle('open', o);"><span></span></button>
     </div>
   </div>
 </nav>
-<div class="nav-mobile-menu" id="mobileMenu">
-  <a href="/" class="nav-link">Home</a>
-  <a href="/services" class="nav-link">Services</a>
-  <a href="/work" class="nav-link">Case Studies</a>
-  <a href="/about" class="nav-link">About</a>
+<div class="nav-mobile-menu">
+  <a class="nav-link" href="/">Home</a>
+  <a class="nav-link" href="/services">Services</a>
+  <a class="nav-link" href="/work">Case Studies</a>
+  <a class="nav-link" href="/about">About</a>
   <div class="mobile-cta-row">
-    <a href="/contact" class="btn btn-accent" style="justify-content:center;">Book a free audit</a>
+    <a class="btn btn-accent" href="/contact">Book a free audit</a>
   </div>
 </div>
 
@@ -262,52 +264,12 @@ STRUCTURE THAT WORKS:
         <div class="author-avatar">AK</div>
         <span>Ankit Kumar</span>
         <span class="dot"></span>
-        <span style="color:var(--muted); font-size:13px;">Founder, HelpMeMarketing</span>
-        <span class="dot"></span>
-        <span>Apr 30, 2026</span>
-        <span class="dot"></span>
         <span>7 min read</span>
       </div>
     </div>
 
-    <!-- Element 1: Hero illustration — business-type matcher -->
-    <div class="hero-illustration">
-      <div style="width:100%; display:flex; flex-direction:column; align-items:center; gap:14px;">
-        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; width:100%; max-width:560px;">
-          <!-- Local service business -->
-          <div style="background:white; border:1px solid var(--border); border-radius:12px; padding:14px 10px; display:flex; flex-direction:column; gap:5px; text-align:left;">
-            <div style="font-size:10px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); text-align:center; margin-bottom:2px;">Local service</div>
-            <div style="font-size:10px; color:var(--muted); text-align:center; font-style:italic; margin-bottom:6px;">Dentist, plumber, accountant</div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:var(--green); font-weight:700;">&check;</span><span>Google Ads</span></div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:var(--green); font-weight:700;">&check;</span><span>Local SEO</span></div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:var(--green); font-weight:700;">&check;</span><span>Google Business</span></div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:#EF4444; font-weight:700;">&times;</span><span style="color:var(--muted);">TikTok</span></div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:#EF4444; font-weight:700;">&times;</span><span style="color:var(--muted);">Influencers</span></div>
-          </div>
-          <!-- E-commerce / DTC (highlighted) -->
-          <div style="background:white; border:2px solid var(--navy); border-radius:12px; padding:14px 10px; display:flex; flex-direction:column; gap:5px; text-align:left; box-shadow:0 6px 16px rgba(15,59,95,0.18);">
-            <div style="font-size:10px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--navy); text-align:center; margin-bottom:2px;">E-commerce / DTC</div>
-            <div style="font-size:10px; color:var(--muted); text-align:center; font-style:italic; margin-bottom:6px;">Fashion, beauty, home goods</div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:var(--green); font-weight:700;">&check;</span><span>Meta &amp; IG Ads</span></div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:var(--green); font-weight:700;">&check;</span><span>Google Shopping</span></div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:var(--green); font-weight:700;">&check;</span><span>Email &amp; SMS</span></div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:var(--green); font-weight:700;">&check;</span><span>Social media</span></div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:#EF4444; font-weight:700;">&times;</span><span style="color:var(--muted);">LinkedIn Ads</span></div>
-          </div>
-          <!-- B2B / Services -->
-          <div style="background:white; border:1px solid var(--border); border-radius:12px; padding:14px 10px; display:flex; flex-direction:column; gap:5px; text-align:left;">
-            <div style="font-size:10px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); text-align:center; margin-bottom:2px;">B2B / Services</div>
-            <div style="font-size:10px; color:var(--muted); text-align:center; font-style:italic; margin-bottom:6px;">SaaS, agency, consultant</div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:var(--green); font-weight:700;">&check;</span><span>LinkedIn Ads</span></div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:var(--green); font-weight:700;">&check;</span><span>Content + SEO</span></div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:var(--green); font-weight:700;">&check;</span><span>Email nurture</span></div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:#EF4444; font-weight:700;">&times;</span><span style="color:var(--muted);">TikTok</span></div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:11px; line-height:1.4;"><span style="color:#EF4444; font-weight:700;">&times;</span><span style="color:var(--muted);">Google Shopping</span></div>
-          </div>
-        </div>
-        <div style="font-size:12px; color:var(--muted); text-align:center; line-height:1.5; max-width:420px;">The right channel depends on how your customer finds and decides to buy &mdash; not on what is trending.</div>
-      </div>
-    </div>
+    <!-- Element 1: Hero placeholder (Phase 2; real hero deferred to supervised pass) -->
+    <div class="hero-illustration hero-illustration--placeholder"></div>
   </div>
       </header>
 
@@ -357,35 +319,35 @@ STRUCTURE THAT WORKS:
       <div class="levers-section">
         <ul class="levers-list">
           <li>
-            <div class="lever-icon purple">&#10068;</div>
+            <div class="lever-icon purple"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="12" y1="17" x2="12" y2="17.01"/><path d="M8 10a4 4 0 1 1 8 0c0 1.892 -.402 2.88 -1.5 3.5a4 4 0 0 0 -1.5 3.5"/></svg></div>
             <div class="lever-content">
               <h4>1. How do your customers find you right now?</h4>
               <p>Ask your last 10 customers: &ldquo;How did you find us?&rdquo; Google search &rarr; you need SEO and Google Ads. Word of mouth &rarr; you need referral programmes and reviews. Social media &rarr; you need social content and Meta Ads. Someone recommended us &rarr; you need an email list and retention marketing. This single question tells you which channel is already working without you and deserves investment.</p>
             </div>
           </li>
           <li>
-            <div class="lever-icon blue">&#128269;</div>
+            <div class="lever-icon blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><line x1="15" y1="15" x2="21" y2="21"/></svg></div>
             <div class="lever-content">
               <h4>2. Do your customers search before they buy?</h4>
               <p>If someone can Google what you sell and find relevant results &mdash; you need to be in those results (per <a href="https://www.thinkwithgoogle.com" target="_blank" rel="noopener">Think With Google</a>&rsquo;s search behaviour research). Local businesses (&ldquo;dentist near me&rdquo;): Local SEO + Google Ads non-optional. E-commerce (&ldquo;best running shoes for flat feet&rdquo;): Google Shopping + SEO. B2B (&ldquo;project management software for agencies&rdquo;): Content marketing + SEO. If nobody is searching for what you sell &mdash; skip SEO for now and use paid ads to create demand. <a href="/blog/seo-ppc-or-social" style="color:var(--accent-blue);">SEO, PPC, or social: which first &rarr;</a></p>
             </div>
           </li>
           <li>
-            <div class="lever-icon green">&#128247;</div>
+            <div class="lever-icon green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"/><circle cx="12" cy="13" r="3"/></svg></div>
             <div class="lever-content">
               <h4>3. Is your product visual?</h4>
               <p>Food, fashion, beauty, fitness, home goods, travel &mdash; categories where a photo or video of the product can make someone want it. If yes: Instagram, TikTok, Meta Ads, Pinterest. If no: social media is a supporting channel at best, not a primary acquisition channel. A B2B software company should not be prioritising TikTok. A bakery should not be prioritising LinkedIn. Match the medium to the message.</p>
             </div>
           </li>
           <li>
-            <div class="lever-icon orange">&#129309;</div>
+            <div class="lever-icon orange"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16l3.5 -3.5a2.4 2.4 0 0 0 0 -3a2.4 2.4 0 0 0 -3 0l-.5 .5"/><path d="M8 12l-2 -2a2.4 2.4 0 0 1 0 -3a2.4 2.4 0 0 1 3 0l3 3"/><path d="M3 11l4 4l-1.5 1.5a2.121 2.121 0 1 1 -3 -3z"/><path d="M21 13l-4 -4l1.5 -1.5a2.121 2.121 0 1 1 3 3z"/></svg></div>
             <div class="lever-content">
               <h4>4. Are you selling to businesses?</h4>
               <p>B2B requires different channels entirely. Your buyers are on LinkedIn, reading industry newsletters, and Googling specific problem queries (per <a href="https://www.hubspot.com/marketing-statistics" target="_blank" rel="noopener">HubSpot&rsquo;s B2B marketing data</a>). B2B channels: LinkedIn Ads, content marketing targeting search queries, email outreach, industry partnerships. B2B does not work well on Instagram, TikTok, Google Shopping. The exception: B2B with visual products (architecture, furniture, fashion wholesale) can use Instagram effectively.</p>
             </div>
           </li>
           <li>
-            <div class="lever-icon pink">&#9201;</div>
+            <div class="lever-icon pink"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="7"/><polyline points="12 10 12 13 14 13"/><line x1="7" y1="4" x2="4.25" y2="6"/><line x1="17" y1="4" x2="19.75" y2="6"/></svg></div>
             <div class="lever-content">
               <h4>5. How fast do you need results?</h4>
               <p>This determines whether you start with paid or organic. Need customers in 30 days &rarr; paid ads first, full stop. Have 6+ months of runway &rarr; invest in both simultaneously. Very tight budget &rarr; Google Business Profile + local SEO first (free), then smallest viable paid ad budget. <a href="/blog/paid-ads-vs-organic" style="color:var(--accent-blue);">Paid ads vs organic &rarr;</a></p>
@@ -393,7 +355,7 @@ STRUCTURE THAT WORKS:
           </li>
         </ul>
         <div class="rule-of-thumb">
-          &#128161; <strong>One channel done well beats three channels done poorly.</strong> Pick the one that matches how your customers buy. Master it before adding the next.
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;margin-right:6px;"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0 -3 11c.5 .4 1 1 1 2v1h4v-1c0-1 .5-1.6 1-2a6 6 0 0 0 -3-11z"/></svg> <strong>One channel done well beats three channels done poorly.</strong> Pick the one that matches how your customers buy. Master it before adding the next.
         </div>
       </div>
 
@@ -401,7 +363,7 @@ STRUCTURE THAT WORKS:
         <h3>CHANNEL SELECTION BY BUSINESS TYPE</h3>
         <div class="framework-row">
           <div class="framework-stage s1">
-            <div class="stage-icon">&#128205;</div>
+            <div class="stage-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="11" r="3"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg></div>
             <div class="stage-text">
               <h5>LOCAL SERVICE</h5>
               <p>Google Ads + Local SEO</p>
@@ -415,7 +377,7 @@ STRUCTURE THAT WORKS:
         </div>
         <div class="framework-row">
           <div class="framework-stage s2">
-            <div class="stage-icon">&#128722;</div>
+            <div class="stage-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="19" r="2"/><circle cx="17" cy="19" r="2"/><path d="M3 3h2l2.5 12.5a2 2 0 0 0 2 1.5h7.5a2 2 0 0 0 2 -1.5l1.5 -8.5h-15.5"/></svg></div>
             <div class="stage-text">
               <h5>E-COMMERCE / DTC</h5>
               <p>Meta + Email + Shopping</p>
@@ -429,7 +391,7 @@ STRUCTURE THAT WORKS:
         </div>
         <div class="framework-row">
           <div class="framework-stage s3">
-            <div class="stage-icon">&#129309;</div>
+            <div class="stage-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16l3.5 -3.5a2.4 2.4 0 0 0 0 -3a2.4 2.4 0 0 0 -3 0l-.5 .5"/><path d="M8 12l-2 -2a2.4 2.4 0 0 1 0 -3a2.4 2.4 0 0 1 3 0l3 3"/><path d="M3 11l4 4l-1.5 1.5a2.121 2.121 0 1 1 -3 -3z"/><path d="M21 13l-4 -4l1.5 -1.5a2.121 2.121 0 1 1 3 3z"/></svg></div>
             <div class="stage-text">
               <h5>B2B</h5>
               <p>LinkedIn + Content + Email</p>
@@ -443,7 +405,7 @@ STRUCTURE THAT WORKS:
         </div>
         <div class="framework-row">
           <div class="framework-stage s4">
-            <div class="stage-icon">&#128241;</div>
+            <div class="stage-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
             <div class="stage-text">
               <h5>CONTENT / MEDIA</h5>
               <p>SEO + Social + Newsletter</p>
@@ -541,11 +503,11 @@ STRUCTURE THAT WORKS:
         <h3>Right channels, right results</h3>
         <div class="outcome-grid">
           <div class="outcome-card tl">
-            <div class="icon">&#127919;</div>
+            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
             <span>More qualified<br>leads</span>
           </div>
           <div class="outcome-card tr">
-            <div class="icon">&#128176;</div>
+            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M14.5 9C14.5 7.9 13.4 7.5 12 7.5C10 7.5 9 8.5 9 10C9 13 15 12 15 14C15 15.5 13.8 16.5 12 16.5C10.6 16.5 9.5 16.1 9 15"/><line x1="12" y1="6" x2="12" y2="18"/></svg></div>
             <span>Less wasted<br>spend</span>
           </div>
           <div class="outcome-center">
@@ -553,11 +515,11 @@ STRUCTURE THAT WORKS:
             <span class="lower">the goal</span>
           </div>
           <div class="outcome-card bl">
-            <div class="icon">&#9889;</div>
+            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="13 3 13 13 18 13 11 21 11 11 6 11 13 3"/></svg></div>
             <span>Faster<br>results</span>
           </div>
           <div class="outcome-card br">
-            <div class="icon">&#128200;</div>
+            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 14 21 5"/><polyline points="15 5 21 5 21 11"/></svg></div>
             <span>Channels that<br>compound</span>
           </div>
         </div>
@@ -703,78 +665,105 @@ STRUCTURE THAT WORKS:
     </div>
 
 <footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand-col">
-        <div class="logo" style="color:white; margin-bottom:18px">
-          <div class="logo-mark" style="background:var(--ivory); color:var(--navy)">H<span class="me-italic">m</span></div>
-          <span>HelpMeMarketing</span>
+  <!-- BAND 1: brand + tools -->
+  <div class="footer-band-brand">
+    <div class="container">
+      <div class="footer-brand-row">
+        <div class="footer-brand-statement">
+          <h3 class="footer-brand-headline">Try a tool. <em class="italic-accent">No email gate.</em></h3>
+          <p class="footer-brand-descriptor">Free utilities built from our actual client work. Use them, share them, run the numbers yourself.</p>
         </div>
-        <p>Growth marketing priced on outcomes, not hours. Flat quarters and rising CAC, made measurable. DTC, SaaS, healthcare, finance.</p>
-        <div class="footer-badges">
-          <span class="footer-badge">Google Partner</span>
-          <span class="footer-badge">Meta Partner</span>
-          <span class="footer-badge">Shopify Partner</span>
+        <div class="footer-tools-grid">
+          <a href="/ad-calculator" class="footer-tool-card">
+            <div class="footer-tool-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Tabler ti-calculator -->
+                <path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/>
+                <path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z"/>
+                <path d="M8 14l0 .01"/>
+                <path d="M12 14l0 .01"/>
+                <path d="M16 14l0 .01"/>
+                <path d="M8 17l0 .01"/>
+                <path d="M12 17l0 .01"/>
+                <path d="M16 17l0 .01"/>
+              </svg>
+            </div>
+            <div class="footer-tool-title">Ad Spend Calculator</div>
+            <div class="footer-tool-description">Model CPL, ROAS, and budget across 4 platforms × 11 verticals.</div>
+            <div class="footer-tool-affordance">Run the numbers →</div>
+          </a>
+          <a href="/tools/marketing-audit" class="footer-tool-card">
+            <div class="footer-tool-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Tabler ti-checkup-list -->
+                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/>
+                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/>
+                <path d="M9 14h.01"/>
+                <path d="M9 17h.01"/>
+                <path d="M12 16l1 1l3 -3"/>
+              </svg>
+            </div>
+            <div class="footer-tool-title">Marketing Audit</div>
+            <div class="footer-tool-description">Score your marketing maturity across 5 dimensions in 10 min.</div>
+            <div class="footer-tool-affordance">Take the audit →</div>
+          </a>
         </div>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <a href="/services/performance-marketing">Performance Marketing</a>
-        <a href="/services/seo">SEO &amp; AEO</a>
-        <a href="/services/branding-social">Branding &amp; Social</a>
-        <a href="/services/website-development">Website Development</a>
-        <a href="/services/analytics-attribution">Analytics &amp; Attribution</a>
-        <a href="/services/ai-automation">AI Automation &amp; Workflow Systems</a>
-      </div>
-      <div>
-        <h4>Industries</h4>
-        <a href="../industries/dtc.html">DTC &amp; E-commerce</a>
-        <a href="../industries/saas.html">SaaS &amp; Tech</a>
-        <a href="../industries/healthcare.html">Healthcare</a>
-        <a href="../industries/finance.html">Finance</a>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <a href="../about.html">About</a>
-        <a href="../work.html">Case studies</a>
-        <a href="../pricing.html">Pricing</a>
-        <a href="../contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Resources</h4>
-        <a href="../blog.html">Blog</a>
-        <a href="../ad-calculator.html">Ad-spend calculator</a>
-        <a href="../contact.html">Free audit</a>
-        <a href="mailto:hello@helpmemarketing.com">hello@helpmemarketing.com</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>&copy; 2026 HelpMeMarketing Inc.</div>
-      <div style="display:flex; gap:24px">
-        <a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a>
+  </div>
+
+  <!-- BAND 2: sitemap + baseline -->
+  <div class="footer-band-utility">
+    <div class="container">
+      <div class="footer-utility-grid">
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/performance-marketing">Performance Marketing</a></li>
+            <li><a href="/services/seo">SEO &amp; AEO</a></li>
+            <li><a href="/services/branding-social">Branding &amp; Social</a></li>
+            <li><a href="/services/website-development">Website Development</a></li>
+            <li><a href="/services/analytics-attribution">Analytics &amp; Attribution</a></li>
+            <li><a href="/services/ai-automation">AI Automation &amp; Workflow Systems</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Industries</h4>
+          <ul>
+            <li><a href="/industries/dtc">DTC</a></li>
+            <li><a href="/industries/saas">SaaS</a></li>
+            <li><a href="/industries/healthcare">Healthcare</a></li>
+            <li><a href="/industries/finance">Finance</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/work">Case Studies</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-baseline">
+        <div class="footer-baseline-left">
+          <div class="footer-badges">
+            <span class="footer-badge">Google Partner</span>
+            <span class="footer-badge">Meta Partner</span>
+          </div>
+          <p class="footer-baseline-meta">HelpMeMarketing · Mississauga, Ontario · Hello@helpmemarketing.com</p>
+        </div>
+        <div class="footer-baseline-right">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <span>&copy; 2026 HelpMeMarketing</span>
+        </div>
       </div>
     </div>
   </div>
 </footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var ham = document.getElementById('navHam');
-  var menu = document.getElementById('mobileMenu');
-  if (ham) {
-    ham.addEventListener('click', function() {
-      ham.classList.toggle('open');
-      menu.classList.toggle('open');
-    });
-  }
-  document.addEventListener('click', function(e) {
-    if (menu && ham && !menu.contains(e.target) && !ham.contains(e.target)) {
-      ham.classList.remove('open');
-      menu.classList.remove('open');
-    }
-  });
-});
-</script>
 
 </body>
 </html>
