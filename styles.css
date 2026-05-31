@@ -3697,6 +3697,7 @@ body.blog-dark .blog-hero {
 }
 body.blog-dark .hero-zone {
   background: transparent;
+  padding-bottom: 40px;
 }
 body.blog-dark .breadcrumb {
   color: var(--text-tertiary);
