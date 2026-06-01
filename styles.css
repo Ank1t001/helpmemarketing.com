@@ -3748,23 +3748,6 @@ body.blog-dark .author-avatar {
   color: var(--text);
   border: 1px solid var(--border);
 }
-body.blog-dark .author-block {
-  color: var(--text-muted);
-}
-body.blog-dark .author-block .avatar {
-  background: var(--bg-elevated);
-  color: var(--text);
-  border: 1px solid var(--border);
-}
-body.blog-dark .author-block .author-name {
-  color: var(--text);
-}
-body.blog-dark .author-block .author-title {
-  color: var(--text-muted);
-}
-body.blog-dark .author-block .meta-icons {
-  color: var(--text-muted);
-}
 body.blog-dark .hero-illustration {
   background: transparent;
   padding: 0;
