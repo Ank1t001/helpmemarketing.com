@@ -110,7 +110,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 32px; height: 32px; border-radius: 6px;
   background: var(--navy); color: var(--ivory);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--serif); font-size: 16px; font-weight: 500;
+  font-family: var(--serif); font-size: 13px; font-weight: 500;
+  letter-spacing: -0.02em;
   position: relative;
 }
 .logo-mark .me-italic {
@@ -2966,6 +2967,1590 @@ section.alt { background: var(--gray-surface); }
   }
 }
 
+
+/* ===================================================================
+   Promoted from embedded blocks - Phase 1 de-drift consolidation
+   ===================================================================
+   16 non-conflicting blog tokens promoted to shared :root + 142
+   byte-identical component rules + 2 drift selectors resolved to
+   canon (.post-title font-size = clamp(28px,4vw,44px); .related-grid
+   = 1fr 1fr) + 1 new .related-grid--3col modifier (V5 healthcare
+   opts in via class on the markup).
+
+   Source: V1-V6 embedded <style> blocks of 12 V2-grouping blog pages.
+   meta-attribution.html untouched (legacy non-V2 architecture).
+
+   Token strategy (Option B, conservative): 5 CONFLICTING tokens
+   (--navy, --navy-light, --border, --white, --text) remain in each
+   blog's embedded :root override to preserve byte-identical rendering
+   (they override the legacy/prototype definitions at page level
+   exactly as today). The 16 NEW tokens promote safely to shared
+   :root - verified zero refs in non-blog regions. --text was moved
+   to the conflicting set as a robustness choice: cascade trace shows
+   promotion works today via body.redesign-prototype shadowing on
+   <body>, but a future html-targeting rule that consumes var(--text)
+   could introduce a surprise. Embedding --text removes that latent
+   trap entirely for the cost of one token-line per blog.
+
+   Architecture caveat (Phase 2): only V5 (healthcare) uses the
+   .blog-content/.blog-body/sticky-TOC architecture matching the
+   existing 73 shared rules above. The other 11 blogs use an older
+   .article-content/.body-layout/.blog-container 2-column architecture.
+   Both architectures preserved verbatim - live rules stay live, dead
+   rules stay dead. Phase 2 will decide unify-vs-keep-two.
+
+   Phase 2 prerequisite logged: 5 blogs (digital-marketing-cost,
+   marketing-kpis, seo-ppc-or-social, marketing-strategy-from-zero,
+   dtc-cac-reduction) have an HTML structural bug - unclosed <div>s
+   cause the footer to nest INSIDE .blog-container. Harmless today
+   (page-level :root override is moot), but must be fixed before any
+   scoping or dark-theming work in Phase 2.
+   =================================================================== */
+
+/* ============= BLOG ARTICLE TOKENS ============= */
+:root {
+  --navy-deep: #0B1E33;
+  --accent-blue: #2563EB;
+  --accent-blue-light: #DBEAFE;
+  --soft-bg: #F4F7FA;
+  --muted: #6B7B8C;
+  --light: #9CA3AF;
+  --purple: #8B5CF6;
+  --purple-bg: #F3E8FF;
+  --green: #10B981;
+  --green-bg: #D1FAE5;
+  --orange: #F59E0B;
+  --orange-bg: #FEF3C7;
+  --pink: #EC4899;
+  --pink-bg: #FCE7F3;
+  --teal: #14B8A6;
+  --teal-bg: #CCFBF1;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  color: var(--text);
+  line-height: 1.65;
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+
+.blog-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+.breadcrumbs a { color: var(--muted); text-decoration: none; }
+.breadcrumbs a:hover { color: var(--accent-blue); }
+.breadcrumbs span { margin: 0 8px; }
+
+/* Hero zone */
+.hero-zone {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  margin-bottom: 40px;
+  padding-top: 16px;
+  align-items: center;
+}
+
+.category-tags {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--navy-light);
+  margin-top: 8px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.category-tags .sep { color: var(--light); margin: 0 10px; font-weight: 400; }
+
+.post-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.post-title .accent { color: var(--gold); font-style: italic; font-weight: 400; }
+
+.post-subtitle {
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.author-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.author-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--navy); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px;
+}
+.author-line .dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--light);
+}
+
+/* Element 1 — Hero illustration */
+.hero-illustration {
+  background: var(--soft-bg);
+  border-radius: 16px;
+  padding: 32px;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+}
+
+/* Element 2 — Key Takeaways */
+.takeaways {
+  background: var(--soft-bg);
+  border-left: 3px solid var(--accent-blue);
+  border-radius: 12px;
+  padding: 24px 28px 24px 28px;
+  margin: 40px 0 0 0;
+  max-width: 100%;
+}
+.takeaways h3 {
+  font-size: 16px; font-weight: 700;
+  color: var(--navy); margin-bottom: 14px;
+}
+.takeaways ul { list-style: none; padding: 0; }
+.takeaways li {
+  padding: 7px 0 7px 34px;
+  position: relative;
+  font-size: 14.5px; color: var(--text); line-height: 1.6;
+}
+.takeaways li::before {
+  content: "✓";
+  position: absolute; left: 0; top: 7px;
+  width: 22px; height: 22px;
+  background: var(--accent-blue); color: white;
+  border-radius: 50%; text-align: center;
+  line-height: 20px; font-size: 12px; font-weight: 700;
+}
+
+/* Two-column body */
+.body-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  margin-top: 56px;
+  align-items: start;
+}
+.visual-content { padding-top: 4px; }
+
+/* Article text */
+.article-content h2 {
+  font-size: 26px; font-weight: 700;
+  color: var(--text); margin: 48px 0 18px; line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.article-content h2:first-child { margin-top: 0; }
+.article-content p {
+  font-size: 16px; color: var(--text);
+  margin-bottom: 18px; line-height: 1.75;
+}
+.article-content p strong { font-weight: 700; }
+.stat-inline { color: var(--accent-blue); font-weight: 700; }
+
+/* Element 3 — Pull quote */
+.pull-quote {
+  background: var(--soft-bg);
+  border-radius: 12px;
+  padding: 28px 32px 32px 44px;
+  margin: 40px 0;
+  position: relative;
+  font-size: 15px; color: var(--text); line-height: 1.55;
+}
+.pull-quote::before {
+  content: "\201C";
+  position: absolute; top: 8px; left: 14px;
+  font-size: 40px; color: var(--accent-blue);
+  font-family: Georgia, serif; line-height: 1;
+}
+.pull-quote::after {
+  content: "\201D";
+  position: absolute; bottom: 0; right: 20px;
+  font-size: 40px; color: var(--accent-blue);
+  font-family: Georgia, serif; line-height: 1;
+}
+.pull-quote em {
+  font-family: 'Instrument Serif', serif;
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+/* Element 4 — Dark CTA card */
+.dark-cta {
+  background: var(--navy-deep);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 36px 0; color: white;
+}
+.dark-cta h4 {
+  font-size: 17px; font-weight: 700;
+  color: white; margin-bottom: 10px; line-height: 1.4;
+}
+.dark-cta p {
+  color: #B8C5D6; font-size: 13px;
+  margin-bottom: 16px; line-height: 1.5;
+}
+.dark-cta .btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: white; color: var(--navy);
+  padding: 11px 22px; border-radius: 999px;
+  font-size: 14px; font-weight: 600; text-decoration: none;
+}
+.dark-cta .btn:hover { background: var(--soft-bg); }
+
+/* Element 5 — Numbered levers */
+.levers-section { margin: 32px 0; }
+.levers-list { list-style: none; padding: 0; }
+.levers-list li {
+  display: flex; gap: 18px;
+  padding: 20px 0; border-bottom: 1px solid var(--border);
+}
+.levers-list li:last-child { border-bottom: none; }
+.lever-icon {
+  flex-shrink: 0; width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.lever-icon.purple { background: var(--purple-bg); color: var(--purple); }
+.lever-icon.blue   { background: var(--accent-blue-light); color: var(--accent-blue); }
+.lever-icon.green  { background: var(--green-bg); color: var(--green); }
+.lever-icon.orange { background: var(--orange-bg); color: var(--orange); }
+.lever-icon.pink   { background: var(--pink-bg); color: var(--pink); }
+.lever-content h4 {
+  font-size: 15.5px; font-weight: 700;
+  color: var(--text); margin-bottom: 6px;
+}
+.lever-content p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+.rule-of-thumb {
+  display: flex; gap: 8px; align-items: center;
+  margin-top: 20px; padding: 12px;
+  font-size: 13px; color: var(--text);
+  background: var(--soft-bg); border-radius: 10px;
+}
+.rule-of-thumb strong { color: var(--accent-blue); }
+
+/* Element 6 — Framework diagram */
+.framework-diagram {
+  background: var(--soft-bg);
+  border-radius: 14px;
+  padding: 28px 24px; margin-top: 0; margin-bottom: 32px;
+}
+.framework-diagram h3 {
+  font-size: 14px; font-weight: 700;
+  text-align: center; color: var(--text);
+  margin-bottom: 20px; letter-spacing: 1px;
+}
+.framework-row {
+  display: flex; align-items: center;
+  gap: 12px; margin-bottom: 12px;
+}
+.framework-row:last-child { margin-bottom: 0; }
+.framework-stage {
+  flex: 1; background: white; border-radius: 10px;
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 12px;
+  border: 1px solid var(--border);
+}
+.framework-stage.s1 { background: var(--accent-blue-light); border-color: var(--accent-blue-light); }
+.framework-stage.s2 { background: var(--purple-bg); border-color: var(--purple-bg); }
+.framework-stage.s3 { background: var(--green-bg); border-color: var(--green-bg); }
+.framework-stage.s4 { background: var(--orange-bg); border-color: var(--orange-bg); }
+.stage-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.stage-text h5 {
+  font-size: 13px; font-weight: 700;
+  color: var(--text); margin-bottom: 1px;
+}
+.stage-text p { font-size: 11px; color: var(--muted); }
+.framework-arrow { color: var(--muted); font-size: 14px; flex-shrink: 0; }
+.framework-issue {
+  font-size: 11px; color: var(--muted);
+  line-height: 1.4; flex-shrink: 0; width: 90px;
+}
+.framework-issue strong {
+  color: var(--text); font-weight: 600;
+  display: block; margin-bottom: 1px;
+}
+
+/* Element 7 — Outcome diagram */
+.outcome-diagram {
+  background: var(--soft-bg);
+  border-radius: 14px;
+  padding: 32px 24px; margin-bottom: 24px; text-align: center;
+}
+.outcome-diagram h3 {
+  font-size: 20px; font-weight: 700;
+  color: var(--text); margin-bottom: 24px;
+}
+.outcome-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 100px 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px; align-items: center;
+}
+.outcome-card {
+  background: white; border-radius: 12px;
+  padding: 14px 12px; border: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 700; color: var(--text);
+}
+.outcome-card .icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+.outcome-card.tl { grid-column: 1; grid-row: 1; }
+.outcome-card.tr { grid-column: 3; grid-row: 1; }
+.outcome-card.bl { grid-column: 1; grid-row: 2; }
+.outcome-card.br { grid-column: 3; grid-row: 2; }
+.outcome-card.tl .icon { background: var(--green-bg); color: var(--green); }
+.outcome-card.tr .icon { background: var(--orange-bg); color: var(--orange); }
+.outcome-card.bl .icon { background: var(--accent-blue-light); color: var(--accent-blue); }
+.outcome-card.br .icon { background: var(--green-bg); color: var(--green); }
+.outcome-center {
+  grid-column: 2; grid-row: 1 / span 2;
+  width: 100px; height: 100px; border-radius: 50%;
+  background: var(--navy-deep); color: white;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-weight: 700; margin: auto; font-size: 13px;
+}
+.outcome-center .lower {
+  font-size: 10px; opacity: 0.7; font-weight: 500;
+}
+
+/* Element 8 — Comparison table */
+.table-section { margin-bottom: 32px; }
+.table-section h3 {
+  font-size: 18px; font-weight: 700;
+  color: var(--text); margin-top: 32px; margin-bottom: 16px;
+}
+.comparison-table {
+  width: 100%; border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden; font-size: 13px;
+}
+.comparison-table thead { background: var(--navy); }
+.comparison-table th {
+  padding: 14px 12px; text-align: left;
+  font-weight: 600; font-size: 11px;
+  color: white; background: var(--navy);
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border);
+}
+.comparison-table td {
+  padding: 13px 12px; border-bottom: 1px solid var(--border);
+  color: var(--text); line-height: 1.5;
+}
+.comparison-table tbody tr:last-child td { border-bottom: none; }
+.comparison-table td:first-child { font-weight: 600; }
+.comparison-table td.cac { color: var(--accent-blue); font-size: 14px; font-weight: 700; }
+.comparison-table tbody tr:hover td { background: var(--soft-bg); }
+
+.channel-cta {
+  background: var(--navy-deep); border-radius: 12px;
+  padding: 18px 22px; color: white; margin-top: 16px;
+}
+.channel-cta h4 {
+  font-size: 14px; font-weight: 700;
+  color: white; margin-bottom: 4px;
+}
+.channel-cta p { color: #B8C5D6; font-size: 12px; margin-bottom: 12px; }
+.channel-cta .btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: white; color: var(--navy);
+  padding: 8px 14px; border-radius: 999px;
+  font-size: 12px; font-weight: 600; text-decoration: none;
+}
+
+/* Bottom row */
+.bottom-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 40px; margin: 80px 0 32px;
+}
+.insight-card {
+  background: var(--soft-bg); border-radius: 12px; padding: 32px;
+}
+.insight-card h3 {
+  font-size: 18px; font-weight: 700;
+  color: var(--text); margin-bottom: 16px; line-height: 1.4;
+}
+.insight-card p {
+  font-size: 14px; color: var(--muted);
+  margin-bottom: 12px; line-height: 1.6;
+}
+.insight-card .think-long {
+  display: flex; gap: 8px; align-items: center;
+  color: var(--accent-blue); font-size: 14px; font-weight: 600;
+  margin-top: 12px;
+}
+.audit-card {
+  background: var(--soft-bg); border-radius: 12px; padding: 32px;
+}
+.audit-card h3 {
+  font-size: 18px; font-weight: 700;
+  color: var(--text); margin-bottom: 16px;
+}
+
+/* Element 9 — Audit checklist */
+.audit-list { list-style: none; padding: 0; }
+.audit-list li {
+  display: flex; gap: 10px; padding: 10px 0;
+  font-size: 13px; color: var(--text); line-height: 1.5;
+  border-bottom: 1px solid var(--border);
+}
+.audit-list li:last-child { border-bottom: none; }
+.audit-badge {
+  flex-shrink: 0; width: 22px; height: 22px;
+  border-radius: 50%; background: var(--accent-blue);
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 11px; margin-top: 1px;
+}
+
+/* Related + final CTA */
+.related-and-cta {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 32px; margin-top: 64px;
+}
+.related-section h3 {
+  font-size: 17px; font-weight: 700;
+  color: var(--text); margin-bottom: 18px;
+}
+.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.related-grid--3col { grid-template-columns: 1fr 1fr 1fr; }
+.related-card {
+  background: white; border: 1px solid var(--border);
+  border-radius: 12px; padding: 22px; text-decoration: none;
+  display: block; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.related-card:hover {
+  border-color: var(--navy-light);
+  box-shadow: 0 4px 16px rgba(10,46,44,0.08);
+}
+.related-card h4 {
+  font-size: 14px; font-weight: 600;
+  color: var(--text); margin-bottom: 12px; line-height: 1.45;
+}
+.related-card .read-link {
+  color: var(--accent-blue); font-size: 12px;
+  font-weight: 600; text-decoration: none;
+}
+.final-cta {
+  background: var(--navy-deep); border-radius: 14px;
+  padding: 36px 32px; color: white; text-align: center;
+}
+.final-cta h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 24px; font-weight: 400;
+  color: white; margin-bottom: 14px; line-height: 1.3;
+}
+.final-cta p {
+  color: #B8C5D6; font-size: 14px;
+  margin-bottom: 22px; line-height: 1.6;
+}
+.final-cta .btn-row {
+  display: flex; gap: 16px;
+  justify-content: center; flex-wrap: wrap;
+}
+.final-cta .btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 12px 20px; border-radius: 999px;
+  font-size: 13px; font-weight: 600; text-decoration: none;
+}
+.final-cta .btn.primary { background: white; color: var(--navy); }
+.final-cta .btn.secondary {
+  background: transparent; color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* Author bio */
+.author-bio {
+  display: flex; gap: 16px; align-items: flex-start;
+  margin-top: 72px; padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.bio-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--navy); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px; flex-shrink: 0;
+}
+.bio-text h4 {
+  font-size: 14px; font-weight: 700;
+  color: var(--text); margin-bottom: 4px;
+}
+.bio-text p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* Mobile */
+@media (max-width: 900px) {
+  .hero-zone {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .post-title {
+    font-size: clamp(26px, 6vw, 38px);
+  }
+  .body-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .bottom-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .related-and-cta {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* AEO: FAQ section */
+.blog-faq {
+  max-width: 720px;
+  margin: 64px auto 0;
+  padding: 0 32px;
+}
+.blog-faq-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding: 0;
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 18px 40px 18px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--accent-blue);
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+details[open] .faq-question::after {
+  content: "\D7";
+}
+.faq-answer {
+  padding: 0 0 18px;
+}
+.faq-answer p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+.table-source {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ===================================================================
+   BLOG DARK THEME (body.blog-dark)
+   ===================================================================
+   Scoped dark theme for D-hybrid blog pages carrying class="blog-dark"
+   on <body>. Other blogs (no body class) inherit existing light styles
+   via the BLOG TEMPLATE V2 section above; non-blog pages unaffected.
+
+   Token strategy: 11 dark tokens defined under body.blog-dark scope. A
+   handful of legacy blog tokens (--soft-bg, --muted, --accent-blue) are
+   remapped to dark equivalents so existing component rules that use
+   var(--soft-bg) etc. automatically pick up dark surfaces without
+   touching the BLOG TEMPLATE V2 section above.
+
+   Color discipline (per HMM Color System Golden Rules):
+   - Signal Orange (--cta): CTAs (nav, sidebar button, dark-cta button),
+     H2 accent rules, title italic accent, hero glow, "Paid wins" cells,
+     center "Lower CAC" node ring.
+   - Mint (--mint): functional/positive ONLY — takeaway checks, "Organic
+     wins" cells, sidebar bullet ticks, compounding-phase icons, all four
+     outcome-quadrant icons. NEVER a CTA.
+   - Neutral grey (--text-tertiary): owned-asset phase, structural muted.
+   =================================================================== */
+
+body.blog-dark {
+  /* Dark theme tokens */
+  --bg: #0E0E0E;
+  --bg-elevated: #1A1A1A;
+  --text: #FFFFFF;
+  --text-muted: #999999;
+  --text-tertiary: #737373;
+  --cta: #FF5C1A;
+  --cta-hover: #FF7038;
+  --mint: #00D4AA;
+  --border: rgba(255, 255, 255, 0.08);
+  --grid-line: rgba(255, 255, 255, 0.045);
+  --orange-glow: rgba(255, 92, 26, 0.18);
+
+  /* Legacy blog-token remaps so existing component rules pick up dark surfaces */
+  --soft-bg: var(--bg-elevated);
+  --muted: var(--text-muted);
+  --accent-blue: var(--cta);
+  --accent-blue-light: rgba(255, 92, 26, 0.12);
+  --navy: var(--bg-elevated);
+  --navy-deep: #0A0A0A;
+  --navy-light: var(--text-tertiary);
+  --light: var(--text-tertiary);
+
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============= NAV (dark) ============= */
+body.blog-dark .nav {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+body.blog-dark .nav-link {
+  color: var(--text-muted);
+}
+body.blog-dark .nav-link:hover {
+  color: var(--text);
+}
+body.blog-dark .nav-cta .btn-accent {
+  background: var(--cta);
+  color: var(--text);
+}
+body.blog-dark .nav-cta .btn-accent:hover {
+  background: var(--cta-hover);
+}
+
+/* ============= LAYOUT ============= */
+body.blog-dark .blog-body {
+  background: var(--bg);
+}
+body.blog-dark article.blog-content {
+  background: transparent;
+  color: var(--text);
+}
+
+/* ============= HERO ============= */
+body.blog-dark .blog-hero {
+  background: transparent;
+  color: var(--text);
+}
+body.blog-dark .hero-zone {
+  background: transparent;
+  padding-bottom: 40px;
+  grid-template-columns: 1fr;
+}
+body.blog-dark .breadcrumb {
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+body.blog-dark .breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+body.blog-dark .breadcrumb a:hover {
+  color: var(--cta);
+}
+body.blog-dark .breadcrumb span {
+  color: var(--text-tertiary);
+  margin: 0 8px;
+}
+body.blog-dark .post-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.015em;
+}
+body.blog-dark .post-title .accent {
+  color: var(--cta);
+  font-style: italic;
+  font-weight: 400;
+}
+body.blog-dark .post-subtitle {
+  color: var(--text-muted);
+}
+body.blog-dark .category-tags {
+  color: var(--text-tertiary);
+}
+body.blog-dark .category-tags .sep {
+  color: var(--text-tertiary);
+}
+body.blog-dark .author-line {
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+body.blog-dark .author-line .dot {
+  background: var(--text-muted);
+}
+body.blog-dark .author-avatar {
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+body.blog-dark .hero-illustration {
+  background: transparent;
+  padding: 0;
+}
+body.blog-dark .hero-illustration--image {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 60px var(--orange-glow);
+}
+body.blog-dark .hero-illustration--image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+/* ============= MOBILE TOC ============= */
+body.blog-dark .toc-mobile {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+body.blog-dark .toc-mobile-toggle {
+  background: transparent;
+  color: var(--text);
+  border: none;
+}
+body.blog-dark .toc-mobile-toggle:hover {
+  color: var(--cta);
+}
+body.blog-dark .toc-mobile-chevron {
+  color: var(--text-tertiary);
+  transition: transform 0.2s ease;
+}
+body.blog-dark .toc-mobile-toggle.open .toc-mobile-chevron {
+  transform: rotate(180deg);
+  color: var(--cta);
+}
+body.blog-dark .toc-mobile-panel {
+  border-top: 1px solid var(--border);
+}
+body.blog-dark .toc-list-mobile li {
+  border-bottom: 1px solid var(--border);
+}
+body.blog-dark .toc-list-mobile li:last-child {
+  border-bottom: none;
+}
+body.blog-dark .toc-list-mobile li a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+body.blog-dark .toc-list-mobile li a:hover,
+body.blog-dark .toc-list-mobile li a.active {
+  color: var(--cta);
+}
+
+/* ============= TAKEAWAYS ============= */
+body.blog-dark .takeaways {
+  background: var(--bg-elevated);
+  border-left: 3px solid var(--cta);
+  border-radius: 16px;
+  padding: 32px;
+  margin: 40px 0;
+  color: var(--text);
+}
+body.blog-dark .takeaways h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+body.blog-dark .takeaways li {
+  color: var(--text-muted);
+  padding-left: 34px;
+}
+body.blog-dark .takeaways li::before {
+  content: "\2713";
+  background: rgba(0, 212, 170, 0.12);
+  color: var(--mint);
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+/* ============= PROSE (h2 with orange accent rule, p, a, strong) ============= */
+body.blog-dark article.blog-content h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin: 56px 0 20px;
+  position: relative;
+  padding-top: 18px;
+}
+body.blog-dark article.blog-content h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 2px;
+  background: var(--cta);
+  border-radius: 1px;
+}
+body.blog-dark article.blog-content h2:first-of-type {
+  margin-top: 24px;
+}
+body.blog-dark article.blog-content p {
+  color: var(--text-muted);
+}
+body.blog-dark article.blog-content p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+body.blog-dark article.blog-content a {
+  color: var(--cta);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+body.blog-dark article.blog-content a:hover {
+  color: var(--cta-hover);
+}
+body.blog-dark .stat-inline {
+  color: var(--cta);
+  font-weight: 600;
+}
+
+/* ============= PULL QUOTE ============= */
+body.blog-dark .pull-quote {
+  background: var(--orange-glow);
+  border-left: 3px solid var(--cta);
+  border-radius: 16px;
+  color: var(--text);
+}
+body.blog-dark .pull-quote em {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text);
+}
+body.blog-dark .pull-quote::before,
+body.blog-dark .pull-quote::after {
+  color: var(--cta);
+}
+
+/* ============= DARK CTA box ============= */
+body.blog-dark .dark-cta {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  margin: 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+body.blog-dark .dark-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cta), transparent);
+}
+body.blog-dark .dark-cta h4 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  color: var(--text);
+}
+body.blog-dark .dark-cta p {
+  color: var(--text-muted);
+}
+body.blog-dark .dark-cta .btn {
+  background: var(--cta);
+  color: var(--text);
+}
+body.blog-dark .dark-cta .btn:hover {
+  background: var(--cta-hover);
+}
+
+/* ============= LEVERS ============= */
+body.blog-dark .levers-list li {
+  border-bottom: 1px solid var(--border);
+}
+body.blog-dark .levers-list li:last-child {
+  border-bottom: none;
+}
+body.blog-dark .lever-icon {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+}
+body.blog-dark .lever-icon.purple,
+body.blog-dark .lever-icon.blue,
+body.blog-dark .lever-icon.green,
+body.blog-dark .lever-icon.orange,
+body.blog-dark .lever-icon.pink {
+  background: var(--bg-elevated);
+  color: var(--cta);
+}
+body.blog-dark .lever-content h4 {
+  color: var(--text);
+  font-weight: 600;
+}
+body.blog-dark .lever-content p {
+  color: var(--text-muted);
+}
+body.blog-dark .rule-of-thumb {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+body.blog-dark .rule-of-thumb strong {
+  color: var(--mint);
+}
+
+/* ============= FRAMEWORK DIAGRAM (timeline) ============= */
+body.blog-dark .framework-diagram {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+body.blog-dark .framework-diagram::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cta), transparent);
+}
+body.blog-dark .framework-diagram h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--cta);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+}
+body.blog-dark .framework-row {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+body.blog-dark .framework-stage {
+  background: transparent;
+  border: none;
+  padding: 10px 14px;
+}
+body.blog-dark .framework-stage.s1 {
+  color: var(--cta);
+  background: transparent;
+}
+body.blog-dark .framework-stage.s2 {
+  color: var(--mint);
+  background: transparent;
+}
+body.blog-dark .framework-stage.s3,
+body.blog-dark .framework-stage.s4 {
+  color: var(--text-tertiary);
+  background: transparent;
+}
+body.blog-dark .stage-icon {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: inherit;
+  width: 28px;
+  height: 28px;
+}
+body.blog-dark .framework-stage.s1 .stage-icon {
+  background: var(--orange-glow);
+  border-color: rgba(255, 92, 26, 0.3);
+}
+body.blog-dark .framework-stage.s2 .stage-icon {
+  background: rgba(0, 212, 170, 0.12);
+  border-color: rgba(0, 212, 170, 0.3);
+}
+body.blog-dark .stage-text h5 {
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+body.blog-dark .stage-text p {
+  color: var(--text-muted);
+}
+body.blog-dark .framework-arrow {
+  color: var(--text-tertiary);
+}
+body.blog-dark .framework-issue {
+  color: var(--text-muted);
+}
+body.blog-dark .framework-issue strong {
+  color: var(--text);
+}
+
+/* SVG icon defaults in diagrams */
+body.blog-dark .stage-icon svg,
+body.blog-dark .outcome-card .icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ============= OUTCOME DIAGRAM (quadrant) ============= */
+body.blog-dark .outcome-diagram {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+body.blog-dark .outcome-diagram::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cta), transparent);
+}
+body.blog-dark .outcome-diagram h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--cta);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+}
+body.blog-dark .outcome-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 18px 14px;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+body.blog-dark .outcome-card span {
+  color: var(--text);
+}
+body.blog-dark .outcome-card .icon {
+  color: var(--mint);
+  background: rgba(0, 212, 170, 0.12);
+  border: 1px solid rgba(0, 212, 170, 0.25);
+}
+body.blog-dark .outcome-card.tl .icon,
+body.blog-dark .outcome-card.tr .icon,
+body.blog-dark .outcome-card.bl .icon,
+body.blog-dark .outcome-card.br .icon {
+  color: var(--mint);
+  background: rgba(0, 212, 170, 0.12);
+  border-color: rgba(0, 212, 170, 0.25);
+}
+body.blog-dark .outcome-center {
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 2px solid var(--cta);
+  box-shadow: 0 0 40px var(--orange-glow);
+  width: 108px;
+  height: 108px;
+  font-size: 14px;
+}
+body.blog-dark .outcome-center .lower {
+  color: var(--text-tertiary);
+  opacity: 1;
+  font-size: 11px;
+}
+
+/* ============= COMPARISON TABLE ============= */
+body.blog-dark .table-section {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 40px;
+}
+body.blog-dark .table-section h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--cta);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+}
+body.blog-dark .comparison-table {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+body.blog-dark .comparison-table thead,
+body.blog-dark .comparison-table th {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 14px;
+}
+body.blog-dark .comparison-table td {
+  background: transparent;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 14px;
+}
+body.blog-dark .comparison-table td:first-child {
+  color: var(--text);
+  font-weight: 600;
+}
+body.blog-dark .comparison-table td.cac {
+  color: var(--cta);
+  font-weight: 700;
+}
+body.blog-dark .comparison-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+body.blog-dark .comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+/* Winner column semantics: cells with .win-paid orange, .win-organic mint */
+body.blog-dark .comparison-table td.win-paid {
+  color: var(--cta);
+  font-weight: 700;
+}
+body.blog-dark .comparison-table td.win-organic {
+  color: var(--mint);
+  font-weight: 700;
+}
+body.blog-dark .comparison-table td.win-either {
+  color: var(--text);
+  font-weight: 700;
+}
+body.blog-dark .table-source {
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+/* ============= CHANNEL CTA ============= */
+body.blog-dark .channel-cta {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  color: var(--text);
+}
+body.blog-dark .channel-cta h4 {
+  color: var(--text);
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+}
+body.blog-dark .channel-cta p {
+  color: var(--text-muted);
+}
+body.blog-dark .channel-cta .btn {
+  background: var(--cta);
+  color: var(--text);
+}
+body.blog-dark .channel-cta .btn:hover {
+  background: var(--cta-hover);
+}
+
+/* ============= INSIGHT + AUDIT CARDS (post-content) ============= */
+body.blog-dark .insight-card,
+body.blog-dark .audit-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 40px;
+}
+body.blog-dark .insight-card h3,
+body.blog-dark .audit-card h3 {
+  color: var(--text);
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+}
+body.blog-dark .insight-card p {
+  color: var(--text-muted);
+}
+body.blog-dark .insight-card .think-long {
+  color: var(--cta);
+  font-weight: 600;
+}
+body.blog-dark .audit-list li {
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+  font-size: 14px;
+}
+body.blog-dark .audit-list li:last-child {
+  border-bottom: none;
+}
+body.blog-dark .audit-badge {
+  background: var(--mint);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+/* ============= RELATED + FINAL CTA ============= */
+body.blog-dark .related-section h3 {
+  color: var(--text);
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+}
+body.blog-dark .related-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  color: var(--text);
+}
+body.blog-dark .related-card:hover {
+  border-color: var(--cta);
+  box-shadow: 0 4px 24px var(--orange-glow);
+}
+body.blog-dark .related-card h4 {
+  color: var(--text);
+  font-weight: 600;
+}
+body.blog-dark .related-card .read-link {
+  color: var(--cta);
+  font-weight: 600;
+}
+body.blog-dark .final-cta {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 48px;
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+}
+body.blog-dark .final-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cta), transparent);
+}
+body.blog-dark .final-cta h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  color: var(--text);
+}
+body.blog-dark .final-cta p {
+  color: var(--text-muted);
+}
+body.blog-dark .final-cta .btn {
+  border-radius: 999px;
+  font-weight: 600;
+}
+body.blog-dark .final-cta .btn.primary {
+  background: var(--cta);
+  color: var(--text);
+}
+body.blog-dark .final-cta .btn.primary:hover {
+  background: var(--cta-hover);
+}
+body.blog-dark .final-cta .btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+body.blog-dark .final-cta .btn.secondary:hover {
+  border-color: var(--cta);
+  color: var(--cta);
+}
+
+/* ============= AUTHOR BIO ============= */
+body.blog-dark .author-bio {
+  border-top: 1px solid var(--border);
+}
+body.blog-dark .bio-avatar {
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
+  font-weight: 700;
+}
+body.blog-dark .bio-text h4 {
+  color: var(--text);
+  font-weight: 600;
+}
+body.blog-dark .bio-text p {
+  color: var(--text-muted);
+}
+
+/* ============= FAQ ============= */
+body.blog-dark .blog-faq {
+  color: var(--text);
+}
+body.blog-dark .blog-faq-title {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+body.blog-dark .faq-item {
+  border-top: 1px solid var(--border);
+}
+body.blog-dark .faq-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+body.blog-dark .faq-question {
+  color: var(--text);
+  font-weight: 600;
+}
+body.blog-dark .faq-question:hover {
+  color: var(--cta);
+}
+body.blog-dark .faq-question::after {
+  color: var(--cta);
+}
+body.blog-dark details[open] .faq-question::after {
+  color: var(--cta);
+}
+body.blog-dark .faq-answer p {
+  color: var(--text-muted);
+}
+
+/* ============= SIDEBAR ============= */
+body.blog-dark .blog-sidebar {
+  background: transparent;
+}
+body.blog-dark .toc-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+body.blog-dark .toc-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cta), transparent);
+}
+body.blog-dark .toc-header {
+  border-bottom: 1px solid var(--border);
+}
+body.blog-dark .toc-title {
+  color: var(--text-tertiary);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+body.blog-dark .toc-share .share-icon {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s ease;
+}
+body.blog-dark .toc-share .share-icon:hover {
+  color: var(--cta);
+  border-color: var(--cta);
+  background: var(--orange-glow);
+}
+body.blog-dark .toc-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+body.blog-dark .toc-item {
+  color: var(--text-muted);
+  padding: 8px 0 8px 18px;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+body.blog-dark .toc-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 1px;
+  background: var(--text-tertiary);
+  transition: background 0.15s ease, width 0.15s ease;
+}
+body.blog-dark .toc-item:hover {
+  color: var(--text);
+}
+body.blog-dark .toc-item:hover::before {
+  background: var(--cta);
+  width: 12px;
+}
+body.blog-dark .toc-item.active {
+  color: var(--cta);
+  font-weight: 600;
+}
+body.blog-dark .toc-item.active::before {
+  background: var(--cta);
+  width: 12px;
+}
+
+/* ============= SIDEBAR CTA ============= */
+body.blog-dark .sidebar-cta {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+body.blog-dark .sidebar-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cta), transparent);
+}
+body.blog-dark .sidebar-cta .cta-eyebrow {
+  color: var(--text-tertiary);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+body.blog-dark .sidebar-cta .cta-title {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+body.blog-dark .sidebar-cta .cta-list {
+  list-style: none;
+  padding: 0;
+}
+body.blog-dark .sidebar-cta .cta-list li {
+  color: var(--text-muted);
+  padding-left: 24px;
+  position: relative;
+}
+body.blog-dark .sidebar-cta .cta-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--mint);
+  font-weight: 700;
+}
+body.blog-dark .sidebar-cta .cta-button {
+  background: var(--cta);
+  color: var(--text);
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+body.blog-dark .sidebar-cta .cta-button:hover {
+  background: var(--cta-hover);
+}
+body.blog-dark .sidebar-cta .cta-subnote {
+  color: var(--text-tertiary);
+  font-size: 11px;
+  font-style: italic;
+}
+
+/* ============= COMPOUND-CLASS OVERRIDES (option-c chrome adoption) =============
+   Reasserts dark-blog Tier-C .final-cta tuning (from e06841c) over
+   body.redesign-prototype .final-cta (which sets 56px 64px / 24px radius
+   for prototype hero CTAs). Specificity 0,3,0 + later source order wins.
+   Required only on blogs that carry BOTH class="blog-dark" AND
+   class="redesign-prototype" on <body> (option-c multi-class). */
+body.blog-dark.redesign-prototype .final-cta {
+  padding: 48px;
+  border-radius: 20px;
+}
+
+/* ============= RESPONSIVE (mobile) ============= */
+@media (max-width: 900px) {
+  body.blog-dark article.blog-content h2 {
+    font-size: 22px;
+    margin-top: 40px;
+  }
+}
+
 /* ============================================
    MARKETING AUDIT TOOL
    ============================================
@@ -3628,3 +5213,1209 @@ section.alt { background: var(--gray-surface); }
     transition: none;
   }
 }
+
+/* ============================================================
+   REDESIGN PROTOTYPE — DARK MODE
+   Scoped under body.redesign-prototype
+   Active only on prototype pages during evaluation
+   Remove this section if migration is rejected
+   ============================================================ */
+
+/* Design tokens — scoped to prototype only */
+body.redesign-prototype {
+  --bg: #0E0E0E;
+  --bg-elevated: #1A1A1A;
+  --text: #FFFFFF;
+  --text-muted: #999999;
+  --text-tertiary: #737373;
+  --cta: #FF5C1A;
+  --cta-hover: #FF7038;
+  --mint: #00D4AA;
+  --border: rgba(255, 255, 255, 0.08);
+  --grid-line: rgba(255, 255, 255, 0.045);
+  --orange-glow: rgba(255, 92, 26, 0.18);
+  --warm-bg: #F8F4ED;
+  --warm-text: #1A1A1A;
+  --warm-cta: #C8542B;
+  /* Error surface — derived from legacy --chart-red (#EF4444), tuned
+     for dark-theme contrast. Used by forms (any prototype page). */
+  --error-bg: rgba(239, 68, 68, 0.08);
+  --error-border: rgba(239, 68, 68, 0.35);
+  --error-text: #FCA5A5;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Inter', -apple-system, system-ui, sans-serif;
+}
+
+/* Body baseline + subtle grid background */
+body.redesign-prototype {
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* .app wrapper is sitewide infrastructure (29 pages). Legacy sets
+   background: var(--white) at styles.css:92. For dark prototype
+   pages, transparent lets body's var(--bg) Obsidian + grid pattern
+   show through naturally. Auto-applies to all future Phase 2 pages
+   that adopt body.redesign-prototype. */
+body.redesign-prototype .app {
+  background: transparent;
+}
+
+/* Headings */
+body.redesign-prototype h1.hero-headline {
+  font-family: var(--serif);
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0;
+}
+
+body.redesign-prototype h1.hero-headline em {
+  color: var(--cta);
+  font-style: italic;
+  font-weight: 400;
+}
+
+body.redesign-prototype h2.section-heading {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin: 0;
+}
+
+body.redesign-prototype h3.subsection,
+body.redesign-prototype h3.card-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--text);
+  margin: 0;
+}
+
+/* Supporting text */
+body.redesign-prototype .hero-subtitle {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 24px 0 0;
+}
+
+body.redesign-prototype .section-deck {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 24px 0 0;
+  max-width: 720px;
+}
+
+body.redesign-prototype .table-leadin {
+  color: var(--text-muted);
+  margin-top: 32px;
+}
+
+body.redesign-prototype .section-closing {
+  color: var(--text);
+  margin-top: 32px;
+}
+
+/* Layout */
+body.redesign-prototype .container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+body.redesign-prototype section.content-section {
+  padding: 64px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.redesign-prototype .hero {
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+body.redesign-prototype .hero::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+body.redesign-prototype .hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+body.redesign-prototype .hero-text {
+  min-width: 0;
+}
+
+body.redesign-prototype .hero-ctas {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+body.redesign-prototype .hero-visual {
+  display: block;
+  height: auto;
+  min-width: 0;
+}
+
+body.redesign-prototype .hero-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 16px;
+  display: block;
+}
+
+/* Eyebrow with Mint dot */
+body.redesign-prototype .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 24px;
+}
+
+body.redesign-prototype .eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 16px var(--mint), 0 0 4px var(--mint);
+}
+
+/* Buttons */
+body.redesign-prototype .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+body.redesign-prototype .btn-primary {
+  background: var(--cta);
+  color: var(--bg);
+  box-shadow: 0 4px 16px rgba(255, 92, 26, 0.25);
+}
+
+body.redesign-prototype .btn-primary:hover {
+  background: var(--cta-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 92, 26, 0.35);
+}
+
+body.redesign-prototype .btn-outline {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+body.redesign-prototype .btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Comparison cards (side-by-side) */
+body.redesign-prototype .comparison-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 40px 0 32px;
+}
+
+body.redesign-prototype .comparison-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+}
+
+body.redesign-prototype .comparison-card-hmm {
+  border-color: rgba(255, 92, 26, 0.2);
+}
+
+body.redesign-prototype .comparison-card-title {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 0 0 24px;
+}
+
+body.redesign-prototype .comparison-card-hmm .comparison-card-title {
+  color: var(--cta);
+}
+
+body.redesign-prototype .comparison-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body.redesign-prototype .comparison-list li {
+  padding: 14px 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.redesign-prototype .comparison-list li:last-child {
+  border-bottom: none;
+}
+
+body.redesign-prototype .comparison-card-hmm .comparison-list li {
+  color: var(--text);
+}
+
+/* Service card grid */
+body.redesign-prototype .service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+  max-width: 1080px;
+  margin-right: auto;
+}
+
+body.redesign-prototype .service-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+body.redesign-prototype .service-card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+body.redesign-prototype .service-card h3 {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0 0 12px;
+  color: var(--text);
+}
+
+body.redesign-prototype .service-card p {
+  color: var(--text-muted);
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+body.redesign-prototype .service-card .card-arrow {
+  color: var(--cta);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Bullet list */
+body.redesign-prototype .bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+}
+
+body.redesign-prototype .bullet-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+body.redesign-prototype .bullet-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cta);
+}
+
+body.redesign-prototype .bullet-list li strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Final CTA */
+body.redesign-prototype .final-cta {
+  background: var(--bg-elevated);
+  border-radius: 24px;
+  padding: 56px 64px;
+  text-align: center;
+}
+
+body.redesign-prototype .final-cta h2 {
+  max-width: 640px;
+  margin: 0 auto 24px;
+}
+
+body.redesign-prototype .final-cta .subhead {
+  max-width: 540px;
+  margin: 0 auto 32px;
+  color: var(--text-muted);
+}
+
+body.redesign-prototype .final-cta .microcopy {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+/* ============================================================
+   PROTOTYPE SERVICE-PAGE PATTERNS
+   Promoted from byte-identical inline styles on the 6
+   /services/* category pages (zero drift, verified). These
+   reproduce the prior inline rendering exactly.
+   Deferred enhancements (NOT applied here, refactor only):
+   step-flow 720px mobile stacking; FAQ summary
+   ::-webkit-details-marker hardening.
+   ============================================================ */
+
+/* Methodology 3-step flow */
+body.redesign-prototype .step-flow {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;
+  margin-top: 40px; max-width: 1080px; position: relative;
+}
+body.redesign-prototype .step-flow .step-line {
+  position: absolute; top: 28px; left: 11%; right: 11%;
+  height: 2px; background: rgba(255, 255, 255, 0.08); z-index: 0;
+}
+body.redesign-prototype .step-flow .step { position: relative; z-index: 1; }
+body.redesign-prototype .step-flow .step-num {
+  width: 56px; height: 56px; border-radius: 50%; background: var(--bg);
+  border: 2px solid var(--cta); display: flex; align-items: center;
+  justify-content: center; font-family: var(--serif); font-size: 24px;
+  font-weight: 500; color: var(--cta); margin-bottom: 20px;
+}
+body.redesign-prototype .step-flow .step h3 {
+  font-family: var(--serif); font-size: 20px; font-weight: 500;
+  color: var(--text); margin: 0 0 12px;
+}
+body.redesign-prototype .step-flow .step p {
+  font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0;
+}
+
+/* Compact related reading */
+body.redesign-prototype .related-reading-compact { padding: 32px 0; }
+body.redesign-prototype .related-reading-compact p {
+  font-size: 12px; font-weight: 500; color: var(--text-tertiary);
+  text-transform: uppercase; letter-spacing: 1.5px; margin: 0 0 16px;
+}
+body.redesign-prototype .related-reading-compact ul {
+  list-style: none; padding: 0; margin: 0; display: flex; gap: 24px; flex-wrap: wrap;
+}
+
+/* Inline-details FAQ (svc- prefix: .faq-item is owned by legacy pages) */
+body.redesign-prototype .svc-faq-item {
+  border-bottom: 1px solid var(--border); padding: 20px 0;
+}
+body.redesign-prototype .svc-faq-item summary {
+  font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer;
+  list-style: none; display: flex; justify-content: space-between;
+  align-items: center; gap: 16px;
+}
+body.redesign-prototype .svc-faq-item summary span[aria-hidden] {
+  color: var(--cta); font-size: 22px; line-height: 1;
+}
+body.redesign-prototype .svc-faq-item > p {
+  margin: 16px 0 0; color: var(--text-muted); line-height: 1.65;
+}
+
+/* Final CTA section wrapper (inner .final-cta is the existing shared class) */
+body.redesign-prototype .final-cta-section { padding: 64px 0 0; }
+body.redesign-prototype .final-cta-section .final-cta { padding: 40px 64px; }
+body.redesign-prototype .final-cta-section .final-cta-actions {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 32px 0 20px;
+}
+body.redesign-prototype .final-cta .subhead.final-cta-note {
+  font-style: normal; opacity: 0.6; font-size: 13px; margin: 0 auto;
+}
+
+/* ============================================================
+   WORK PAGE PATTERNS
+   Page-specific dark patterns for /work (Case Studies).
+   Scoped under body.redesign-prototype.
+   ============================================================ */
+
+/* Proof strip — 7 metrics, Signal-Orange figures, wraps responsively */
+body.redesign-prototype .proof-strip {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 32px 24px; max-width: 1080px;
+}
+body.redesign-prototype .proof-strip-item {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  flex: 1 1 120px; min-width: 120px; max-width: 180px; text-align: center;
+}
+body.redesign-prototype .proof-strip-figure {
+  font-family: var(--serif); font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500; color: var(--cta); line-height: 1;
+}
+body.redesign-prototype .proof-strip-label {
+  font-size: 12px; color: var(--text-muted); line-height: 1.3;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+
+/* Case-study grid + cards */
+body.redesign-prototype .case-study-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 40px; max-width: 1080px;
+}
+@media (max-width: 900px) {
+  body.redesign-prototype .case-study-grid { grid-template-columns: 1fr; }
+}
+body.redesign-prototype .case-study-card {
+  background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px;
+}
+body.redesign-prototype .case-study-card-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 16px; margin-bottom: 16px;
+}
+body.redesign-prototype .case-study-card h3 {
+  font-family: var(--serif); font-size: 22px; font-weight: 500;
+  color: var(--text); margin: 0;
+}
+body.redesign-prototype .case-study-tag {
+  font-size: 11px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--text-muted); white-space: nowrap;
+}
+body.redesign-prototype .case-study-metric {
+  font-family: var(--serif); font-size: 32px; font-weight: 500;
+  color: var(--cta); line-height: 1.1; margin: 0 0 20px;
+}
+body.redesign-prototype .case-study-metric-qual {
+  font-family: var(--sans); font-size: 14px; color: var(--text-muted);
+  font-weight: 400; margin-left: 4px;
+}
+body.redesign-prototype .case-study-card p {
+  font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0 0 12px;
+}
+body.redesign-prototype .case-study-card p:last-child { margin-bottom: 0; }
+
+/* DEPRECATED: F1 footer styles, superseded by F2 below (canon locked at a53cddd).
+   F1 markup classes (.footer-grid, .footer-column wrapper, .footer-baseline original
+   variant) are no longer used by F2-migrated prototype pages. Retained here because
+   the F1 add-on classes (.footer-column h4, .footer-column ul li, etc.) collide with
+   F2 class names, and F2 source-ordered after these rules wins on cascade. Do not
+   delete — F2 relies on F1's structural defaults (list-style: none, etc.). */
+/* Footer */
+body.redesign-prototype .footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 64px 0 40px;
+}
+
+body.redesign-prototype .footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 64px;
+}
+
+body.redesign-prototype .footer-column h4 {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 0 0 20px;
+}
+
+body.redesign-prototype .footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body.redesign-prototype .footer-column ul li {
+  margin-bottom: 10px;
+}
+
+body.redesign-prototype .footer-column ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+body.redesign-prototype .footer-column ul li a:hover {
+  color: var(--text);
+}
+
+body.redesign-prototype .footer-baseline {
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+body.redesign-prototype .footer-baseline a {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  margin: 0 12px;
+}
+
+body.redesign-prototype .footer-baseline a:hover {
+  color: var(--text);
+}
+
+/* Mobile responsive — single breakpoint at 900px */
+@media (max-width: 900px) {
+  body.redesign-prototype h1.hero-headline { font-size: 40px; }
+  body.redesign-prototype h2.section-heading { font-size: 28px; }
+  body.redesign-prototype h3.subsection,
+  body.redesign-prototype h3.card-title { font-size: 20px; }
+
+  body.redesign-prototype .container { padding: 0 20px; }
+  body.redesign-prototype section.content-section { padding: 40px 0; }
+  body.redesign-prototype .hero { padding: 64px 0; }
+
+  body.redesign-prototype .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  body.redesign-prototype .service-grid { grid-template-columns: 1fr; gap: 16px; }
+  body.redesign-prototype .footer { padding: 40px 0 40px; }
+  body.redesign-prototype .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  body.redesign-prototype .final-cta { padding: 40px 24px; }
+
+  /* Comparison cards stack on mobile */
+  body.redesign-prototype .comparison-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Hero CTAs stack on mobile */
+  body.redesign-prototype .hero-ctas { flex-direction: column; align-items: flex-start; }
+  body.redesign-prototype .hero-ctas .btn { width: auto; }
+
+  /* Hide nav CTA on mobile — hamburger takes over nav access at this breakpoint.
+     Higher specificity than the legacy `.btn` rule that was unintentionally
+     overriding the legacy `.nav-main-cta { display: none }` at <=680px. */
+  body.redesign-prototype .nav-main-cta { display: none; }
+}
+
+/* Dark-mode nav variant (overrides legacy nav, scoped to prototype only) */
+body.redesign-prototype .nav {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+body.redesign-prototype .nav .logo {
+  color: var(--text);
+}
+
+body.redesign-prototype .nav .logo em {
+  color: var(--cta);
+}
+
+/* Logo mark dark variant: H is a bare text node (color cascades from .logo-mark); m uses existing .me-italic class */
+body.redesign-prototype .logo-mark {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+body.redesign-prototype .logo-mark .me-italic {
+  color: var(--cta);
+}
+
+body.redesign-prototype .nav-link {
+  color: var(--text-muted);
+}
+
+body.redesign-prototype .nav-link:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.redesign-prototype .nav-link.active {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.redesign-prototype .btn-accent {
+  background: var(--cta);
+  color: var(--bg);
+  border: none;
+  box-shadow: 0 4px 16px rgba(255, 92, 26, 0.25);
+}
+
+body.redesign-prototype .btn-accent:hover {
+  background: var(--cta-hover);
+}
+
+body.redesign-prototype .nav-mobile-menu {
+  background: var(--bg);
+}
+
+body.redesign-prototype .nav-mobile-menu a {
+  color: var(--text);
+}
+
+/* Hamburger dark variant: transparent box, visible border, white lines.
+   Border was previously var(--border) (rgba(255,255,255,0.08) — 8% white),
+   invisible on the Obsidian background. Bumped to 25% (base) / 45% (hover)
+   so the button is findable on real devices. */
+body.redesign-prototype .nav-hamburger {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--text);
+}
+
+body.redesign-prototype .nav-hamburger:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.redesign-prototype .nav-hamburger span,
+body.redesign-prototype .nav-hamburger span::before,
+body.redesign-prototype .nav-hamburger span::after {
+  background: var(--text);
+}
+
+/* ============================================================
+   PROTOTYPE — CONTACT PAGE
+   ============================================================ */
+
+/* Token shimming: redefine custom properties locally to override
+   inline style="color:var(--text-primary)" without !important.
+   Inline-style custom-property lookups resolve at the element's
+   effective scope, so redefining here repaints the inline rules.
+   Mechanism is intentional — do not refactor without understanding.
+
+   Specifics: the contact page uses inline style="color:var(--text-primary)"
+   and var(--text-secondary) on .contact-aside, and var(--deep) +
+   var(--ink-60) inside .contact-thanks. Those legacy tokens aren't
+   redefined at body scope, so they fall back to :root dark values
+   (invisible on Obsidian). Local redefinition here avoids both the
+   !important pattern and the sitewide cascade risk of redefining
+   them at body.redesign-prototype scope. */
+body.redesign-prototype .contact-aside {
+  --text-primary: var(--text);
+  --text-secondary: var(--text-muted);
+}
+
+body.redesign-prototype .contact-thanks {
+  --deep: var(--text);
+  --ink-60: var(--text-muted);
+}
+
+/* Contact form card — dark elevated surface */
+body.redesign-prototype .contact-form {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+/* Form labels */
+body.redesign-prototype .form-label {
+  color: var(--text-muted);
+}
+
+body.redesign-prototype .form-label-hint {
+  color: var(--text-tertiary);
+}
+
+/* Form inputs + textarea */
+body.redesign-prototype .form-input,
+body.redesign-prototype .form-textarea {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+body.redesign-prototype .form-input::placeholder,
+body.redesign-prototype .form-textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+body.redesign-prototype .form-input:hover,
+body.redesign-prototype .form-textarea:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.redesign-prototype .form-input:focus,
+body.redesign-prototype .form-textarea:focus {
+  border-color: var(--cta);
+  background: var(--bg);
+  box-shadow: 0 0 0 4px rgba(255, 92, 26, 0.15);
+}
+
+/* Prefixed input (https:// + website) */
+body.redesign-prototype .form-prefix-wrap {
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+body.redesign-prototype .form-prefix-wrap:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.redesign-prototype .form-prefix-wrap:focus-within {
+  border-color: var(--cta);
+  box-shadow: 0 0 0 4px rgba(255, 92, 26, 0.15);
+}
+
+body.redesign-prototype .form-prefix {
+  background: rgba(255, 255, 255, 0.03);
+  border-right: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+body.redesign-prototype .form-input-prefixed {
+  background: transparent;
+  color: var(--text);
+}
+
+/* Chips */
+body.redesign-prototype .chip {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
+}
+
+body.redesign-prototype .chip:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--text);
+}
+
+body.redesign-prototype .chip.chip-on {
+  background: rgba(255, 92, 26, 0.1);
+  border-color: var(--cta);
+  color: var(--cta);
+}
+
+/* Error banner (replaces legacy inline light styles). Uses the
+   prototype-scope --error-* tokens declared at the top of the
+   prototype section. Reusable across any prototype-scoped form. */
+body.redesign-prototype .contact-err {
+  margin: 0 40px;
+  padding: 12px 14px;
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--error-text);
+  line-height: 1.5;
+}
+
+/* Submit button — Signal Orange CTA, matches prototype primary button */
+body.redesign-prototype .contact-submit {
+  background: var(--cta);
+  color: var(--bg);
+}
+
+body.redesign-prototype .contact-submit:hover {
+  background: var(--cta-hover);
+}
+
+/* Privacy mini strip at bottom of form */
+body.redesign-prototype .contact-privacy-mini {
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid var(--border);
+  color: var(--text-tertiary);
+}
+
+/* Thank-you panel */
+body.redesign-prototype .contact-thanks {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+body.redesign-prototype .contact-thanks-glyph {
+  background: var(--cta);
+  box-shadow: 0 12px 24px -10px rgba(255, 92, 26, 0.45);
+}
+
+/* DEPRECATED: F1 footer-baseline meta + badges (added during /contact migration).
+   F2 redefines .footer-baseline-meta as a <p> text element (vs F1's flex wrapper)
+   and overrides .footer-badges display + .footer-badge typography. F2 source-ordered
+   after these rules wins on cascade. F1 mobile rules below at @media (max-width:720px)
+   are similarly deprecated. */
+/* Footer-baseline right-side meta cluster (badges + email) */
+body.redesign-prototype .footer-baseline-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Reset the inherited margin: 0 12px from .footer-baseline a so the
+   email link sits cleanly inside the flex-gap layout of meta. */
+body.redesign-prototype .footer-baseline-meta a {
+  margin: 0;
+}
+
+/* Partner badges (dark variant) */
+body.redesign-prototype .footer-badges {
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+body.redesign-prototype .footer-badge {
+  font-size: 11px;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: transparent;
+}
+
+/* Mobile — footer-baseline stacks below ~720px so badges + email don't
+   crush the copyright/legal row. */
+@media (max-width: 720px) {
+  body.redesign-prototype .footer-baseline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  body.redesign-prototype .footer-baseline-meta {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   F2 FOOTER (two-band: brand+tools + sitemap+baseline)
+   Canon locked in a53cddd. Spec at /docs/HMM_Design_System.md §8.
+   Replaces F1 3-column flat footer in prototype scope.
+   F1 rules above (lines 4037-4101 + 4375-4416) marked DEPRECATED;
+   F2 source-ordered after them so cascade naturally favors F2 on
+   class collisions (.footer, .footer-column h4, .footer-column ul li,
+   .footer-column ul li a, .footer-baseline, .footer-baseline-meta,
+   .footer-badges, .footer-badge). Class collisions resolved via
+   explicit overrides where F1 inheritance would corrupt F2 layout.
+   ============================================ */
+
+/* .italic-accent in prototype scope renders Signal Orange.
+   Legacy .italic-accent rule at styles.css:1430 uses var(--gold),
+   which resolves to legacy gold (#C9A96E) — wrong for prototype.
+   Currently used only by the F2 footer brand headline. */
+body.redesign-prototype .italic-accent {
+  color: var(--cta);
+  font-style: italic;
+  font-weight: 400;
+}
+
+body.redesign-prototype .footer {
+  background: var(--bg);
+  color: var(--text);
+  margin-top: 80px;
+}
+
+body.redesign-prototype .footer .container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* BAND 1: brand statement + tool cards */
+body.redesign-prototype .footer-band-brand {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+body.redesign-prototype .footer-brand-row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 56px;
+  align-items: start;
+}
+
+body.redesign-prototype .footer-brand-headline {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--text);
+  margin: 0 0 14px;
+}
+
+body.redesign-prototype .footer-brand-descriptor {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 460px;
+}
+
+body.redesign-prototype .footer-tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+body.redesign-prototype .footer-tool-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.2s ease;
+}
+
+body.redesign-prototype .footer-tool-card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+body.redesign-prototype .footer-tool-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--orange-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cta);
+  margin-bottom: 2px;
+}
+
+body.redesign-prototype .footer-tool-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+body.redesign-prototype .footer-tool-description {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+body.redesign-prototype .footer-tool-affordance {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--cta);
+  margin-top: 4px;
+}
+
+/* BAND 2: sitemap + baseline */
+body.redesign-prototype .footer-band-utility {
+  padding: 36px 0 24px;
+}
+
+body.redesign-prototype .footer-utility-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 28px;
+}
+
+/* Override F1 .footer-column h4 (F2 values: 10px / letter-spacing 1.5px) */
+body.redesign-prototype .footer-column h4 {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 0 0 14px;
+}
+
+/* F1 .footer-column ul applies (list-style none); F2 adds flex + gap */
+body.redesign-prototype .footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Override F1 .footer-column ul li { margin-bottom: 10px }
+   to neutralize the 10px margin that would compound with F2's gap (= 18px effective). */
+body.redesign-prototype .footer-column ul li {
+  margin-bottom: 0;
+}
+
+/* Override F1 .footer-column ul li a (F2 uses 12px not 14px) */
+body.redesign-prototype .footer-column ul li a {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+body.redesign-prototype .footer-column ul li a:hover {
+  color: var(--text);
+}
+
+/* Override F1 .footer-baseline (F2 has different padding/align/gap/size) */
+body.redesign-prototype .footer-baseline {
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+body.redesign-prototype .footer-baseline-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Override F1 .footer-badges (F2: flex vs F1 inline-flex; same gap/wrap) */
+body.redesign-prototype .footer-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Override F1 .footer-badge (F2: 10px / padding 4px 10px) */
+body.redesign-prototype .footer-badge {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* Override F1 .footer-baseline-meta (F1 was a flex wrapper; F2 is <p> text element).
+   display:block + gap:0 neutralize F1's display:flex; gap:20px inheritance. */
+body.redesign-prototype .footer-baseline-meta {
+  display: block;
+  gap: 0;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+body.redesign-prototype .footer-baseline-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+body.redesign-prototype .footer-baseline-right a {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  font-size: 11px;
+  transition: color 0.15s ease;
+}
+
+body.redesign-prototype .footer-baseline-right a:hover {
+  color: var(--text);
+}
+
+/* F2 Mobile: ≤900px (upper band stacks; sitemap 3→2 col) */
+@media (max-width: 900px) {
+  body.redesign-prototype .footer .container {
+    padding: 0 24px;
+  }
+  body.redesign-prototype .footer-band-brand {
+    padding: 32px 0;
+  }
+  body.redesign-prototype .footer-brand-row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  body.redesign-prototype .footer-utility-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  body.redesign-prototype .footer-band-utility {
+    padding: 28px 0 20px;
+  }
+}
+
+/* F2 Mobile: ≤720px (sitemap 2→1 col; tool cards stack; baseline stacks) */
+@media (max-width: 720px) {
+  body.redesign-prototype .footer-utility-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  body.redesign-prototype .footer-tools-grid {
+    grid-template-columns: 1fr;
+  }
+  body.redesign-prototype .footer-baseline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  body.redesign-prototype .footer-baseline-right {
+    align-items: flex-start;
+  }
+}
+
+/* === END REDESIGN PROTOTYPE — DARK MODE === */

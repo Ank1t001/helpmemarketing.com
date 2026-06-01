@@ -47,17 +47,17 @@
     {
       "@type": "Question",
       "name": "How do I calculate return on ad spend?",
-      "acceptedAnswer": {"@type": "Answer", "text": "ROAS = Revenue generated divided by ad spend. If you spent $1,000 on ads and generated $4,000 in revenue, your ROAS is 4x. A ROAS above 3x is generally considered healthy for most e-commerce businesses. For lead generation, use cost per qualified lead instead — ROAS is harder to calculate when sales cycles are long."}
+      "acceptedAnswer": {"@type": "Answer", "text": "ROAS = Revenue generated divided by ad spend. If you spent $1,000 on ads and generated $4,000 in revenue, your ROAS is 4x. A ROAS above 3x is generally considered healthy for most e-commerce businesses. For lead generation, use cost per qualified lead instead: ROAS is harder to calculate when sales cycles are long."}
     },
     {
       "@type": "Question",
       "name": "What is a good conversion rate for a website?",
-      "acceptedAnswer": {"@type": "Answer", "text": "The average website conversion rate across industries is 2 to 3 percent. E-commerce typically converts at 1 to 3 percent. Service businesses with strong local intent can see 5 to 10 percent. If your rate is below 1 percent, the problem is usually the page — not the traffic. Fix the landing page before increasing ad spend."}
+      "acceptedAnswer": {"@type": "Answer", "text": "The average website conversion rate across industries is 2 to 3 percent. E-commerce typically converts at 1 to 3 percent. Service businesses with strong local intent can see 5 to 10 percent. If your rate is below 1 percent, the problem is usually the page. Not the traffic. Fix the landing page before increasing ad spend."}
     },
     {
       "@type": "Question",
       "name": "How long should I run marketing before measuring results?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Paid ads: give it 30 to 60 days before making major changes. You need enough data to see patterns. SEO: do not judge results before 90 days — 6 months is more realistic. Social media: track engagement monthly but do not expect revenue impact for 3 to 6 months. The biggest mistake is changing strategy every 2 weeks based on incomplete data."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Paid ads: give it 30 to 60 days before making major changes. You need enough data to see patterns. SEO: do not judge results before 90 days. 6 months is more realistic. Social media: track engagement monthly but do not expect revenue impact for 3 to 6 months. The biggest mistake is changing strategy every 2 weeks based on incomplete data."}
     }
   ]
 }
@@ -80,611 +80,12 @@
 <link rel="stylesheet" href="/styles.css">
 
 <style>
-/* ============= BLOG ARTICLE TOKENS ============= */
 :root {
   --navy: #0F3B5F;
-  --navy-deep: #0B1E33;
   --navy-light: #4A7BA7;
-  --accent-blue: #2563EB;
-  --accent-blue-light: #DBEAFE;
-  --soft-bg: #F4F7FA;
   --text: #1A1A1A;
-  --muted: #6B7B8C;
-  --light: #9CA3AF;
   --border: #E5E9EF;
   --white: #FFFFFF;
-  --purple: #8B5CF6;
-  --purple-bg: #F3E8FF;
-  --green: #10B981;
-  --green-bg: #D1FAE5;
-  --orange: #F59E0B;
-  --orange-bg: #FEF3C7;
-  --pink: #EC4899;
-  --pink-bg: #FCE7F3;
-  --teal: #14B8A6;
-  --teal-bg: #CCFBF1;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', sans-serif;
-  color: var(--text);
-  line-height: 1.65;
-  background: var(--white);
-  -webkit-font-smoothing: antialiased;
-  font-size: 16px;
-}
-
-.blog-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 56px 24px 80px;
-}
-
-/* Breadcrumbs */
-.breadcrumbs {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 32px;
-}
-.breadcrumbs a { color: var(--muted); text-decoration: none; }
-.breadcrumbs a:hover { color: var(--accent-blue); }
-.breadcrumbs span { margin: 0 8px; }
-
-/* Hero zone */
-.hero-zone {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  margin-bottom: 40px;
-  padding-top: 16px;
-  align-items: center;
-}
-
-.category-tags {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: var(--navy-light);
-  margin-top: 8px;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-}
-.category-tags .sep { color: var(--light); margin: 0 10px; font-weight: 400; }
-
-.post-title {
-  font-size: clamp(24px, 3.2vw, 38px);
-  font-weight: 800;
-  line-height: 1.15;
-  color: var(--text);
-  margin-bottom: 20px;
-  letter-spacing: -0.02em;
-}
-.post-title .accent { color: var(--gold); font-style: italic; font-weight: 400; }
-
-.post-subtitle {
-  font-size: 17px;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 28px;
-}
-
-.author-line {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
-  color: var(--muted);
-  font-size: 14px;
-}
-.author-avatar {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--navy); color: white;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 13px;
-}
-.author-line .dot {
-  width: 3px; height: 3px; border-radius: 50%;
-  background: var(--light);
-}
-
-/* Element 1 — Hero illustration */
-.hero-illustration {
-  background: var(--soft-bg);
-  border-radius: 16px;
-  padding: 32px;
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 360px;
-}
-
-/* Element 2 — Key Takeaways */
-.takeaways {
-  background: var(--soft-bg);
-  border-left: 3px solid var(--accent-blue);
-  border-radius: 12px;
-  padding: 24px 28px 24px 28px;
-  margin: 40px 0 0 0;
-  max-width: 100%;
-}
-.takeaways h3 {
-  font-size: 16px; font-weight: 700;
-  color: var(--navy); margin-bottom: 14px;
-}
-.takeaways ul { list-style: none; padding: 0; }
-.takeaways li {
-  padding: 7px 0 7px 34px;
-  position: relative;
-  font-size: 14.5px; color: var(--text); line-height: 1.6;
-}
-.takeaways li::before {
-  content: "✓";
-  position: absolute; left: 0; top: 7px;
-  width: 22px; height: 22px;
-  background: var(--accent-blue); color: white;
-  border-radius: 50%; text-align: center;
-  line-height: 20px; font-size: 12px; font-weight: 700;
-}
-
-/* Two-column body */
-.body-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  margin-top: 56px;
-  align-items: start;
-}
-.visual-content { padding-top: 4px; }
-
-/* Article text */
-.article-content h2 {
-  font-size: 26px; font-weight: 700;
-  color: var(--text); margin: 48px 0 18px; line-height: 1.3;
-  letter-spacing: -0.01em;
-}
-.article-content h2:first-child { margin-top: 0; }
-.article-content p {
-  font-size: 16px; color: var(--text);
-  margin-bottom: 18px; line-height: 1.75;
-}
-.article-content p strong { font-weight: 700; }
-.stat-inline { color: var(--accent-blue); font-weight: 700; }
-
-/* Element 3 — Pull quote */
-.pull-quote {
-  background: var(--soft-bg);
-  border-radius: 12px;
-  padding: 28px 32px 32px 44px;
-  margin: 40px 0;
-  position: relative;
-  font-size: 15px; color: var(--text); line-height: 1.55;
-}
-.pull-quote::before {
-  content: "\201C";
-  position: absolute; top: 8px; left: 14px;
-  font-size: 40px; color: var(--accent-blue);
-  font-family: Georgia, serif; line-height: 1;
-}
-.pull-quote::after {
-  content: "\201D";
-  position: absolute; bottom: 0; right: 20px;
-  font-size: 40px; color: var(--accent-blue);
-  font-family: Georgia, serif; line-height: 1;
-}
-.pull-quote em {
-  font-family: 'Instrument Serif', serif;
-  font-size: 19px;
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--navy);
-}
-
-/* Element 4 — Dark CTA card */
-.dark-cta {
-  background: var(--navy-deep);
-  border-radius: 14px;
-  padding: 24px 28px;
-  margin: 36px 0; color: white;
-}
-.dark-cta h4 {
-  font-size: 17px; font-weight: 700;
-  color: white; margin-bottom: 10px; line-height: 1.4;
-}
-.dark-cta p {
-  color: #B8C5D6; font-size: 13px;
-  margin-bottom: 16px; line-height: 1.5;
-}
-.dark-cta .btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: white; color: var(--navy);
-  padding: 11px 22px; border-radius: 999px;
-  font-size: 14px; font-weight: 600; text-decoration: none;
-}
-.dark-cta .btn:hover { background: var(--soft-bg); }
-
-/* Element 5 — Numbered levers */
-.levers-section { margin: 32px 0; }
-.levers-list { list-style: none; padding: 0; }
-.levers-list li {
-  display: flex; gap: 18px;
-  padding: 20px 0; border-bottom: 1px solid var(--border);
-}
-.levers-list li:last-child { border-bottom: none; }
-.lever-icon {
-  flex-shrink: 0; width: 44px; height: 44px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
-}
-.lever-icon.purple { background: var(--purple-bg); color: var(--purple); }
-.lever-icon.blue   { background: var(--accent-blue-light); color: var(--accent-blue); }
-.lever-icon.green  { background: var(--green-bg); color: var(--green); }
-.lever-icon.orange { background: var(--orange-bg); color: var(--orange); }
-.lever-icon.pink   { background: var(--pink-bg); color: var(--pink); }
-.lever-content h4 {
-  font-size: 15.5px; font-weight: 700;
-  color: var(--text); margin-bottom: 6px;
-}
-.lever-content p { font-size: 14px; color: var(--muted); line-height: 1.65; }
-.rule-of-thumb {
-  display: flex; gap: 8px; align-items: center;
-  margin-top: 20px; padding: 12px;
-  font-size: 13px; color: var(--text);
-  background: var(--soft-bg); border-radius: 10px;
-}
-.rule-of-thumb strong { color: var(--accent-blue); }
-
-/* Element 6 — Framework diagram */
-.framework-diagram {
-  background: var(--soft-bg);
-  border-radius: 14px;
-  padding: 28px 24px; margin-top: 0; margin-bottom: 32px;
-}
-.framework-diagram h3 {
-  font-size: 14px; font-weight: 700;
-  text-align: center; color: var(--text);
-  margin-bottom: 20px; letter-spacing: 1px;
-}
-.framework-row {
-  display: flex; align-items: center;
-  gap: 12px; margin-bottom: 12px;
-}
-.framework-row:last-child { margin-bottom: 0; }
-.framework-stage {
-  flex: 1; background: white; border-radius: 10px;
-  padding: 14px 16px;
-  display: flex; align-items: center; gap: 12px;
-  border: 1px solid var(--border);
-}
-.framework-stage.s1 { background: var(--accent-blue-light); border-color: var(--accent-blue-light); }
-.framework-stage.s2 { background: var(--purple-bg); border-color: var(--purple-bg); }
-.framework-stage.s3 { background: var(--green-bg); border-color: var(--green-bg); }
-.framework-stage.s4 { background: var(--orange-bg); border-color: var(--orange-bg); }
-.stage-icon {
-  width: 32px; height: 32px; border-radius: 8px;
-  background: white;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px; flex-shrink: 0;
-}
-.stage-text h5 {
-  font-size: 13px; font-weight: 700;
-  color: var(--text); margin-bottom: 1px;
-}
-.stage-text p { font-size: 11px; color: var(--muted); }
-.framework-arrow { color: var(--muted); font-size: 14px; flex-shrink: 0; }
-.framework-issue {
-  font-size: 11px; color: var(--muted);
-  line-height: 1.4; flex-shrink: 0; width: 90px;
-}
-.framework-issue strong {
-  color: var(--text); font-weight: 600;
-  display: block; margin-bottom: 1px;
-}
-
-/* Element 7 — Outcome diagram */
-.outcome-diagram {
-  background: var(--soft-bg);
-  border-radius: 14px;
-  padding: 32px 24px; margin-bottom: 24px; text-align: center;
-}
-.outcome-diagram h3 {
-  font-size: 20px; font-weight: 700;
-  color: var(--text); margin-bottom: 24px;
-}
-.outcome-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 100px 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 16px; align-items: center;
-}
-.outcome-card {
-  background: white; border-radius: 12px;
-  padding: 14px 12px; border: 1px solid var(--border);
-  display: flex; flex-direction: column;
-  align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 700; color: var(--text);
-}
-.outcome-card .icon {
-  width: 32px; height: 32px; border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px;
-}
-.outcome-card.tl { grid-column: 1; grid-row: 1; }
-.outcome-card.tr { grid-column: 3; grid-row: 1; }
-.outcome-card.bl { grid-column: 1; grid-row: 2; }
-.outcome-card.br { grid-column: 3; grid-row: 2; }
-.outcome-card.tl .icon { background: var(--green-bg); color: var(--green); }
-.outcome-card.tr .icon { background: var(--orange-bg); color: var(--orange); }
-.outcome-card.bl .icon { background: var(--accent-blue-light); color: var(--accent-blue); }
-.outcome-card.br .icon { background: var(--green-bg); color: var(--green); }
-.outcome-center {
-  grid-column: 2; grid-row: 1 / span 2;
-  width: 100px; height: 100px; border-radius: 50%;
-  background: var(--navy-deep); color: white;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  font-weight: 700; margin: auto; font-size: 13px;
-}
-.outcome-center .lower {
-  font-size: 10px; opacity: 0.7; font-weight: 500;
-}
-
-/* Element 8 — Comparison table */
-.table-section { margin-bottom: 32px; }
-.table-section h3 {
-  font-size: 18px; font-weight: 700;
-  color: var(--text); margin-top: 32px; margin-bottom: 16px;
-}
-.comparison-table {
-  width: 100%; border-collapse: collapse;
-  border: 1px solid var(--border);
-  border-radius: 10px; overflow: hidden; font-size: 13px;
-}
-.comparison-table thead { background: var(--navy); }
-.comparison-table th {
-  padding: 14px 12px; text-align: left;
-  font-weight: 600; font-size: 11px;
-  color: white; background: var(--navy);
-  letter-spacing: 0.06em;
-  border-bottom: 1px solid var(--border);
-}
-.comparison-table td {
-  padding: 13px 12px; border-bottom: 1px solid var(--border);
-  color: var(--text); line-height: 1.5;
-}
-.comparison-table tbody tr:last-child td { border-bottom: none; }
-.comparison-table td:first-child { font-weight: 600; }
-.comparison-table td.cac { color: var(--accent-blue); font-size: 14px; font-weight: 700; }
-.comparison-table tbody tr:hover td { background: var(--soft-bg); }
-
-.channel-cta {
-  background: var(--navy-deep); border-radius: 12px;
-  padding: 18px 22px; color: white; margin-top: 16px;
-}
-.channel-cta h4 {
-  font-size: 14px; font-weight: 700;
-  color: white; margin-bottom: 4px;
-}
-.channel-cta p { color: #B8C5D6; font-size: 12px; margin-bottom: 12px; }
-.channel-cta .btn {
-  display: inline-flex; align-items: center; gap: 4px;
-  background: white; color: var(--navy);
-  padding: 8px 14px; border-radius: 999px;
-  font-size: 12px; font-weight: 600; text-decoration: none;
-}
-
-/* Bottom row */
-.bottom-row {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 40px; margin: 80px 0 32px;
-}
-.insight-card {
-  background: var(--soft-bg); border-radius: 12px; padding: 32px;
-}
-.insight-card h3 {
-  font-size: 18px; font-weight: 700;
-  color: var(--text); margin-bottom: 16px; line-height: 1.4;
-}
-.insight-card p {
-  font-size: 14px; color: var(--muted);
-  margin-bottom: 12px; line-height: 1.6;
-}
-.insight-card .think-long {
-  display: flex; gap: 8px; align-items: center;
-  color: var(--accent-blue); font-size: 14px; font-weight: 600;
-  margin-top: 12px;
-}
-.audit-card {
-  background: var(--soft-bg); border-radius: 12px; padding: 32px;
-}
-.audit-card h3 {
-  font-size: 18px; font-weight: 700;
-  color: var(--text); margin-bottom: 16px;
-}
-
-/* Element 9 — Audit checklist */
-.audit-list { list-style: none; padding: 0; }
-.audit-list li {
-  display: flex; gap: 10px; padding: 10px 0;
-  font-size: 13px; color: var(--text); line-height: 1.5;
-  border-bottom: 1px solid var(--border);
-}
-.audit-list li:last-child { border-bottom: none; }
-.audit-badge {
-  flex-shrink: 0; width: 22px; height: 22px;
-  border-radius: 50%; background: var(--accent-blue);
-  color: white;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 11px; margin-top: 1px;
-}
-
-/* Related + final CTA */
-.related-and-cta {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 32px; margin-top: 64px;
-}
-.related-section h3 {
-  font-size: 17px; font-weight: 700;
-  color: var(--text); margin-bottom: 18px;
-}
-.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.related-card {
-  background: white; border: 1px solid var(--border);
-  border-radius: 12px; padding: 22px; text-decoration: none;
-  display: block; transition: border-color 0.2s, box-shadow 0.2s;
-}
-.related-card:hover {
-  border-color: var(--navy-light);
-  box-shadow: 0 4px 16px rgba(10,46,44,0.08);
-}
-.related-card h4 {
-  font-size: 14px; font-weight: 600;
-  color: var(--text); margin-bottom: 12px; line-height: 1.45;
-}
-.related-card .read-link {
-  color: var(--accent-blue); font-size: 12px;
-  font-weight: 600; text-decoration: none;
-}
-.final-cta {
-  background: var(--navy-deep); border-radius: 14px;
-  padding: 36px 32px; color: white; text-align: center;
-}
-.final-cta h3 {
-  font-family: 'Instrument Serif', serif;
-  font-size: 24px; font-weight: 400;
-  color: white; margin-bottom: 14px; line-height: 1.3;
-}
-.final-cta p {
-  color: #B8C5D6; font-size: 14px;
-  margin-bottom: 22px; line-height: 1.6;
-}
-.final-cta .btn-row {
-  display: flex; gap: 16px;
-  justify-content: center; flex-wrap: wrap;
-}
-.final-cta .btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 12px 20px; border-radius: 999px;
-  font-size: 13px; font-weight: 600; text-decoration: none;
-}
-.final-cta .btn.primary { background: white; color: var(--navy); }
-.final-cta .btn.secondary {
-  background: transparent; color: white;
-  border: 1px solid rgba(255,255,255,0.3);
-}
-
-/* Author bio */
-.author-bio {
-  display: flex; gap: 16px; align-items: flex-start;
-  margin-top: 72px; padding-top: 40px;
-  border-top: 1px solid var(--border);
-}
-.bio-avatar {
-  width: 48px; height: 48px; border-radius: 50%;
-  background: var(--navy); color: white;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 14px; flex-shrink: 0;
-}
-.bio-text h4 {
-  font-size: 14px; font-weight: 700;
-  color: var(--text); margin-bottom: 4px;
-}
-.bio-text p { font-size: 13px; color: var(--muted); line-height: 1.6; }
-
-/* Mobile */
-@media (max-width: 900px) {
-  .hero-zone {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .post-title {
-    font-size: clamp(26px, 6vw, 38px);
-  }
-  .body-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .bottom-row {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .related-and-cta {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .related-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* AEO: FAQ section */
-.blog-faq {
-  max-width: 720px;
-  margin: 64px auto 0;
-  padding: 0 32px;
-}
-.blog-faq-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 24px;
-  letter-spacing: -0.01em;
-}
-.faq-item {
-  border-top: 1px solid var(--border);
-  padding: 0;
-}
-.faq-item:last-child {
-  border-bottom: 1px solid var(--border);
-}
-.faq-question {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text);
-  padding: 18px 40px 18px 0;
-  cursor: pointer;
-  list-style: none;
-  position: relative;
-  line-height: 1.5;
-}
-.faq-question::-webkit-details-marker {
-  display: none;
-}
-.faq-question::after {
-  content: "+";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  color: var(--accent-blue);
-  font-weight: 400;
-  transition: transform 0.2s;
-}
-details[open] .faq-question::after {
-  content: "\D7";
-}
-.faq-answer {
-  padding: 0 0 18px;
-}
-.faq-answer p {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.7;
-  margin: 0;
-}
-.table-source {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 8px;
-  line-height: 1.5;
-  font-style: italic;
 }
 </style>
 
@@ -811,7 +212,7 @@ problem" — not "that was informative."
       "@type": "HowToStep",
       "position": 1,
       "name": "What was the cost per lead this month…",
-      "text": "What was the cost per lead this month — by channel? Higher or lower than last month?"
+      "text": "What was the cost per lead this month, by channel? Higher or lower than last month?"
     },
     {
       "@type": "HowToStep",
@@ -828,8 +229,8 @@ problem" — not "that was informative."
     {
       "@type": "HowToStep",
       "position": 4,
-      "name": "Which channel generated the most revenue — not…",
-      "text": "Which channel generated the most revenue — not leads, revenue?"
+      "name": "Which channel generated the most revenue: not…",
+      "text": "Which channel generated the most revenue: not leads, revenue?"
     },
     {
       "@type": "HowToStep",
@@ -846,153 +247,106 @@ problem" — not "that was informative."
   ]
 }
 </script>
+<script src="/blog/blog-template.js" defer></script>
 </head>
-<body>
+<body class="redesign-prototype blog-dark">
 
 <!-- Use site nav from styles.css -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="logo" style="text-decoration:none;color:inherit;">
-      <div class="logo-mark">H</div>
-      <span class="logo-text">Help<span style="color:var(--gold);font-style:italic;font-family:'Instrument Serif',serif;font-size:19px;padding:0 1px">Me</span>Marketing</span>
+    <a class="logo" href="/">
+      <div class="logo-mark">H<span class="me-italic">MM</span></div>
+      <span class="logo-text">Help<em style="font-family:var(--serif); font-size:19px; padding:0 1px">Me</em>Marketing</span>
     </a>
     <div class="nav-links">
-      <a href="/" class="nav-link">Home</a>
-      <a href="/services" class="nav-link">Services</a>
-      <a href="/work" class="nav-link">Case Studies</a>
-      <a href="/about" class="nav-link">About</a>
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/services">Services</a>
+      <a class="nav-link" href="/work">Case Studies</a>
+      <a class="nav-link" href="/about">About</a>
     </div>
     <div class="nav-cta">
-      <a href="/contact" class="btn btn-accent nav-main-cta">Book a free audit</a>
-      <button class="nav-hamburger" id="navHam" aria-label="Menu"><span></span></button>
+      <a class="btn btn-accent nav-main-cta" href="/contact">Book a free audit
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Menu" onclick="var m=document.querySelector('.nav-mobile-menu'); var o=m.classList.toggle('open'); this.classList.toggle('open', o);"><span></span></button>
     </div>
   </div>
 </nav>
-<div class="nav-mobile-menu" id="mobileMenu">
-  <a href="/" class="nav-link">Home</a>
-  <a href="/services" class="nav-link">Services</a>
-  <a href="/work" class="nav-link">Case Studies</a>
-  <a href="/about" class="nav-link">About</a>
+<div class="nav-mobile-menu">
+  <a class="nav-link" href="/">Home</a>
+  <a class="nav-link" href="/services">Services</a>
+  <a class="nav-link" href="/work">Case Studies</a>
+  <a class="nav-link" href="/about">About</a>
   <div class="mobile-cta-row">
-    <a href="/contact" class="btn btn-accent" style="justify-content:center;">Book a free audit</a>
+    <a class="btn btn-accent" href="/contact">Book a free audit</a>
   </div>
 </div>
 
-<div class="blog-container">
+<div class="blog-body">
 
-  <!-- Breadcrumbs -->
-  <div class="breadcrumbs">
-    <a href="/">Home</a><span>›</span>
-    <a href="/blog">Blog</a><span>›</span>
-    How to tell if your marketing is working
-  </div>
+      <article class="blog-content">
 
-  <!-- HERO ZONE -->
-  <div class="hero-zone">
+        <header class="blog-hero">
+        <div class="breadcrumb">
+          <a href="/">Home</a>
+          <span>›</span>
+          <a href="/blog">Blog</a>
+          <span>›</span>
+          <a href="/blog">Analytics</a>
+          <span>›</span>
+          Marketing KPIs that matter
+        </div>
+
+        <div class="hero-zone">
     <div>
       <div class="category-tags">
         Analytics<span class="sep">|</span>Measurement
       </div>
       <h1 class="post-title">
-        How to tell if your marketing is working &mdash; the KPIs every business should
+        How to tell if your marketing is working, the KPIs every business should
         <span class="accent">actually track.</span>
       </h1>
       <p class="post-subtitle">
         Likes and impressions do not pay salaries. Here are the numbers that tell you
-        the truth about your marketing &mdash; and the ones most businesses ignore.
+        the truth about your marketing. And the ones most businesses ignore.
       </p>
       <div class="author-line">
         <div class="author-avatar">AK</div>
         <span>Ankit Kumar</span>
         <span class="dot"></span>
-        <span style="color:var(--muted); font-size:13px;">Founder, HelpMeMarketing</span>
-        <span class="dot"></span>
-        <span>Apr 29, 2026</span>
-        <span class="dot"></span>
         <span>8 min read</span>
       </div>
     </div>
+  </div>
+      </header>
 
-    <!-- Element 1: Hero illustration — Vanity vs real metrics dashboard split -->
-    <div class="hero-illustration">
-      <div style="width:100%; display:flex; flex-direction:column; align-items:center;">
-        <div style="display:grid; grid-template-columns:1fr auto 1fr; width:100%; max-width:580px; align-items:stretch;">
-          <!-- Left: Vanity metrics -->
-          <div style="background:#FEF2F2; color:var(--text); padding:18px 14px; border-radius:14px 0 0 14px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:10px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:#B91C1C; text-align:center; margin-bottom:2px;">Vanity metrics</div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:12px; line-height:1.3; padding:6px 0;">
-              <span style="color:#EF4444; font-weight:700; flex-shrink:0;">&times;</span>
-              <span><strong style="color:var(--text); font-size:15px;">10,432</strong> Impressions</span>
-            </div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:12px; line-height:1.3; padding:6px 0;">
-              <span style="color:#EF4444; font-weight:700; flex-shrink:0;">&times;</span>
-              <span><strong style="color:var(--text); font-size:15px;">847</strong> Likes</span>
-            </div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:12px; line-height:1.3; padding:6px 0;">
-              <span style="color:#EF4444; font-weight:700; flex-shrink:0;">&times;</span>
-              <span><strong style="color:var(--text); font-size:15px;">3.2%</strong> Engagement</span>
-            </div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:12px; line-height:1.3; padding:6px 0;">
-              <span style="color:#EF4444; font-weight:700; flex-shrink:0;">&times;</span>
-              <span><strong style="color:var(--text); font-size:15px;">1,204</strong> Profile visits</span>
-            </div>
-            <div style="font-size:10px; color:#B91C1C; font-style:italic; text-align:center; margin-top:4px;">Feels good. Pays nothing.</div>
-          </div>
-          <!-- Center badge -->
-          <div style="display:flex; align-items:center; justify-content:center; padding:0 6px;">
-            <div style="background:var(--navy-deep); color:white; font-size:10px; font-weight:700; padding:8px 10px; border-radius:8px; text-align:center; line-height:1.3; box-shadow:0 4px 12px rgba(11,30,51,0.25); max-width:88px;">
-              Know the<br>difference
-            </div>
-          </div>
-          <!-- Right: Real metrics -->
-          <div style="background:var(--navy-deep); color:white; padding:18px 14px; border-radius:0 14px 14px 0; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:10px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:rgba(255,255,255,0.6); text-align:center; margin-bottom:2px;">Real metrics</div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:12px; line-height:1.3; padding:6px 0;">
-              <span style="color:var(--green); font-weight:700; flex-shrink:0;">&check;</span>
-              <span><strong style="color:white; font-size:15px;">23</strong> <span style="color:rgba(255,255,255,0.85);">Qualified leads</span></span>
-            </div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:12px; line-height:1.3; padding:6px 0;">
-              <span style="color:var(--green); font-weight:700; flex-shrink:0;">&check;</span>
-              <span><strong style="color:white; font-size:15px;">$41</strong> <span style="color:rgba(255,255,255,0.85);">Cost per lead</span></span>
-            </div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:12px; line-height:1.3; padding:6px 0;">
-              <span style="color:var(--green); font-weight:700; flex-shrink:0;">&check;</span>
-              <span><strong style="color:white; font-size:15px;">4.2&times;</strong> <span style="color:rgba(255,255,255,0.85);">ROAS</span></span>
-            </div>
-            <div style="display:flex; gap:6px; align-items:center; font-size:12px; line-height:1.3; padding:6px 0;">
-              <span style="color:var(--green); font-weight:700; flex-shrink:0;">&check;</span>
-              <span><strong style="color:white; font-size:15px;">18%</strong> <span style="color:rgba(255,255,255,0.85);">Conversion rate</span></span>
-            </div>
-            <div style="font-size:10px; color:var(--gold); font-style:italic; text-align:center; margin-top:4px;">This is what matters.</div>
-          </div>
-        </div>
-        <div style="font-size:12px; color:var(--muted); text-align:center; line-height:1.5; margin-top:18px; max-width:380px;">If you cannot draw a straight line to revenue, you cannot manage it.</div>
+        <div class="toc-mobile">
+      <button class="toc-mobile-toggle" aria-expanded="false" aria-controls="toc-mobile-panel">
+        <span>Jump to section</span>
+        <span class="toc-mobile-chevron">▼</span>
+      </button>
+      <div class="toc-mobile-panel" id="toc-mobile-panel">
+        <ul class="toc-list-mobile">
+          <!-- Auto-generated by blog-template.js, mirrors desktop TOC -->
+        </ul>
       </div>
     </div>
-  </div>
 
-  <!-- Element 2: Key Takeaways -->
-  <div class="takeaways">
+        <div class="takeaways">
     <h3>Key Takeaways</h3>
     <ul>
-      <li>Most businesses track vanity metrics &mdash; impressions, likes, followers &mdash; because they are easy to see. None of them tell you if marketing is generating revenue.</li>
+      <li>Most businesses track vanity metrics (impressions, likes, followers) because they are easy to see. None of them tell you if marketing is generating revenue.</li>
       <li>The four numbers that matter: cost per lead, cost per acquisition, conversion rate, and ROAS or revenue per channel.</li>
-      <li>If you cannot draw a straight line from a marketing activity to revenue, you cannot manage it &mdash; you can only hope.</li>
+      <li>If you cannot draw a straight line from a marketing activity to revenue, you cannot manage it. You can only hope.</li>
       <li>Check these numbers monthly at minimum. Weekly if you are running paid ads.</li>
     </ul>
   </div>
 
-  <!-- TWO-COLUMN BODY -->
-  <div class="body-layout">
-
-    <!-- LEFT: Article text -->
-    <div class="article-content">
-
-      <h2>Why most businesses track the wrong numbers</h2>
+        <h2 id="wrong-numbers">Why most businesses track the wrong numbers</h2>
       <p>Impressions feel good. Likes feel like progress. Follower counts feel like an audience.</p>
       <p>None of them pay your rent.</p>
-      <p>The reason businesses track vanity metrics is not stupidity &mdash; it is that agencies and platforms make vanity metrics easy to see. Every platform dashboard leads with reach and impressions because those numbers are always big, always growing, and always make the platform look useful.</p>
-      <p>The numbers that tell you whether marketing is actually working &mdash; cost per lead, cost per customer, revenue per channel &mdash; require more work to track. Most businesses never set them up.</p>
+      <p>The reason businesses track vanity metrics is not stupidity. It is that agencies and platforms make vanity metrics easy to see. Every platform dashboard leads with reach and impressions because those numbers are always big, always growing, and always make the platform look useful.</p>
+      <p>The numbers that tell you whether marketing is actually working (cost per lead, cost per customer, revenue per channel) require more work to track. Most businesses never set them up.</p>
       <p>If you cannot draw a straight line from a marketing activity to revenue, you cannot manage it. You can only hope.</p>
 
       <!-- Element 3: Pull quote -->
@@ -1003,66 +357,60 @@ problem" — not "that was informative."
       <!-- Element 4: Dark CTA (mid-post) -->
       <div class="dark-cta">
         <h4>Not sure what your marketing is actually generating?</h4>
-        <p>We set up proper tracking and show you the real numbers &mdash; leads, cost per acquisition, and revenue by channel. Free audit, 45 minutes.</p>
+        <p>We set up proper tracking and show you the real numbers: leads, cost per acquisition, and revenue by channel. Free audit, 45 minutes.</p>
         <a href="/contact" class="btn">Book a free audit &rarr;</a>
       </div>
 
       <!-- Element 5: Numbered levers -->
-      <h2>The KPIs that actually matter</h2>
+        <h2 id="kpis-that-matter">The KPIs that actually matter</h2>
       <div class="levers-section">
         <ul class="levers-list">
           <li>
-            <div class="lever-icon purple">&#128203;</div>
+            <div class="lever-icon purple"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3h-6z"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
             <div class="lever-content">
               <h4>1. Cost per lead (CPL)</h4>
-              <p>How much does it cost to get one person to raise their hand? This is your primary efficiency metric for lead generation. Calculate it as: total spend &divide; total leads. A lead is someone who filled out a form, booked a call, or sent a message &mdash; not someone who liked a post. Track this weekly for paid channels.</p>
+              <p>How much does it cost to get one person to raise their hand? This is your primary efficiency metric for lead generation. Calculate it as: total spend &divide; total leads. A lead is someone who filled out a form, booked a call, or sent a message. Not someone who liked a post. Track this weekly for paid channels.</p>
             </div>
           </li>
           <li>
-            <div class="lever-icon blue">&#128722;</div>
+            <div class="lever-icon blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="19" r="2"/><circle cx="17" cy="19" r="2"/><path d="M3 3h2l2.5 12.5a2 2 0 0 0 2 1.5h7.5a2 2 0 0 0 2 -1.5l1.5 -8.5h-15.5"/></svg></div>
             <div class="lever-content">
               <h4>2. Cost per acquisition (CPA)</h4>
               <p>How much does it cost to get one paying customer? CPL tells you about your marketing efficiency. CPA tells you about your business viability. If CPA is higher than your average order value, you are losing money on every customer and no amount of optimisation will fix the math. <a href="/analytics" style="color:var(--accent-blue);">See how we track attribution &rarr;</a></p>
             </div>
           </li>
           <li>
-            <div class="lever-icon green">&#128202;</div>
+            <div class="lever-icon green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="21" x2="4" y2="14"/><line x1="10" y1="21" x2="10" y2="10"/><line x1="16" y1="21" x2="16" y2="6"/><line x1="22" y1="21" x2="2" y2="21"/></svg></div>
             <div class="lever-content">
               <h4>3. Conversion rate</h4>
-              <p>What percentage of website visitors take the action you want? Below 1% on a paid traffic landing page means the page is broken &mdash; not the ads. Above 5% means you have something worth scaling (per <a href="https://www.wordstream.com/blog/ws/2014/03/17/what-is-a-good-conversion-rate" target="_blank" rel="noopener">WordStream&rsquo;s conversion rate research</a>). This is the number that most businesses never check and most agencies never report.</p>
+              <p>What percentage of website visitors take the action you want? Below 1% on a paid traffic landing page means the page is broken. Not the ads. Above 5% means you have something worth scaling (per <a href="https://www.wordstream.com/blog/ws/2014/03/17/what-is-a-good-conversion-rate" target="_blank" rel="noopener">WordStream&rsquo;s conversion rate research</a>). This is the number that most businesses never check and most agencies never report.</p>
             </div>
           </li>
           <li>
-            <div class="lever-icon orange">&#128176;</div>
+            <div class="lever-icon orange"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M14.5 9C14.5 7.9 13.4 7.5 12 7.5C10 7.5 9 8.5 9 10C9 13 15 12 15 14C15 15.5 13.8 16.5 12 16.5C10.6 16.5 9.5 16.1 9 15"/><line x1="12" y1="6" x2="12" y2="18"/></svg></div>
             <div class="lever-content">
               <h4>4. Return on ad spend (ROAS)</h4>
-              <p>Revenue generated &divide; ad spend. A 3&times; ROAS means every $1 you spend generates $3 in revenue. For e-commerce, 3&times; is a reasonable floor. For lead generation with long sales cycles, calculate revenue per lead instead &mdash; ROAS is hard to measure when deals close months after the first click.</p>
+              <p>Revenue generated &divide; ad spend. A 3&times; ROAS means every $1 you spend generates $3 in revenue. For e-commerce, 3&times; is a reasonable floor. For lead generation with long sales cycles, calculate revenue per lead instead: ROAS is hard to measure when deals close months after the first click.</p>
             </div>
           </li>
           <li>
-            <div class="lever-icon pink">&#128200;</div>
+            <div class="lever-icon pink"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 14 21 5"/><polyline points="15 5 21 5 21 11"/></svg></div>
             <div class="lever-content">
               <h4>5. Revenue by channel</h4>
-              <p>Which channel is actually generating customers &mdash; not just leads, not just clicks, but paying customers? Set this up via <a href="https://analytics.google.com/analytics/academy/" target="_blank" rel="noopener">Google Analytics Academy</a>. Most businesses do not know. The ones that do allocate budget with confidence. The ones that do not allocate by gut feel and hope for the best. <a href="/analytics" style="color:var(--accent-blue);">How we build revenue dashboards &rarr;</a></p>
+              <p>Which channel is actually generating customers: not just leads, not just clicks, but paying customers? Set this up via <a href="https://analytics.google.com/analytics/academy/" target="_blank" rel="noopener">Google Analytics Academy</a>. Most businesses do not know. The ones that do allocate budget with confidence. The ones that do not allocate by gut feel and hope for the best. <a href="/analytics" style="color:var(--accent-blue);">How we build revenue dashboards &rarr;</a></p>
             </div>
           </li>
         </ul>
         <div class="rule-of-thumb">
-          &#128161; If your reporting does not include <strong>cost per customer and revenue by channel</strong>, you are flying blind. Full stop.
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;margin-right:6px;"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0 -3 11c.5 .4 1 1 1 2v1h4v-1c0-1 .5-1.6 1-2a6 6 0 0 0 -3-11z"/></svg> If your reporting does not include <strong>cost per customer and revenue by channel</strong>, you are flying blind. Full stop.
         </div>
       </div>
 
-    </div>
-
-    <!-- RIGHT: Visuals -->
-    <div class="visual-content">
-
-      <!-- Element 6: Marketing measurement hierarchy -->
-      <div class="framework-diagram">
+        <div class="framework-diagram">
         <h3>THE MARKETING MEASUREMENT HIERARCHY</h3>
         <div class="framework-row">
           <div class="framework-stage s1">
-            <div class="stage-icon">&#128202;</div>
+            <div class="stage-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="21" x2="4" y2="14"/><line x1="10" y1="21" x2="10" y2="10"/><line x1="16" y1="21" x2="16" y2="6"/><line x1="22" y1="21" x2="2" y2="21"/></svg></div>
             <div class="stage-text">
               <h5>ACTIVITY METRICS</h5>
               <p>Impressions, clicks, reach</p>
@@ -1076,7 +424,7 @@ problem" — not "that was informative."
         </div>
         <div class="framework-row">
           <div class="framework-stage s2">
-            <div class="stage-icon">&#128172;</div>
+            <div class="stage-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.965 2.1 -10.59c3.526 -2.623 8.59 -2.55 12.026 .174c3.437 2.724 4.135 7.413 1.657 10.876c-2.479 3.463 -7.382 4.609 -11.633 2.719l-5.45 .72"/></svg></div>
             <div class="stage-text">
               <h5>ENGAGEMENT METRICS</h5>
               <p>CTR, bounce rate, time on page</p>
@@ -1090,7 +438,7 @@ problem" — not "that was informative."
         </div>
         <div class="framework-row">
           <div class="framework-stage s3">
-            <div class="stage-icon">&#128203;</div>
+            <div class="stage-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3h-6z"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
             <div class="stage-text">
               <h5>LEAD METRICS</h5>
               <p>CPL, lead volume, lead quality</p>
@@ -1104,7 +452,7 @@ problem" — not "that was informative."
         </div>
         <div class="framework-row">
           <div class="framework-stage s4">
-            <div class="stage-icon">&#128176;</div>
+            <div class="stage-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M14.5 9C14.5 7.9 13.4 7.5 12 7.5C10 7.5 9 8.5 9 10C9 13 15 12 15 14C15 15.5 13.8 16.5 12 16.5C10.6 16.5 9.5 16.1 9 15"/><line x1="12" y1="6" x2="12" y2="18"/></svg></div>
             <div class="stage-text">
               <h5>REVENUE METRICS</h5>
               <p>CPA, ROAS, revenue per channel</p>
@@ -1118,35 +466,7 @@ problem" — not "that was informative."
         </div>
       </div>
 
-      <!-- Element 7: Outcome diagram -->
-      <div class="outcome-diagram">
-        <h3>Proper tracking delivers</h3>
-        <div class="outcome-grid">
-          <div class="outcome-card tl">
-            <div class="icon">&#128200;</div>
-            <span>Know what<br>works</span>
-          </div>
-          <div class="outcome-card tr">
-            <div class="icon">&#9986;</div>
-            <span>Cut what<br>does not</span>
-          </div>
-          <div class="outcome-center">
-            Clear<br>decisions
-            <span class="lower">confidence</span>
-          </div>
-          <div class="outcome-card bl">
-            <div class="icon">&#128640;</div>
-            <span>Scale what<br>converts</span>
-          </div>
-          <div class="outcome-card br">
-            <div class="icon">&#128176;</div>
-            <span>Lower CAC<br>over time</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Element 8: Comparison table -->
-      <div class="table-section">
+        <div class="table-section">
         <h3>Vanity metrics vs real metrics</h3>
         <table class="comparison-table">
           <thead>
@@ -1180,43 +500,43 @@ problem" — not "that was informative."
               <td>Click-through rate</td>
               <td>Diagnostic</td>
               <td>Ad or content relevance</td>
-              <td>Yes &mdash; to diagnose</td>
+              <td>Yes: to diagnose</td>
             </tr>
             <tr>
               <td>Bounce rate</td>
               <td>Diagnostic</td>
               <td>Page relevance and UX</td>
-              <td>Yes &mdash; to fix pages</td>
+              <td>Yes: to fix pages</td>
             </tr>
             <tr>
               <td>Cost per lead</td>
               <td>Real</td>
               <td>Marketing efficiency</td>
-              <td class="cac">Yes &mdash; weekly</td>
+              <td class="cac">Yes: weekly</td>
             </tr>
             <tr>
               <td>Conversion rate</td>
               <td>Real</td>
               <td>Page and offer quality</td>
-              <td class="cac">Yes &mdash; weekly</td>
+              <td class="cac">Yes: weekly</td>
             </tr>
             <tr>
               <td>Cost per acquisition</td>
               <td>Real</td>
               <td>Business viability</td>
-              <td class="cac">Yes &mdash; always</td>
+              <td class="cac">Yes: always</td>
             </tr>
             <tr>
               <td>Revenue by channel</td>
               <td>Real</td>
               <td>Where money actually comes from</td>
-              <td class="cac">Yes &mdash; monthly</td>
+              <td class="cac">Yes: monthly</td>
             </tr>
             <tr>
               <td>ROAS</td>
               <td>Real</td>
               <td>Return on ad investment</td>
-              <td class="cac">Yes &mdash; weekly for paid</td>
+              <td class="cac">Yes: weekly for paid</td>
             </tr>
           </tbody>
         </table>
@@ -1225,20 +545,41 @@ problem" — not "that was informative."
         <p class="table-source">Source: HelpMeMarketing client data across 180+ brand engagements, 2024&ndash;2026. Results vary by industry, budget, and market conditions.</p>
 
         <div class="channel-cta">
-          <h4>Want to see your real numbers &mdash; not the platform&rsquo;s version?</h4>
-          <p>We build attribution dashboards that show leads, cost per customer, and revenue by channel &mdash; not impressions.</p>
+          <h4>Want to see your real numbers, not the platform&rsquo;s version?</h4>
+          <p>We build attribution dashboards that show leads, cost per customer, and revenue by channel. Not impressions.</p>
           <a href="/contact" class="btn">Talk to us about tracking &rarr;</a>
         </div>
       </div>
 
-    </div>
-  </div>
+        <div class="outcome-diagram">
+        <h3>Proper tracking delivers</h3>
+        <div class="outcome-grid">
+          <div class="outcome-card tl">
+            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 14 21 5"/><polyline points="15 5 21 5 21 11"/></svg></div>
+            <span>Know what<br>works</span>
+          </div>
+          <div class="outcome-card tr">
+            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="3"/><circle cx="6" cy="17" r="3"/><line x1="8.6" y1="8.6" x2="19" y2="19"/><line x1="8.6" y1="15.4" x2="19" y2="5"/></svg></div>
+            <span>Cut what<br>does not</span>
+          </div>
+          <div class="outcome-center">
+            Clear<br>decisions
+            <span class="lower">confidence</span>
+          </div>
+          <div class="outcome-card bl">
+            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3"/><path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3"/><circle cx="15" cy="9" r="1"/></svg></div>
+            <span>Scale what<br>converts</span>
+          </div>
+          <div class="outcome-card br">
+            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M14.5 9C14.5 7.9 13.4 7.5 12 7.5C10 7.5 9 8.5 9 10C9 13 15 12 15 14C15 15.5 13.8 16.5 12 16.5C10.6 16.5 9.5 16.1 9 15"/><line x1="12" y1="6" x2="12" y2="18"/></svg></div>
+            <span>Lower CAC<br>over time</span>
+          </div>
+        </div>
+      </div>
 
-  <!-- Bottom row -->
-  <div class="bottom-row">
-    <div class="insight-card">
+        <div class="insight-card">
       <h3>The reporting conversation most agencies avoid</h3>
-      <p>If your agency&rsquo;s monthly report leads with reach, impressions, and followers &mdash; ask them one question: &ldquo;What did this generate in leads and revenue?&rdquo;</p>
+      <p>If your agency&rsquo;s monthly report leads with reach, impressions, and followers, ask them one question: &ldquo;What did this generate in leads and revenue?&rdquo;</p>
       <p>A good agency has that number on the first page. A bad one has to go and look for it. That conversation tells you everything you need to know about whether to keep paying them.</p>
       <div class="think-long">&#9733; Revenue by channel. That is the report that matters.</div>
     </div>
@@ -1249,7 +590,7 @@ problem" — not "that was informative."
       <ol class="audit-list">
         <li>
           <div class="audit-badge">1</div>
-          <div>What was the cost per lead this month &mdash; by channel? Higher or lower than last month?</div>
+          <div>What was the cost per lead this month, by channel? Higher or lower than last month?</div>
         </li>
         <li>
           <div class="audit-badge">2</div>
@@ -1261,7 +602,7 @@ problem" — not "that was informative."
         </li>
         <li>
           <div class="audit-badge">4</div>
-          <div>Which channel generated the most revenue &mdash; not leads, revenue?</div>
+          <div>Which channel generated the most revenue: not leads, revenue?</div>
         </li>
         <li>
           <div class="audit-badge">5</div>
@@ -1273,12 +614,9 @@ problem" — not "that was informative."
         </li>
       </ol>
     </div>
-  </div>
 
-  <!-- Related + final CTA -->
-  <!-- AEO: Visible FAQ — mirrors FAQPage JSON-LD for extraction by AI models -->
-  <section class="blog-faq">
-    <h2 class="blog-faq-title">Frequently asked questions</h2>
+        <section class="blog-faq">
+    <h2 id="faq" class="blog-faq-title">Frequently asked questions</h2>
     <div class="blog-faq-list">
       <details class="faq-item">
         <summary class="faq-question">What KPIs should I track for digital marketing?</summary>
@@ -1291,21 +629,21 @@ problem" — not "that was informative."
         <summary class="faq-question">How do I calculate return on ad spend?</summary>
         <div class="faq-answer">
           <p>ROAS = Revenue generated divided by ad spend. If you spent 
-  <div class="related-and-cta">,000 on ads and generated $4,000 in revenue, your ROAS is 4x. A ROAS above 3x is generally considered healthy for most e-commerce businesses. For lead generation, use cost per qualified lead instead — ROAS is harder to calculate when sales cycles are long.</p>
+  $1,000 on ads and generated $4,000 in revenue, your ROAS is 4x. A ROAS above 3x is generally considered healthy for most e-commerce businesses. For lead generation, use cost per qualified lead instead: ROAS is harder to calculate when sales cycles are long.</p>
         </div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">What is a good conversion rate for a website?</summary>
         <div class="faq-answer">
-          <p>The average website conversion rate across industries is 2 to 3 percent. E-commerce typically converts at 1 to 3 percent. Service businesses with strong local intent can see 5 to 10 percent. If your rate is below 1 percent, the problem is usually the page — not the traffic. Fix the landing page before increasing ad spend.</p>
+          <p>The average website conversion rate across industries is 2 to 3 percent. E-commerce typically converts at 1 to 3 percent. Service businesses with strong local intent can see 5 to 10 percent. If your rate is below 1 percent, the problem is usually the page. Not the traffic. Fix the landing page before increasing ad spend.</p>
         </div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">How long should I run marketing before measuring results?</summary>
         <div class="faq-answer">
-          <p>Paid ads: give it 30 to 60 days before making major changes. You need enough data to see patterns. SEO: do not judge results before 90 days — 6 months is more realistic. Social media: track engagement monthly but do not expect revenue impact for 3 to 6 months. The biggest mistake is changing strategy every 2 weeks based on incomplete data.</p>
+          <p>Paid ads: give it 30 to 60 days before making major changes. You need enough data to see patterns. SEO: do not judge results before 90 days. 6 months is more realistic. Social media: track engagement monthly but do not expect revenue impact for 3 to 6 months. The biggest mistake is changing strategy every 2 weeks based on incomplete data.</p>
         </div>
       </details>
     </div>
@@ -1328,7 +666,7 @@ problem" — not "that was informative."
 
     <div class="final-cta">
       <h3>Most businesses do not know what their marketing is generating.</h3>
-      <p>We fix that in the first two weeks. Book a free audit and we will show you your real numbers &mdash; cost per lead, cost per customer, and revenue by channel &mdash; not impressions.</p>
+      <p>We fix that in the first two weeks. Book a free audit and we will show you your real numbers (cost per lead, cost per customer, and revenue by channel), not impressions.</p>
       <div class="btn-row">
         <a href="/contact" class="btn primary">Book a free audit &rarr;</a>
         <a href="/services" class="btn secondary">See our services &rarr;</a>
@@ -1336,8 +674,7 @@ problem" — not "that was informative."
     </div>
   </div>
 
-  <!-- Author bio -->
-  <div class="author-bio">
+        <div class="author-bio">
     <div class="bio-avatar">AK</div>
     <div class="bio-text">
       <h4>Ankit Kumar</h4>
@@ -1345,81 +682,141 @@ problem" — not "that was informative."
     </div>
   </div>
 
-</div>
+      </article>
+
+      <aside class="blog-sidebar">
+
+        <div class="toc-card">
+      <div class="toc-header">
+        <span class="toc-title">Contents</span>
+        <div class="toc-share">
+          <a href="#" class="share-icon" data-network="linkedin" aria-label="Share on LinkedIn">in</a>
+          <a href="#" class="share-icon" data-network="x" aria-label="Share on X">𝕏</a>
+          <a href="#" class="share-icon" data-network="facebook" aria-label="Share on Facebook">f</a>
+          <a href="#" class="share-icon" data-network="copy" aria-label="Copy link">⎘</a>
+        </div>
+      </div>
+      <ul class="toc-list" role="navigation" aria-label="Article contents">
+        <!-- Auto-generated by blog-template.js -->
+      </ul>
+    </div>
+
+        <div class="sidebar-cta">
+      <div class="cta-eyebrow">Free · 30 min</div>
+      <h4 class="cta-title">Audit the numbers you track</h4>
+      <ul class="cta-list">
+          <li>Which KPIs actually predict revenue for you</li>
+          <li>The vanity metrics quietly wasting your time</li>
+          <li>30-min call, no pitch</li>
+      </ul>
+      <a href="/contact" class="cta-button">Start a conversation →</a>
+      <div class="cta-subnote">No pressure. No follow-up sequence.</div>
+    </div>
+
+      </aside>
+
+    </div>
 
 <footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand-col">
-        <div class="logo" style="color:white; margin-bottom:18px">
-          <div class="logo-mark" style="background:var(--ivory); color:var(--navy)">H<span class="me-italic">m</span></div>
-          <span>HelpMeMarketing</span>
+  <!-- BAND 1: brand + tools -->
+  <div class="footer-band-brand">
+    <div class="container">
+      <div class="footer-brand-row">
+        <div class="footer-brand-statement">
+          <h3 class="footer-brand-headline">Try a tool. <em class="italic-accent">No email gate.</em></h3>
+          <p class="footer-brand-descriptor">Free utilities built from our actual client work. Use them, share them, run the numbers yourself.</p>
         </div>
-        <p>Growth marketing priced on outcomes, not hours. Flat quarters and rising CAC, made measurable. DTC, SaaS, healthcare, finance.</p>
-        <div class="footer-badges">
-          <span class="footer-badge">Google Partner</span>
-          <span class="footer-badge">Meta Partner</span>
-          <span class="footer-badge">Shopify Partner</span>
+        <div class="footer-tools-grid">
+          <a href="/ad-calculator" class="footer-tool-card">
+            <div class="footer-tool-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Tabler ti-calculator -->
+                <path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/>
+                <path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z"/>
+                <path d="M8 14l0 .01"/>
+                <path d="M12 14l0 .01"/>
+                <path d="M16 14l0 .01"/>
+                <path d="M8 17l0 .01"/>
+                <path d="M12 17l0 .01"/>
+                <path d="M16 17l0 .01"/>
+              </svg>
+            </div>
+            <div class="footer-tool-title">Ad Spend Calculator</div>
+            <div class="footer-tool-description">Model CPL, ROAS, and budget across 4 platforms × 11 verticals.</div>
+            <div class="footer-tool-affordance">Run the numbers →</div>
+          </a>
+          <a href="/tools/marketing-audit" class="footer-tool-card">
+            <div class="footer-tool-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Tabler ti-checkup-list -->
+                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/>
+                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/>
+                <path d="M9 14h.01"/>
+                <path d="M9 17h.01"/>
+                <path d="M12 16l1 1l3 -3"/>
+              </svg>
+            </div>
+            <div class="footer-tool-title">Marketing Audit</div>
+            <div class="footer-tool-description">Score your marketing maturity across 5 dimensions in 10 min.</div>
+            <div class="footer-tool-affordance">Take the audit →</div>
+          </a>
         </div>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <a href="../seo.html">SEO</a>
-        <a href="../google-meta-ads.html">Google &amp; Meta Ads</a>
-        <a href="../website-design.html">Website Design</a>
-        <a href="../social-media.html">Social Media</a>
-        <a href="../brand-content.html">Brand &amp; Content</a>
-        <a href="../lifecycle-retention.html">Lifecycle &amp; Retention</a>
-      </div>
-      <div>
-        <h4>Industries</h4>
-        <a href="../industries/dtc.html">DTC &amp; E-commerce</a>
-        <a href="../industries/saas.html">SaaS &amp; Tech</a>
-        <a href="../industries/healthcare.html">Healthcare</a>
-        <a href="../industries/finance.html">Finance</a>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <a href="../about.html">About</a>
-        <a href="../work.html">Case studies</a>
-        <a href="../pricing.html">Pricing</a>
-        <a href="../contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Resources</h4>
-        <a href="../blog.html">Blog</a>
-        <a href="../ad-calculator.html">Ad-spend calculator</a>
-        <a href="../contact.html">Free audit</a>
-        <a href="mailto:hello@helpmemarketing.com">hello@helpmemarketing.com</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>&copy; 2026 HelpMeMarketing Inc.</div>
-      <div style="display:flex; gap:24px">
-        <a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a>
+  </div>
+
+  <!-- BAND 2: sitemap + baseline -->
+  <div class="footer-band-utility">
+    <div class="container">
+      <div class="footer-utility-grid">
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/performance-marketing">Performance Marketing</a></li>
+            <li><a href="/services/seo">SEO &amp; AEO</a></li>
+            <li><a href="/services/branding-social">Branding &amp; Social</a></li>
+            <li><a href="/services/website-development">Website Development</a></li>
+            <li><a href="/services/analytics-attribution">Analytics &amp; Attribution</a></li>
+            <li><a href="/services/ai-automation">AI Automation &amp; Workflow Systems</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Industries</h4>
+          <ul>
+            <li><a href="/industries/dtc">DTC</a></li>
+            <li><a href="/industries/saas">SaaS</a></li>
+            <li><a href="/industries/healthcare">Healthcare</a></li>
+            <li><a href="/industries/finance">Finance</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/work">Case Studies</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-baseline">
+        <div class="footer-baseline-left">
+          <div class="footer-badges">
+            <span class="footer-badge">Google Partner</span>
+            <span class="footer-badge">Meta Partner</span>
+          </div>
+          <p class="footer-baseline-meta">HelpMeMarketing · Mississauga, Ontario · Hello@helpmemarketing.com</p>
+        </div>
+        <div class="footer-baseline-right">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <span>&copy; 2026 HelpMeMarketing</span>
+        </div>
       </div>
     </div>
   </div>
 </footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var ham = document.getElementById('navHam');
-  var menu = document.getElementById('mobileMenu');
-  if (ham) {
-    ham.addEventListener('click', function() {
-      ham.classList.toggle('open');
-      menu.classList.toggle('open');
-    });
-  }
-  document.addEventListener('click', function(e) {
-    if (menu && ham && !menu.contains(e.target) && !ham.contains(e.target)) {
-      ham.classList.remove('open');
-      menu.classList.remove('open');
-    }
-  });
-});
-</script>
 
 </body>
 </html>

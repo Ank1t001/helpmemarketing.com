@@ -41,13 +41,13 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Which is better for small businesses — SEO, PPC, or social media?",
-      "acceptedAnswer": {"@type": "Answer", "text": "It depends on how fast you need results and whether your customers search for what you sell. PPC gives the fastest results — leads in 2 to 4 weeks. SEO gives the best long-term return but takes 3 to 6 months. Social media works best for businesses with strong visual products or community-driven audiences. Most small businesses should start with PPC and add SEO within 3 months."}
+      "name": "Which is better for small businesses: SEO, PPC, or social media?",
+      "acceptedAnswer": {"@type": "Answer", "text": "It depends on how fast you need results and whether your customers search for what you sell. PPC gives the fastest results: leads in 2 to 4 weeks. SEO gives the best long-term return but takes 3 to 6 months. Social media works best for businesses with strong visual products or community-driven audiences. Most small businesses should start with PPC and add SEO within 3 months."}
     },
     {
       "@type": "Question",
       "name": "Is SEO worth it for small businesses?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Yes — if you have the patience for it. SEO is the only channel that keeps working after you stop investing. A blog post that ranks on page one today can generate leads for 3 years. The problem is most small businesses expect results in 30 days and abandon it before it compounds. Budget 6 months before judging SEO performance."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. If you have the patience for it. SEO is the only channel that keeps working after you stop investing. A blog post that ranks on page one today can generate leads for 3 years. The problem is most small businesses expect results in 30 days and abandon it before it compounds. Budget 6 months before judging SEO performance."}
     },
     {
       "@type": "Question",
@@ -57,7 +57,7 @@
     {
       "@type": "Question",
       "name": "Does social media actually drive sales for small businesses?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Directly, rarely. Social media builds awareness and trust — it rarely converts cold audiences into customers on its own. It works best as a supporting channel: people find you through search or referral, check your social media to validate you are legitimate, then convert. Treating social media as a direct sales channel usually leads to frustration."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Directly, rarely. Social media builds awareness and trust. It rarely converts cold audiences into customers on its own. It works best as a supporting channel: people find you through search or referral, check your social media to validate you are legitimate, then convert. Treating social media as a direct sales channel usually leads to frustration."}
     }
   ]
 }
@@ -80,611 +80,12 @@
 <link rel="stylesheet" href="/styles.css">
 
 <style>
-/* ============= BLOG ARTICLE TOKENS ============= */
 :root {
   --navy: #0F3B5F;
-  --navy-deep: #0B1E33;
   --navy-light: #4A7BA7;
-  --accent-blue: #2563EB;
-  --accent-blue-light: #DBEAFE;
-  --soft-bg: #F4F7FA;
   --text: #1A1A1A;
-  --muted: #6B7B8C;
-  --light: #9CA3AF;
   --border: #E5E9EF;
   --white: #FFFFFF;
-  --purple: #8B5CF6;
-  --purple-bg: #F3E8FF;
-  --green: #10B981;
-  --green-bg: #D1FAE5;
-  --orange: #F59E0B;
-  --orange-bg: #FEF3C7;
-  --pink: #EC4899;
-  --pink-bg: #FCE7F3;
-  --teal: #14B8A6;
-  --teal-bg: #CCFBF1;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', sans-serif;
-  color: var(--text);
-  line-height: 1.65;
-  background: var(--white);
-  -webkit-font-smoothing: antialiased;
-  font-size: 16px;
-}
-
-.blog-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 56px 24px 80px;
-}
-
-/* Breadcrumbs */
-.breadcrumbs {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 32px;
-}
-.breadcrumbs a { color: var(--muted); text-decoration: none; }
-.breadcrumbs a:hover { color: var(--accent-blue); }
-.breadcrumbs span { margin: 0 8px; }
-
-/* Hero zone */
-.hero-zone {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  margin-bottom: 40px;
-  padding-top: 16px;
-  align-items: center;
-}
-
-.category-tags {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: var(--navy-light);
-  margin-top: 8px;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-}
-.category-tags .sep { color: var(--light); margin: 0 10px; font-weight: 400; }
-
-.post-title {
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 800;
-  line-height: 1.15;
-  color: var(--text);
-  margin-bottom: 20px;
-  letter-spacing: -0.02em;
-}
-.post-title .accent { color: var(--gold); font-style: italic; font-weight: 400; }
-
-.post-subtitle {
-  font-size: 17px;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 28px;
-}
-
-.author-line {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
-  color: var(--muted);
-  font-size: 14px;
-}
-.author-avatar {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--navy); color: white;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 13px;
-}
-.author-line .dot {
-  width: 3px; height: 3px; border-radius: 50%;
-  background: var(--light);
-}
-
-/* Element 1 — Hero illustration */
-.hero-illustration {
-  background: var(--soft-bg);
-  border-radius: 16px;
-  padding: 32px;
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 360px;
-}
-
-/* Element 2 — Key Takeaways */
-.takeaways {
-  background: var(--soft-bg);
-  border-left: 3px solid var(--accent-blue);
-  border-radius: 12px;
-  padding: 24px 28px 24px 28px;
-  margin: 40px 0 0 0;
-  max-width: 100%;
-}
-.takeaways h3 {
-  font-size: 16px; font-weight: 700;
-  color: var(--navy); margin-bottom: 14px;
-}
-.takeaways ul { list-style: none; padding: 0; }
-.takeaways li {
-  padding: 7px 0 7px 34px;
-  position: relative;
-  font-size: 14.5px; color: var(--text); line-height: 1.6;
-}
-.takeaways li::before {
-  content: "✓";
-  position: absolute; left: 0; top: 7px;
-  width: 22px; height: 22px;
-  background: var(--accent-blue); color: white;
-  border-radius: 50%; text-align: center;
-  line-height: 20px; font-size: 12px; font-weight: 700;
-}
-
-/* Two-column body */
-.body-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  margin-top: 56px;
-  align-items: start;
-}
-.visual-content { padding-top: 4px; }
-
-/* Article text */
-.article-content h2 {
-  font-size: 26px; font-weight: 700;
-  color: var(--text); margin: 48px 0 18px; line-height: 1.3;
-  letter-spacing: -0.01em;
-}
-.article-content h2:first-child { margin-top: 0; }
-.article-content p {
-  font-size: 16px; color: var(--text);
-  margin-bottom: 18px; line-height: 1.75;
-}
-.article-content p strong { font-weight: 700; }
-.stat-inline { color: var(--accent-blue); font-weight: 700; }
-
-/* Element 3 — Pull quote */
-.pull-quote {
-  background: var(--soft-bg);
-  border-radius: 12px;
-  padding: 28px 32px 32px 44px;
-  margin: 40px 0;
-  position: relative;
-  font-size: 15px; color: var(--text); line-height: 1.55;
-}
-.pull-quote::before {
-  content: "\201C";
-  position: absolute; top: 8px; left: 14px;
-  font-size: 40px; color: var(--accent-blue);
-  font-family: Georgia, serif; line-height: 1;
-}
-.pull-quote::after {
-  content: "\201D";
-  position: absolute; bottom: 0; right: 20px;
-  font-size: 40px; color: var(--accent-blue);
-  font-family: Georgia, serif; line-height: 1;
-}
-.pull-quote em {
-  font-family: 'Instrument Serif', serif;
-  font-size: 19px;
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--navy);
-}
-
-/* Element 4 — Dark CTA card */
-.dark-cta {
-  background: var(--navy-deep);
-  border-radius: 14px;
-  padding: 24px 28px;
-  margin: 36px 0; color: white;
-}
-.dark-cta h4 {
-  font-size: 17px; font-weight: 700;
-  color: white; margin-bottom: 10px; line-height: 1.4;
-}
-.dark-cta p {
-  color: #B8C5D6; font-size: 13px;
-  margin-bottom: 16px; line-height: 1.5;
-}
-.dark-cta .btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: white; color: var(--navy);
-  padding: 11px 22px; border-radius: 999px;
-  font-size: 14px; font-weight: 600; text-decoration: none;
-}
-.dark-cta .btn:hover { background: var(--soft-bg); }
-
-/* Element 5 — Numbered levers */
-.levers-section { margin: 32px 0; }
-.levers-list { list-style: none; padding: 0; }
-.levers-list li {
-  display: flex; gap: 18px;
-  padding: 20px 0; border-bottom: 1px solid var(--border);
-}
-.levers-list li:last-child { border-bottom: none; }
-.lever-icon {
-  flex-shrink: 0; width: 44px; height: 44px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
-}
-.lever-icon.purple { background: var(--purple-bg); color: var(--purple); }
-.lever-icon.blue   { background: var(--accent-blue-light); color: var(--accent-blue); }
-.lever-icon.green  { background: var(--green-bg); color: var(--green); }
-.lever-icon.orange { background: var(--orange-bg); color: var(--orange); }
-.lever-icon.pink   { background: var(--pink-bg); color: var(--pink); }
-.lever-content h4 {
-  font-size: 15.5px; font-weight: 700;
-  color: var(--text); margin-bottom: 6px;
-}
-.lever-content p { font-size: 14px; color: var(--muted); line-height: 1.65; }
-.rule-of-thumb {
-  display: flex; gap: 8px; align-items: center;
-  margin-top: 20px; padding: 12px;
-  font-size: 13px; color: var(--text);
-  background: var(--soft-bg); border-radius: 10px;
-}
-.rule-of-thumb strong { color: var(--accent-blue); }
-
-/* Element 6 — Framework diagram */
-.framework-diagram {
-  background: var(--soft-bg);
-  border-radius: 14px;
-  padding: 28px 24px; margin-top: 0; margin-bottom: 32px;
-}
-.framework-diagram h3 {
-  font-size: 14px; font-weight: 700;
-  text-align: center; color: var(--text);
-  margin-bottom: 20px; letter-spacing: 1px;
-}
-.framework-row {
-  display: flex; align-items: center;
-  gap: 12px; margin-bottom: 12px;
-}
-.framework-row:last-child { margin-bottom: 0; }
-.framework-stage {
-  flex: 1; background: white; border-radius: 10px;
-  padding: 14px 16px;
-  display: flex; align-items: center; gap: 12px;
-  border: 1px solid var(--border);
-}
-.framework-stage.s1 { background: var(--accent-blue-light); border-color: var(--accent-blue-light); }
-.framework-stage.s2 { background: var(--purple-bg); border-color: var(--purple-bg); }
-.framework-stage.s3 { background: var(--green-bg); border-color: var(--green-bg); }
-.framework-stage.s4 { background: var(--orange-bg); border-color: var(--orange-bg); }
-.stage-icon {
-  width: 32px; height: 32px; border-radius: 8px;
-  background: white;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px; flex-shrink: 0;
-}
-.stage-text h5 {
-  font-size: 13px; font-weight: 700;
-  color: var(--text); margin-bottom: 1px;
-}
-.stage-text p { font-size: 11px; color: var(--muted); }
-.framework-arrow { color: var(--muted); font-size: 14px; flex-shrink: 0; }
-.framework-issue {
-  font-size: 11px; color: var(--muted);
-  line-height: 1.4; flex-shrink: 0; width: 90px;
-}
-.framework-issue strong {
-  color: var(--text); font-weight: 600;
-  display: block; margin-bottom: 1px;
-}
-
-/* Element 7 — Outcome diagram */
-.outcome-diagram {
-  background: var(--soft-bg);
-  border-radius: 14px;
-  padding: 32px 24px; margin-bottom: 24px; text-align: center;
-}
-.outcome-diagram h3 {
-  font-size: 20px; font-weight: 700;
-  color: var(--text); margin-bottom: 24px;
-}
-.outcome-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 100px 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 16px; align-items: center;
-}
-.outcome-card {
-  background: white; border-radius: 12px;
-  padding: 14px 12px; border: 1px solid var(--border);
-  display: flex; flex-direction: column;
-  align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 700; color: var(--text);
-}
-.outcome-card .icon {
-  width: 32px; height: 32px; border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px;
-}
-.outcome-card.tl { grid-column: 1; grid-row: 1; }
-.outcome-card.tr { grid-column: 3; grid-row: 1; }
-.outcome-card.bl { grid-column: 1; grid-row: 2; }
-.outcome-card.br { grid-column: 3; grid-row: 2; }
-.outcome-card.tl .icon { background: var(--green-bg); color: var(--green); }
-.outcome-card.tr .icon { background: var(--orange-bg); color: var(--orange); }
-.outcome-card.bl .icon { background: var(--accent-blue-light); color: var(--accent-blue); }
-.outcome-card.br .icon { background: var(--green-bg); color: var(--green); }
-.outcome-center {
-  grid-column: 2; grid-row: 1 / span 2;
-  width: 100px; height: 100px; border-radius: 50%;
-  background: var(--navy-deep); color: white;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  font-weight: 700; margin: auto; font-size: 13px;
-}
-.outcome-center .lower {
-  font-size: 10px; opacity: 0.7; font-weight: 500;
-}
-
-/* Element 8 — Comparison table */
-.table-section { margin-bottom: 32px; }
-.table-section h3 {
-  font-size: 18px; font-weight: 700;
-  color: var(--text); margin-top: 32px; margin-bottom: 16px;
-}
-.comparison-table {
-  width: 100%; border-collapse: collapse;
-  border: 1px solid var(--border);
-  border-radius: 10px; overflow: hidden; font-size: 13px;
-}
-.comparison-table thead { background: var(--navy); }
-.comparison-table th {
-  padding: 14px 12px; text-align: left;
-  font-weight: 600; font-size: 11px;
-  color: white; background: var(--navy);
-  letter-spacing: 0.06em;
-  border-bottom: 1px solid var(--border);
-}
-.comparison-table td {
-  padding: 13px 12px; border-bottom: 1px solid var(--border);
-  color: var(--text); line-height: 1.5;
-}
-.comparison-table tbody tr:last-child td { border-bottom: none; }
-.comparison-table td:first-child { font-weight: 600; }
-.comparison-table td.cac { color: var(--accent-blue); font-size: 14px; font-weight: 700; }
-.comparison-table tbody tr:hover td { background: var(--soft-bg); }
-
-.channel-cta {
-  background: var(--navy-deep); border-radius: 12px;
-  padding: 18px 22px; color: white; margin-top: 16px;
-}
-.channel-cta h4 {
-  font-size: 14px; font-weight: 700;
-  color: white; margin-bottom: 4px;
-}
-.channel-cta p { color: #B8C5D6; font-size: 12px; margin-bottom: 12px; }
-.channel-cta .btn {
-  display: inline-flex; align-items: center; gap: 4px;
-  background: white; color: var(--navy);
-  padding: 8px 14px; border-radius: 999px;
-  font-size: 12px; font-weight: 600; text-decoration: none;
-}
-
-/* Bottom row */
-.bottom-row {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 40px; margin: 80px 0 32px;
-}
-.insight-card {
-  background: var(--soft-bg); border-radius: 12px; padding: 32px;
-}
-.insight-card h3 {
-  font-size: 18px; font-weight: 700;
-  color: var(--text); margin-bottom: 16px; line-height: 1.4;
-}
-.insight-card p {
-  font-size: 14px; color: var(--muted);
-  margin-bottom: 12px; line-height: 1.6;
-}
-.insight-card .think-long {
-  display: flex; gap: 8px; align-items: center;
-  color: var(--accent-blue); font-size: 14px; font-weight: 600;
-  margin-top: 12px;
-}
-.audit-card {
-  background: var(--soft-bg); border-radius: 12px; padding: 32px;
-}
-.audit-card h3 {
-  font-size: 18px; font-weight: 700;
-  color: var(--text); margin-bottom: 16px;
-}
-
-/* Element 9 — Audit checklist */
-.audit-list { list-style: none; padding: 0; }
-.audit-list li {
-  display: flex; gap: 10px; padding: 10px 0;
-  font-size: 13px; color: var(--text); line-height: 1.5;
-  border-bottom: 1px solid var(--border);
-}
-.audit-list li:last-child { border-bottom: none; }
-.audit-badge {
-  flex-shrink: 0; width: 22px; height: 22px;
-  border-radius: 50%; background: var(--accent-blue);
-  color: white;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 11px; margin-top: 1px;
-}
-
-/* Related + final CTA */
-.related-and-cta {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 32px; margin-top: 64px;
-}
-.related-section h3 {
-  font-size: 17px; font-weight: 700;
-  color: var(--text); margin-bottom: 18px;
-}
-.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.related-card {
-  background: white; border: 1px solid var(--border);
-  border-radius: 12px; padding: 22px; text-decoration: none;
-  display: block; transition: border-color 0.2s, box-shadow 0.2s;
-}
-.related-card:hover {
-  border-color: var(--navy-light);
-  box-shadow: 0 4px 16px rgba(10,46,44,0.08);
-}
-.related-card h4 {
-  font-size: 14px; font-weight: 600;
-  color: var(--text); margin-bottom: 12px; line-height: 1.45;
-}
-.related-card .read-link {
-  color: var(--accent-blue); font-size: 12px;
-  font-weight: 600; text-decoration: none;
-}
-.final-cta {
-  background: var(--navy-deep); border-radius: 14px;
-  padding: 36px 32px; color: white; text-align: center;
-}
-.final-cta h3 {
-  font-family: 'Instrument Serif', serif;
-  font-size: 24px; font-weight: 400;
-  color: white; margin-bottom: 14px; line-height: 1.3;
-}
-.final-cta p {
-  color: #B8C5D6; font-size: 14px;
-  margin-bottom: 22px; line-height: 1.6;
-}
-.final-cta .btn-row {
-  display: flex; gap: 16px;
-  justify-content: center; flex-wrap: wrap;
-}
-.final-cta .btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 12px 20px; border-radius: 999px;
-  font-size: 13px; font-weight: 600; text-decoration: none;
-}
-.final-cta .btn.primary { background: white; color: var(--navy); }
-.final-cta .btn.secondary {
-  background: transparent; color: white;
-  border: 1px solid rgba(255,255,255,0.3);
-}
-
-/* Author bio */
-.author-bio {
-  display: flex; gap: 16px; align-items: flex-start;
-  margin-top: 72px; padding-top: 40px;
-  border-top: 1px solid var(--border);
-}
-.bio-avatar {
-  width: 48px; height: 48px; border-radius: 50%;
-  background: var(--navy); color: white;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 14px; flex-shrink: 0;
-}
-.bio-text h4 {
-  font-size: 14px; font-weight: 700;
-  color: var(--text); margin-bottom: 4px;
-}
-.bio-text p { font-size: 13px; color: var(--muted); line-height: 1.6; }
-
-/* Mobile */
-@media (max-width: 900px) {
-  .hero-zone {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .post-title {
-    font-size: clamp(26px, 6vw, 38px);
-  }
-  .body-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .bottom-row {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .related-and-cta {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .related-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* AEO: FAQ section */
-.blog-faq {
-  max-width: 720px;
-  margin: 64px auto 0;
-  padding: 0 32px;
-}
-.blog-faq-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 24px;
-  letter-spacing: -0.01em;
-}
-.faq-item {
-  border-top: 1px solid var(--border);
-  padding: 0;
-}
-.faq-item:last-child {
-  border-bottom: 1px solid var(--border);
-}
-.faq-question {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text);
-  padding: 18px 40px 18px 0;
-  cursor: pointer;
-  list-style: none;
-  position: relative;
-  line-height: 1.5;
-}
-.faq-question::-webkit-details-marker {
-  display: none;
-}
-.faq-question::after {
-  content: "+";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  color: var(--accent-blue);
-  font-weight: 400;
-  transition: transform 0.2s;
-}
-details[open] .faq-question::after {
-  content: "\D7";
-}
-.faq-answer {
-  padding: 0 0 18px;
-}
-.faq-answer p {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.7;
-  margin: 0;
-}
-.table-source {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 8px;
-  line-height: 1.5;
-  font-style: italic;
 }
 </style>
 
@@ -828,8 +229,8 @@ problem" — not "that was informative."
     {
       "@type": "HowToStep",
       "position": 4,
-      "name": "Is your product highly visual — food, fashion,…",
-      "text": "Is your product highly visual — food, fashion, fitness, beauty? Yes → Social supports your other channels."
+      "name": "Is your product highly visual: food, fashion,…",
+      "text": "Is your product highly visual: food, fashion, fitness, beauty? Yes → Social supports your other channels."
     },
     {
       "@type": "HowToStep",
@@ -840,61 +241,68 @@ problem" — not "that was informative."
     {
       "@type": "HowToStep",
       "position": 6,
-      "name": "Do you have an existing audience — email…",
-      "text": "Do you have an existing audience — email list, social following, past customers? Yes → Email and retargeting cost less and convert better than cold channels."
+      "name": "Do you have an existing audience: email…",
+      "text": "Do you have an existing audience: email list, social following, past customers? Yes → Email and retargeting cost less and convert better than cold channels."
     }
   ]
 }
 </script>
+<script src="/blog/blog-template.js" defer></script>
 </head>
-<body>
+<body class="redesign-prototype blog-dark">
 
-<!-- Use site nav from styles.css -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="logo" style="text-decoration:none;color:inherit;">
-      <div class="logo-mark">H</div>
-      <span class="logo-text">Help<span style="color:var(--gold);font-style:italic;font-family:'Instrument Serif',serif;font-size:19px;padding:0 1px">Me</span>Marketing</span>
+    <a class="logo" href="/">
+      <div class="logo-mark">H<span class="me-italic">MM</span></div>
+      <span class="logo-text">Help<em style="font-family:var(--serif); font-size:19px; padding:0 1px">Me</em>Marketing</span>
     </a>
     <div class="nav-links">
-      <a href="/" class="nav-link">Home</a>
-      <a href="/services" class="nav-link">Services</a>
-      <a href="/work" class="nav-link">Case Studies</a>
-      <a href="/about" class="nav-link">About</a>
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/services">Services</a>
+      <a class="nav-link" href="/work">Case Studies</a>
+      <a class="nav-link" href="/about">About</a>
     </div>
     <div class="nav-cta">
-      <a href="/contact" class="btn btn-accent nav-main-cta">Book a free audit</a>
-      <button class="nav-hamburger" id="navHam" aria-label="Menu"><span></span></button>
+      <a class="btn btn-accent nav-main-cta" href="/contact">Book a free audit
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Menu" onclick="var m=document.querySelector('.nav-mobile-menu'); var o=m.classList.toggle('open'); this.classList.toggle('open', o);"><span></span></button>
     </div>
   </div>
 </nav>
-<div class="nav-mobile-menu" id="mobileMenu">
-  <a href="/" class="nav-link">Home</a>
-  <a href="/services" class="nav-link">Services</a>
-  <a href="/work" class="nav-link">Case Studies</a>
-  <a href="/about" class="nav-link">About</a>
+<div class="nav-mobile-menu">
+  <a class="nav-link" href="/">Home</a>
+  <a class="nav-link" href="/services">Services</a>
+  <a class="nav-link" href="/work">Case Studies</a>
+  <a class="nav-link" href="/about">About</a>
   <div class="mobile-cta-row">
-    <a href="/contact" class="btn btn-accent" style="justify-content:center;">Book a free audit</a>
+    <a class="btn btn-accent" href="/contact">Book a free audit</a>
   </div>
 </div>
 
-<div class="blog-container">
+<div class="blog-body">
 
-  <!-- Breadcrumbs -->
-  <div class="breadcrumbs">
-    <a href="/">Home</a><span>›</span>
-    <a href="/blog">Blog</a><span>›</span>
-    SEO, PPC, or social media: which to start with
-  </div>
+      <article class="blog-content">
 
-  <!-- HERO ZONE -->
-  <div class="hero-zone">
+        <header class="blog-hero">
+        <div class="breadcrumb">
+          <a href="/">Home</a>
+          <span>›</span>
+          <a href="/blog">Blog</a>
+          <span>›</span>
+          <a href="/blog">Marketing Strategy</a>
+          <span>›</span>
+          SEO, PPC, or social?
+        </div>
+
+        <div class="hero-zone">
     <div>
       <div class="category-tags">
         Marketing Strategy<span class="sep">|</span>Channels
       </div>
       <h1 class="post-title">
-        SEO, PPC, or social media &mdash; which should your business
+        SEO, PPC, or social media. Which should your business
         <span class="accent">start with?</span>
       </h1>
       <p class="post-subtitle">
@@ -905,65 +313,37 @@ problem" — not "that was informative."
         <div class="author-avatar">AK</div>
         <span>Ankit Kumar</span>
         <span class="dot"></span>
-        <span style="color:var(--muted); font-size:13px;">Founder, HelpMeMarketing</span>
-        <span class="dot"></span>
-        <span>Apr 28, 2026</span>
-        <span class="dot"></span>
         <span>8 min read</span>
       </div>
     </div>
+  </div>
+      </header>
 
-    <!-- Element 1: Hero illustration — three-column channel selector -->
-    <div class="hero-illustration">
-      <div style="width:100%; display:flex; flex-direction:column; align-items:center; gap:14px;">
-        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; width:100%; max-width:520px;">
-          <!-- SEO -->
-          <div style="background:white; border:1px solid var(--border); border-radius:12px; padding:16px; display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center;">
-            <div style="font-size:24px;">&#128269;</div>
-            <div style="font-size:14px; font-weight:700; color:var(--text); margin-top:4px;">SEO</div>
-            <div style="font-size:13px; color:var(--muted); margin-top:2px;">3&ndash;6 months</div>
-            <div style="font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--navy); background:var(--soft-bg); padding:4px 8px; border-radius:6px; margin-top:auto;">Slow burn</div>
-          </div>
-          <!-- PPC (highlighted) -->
-          <div style="background:white; border:2px solid var(--navy); border-radius:12px; padding:16px; display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; box-shadow:0 6px 16px rgba(15,59,95,0.18);">
-            <div style="font-size:24px;">&#128176;</div>
-            <div style="font-size:14px; font-weight:700; color:var(--navy); margin-top:4px;">PPC</div>
-            <div style="font-size:13px; color:var(--muted); margin-top:2px;">2&ndash;4 weeks</div>
-            <div style="font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:white; background:var(--gold); padding:4px 8px; border-radius:6px; margin-top:auto;">Fastest start</div>
-          </div>
-          <!-- Social -->
-          <div style="background:white; border:1px solid var(--border); border-radius:12px; padding:16px; display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center;">
-            <div style="font-size:24px;">&#128241;</div>
-            <div style="font-size:14px; font-weight:700; color:var(--text); margin-top:4px;">Social</div>
-            <div style="font-size:13px; color:var(--muted); margin-top:2px;">3&ndash;12 months</div>
-            <div style="font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--navy); background:var(--soft-bg); padding:4px 8px; border-radius:6px; margin-top:auto;">Brand builder</div>
-          </div>
-        </div>
-        <div style="font-size:12px; color:var(--muted); text-align:center; line-height:1.5; max-width:420px;">Most businesses should start with PPC, add SEO at month 3, and treat social as a supporting channel.</div>
+        <div class="toc-mobile">
+      <button class="toc-mobile-toggle" aria-expanded="false" aria-controls="toc-mobile-panel">
+        <span>Jump to section</span>
+        <span class="toc-mobile-chevron">▼</span>
+      </button>
+      <div class="toc-mobile-panel" id="toc-mobile-panel">
+        <ul class="toc-list-mobile">
+          <!-- Auto-generated by blog-template.js, mirrors desktop TOC -->
+        </ul>
       </div>
     </div>
-  </div>
 
-  <!-- Element 2: Key Takeaways -->
-  <div class="takeaways">
+        <div class="takeaways">
     <h3>Key Takeaways</h3>
     <ul>
-      <li>PPC is the right starting channel for most businesses &mdash; it gives you results fast and data that makes every other channel better.</li>
-      <li>SEO is non-optional for businesses whose customers Google before they buy &mdash; but it takes 3 to 6 months minimum.</li>
-      <li>Social media rarely drives direct sales on its own &mdash; it validates and supports the channels that do.</li>
+      <li>PPC is the right starting channel for most businesses. It gives you results fast and data that makes every other channel better.</li>
+      <li>SEO is non-optional for businesses whose customers Google before they buy, but it takes 3 to 6 months minimum.</li>
+      <li>Social media rarely drives direct sales on its own. It validates and supports the channels that do.</li>
       <li>The order matters as much as the channel: PPC &rarr; SEO &rarr; Social, for most businesses.</li>
     </ul>
   </div>
 
-  <!-- TWO-COLUMN BODY -->
-  <div class="body-layout">
-
-    <!-- LEFT: Article text -->
-    <div class="article-content">
-
-      <h2>Why picking the wrong channel first costs you 6 months</h2>
+        <h2 id="wrong-channel">Why picking the wrong channel first costs you 6 months</h2>
       <p>Every business has a limited marketing budget. Spend it on the wrong channel first and you are 6 months behind.</p>
-      <p>The most common mistake: a business that needs customers in 30 days invests in SEO. Three months later, nothing is ranking, leads are flat, and the budget is gone. SEO is not wrong &mdash; the timing is.</p>
+      <p>The most common mistake: a business that needs customers in 30 days invests in SEO. Three months later, nothing is ranking, leads are flat, and the budget is gone. SEO is not wrong. The timing is.</p>
       <p>The second most common mistake: a business with a visual product and a strong story runs Google Search ads to a generic landing page. Conversion rate is terrible because the product needs to be seen, not searched.</p>
       <p>The channel and the business have to match. Here is how to figure out which matches yours.</p>
 
@@ -975,94 +355,43 @@ problem" — not "that was informative."
       <!-- Element 4: Dark CTA (mid-post) -->
       <div class="dark-cta">
         <h4>Not sure which channel fits your business right now?</h4>
-        <p>We look at your product, your buyers, and your budget &mdash; and tell you exactly where to start. Free, 45 minutes.</p>
+        <p>We look at your product, your buyers, and your budget, and tell you exactly where to start. Free, 45 minutes.</p>
         <a href="/contact" class="btn">Book a free audit &rarr;</a>
       </div>
 
       <!-- Element 5: Numbered levers — PPC -->
-      <h2>When to start with PPC</h2>
+        <h2 id="start-with-ppc">When to start with PPC</h2>
       <div class="levers-section">
         <ul class="levers-list">
           <li>
-            <div class="lever-icon purple">&#128269;</div>
+            <div class="lever-icon purple"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-search --><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/></svg></div>
             <div class="lever-content">
               <h4>1. Your customers search for what you sell.</h4>
-              <p>If someone can Google &ldquo;accountant near me&rdquo; or &ldquo;best running shoes for flat feet&rdquo; and find your product &mdash; PPC puts you in front of them immediately. This is the highest-intent traffic that exists.</p>
+              <p>If someone can Google &ldquo;accountant near me&rdquo; or &ldquo;best running shoes for flat feet&rdquo; and find your product, PPC puts you in front of them immediately. This is the highest-intent traffic that exists.</p>
             </div>
           </li>
           <li>
-            <div class="lever-icon blue">&#9201;</div>
+            <div class="lever-icon blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-clock --><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M12 7v5l3 3"/></svg></div>
             <div class="lever-content">
               <h4>2. You need results in under 60 days.</h4>
               <p>PPC is the only channel that can produce leads in 2 to 4 weeks when set up correctly. If your business needs customers this quarter, not next year, PPC is where the first dollar goes.</p>
             </div>
           </li>
           <li>
-            <div class="lever-icon green">&#129514;</div>
+            <div class="lever-icon green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-test-pipe --><path d="M20 8.04l-12.122 12.124a2.857 2.857 0 1 1 -4.041 -4.04l12.122 -12.124"/><path d="M7 13h8"/><path d="M19 15l1.5 1.6a2 2 0 1 1 -3 0l1.5 -1.6z"/></svg></div>
             <div class="lever-content">
               <h4>3. You are testing a new offer.</h4>
-              <p>Before you invest 6 months of SEO into a product page, run $500 in ads. If nobody clicks or buys, the product has a problem &mdash; not the channel. PPC gives you market feedback faster than any other channel. <a href="/google-meta-ads" style="color:var(--accent-blue);">See how we run PPC campaigns &rarr;</a></p>
+              <p>Before you invest 6 months of SEO into a product page, run $500 in ads. If nobody clicks or buys, the product has a problem. Not the channel. PPC gives you market feedback faster than any other channel. <a href="/google-meta-ads" style="color:var(--accent-blue);">See how we run PPC campaigns &rarr;</a></p>
             </div>
           </li>
         </ul>
       </div>
 
-      <!-- Element 5: Levers — SEO -->
-      <h2>When to start with SEO</h2>
-      <div class="levers-section">
-        <ul class="levers-list">
-          <li>
-            <div class="lever-icon orange">&#128218;</div>
-            <div class="lever-content">
-              <h4>4. Your buyers research before they buy.</h4>
-              <p>B2B, professional services, healthcare, finance &mdash; these are categories where buyers Google 5 times before picking up the phone (see <a href="https://moz.com/beginners-guide-to-seo" target="_blank" rel="noopener">Moz&rsquo;s beginner guide to SEO</a>). If your buyer researches, organic search is where you need to be.</p>
-            </div>
-          </li>
-          <li>
-            <div class="lever-icon pink">&#128142;</div>
-            <div class="lever-content">
-              <h4>5. You want long-term CAC reduction.</h4>
-              <p>A blog post that ranks on page one costs nothing once it is there. The marginal cost of each lead from organic is near zero after the initial investment. Businesses that invest in SEO early consistently have lower CAC 2 years later. <a href="/seo" style="color:var(--accent-blue);">See how we approach SEO &rarr;</a></p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Element 5: Levers — Social -->
-      <h2>When social media makes sense</h2>
-      <div class="levers-section">
-        <ul class="levers-list">
-          <li>
-            <div class="lever-icon purple">&#128247;</div>
-            <div class="lever-content">
-              <h4>6. Your product is visual and your story is shareable.</h4>
-              <p>Food, fashion, fitness, beauty, home &mdash; categories where people buy with their eyes. If a great photo or a 30-second video of your product can make someone want it, social media is a real channel.</p>
-            </div>
-          </li>
-          <li>
-            <div class="lever-icon blue">&#128737;</div>
-            <div class="lever-content">
-              <h4>7. You want to build brand trust alongside other channels.</h4>
-              <p>Social media validates. When someone finds you through Google and then checks your Instagram &mdash; what do they see? An active, consistent presence makes every other channel convert better. Do not treat social as a sales channel in isolation. It does not work that way for most businesses.</p>
-            </div>
-          </li>
-        </ul>
-        <div class="rule-of-thumb">
-          &#128161; Default order for most businesses: <strong>Start PPC in month 1. Add SEO content in month 3. Use social to support both</strong> &mdash; not to replace either.
-        </div>
-      </div>
-
-    </div>
-
-    <!-- RIGHT: Visuals -->
-    <div class="visual-content">
-
-      <!-- Element 6: Channel decision framework -->
-      <div class="framework-diagram">
+        <div class="framework-diagram">
         <h3>THE CHANNEL DECISION FRAMEWORK</h3>
         <div class="framework-row">
           <div class="framework-stage s1">
-            <div class="stage-icon">&#128269;</div>
+            <div class="stage-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-search --><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/></svg></div>
             <div class="stage-text">
               <h5>DO BUYERS SEARCH?</h5>
               <p>Yes &rarr; PPC or SEO first</p>
@@ -1076,7 +405,7 @@ problem" — not "that was informative."
         </div>
         <div class="framework-row">
           <div class="framework-stage s2">
-            <div class="stage-icon">&#9201;</div>
+            <div class="stage-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-clock --><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M12 7v5l3 3"/></svg></div>
             <div class="stage-text">
               <h5>HOW FAST?</h5>
               <p>Under 60 days &rarr; PPC</p>
@@ -1090,7 +419,7 @@ problem" — not "that was informative."
         </div>
         <div class="framework-row">
           <div class="framework-stage s3">
-            <div class="stage-icon">&#128247;</div>
+            <div class="stage-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-camera --><path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"/><path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/></svg></div>
             <div class="stage-text">
               <h5>VISUAL PRODUCT?</h5>
               <p>Yes &rarr; Social supports paid</p>
@@ -1104,7 +433,7 @@ problem" — not "that was informative."
         </div>
         <div class="framework-row">
           <div class="framework-stage s4">
-            <div class="stage-icon">&#128176;</div>
+            <div class="stage-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-cash --><path d="M7 9m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z"/><path d="M14 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 9v-2a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h2"/></svg></div>
             <div class="stage-text">
               <h5>BUDGET?</h5>
               <p>Under $2k/mo &rarr; PPC only</p>
@@ -1118,36 +447,8 @@ problem" — not "that was informative."
         </div>
       </div>
 
-      <!-- Element 7: Outcome diagram -->
-      <div class="outcome-diagram">
-        <h3>The right channel mix</h3>
-        <div class="outcome-grid">
-          <div class="outcome-card tl">
-            <div class="icon">&#9889;</div>
-            <span>Fast leads<br>now</span>
-          </div>
-          <div class="outcome-card tr">
-            <div class="icon">&#128200;</div>
-            <span>Compounding<br>organic</span>
-          </div>
-          <div class="outcome-center">
-            Sustainable<br>growth
-            <span class="lower">the goal</span>
-          </div>
-          <div class="outcome-card bl">
-            <div class="icon">&#128737;</div>
-            <span>Brand<br>validation</span>
-          </div>
-          <div class="outcome-card br">
-            <div class="icon">&#128176;</div>
-            <span>Lower CAC<br>over time</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Element 8: Comparison table -->
-      <div class="table-section">
-        <h3>SEO vs PPC vs social &mdash; side by side</h3>
+        <div class="table-section">
+        <h3>SEO vs PPC vs social: side by side</h3>
         <table class="comparison-table">
           <thead>
             <tr>
@@ -1172,8 +473,8 @@ problem" — not "that was informative."
             </tr>
             <tr>
               <td>Stops when you stop?</td>
-              <td>No &mdash; asset remains</td>
-              <td>Yes &mdash; traffic stops</td>
+              <td>No: asset remains</td>
+              <td>Yes: traffic stops</td>
               <td>Partially</td>
             </tr>
             <tr>
@@ -1202,21 +503,87 @@ problem" — not "that was informative."
 
         <div class="channel-cta">
           <h4>Still not sure which channel fits your business?</h4>
-          <p>Book a free audit. We will look at your product, your buyers, and your budget &mdash; and give you a clear recommendation. No pitch.</p>
+          <p>Book a free audit. We will look at your product, your buyers, and your budget, and give you a clear recommendation. No pitch.</p>
           <a href="/contact" class="btn">Book a free audit &rarr;</a>
         </div>
       </div>
 
-    </div>
-  </div>
+      <!-- Element 5: Levers — SEO -->
+        <h2 id="start-with-seo">When to start with SEO</h2>
+      <div class="levers-section">
+        <ul class="levers-list">
+          <li>
+            <div class="lever-icon orange"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-books --><path d="M5 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/><path d="M9 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/><path d="M5 8h4"/><path d="M9 16h4"/><path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041z"/><path d="M14 9l4 -1"/><path d="M16 16l3.923 -.98"/></svg></div>
+            <div class="lever-content">
+              <h4>4. Your buyers research before they buy.</h4>
+              <p>B2B, professional services, healthcare, finance: these are categories where buyers Google 5 times before picking up the phone (see <a href="https://moz.com/beginners-guide-to-seo" target="_blank" rel="noopener">Moz&rsquo;s beginner guide to SEO</a>). If your buyer researches, organic search is where you need to be.</p>
+            </div>
+          </li>
+          <li>
+            <div class="lever-icon pink"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-diamond --><path d="M6 3h12l3 6l-8.5 12a1 1 0 0 1 -1 0l-8.5 -12z"/><path d="M12 21l3 -12l-3 -6"/><path d="M12 21l-3 -12l3 -6"/><path d="M3 9h18"/></svg></div>
+            <div class="lever-content">
+              <h4>5. You want long-term CAC reduction.</h4>
+              <p>A blog post that ranks on page one costs nothing once it is there. The marginal cost of each lead from organic is near zero after the initial investment. Businesses that invest in SEO early consistently have lower CAC 2 years later. <a href="/seo" style="color:var(--accent-blue);">See how we approach SEO &rarr;</a></p>
+            </div>
+          </li>
+        </ul>
+      </div>
 
-  <!-- Bottom row -->
-  <div class="bottom-row">
-    <div class="insight-card">
+      <!-- Element 5: Levers — Social -->
+        <h2 id="social-media-fit">When social media makes sense</h2>
+      <div class="levers-section">
+        <ul class="levers-list">
+          <li>
+            <div class="lever-icon purple"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-camera --><path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"/><path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/></svg></div>
+            <div class="lever-content">
+              <h4>6. Your product is visual and your story is shareable.</h4>
+              <p>Food, fashion, fitness, beauty, home: categories where people buy with their eyes. If a great photo or a 30-second video of your product can make someone want it, social media is a real channel.</p>
+            </div>
+          </li>
+          <li>
+            <div class="lever-icon blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-shield --><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/></svg></div>
+            <div class="lever-content">
+              <h4>7. You want to build brand trust alongside other channels.</h4>
+              <p>Social media validates. When someone finds you through Google and then checks your Instagram, what do they see? An active, consistent presence makes every other channel convert better. Do not treat social as a sales channel in isolation. It does not work that way for most businesses.</p>
+            </div>
+          </li>
+        </ul>
+        <div class="rule-of-thumb">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-bulb --><path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7"/><path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3"/><path d="M9.7 17l4.6 0"/></svg> Default order for most businesses: <strong>Start PPC in month 1. Add SEO content in month 3. Use social to support both</strong>, not to replace either.
+        </div>
+      </div>
+
+        <div class="outcome-diagram">
+        <h3>The right channel mix</h3>
+        <div class="outcome-grid">
+          <div class="outcome-card tl">
+            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-bolt --><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></svg></div>
+            <span>Fast leads<br>now</span>
+          </div>
+          <div class="outcome-card tr">
+            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-trending-up --><path d="M3 17l6 -6l4 4l8 -8"/><path d="M14 7l7 0l0 7"/></svg></div>
+            <span>Compounding<br>organic</span>
+          </div>
+          <div class="outcome-center">
+            Sustainable<br>growth
+            <span class="lower">the goal</span>
+          </div>
+          <div class="outcome-card bl">
+            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-shield --><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/></svg></div>
+            <span>Brand<br>validation</span>
+          </div>
+          <div class="outcome-card br">
+            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><!-- Tabler ti-cash --><path d="M7 9m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z"/><path d="M14 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 9v-2a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h2"/></svg></div>
+            <span>Lower CAC<br>over time</span>
+          </div>
+        </div>
+      </div>
+
+        <div class="insight-card">
       <h3>The channel that works for your competitor may not work for you</h3>
       <p>A local restaurant and a B2B software company should not be running the same channels. The restaurant needs Instagram and Google Maps. The software company needs SEO and LinkedIn ads.</p>
       <p>Copy your competitor&rsquo;s channel mix without understanding why they chose it and you might be copying their mistakes, not their success.</p>
-      <div class="think-long">&#9733; Match the channel to the buyer &mdash; not to the trend.</div>
+      <div class="think-long">&#9733; Match the channel to the buyer, not to the trend.</div>
     </div>
 
     <!-- Element 9: Audit checklist -->
@@ -1237,7 +604,7 @@ problem" — not "that was informative."
         </li>
         <li>
           <div class="audit-badge">4</div>
-          <div>Is your product highly visual &mdash; food, fashion, fitness, beauty? Yes &rarr; Social supports your other channels.</div>
+          <div>Is your product highly visual: food, fashion, fitness, beauty? Yes &rarr; Social supports your other channels.</div>
         </li>
         <li>
           <div class="audit-badge">5</div>
@@ -1245,28 +612,25 @@ problem" — not "that was informative."
         </li>
         <li>
           <div class="audit-badge">6</div>
-          <div>Do you have an existing audience &mdash; email list, social following, past customers? Yes &rarr; Email and retargeting cost less and convert better than cold channels.</div>
+          <div>Do you have an existing audience: email list, social following, past customers? Yes &rarr; Email and retargeting cost less and convert better than cold channels.</div>
         </li>
       </ol>
     </div>
-  </div>
 
-  <!-- Related + final CTA -->
-  <!-- AEO: Visible FAQ — mirrors FAQPage JSON-LD for extraction by AI models -->
-  <section class="blog-faq">
-    <h2 class="blog-faq-title">Frequently asked questions</h2>
+        <section class="blog-faq">
+    <h2 id="faq" class="blog-faq-title">Frequently asked questions</h2>
     <div class="blog-faq-list">
       <details class="faq-item">
-        <summary class="faq-question">Which is better for small businesses — SEO, PPC, or social media?</summary>
+        <summary class="faq-question">Which is better for small businesses: SEO, PPC, or social media?</summary>
         <div class="faq-answer">
-          <p>It depends on how fast you need results and whether your customers search for what you sell. PPC gives the fastest results — leads in 2 to 4 weeks. SEO gives the best long-term return but takes 3 to 6 months. Social media works best for businesses with strong visual products or community-driven audiences. Most small businesses should start with PPC and add SEO within 3 months.</p>
+          <p>It depends on how fast you need results and whether your customers search for what you sell. PPC gives the fastest results: leads in 2 to 4 weeks. SEO gives the best long-term return but takes 3 to 6 months. Social media works best for businesses with strong visual products or community-driven audiences. Most small businesses should start with PPC and add SEO within 3 months.</p>
         </div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">Is SEO worth it for small businesses?</summary>
         <div class="faq-answer">
-          <p>Yes — if you have the patience for it. SEO is the only channel that keeps working after you stop investing. A blog post that ranks on page one today can generate leads for 3 years. The problem is most small businesses expect results in 30 days and abandon it before it compounds. Budget 6 months before judging SEO performance.</p>
+          <p>Yes. If you have the patience for it. SEO is the only channel that keeps working after you stop investing. A blog post that ranks on page one today can generate leads for 3 years. The problem is most small businesses expect results in 30 days and abandon it before it compounds. Budget 6 months before judging SEO performance.</p>
         </div>
       </details>
 
@@ -1274,14 +638,14 @@ problem" — not "that was informative."
         <summary class="faq-question">How much does PPC cost for small businesses?</summary>
         <div class="faq-answer">
           <p>You can start Google Ads from $500 per month, but expect to spend 
-  <div class="related-and-cta">,500 to $3,000 per month before you have enough data to optimise effectively. Meta Ads can start at $300 to $500 per month for testing. Budget too little and you will not generate enough volume to learn. Budget enough to run for at least 60 days before making any major changes.</p>
+  $1,500 to $3,000 per month before you have enough data to optimise effectively. Meta Ads can start at $300 to $500 per month for testing. Budget too little and you will not generate enough volume to learn. Budget enough to run for at least 60 days before making any major changes.</p>
         </div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">Does social media actually drive sales for small businesses?</summary>
         <div class="faq-answer">
-          <p>Directly, rarely. Social media builds awareness and trust — it rarely converts cold audiences into customers on its own. It works best as a supporting channel: people find you through search or referral, check your social media to validate you are legitimate, then convert. Treating social media as a direct sales channel usually leads to frustration.</p>
+          <p>Directly, rarely. Social media builds awareness and trust. It rarely converts cold audiences into customers on its own. It works best as a supporting channel: people find you through search or referral, check your social media to validate you are legitimate, then convert. Treating social media as a direct sales channel usually leads to frustration.</p>
         </div>
       </details>
     </div>
@@ -1304,7 +668,7 @@ problem" — not "that was informative."
 
     <div class="final-cta">
       <h3>Pick the right channel once. Do not learn it the expensive way.</h3>
-      <p>Book a free 45-minute audit. We will look at your business, your buyers, and your budget &mdash; and tell you exactly where the first dollar should go.</p>
+      <p>Book a free 45-minute audit. We will look at your business, your buyers, and your budget, and tell you exactly where the first dollar should go.</p>
       <div class="btn-row">
         <a href="/contact" class="btn primary">Book a free audit &rarr;</a>
         <a href="/services" class="btn secondary">See our services &rarr;</a>
@@ -1312,8 +676,7 @@ problem" — not "that was informative."
     </div>
   </div>
 
-  <!-- Author bio -->
-  <div class="author-bio">
+        <div class="author-bio">
     <div class="bio-avatar">AK</div>
     <div class="bio-text">
       <h4>Ankit Kumar</h4>
@@ -1321,81 +684,141 @@ problem" — not "that was informative."
     </div>
   </div>
 
-</div>
+      </article>
+
+      <aside class="blog-sidebar">
+
+        <div class="toc-card">
+      <div class="toc-header">
+        <span class="toc-title">Contents</span>
+        <div class="toc-share">
+          <a href="#" class="share-icon" data-network="linkedin" aria-label="Share on LinkedIn">in</a>
+          <a href="#" class="share-icon" data-network="x" aria-label="Share on X">𝕏</a>
+          <a href="#" class="share-icon" data-network="facebook" aria-label="Share on Facebook">f</a>
+          <a href="#" class="share-icon" data-network="copy" aria-label="Copy link">⎘</a>
+        </div>
+      </div>
+      <ul class="toc-list" role="navigation" aria-label="Article contents">
+        <!-- Auto-generated by blog-template.js -->
+      </ul>
+    </div>
+
+        <div class="sidebar-cta">
+      <div class="cta-eyebrow">Free · 30 min</div>
+      <h4 class="cta-title">Pick the right first channel</h4>
+      <ul class="cta-list">
+          <li>The channel that fits your goals and budget</li>
+          <li>The 6 months you&rsquo;ll save not guessing</li>
+          <li>30-min call, no pitch</li>
+      </ul>
+      <a href="/contact" class="cta-button">Start a conversation →</a>
+      <div class="cta-subnote">No pressure. No follow-up sequence.</div>
+    </div>
+
+      </aside>
+
+    </div>
 
 <footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand-col">
-        <div class="logo" style="color:white; margin-bottom:18px">
-          <div class="logo-mark" style="background:var(--ivory); color:var(--navy)">H<span class="me-italic">m</span></div>
-          <span>HelpMeMarketing</span>
+  <!-- BAND 1: brand + tools -->
+  <div class="footer-band-brand">
+    <div class="container">
+      <div class="footer-brand-row">
+        <div class="footer-brand-statement">
+          <h3 class="footer-brand-headline">Try a tool. <em class="italic-accent">No email gate.</em></h3>
+          <p class="footer-brand-descriptor">Free utilities built from our actual client work. Use them, share them, run the numbers yourself.</p>
         </div>
-        <p>Growth marketing priced on outcomes, not hours. Flat quarters and rising CAC, made measurable. DTC, SaaS, healthcare, finance.</p>
-        <div class="footer-badges">
-          <span class="footer-badge">Google Partner</span>
-          <span class="footer-badge">Meta Partner</span>
-          <span class="footer-badge">Shopify Partner</span>
+        <div class="footer-tools-grid">
+          <a href="/ad-calculator" class="footer-tool-card">
+            <div class="footer-tool-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Tabler ti-calculator -->
+                <path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/>
+                <path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z"/>
+                <path d="M8 14l0 .01"/>
+                <path d="M12 14l0 .01"/>
+                <path d="M16 14l0 .01"/>
+                <path d="M8 17l0 .01"/>
+                <path d="M12 17l0 .01"/>
+                <path d="M16 17l0 .01"/>
+              </svg>
+            </div>
+            <div class="footer-tool-title">Ad Spend Calculator</div>
+            <div class="footer-tool-description">Model CPL, ROAS, and budget across 4 platforms × 11 verticals.</div>
+            <div class="footer-tool-affordance">Run the numbers →</div>
+          </a>
+          <a href="/tools/marketing-audit" class="footer-tool-card">
+            <div class="footer-tool-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Tabler ti-checkup-list -->
+                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/>
+                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/>
+                <path d="M9 14h.01"/>
+                <path d="M9 17h.01"/>
+                <path d="M12 16l1 1l3 -3"/>
+              </svg>
+            </div>
+            <div class="footer-tool-title">Marketing Audit</div>
+            <div class="footer-tool-description">Score your marketing maturity across 5 dimensions in 10 min.</div>
+            <div class="footer-tool-affordance">Take the audit →</div>
+          </a>
         </div>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <a href="../seo.html">SEO</a>
-        <a href="../google-meta-ads.html">Google &amp; Meta Ads</a>
-        <a href="../website-design.html">Website Design</a>
-        <a href="../social-media.html">Social Media</a>
-        <a href="../brand-content.html">Brand &amp; Content</a>
-        <a href="../lifecycle-retention.html">Lifecycle &amp; Retention</a>
-      </div>
-      <div>
-        <h4>Industries</h4>
-        <a href="../industries/dtc.html">DTC &amp; E-commerce</a>
-        <a href="../industries/saas.html">SaaS &amp; Tech</a>
-        <a href="../industries/healthcare.html">Healthcare</a>
-        <a href="../industries/finance.html">Finance</a>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <a href="../about.html">About</a>
-        <a href="../work.html">Case studies</a>
-        <a href="../pricing.html">Pricing</a>
-        <a href="../contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Resources</h4>
-        <a href="../blog.html">Blog</a>
-        <a href="../ad-calculator.html">Ad-spend calculator</a>
-        <a href="../contact.html">Free audit</a>
-        <a href="mailto:hello@helpmemarketing.com">hello@helpmemarketing.com</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>&copy; 2026 HelpMeMarketing Inc.</div>
-      <div style="display:flex; gap:24px">
-        <a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a>
+  </div>
+
+  <!-- BAND 2: sitemap + baseline -->
+  <div class="footer-band-utility">
+    <div class="container">
+      <div class="footer-utility-grid">
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/performance-marketing">Performance Marketing</a></li>
+            <li><a href="/services/seo">SEO &amp; AEO</a></li>
+            <li><a href="/services/branding-social">Branding &amp; Social</a></li>
+            <li><a href="/services/website-development">Website Development</a></li>
+            <li><a href="/services/analytics-attribution">Analytics &amp; Attribution</a></li>
+            <li><a href="/services/ai-automation">AI Automation &amp; Workflow Systems</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Industries</h4>
+          <ul>
+            <li><a href="/industries/dtc">DTC</a></li>
+            <li><a href="/industries/saas">SaaS</a></li>
+            <li><a href="/industries/healthcare">Healthcare</a></li>
+            <li><a href="/industries/finance">Finance</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/work">Case Studies</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-baseline">
+        <div class="footer-baseline-left">
+          <div class="footer-badges">
+            <span class="footer-badge">Google Partner</span>
+            <span class="footer-badge">Meta Partner</span>
+          </div>
+          <p class="footer-baseline-meta">HelpMeMarketing · Mississauga, Ontario · Hello@helpmemarketing.com</p>
+        </div>
+        <div class="footer-baseline-right">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <span>&copy; 2026 HelpMeMarketing</span>
+        </div>
       </div>
     </div>
   </div>
 </footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var ham = document.getElementById('navHam');
-  var menu = document.getElementById('mobileMenu');
-  if (ham) {
-    ham.addEventListener('click', function() {
-      ham.classList.toggle('open');
-      menu.classList.toggle('open');
-    });
-  }
-  document.addEventListener('click', function(e) {
-    if (menu && ham && !menu.contains(e.target) && !ham.contains(e.target)) {
-      ham.classList.remove('open');
-      menu.classList.remove('open');
-    }
-  });
-});
-</script>
 
 </body>
 </html>

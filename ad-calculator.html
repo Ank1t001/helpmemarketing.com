@@ -34,23 +34,23 @@
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate are these benchmarks?","acceptedAnswer":{"@type":"Answer","text":"The numbers are medians from public 2025 reports — your actual cost per lead will likely fall within ±30-50% of the segment baseline depending on creative quality, offer strength, audience precision, and seasonality. Use the calculator to set a starting expectation, not a target. If your real-world numbers are 2× off these benchmarks in either direction, that's worth investigating; 30% off is normal variance."}},{"@type":"Question","name":"Should I trust the platform multipliers?","acceptedAnswer":{"@type":"Answer","text":"Treat them as directional, not precise. They reflect typical agency-managed performance ratios — for example, Google CPL is roughly 1.5× Meta CPL on average, but a poorly-managed Google account can be 3× or worse. Your actual ratio depends on bid strategy, keyword quality, ad relevance score, and landing page conversion rate. Use the calculator to get to 'roughly the right zip code,' then validate against your own data."}},{"@type":"Question","name":"What's a healthy CAC payback period?","acceptedAnswer":{"@type":"Answer","text":"For DTC, aim to recover CAC within 3-6 months from first purchase plus repeat orders. For SaaS, healthy payback is 12-18 months on annual contracts. For high-ticket professional services or healthcare with long patient lifetimes, 6-24 months is acceptable depending on retention. If your payback is over 24 months, either CAC is too high, LTV is too low, or both."}},{"@type":"Question","name":"Why is LinkedIn so much more expensive than Meta?","acceptedAnswer":{"@type":"Answer","text":"LinkedIn charges a premium because the audience is uniquely qualified by job title, seniority, and company. You pay 3-5× Meta CPC because each click is a verified professional, not a verified scroller. For B2B with $50K+ deal sizes, LinkedIn often delivers better blended ROI despite the higher cost-per-lead. For DTC or low-ticket consumer products, LinkedIn rarely makes economic sense."}},{"@type":"Question","name":"How much should I spend before I know if a platform is working?","acceptedAnswer":{"@type":"Answer","text":"Minimum meaningful test budget: 30-50 conversions. If your CPL is $50, that's $1,500-$2,500. If it's $200, that's $6,000-$10,000. Below that volume, you can't separate signal from noise. Most platforms also require a 2-3 week learning phase where the algorithm optimizes targeting; pulling spend before then misreads early-phase performance."}},{"@type":"Question","name":"Why does my actual CPL differ so much from the benchmark?","acceptedAnswer":{"@type":"Answer","text":"Three usual reasons. First, lead quality differences — a $20 CPL filled with bot leads is worse than a $60 CPL of qualified prospects. Second, attribution windows — if you're using last-click on Google but view-through on Meta, you'll see different 'performance' for the same campaigns. Third, geography and seasonality — Q4 CPLs run 30-40% higher than Q1 in most categories, and US CPMs are roughly 2× European CPMs."}}]}
 </script>
 </head>
-<body>
+<body class="redesign-prototype">
 <div class="app" data-screen-label="ad-calculator">
 
 <nav class="nav">
   <div class="nav-inner">
-    <a class="logo" href="index.html" style="cursor:pointer">
-      <div class="logo-mark">H<span class="me-italic">m</span></div>
-      <span class="logo-text">Help<span style="color:var(--gold); font-style:italic; font-family:var(--serif); font-size:19px; padding:0 1px">Me</span>Marketing</span>
+    <a class="logo" href="/">
+      <div class="logo-mark">H<span class="me-italic">MM</span></div>
+      <span class="logo-text">Help<em style="font-family:var(--serif); font-size:19px; padding:0 1px">Me</em>Marketing</span>
     </a>
     <div class="nav-links">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link" href="services.html">Services</a>
-      <a class="nav-link" href="work.html">Case Studies</a>
-      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/services">Services</a>
+      <a class="nav-link" href="/work">Case Studies</a>
+      <a class="nav-link" href="/about">About</a>
     </div>
     <div class="nav-cta">
-      <a class="btn btn-accent nav-main-cta" href="contact.html">Book a free audit
+      <a class="btn btn-accent nav-main-cta" href="/contact">Book a free audit
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <button class="nav-hamburger" aria-label="Menu" onclick="var m=document.querySelector('.nav-mobile-menu'); var o=m.classList.toggle('open'); this.classList.toggle('open', o);"><span></span></button>
@@ -58,12 +58,12 @@
   </div>
 </nav>
 <div class="nav-mobile-menu">
-  <a class="nav-link" href="index.html">Home</a>
-  <a class="nav-link" href="services.html">Services</a>
-  <a class="nav-link" href="work.html">Case Studies</a>
-  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link" href="/">Home</a>
+  <a class="nav-link" href="/services">Services</a>
+  <a class="nav-link" href="/work">Case Studies</a>
+  <a class="nav-link" href="/about">About</a>
   <div class="mobile-cta-row">
-    <a class="btn btn-accent" href="contact.html">Book a free audit</a>
+    <a class="btn btn-accent" href="/contact">Book a free audit</a>
   </div>
 </div>
 
@@ -440,55 +440,101 @@
 </div>
 
 <footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand-col">
-        <div class="logo" style="color:white; margin-bottom:18px">
-          <div class="logo-mark" style="background:var(--ivory); color:var(--navy)">H<span class="me-italic">m</span></div>
-          <span>HelpMeMarketing</span>
+  <!-- BAND 1: brand + tools -->
+  <div class="footer-band-brand">
+    <div class="container">
+      <div class="footer-brand-row">
+        <div class="footer-brand-statement">
+          <h3 class="footer-brand-headline">Try a tool. <em class="italic-accent">No email gate.</em></h3>
+          <p class="footer-brand-descriptor">Free utilities built from our actual client work. Use them, share them, run the numbers yourself.</p>
         </div>
-        <p>Growth marketing priced on outcomes, not hours. Flat quarters and rising CAC, made measurable. DTC, SaaS, healthcare, finance.</p>
-        <div class="footer-badges">
-          <span class="footer-badge">Google Partner</span>
-          <span class="footer-badge">Meta Partner</span>
-          <span class="footer-badge">Shopify Partner</span>
+        <div class="footer-tools-grid">
+          <a href="/ad-calculator" class="footer-tool-card">
+            <div class="footer-tool-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Tabler ti-calculator -->
+                <path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/>
+                <path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z"/>
+                <path d="M8 14l0 .01"/>
+                <path d="M12 14l0 .01"/>
+                <path d="M16 14l0 .01"/>
+                <path d="M8 17l0 .01"/>
+                <path d="M12 17l0 .01"/>
+                <path d="M16 17l0 .01"/>
+              </svg>
+            </div>
+            <div class="footer-tool-title">Ad Spend Calculator</div>
+            <div class="footer-tool-description">Model CPL, ROAS, and budget across 4 platforms × 11 verticals.</div>
+            <div class="footer-tool-affordance">Run the numbers →</div>
+          </a>
+          <a href="/tools/marketing-audit" class="footer-tool-card">
+            <div class="footer-tool-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Tabler ti-checkup-list -->
+                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/>
+                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/>
+                <path d="M9 14h.01"/>
+                <path d="M9 17h.01"/>
+                <path d="M12 16l1 1l3 -3"/>
+              </svg>
+            </div>
+            <div class="footer-tool-title">Marketing Audit</div>
+            <div class="footer-tool-description">Score your marketing maturity across 5 dimensions in 10 min.</div>
+            <div class="footer-tool-affordance">Take the audit →</div>
+          </a>
         </div>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <a href="seo.html">SEO</a>
-        <a href="google-meta-ads.html">Google &amp; Meta Ads</a>
-        <a href="website-design.html">Website Design</a>
-        <a href="social-media.html">Social Media</a>
-        <a href="brand-content.html">Brand &amp; Content</a>
-        <a href="lifecycle-retention.html">Lifecycle &amp; Retention</a>
-      </div>
-      <div>
-        <h4>Industries</h4>
-        <a href="industries/dtc.html">DTC &amp; E-commerce</a>
-        <a href="industries/saas.html">SaaS &amp; Tech</a>
-        <a href="industries/healthcare.html">Healthcare</a>
-        <a href="industries/finance.html">Finance</a>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <a href="about.html">About</a>
-        <a href="work.html">Case studies</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Resources</h4>
-        <a href="blog.html">Blog</a>
-        <a href="ad-calculator.html">Ad-spend calculator</a>
-        <a href="contact.html">Free audit</a>
-        <a href="mailto:hello@helpmemarketing.com">hello@helpmemarketing.com</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>© 2026 HelpMeMarketing Inc.</div>
-      <div style="display:flex; gap:24px">
-        <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
+  </div>
+
+  <!-- BAND 2: sitemap + baseline -->
+  <div class="footer-band-utility">
+    <div class="container">
+      <div class="footer-utility-grid">
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/performance-marketing">Performance Marketing</a></li>
+            <li><a href="/services/seo">SEO &amp; AEO</a></li>
+            <li><a href="/services/branding-social">Branding &amp; Social</a></li>
+            <li><a href="/services/website-development">Website Development</a></li>
+            <li><a href="/services/analytics-attribution">Analytics &amp; Attribution</a></li>
+            <li><a href="/services/ai-automation">AI Automation &amp; Workflow Systems</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Industries</h4>
+          <ul>
+            <li><a href="/industries/dtc">DTC</a></li>
+            <li><a href="/industries/saas">SaaS</a></li>
+            <li><a href="/industries/healthcare">Healthcare</a></li>
+            <li><a href="/industries/finance">Finance</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/work">Case Studies</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-baseline">
+        <div class="footer-baseline-left">
+          <div class="footer-badges">
+            <span class="footer-badge">Google Partner</span>
+            <span class="footer-badge">Meta Partner</span>
+          </div>
+          <p class="footer-baseline-meta">HelpMeMarketing · Mississauga, Ontario · Hello@helpmemarketing.com</p>
+        </div>
+        <div class="footer-baseline-right">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <span>&copy; 2026 HelpMeMarketing</span>
+        </div>
       </div>
     </div>
   </div>
