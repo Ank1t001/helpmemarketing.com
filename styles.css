@@ -5268,6 +5268,16 @@ body.redesign-prototype .app {
   background: transparent;
 }
 
+/* Dark-scope heading color: the global default (L74) sets h1-h4 to var(--deep) (navy),
+   invisible on Obsidian. Restore to --text for prototype-scoped pages. Blog POSTS get
+   correct heading color from V2-region rules with higher specificity; this does not affect them. */
+body.redesign-prototype h1,
+body.redesign-prototype h2,
+body.redesign-prototype h3,
+body.redesign-prototype h4 {
+  color: var(--text);
+}
+
 /* Headings */
 body.redesign-prototype h1.hero-headline {
   font-family: var(--serif);
