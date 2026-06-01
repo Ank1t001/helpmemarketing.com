@@ -3741,7 +3741,7 @@ body.blog-dark .author-line {
   padding-top: 16px;
 }
 body.blog-dark .author-line .dot {
-  background: var(--text-tertiary);
+  background: var(--text-muted);
 }
 body.blog-dark .author-avatar {
   background: var(--bg-elevated);
