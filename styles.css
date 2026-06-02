@@ -5932,22 +5932,6 @@ body.redesign-prototype .contact-thanks {
   --ink-60: var(--text-muted);
 }
 
-/* Blog listing — scoped token remap for the listing's bespoke inline styles.
-   Cards/chips/strip use legacy --deep/--text-primary/--ink-* which fall through
-   to :root light values (navy / near-black / grey) and render invisible/dim on
-   Obsidian. Remap at the listing containers to dark-theme tokens. Literal
-   background:white is handled separately in blog.html (swapped to --bg-elevated). */
-body.redesign-prototype #blog-grid,
-body.redesign-prototype .blog-feature,
-body.redesign-prototype #blog-filter,
-body.redesign-prototype .blog-news-strip {
-  --deep: var(--text);
-  --text-primary: var(--text);
-  --text-secondary: var(--text-muted);
-  --ink-80: var(--text);
-  --ink-60: var(--text-muted);
-}
-
 /* Contact form card — dark elevated surface */
 body.redesign-prototype .contact-form {
   background: var(--bg-elevated);
