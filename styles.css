@@ -86,7 +86,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .mono { font-family: 'JetBrains Mono', monospace; }
 
 .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
-.container-narrow { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 32px; }
 
 /* ============ App shell ============ */
 .app { min-height: 100vh; background: var(--white); }
@@ -455,51 +455,6 @@ section { padding: 88px 0; }
 }
 
 .hero-break { display: none; }
-
-/* ============ Legal pages ============ */
-.legal-page .legal-toc {
-  background: var(--cream);
-  border: 1px solid var(--line-soft);
-  border-radius: 14px;
-  padding: 22px 26px;
-  margin-bottom: 48px;
-}
-.legal-page .legal-toc ol {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px 24px;
-  counter-reset: toc;
-}
-.legal-page .legal-toc li {
-  counter-increment: toc;
-  font-size: 14px;
-}
-.legal-page .legal-toc li::before {
-  content: counter(toc, decimal-leading-zero);
-  font-family: var(--serif);
-  color: var(--ink-60);
-  margin-right: 10px;
-  font-size: 13px;
-  letter-spacing: 0.02em;
-}
-.legal-page .legal-toc a {
-  color: var(--deep);
-  cursor: pointer;
-  border-bottom: 1px dashed transparent;
-  transition: border-color 0.15s ease, color 0.15s ease;
-}
-.legal-page .legal-toc a:hover {
-  color: var(--primary-dark);
-  border-bottom-color: currentColor;
-}
-.legal-sec { margin-bottom: 48px; scroll-margin-top: 100px; }
-.legal-sec:last-child { margin-bottom: 0; }
-@media (max-width: 640px){
-  .legal-page .legal-toc ol { grid-template-columns: 1fr; }
-}
 
 /* ============ Resources pages ============ */
 @media (max-width: 960px){
@@ -5975,19 +5930,6 @@ body.redesign-prototype .contact-aside {
 body.redesign-prototype .contact-thanks {
   --deep: var(--text);
   --ink-60: var(--text-muted);
-}
-
-/* Legal-page body-text legibility on dark scope. Inline elements use legacy --ink-80 (#2A3534) and
-   --ink-60 (#6B7280), invisible/dim on Obsidian. Remap at .legal-page scope to dark-theme tokens;
-   restore legacy --ink-60 inside the light-bg .legal-toc (Contents box) so text on cream stays
-   readable. Follows the .contact-thanks/.contact-aside precedent. */
-body.redesign-prototype .legal-page {
-  --ink-80: var(--text);
-  --ink-60: var(--text-muted);
-  --ink-40: var(--text-tertiary);
-}
-body.redesign-prototype .legal-page .legal-toc {
-  --ink-60: var(--text-secondary);
 }
 
 /* Contact form card — dark elevated surface */
