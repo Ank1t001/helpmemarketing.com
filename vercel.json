@@ -47,7 +47,10 @@
     { "source": "/brand-content",    "destination": "/services/branding-social",           "permanent": true },
     { "source": "/lifecycle-retention", "destination": "/services/ai-automation",           "permanent": true },
     { "source": "/reviews-reputation",  "destination": "/services/branding-social#reviews", "permanent": true },
-    { "source": "/analytics",        "destination": "/services/analytics-attribution",     "permanent": true }
+    { "source": "/analytics",        "destination": "/services/analytics-attribution",     "permanent": true },
+
+    { "source": "/pricing",      "destination": "/contact", "permanent": true },
+    { "source": "/pricing.html", "destination": "/contact", "permanent": true }
   ],
   "headers": [
     {

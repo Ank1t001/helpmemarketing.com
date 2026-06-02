@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /pricing
-Disallow: /pricing.html
 Disallow: /_healthcare/
 Disallow: /docs/
 Disallow: /memory/
