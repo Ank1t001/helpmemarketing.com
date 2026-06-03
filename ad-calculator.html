@@ -791,6 +791,8 @@
     var leadsImproved = Math.ceil(goal / Math.max(convImproved, 0.001));
     var spendImproved = Math.round(leadsImproved * cpl);
     var saving = monthlySpend - spendImproved;
+    var customersImproved = Math.floor(Math.floor(monthlySpend / Math.max(cpl,1)) * convImproved);
+    var customerGain = customersImproved - goal;
 
     document.getElementById('goal-val').textContent = goal;
     document.getElementById('seg-label').textContent = bench.label;
@@ -819,27 +821,39 @@
     document.getElementById('row-mult').textContent = mult.toFixed(2);
     document.getElementById('row-platform').textContent = '(' + platform + ')';
     document.getElementById('row-cpl').textContent = '~$' + cpl;
-    document.getElementById('row-spend').textContent = '~$' + fmt(monthlySpend);
+    document.getElementById('row-spend').textContent = (mode === 'budget' ? '$' : '~$') + fmt(monthlySpend);
     document.getElementById('row-rev').textContent = '~$' + fmt(revenue);
     document.getElementById('row-cac').textContent = '~$' + fmt(cac);
     var rowNetEl = document.getElementById('row-net');
     rowNetEl.textContent = (netPerCustomer >= 0 ? '+$' : '−$') + fmt(Math.abs(netPerCustomer));
     rowNetEl.style.color = netPerCustomer >= 0 ? 'var(--text)' : 'var(--cta)';
-    document.getElementById('funnel-spend').textContent = '~$' + fmt(monthlySpend);
+    document.getElementById('funnel-spend').textContent = (mode === 'budget' ? '$' : '~$') + fmt(monthlySpend);
     document.getElementById('funnel-leads-val').textContent = fmt(leadsNeeded);
     document.getElementById('funnel-cust-val').textContent = fmt(goal);
     document.getElementById('funnel-cust-bar').style.width = convPct + '%';
     document.getElementById('funnel-caption').textContent = convPct + '% of leads become customers';
     var leverEl = document.getElementById('lever-insight');
-    if (conv >= 0.95 || saving <= 0) {
-      leverEl.textContent = 'Your conversion is already strong: CPL and channel mix are usually the bigger levers.';
+    var leverWeak = (mode === 'budget') ? (conv >= 0.95 || customerGain <= 0) : (conv >= 0.95 || saving <= 0);
+    if (leverWeak) {
+      if (mode === 'budget') {
+        leverEl.textContent = 'Your conversion is already strong. At this budget, CPL and channel mix are where more customers come from.';
+      } else {
+        leverEl.textContent = 'Your conversion is already strong: CPL and channel mix are usually the bigger levers.';
+      }
       leverEl.style.color = 'var(--text-muted)';
       leverEl.style.borderLeftColor = 'var(--text-muted)';
     } else {
-      leverEl.innerHTML = 'Conversion is usually the biggest lever. Lifting your lead&rarr;customer rate from <strong style="font-weight:500">'
-        + Math.round(conv * 100) + '%</strong> to <strong style="font-weight:500">'
-        + Math.round(convImproved * 100) + '%</strong> would cut required spend by <strong style="color:var(--gold); font-weight:500">~$'
-        + fmt(saving) + '</strong>/mo at the same ' + goal + '-customer goal.';
+      if (mode === 'budget') {
+        leverEl.innerHTML = 'Conversion is usually the biggest lever. Lifting your lead&rarr;customer rate from <strong style="font-weight:500">'
+          + Math.round(conv * 100) + '%</strong> to <strong style="font-weight:500">'
+          + Math.round(convImproved * 100) + '%</strong> would get you about <strong style="color:var(--gold); font-weight:500">'
+          + fmt(customerGain) + '</strong> more customers at the same $' + fmt(monthlySpend) + ' budget.';
+      } else {
+        leverEl.innerHTML = 'Conversion is usually the biggest lever. Lifting your lead&rarr;customer rate from <strong style="font-weight:500">'
+          + Math.round(conv * 100) + '%</strong> to <strong style="font-weight:500">'
+          + Math.round(convImproved * 100) + '%</strong> would cut required spend by <strong style="color:var(--gold); font-weight:500">~$'
+          + fmt(saving) + '</strong>/mo at the same ' + goal + '-customer goal.';
+      }
       leverEl.style.color = 'var(--text)';
       leverEl.style.borderLeftColor = 'var(--gold)';
     }
