@@ -201,9 +201,17 @@
             <div style="font-size:14px; color:var(--text); font-weight:500">Estimated monthly ad spend</div>
             <div id="row-spend" style="font-size:15px; color:var(--text); font-weight:500; font-variant-numeric:tabular-nums">~$10,925</div>
           </div>
-          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center">
+          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border)">
             <div style="font-size:14px; color:var(--text)">Illustrative customer revenue</div>
             <div id="row-rev" style="font-size:15px; color:var(--text); font-weight:500; font-variant-numeric:tabular-nums">~$72,000</div>
+          </div>
+          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border)">
+            <div style="font-size:14px; color:var(--text)">Cost to acquire one customer</div>
+            <div id="row-cac" style="font-size:15px; color:var(--text); font-weight:500; font-variant-numeric:tabular-nums">~$285</div>
+          </div>
+          <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; background:rgba(201,169,110,0.15)">
+            <div style="font-size:14px; color:var(--text); font-weight:500">Net lifetime value per customer</div>
+            <div id="row-net" style="font-size:15px; color:var(--text); font-weight:500; font-variant-numeric:tabular-nums">+$1,515</div>
           </div>
         </div>
 
@@ -663,6 +671,8 @@
     var monthlySpend = Math.round(leadsNeeded * cpl);
     var revenue = goal * ltv;
     var roas = monthlySpend > 0 ? (revenue / monthlySpend) : 0;
+    var cac = goal > 0 ? Math.round(monthlySpend / goal) : 0;
+    var netPerCustomer = ltv - cac;
 
     document.getElementById('goal-val').textContent = goal;
     document.getElementById('seg-label').textContent = bench.label;
@@ -683,7 +693,7 @@
     document.getElementById('out-cpl').textContent = '$' + cpl;
     document.getElementById('out-cpl-sub').textContent = industry + ' · ' + platform + ' benchmark';
     document.getElementById('out-roas').textContent = roas.toFixed(1) + '×';
-    document.getElementById('out-roas-sub').textContent = 'on $' + fmt(ltv) + ' customer LTV';
+    document.getElementById('out-roas-sub').textContent = 'on $' + fmt(ltv) + ' lifetime value, vs monthly spend';
 
     document.getElementById('row-goal').textContent = goal + ' new customers / mo';
     document.getElementById('row-conv').textContent = Math.round(conv*100) + '%';
@@ -693,6 +703,10 @@
     document.getElementById('row-cpl').textContent = '~$' + cpl;
     document.getElementById('row-spend').textContent = '~$' + fmt(monthlySpend);
     document.getElementById('row-rev').textContent = '~$' + fmt(revenue);
+    document.getElementById('row-cac').textContent = '~$' + fmt(cac);
+    var rowNetEl = document.getElementById('row-net');
+    rowNetEl.textContent = (netPerCustomer >= 0 ? '+$' : '−$') + fmt(Math.abs(netPerCustomer));
+    rowNetEl.style.color = netPerCustomer >= 0 ? 'var(--text)' : 'var(--cta)';
   }
 
   function applySegGridLayout(){
