@@ -172,6 +172,33 @@
           </div>
         </div>
 
+        <!-- Conversion funnel: Spend (context) → Leads (100% reference) → Customers (scaled to conv%) -->
+        <div style="margin-bottom:24px; background:var(--bg-elevated); border:1px solid var(--border); border-radius:16px; padding:24px 28px">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:20px; flex-wrap:wrap; gap:10px">
+            <div class="serif" style="font-size:18px; color:var(--text)">Your funnel, at a glance</div>
+            <div style="font-size:12px; color:var(--text-muted)">Spend: <span id="funnel-spend" style="color:var(--text); font-weight:500; font-variant-numeric:tabular-nums">~$10,925</span> / mo</div>
+          </div>
+          <div style="margin-bottom:16px">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px">
+              <div style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); font-weight:500">Leads</div>
+              <div id="funnel-leads-val" style="font-size:13px; color:var(--text); font-weight:500; font-variant-numeric:tabular-nums">115</div>
+            </div>
+            <div style="height:10px; background:var(--border); border-radius:999px; overflow:hidden">
+              <div style="height:100%; width:100%; background:var(--gold); border-radius:999px"></div>
+            </div>
+          </div>
+          <div style="margin-bottom:10px">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px">
+              <div style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); font-weight:500">Customers</div>
+              <div id="funnel-cust-val" style="font-size:13px; color:var(--text); font-weight:500; font-variant-numeric:tabular-nums">40</div>
+            </div>
+            <div style="height:10px; background:var(--border); border-radius:999px; overflow:hidden">
+              <div id="funnel-cust-bar" style="height:100%; width:35%; background:var(--cta); border-radius:999px; transition:width 0.4s ease"></div>
+            </div>
+          </div>
+          <div id="funnel-caption" style="font-size:12px; color:var(--text-muted); margin-top:8px; font-style:italic">35% of leads become customers</div>
+        </div>
+
         <div style="background:var(--bg-elevated); border:1px solid var(--border); border-radius:16px; overflow:hidden">
           <div style="padding:20px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center">
             <div class="serif" style="font-size:20px; color:var(--text)">How we got there</div>
@@ -673,6 +700,7 @@
     var roas = monthlySpend > 0 ? (revenue / monthlySpend) : 0;
     var cac = goal > 0 ? Math.round(monthlySpend / goal) : 0;
     var netPerCustomer = ltv - cac;
+    var convPct = Math.max(0, Math.min(100, Math.round(conv * 100)));
 
     document.getElementById('goal-val').textContent = goal;
     document.getElementById('seg-label').textContent = bench.label;
@@ -707,6 +735,11 @@
     var rowNetEl = document.getElementById('row-net');
     rowNetEl.textContent = (netPerCustomer >= 0 ? '+$' : '−$') + fmt(Math.abs(netPerCustomer));
     rowNetEl.style.color = netPerCustomer >= 0 ? 'var(--text)' : 'var(--cta)';
+    document.getElementById('funnel-spend').textContent = '~$' + fmt(monthlySpend);
+    document.getElementById('funnel-leads-val').textContent = fmt(leadsNeeded);
+    document.getElementById('funnel-cust-val').textContent = fmt(goal);
+    document.getElementById('funnel-cust-bar').style.width = convPct + '%';
+    document.getElementById('funnel-caption').textContent = convPct + '% of leads become customers';
   }
 
   function applySegGridLayout(){
