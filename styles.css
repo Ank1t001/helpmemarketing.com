@@ -456,6 +456,11 @@ section { padding: 88px 0; }
 
 .hero-break { display: none; }
 
+/* Ad-calculator breakdown — 2-col layout for "How we got there" rows.
+   Inputs/process column (rows 1-5) | outcomes/economics column (rows 6-9).
+   Mobile collapses to single column via the @media rule below. */
+.bd-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+
 /* ============ Resources pages ============ */
 @media (max-width: 960px){
   .blog-feature { grid-template-columns: 1fr !important; }
@@ -464,6 +469,7 @@ section { padding: 88px 0; }
   .calc-grid { grid-template-columns: 1fr !important; }
   .calc-inputs { position: static !important; }
   .calc-stats { grid-template-columns: 1fr !important; }
+  .bd-cols { grid-template-columns: 1fr !important; }
   .hipaa-cta { grid-template-columns: 1fr !important; }
 }
 @media (max-width: 560px){
