@@ -85,6 +85,10 @@
     <div class="calc-grid" style="display:grid; grid-template-columns:420px 1fr; gap:40px; align-items:start">
 
       <div class="calc-inputs" style="background:var(--bg-elevated); border:1px solid var(--border); border-radius:20px; padding:32px; position:sticky; top:100px">
+        <div class="mode-tabs">
+          <button class="mode-tab active" data-mode="goal" aria-pressed="true">I have a goal</button>
+          <button class="mode-tab" data-mode="budget" aria-pressed="false">I have a budget</button>
+        </div>
         <div style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:24px">Inputs</div>
 
         <div style="margin-bottom:28px">
@@ -114,7 +118,7 @@
           <div id="plat-label" style="margin-top:10px; font-size:12px; color:var(--text-muted)">Baseline (1.00× CPL)</div>
         </div>
 
-        <div style="margin-bottom:28px">
+        <div class="mode-pane mode-pane--goal" style="margin-bottom:28px">
           <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px">
             <label style="font-size:14px; color:var(--text); font-weight:500">New customers per month</label>
             <span class="serif" id="goal-val" style="font-size:28px; color:var(--text); line-height:1">40</span>
@@ -122,6 +126,18 @@
           <input type="range" id="goal" min="5" max="500" value="40" style="width:100%; accent-color:var(--cta)">
           <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted); margin-top:6px">
             <span>5</span><span>500</span>
+          </div>
+        </div>
+
+        <div class="mode-pane mode-pane--budget" style="display:none; margin-bottom:28px">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px">
+            <label style="font-size:14px; color:var(--text); font-weight:500">Monthly ad budget</label>
+            <span class="serif" id="budget-val" style="font-size:28px; color:var(--text); line-height:1">$6,500</span>
+          </div>
+          <input type="number" id="budget" min="0" value="6500" style="width:100%; padding:10px 12px; border-radius:8px; border:1px solid var(--border); background:var(--bg-elevated); color:var(--text); font-size:15px; font-family:inherit; box-sizing:border-box; margin-bottom:14px">
+          <input type="range" id="budget-slider" min="1625" max="13000" value="6500" step="100" style="width:100%; accent-color:var(--cta)">
+          <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted); margin-top:6px">
+            <span id="budget-slider-min">$1,625</span><span id="budget-slider-max">$13,000</span>
           </div>
         </div>
 
@@ -145,12 +161,19 @@
 
         <div style="background:var(--bg-elevated); color:var(--text); border-radius:20px; padding:40px; margin-bottom:24px; position:relative; overflow:hidden">
           <div style="position:absolute; top:-60px; right:-60px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, rgba(201,169,110,0.2) 0%, transparent 70%); pointer-events:none"></div>
-          <div style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-soft); font-weight:500; margin-bottom:14px; position:relative">Approximate monthly ad spend</div>
-          <div class="serif" style="font-size:clamp(56px, 7vw, 96px); line-height:1; letter-spacing:-0.025em; margin-bottom:18px; position:relative; font-weight:400">
-            $<span id="out-low">9,286</span> <span style="color:var(--gold); font-size:0.5em; font-style:italic; font-weight:400">—</span> $<span id="out-high">12,564</span>
+          <div class="hero-pane hero-pane--goal">
+            <div style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-soft); font-weight:500; margin-bottom:14px; position:relative">Approximate monthly ad spend</div>
+            <div class="serif" style="font-size:clamp(56px, 7vw, 96px); line-height:1; letter-spacing:-0.025em; margin-bottom:18px; position:relative; font-weight:400">
+              $<span id="out-low">9,286</span> <span style="color:var(--gold); font-size:0.5em; font-style:italic; font-weight:400">—</span> $<span id="out-high">12,564</span>
+            </div>
+            <div id="out-note" style="font-size:15px; color:rgba(250,249,246,0.75); max-width:520px; line-height:1.55; position:relative">
+              For dentistry in Healthcare running Meta ads, typical CPL is ~$95. Lead→customer conversion ~35%. Real numbers vary with geography, seasonality, creative, and market competition.
+            </div>
           </div>
-          <div id="out-note" style="font-size:15px; color:rgba(250,249,246,0.75); max-width:520px; line-height:1.55; position:relative">
-            For dentistry in Healthcare running Meta ads, typical CPL is ~$95. Lead→customer conversion ~35%. Real numbers vary with geography, seasonality, creative, and market competition.
+          <div class="hero-pane hero-pane--budget" style="display:none">
+            <div style="font-size:13px; color:var(--text-muted); margin-bottom:8px">Expected new customers</div>
+            <div class="serif" id="budget-customers" style="font-size:clamp(40px,7vw,64px); color:var(--text); line-height:1">~10</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-top:10px">Assumes your inputs hold.</div>
           </div>
         </div>
 
@@ -606,6 +629,11 @@
   letter-spacing:0.06em; text-transform:uppercase; vertical-align:middle;
 }
 .related-card:hover { border-color: var(--cta); }
+.mode-tabs { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-bottom:20px; }
+.mode-tab { padding:10px 12px; border-radius:8px; border:1px solid var(--border); background:var(--bg-elevated); color:var(--text-muted); font-size:13px; font-weight:500; cursor:pointer; font-family:inherit; transition:border-color 0.15s ease, background 0.15s ease, color 0.15s ease; }
+.mode-tab:hover { color:var(--text); }
+.mode-tab.active { border-color:var(--cta); background:rgba(255,92,26,0.10); color:var(--text); }
+.mode-tab:focus-visible { outline:2px solid var(--cta); outline-offset:2px; }
 @media (max-width: 720px) {
   .related-grid { grid-template-columns: 1fr !important; }
 }
@@ -680,6 +708,15 @@
   var segGrid = document.getElementById('seg-grid');
   var platGrid = document.getElementById('plat-grid');
   var platLabel = document.getElementById('plat-label');
+  var mode = 'goal';
+  var budgetEl = document.getElementById('budget');
+  var budgetSliderEl = document.getElementById('budget-slider');
+  var budgetValEl = document.getElementById('budget-val');
+  var budgetSliderMinEl = document.getElementById('budget-slider-min');
+  var budgetSliderMaxEl = document.getElementById('budget-slider-max');
+  var budgetCustomersEl = document.getElementById('budget-customers');
+  var modeTabs = document.querySelectorAll('.mode-tab');
+  var last = { goal: 0, monthlySpend: 0 };
 
   function fmt(n){ return n.toLocaleString('en-US'); }
 
@@ -701,15 +738,50 @@
     });
   }
 
+  function recenterBudgetSlider(){
+    var value = Number(budgetEl.value) || 0;
+    var rangeBase = Math.max(value, 100);
+    var min = Math.round(rangeBase * 0.25);
+    var max = Math.round(rangeBase * 2);
+    var rawStep = (max - min) / 100;
+    var step = Math.max(50, Math.round(rawStep / 50) * 50);
+    budgetSliderEl.min = min;
+    budgetSliderEl.max = max;
+    budgetSliderEl.step = step;
+    budgetSliderEl.value = Math.max(min, Math.min(max, value));
+    budgetSliderMinEl.textContent = '$' + fmt(min);
+    budgetSliderMaxEl.textContent = '$' + fmt(max);
+  }
+
+  function applyMode(){
+    var isGoal = mode === 'goal';
+    document.querySelector('.mode-pane--goal').style.display = isGoal ? '' : 'none';
+    document.querySelector('.mode-pane--budget').style.display = isGoal ? 'none' : '';
+    document.querySelector('.hero-pane--goal').style.display = isGoal ? '' : 'none';
+    document.querySelector('.hero-pane--budget').style.display = isGoal ? 'none' : '';
+    Array.prototype.forEach.call(modeTabs, function(t){
+      var active = t.getAttribute('data-mode') === mode;
+      t.classList.toggle('active', active);
+      t.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+  }
+
   function render(){
     var bench = BENCH[industry].segments[segment];
     var mult = (PLATFORM_MULT[industry] && PLATFORM_MULT[industry][platform]) || 1.00;
     var cpl = Math.round(bench.cpl * mult);
-    var goal = Number(goalEl.value);
     var ltv = ltvEl.value ? Number(ltvEl.value) : bench.ltv;
     var conv = convEl.value ? Number(convEl.value)/100 : bench.convRate;
-    var leadsNeeded = Math.ceil(goal / Math.max(conv, 0.001));
-    var monthlySpend = Math.round(leadsNeeded * cpl);
+    var goal, leadsNeeded, monthlySpend;
+    if (mode === 'budget') {
+      monthlySpend = Number(budgetEl.value) || 0;
+      leadsNeeded = Math.floor(monthlySpend / Math.max(cpl, 1));
+      goal = Math.floor(leadsNeeded * conv);
+    } else {
+      goal = Number(goalEl.value);
+      leadsNeeded = Math.ceil(goal / Math.max(conv, 0.001));
+      monthlySpend = Math.round(leadsNeeded * cpl);
+    }
     var revenue = goal * ltv;
     var roas = monthlySpend > 0 ? (revenue / monthlySpend) : 0;
     var cac = goal > 0 ? Math.round(monthlySpend / goal) : 0;
@@ -771,6 +843,10 @@
       leverEl.style.color = 'var(--text)';
       leverEl.style.borderLeftColor = 'var(--gold)';
     }
+    budgetCustomersEl.textContent = '~' + fmt(goal);
+    budgetValEl.textContent = '$' + fmt(Number(budgetEl.value) || 0);
+    last.goal = goal;
+    last.monthlySpend = monthlySpend;
   }
 
   function applySegGridLayout(){
@@ -815,10 +891,39 @@
   ltvEl.addEventListener('input', render);
   convEl.addEventListener('input', render);
 
+  Array.prototype.forEach.call(modeTabs, function(tab){
+    tab.addEventListener('click', function(){
+      var newMode = tab.getAttribute('data-mode');
+      if (newMode === mode) return;
+      if (newMode === 'budget') {
+        budgetEl.value = last.monthlySpend;
+        recenterBudgetSlider();
+      } else {
+        var carried = Math.max(5, Math.min(500, last.goal));
+        goalEl.value = carried;
+        document.getElementById('goal-val').textContent = carried;
+      }
+      mode = newMode;
+      applyMode();
+      render();
+    });
+  });
+
+  budgetEl.addEventListener('input', function(){
+    recenterBudgetSlider();
+    render();
+  });
+
+  budgetSliderEl.addEventListener('input', function(){
+    budgetEl.value = budgetSliderEl.value;
+    render();
+  });
+
   applySegGridLayout();
   applyPlatformPillState();
   renderSegmentButtons();
   render();
+  applyMode();
 })();
 </script>
 </body>
