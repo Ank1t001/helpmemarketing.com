@@ -72,10 +72,10 @@
 <section style="padding:80px 0 40px; border-bottom:1px solid var(--border)">
   <div class="container">
     <span class="eyebrow"><span class="eyebrow-dot"></span>Free tool · Resource</span>
-    <h1 class="serif" style="font-size:clamp(46px, 5.4vw, 84px); margin-top:14px; line-height:1.02; color:var(--text); max-width:980px; letter-spacing:-0.02em; font-weight:400">
+    <h1 class="hero-headline">
       How much should you actually <span class="italic-accent">spend</span> on ads?
     </h1>
-    <p style="font-size:18px; color:var(--text-muted); margin-top:22px; max-width:640px; line-height:1.55">Pick your segment and a monthly customer goal. We&rsquo;ll show a rough budget range based on aggregated benchmarks. Numbers are averages — your real numbers will vary with market, creative, and seasonality.</p>
+    <p class="hero-subtitle">Pick your segment and a monthly customer goal. We&rsquo;ll show a rough budget range based on aggregated benchmarks. Numbers are averages — your real numbers will vary with market, creative, and seasonality.</p>
   </div>
 </section>
 
@@ -301,22 +301,22 @@
 
 <!-- ============ Layer 3: Methodology + benchmarks callout ============ -->
 
-<section style="padding:80px 0; border-top:1px solid var(--border)">
-  <div class="container" style="max-width:920px">
+<section class="content-section">
+  <div class="container">
     <a href="/ad-calculator/benchmarks" class="related-card" style="display:block; padding:40px; background:var(--bg-elevated); border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease">
       <span class="eyebrow"><span class="eyebrow-dot"></span>Methodology &amp; benchmarks</span>
-      <h2 class="serif" style="font-size:clamp(32px, 4vw, 48px); margin-top:14px; color:var(--text); letter-spacing:-0.02em; line-height:1.1; font-weight:400">The data behind these numbers</h2>
-      <p style="margin-top:20px; font-size:17px; color:var(--text-muted); line-height:1.6; max-width:780px">Platform and industry benchmarks, plus how the math works.</p>
+      <h2 class="section-heading">The data behind these numbers</h2>
+      <p class="section-deck">Platform and industry benchmarks, plus how the math works.</p>
       <div style="margin-top:20px; font-size:14px; color:var(--cta); font-weight:500">See the full methodology &rarr;</div>
     </a>
   </div>
 </section>
 
-<section id="faq" class="alt blog-faq" style="padding:80px 0; border-top:1px solid var(--border)">
-  <div class="container" style="max-width:920px">
+<section id="faq" class="content-section blog-faq">
+  <div class="container">
     <span class="eyebrow"><span class="eyebrow-dot"></span>FAQ</span>
-    <h2 class="serif blog-faq-title" style="font-size:clamp(32px, 4vw, 48px); margin-top:14px; color:var(--text); letter-spacing:-0.02em; line-height:1.1; font-weight:400">Frequently asked questions</h2>
-    <p style="margin-top:24px; font-size:17px; color:var(--text-muted); line-height:1.7; max-width:780px">Common questions about how to read these numbers and apply them to your situation.</p>
+    <h2 class="section-heading">Frequently asked questions</h2>
+    <p class="section-deck">Common questions about how to read these numbers and apply them to your situation.</p>
 
     <div class="blog-faq-list" style="margin-top:48px">
       <details class="faq-item">
@@ -359,11 +359,11 @@
   </div>
 </section>
 
-<section id="related" style="padding:80px 0; border-top:1px solid var(--border)">
-  <div class="container" style="max-width:920px">
+<section id="related" class="content-section">
+  <div class="container">
     <span class="eyebrow"><span class="eyebrow-dot"></span>Related</span>
-    <h2 class="serif" style="font-size:clamp(32px, 4vw, 48px); margin-top:14px; color:var(--text); letter-spacing:-0.02em; line-height:1.1; font-weight:400">Related resources</h2>
-    <p style="margin-top:24px; font-size:17px; color:var(--text-muted); line-height:1.7; max-width:780px">The calculator is a starting point. These resources go deeper on specific channels, verticals, and budgeting decisions.</p>
+    <h2 class="section-heading">Related resources</h2>
+    <p class="section-deck">The calculator is a starting point. These resources go deeper on specific channels, verticals, and budgeting decisions.</p>
 
     <div class="related-grid" style="margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:20px">
       <a href="blog/dtc-cac-reduction.html" class="related-card" style="display:block; padding:28px; background:var(--bg-elevated); border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease">
@@ -508,9 +508,8 @@
 @media (max-width: 720px) {
   .related-grid { grid-template-columns: 1fr !important; }
 }
-body.redesign-prototype section.alt { background: transparent; }
-body.redesign-prototype .blog-faq { max-width: 920px; margin-top: 0; }
-body.redesign-prototype .blog-faq-title { font-family:'Fraunces',Georgia,serif; color:var(--text); font-weight:500; }
+body.redesign-prototype .blog-faq { max-width: none; margin: 0; padding: 0; }
+body.redesign-prototype .blog-faq-list { max-width: 720px; }
 body.redesign-prototype .faq-item { border-top:1px solid var(--border); }
 body.redesign-prototype .faq-question { color:var(--text); font-weight:600; cursor:pointer; }
 body.redesign-prototype .faq-question:hover { color:var(--cta); }
