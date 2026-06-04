@@ -160,25 +160,25 @@
         <!-- BENCH (in the script below) uses aggregated industry approximations — the page surfaces this transparently in the results-card copy. -->
 
         <div style="background:var(--bg-elevated); color:var(--text); border-radius:20px; padding:40px; margin-bottom:24px; position:relative; overflow:hidden">
-          <div style="position:absolute; top:-60px; right:-60px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, rgba(201,169,110,0.2) 0%, transparent 70%); pointer-events:none"></div>
+          <div style="position:absolute; top:-60px; right:-60px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, rgba(255,92,26,0.2) 0%, transparent 70%); pointer-events:none"></div>
           <div class="hero-pane hero-pane--goal">
-            <div style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-soft); font-weight:500; margin-bottom:14px; position:relative">Approximate monthly ad spend</div>
+            <div style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:14px; position:relative">Approximate monthly ad spend</div>
             <div class="serif" style="font-size:clamp(56px, 7vw, 96px); line-height:1; letter-spacing:-0.025em; margin-bottom:18px; position:relative; font-weight:400">
-              $<span id="out-low">9,286</span> <span style="color:var(--gold); font-size:0.5em; font-style:italic; font-weight:400">—</span> $<span id="out-high">12,564</span>
+              $<span id="out-low">9,286</span> <span style="color:var(--cta); font-size:0.5em; font-style:italic; font-weight:400">—</span> $<span id="out-high">12,564</span>
             </div>
-            <div id="out-note" style="font-size:15px; color:rgba(250,249,246,0.75); max-width:520px; line-height:1.55; position:relative">
+            <div id="out-note" style="font-size:15px; color:var(--text-muted); max-width:520px; line-height:1.55; position:relative">
               For dentistry in Healthcare running Meta ads, typical CPL is ~$95. Lead→customer conversion ~35%. Real numbers vary with geography, seasonality, creative, and market competition.
             </div>
           </div>
           <div class="hero-pane hero-pane--budget" style="display:none">
             <div style="font-size:13px; color:var(--text-muted); margin-bottom:8px">Expected new customers</div>
-            <div class="serif" id="budget-customers" style="font-size:clamp(40px,7vw,64px); color:var(--text); line-height:1">~10</div>
+            <div class="serif" id="budget-customers" style="font-size:clamp(40px,7vw,64px); color:var(--text); line-height:1">~23</div>
             <div style="font-size:13px; color:var(--text-muted); margin-top:10px">Assumes your inputs hold.</div>
           </div>
         </div>
 
-        <div id="lever-insight" style="font-size:14px; color:var(--text); line-height:1.6; margin-bottom:24px; padding-left:14px; border-left:2px solid var(--gold)">
-          Conversion is usually the biggest lever. Lifting your lead&rarr;customer rate from <strong style="font-weight:500">35%</strong> to <strong style="font-weight:500">40%</strong> would cut required spend by <strong style="color:var(--gold); font-weight:500">~$190</strong>/mo at the same 5-customer goal.
+        <div id="lever-insight" style="font-size:14px; color:var(--text); line-height:1.6; margin-bottom:24px; padding-left:14px; border-left:2px solid var(--cta)">
+          Conversion is usually the biggest lever. Lifting your lead&rarr;customer rate from <strong style="font-weight:500">35%</strong> to <strong style="font-weight:500">40%</strong> would cut required spend by <strong style="color:var(--cta); font-weight:500">~$1,425</strong>/mo at the same 40-customer goal.
         </div>
 
         <div class="calc-stats" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-bottom:32px">
@@ -195,7 +195,7 @@
           <div style="background:var(--bg-elevated); border:1px solid var(--border); border-radius:14px; padding:20px">
             <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:10px">Projected ROAS</div>
             <div class="serif" id="out-roas" style="font-size:36px; color:var(--text); line-height:1; letter-spacing:-0.01em; margin-bottom:8px">6.6×</div>
-            <div id="out-roas-sub" style="font-size:12px; color:var(--text-muted)">on $1,800 customer LTV</div>
+            <div id="out-roas-sub" style="font-size:12px; color:var(--text-muted)">on $1,800 lifetime value, vs monthly spend</div>
           </div>
         </div>
 
@@ -211,7 +211,7 @@
               <div id="funnel-leads-val" style="font-size:13px; color:var(--text); font-weight:500; font-variant-numeric:tabular-nums">115</div>
             </div>
             <div style="height:10px; background:var(--border); border-radius:999px; overflow:hidden">
-              <div style="height:100%; width:100%; background:var(--gold); border-radius:999px"></div>
+              <div style="height:100%; width:100%; background:var(--cta); border-radius:999px"></div>
             </div>
           </div>
           <div style="margin-bottom:10px">
@@ -260,7 +260,7 @@
             </div>
           </div>
           <div class="bd-col">
-            <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); background:rgba(201,169,110,0.15)">
+            <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); background:rgba(255,92,26,0.15)">
               <div style="font-size:14px; color:var(--text); font-weight:500">Estimated monthly ad spend</div>
               <div id="row-spend" style="font-size:15px; color:var(--text); font-weight:500; font-variant-numeric:tabular-nums">~$10,925</div>
             </div>
@@ -272,7 +272,7 @@
               <div style="font-size:14px; color:var(--text)">Cost to acquire one customer</div>
               <div id="row-cac" style="font-size:15px; color:var(--text); font-weight:500; font-variant-numeric:tabular-nums">~$285</div>
             </div>
-            <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; background:rgba(201,169,110,0.15)">
+            <div style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; background:rgba(255,92,26,0.15)">
               <div style="font-size:14px; color:var(--text); font-weight:500">Net lifetime value per customer</div>
               <div id="row-net" style="font-size:15px; color:var(--text); font-weight:500; font-variant-numeric:tabular-nums">+$1,515</div>
             </div>
@@ -282,7 +282,7 @@
 
       <div style="margin-top:40px; padding:28px 32px; border:1px dashed var(--border); border-radius:16px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap">
         <div>
-          <div class="serif" style="font-size:22px; color:var(--text); margin-bottom:6px">Want a plan built on <em style="color:var(--gold)">your</em> actual numbers?</div>
+          <div class="serif" style="font-size:22px; color:var(--text); margin-bottom:6px">Want a plan built on <em style="color:var(--cta)">your</em> actual numbers?</div>
           <div style="font-size:14px; color:var(--text-muted)">We&rsquo;ll look at your current spend and suggest a directional plan — 20 minutes, no deck.</div>
         </div>
         <a href="contact.html" class="btn btn-primary">Start a conversation →</a>
@@ -620,12 +620,12 @@
   font-family:inherit; transition:all 0.15s ease;
 }
 .ibtn.active, .sbtn.active, .pbtn.active {
-  border:1.5px solid var(--gold); background:rgba(201,169,110,0.18); color:var(--text);
+  border:1.5px solid var(--cta); background:rgba(255,92,26,0.18); color:var(--text);
 }
 .sbtn-grid-3 .sbtn { padding:8px 8px; font-size:11.5px; }
 .new-badge {
   display:inline-block; margin-left:8px; padding:2px 7px; border-radius:999px;
-  background:var(--gold); color:var(--bg); font-size:9px; font-weight:600;
+  background:var(--cta); color:var(--bg); font-size:9px; font-weight:600;
   letter-spacing:0.06em; text-transform:uppercase; vertical-align:middle;
 }
 .related-card:hover { border-color: var(--cta); }
@@ -846,16 +846,16 @@
       if (mode === 'budget') {
         leverEl.innerHTML = 'Conversion is usually the biggest lever. Lifting your lead&rarr;customer rate from <strong style="font-weight:500">'
           + Math.round(conv * 100) + '%</strong> to <strong style="font-weight:500">'
-          + Math.round(convImproved * 100) + '%</strong> would get you about <strong style="color:var(--gold); font-weight:500">'
+          + Math.round(convImproved * 100) + '%</strong> would get you about <strong style="color:var(--cta); font-weight:500">'
           + fmt(customerGain) + '</strong> more customers at the same $' + fmt(monthlySpend) + ' budget.';
       } else {
         leverEl.innerHTML = 'Conversion is usually the biggest lever. Lifting your lead&rarr;customer rate from <strong style="font-weight:500">'
           + Math.round(conv * 100) + '%</strong> to <strong style="font-weight:500">'
-          + Math.round(convImproved * 100) + '%</strong> would cut required spend by <strong style="color:var(--gold); font-weight:500">~$'
+          + Math.round(convImproved * 100) + '%</strong> would cut required spend by <strong style="color:var(--cta); font-weight:500">~$'
           + fmt(saving) + '</strong>/mo at the same ' + goal + '-customer goal.';
       }
       leverEl.style.color = 'var(--text)';
-      leverEl.style.borderLeftColor = 'var(--gold)';
+      leverEl.style.borderLeftColor = 'var(--cta)';
     }
     budgetCustomersEl.textContent = '~' + fmt(goal);
     budgetValEl.textContent = '$' + fmt(Number(budgetEl.value) || 0);
