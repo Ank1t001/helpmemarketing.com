@@ -433,37 +433,49 @@
   </div>
 </section>
 
-<section id="faq" class="alt" style="padding:80px 0; border-top:1px solid var(--border)">
+<section id="faq" class="alt blog-faq" style="padding:80px 0; border-top:1px solid var(--border)">
   <div class="container" style="max-width:920px">
     <span class="eyebrow"><span class="eyebrow-dot"></span>FAQ</span>
-    <h2 class="serif" style="font-size:clamp(32px, 4vw, 48px); margin-top:14px; color:var(--text); letter-spacing:-0.02em; line-height:1.1; font-weight:400">Frequently asked questions</h2>
+    <h2 class="serif blog-faq-title" style="font-size:clamp(32px, 4vw, 48px); margin-top:14px; color:var(--text); letter-spacing:-0.02em; line-height:1.1; font-weight:400">Frequently asked questions</h2>
     <p style="margin-top:24px; font-size:17px; color:var(--text-muted); line-height:1.7; max-width:780px">Common questions about how to read these numbers and apply them to your situation.</p>
 
-    <div style="margin-top:48px; display:flex; flex-direction:column; gap:32px">
-      <div style="border-top:1px solid var(--border); padding-top:24px">
-        <h4 style="font-size:19px; color:var(--text); margin:0 0 12px; letter-spacing:-0.005em; font-weight:600">How accurate are these benchmarks?</h4>
-        <p style="margin:0; font-size:15.5px; color:var(--text-muted); line-height:1.7; max-width:780px">The numbers are medians from public 2025 reports — your actual cost per lead will likely fall within ±30-50% of the segment baseline depending on creative quality, offer strength, audience precision, and seasonality. Use the calculator to set a starting expectation, not a target. If your real-world numbers are 2× off these benchmarks in either direction, that's worth investigating; 30% off is normal variance.</p>
-      </div>
-      <div style="border-top:1px solid var(--border); padding-top:24px">
-        <h4 style="font-size:19px; color:var(--text); margin:0 0 12px; letter-spacing:-0.005em; font-weight:600">Should I trust the platform multipliers?</h4>
-        <p style="margin:0; font-size:15.5px; color:var(--text-muted); line-height:1.7; max-width:780px">Treat them as directional, not precise. They reflect typical agency-managed performance ratios — for example, Google CPL is roughly 1.5× Meta CPL on average, but a poorly-managed Google account can be 3× or worse. Your actual ratio depends on bid strategy, keyword quality, ad relevance score, and landing page conversion rate. Use the calculator to get to "roughly the right zip code," then validate against your own data.</p>
-      </div>
-      <div style="border-top:1px solid var(--border); padding-top:24px">
-        <h4 style="font-size:19px; color:var(--text); margin:0 0 12px; letter-spacing:-0.005em; font-weight:600">What's a healthy CAC payback period?</h4>
-        <p style="margin:0; font-size:15.5px; color:var(--text-muted); line-height:1.7; max-width:780px">For DTC, aim to recover CAC within 3-6 months from first purchase plus repeat orders. For SaaS, healthy payback is 12-18 months on annual contracts. For high-ticket professional services or healthcare with long patient lifetimes, 6-24 months is acceptable depending on retention. If your payback is over 24 months, either CAC is too high, LTV is too low, or both.</p>
-      </div>
-      <div style="border-top:1px solid var(--border); padding-top:24px">
-        <h4 style="font-size:19px; color:var(--text); margin:0 0 12px; letter-spacing:-0.005em; font-weight:600">Why is LinkedIn so much more expensive than Meta?</h4>
-        <p style="margin:0; font-size:15.5px; color:var(--text-muted); line-height:1.7; max-width:780px">LinkedIn charges a premium because the audience is uniquely qualified by job title, seniority, and company. You pay 3-5× Meta CPC because each click is a verified professional, not a verified scroller. For B2B with $50K+ deal sizes, LinkedIn often delivers better blended ROI despite the higher cost-per-lead. For DTC or low-ticket consumer products, LinkedIn rarely makes economic sense.</p>
-      </div>
-      <div style="border-top:1px solid var(--border); padding-top:24px">
-        <h4 style="font-size:19px; color:var(--text); margin:0 0 12px; letter-spacing:-0.005em; font-weight:600">How much should I spend before I know if a platform is working?</h4>
-        <p style="margin:0; font-size:15.5px; color:var(--text-muted); line-height:1.7; max-width:780px">Minimum meaningful test budget: 30-50 conversions. If your CPL is $50, that's $1,500-$2,500. If it's $200, that's $6,000-$10,000. Below that volume, you can't separate signal from noise. Most platforms also require a 2-3 week learning phase where the algorithm optimizes targeting; pulling spend before then misreads early-phase performance.</p>
-      </div>
-      <div style="border-top:1px solid var(--border); padding-top:24px; padding-bottom:8px">
-        <h4 style="font-size:19px; color:var(--text); margin:0 0 12px; letter-spacing:-0.005em; font-weight:600">Why does my actual CPL differ so much from the benchmark?</h4>
-        <p style="margin:0; font-size:15.5px; color:var(--text-muted); line-height:1.7; max-width:780px">Three usual reasons. First, lead quality differences — a $20 CPL filled with bot leads is worse than a $60 CPL of qualified prospects. Second, attribution windows — if you're using last-click on Google but view-through on Meta, you'll see different "performance" for the same campaigns. Third, geography and seasonality — Q4 CPLs run 30-40% higher than Q1 in most categories, and US CPMs are roughly 2× European CPMs.</p>
-      </div>
+    <div class="blog-faq-list" style="margin-top:48px">
+      <details class="faq-item">
+        <summary class="faq-question">How accurate are these benchmarks?</summary>
+        <div class="faq-answer">
+          <p>The numbers are medians from public 2025 reports — your actual cost per lead will likely fall within ±30-50% of the segment baseline depending on creative quality, offer strength, audience precision, and seasonality. Use the calculator to set a starting expectation, not a target. If your real-world numbers are 2× off these benchmarks in either direction, that's worth investigating; 30% off is normal variance.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Should I trust the platform multipliers?</summary>
+        <div class="faq-answer">
+          <p>Treat them as directional, not precise. They reflect typical agency-managed performance ratios — for example, Google CPL is roughly 1.5× Meta CPL on average, but a poorly-managed Google account can be 3× or worse. Your actual ratio depends on bid strategy, keyword quality, ad relevance score, and landing page conversion rate. Use the calculator to get to "roughly the right zip code," then validate against your own data.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">What's a healthy CAC payback period?</summary>
+        <div class="faq-answer">
+          <p>For DTC, aim to recover CAC within 3-6 months from first purchase plus repeat orders. For SaaS, healthy payback is 12-18 months on annual contracts. For high-ticket professional services or healthcare with long patient lifetimes, 6-24 months is acceptable depending on retention. If your payback is over 24 months, either CAC is too high, LTV is too low, or both.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Why is LinkedIn so much more expensive than Meta?</summary>
+        <div class="faq-answer">
+          <p>LinkedIn charges a premium because the audience is uniquely qualified by job title, seniority, and company. You pay 3-5× Meta CPC because each click is a verified professional, not a verified scroller. For B2B with $50K+ deal sizes, LinkedIn often delivers better blended ROI despite the higher cost-per-lead. For DTC or low-ticket consumer products, LinkedIn rarely makes economic sense.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">How much should I spend before I know if a platform is working?</summary>
+        <div class="faq-answer">
+          <p>Minimum meaningful test budget: 30-50 conversions. If your CPL is $50, that's $1,500-$2,500. If it's $200, that's $6,000-$10,000. Below that volume, you can't separate signal from noise. Most platforms also require a 2-3 week learning phase where the algorithm optimizes targeting; pulling spend before then misreads early-phase performance.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Why does my actual CPL differ so much from the benchmark?</summary>
+        <div class="faq-answer">
+          <p>Three usual reasons. First, lead quality differences — a $20 CPL filled with bot leads is worse than a $60 CPL of qualified prospects. Second, attribution windows — if you're using last-click on Google but view-through on Meta, you'll see different "performance" for the same campaigns. Third, geography and seasonality — Q4 CPLs run 30-40% higher than Q1 in most categories, and US CPMs are roughly 2× European CPMs.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -475,26 +487,6 @@
     <p style="margin-top:24px; font-size:17px; color:var(--text-muted); line-height:1.7; max-width:780px">The calculator is a starting point. These resources go deeper on specific channels, verticals, and budgeting decisions.</p>
 
     <div class="related-grid" style="margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:20px">
-      <a href="industries/healthcare.html" class="related-card" style="display:block; padding:28px; background:var(--bg-elevated); border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease">
-        <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:12px">Industry</div>
-        <h3 class="serif" style="font-size:20px; color:var(--text); margin:0 0 10px; letter-spacing:-0.005em; font-weight:500">Healthcare marketing</h3>
-        <p style="margin:0; font-size:14.5px; color:var(--text-muted); line-height:1.55">Specialty-by-specialty benchmarks for dentistry, derm, med spa, and 8 other categories.</p>
-      </a>
-      <a href="industries/dtc.html" class="related-card" style="display:block; padding:28px; background:var(--bg-elevated); border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease">
-        <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:12px">Industry</div>
-        <h3 class="serif" style="font-size:20px; color:var(--text); margin:0 0 10px; letter-spacing:-0.005em; font-weight:500">DTC marketing</h3>
-        <p style="margin:0; font-size:14.5px; color:var(--text-muted); line-height:1.55">Cost-per-acquisition strategies for apparel, beauty, home goods, and food brands.</p>
-      </a>
-      <a href="industries/saas.html" class="related-card" style="display:block; padding:28px; background:var(--bg-elevated); border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease">
-        <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:12px">Industry</div>
-        <h3 class="serif" style="font-size:20px; color:var(--text); margin:0 0 10px; letter-spacing:-0.005em; font-weight:500">SaaS marketing</h3>
-        <p style="margin:0; font-size:14.5px; color:var(--text-muted); line-height:1.55">CAC payback frameworks for SMB, mid-market, and enterprise SaaS.</p>
-      </a>
-      <a href="industries/finance.html" class="related-card" style="display:block; padding:28px; background:var(--bg-elevated); border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease">
-        <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:12px">Industry</div>
-        <h3 class="serif" style="font-size:20px; color:var(--text); margin:0 0 10px; letter-spacing:-0.005em; font-weight:500">Finance marketing</h3>
-        <p style="margin:0; font-size:14.5px; color:var(--text-muted); line-height:1.55">Compliance-aware paid media strategies for advisory, fintech, and insurance.</p>
-      </a>
       <a href="blog/dtc-cac-reduction.html" class="related-card" style="display:block; padding:28px; background:var(--bg-elevated); border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease">
         <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:12px">Blog</div>
         <h3 class="serif" style="font-size:20px; color:var(--text); margin:0 0 10px; letter-spacing:-0.005em; font-weight:500">Reduce DTC CAC in 2026</h3>
@@ -637,6 +629,15 @@
 @media (max-width: 720px) {
   .related-grid { grid-template-columns: 1fr !important; }
 }
+body.redesign-prototype section.alt { background: transparent; }
+body.redesign-prototype .blog-faq { max-width: 920px; margin-top: 0; }
+body.redesign-prototype .blog-faq-title { font-family:'Fraunces',Georgia,serif; color:var(--text); font-weight:500; }
+body.redesign-prototype .faq-item { border-top:1px solid var(--border); }
+body.redesign-prototype .faq-question { color:var(--text); font-weight:600; cursor:pointer; }
+body.redesign-prototype .faq-question:hover { color:var(--cta); }
+body.redesign-prototype .faq-question::after { color:var(--cta); }
+body.redesign-prototype details[open] .faq-question::after { color:var(--cta); }
+body.redesign-prototype .faq-answer p { color:var(--text-muted); }
 </style>
 
 <script>
