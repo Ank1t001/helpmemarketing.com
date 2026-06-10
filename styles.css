@@ -5265,6 +5265,15 @@ body.redesign-prototype h2.section-heading {
   margin: 0;
 }
 
+/* H2 section-heading italic accent. Scoped to em inside h2.section-heading so it
+   does not affect body-prose <em>. Lets prototype pages use plain <em> accents
+   (no .italic-accent class); service pages can drop .italic-accent in the hygiene pass. */
+body.redesign-prototype h2.section-heading em {
+  color: var(--cta);
+  font-style: italic;
+  font-weight: 400;
+}
+
 body.redesign-prototype h3.subsection,
 body.redesign-prototype h3.card-title {
   font-family: var(--serif);
