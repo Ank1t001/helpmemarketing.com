@@ -6,14 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A hand-written static marketing site for HelpMeMarketing — a premium generalist digital marketing agency based in Ontario, Canada, serving DTC, SaaS, healthcare, and finance brands across Canada and the US. No build step, no framework, no package manager, no JS toolchain — just HTML files, one shared `styles.css`, and a `vercel.json`. Deployed to Vercel.
 
-## Site state — two coexisting realities
+## Site state
 
-The site is mid-redesign. Two branches, two visual systems:
+The dark redesign is live. main is the production site:
 
-- **`main` branch** — serves the **legacy light-mode site** to the public. Built on legacy color tokens (`--navy`, `--gold`, `--cream`, `--deep`, `--ink-*`), permissive about inline styles, healthcare-focused positioning. This is what visitors currently see at helpmemarketing.com.
-- **`redesign-prototype-homepage` branch** — the **prototype dark-mode site** ("The Quiet Disruptor"). Generalist positioning, new color system, strict scoping under `body.redesign-prototype`. Phase 2 migration in progress. Will eventually merge to `main` (Phase 3).
+- **`main` branch** — serves the **dark redesign** to the public. This is what visitors currently see at helpmemarketing.com. It is the live, canonical site.
+- **`redesign-prototype-homepage` branch** — a **frozen early-prototype pointer** (~40 commits behind main). The redesign already merged to main at commit `04cbc2a`. This branch is historical only; do not treat it as a live alternate or a merge source.
 
-When working on a page, **always check which branch you're on and which system applies**. The two systems use different tokens, different conventions, and different rules.
+All current work targets main. The codebase contains two CSS systems (legacy-scoped pages and body.redesign-prototype-scoped pages), both live on main. When working on a page, **check which CSS scope the page uses**, not which branch.
 
 ## Dev / preview
 
@@ -33,7 +33,7 @@ For any work on `body.redesign-prototype`-scoped pages (homepage, /contact, futu
 2. `/docs/HMM_Color_System.md` — color canon. Palette, tokens, 6 Golden Rules, 10 locked decisions.
 3. `/docs/HMM_Content_Rules.md` — voice canon (DRAFT v0.2). Banned phrases, EEAT, structural rules, validation checklist.
 
-These docs do **not** apply to legacy-page work on the `main` branch. They apply only inside `body.redesign-prototype` scope.
+These docs do **not** apply to legacy-scoped pages. They apply only inside body.redesign-prototype scope. (Both scopes are live on main; the distinction is CSS scope, not branch.)
 
 ### Forbidden in prototype scope (recap)
 
@@ -110,10 +110,10 @@ Two cards: Ad Spend Calculator (`/ad-calculator`) and Marketing Audit (`/tools/m
 - ✓ /contact migration — commits `d232097`, `ce577a6`, `27eb63b`
 - ✓ Canon docs in repo — commits `bc2afd7` (Color), `0bfba56` (Content), `cad7398` (Design), `82fba35` (CLAUDE.md)
 - ✓ /services overview page — commit `87d560c`
-- ⏳ Phase 2.5 sweep — queued for next session (canon docs updated this commit; F2 implementation + 26-page sweep follow)
-- ⏳ /services/seo migration — pending (Item 15 commitment soft-deadline 2026-05-24 slipped; deprioritized in favor of Phase 2.5 sweep)
-- ⏳ 5 remaining category pages — pending (Performance Marketing, Branding & Social, Website Development, Analytics & Attribution, AI Automation & Workflow Systems)
-- ⏳ Phase 3 merge `redesign-prototype-homepage` → `main` — pending
+- ✓ Phase 2.5 sweep — F2 implementation + 26-page sweep complete
+- ✓ /services/seo migration — shipped
+- ✓ 5 remaining category pages — shipped (Performance Marketing, Branding & Social, Website Development, Analytics & Attribution, AI Automation & Workflow Systems)
+- ✓ Redesign merged to `main` at `04cbc2a` (dark redesign production ship)
 
 ## Architecture (both legacy and prototype)
 
@@ -136,7 +136,7 @@ Active nav state is set manually per page by adding `.active` to the matching `<
 ### Page groups
 
 - **Top-level nav:** `index.html` (Home), `services.html` (Services hub), `work.html` (Case Studies), `about.html`
-- **Service detail pages (legacy, on `main` branch):** `healthcare-seo.html`, `google-meta-ads.html`, `clinic-websites.html`, `social-media.html`, `reputation.html`, `retention.html`, `analytics.html`, `brand.html`. All use `data-screen-label="service-detail"`. These will be replaced by `/services/[category-slug]` pages during Phase 2 migration — see locked architectural decisions above.
+- **Service detail pages (legacy-scoped):** `healthcare-seo.html`, `google-meta-ads.html`, `clinic-websites.html`, `social-media.html`, `reputation.html`, `retention.html`, `analytics.html`, `brand.html`. All used `data-screen-label="service-detail"`. These legacy files have been removed; their old URLs now 301-redirect to the `/services/[category-slug]` category pages (see `vercel.json`).
 - **Conversion / resources:** `contact.html`, `pricing.html`, `blog.html`, `hipaa-checklist.html`, `ad-calculator.html`
 - **Legal:** `privacy.html`, `terms.html`
 
@@ -144,9 +144,9 @@ Active nav state is set manually per page by adding `.active` to the matching `<
 
 All styles live in `styles.css`. The file has two distinct regions:
 
-**Legacy region (lines 1-~3632):** Light-mode tokens (`--navy` `#1E4D8C`, `--gold`, `--cream`, `--ink-*`, etc.), permissive about inline styles. This is what `main` branch and pre-prototype pages use.
+**Legacy region (lines 1-~3632):** Light-mode tokens (`--navy` `#1E4D8C`, `--gold`, `--cream`, `--ink-*`, etc.), permissive about inline styles. This is what legacy-scoped pages use.
 
-**Prototype region (lines ~3633-4418):** Dark-mode tokens defined under `body.redesign-prototype` scope (`--bg`, `--text`, `--cta`, etc.). Strict scoping. This is what the redesign branch uses.
+**Prototype region (lines ~3633-4418):** Dark-mode tokens defined under `body.redesign-prototype` scope (`--bg`, `--text`, `--cta`, etc.). Strict scoping. This is what body.redesign-prototype-scoped pages use.
 
 When editing styles for prototype pages, work inside the prototype region only. When editing styles for legacy pages, work outside it. Never mix the two systems on the same page.
 
@@ -170,14 +170,14 @@ Elsewhere, the only JS is tiny inline event handlers (mobile-menu toggle). **Not
 
 ## When making changes
 
-### For legacy pages (on `main` or pre-prototype pages on the redesign branch)
+### For legacy-scoped pages
 
 - Use legacy tokens (`--navy`, `--gold`, etc.). Don't introduce prototype tokens.
 - Inline styles are tolerated where the existing page uses them.
 - Follow the existing 4-column footer pattern.
 - Navigation/footer edits must be applied to every `.html` file in scope.
 
-### For prototype pages (on `redesign-prototype-homepage` branch with `body.redesign-prototype`)
+### For prototype-scoped pages (body.redesign-prototype)
 
 - Read the three canon docs first. No exceptions.
 - Use prototype tokens only. Never legacy tokens.
