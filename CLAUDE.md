@@ -224,8 +224,8 @@ The reference blog implementing all V2 patterns is:
 - See Part 1 Section B of master reference for full list
 
 ### Visual hierarchy
-- H2: 22px / 500 weight / navy / 32px gold accent rule above
-- Pull quotes: serif italic, gold left border, tinted background
+- H2: 26px / 600 weight / var(--text) / 36px Signal Orange (var(--cta)) accent rule above
+- Pull quotes: serif italic, Signal Orange (var(--cta)) left border, orange-glow (var(--orange-glow)) tinted background
 - Featured tables: wrapped in `.featured-table-card`
 - Featured conclusions: wrapped in `.featured-conclusion-card` with star marker
 - Author bio: standard text in Part 1 Section D — update via single sweep when changes
