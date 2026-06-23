@@ -113,7 +113,7 @@ After drafting, run this check on each H2 section. Flag any missing elements wit
 
 1. **H1 title** — under 60 characters, includes primary keyword, benefit-led
 2. **Subtitle / deck** — one-sentence summary of the takeaway
-3. **Author block** — Avatar (initials) + name + title + date + read time
+3. **Author block** — Avatar (initials) + name + read time (no visible title/date; date lives in schema)
 4. **Hero image** — 16:9, 2K resolution, brand-aligned (see Part 6)
 5. **Key Takeaways box** — 3-4 bulleted takeaways, scanners get value in 10 seconds
 6. **H2 sections** — each meeting the 6-element rule, with anchor IDs
@@ -127,7 +127,7 @@ After drafting, run this check on each H2 section. Flag any missing elements wit
 ### Standard author bio (verbatim)
 
 ```
-Founder of HelpMeMarketing. 9+ years building performance marketing programs for DTC, SaaS, healthcare, and finance brands. Writes about channel selection, attribution, and the unit economics of paid acquisition.
+Founder of Help Me Marketing. 9+ years building performance marketing programs for DTC, SaaS, healthcare, and finance brands. Writes about channel selection, attribution, and the unit economics of paid acquisition.
 ```
 
 Use this verbatim until updated. When the bio changes, propagate sitewide via a single sweep commit.
@@ -145,7 +145,7 @@ Use this verbatim until updated. When the bio changes, propagate sitewide via a 
   <!-- Meta -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Title under 60 chars] | HelpMeMarketing</title>
+  <title>[Title under 60 chars] | Help Me Marketing</title>
   <meta name="description" content="[150-160 chars]">
   <link rel="canonical" href="https://helpmemarketing.com/blog/[slug]">
   
@@ -224,19 +224,16 @@ Every blog needs these 4 schema blocks (HowTo only when applicable):
     "name": "Ankit Kumar",
     "jobTitle": "Founder",
     "worksFor": {
-      "@type": "Organization",
-      "name": "HelpMeMarketing",
+      "@type": "ProfessionalService",
+      "name": "Help Me Marketing",
       "url": "https://helpmemarketing.com"
     },
     "url": "https://helpmemarketing.com/about"
   },
   "publisher": {
-    "@type": "Organization",
-    "name": "HelpMeMarketing",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://helpmemarketing.com/logo.png"
-    }
+    "@type": "ProfessionalService",
+    "name": "Help Me Marketing",
+    "url": "https://helpmemarketing.com"
   },
   "keywords": ["primary keyword", "semantic 1", "semantic 2", "semantic 3", "semantic 4", "semantic 5", "semantic 6"],
   "mainEntityOfPage": {
@@ -247,6 +244,8 @@ Every blog needs these 4 schema blocks (HowTo only when applicable):
 ```
 
 **Convention:** 7 keywords (1 primary + 6 semantic). Existing blogs may have 5; new blogs use 7.
+
+**Entity note:** `author.worksFor` and `publisher` use `@type: ProfessionalService` with the 3-word name "Help Me Marketing" — matching the aligned homepage entity. Don't revert to a generic `Organization` or the compressed one-word brand form.
 
 ### Block 2 — FAQPage
 
@@ -287,6 +286,8 @@ Mirror visible HTML verbatim, char-for-char:
 
 ### Block 4 — HowTo (when article includes a step-by-step)
 
+Only add HowTo when the article contains genuinely **sequential** steps (do step 1, then 2, then 3). A decision test or evaluation checklist (e.g. yes/no questions you apply to a candidate) is NOT a HowTo — skip it rather than force-fit.
+
 ```json
 {
   "@context": "https://schema.org",
@@ -310,7 +311,7 @@ Mirror visible HTML verbatim, char-for-char:
 Use this exact pattern (substitute the article-specific values):
 
 ```html
-<title>[Title under 60 chars] | HelpMeMarketing</title>
+<title>[Title under 60 chars] | Help Me Marketing</title>
 <meta name="description" content="[150-160 chars, ends with click reason]">
 <link rel="canonical" href="https://helpmemarketing.com/blog/[slug]">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -431,20 +432,18 @@ At <900px viewport, sidebar hides; replaced with collapsible "Jump to section" b
       <div class="hero-zone">
         <div class="hero-text">
           <h1 class="post-title">
-            [Article title with single accent word in <em class="italic-accent">italic gold</em>]
+            [Article title with single accent word in <span class="accent">accent word</span>]
           </h1>
           <p class="post-subtitle">[One-sentence subtitle, what reader walks away with]</p>
-          <div class="author-block">
-            <div class="avatar">AK</div>
-            <div class="author-info">
-              <div class="author-name">Ankit Kumar</div>
-              <div class="author-title">Founder, HelpMeMarketing</div>
-            </div>
-            <div class="meta-icons">
-              <span>[Date in "Mon DD, YYYY" format]</span>
-              <span>[N min read]</span>
-            </div>
+          <div class="author-line">
+            <div class="author-avatar">AK</div>
+            <span>Ankit Kumar</span>
+            <span class="dot"></span>
+            <span>[N min read]</span>
           </div>
+          <!-- LIVE CANON: author-line = author-avatar + bare span name + dot separator
+               + bare span read time. No visible title or date (date lives in schema +
+               article:published_time). Verified against styles.css and the live V2 blogs. -->
         </div>
 
         <div class="hero-illustration hero-illustration--image">
@@ -507,7 +506,7 @@ At <900px viewport, sidebar hides; replaced with collapsible "Jump to section" b
         <thead><tr><th>...</th></tr></thead>
         <tbody><tr><td>...</td></tr></tbody>
       </table>
-      <p class="table-source">Source: HelpMeMarketing client data, [Year range]. [Caveat about assumptions.]</p>
+      <p class="table-source">Source: Help Me Marketing client data, [Year range]. [Caveat about assumptions.]</p>
     </div>
     
     <p>[Closing prose]</p>
@@ -702,10 +701,17 @@ Use `var(--navy)`, `var(--gold)`, etc. throughout. Don't hardcode hex values for
   margin: 0 0 14px;
 }
 
-.post-title em.italic-accent {
+/* Light-theme accent (styles.css:3049) — exists but NOT the live blog default: */
+.post-title .accent { color: var(--gold); font-style: italic; font-weight: 400; }
+
+/* LIVE BLOG DEFAULT — dark theme (styles.css:3685). V2 blogs render under
+   body.blog-dark, so this is the rule that actually applies. The accent word is
+   Signal Orange (--cta: #FF5C1A), italic, weight 400 — NOT gold/800. Verified
+   against live styles.css during the doc-sync. */
+body.blog-dark .post-title .accent {
+  color: var(--cta);
   font-style: italic;
-  color: var(--gold);
-  font-weight: 800;
+  font-weight: 400;
 }
 
 .post-subtitle {
@@ -1104,7 +1110,7 @@ Use `var(--navy)`, `var(--gold)`, etc. throughout. Don't hardcode hex values for
 }
 ```
 
-## Section J — Hero zone
+## Section J — Hero zone + author line
 
 ```css
 .hero-zone {
@@ -1131,46 +1137,45 @@ Use `var(--navy)`, `var(--gold)`, etc. throughout. Don't hardcode hex values for
   border-radius: 16px;
 }
 
-.author-block {
+/* Author line — LIVE markup is .author-avatar + bare span name + .dot + bare span
+   read time (verified against styles.css). NOT the old .author-block/.author-info/
+   .meta-icons system, which never shipped to the live V2 blogs. */
+.author-line {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 12px;
+  gap: 10px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.author-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--navy); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px;
+}
+
+.author-line .dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--light);
+}
+
+/* Dark-theme overrides (live blog default — body.blog-dark) */
+body.blog-dark .author-line {
   color: var(--text-muted);
-  flex-wrap: wrap;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
 }
 
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--navy);
-  color: var(--ivory);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 500;
-  flex-shrink: 0;
+body.blog-dark .author-line .dot {
+  background: var(--text-muted);
 }
 
-.author-info .author-name {
-  font-weight: 500;
-  color: var(--text-primary);
-  font-size: 13px;
-}
-
-.author-info .author-title {
-  font-size: 11px;
-  color: var(--text-tertiary);
-}
-
-.meta-icons {
-  display: flex;
-  gap: 16px;
-  margin-left: auto;
-  font-size: 11px;
-  color: var(--text-tertiary);
+body.blog-dark .author-avatar {
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
 }
 ```
 
@@ -1377,18 +1382,20 @@ This file is shared across all V2 blogs. Don't duplicate inline. Don't fork per-
 | **Aspect ratio** | 16:9 |
 | **Resolution** | 2K (~3000×1688) |
 | **Path** | `/blog/images/[slug]-hero.png` |
-| **Style** | Brand-aligned: muted gold + ivory, editorial aesthetic, no medical/stock imagery |
-| **Tool** | nano-banana-pro (Google Gemini 3 Pro Image) via Claude Code skill |
+| **Style** | Brand-aligned. **Default (canonical): dark obsidian + Signal Orange (#FF5C1A)** editorial aesthetic, matching the live dark site. Gold/ivory editorial is an acceptable alternative, not the default. No medical/stock imagery either way. |
+| **Tool** | Tool-agnostic. Two paths: **nano-banana-pro** (Google Gemini 3 Pro Image, a Claude Code skill — generate in-build) OR **Higgsfield / Recraft** (chat connector — generate, then hand off the PNG to the build). The JSON spec below is a concept brief any model can take. |
 
 ## Section B — JSON spec template
 
-Use this template for every new blog hero. Fill the `subject.concept` field with the article-specific visual idea.
+Use this template for every new blog hero. Fill the `subject.concept` field with the article-specific visual idea. The concept brief is tool-agnostic; feed it to whichever generator you're using.
+
+The `brand_tokens` block below carries the **dark default**. If you deliberately want the gold/ivory alternative for a specific post, swap the token values (navy/gold/ivory) and flip `use_strategy` accordingly.
 
 ```json
 {
   "_meta": {
     "blog_slug": "[slug]",
-    "spec_version": "1.0",
+    "spec_version": "1.1",
     "based_on_template": "HMM_Blog_Hero_v1",
     "concept_summary": "[One-line description]"
   },
@@ -1401,10 +1408,12 @@ Use this template for every new blog hero. Fill the `subject.concept` field with
   },
 
   "brand_tokens": {
-    "navy_primary": "#0A1628",
-    "gold_accent": "#C9A96E",
-    "ivory_background": "#FAF9F6",
-    "use_strategy": "Ivory dominates as primary surface. Muted gold is the only color used on the subject. Navy is not used in this image."
+    "obsidian_background": "#0A0A0F",
+    "signal_orange_accent": "#FF5C1A",
+    "use_strategy": "DEFAULT (canonical): near-black obsidian dominates as the primary surface. Signal Orange is the only color used on the subject. Matches the live dark site. ALTERNATIVE (note, not default): swap to ivory background #FAF9F6 + muted gold #C9A96E subject for a light editorial treatment.",
+    "alt_navy": "#0A1628",
+    "alt_gold": "#C9A96E",
+    "alt_ivory": "#FAF9F6"
   },
 
   "composition": {
@@ -1415,16 +1424,16 @@ Use this template for every new blog hero. Fill the `subject.concept` field with
   },
 
   "lighting": {
-    "direction": "soft directional light from upper-left",
-    "quality": "diffused, warm, slightly overcast — not harsh studio lighting",
-    "shadows": "gentle warm-grey contact shadows beneath each paper element, not deep blacks",
+    "direction": "soft directional light / glow from upper-left",
+    "quality": "diffused, considered — not harsh studio lighting",
+    "shadows": "gentle contact shadows beneath each element; on the dark default, let the Signal Orange subject self-glow against the obsidian field",
     "mood": "calm, considered, hand-crafted feeling"
   },
 
   "surface": {
-    "material": "warm ivory matte paper with fine subtle grain",
+    "material": "default: matte near-black surface with fine subtle grain; alternative: warm ivory matte paper",
     "texture": "minimal — visible enough to feel tactile, not enough to compete with subject",
-    "color_temperature": "warm, slightly off-white"
+    "color_temperature": "default: cool near-black; alternative: warm off-white"
   },
 
   "aesthetic_anchors": {
@@ -1437,21 +1446,21 @@ Use this template for every new blog hero. Fill the `subject.concept` field with
     "concept": "[FILL IN: One paragraph describing the visual concept. Avoid 'branches' (reads as biological tree). Use 'ribbons', 'paths', 'distinct strands', 'parallel routes' for divergent metaphors.]",
     "concept_constraints": [
       "subject must be abstract — no medical imagery, no devices, no people, no buildings",
-      "subject must feel physical/tactile — visible paper texture, hand-cut imperfections",
+      "subject must feel physical/tactile — visible texture, hand-cut imperfections",
       "no rendered text in the image"
     ]
   },
 
   "color_application": {
-    "primary_color_in_subject": "muted gold #C9A96E",
-    "background_color": "warm ivory #FAF9F6",
+    "primary_color_in_subject": "default: Signal Orange #FF5C1A; alternative: muted gold #C9A96E",
+    "background_color": "default: obsidian #0A0A0F; alternative: warm ivory #FAF9F6",
     "color_count_max": 2,
-    "saturation": "muted, never neon, never high-saturation",
+    "saturation": "muted to controlled — never neon-bright, but the dark default lets Signal Orange read as a confident accent against near-black",
     "treatment": "matte finish, not glossy or metallic shine"
   },
 
   "rendering_directives": {
-    "style": "photorealistic editorial photography",
+    "style": "photorealistic editorial photography or clean 3D editorial render",
     "camera_angle": "slight overhead angle (approximately 15-20 degrees from top-down), never flat top-down",
     "focus": "sharp on the entire subject, slight bokeh on surface texture toward edges",
     "post_processing": "minimal — no heavy filters, no faux film grain, no obvious vignette",
@@ -1465,11 +1474,10 @@ Use this template for every new blog hero. Fill the `subject.concept` field with
       "medical imagery (stethoscopes, charts, devices, scrubs)",
       "computer screens, phones, devices",
       "office settings",
-      "neon or saturated colors",
+      "neon or oversaturated colors",
       "glossy or metallic finishes",
       "obvious AI artifacts",
       "drop shadows that look digital",
-      "gradient backgrounds",
       "competing focal points",
       "cluttered compositions",
       "hand-drawn cartoon style",
@@ -1499,12 +1507,12 @@ After 3 iterations, if the concept still isn't landing, switch concept entirely 
 
 | Criterion | Pass condition |
 |---|---|
-| Brand alignment | Muted gold visible (close to #C9A96E), ivory background (close to #FAF9F6) |
+| Brand alignment | Default: Signal Orange (close to #FF5C1A) on obsidian (near-black). Alternative: muted gold on ivory. |
 | Composition | Subject on left, negative space on right two-thirds |
 | Conceptual clarity | Viewer "gets it" without explanation |
 | Editorial feel | Reads as magazine cover, not stock photo |
-| No AI tells | No weird artifacts, paper texture looks real |
-| Lighting consistency | Soft from upper-left, warm shadows |
+| No AI tells | No weird artifacts, surface texture looks real |
+| Lighting consistency | Soft from upper-left, controlled shadows / glow |
 
 5/6 pass → ship. 3-4/6 → one targeted iteration. <3/6 → re-concept.
 
@@ -1512,7 +1520,7 @@ After 3 iterations, if the concept still isn't landing, switch concept entirely 
 
 | Step | Detail |
 |---|---|
-| **Generate locally** | `D:\AI Projects\Image_Studio\[slug]_hero_v[N].png` |
+| **Generate locally** | `D:\AI Projects\Image_Studio\[slug]_hero_v[N].png` (nano-banana-pro) OR via the chat connector (Higgsfield/Recraft), then save the PNG locally |
 | **Copy to repo** | `/blog/images/[slug]-hero.png` (note hyphen, not underscore, in repo path) |
 | **Commit** | Repo path included in blog HTML, OG tags, Twitter Cards, BlogPosting schema |
 | **Spec file** | `[slug]_hero.spec.json` kept LOCAL only — not committed |
@@ -1521,7 +1529,7 @@ After 3 iterations, if the concept still isn't landing, switch concept entirely 
 
 Match the actual visual concept descriptively. Examples:
 
-- "Four muted-gold paper ribbons fanning right from a single starting point — illustrating the choice between marketing channels for healthcare practices"
+- "Four Signal Orange paper ribbons fanning right from a single starting point on a near-black field — illustrating the choice between marketing channels"
 - "Gold thread sewing through a stack of muted ivory papers — illustrating the connection between attribution and unit economics"
 
 Don't write alt text that says "hero image" or "blog illustration." Describe what's in the image AND what it illustrates.
@@ -1540,12 +1548,13 @@ When a new blog is requested, follow this exact sequence:
 | 2. **Competitor scan** | Pull top 3 ranking posts for the keyword. Note coverage gaps. State the unique angle. |
 | 3. **Propose outline** | H1, subtitle, H2/H3 structure, proposed visuals, internal link plan. **Wait for approval.** |
 | 4. **State tone register** | Tell user which of the 4 registers (Part 1 Section B) and why |
-| 5. **Generate hero image** | JSON spec → nano-banana-pro → visual review → iterate or ship |
+| 5. **Generate hero image** | JSON spec (Part 6) → image model → visual review → iterate or ship. Tool-agnostic: **nano-banana-pro** (Claude Code skill, generate in-build) or **Higgsfield / Recraft** (chat connector, generate then hand off the PNG). Default aesthetic is dark obsidian + Signal Orange; gold/ivory is an acceptable alternative. |
 | 6. **Draft the post** | Every H2 hits 6-element rule. Minimum 4 internal links. |
 | 7. **Self-audit** | Run 6-element check on each H2. Run 10-second scan test. Flag weak spots. |
 | 8. **Deliver metadata** | Meta title, meta description, URL slug, social captions |
 | 9. **Write build brief for Claude Code** | See Section B below |
 | 10. **Checkpoint-discipline build** | 5-checkpoint pattern (see Section C) |
+| 11. **Add to blog index** | Add the post's card to `blog.html` (match sibling card pattern: gradient + keyword thumbnail, meta row, serif title, excerpt). If the post's category has no existing filter chip, add one. This step should be folded INTO the Claude Code build (CP4 or CP5), not left as a separate follow-up. Two shipped posts were previously left off the index because this step was missing. |
 
 ## Section B — Build brief for Claude Code
 
@@ -1572,7 +1581,7 @@ Every blog build (new or retrofit) runs through 5 checkpoints with user approval
 | **1 — Pre-work** | Read existing files, identify patterns, flag decisions | ~5-10 min |
 | **2 — Architecture/scaffold** | HTML structure + image placement | ~15-25 min |
 | **3 — Body content + links** | Full prose, internal links verified | ~20-30 min |
-| **4 — Schema + final polish** | All schemas validated, sitemap entry, hero image | ~10-15 min |
+| **4 — Schema + final polish** | All schemas validated, sitemap entry, hero image, blog index card | ~10-15 min |
 | **5 — Pre-commit review** | Diff stats, commit message, risks flagged | ~5-10 min |
 
 After CP5: commit, push, deploy, post-deploy verification.
@@ -1585,7 +1594,7 @@ These have all bitten us in past sessions. Watch for them:
 
 | Gotcha | Mitigation |
 |---|---|
-| Cloudflare strips inline `onclick` | Always use `addEventListener` + `DOMContentLoaded` |
+| Cloudflare strips inline `onclick` | (Site is pure Vercel now; legacy note.) Prefer `addEventListener` + `DOMContentLoaded` for prototype-scoped JS |
 | Vercel cleanUrls strips `.html` before redirects evaluate | Redirect sources must use clean form |
 | "branches" in image spec → biological tree | Use "ribbons", "paths", "strands" instead |
 | FAQ markup in some existing blogs has stray `<div>` tags | Don't copy this bug forward |
@@ -1593,6 +1602,7 @@ These have all bitten us in past sessions. Watch for them:
 | Hero image too large (2.45 MB) | Compress to WebP in deferred follow-up |
 | `position: sticky` parent has overflow set | Sidebar parent (`.blog-body`) must NOT have overflow defined |
 | `IntersectionObserver` rootMargin tuned to nav height | If sitewide nav height changes, scroll-spy timing drifts |
+| Post shipped but missing from `/blog` index | Add the blog.html card during the build (Part 7 step 11), not as a follow-up |
 
 ## Section E — Retrofit considerations
 
@@ -1610,7 +1620,7 @@ When migrating an existing blog to V2 template:
 | 8. Add scroll-margin-top to H2[id] | For clean anchor jumps |
 | 9. Update breadcrumb plural→singular | `.breadcrumbs` → `.breadcrumb` |
 | 10. Wrap hero in `.blog-hero` | Per V2 structure |
-| 11. Update author block | `.author-line` → `.author-block` with subelements |
+| 11. Update author block | Use `.author-line` (author-avatar + bare span name + .dot + bare span read time) |
 | 12. Replace bio text | Use current standard from Part 1 Section D |
 
 Each retrofit is its own commit. Batch 2-3 blogs per commit if logically related (same vertical, same topic cluster).
@@ -1634,7 +1644,7 @@ Each retrofit is its own commit. Batch 2-3 blogs per commit if logically related
 ☐ Featured table card: if data table present
 ☐ Featured conclusion card: if prescriptive article
 ☐ FAQ: 3-5 questions, 40-60 words each
-☐ Schema: BlogPosting + FAQPage + BreadcrumbList + HowTo (if applicable)
+☐ Schema: BlogPosting + FAQPage + BreadcrumbList + HowTo (if genuinely sequential)
 ☐ Anchor IDs on all H2s
 ☐ Word count: 2,150-2,550 (or document if outside range)
 ☐ Self-audit: 6-element check passed
@@ -1642,6 +1652,7 @@ Each retrofit is its own commit. Batch 2-3 blogs per commit if logically related
 ☐ Build brief for Claude Code written
 ☐ 5-checkpoint discipline followed
 ☐ Sitemap entry added
+☐ Blog index card added to blog.html (+ filter chip if new category)
 ☐ All schemas parse on live deploy
 ☐ All anchor IDs resolve on live deploy
 ```
@@ -1671,6 +1682,7 @@ Blog HTML:        /blog/[slug].html
 Hero image:       /blog/images/[slug]-hero.png
 Shared CSS:       /styles.css (BLOG TEMPLATE V2 section)
 Shared JS:        /blog/blog-template.js
+Blog index:       /blog.html (card + filter chip)
 Sitemap entry:    /sitemap.xml (clustered with other /blog/* URLs)
 Local image dev:  D:\AI Projects\Image_Studio\
 Local spec file:  [slug]_hero.spec.json (LOCAL ONLY, not committed)
@@ -1702,7 +1714,10 @@ Final CTA:     Primary button → /contact
 
 ```
 1. Fill JSON spec (Part 6 Section B) — concept paragraph specific to article
-2. Run nano-banana-pro: 16:9 / 2K / PNG
+2. Generate at 16:9 / 2K / PNG via either path:
+   - nano-banana-pro (Claude Code skill, in-build), OR
+   - Higgsfield / Recraft (chat connector), then save the PNG locally
+   Default palette: dark obsidian + Signal Orange. Gold/ivory = alternative.
 3. Visual review against 6-criterion checklist (Part 6 Section C)
 4. If 5/6 pass → save as v01-final, copy to repo
 5. If 3-4/6 pass → identify ONE handle to adjust, generate v02
@@ -1736,9 +1751,10 @@ When uncertain about a pattern, view that blog's source as the canonical impleme
 | Version | Date | Changes |
 |---|---|---|
 | 2.0 | May 5 2026 | Initial V2 template (D-hybrid sticky TOC sidebar). Replaces V1 (2-column body-layout with right-column visuals). |
+| 2.1 | Jun 23 2026 | Sync to live canon: `.author-line` markup + CSS (replaces stale `.author-block`), `.accent` resolved to live dark-theme Signal Orange (`var(--cta)` #FF5C1A, italic, weight 400), 3-word "Help Me Marketing" name, ProfessionalService schema entity, blog-index card build step (Part 7 + Card 1), hero workflow made tool-agnostic (nano-banana-pro + Higgsfield/Recraft) with dark obsidian + Signal Orange as the canonical default aesthetic. |
 
 ---
 
 *End of HMM Blog Template V2 Master Reference*
-*Maintained by: Ankit Kumar / HelpMeMarketing*
+*Maintained by: Ankit Kumar / Help Me Marketing*
 *Update cadence: When template changes ship to production*
