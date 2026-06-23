@@ -124,7 +124,7 @@ Every page is a standalone, fully self-contained HTML document. There is **no te
 Each page shares this skeleton:
 
 - Same `<head>`: Google Fonts (Fraunces + Inter) preconnect + link, then `<link rel="stylesheet" href="styles.css">`.
-- `<div class="app" data-screen-label="{page-id}">` — the `data-screen-label` identifies the page type (`home`, `services`, `service-detail`, `contact`, `blog`, `pricing`, `privacy`, `terms`, `about`, `work`, `ad-calculator`, `hipaa-checklist`). Service-detail pages all share the label `service-detail`.
+- `<div class="app" data-screen-label="{page-id}">` — the `data-screen-label` identifies the page type (`home`, `services`, `service-detail`, `contact`, `blog`, `privacy`, `terms`, `about`, `work`, `ad-calculator`, `hipaa-checklist`). Service-detail pages all share the label `service-detail`.
 - `<nav class="nav">` + hidden `<div class="nav-mobile-menu">`, with a mobile hamburger toggle.
 - `<div class="page-enter">` wraps the body content for the entry animation.
 - Shared `<footer class="footer">`.
@@ -137,7 +137,7 @@ Active nav state is set manually per page by adding `.active` to the matching `<
 
 - **Top-level nav:** `index.html` (Home), `services.html` (Services hub), `work.html` (Case Studies), `about.html`
 - **Service detail pages (legacy-scoped):** `healthcare-seo.html`, `google-meta-ads.html`, `clinic-websites.html`, `social-media.html`, `reputation.html`, `retention.html`, `analytics.html`, `brand.html`. All used `data-screen-label="service-detail"`. These legacy files have been removed; their old URLs now 301-redirect to the `/services/[category-slug]` category pages (see `vercel.json`).
-- **Conversion / resources:** `contact.html`, `pricing.html`, `blog.html`, `hipaa-checklist.html`, `ad-calculator.html`
+- **Conversion / resources:** `contact.html`, `blog.html`, `hipaa-checklist.html`, `ad-calculator.html`
 - **Legal:** `privacy.html`, `terms.html`
 
 ### Styling
@@ -166,7 +166,7 @@ Elsewhere, the only JS is tiny inline event handlers (mobile-menu toggle). **Not
 
 - `vercel.json` sets `cleanUrls: true`, `trailingSlash: false`, adds `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: SAMEORIGIN` on all responses, and caches `styles.css` for 1h (`must-revalidate`).
 - `sitemap.xml` is hand-maintained — when adding or renaming a page, update it (use the clean-URL form without `.html`).
-- `robots.txt` disallows both `/pricing` and `/pricing.html`. Keep `pricing.html` out of the sitemap too — it is reachable via CTAs but intentionally not indexed.
+- `pricing.html` was removed (commit `b80babb`); `/pricing` and `/pricing.html` now 301-redirect to `/contact` (see `vercel.json`). No pricing entry remains in `robots.txt` or `sitemap.xml`.
 
 ## When making changes
 
@@ -205,13 +205,14 @@ When asked to write a new blog or retrofit an existing one:
 5. Reference shared CSS in `styles.css` under the `BLOG TEMPLATE V2 — D-HYBRID LAYOUT` section header
 6. Reference shared JS at `/blog/blog-template.js`
 7. Use 5-checkpoint discipline for all builds (Part 7 Section C)
+8. Add the post's card to `blog.html` (plus a filter chip if it's a new category), folded into the same Claude Code build at CP4/CP5 — not a separate follow-up. Two posts shipped unlisted this session when this step was missed.
 
 The reference blog implementing all V2 patterns is:
 `/blog/healthcare-marketing-channels.html`
 
 ### Hero images
-- Generated with nano-banana-pro skill
-- 16:9, 2K, PNG, brand-aligned (muted gold + ivory)
+- Generated tool-agnostic: nano-banana-pro skill (in-build) or Higgsfield/Recraft connector (generate, then hand off the PNG)
+- 16:9, 2K, PNG. Default aesthetic: dark obsidian + Signal Orange (canonical); muted gold + ivory is an acceptable alternative
 - Stored at `/blog/images/[slug]-hero.png`
 - JSON spec template in Part 6 Section B of master reference
 
@@ -234,10 +235,11 @@ The reference blog implementing all V2 patterns is:
 - Standard slot positions in Part 2 Section D
 
 ### Common gotchas
-- Cloudflare strips inline `onclick` — always use `addEventListener`
+- Use `addEventListener` (not inline `onclick`) for blog JS — a consistency convention, not a platform constraint. The site is pure Vercel; the old "Cloudflare strips onclick" note was stale.
 - "branches" in image specs reads as biological tree — use "ribbons" / "paths" / "strands"
 - `position: sticky` parent must NOT have overflow set
 - Don't propagate corrupted FAQ markup from older blogs (stray `<div class="related-and-cta">` inside FAQ items)
+- Post shipped but missing from `/blog`: add the post's `blog.html` index card during the build (CP4/CP5), not as a follow-up
 
 ### Updating the template
 When the template evolves (new pattern, voice rule change, layout shift), update `/docs/HMM_Blog_Template_V2_Master_Reference.md` in the same commit. Bump version + changelog at the bottom of the doc.
