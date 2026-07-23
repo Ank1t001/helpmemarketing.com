@@ -81,6 +81,9 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a marketing maturity assessment?","acceptedAnswer":{"@type":"Answer","text":"A marketing maturity assessment is a structured diagnostic that scores how developed your marketing process is across several dimensions, rather than judging a single campaign. This one asks eight questions across foundation, acquisition, conversion, retention, and measurement, then returns a 0 to 100 score and tells you what to improve first."}},{"@type":"Question","name":"Is this a real marketing maturity model test or just a lead form?","acceptedAnswer":{"@type":"Answer","text":"It is a real test. You answer eight scored questions and get a genuine maturity score with a per-dimension breakdown and specific next steps. We ask for an email to send your results, but the diagnosis is real and useful whether or not you ever talk to us."}},{"@type":"Question","name":"How is this different from a paid marketing audit service?","acceptedAnswer":{"@type":"Answer","text":"A full marketing audit service is a hands-on review of your accounts, analytics, and campaigns by a specialist, and it goes far deeper. This free tool is a fast self-assessment that tells you roughly where you stand and where to focus. If the results show you need a deeper look, we offer a full audit through our contact page."}},{"@type":"Question","name":"How long does the marketing audit take?","acceptedAnswer":{"@type":"Answer","text":"About five minutes. Eight questions, multiple choice, no preparation needed."}}]}
+</script>
 </head>
 <body class="redesign-prototype">
 <div class="app" data-screen-label="marketing-audit">
@@ -297,6 +300,45 @@
 
 </main>
 
+<section class="audit-support">
+  <h2>What is marketing <em>maturity</em>?</h2>
+  <p>Marketing maturity is a measure of how deliberate and repeatable your marketing is, from how well you know your customer to how well you measure results. A low-maturity team markets on instinct: it spends when cash allows, picks channels it has heard of, and judges success by how busy it feels. A high-maturity team runs marketing as a system, with a defined audience, chosen channels, a measured funnel, and reporting that ties spend to revenue.</p>
+  <p>Maturity is not the same as budget. Plenty of well-funded brands score low because money papers over broken fundamentals, and plenty of small teams score high because they are disciplined. That is the point of this assessment: it tells you where your process actually stands, independent of how much you spend, and shows you the next move that will matter most.</p>
+
+  <h2>The 5 dimensions we <em>score</em></h2>
+  <p>The audit scores you across five dimensions, because a marketing engine is only as strong as its weakest link.</p>
+  <ul>
+    <li><strong>Foundation.</strong> How clearly you have defined your ideal customer and positioning. Everything downstream depends on getting this right.</li>
+    <li><strong>Acquisition.</strong> How you attract new customers, how many channels you run, and how deliberately you chose them.</li>
+    <li><strong>Conversion.</strong> What happens between someone noticing you and becoming a customer: your funnel, your landing pages, and where people drop off.</li>
+    <li><strong>Retention.</strong> What happens after the first purchase: lifecycle programs, repeat rate, and lifetime value.</li>
+    <li><strong>Measurement.</strong> Whether you can attribute customers to the marketing that created them, and how often you act on the data.</li>
+  </ul>
+  <p>Each answer maps to a score, and the five combine into a single 0 to 100 maturity number plus a per-dimension breakdown.</p>
+
+  <h2>How to read your <em>score</em></h2>
+  <p>Your score places you in a maturity tier, from early and instinct-led to advanced and system-led. The headline number is useful for tracking progress over time, but the more valuable output is the per-dimension breakdown, because it shows you the weakest link.</p>
+  <p>The rule of thumb is to fix the lowest dimension first. A brand with strong acquisition but weak conversion is pouring water into a leaky bucket, and more traffic will not fix it. A brand with strong conversion but weak measurement is flying blind and cannot tell which spend to scale. The audit points you at the one or two dimensions that will unlock the most growth next, whether you fix them yourself or <a href="/contact">bring in help</a>.</p>
+
+  <h2>Frequently asked <em>questions</em></h2>
+  <div class="audit-faq-item">
+    <h3>What is a marketing maturity assessment?</h3>
+    <p>A marketing maturity assessment is a structured diagnostic that scores how developed your marketing process is across several dimensions, rather than judging a single campaign. This one asks eight questions across foundation, acquisition, conversion, retention, and measurement, then returns a 0 to 100 score and tells you what to improve first.</p>
+  </div>
+  <div class="audit-faq-item">
+    <h3>Is this a real marketing maturity model test or just a lead form?</h3>
+    <p>It is a real test. You answer eight scored questions and get a genuine maturity score with a per-dimension breakdown and specific next steps. We ask for an email to send your results, but the diagnosis is real and useful whether or not you ever talk to us.</p>
+  </div>
+  <div class="audit-faq-item">
+    <h3>How is this different from a paid marketing audit service?</h3>
+    <p>A full marketing audit service is a hands-on review of your accounts, analytics, and campaigns by a specialist, and it goes far deeper. This free tool is a fast self-assessment that tells you roughly where you stand and where to focus. If the results show you need a deeper look, we offer a full audit through our <a href="/contact">contact page</a>.</p>
+  </div>
+  <div class="audit-faq-item">
+    <h3>How long does the marketing audit take?</h3>
+    <p>About five minutes. Eight questions, multiple choice, no preparation needed.</p>
+  </div>
+</section>
+
 </div>
 
 <footer class="footer">
@@ -403,6 +445,22 @@
 <script src="/tools/marketing-audit-content.js" defer></script>
 <!-- Behaviour script (CP3). -->
 <script src="/tools/marketing-audit.js" defer></script>
+
+<style>
+body.redesign-prototype .audit-support { max-width: 760px; margin: 0 auto; padding: 72px 32px 8px; }
+body.redesign-prototype .audit-support h2 { font-family: var(--serif); font-size: 30px; font-weight: 400; line-height: 1.15; letter-spacing: -0.015em; color: var(--text); margin: 52px 0 16px; }
+body.redesign-prototype .audit-support h2:first-child { margin-top: 0; }
+body.redesign-prototype .audit-support h2 em { color: var(--cta); font-style: italic; font-weight: 400; }
+body.redesign-prototype .audit-support p { font-size: 17px; line-height: 1.7; color: var(--text-muted); margin: 0 0 18px; }
+body.redesign-prototype .audit-support ul { margin: 0 0 18px; padding-left: 0; list-style: none; }
+body.redesign-prototype .audit-support ul li { position: relative; padding-left: 20px; margin-bottom: 12px; font-size: 16px; line-height: 1.6; color: var(--text-muted); }
+body.redesign-prototype .audit-support ul li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--cta); }
+body.redesign-prototype .audit-support ul li strong { color: var(--text); font-weight: 600; }
+body.redesign-prototype .audit-support a { color: var(--cta); text-decoration: underline; text-underline-offset: 2px; }
+body.redesign-prototype .audit-support .audit-faq-item { border-top: 1px solid rgba(255,255,255,0.14); padding-top: 22px; margin-top: 22px; }
+body.redesign-prototype .audit-support .audit-faq-item h3 { font-size: 18px; color: var(--text); margin: 0 0 10px; letter-spacing: -0.005em; }
+body.redesign-prototype .audit-support .audit-faq-item p { font-size: 15.5px; margin: 0; }
+</style>
 
 </body>
 </html>
