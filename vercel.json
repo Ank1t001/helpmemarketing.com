@@ -16,7 +16,13 @@
     { "source": "/blog/what-marketing-do-i-need", "destination": "/blog/what-marketing-do-i-need.html" },
     { "source": "/blog/what-services-do-i-need",  "destination": "/blog/what-services-do-i-need.html" },
     { "source": "/blog/marketing-mistakes",        "destination": "/blog/marketing-mistakes.html" },
-    { "source": "/blog/marketing-strategy-from-zero", "destination": "/blog/marketing-strategy-from-zero.html" }
+    { "source": "/blog/marketing-strategy-from-zero", "destination": "/blog/marketing-strategy-from-zero.html" },
+
+    { "source": "/team/(.*)",     "destination": "/api/gone" },
+    { "source": "/category/(.*)", "destination": "/api/gone" },
+    { "source": "/2025/(.*)",     "destination": "/api/gone" },
+    { "source": "/feed",          "destination": "/api/gone" },
+    { "source": "/(.*)/feed",     "destination": "/api/gone" }
   ],
   "redirects": [
     { "source": "/(.*)", "has": [{ "type": "host", "value": "www.helpmemarketing.com" }], "destination": "https://helpmemarketing.com/$1", "statusCode": 301 },
@@ -50,6 +56,19 @@
     { "source": "/lifecycle-retention", "destination": "/services/ai-automation",           "permanent": true },
     { "source": "/reviews-reputation",  "destination": "/services/branding-social#reviews", "permanent": true },
     { "source": "/analytics",        "destination": "/services/analytics-attribution",     "permanent": true },
+
+    { "source": "/about-us",                         "destination": "/about",                          "statusCode": 301 },
+    { "source": "/services-2",                       "destination": "/services",                       "statusCode": 301 },
+    { "source": "/servicess/brand-acceleration",     "destination": "/services/branding-social",       "statusCode": 301 },
+    { "source": "/servicess/brand-acceleration-2",   "destination": "/services/branding-social",       "statusCode": 301 },
+    { "source": "/servicess/demand-generation",      "destination": "/services/performance-marketing", "statusCode": 301 },
+    { "source": "/servicess/demand-generation-2",    "destination": "/services/performance-marketing", "statusCode": 301 },
+    { "source": "/servicess/technology-performance", "destination": "/services/performance-marketing", "statusCode": 301 },
+    { "source": "/bussiness/seo-2",                  "destination": "/services/seo",                   "statusCode": 301 },
+    { "source": "/bussiness/online-marketing",       "destination": "/services",                       "statusCode": 301 },
+    { "source": "/bussiness/online-marketing-2",     "destination": "/services",                       "statusCode": 301 },
+    { "source": "/bussiness/advertising",            "destination": "/services/performance-marketing", "statusCode": 301 },
+    { "source": "/bussiness/digital-strategy",       "destination": "/services",                       "statusCode": 301 },
 
     { "source": "/pricing",      "destination": "/contact", "permanent": true },
     { "source": "/pricing.html", "destination": "/contact", "permanent": true }
