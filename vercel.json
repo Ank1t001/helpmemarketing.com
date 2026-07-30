@@ -19,7 +19,7 @@
     { "source": "/blog/marketing-strategy-from-zero", "destination": "/blog/marketing-strategy-from-zero.html" }
   ],
   "redirects": [
-    { "source": "/:path*", "has": [{ "type": "host", "value": "www.helpmemarketing.com" }], "destination": "https://helpmemarketing.com/:path*", "permanent": true },
+    { "source": "/:path*", "has": [{ "type": "host", "value": "www.helpmemarketing.com" }], "destination": "https://helpmemarketing.com/:path*", "statusCode": 301 },
 
     { "source": "/blog/meta-attribution",      "destination": "/blog/meta-roas-attribution", "permanent": true },
     { "source": "/blog/meta-attribution.html", "destination": "/blog/meta-roas-attribution", "permanent": true },
