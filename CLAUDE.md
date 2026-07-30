@@ -23,7 +23,7 @@ Nothing to install or build. To preview locally, serve the directory with any st
 python -m http.server 8000
 ```
 
-Vercel serves with `cleanUrls: true`, so links in-source point to `foo.html` but public URLs are `/foo`. Keep the `.html` suffix in HTML files when editing links — Vercel strips it at request time. `sitemap.xml` uses the clean-URL form.
+Vercel serves with `cleanUrls: true`, so **write links without the `.html` suffix** (`/services/seo`, `/blog/foo`, `/` for home). This is the sitewide convention every live page uses. Vercel serves `foo.html` at `/foo`, and a request to `/foo.html` 301-redirects to `/foo`, so a `.html` link only adds a needless redirect hop. Use absolute root-relative paths (`/services/seo`), not relative ones (`../services/seo`). `sitemap.xml` uses the same clean-URL form. (Exception: the frozen `_healthcare/*` archive and the `blog/meta-attribution.html` redirect stub still carry relative `.html` links; they are not served or indexed, so leave them as-is.)
 
 ## Design & Content Canon — READ BEFORE ANY PROTOTYPE-SCOPED PAGE WORK
 
