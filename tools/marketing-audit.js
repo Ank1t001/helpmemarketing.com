@@ -441,7 +441,9 @@
       userAgent: navigator.userAgent || '',
       referrer: document.referrer || '',
       submittedAt: new Date().toISOString(),
-      company_url_secondary: ''
+      // Honeypot: read the live #audit-hp value so a bot-filled value reaches
+      // the backend for rejection (matches contact form). Empty for humans.
+      company_url_secondary: (document.getElementById('audit-hp') || {}).value || ''
     };
   }
 
