@@ -24,8 +24,11 @@
     { "source": "/feed",          "destination": "/api/gone" },
     { "source": "/(.*)/feed",     "destination": "/api/gone" },
 
+    { "source": "/wp-includes",      "destination": "/api/gone" },
     { "source": "/wp-includes/(.*)", "destination": "/api/gone" },
+    { "source": "/wp-content",       "destination": "/api/gone" },
     { "source": "/wp-content/(.*)",  "destination": "/api/gone" },
+    { "source": "/wp-admin",         "destination": "/api/gone" },
     { "source": "/wp-admin/(.*)",    "destination": "/api/gone" },
     { "source": "/xmlrpc.php",       "destination": "/api/gone" }
   ],
