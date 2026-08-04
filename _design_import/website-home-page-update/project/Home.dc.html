@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #0E0E0E; }
+  ::selection { background: #FF5C1A; color: #0E0E0E; }
+  @keyframes hmmRise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes hmmGrid { from { background-position: 0 0; } to { background-position: 0 58px; } }
+  @keyframes hmmScan { 0% { transform: translateX(-140%); } 100% { transform: translateX(160%); } }
+  @keyframes hmmPulse { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,212,170,0.5); } 50% { opacity: .6; box-shadow: 0 0 0 6px rgba(0,212,170,0); } }
+  @keyframes hmmGlow { 0% { transform: translate(-9%,-5%) scale(1); } 50% { transform: translate(9%,5%) scale(1.12); } 100% { transform: translate(-9%,-5%) scale(1); } }
+  @keyframes hmmTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes hmmLineUp { from { transform: translateY(118%); } to { transform: translateY(0); } }
+  @keyframes hmmBob { 0%,100% { transform: translateY(0); opacity: .55; } 50% { transform: translateY(8px); opacity: 1; } }
+  @keyframes hmmFloat { 0%,100% { transform: translateY(-50%) rotate(-6deg); } 50% { transform: translateY(calc(-50% - 24px)) rotate(-6deg); } }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="background-color:#0E0E0E;background-image:linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px);background-size:64px 64px;color:#FFFFFF;font-family:'IBM Plex Sans',system-ui,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden;">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:rgba(14,14,14,0.7);border-bottom:1px solid rgba(255,255,255,0.08);">
+    <nav style="max-width:1200px;margin:0 auto;padding:17px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="https://helpmemarketing.com/" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:#FFFFFF;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9px;background:#161616;border:1px solid rgba(255,255,255,0.14);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.5px;"><span style="color:#FFFFFF;">H</span><span style="color:var(--cta,#FF5C1A);">MM</span></span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.3px;">Help<span style="color:var(--cta,#FF5C1A);">Me</span>Marketing</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:30px;">
+        <div style="display:flex;align-items:center;gap:26px;font-size:14.5px;white-space:nowrap;">
+          <a href="https://helpmemarketing.com/" style="text-decoration:none;color:#FFFFFF;" style-hover="color:#FF5C1A;">Home</a>
+          <a href="https://helpmemarketing.com/services" style="text-decoration:none;color:#999999;" style-hover="color:#FFFFFF;">Services</a>
+          <a href="https://helpmemarketing.com/work" style="text-decoration:none;color:#999999;" style-hover="color:#FFFFFF;">Case Studies</a>
+          <a href="https://helpmemarketing.com/blog" style="text-decoration:none;color:#999999;" style-hover="color:#FFFFFF;">Blog</a>
+          <a href="https://helpmemarketing.com/about" style="text-decoration:none;color:#999999;" style-hover="color:#FFFFFF;">About</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <a href="https://helpmemarketing.com/contact" data-magnetic="1" style="text-decoration:none;background:#E5352B;color:#FFFFFF;font-weight:600;font-size:14px;padding:11px 18px;border-radius:9px;white-space:nowrap;transition:box-shadow .25s,transform .25s;" style-hover="box-shadow:0 8px 30px rgba(229,53,43,0.5);">Free AI Audit</a>
+          <a href="https://helpmemarketing.com/contact" data-magnetic="1" style="text-decoration:none;background:#E5352B;color:#FFFFFF;font-weight:600;font-size:14px;padding:11px 18px;border-radius:9px;white-space:nowrap;transition:box-shadow .25s,transform .25s;" style-hover="box-shadow:0 8px 30px rgba(229,53,43,0.5);">Contact Us</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section style="position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;">
+    <div style="position:absolute;top:8%;right:0;width:820px;height:600px;background:radial-gradient(closest-side, rgba(255,92,26,0.14), rgba(255,92,26,0) 70%);animation:hmmGlow 12s ease-in-out infinite;pointer-events:none;filter:blur(10px);"></div>
+    <div style="position:absolute;left:8%;top:52%;width:900px;height:620px;transform:translateY(-42%);background:radial-gradient(closest-side, rgba(255,92,26,0.16), rgba(255,92,26,0.04) 45%, rgba(255,92,26,0) 72%);pointer-events:none;filter:blur(20px);"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 45% 55%, rgba(14,14,14,0) 42%, rgba(6,6,7,0.55) 100%);pointer-events:none;"></div>
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:96px 40px;width:100%;display:grid;grid-template-columns:1.02fr 0.98fr;gap:56px;align-items:center;">
+      <div>
+        <span style="opacity:0;animation:hmmRise .7s cubic-bezier(.2,.7,.2,1) .05s both;display:inline-flex;align-items:center;gap:11px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#8b938f;white-space:nowrap;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#00D4AA;box-shadow:0 0 12px #00D4AA;animation:hmmPulse 1.9s ease-in-out infinite;"></span>AI-Native Marketing
+        </span>
+        <h1 style="opacity:0;animation:hmmRise .8s cubic-bezier(.2,.7,.2,1) .16s both;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:clamp(44px,5.4vw,84px);line-height:1.03;letter-spacing:-1.5px;margin:24px 0 0;color:#FFFFFF;text-wrap:balance;">We use AI to find your next <span style="font-style:italic;color:var(--cta,#FF5C1A);text-shadow:0 0 60px rgba(255,92,26,0.5);">{{ count }} customers</span> before your competitors do.</h1>
+        <p style="opacity:0;animation:hmmRise .8s cubic-bezier(.2,.7,.2,1) .28s both;max-width:520px;margin:28px 0 0;font-size:18.5px;line-height:1.55;color:#999999;">SEO, paid media, and content. Engineered to deliver results, not impressions. No fluff.</p>
+        <div style="opacity:0;animation:hmmRise .8s cubic-bezier(.2,.7,.2,1) .4s both;display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;">
+          <a href="https://helpmemarketing.com/contact" data-magnetic="1" style="text-decoration:none;background:#E5352B;color:#FFFFFF;font-weight:600;font-size:16px;padding:16px 28px;border-radius:12px;transition:box-shadow .25s,transform .25s;" style-hover="box-shadow:0 10px 40px rgba(229,53,43,0.5);">Free AI Audit</a>
+          <a href="https://helpmemarketing.com/contact" data-magnetic="1" style="text-decoration:none;background:#E5352B;color:#FFFFFF;font-weight:600;font-size:16px;padding:16px 28px;border-radius:12px;transition:box-shadow .25s,transform .25s;" style-hover="box-shadow:0 10px 40px rgba(229,53,43,0.5);">Contact Us</a>
+        </div>
+      </div>
+      <div style="opacity:0;animation:hmmRise .9s cubic-bezier(.2,.7,.2,1) .32s both;position:relative;height:clamp(400px,44vw,580px);">
+        <img src="assets/hero-visual.png" alt="AI-powered marketing automation workflow" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:74% center;display:block;-webkit-mask-image:radial-gradient(115% 125% at 76% 48%, #000 40%, rgba(0,0,0,0.55) 66%, transparent 86%);mask-image:radial-gradient(115% 125% at 76% 48%, #000 40%, rgba(0,0,0,0.55) 66%, transparent 86%);">
+      </div>
+    </div>
+    <div style="position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:3px;color:#737373;pointer-events:none;">SCROLL<span style="width:1px;height:32px;background:linear-gradient(#FF5C1A,transparent);animation:hmmBob 1.8s ease-in-out infinite;"></span></div>
+  </section>
+
+  <!-- SIGNAL TICKER -->
+  <div style="border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);background:#0E0E0E;overflow:hidden;white-space:nowrap;">
+    <div style="display:inline-flex;align-items:center;gap:0;animation:hmmTicker 32s linear infinite;padding:15px 0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:2px;color:#737373;">
+      <span>AEO&nbsp;&nbsp;·&nbsp;&nbsp;GEO&nbsp;&nbsp;·&nbsp;&nbsp;SEO&nbsp;&nbsp;·&nbsp;&nbsp;PERFORMANCE MEDIA&nbsp;&nbsp;·&nbsp;&nbsp;GA4&nbsp;&nbsp;·&nbsp;&nbsp;LOOKER STUDIO&nbsp;&nbsp;·&nbsp;&nbsp;META ADS&nbsp;&nbsp;·&nbsp;&nbsp;GOOGLE ADS&nbsp;&nbsp;·&nbsp;&nbsp;TIKTOK&nbsp;&nbsp;·&nbsp;&nbsp;LINKEDIN&nbsp;&nbsp;·&nbsp;&nbsp;AI AUTOMATION&nbsp;&nbsp;·&nbsp;&nbsp;ATTRIBUTION&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>AEO&nbsp;&nbsp;·&nbsp;&nbsp;GEO&nbsp;&nbsp;·&nbsp;&nbsp;SEO&nbsp;&nbsp;·&nbsp;&nbsp;PERFORMANCE MEDIA&nbsp;&nbsp;·&nbsp;&nbsp;GA4&nbsp;&nbsp;·&nbsp;&nbsp;LOOKER STUDIO&nbsp;&nbsp;·&nbsp;&nbsp;META ADS&nbsp;&nbsp;·&nbsp;&nbsp;GOOGLE ADS&nbsp;&nbsp;·&nbsp;&nbsp;TIKTOK&nbsp;&nbsp;·&nbsp;&nbsp;LINKEDIN&nbsp;&nbsp;·&nbsp;&nbsp;AI AUTOMATION&nbsp;&nbsp;·&nbsp;&nbsp;ATTRIBUTION&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- NARRATIVE -->
+  <section data-reveal="1" style="max-width:1200px;margin:0 auto;padding:64px 40px;">
+    <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:start;">
+      <div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#737373;">01 / The shift</span>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-1.3px;margin:16px 0 0;text-wrap:balance;">Your next customer asked ChatGPT before they Googled you.</h2>
+      </div>
+      <div style="font-size:17px;line-height:1.66;color:#999999;">
+        <p style="margin:0 0 18px;">Most agencies are still optimizing for a search engine that's quietly being replaced. We build marketing systems for the world buyers actually live in: AI-assisted research, zero-click answers, peer-reviewed decisions.</p>
+        <p style="margin:0;">The legacy playbook of keyword density and reports that show effort instead of results doesn't survive contact with how people buy in 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section data-reveal="1" style="max-width:1200px;margin:0 auto;padding:64px 40px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 34px;">
+      <p style="font-size:clamp(24px,3vw,38px);font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-1px;line-height:1.1;color:#FFFFFF;margin:0;max-width:640px;">The difference is in <span style="color:#FF5C1A;">how we work</span> and <span style="color:#FF5C1A;">what we won't hide</span>.</p>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#737373;white-space:nowrap;">02 / The difference</span>
+    </div>
+    <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+      <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;width:60px;height:60px;border-radius:50%;background:#0E0E0E;border:1px solid rgba(255,92,26,0.4);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:#FF5C1A;box-shadow:0 0 40px rgba(255,92,26,0.35);">VS</div>
+      <div style="background:#1A1A1A;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.4px;margin:0 0 22px;color:#737373;">Most agencies</h3>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:15px;">
+          <sc-for list="{{ agencyCons }}" as="row" hint-placeholder-count="6">
+            <li style="display:flex;gap:13px;align-items:flex-start;font-size:15.5px;line-height:1.45;color:#999999;">
+              <span style="flex:none;width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,255,255,0.16);color:#737373;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:1px;">✕</span>
+              <span>{{ row }}</span>
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+      <div style="position:relative;background:#1A1A1A;border:1px solid rgba(255,92,26,0.28);border-radius:16px;padding:32px;box-shadow:0 0 60px rgba(255,92,26,0.08);">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.4px;margin:0 0 22px;color:#FFFFFF;">HMM</h3>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:15px;">
+          <sc-for list="{{ hmmPros }}" as="row" hint-placeholder-count="6">
+            <li style="display:flex;gap:13px;align-items:flex-start;font-size:15.5px;line-height:1.45;color:#FFFFFF;">
+              <span style="flex:none;width:20px;height:20px;border-radius:50%;background:rgba(0,212,170,0.14);color:#00D4AA;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-top:1px;">✓</span>
+              <span>{{ row }}</span>
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:15px;color:#737373;margin:28px 0 0;">No black boxes. No surprise invoices. No mystery about who's doing the work.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" data-reveal="1" style="max-width:1200px;margin:0 auto;padding:64px 40px;border-top:1px solid rgba(255,255,255,0.08);">
+    <div style="max-width:680px;">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#737373;">03 / Services</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-1.3px;margin:16px 0 12px;">Six services. One operating system.</h2>
+      <p style="font-size:17px;line-height:1.6;color:#999999;margin:0;">Each service stands alone or fits with the others. Most clients start with one and add as they scale.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;">
+      <sc-for list="{{ services }}" as="svc" hint-placeholder-count="6">
+        <a href="{{ svc.href }}" data-tilt="1" style="position:relative;text-decoration:none;color:inherit;background:#1A1A1A;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px;display:flex;flex-direction:column;min-height:232px;transform:perspective(760px);transition:border-color .25s,box-shadow .25s;transform-style:preserve-3d;" style-hover="border-color:rgba(255,92,26,0.5);box-shadow:0 18px 50px rgba(255,92,26,0.14);" style-before="content:'';position:absolute;top:11px;left:11px;width:13px;height:13px;border-top:2px solid rgba(255,255,255,0.22);border-left:2px solid rgba(255,255,255,0.22);" style-after="content:'';position:absolute;bottom:11px;right:11px;width:13px;height:13px;border-bottom:2px solid rgba(255,255,255,0.22);border-right:2px solid rgba(255,255,255,0.22);">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#737373;letter-spacing:1px;">{{ svc.num }}</span>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.4px;margin:14px 0 10px;">{{ svc.name }}</h3>
+          <p style="font-size:14.5px;line-height:1.55;color:#999999;margin:0 0 18px;flex:1;">{{ svc.desc }}</p>
+          <span style="font-size:14px;font-weight:500;color:#FF5C1A;">See details →</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section data-reveal="1" style="max-width:1200px;margin:0 auto;padding:64px 40px;">
+      <div style="max-width:680px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#737373;">04 / How we work</span>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-1.3px;margin:16px 0 12px;color:#FFFFFF;">A system, not a retainer you can't read.</h2>
+        <p style="font-size:17px;line-height:1.6;color:#999999;margin:0;">Three phases. Founder-led, embedded, and accountable to revenue, not activity.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;">
+        <sc-for list="{{ steps }}" as="step" hint-placeholder-count="3">
+          <div style="border-top:2px solid rgba(255,92,26,0.5);padding-top:22px;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:44px;letter-spacing:-2px;color:#FF5C1A;line-height:1;">{{ step.num }}</span>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:21px;letter-spacing:-0.4px;margin:16px 0 10px;color:#FFFFFF;">{{ step.name }}</h3>
+            <p style="font-size:15px;line-height:1.6;color:#999999;margin:0;">{{ step.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:48px;">
+        <a href="https://helpmemarketing.com/contact" data-magnetic="1" style="text-decoration:none;background:#E5352B;color:#FFFFFF;font-weight:600;font-size:16px;padding:16px 28px;border-radius:12px;transition:box-shadow .25s,transform .25s;" style-hover="box-shadow:0 10px 40px rgba(229,53,43,0.5);">Free AI Audit</a>
+        <a href="https://helpmemarketing.com/contact" data-magnetic="1" style="text-decoration:none;background:#E5352B;color:#FFFFFF;font-weight:600;font-size:16px;padding:16px 28px;border-radius:12px;transition:box-shadow .25s,transform .25s;" style-hover="box-shadow:0 10px 40px rgba(229,53,43,0.5);">Contact Us</a>
+      </div>
+  </section>
+
+  <!-- AUDIT CTA -->
+  <section data-reveal="1" style="max-width:1200px;margin:0 auto;padding:64px 40px;">
+    <div style="position:relative;overflow:hidden;background:#1A1A1A;border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:clamp(36px,5vw,64px);">
+      <div style="position:absolute;top:-40%;left:-10%;width:520px;height:520px;background:radial-gradient(closest-side, rgba(255,92,26,0.16), rgba(255,92,26,0) 70%);pointer-events:none;"></div>
+      <div style="position:relative;display:grid;grid-template-columns:1.2fr 0.9fr;gap:48px;align-items:center;">
+        <div>
+          <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,40px);line-height:1.1;letter-spacing:-1.1px;margin:0;">Get three specific things to fix in your marketing.<br><span style="color:#999999;">From people who've already looked.</span></h2>
+          <p style="font-size:16.5px;line-height:1.6;color:#999999;margin:22px 0 0;max-width:520px;">30 minutes. Your data. Three concrete opportunities in SEO, AEO, or paid media, whichever applies. You leave with findings whether you hire us or not.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start;">
+          <div style="display:flex;flex-wrap:wrap;gap:14px;">
+            <a href="https://helpmemarketing.com/contact" data-magnetic="1" style="text-decoration:none;background:#E5352B;color:#FFFFFF;font-weight:600;font-size:16px;padding:16px 28px;border-radius:12px;transition:box-shadow .25s,transform .25s;" style-hover="box-shadow:0 10px 40px rgba(229,53,43,0.5);">Free AI Audit</a>
+            <a href="https://helpmemarketing.com/contact" data-magnetic="1" style="text-decoration:none;background:#E5352B;color:#FFFFFF;font-weight:600;font-size:16px;padding:16px 28px;border-radius:12px;transition:box-shadow .25s,transform .25s;" style-hover="box-shadow:0 10px 40px rgba(229,53,43,0.5);">Contact Us</a>
+          </div>
+          <p style="font-size:14px;color:#737373;margin:0;line-height:1.5;">Real findings. No follow-up sequence. No "let's circle back."</p>
+          <p style="font-size:14px;color:#999999;margin:6px 0 0;line-height:1.5;">In the Greater Toronto Area? See <a href="https://helpmemarketing.com/gta-marketing-agency" style="color:#FF5C1A;text-decoration:none;">how a GTA business should choose a marketing agency</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section data-reveal="1" style="max-width:1200px;margin:0 auto;padding:64px 40px;">
+    <div style="max-width:640px;margin-bottom:34px;">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#737373;">05 / Free tools</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,3vw,38px);letter-spacing:-1px;margin:16px 0 0;">Try a tool. <span style="color:#00D4AA;font-style:italic;">No email gate.</span></h2>
+      <p style="font-size:16.5px;line-height:1.6;color:#999999;margin:14px 0 0;">Free utilities built from our actual client work. Use them, share them, run the numbers yourself.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+      <sc-for list="{{ tools }}" as="tool" hint-placeholder-count="2">
+        <a href="{{ tool.href }}" data-tilt="1" style="position:relative;text-decoration:none;color:inherit;background:#1A1A1A;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:30px;display:flex;flex-direction:column;gap:12px;transform:perspective(760px);transition:border-color .25s,box-shadow .25s;transform-style:preserve-3d;" style-hover="border-color:rgba(255,92,26,0.5);box-shadow:0 18px 50px rgba(255,92,26,0.14);" style-before="content:'';position:absolute;top:11px;left:11px;width:13px;height:13px;border-top:2px solid rgba(255,255,255,0.22);border-left:2px solid rgba(255,255,255,0.22);" style-after="content:'';position:absolute;bottom:11px;right:11px;width:13px;height:13px;border-bottom:2px solid rgba(255,255,255,0.22);border-right:2px solid rgba(255,255,255,0.22);">
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:21px;letter-spacing:-0.4px;margin:0;">{{ tool.name }}</h3>
+          <p style="font-size:15px;line-height:1.55;color:#999999;margin:0;">{{ tool.desc }}</p>
+          <span style="font-size:14px;font-weight:500;color:#FF5C1A;margin-top:4px;">{{ tool.cta }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid rgba(255,255,255,0.08);background:#0C0C0C;">
+    <div style="max-width:1200px;margin:0 auto;padding:72px 40px 44px;">
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;">
+        <div>
+          <a href="https://helpmemarketing.com/" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:#FFFFFF;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9px;background:#161616;border:1px solid rgba(255,255,255,0.14);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.5px;"><span style="color:#FFFFFF;">H</span><span style="color:var(--cta,#FF5C1A);">MM</span></span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;">Help<span style="color:var(--cta,#FF5C1A);">Me</span>Marketing</span>
+          </a>
+          <p style="font-size:14px;line-height:1.6;color:#999999;margin:18px 0 0;max-width:280px;">AI-native marketing agency. GTA-based. Engineered to deliver results, not impressions.</p>
+          <div style="display:flex;gap:10px;margin-top:20px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#999999;border:1px solid rgba(255,255,255,0.12);border-radius:7px;padding:6px 11px;">Google Partner</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#999999;border:1px solid rgba(255,255,255,0.12);border-radius:7px;padding:6px 11px;">Meta Partner</span>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#737373;margin:0 0 16px;">Services</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <sc-for list="{{ footerServices }}" as="link" hint-placeholder-count="6">
+              <li><a href="{{ link.href }}" style="text-decoration:none;color:#999999;font-size:14.5px;" style-hover="color:#FF5C1A;">{{ link.label }}</a></li>
+            </sc-for>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#737373;margin:0 0 16px;">Industries</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <sc-for list="{{ footerIndustries }}" as="link" hint-placeholder-count="4">
+              <li><a href="{{ link.href }}" style="text-decoration:none;color:#999999;font-size:14.5px;" style-hover="color:#FF5C1A;">{{ link.label }}</a></li>
+            </sc-for>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#737373;margin:0 0 16px;">Company</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <sc-for list="{{ footerCompany }}" as="link" hint-placeholder-count="4">
+              <li><a href="{{ link.href }}" style="text-decoration:none;color:#999999;font-size:14.5px;" style-hover="color:#FF5C1A;">{{ link.label }}</a></li>
+            </sc-for>
+          </ul>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;margin-top:52px;padding-top:26px;border-top:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#737373;">
+        <span>Help Me Marketing · GTA marketing agency · <a href="mailto:Hello@helpmemarketing.com" style="color:#999999;text-decoration:none;">Hello@helpmemarketing.com</a></span>
+        <span style="display:flex;gap:20px;align-items:center;">
+          <a href="https://helpmemarketing.com/privacy" style="color:#737373;text-decoration:none;" style-hover="color:#999999;">Privacy Policy</a>
+          <a href="https://helpmemarketing.com/terms" style="color:#737373;text-decoration:none;" style-hover="color:#999999;">Terms of Service</a>
+          <span>© 2026 HelpMeMarketing</span>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:760},&quot;ctaColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#FF5C1A&quot;,&quot;options&quot;:[&quot;#FF5C1A&quot;,&quot;#FF7038&quot;,&quot;#FF3D00&quot;,&quot;#FF8A3D&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;showParticles&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;particleDensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.4,&quot;max&quot;:1.6,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;reduceMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.rootRef = React.createRef();
+    this.canvasRef = React.createRef();
+    this._raf = null;
+    this._bound = false;
+    this.state = { count: 0 };
+  }
+
+  hexToRgb(hex) {
+    const h = (hex || '#FF5C1A').replace('#', '');
+    const n = parseInt(h.length === 3 ? h.split('').map(c => c + c).join('') : h, 16);
+    return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
+  }
+
+  applyVars() {
+    if (this.rootRef.current) this.rootRef.current.style.setProperty('--cta', this.props.ctaColor || '#FF5C1A');
+  }
+
+  get reduce() {
+    if (this.props.reduceMotion) return true;
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  componentDidMount() {
+    this.applyVars();
+    this.startCanvas();
+    this.setupReveal();
+    this.setupInteractions();
+    this.animateCount();
+  }
+
+  animateCount() {
+    const target = 100;
+    if (this.reduce) { this.setState({ count: target }); return; }
+    const dur = 1700, begin = Date.now() + 450;
+    const step = () => {
+      let p = (Date.now() - begin) / dur;
+      if (p < 0) p = 0; if (p > 1) p = 1;
+      const eased = 1 - Math.pow(1 - p, 3);
+      this.setState({ count: Math.round(target * eased) });
+      if (p < 1) setTimeout(step, 28);
+    };
+    setTimeout(step, 28);
+  }
+
+  componentDidUpdate() {
+    this.applyVars();
+    if (this._raf) cancelAnimationFrame(this._raf);
+    this.startCanvas();
+  }
+
+  componentWillUnmount() {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+  }
+
+  setupReveal() {
+    const root = this.rootRef.current;
+    if (!root) return;
+    const els = root.querySelectorAll('[data-reveal]');
+    if (this.reduce) { els.forEach(el => { el.style.opacity = '1'; }); return; }
+    els.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+    });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+  }
+
+  setupInteractions() {
+    const root = this.rootRef.current;
+    if (!root || this._bound || this.reduce) return;
+    this._bound = true;
+
+    // 3D tilt on cards
+    root.querySelectorAll('[data-tilt]').forEach(card => {
+      card.addEventListener('mousemove', (ev) => {
+        const r = card.getBoundingClientRect();
+        const px = (ev.clientX - r.left) / r.width - 0.5;
+        const py = (ev.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(760px) rotateX(${(-py * 7).toFixed(2)}deg) rotateY(${(px * 9).toFixed(2)}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(760px) rotateX(0) rotateY(0) translateY(0)';
+      });
+    });
+
+    // magnetic buttons
+    root.querySelectorAll('[data-magnetic]').forEach(btn => {
+      btn.addEventListener('mousemove', (ev) => {
+        const r = btn.getBoundingClientRect();
+        const mx = ev.clientX - r.left - r.width / 2;
+        const my = ev.clientY - r.top - r.height / 2;
+        btn.style.transform = `translate(${(mx * 0.22).toFixed(1)}px, ${(my * 0.3).toFixed(1)}px)`;
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
+    });
+  }
+
+  startCanvas() {
+    const canvas = this.canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const density = this.props.particleDensity || 1;
+    const show = this.props.showParticles !== false && !this.reduce;
+    const rgb = this.hexToRgb(this.props.ctaColor || '#FF5C1A');
+    let w = 0, h = 0, cols = 0, rows = 0;
+    const mouse = { x: 0.5, y: 0.5 };
+
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      w = rect.width; h = rect.height || 460;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.max(24, Math.round(50 * density));
+      rows = Math.max(16, Math.round(32 * density));
+    };
+    resize();
+    this._onResize = resize;
+    window.removeEventListener('resize', this._onResize);
+    window.addEventListener('resize', resize);
+
+    if (this._moveH) canvas.removeEventListener('mousemove', this._moveH);
+    if (this._leaveH) canvas.removeEventListener('mouseleave', this._leaveH);
+    this._moveH = (ev) => { const r = canvas.getBoundingClientRect(); mouse.x = (ev.clientX - r.left) / r.width; mouse.y = (ev.clientY - r.top) / r.height; };
+    this._leaveH = () => { mouse.x = 0.5; mouse.y = 0.5; };
+    canvas.addEventListener('mousemove', this._moveH);
+    canvas.addEventListener('mouseleave', this._leaveH);
+
+    if (!show) { ctx.clearRect(0, 0, w, h); return; }
+
+    // 3D orange particle-wave terrain (contained hero visual)
+    let t = 0;
+    const draw = () => {
+      t += 0.014;
+      ctx.clearRect(0, 0, w, h);
+      const tilt = (mouse.x - 0.5) * 46;
+      const lift = (mouse.y - 0.5) * 18;
+      for (let gy = 0; gy < rows; gy++) {
+        const v = gy / (rows - 1);            // 0 far .. 1 near
+        const depth = 0.26 + v * 0.74;        // perspective scale
+        const rowY = h * 0.30 + v * v * h * 0.60 - lift * v;
+        for (let gx = 0; gx < cols; gx++) {
+          const u = gx / (cols - 1);          // 0..1
+          const wave = Math.sin(u * 7 + t * 1.6) * 0.5
+                     + Math.sin(v * 5 - t * 1.05) * 0.34
+                     + Math.sin((u + v) * 9 + t * 2.2) * 0.16;
+          const spread = 0.10 + depth * 0.94;
+          const x = w * 0.5 + (u - 0.5) * w * spread + tilt * (u - 0.5) * depth;
+          const y = rowY - wave * 26 * depth;
+          const crest = (wave + 1) / 2;        // 0..1
+          const size = (0.5 + depth * 1.7) * (0.6 + crest * 0.9);
+          const a = (0.05 + depth * 0.5) * (0.32 + crest * 0.78);
+          if (crest > 0.85 && depth > 0.48) {
+            ctx.beginPath();
+            ctx.arc(x, y, size * 4.4, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${rgb.r},${rgb.g},${rgb.b},${0.09 * depth})`;
+            ctx.fill();
+          }
+          const teal = u > 0.88 && crest > 0.78 && depth > 0.55;
+          ctx.beginPath();
+          ctx.arc(x, y, size, 0, Math.PI * 2);
+          ctx.fillStyle = teal ? `rgba(0,212,170,${a + 0.28})` : `rgba(${rgb.r},${rgb.g},${rgb.b},${a})`;
+          ctx.fill();
+        }
+      }
+      this._raf = requestAnimationFrame(draw);
+    };
+    draw();
+  }
+
+  renderVals() {
+    const services = [
+      { num: '01', name: 'Performance Marketing', desc: 'Google Ads, Meta, TikTok, LinkedIn. Paid media built around attribution, not clicks. Every dollar tracked from impression to revenue.', href: 'https://helpmemarketing.com/services/performance-marketing' },
+      { num: '02', name: 'SEO & AEO', desc: 'Rank on Google. Get cited by ChatGPT, Perplexity, and AI Overviews. Two disciplines, shared infrastructure, different execution playbooks.', href: 'https://helpmemarketing.com/services/seo' },
+      { num: '03', name: 'Branding & Social', desc: 'Brand identity, content, and community management. Positioned to convert, not perform. Less posting for posting\u2019s sake. More content that compounds.', href: 'https://helpmemarketing.com/services/branding-social' },
+      { num: '04', name: 'Website Development', desc: 'Fast, modern websites. Built with SEO and AI search citations from day one. Conversion-optimized at launch, not bolted on six months later.', href: 'https://helpmemarketing.com/services/website-development' },
+      { num: '05', name: 'Analytics & Attribution', desc: 'Know which channel drove which dollar, not which post got likes. Custom dashboards in GA4, Looker Studio, or Power BI, built to your decisions.', href: 'https://helpmemarketing.com/services/analytics-attribution' },
+      { num: '06', name: 'AI Automation & Workflow Systems', desc: 'Custom AI automation built around your specific workflow. Lead capture, reporting, ops sequences. Scoped to your stack, your team, your decisions.', href: 'https://helpmemarketing.com/services/ai-automation' }
+    ];
+    const agencyCons = [
+      'Optimize for Google rankings',
+      'Senior strategist sells the work, juniors deliver it',
+      'Hidden markup on ad spend',
+      'Monthly reports that prove activity',
+      'Locked 12-month contracts',
+      'AI buzzwords on the website'
+    ];
+    const hmmPros = [
+      'Optimize for Google rankings AND AI search citations',
+      'Founder-led strategy, embedded execution team',
+      'Ad spend billed direct, zero markup',
+      'Monthly reviews that prove revenue impact',
+      '3 to 6 month foundation, then month-to-month',
+      'AI applied to research, targeting, and creative testing'
+    ];
+    const steps = [
+      { num: '01', name: 'Audit & foundation', desc: '30 minutes, your data. We map three concrete opportunities across SEO, AEO, and paid media before anyone signs anything.' },
+      { num: '02', name: 'Build the system', desc: '3 to 6 month foundation. Founder-led strategy, embedded execution. Ad spend billed direct, zero markup, no black boxes.' },
+      { num: '03', name: 'Prove & scale', desc: 'Monthly reviews that prove revenue impact, not activity. Then month-to-month. Add services as you grow.' }
+    ];
+    const tools = [
+      { name: 'Ad Spend Calculator', desc: 'Model CPL, ROAS, and budget across 4 platforms \u00d7 11 verticals.', cta: 'Run the numbers \u2192', href: 'https://helpmemarketing.com/ad-calculator' },
+      { name: 'Marketing Audit', desc: 'Score your marketing maturity across 5 dimensions in 10 min.', cta: 'Take the audit \u2192', href: 'https://helpmemarketing.com/tools/marketing-audit' }
+    ];
+    const footerServices = [
+      { label: 'Performance Marketing', href: 'https://helpmemarketing.com/services/performance-marketing' },
+      { label: 'SEO & AEO', href: 'https://helpmemarketing.com/services/seo' },
+      { label: 'Branding & Social', href: 'https://helpmemarketing.com/services/branding-social' },
+      { label: 'Website Development', href: 'https://helpmemarketing.com/services/website-development' },
+      { label: 'Analytics & Attribution', href: 'https://helpmemarketing.com/services/analytics-attribution' },
+      { label: 'AI Automation & Workflow', href: 'https://helpmemarketing.com/services/ai-automation' }
+    ];
+    const footerIndustries = [
+      { label: 'DTC', href: 'https://helpmemarketing.com/industries/dtc' },
+      { label: 'SaaS', href: 'https://helpmemarketing.com/industries/saas' },
+      { label: 'Healthcare', href: 'https://helpmemarketing.com/industries/healthcare' },
+      { label: 'Finance', href: 'https://helpmemarketing.com/industries/finance' }
+    ];
+    const footerCompany = [
+      { label: 'About', href: 'https://helpmemarketing.com/about' },
+      { label: 'Case Studies', href: 'https://helpmemarketing.com/work' },
+      { label: 'Blog', href: 'https://helpmemarketing.com/blog' },
+      { label: 'Contact', href: 'https://helpmemarketing.com/contact' }
+    ];
+    return {
+      rootRef: this.rootRef, canvasRef: this.canvasRef,
+      count: this.state.count,
+      services, agencyCons, hmmPros, steps, tools,
+      footerServices, footerIndustries, footerCompany
+    };
+  }
+}
+</script>
+</body>
+</html>
