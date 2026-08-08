@@ -17,22 +17,28 @@
  *   not market to rows where consent is FALSE.
  *
  * Deployment:
- *   1. Upload seo-growth-os.zip (the 32-skill bundle) to Drive, then copy its
- *      file ID from the share URL and paste it into ZIP_FILE_ID below.
- *   2. In the "Help Me Marketing Data" workbook, create a tab named
- *      growth_os_downloads and paste the 7-column header row from
- *      HEADER_ROW below into row 1.
- *   3. Open script.google.com -> New project -> name it "HMM Growth OS Gate".
- *   4. Paste this entire file into Code.gs, overwriting the default content.
+ *   1. SHEET_ID and ZIP_FILE_ID are already filled in below. Nothing to look up.
+ *   2. Paste this entire file into Code.gs, overwriting the previous version.
+ *   3. Run setupSheet() once. It creates the growth_os_downloads tab in the
+ *      "Growth Seo" workbook with its header row. Authorize when prompted.
+ *   4. Run testDelivery(). Open the attachment it emails you and confirm the
+ *      skill-packages folder holds 32 .skill files, not 31.
  *   5. Save, then Deploy -> New deployment -> type: Web app
  *      - Description: "Growth OS download gate v1.0"
  *      - Execute as: Me
  *      - Who has access: Anyone (anonymous is required for an unauthenticated POST)
- *   6. Copy the /exec URL and share it back so it can be wired into
- *      seo-growth-os.html (the GATE_URL constant near the bottom of the page).
- *   7. On first run, authorize: MailApp, SpreadsheetApp, DriveApp.
- *   8. Send yourself a test through the live form and confirm the attachment
- *      arrives and opens.
+ *   6. "Who has access" MUST be Anyone. Anything else and the browser POST
+ *      from the site is rejected before it reaches doPost. Verify by opening
+ *      the /exec URL in a private window: you should see the doGet JSON,
+ *      not a sign-in page and not a 404.
+ *   7. Copy the /exec URL from Deploy -> Manage deployments (not a test
+ *      deployment) and share it back to be wired into GATE_URL in
+ *      seo-growth-os.html.
+ *   8. On first run, authorize: MailApp, SpreadsheetApp, DriveApp.
+ *
+ * Re-deploying: editing the code does NOT update the live web app. You must
+ * Deploy -> Manage deployments -> edit -> New version each time, or the /exec
+ * URL keeps serving the old code.
  *
  * Quota: MailApp allows 100 recipients/day on consumer Gmail and 1500/day on
  * Workspace. Each download costs one. If the page ever spikes past that, move
@@ -43,12 +49,16 @@
 // CONFIGURATION — fill these before deployment
 // ============================================================
 
-// Same workbook as the contact form and the audit; separate tab.
-const SHEET_ID = '1RMYcfgl2DK4WvRNZFr1lu6_odGMwYX-EJBkZv-tSCds';
+// The "Growth Seo" workbook. Deliberately separate from "Help Me Marketing
+// Data", which holds contact-form and audit leads. Keep them apart: contact
+// and audit rows are inbound enquiries, these are file downloads.
+const SHEET_ID = '1cGinedEOETdJ_FFB1TPL9lRKccT-KGxrEQAD8hoNmuk';
 const SHEET_NAME = 'growth_os_downloads';
 
-// Drive file ID of the 32-skill bundle that gets attached to every delivery.
-const ZIP_FILE_ID = 'PASTE_DRIVE_FILE_ID_HERE';
+// "seogrowthosv32.zip" in Drive: the 32-skill bundle, 755954 bytes.
+// NOT "test" (1spuA5QGmk2pRMDusP9DAkZ-p6PIPlir9), which is the old 31-skill
+// build missing seo-data-analytics. Do not point this at that file.
+const ZIP_FILE_ID = '1-ctzBnCzEve1LEpl0wpS_TTgCKOzD02X';
 const ZIP_FILENAME = 'seo-growth-os.zip';
 
 // Sender identity. FROM_ADDRESS must be an alias on the Workspace account.
