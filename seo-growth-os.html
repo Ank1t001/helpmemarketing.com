@@ -277,6 +277,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .sgos .cta,.sgos .copy{display:none}
 }
 
+/* download gate */
+.sgos .gate-back{position:fixed;inset:0;background:rgba(0,0,0,.74);z-index:9998;
+  opacity:0;visibility:hidden;transition:.2s}
+.sgos .gate-back.on{opacity:1;visibility:visible}
+.sgos .gate{position:fixed;z-index:9999;left:50%;top:50%;transform:translate(-50%,-46%);
+  width:calc(100% - 32px);max-width:452px;background:var(--bg-elevated);
+  border:1px solid var(--mint);border-radius:16px;padding:27px 25px;
+  opacity:0;visibility:hidden;transition:.2s;max-height:calc(100vh - 40px);overflow-y:auto}
+.sgos .gate.on{opacity:1;visibility:visible;transform:translate(-50%,-50%)}
+.sgos .gate .lab{font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:700;color:var(--mint);margin-bottom:9px}
+.sgos .gate h3{font-size:22px;font-weight:800;letter-spacing:-.018em;line-height:1.25;margin-bottom:8px}
+.sgos .gate .n{font-size:13.5px;color:var(--text-muted);line-height:1.5;margin-bottom:18px}
+.sgos .gate label.f{display:block;font-size:12.5px;font-weight:700;color:var(--text);margin-bottom:6px}
+.sgos .gate input[type=email]{width:100%;font-family:inherit;font-size:15px;color:var(--text);
+  background:var(--bg-sunk);border:1px solid var(--border);border-radius:9px;padding:12px 13px}
+.sgos .gate input[type=email]:focus{outline:none;border-color:var(--mint)}
+.sgos .gate .consent{display:flex;gap:10px;align-items:flex-start;margin-top:15px}
+.sgos .gate .consent input{margin-top:2px;width:16px;height:16px;flex:none;accent-color:var(--cta)}
+.sgos .gate .consent span{font-size:12.5px;color:var(--text-muted);line-height:1.45}
+.sgos .gate .go{width:100%;margin-top:19px;font-family:inherit;font-size:16px;font-weight:800;
+  color:#fff;background:var(--cta);border:0;border-radius:10px;min-height:50px;cursor:pointer;transition:.2s}
+.sgos .gate .go:hover{background:var(--cta-hover)}
+.sgos .gate .go[disabled]{opacity:.55;cursor:default}
+.sgos .gate .fine{font-size:11.5px;color:var(--text-tertiary);margin-top:12px;line-height:1.5}
+.sgos .gate .err{display:none;font-size:12.5px;color:var(--terra-text);margin-top:10px}
+.sgos .gate .err.on{display:block}
+.sgos .gate .x{position:absolute;top:13px;right:14px;width:34px;height:34px;border:0;border-radius:8px;
+  background:transparent;color:var(--text-tertiary);font-size:20px;line-height:1;cursor:pointer}
+.sgos .gate .x:hover{color:var(--text);background:var(--bg-sunk)}
+.sgos .gate .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.sgos .gate .done{display:none}
+.sgos .gate.sent .form{display:none}
+.sgos .gate.sent .done{display:block}
+.sgos .gate .done .tick{width:40px;height:40px;border-radius:50%;background:var(--mint-dim);
+  color:var(--mint);display:grid;place-items:center;font-size:20px;font-weight:800;margin-bottom:14px}
+
 /* site-integration overrides */
 .sgos .wrap{max-width:1240px;padding:34px 32px 80px}
 @media(max-width:900px){.sgos .wrap{padding-left:20px;padding-right:20px}}
@@ -334,7 +371,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h1>One System.<br>Any Site.</h1>
   <p class="lede">Any tool can hand you two hundred SEO problems. Knowing which six to fix first, what they're worth, and whether the fix worked. That's the whole job. <b>Six nodes, thirty-two specialist checks, yours to download and run.</b> Underneath, every site is the same six steps. Pick a business type below and watch what actually changes.</p>
   <div class="ctarow">
-    <a class="cta" href="https://helpmemarketing.com/download-seo-growth-os">Download SEO Growth OS →</a>
+    <a class="cta" href="/contact" data-gate-open>Download SEO Growth OS →</a>
     <a class="cta2" href="https://helpmemarketing.com/contact">Need help with setup? Book a call</a>
   </div>
   <div class="ctanote">Free · 32 skills · runs on your own machine · no card</div>
@@ -700,7 +737,7 @@ No CDN, no external images, no server. It must open on a laptop with no internet
   <h2>Six nodes. Thirty-two checks.<br><i>One record that remembers.</i></h2>
   <p>Everything marked in terracotta changes with the site. Everything in mint is the method, and it took years to write down. Download it, run it on your own machine, keep whatever it finds. The audit was never the hard part.</p>
   <div class="ctarow" style="justify-content:center">
-    <a class="cta" href="https://helpmemarketing.com/download-seo-growth-os">Download SEO Growth OS →</a>
+    <a class="cta" href="/contact" data-gate-open>Download SEO Growth OS →</a>
     <a class="cta2" href="https://helpmemarketing.com/contact">Need help with setup? Book a call</a>
   </div>
   <div class="ctanote">Free · 32 skills · yours to keep · no card</div>
@@ -814,6 +851,47 @@ No CDN, no external images, no server. It must open on a laptop with no internet
 
 </div>
 
+<!-- SEO Growth OS download gate -->
+<div class="sgos">
+  <div class="gate-back" data-gate-close></div>
+  <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-h" style="position:fixed">
+    <button class="x" type="button" aria-label="Close" data-gate-close>&times;</button>
+
+    <div class="form">
+      <div class="lab">Free download</div>
+      <h3 id="gate-h">Where should we send it?</h3>
+      <p class="n">Enter your email and the full bundle arrives in your inbox: 32 skills, a README, and a setup guide. It runs on your own machine.</p>
+
+      <form id="gate-form" novalidate>
+        <label class="f" for="gate-email">Email address</label>
+        <input type="email" id="gate-email" name="email" autocomplete="email"
+               placeholder="you@company.com" required>
+
+        <div class="hp" aria-hidden="true">
+          <label for="gate-hp">Do not fill this in</label>
+          <input type="text" id="gate-hp" name="company_url_secondary" tabindex="-1" autocomplete="off">
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" id="gate-consent">
+          <span>Send me occasional SEO notes and updates. Optional, and you can stop any time.</span>
+        </label>
+
+        <button class="go" type="submit" id="gate-go">Send me the download</button>
+        <p class="err" id="gate-err"></p>
+        <p class="fine">We send the file and nothing else unless you tick the box. See our <a href="/privacy">privacy policy</a>.</p>
+      </form>
+    </div>
+
+    <div class="done">
+      <div class="tick">&#10003;</div>
+      <h3>Check your inbox.</h3>
+      <p class="n">The bundle is on its way to <b id="gate-sent-to"></b>. It arrives as a zip attachment, so give it a moment. If it has not landed in a few minutes, check spam or <a href="/contact">tell us</a>.</p>
+      <button class="go" type="button" data-gate-close>Close</button>
+    </div>
+  </div>
+</div>
+
 <script>
 const DATA = {
   local: {
@@ -887,5 +965,109 @@ document.getElementById('cp').addEventListener('click', function(){
   }
 });
 </script>
+
+<script>
+(function(){
+  // Apps Script /exec endpoint. See docs/HMM_Growth_OS_Gate_AppsScript.gs.
+  var GATE_URL = 'PASTE_EXEC_URL_HERE';
+
+  var gate    = document.getElementById('gate');
+  var back    = document.querySelector('.gate-back');
+  var form    = document.getElementById('gate-form');
+  var email   = document.getElementById('gate-email');
+  var consent = document.getElementById('gate-consent');
+  var hp      = document.getElementById('gate-hp');
+  var go      = document.getElementById('gate-go');
+  var err     = document.getElementById('gate-err');
+  var sentTo  = document.getElementById('gate-sent-to');
+  var opener  = null;
+
+  function fail(msg){ err.textContent = msg; err.classList.add('on'); }
+
+  function open(e){
+    if (e) { e.preventDefault(); opener = e.currentTarget; }
+    gate.classList.add('on'); back.classList.add('on');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){ email.focus(); }, 60);
+  }
+  function close(){
+    gate.classList.remove('on'); back.classList.remove('on');
+    document.body.style.overflow = '';
+    if (opener) opener.focus();
+  }
+
+  document.querySelectorAll('[data-gate-open]').forEach(function(el){
+    el.addEventListener('click', open);
+  });
+  document.querySelectorAll('[data-gate-close]').forEach(function(el){
+    el.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', function(ev){
+    if (ev.key === 'Escape' && gate.classList.contains('on')) close();
+    if (ev.key !== 'Tab' || !gate.classList.contains('on')) return;
+    // keep focus inside the dialog while it is open
+    var f = gate.querySelectorAll('button, input, a[href]');
+    f = Array.prototype.filter.call(f, function(x){ return x.offsetParent !== null; });
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (ev.shiftKey && document.activeElement === first){ ev.preventDefault(); last.focus(); }
+    else if (!ev.shiftKey && document.activeElement === last){ ev.preventDefault(); first.focus(); }
+  });
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    err.classList.remove('on');
+
+    var value = (email.value || '').trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      fail('That does not look like a valid email address.');
+      email.focus();
+      return;
+    }
+    if (hp.value.trim()) { return; }   // bot: silently stop
+
+    if (GATE_URL.indexOf('PASTE_') === 0) {
+      fail('The download is not wired up yet. Email Hello@helpmemarketing.com and we will send it over.');
+      return;
+    }
+
+    go.disabled = true;
+    go.textContent = 'Sending...';
+
+    var payload = {
+      email: value,
+      marketingConsent: consent.checked,
+      company_url_secondary: hp.value,
+      source: '/seo-growth-os',
+      referrer: document.referrer || '',
+      userAgent: navigator.userAgent || ''
+    };
+
+    // text/plain avoids a CORS preflight, matching /contact and /tools/marketing-audit
+    fetch(GATE_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).then(done).catch(done);
+
+    function done(){
+      // no-cors responses are opaque, so success cannot be read back; the
+      // contact form makes the same assumption.
+      sentTo.textContent = value;
+      gate.classList.add('sent');
+      go.disabled = false;
+      go.textContent = 'Send me the download';
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          event: 'growth_os_download',
+          marketing_consent: consent.checked
+        });
+      }
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
