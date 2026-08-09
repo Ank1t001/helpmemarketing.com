@@ -6397,4 +6397,183 @@ body.redesign-prototype .footer-baseline-right a:hover {
   }
 }
 
+
+/* ---------------------------------------------------------------
+   SCHEDULE A CALL — three-step qualifying form (/schedule-a-call)
+   Reuses .form-input, .form-label, .form-textarea, .chip, .contact-err
+   and .contact-thanks-glyph. Everything below is new to this page.
+   --------------------------------------------------------------- */
+
+body.redesign-prototype .sched-hero { padding: 64px 0 8px; }
+body.redesign-prototype .sched-lede {
+  font-size: 16.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 620px;
+  margin-top: 18px;
+}
+body.redesign-prototype .sched-section { padding: 36px 0 110px; }
+
+body.redesign-prototype .sched-form {
+  max-width: 780px;
+  padding: 30px 34px 26px;
+}
+body.redesign-prototype .req { color: var(--cta); }
+
+/* Honeypot: off-canvas rather than display:none, which some bots skip */
+body.redesign-prototype .hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Progress header */
+body.redesign-prototype .sched-progress { margin-bottom: 26px; }
+body.redesign-prototype .sched-steps {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+body.redesign-prototype .sched-dot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  transition: color 0.2s;
+}
+body.redesign-prototype .sched-dot b {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 700;
+}
+body.redesign-prototype .sched-dot.on { color: var(--text); }
+body.redesign-prototype .sched-dot.on b {
+  background: var(--cta);
+  border-color: var(--cta);
+  color: #fff;
+}
+body.redesign-prototype .sched-dot.done b {
+  background: var(--mint);
+  border-color: var(--mint);
+  color: var(--bg);
+}
+body.redesign-prototype .sched-bar {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--bg);
+  overflow: hidden;
+}
+body.redesign-prototype .sched-bar span {
+  display: block;
+  height: 100%;
+  width: 33.33%;
+  background: var(--cta);
+  transition: width 0.3s ease;
+}
+
+/* Steps */
+body.redesign-prototype .sched-step { display: none; border: 0; padding: 0; margin: 0; }
+body.redesign-prototype .sched-step.on { display: block; }
+body.redesign-prototype .sched-legend {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--mint);
+  margin-bottom: 18px;
+  padding: 0;
+}
+body.redesign-prototype .sched-row { margin-top: 18px; }
+body.redesign-prototype .sched-why {
+  font-size: 12.5px;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+  margin-top: 9px;
+  max-width: 620px;
+}
+body.redesign-prototype .sched-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+/* Native select needs its own dark treatment: the popup list is OS-drawn
+   and inherits nothing from .form-input. */
+body.redesign-prototype .form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 40px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.6' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+}
+body.redesign-prototype .form-select option {
+  background: var(--bg-elevated);
+  color: var(--text);
+}
+
+/* Success panel */
+body.redesign-prototype .sched-thanks {
+  max-width: 780px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 46px 40px;
+  text-align: center;
+}
+body.redesign-prototype .sched-thanks-h {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 18px 0 12px;
+}
+body.redesign-prototype .sched-thanks-p {
+  font-size: 15.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto 26px;
+}
+body.redesign-prototype #sched-booking iframe {
+  width: 100%;
+  min-height: 620px;
+  border: 0;
+  border-radius: 12px;
+}
+body.redesign-prototype .sched-fallback p {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 22px;
+}
+body.redesign-prototype .sched-fallback-ctas {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 720px) {
+  body.redesign-prototype .sched-form { padding: 24px 20px 22px; }
+  body.redesign-prototype .sched-steps { gap: 12px; }
+  body.redesign-prototype .sched-dot { font-size: 11.5px; }
+  body.redesign-prototype .sched-nav { flex-direction: column-reverse; align-items: stretch; }
+  body.redesign-prototype .sched-nav .btn { width: 100%; justify-content: center; }
+  body.redesign-prototype .sched-thanks { padding: 34px 20px; }
+  body.redesign-prototype .sched-thanks-h { font-size: 23px; }
+}
+
 /* === END REDESIGN PROTOTYPE — DARK MODE === */

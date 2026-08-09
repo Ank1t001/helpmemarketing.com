@@ -808,6 +808,54 @@ This doc is **descriptive of shipped reality**, not aspirational. New patterns r
 
 ---
 
+## 18. Multi-Step Form Pattern (`/schedule-a-call`)
+
+Added for the three-step qualifying form. Reuses the Section 9 form pattern
+(`.form-label`, `.form-input`, `.form-textarea`, `.chip` / `.chip-on`,
+`.contact-err`, `.contact-thanks-glyph`) and adds only what a stepped form needs.
+CSS lives at the end of the prototype region in `styles.css`.
+
+### When to use
+
+A form with more than about eight fields. Below that, a single grouped page is
+simpler and converts about the same. Above it, splitting reliably beats one long
+column, because the visible commitment at any moment stays small.
+
+### Components
+
+| Class | Purpose |
+|---|---|
+| `.sched-step` / `.sched-step.on` | One `<fieldset>` per step. Only `.on` is displayed. |
+| `.sched-legend` | Step label. Mint, uppercase, 11px, matching the eyebrow treatment. |
+| `.sched-progress` / `.sched-steps` / `.sched-dot` | Step header. `.on` marks current, `.done` marks completed (mint fill). |
+| `.sched-bar` / `#sched-bar-fill` | Progress bar. Width is set in JS as `step / total`. |
+| `.sched-nav` | Back and Continue row. Reverses to a stacked column under 720px. |
+| `.sched-why` | Small tertiary note under a field explaining why it is asked. |
+| `.req` | The asterisk on required labels. Signal Orange, not red. |
+| `.hp-field` | Honeypot wrapper, positioned off-canvas rather than `display:none`. |
+| `.sched-thanks` | Success panel, replaces the form in place. |
+
+### Rules
+
+- **Validate per step, not per form.** Check only the fields inside the step
+  being left. Validating everything up front fires errors for fields the person
+  has not reached yet.
+- **Keep the error element outside the fieldsets.** Put it inside a step and it
+  is hidden on every other step, so validation appears to fail silently. This
+  was a real bug caught in review, not a hypothetical.
+- **Required fields belong in the first and last steps.** The middle step should
+  be skippable, so an unsure visitor keeps moving instead of abandoning.
+- **`.sched-why` earns intrusive questions.** Budget and revenue convert far
+  better with one line explaining what the answer is used for.
+- **Native `<select>` needs its own dark styling.** The popup list is drawn by
+  the OS and inherits nothing from `.form-input`, so `.form-select option` sets
+  its own background. Omit it and the list renders white-on-white on some
+  platforms.
+- `novalidate` on the form, validation in JS, so error copy matches house voice
+  rather than the browser default.
+
+---
+
 *HMM Design System v1.0 — first markdown commit*
 *Source: Homepage prototype CSS at HEAD `0bfba56`*
 *Companion canon: `/docs/HMM_Color_System.md`, `/docs/HMM_Content_Rules.md`*
