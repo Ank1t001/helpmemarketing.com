@@ -377,9 +377,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     el.querySelectorAll("input[required],textarea[required]").forEach(function(i){if(i.type!=="radio"&&i.type!=="checkbox"&&!i.value.trim())ok=false;});
     return ok;
   }
-  function showErr(msg){var er=form.querySelector("#contact-err");if(er){er.textContent=msg;er.style.display="";}}
-  function clearErr(){var er=form.querySelector("#contact-err");if(er)er.style.display="none";}
-  form.addEventListener("click",function(e){
+  function activeErrBox(){var st=form.querySelector(".form-step.is-active");if(!st)return form.querySelector("#contact-err");var box=st.querySelector(".form-error");if(!box){box=document.createElement("div");box.className="form-error";box.style.display="none";var nav=st.querySelector(".form-nav");if(nav){st.insertBefore(box,nav);}else{st.appendChild(box);}}return box;}function showErr(msg){var er=activeErrBox();if(er){er.textContent=msg;er.style.display="";}}function clearErr(){form.querySelectorAll(".form-error").forEach(function(e){e.style.display="none";});}form.addEventListener("click",function(e){
     var next=e.target.closest(".form-next");var prev=e.target.closest(".form-prev");
     if(next){var cur=next.closest(".form-step");if(!stepValid(cur)){showErr("Please complete the required questions on this step.");cur.classList.add("show-required");return;}clearErr();go(parseInt(next.getAttribute("data-next"),10));}
     else if(prev){clearErr();go(parseInt(prev.getAttribute("data-prev"),10));}
