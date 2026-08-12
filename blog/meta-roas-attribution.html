@@ -3,12 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NSQPX93X');</script>
+<!-- Google Tag Manager (delayed to idle/first-interaction for CWV) -->
+<script>(function(w,d){w.dataLayer=w.dataLayer||[];var loaded=false;
+function load(){if(loaded)return;loaded=true;
+w.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var f=d.getElementsByTagName('script')[0],j=d.createElement('script');
+j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-NSQPX93X';
+f.parentNode.insertBefore(j,f);}
+['scroll','mousemove','touchstart','keydown','click'].forEach(function(e){
+w.addEventListener(e,load,{once:true,passive:true});});
+('requestIdleCallback' in w)?w.requestIdleCallback(load,{timeout:3500}):setTimeout(load,3500);
+})(window,document);</script>
 <!-- End Google Tag Manager -->
 <title>Why Your Meta ROAS Is Lying to You | HelpMeMarketing</title>
 <meta name="description" content="Meta Ads Manager overstates results by 30–60% in most accounts. Here is why it happens, how to measure the real gap, and the three-step fix.">
