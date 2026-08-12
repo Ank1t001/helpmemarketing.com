@@ -79,7 +79,9 @@
     { "source": "/bussiness/digital-strategy",       "destination": "/services",                       "statusCode": 301 },
 
     { "source": "/pricing",      "destination": "/contact", "permanent": true },
-    { "source": "/pricing.html", "destination": "/contact", "permanent": true }
+    { "source": "/pricing.html", "destination": "/contact", "permanent": true },
+
+    { "source": "/schedule-a-call", "destination": "/contact", "permanent": true }
   ],
   "headers": [
     {
