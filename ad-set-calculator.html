@@ -338,10 +338,8 @@ body.redesign-prototype #tool {
   --asc-good: #00D4AA;
   --asc-good-glow: rgba(0, 212, 170, 0.14);
   --asc-good-line: rgba(0, 212, 170, 0.42);
-  /* AA contrast lift for labels/metadata on the elevated panels. The global
-     Slate token (#737373) is 3.67:1 on #1A1A1A, under the 4.5:1 small-text
-     floor; #8A8A8A is ~4.9:1. Scoped here so the global token is untouched. */
-  --text-tertiary: #8A8A8A;
+  /* --text-tertiary AA lift (#8A8A8A) promoted to the global token
+     2026-08-13, so no page override is needed here anymore. */
 }
 body.redesign-prototype .asc-tabs { display: flex; gap: 4px; margin: 0 0 22px; border-bottom: 1px solid var(--border); }
 body.redesign-prototype .asc-tab {
@@ -489,36 +487,27 @@ body.redesign-prototype .asc-note b { color: var(--text-muted); }
   body.redesign-prototype .asc-side { border-right: none; border-bottom: 1px solid var(--border); border-bottom-right-radius: 0; }
 }
 
-/* ---------- Page rhythm: hero + prose measure ----------
-   Page-scoped only. Global styles.css is left untouched so other pages
-   keep their existing spacing. */
+/* ---------- Page-scoped prose measure ----------
+   The hero / section / final-cta rhythm (72 / 48) now lives in global
+   styles.css and applies sitewide, so only page-specific measure
+   overrides remain here. */
 
-/* 1. Subtitle sits on one line on desktop (global cap is 520px). */
+/* Subtitle sits on one line on desktop (global cap is 520px). */
 body.redesign-prototype .hero-subtitle { max-width: 980px; margin-top: 20px; }
 
-/* 2. Close the gap between the hero and the calculator.
-      Was 96px hero-bottom + 64px section-top = 160px. Now 40 + 48 = 88px. */
-body.redesign-prototype .hero { padding: 72px 0 40px; }
-
-/* 3. "Why 50" prose: deck was 720px while the closing para ran the full
-      1176px container, so the two blocks did not line up. Match both at a
-      readable 900px measure and tighten the gap between them. */
+/* "Why 50" prose: deck was 720px while the closing para ran the full
+   1176px container, so the two blocks did not line up. Match both at a
+   readable 900px measure and tighten the gap between them. */
 body.redesign-prototype .section-deck { max-width: 900px; }
 body.redesign-prototype .section-closing { max-width: 900px; margin-top: 20px; }
 
 @media (max-width: 900px) {
-  body.redesign-prototype .hero { padding: 56px 0 32px; }
   body.redesign-prototype .hero-subtitle,
   body.redesign-prototype .section-deck,
   body.redesign-prototype .section-closing { max-width: none; }
 }
 
-/* ---------- Section rhythm + touch targets (page-scoped) ---------- */
-
-/* Consistent ~96px between sections (was 128px = 64 + 64). Match the final
-   CTA's top gap too so the whole page tightens uniformly and pulls up. */
-body.redesign-prototype section.content-section { padding: 48px 0; }
-body.redesign-prototype .final-cta-section { padding-top: 48px; }
+/* ---------- Touch targets (page-scoped) ---------- */
 
 /* Sidebar sizes to its inputs (align-items:start on .asc-board) and closes
    off as a card instead of reading as a truncated column. */
@@ -528,9 +517,6 @@ body.redesign-prototype .asc-side {
 }
 
 @media (max-width: 900px) {
-  body.redesign-prototype section.content-section { padding: 32px 0; }
-  body.redesign-prototype .final-cta-section { padding-top: 32px; }
-
   /* Touch targets: primary controls to the 44px minimum on mobile, where
      most people hit this page. On desktop they stay compact for the mouse. */
   body.redesign-prototype .asc-tab,

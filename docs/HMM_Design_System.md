@@ -36,7 +36,7 @@ See `/docs/HMM_Color_System.md` for full color canon. One-screen reference:
 | `var(--bg-elevated)` | `#1A1A1A` Carbon | Cards, modals, elevated surfaces |
 | `var(--text)` | `#FFFFFF` Pure White | Primary text |
 | `var(--text-muted)` | `#999999` Graphite | Secondary text |
-| `var(--text-tertiary)` | `#737373` Slate | Tertiary text, disabled |
+| `var(--text-tertiary)` | `#8A8A8A` Slate (AA-lifted) | Tertiary text, disabled. Lifted from `#737373` to `#8A8A8A` on 2026-08-13 for WCAG AA (~4.9:1) on small text |
 | `var(--cta)` | `#FF5C1A` Signal Orange | Primary CTAs + approved brand-identity accents |
 | `var(--cta-hover)` | `#FF7038` Ember | CTA hover state |
 | `var(--mint)` | `#00D4AA` Mint | Success/live state (never a CTA) |
@@ -219,20 +219,36 @@ CSS location: `styles.css:3751-3755` (desktop), `styles.css:4110` (mobile)
 
 | Property | Desktop | ≤900px |
 |---|---|---|
-| padding | 96px 0 | 64px 0 |
+| padding | 72px 0 40px | 56px 0 32px |
 | position | relative | — |
 | overflow | hidden | — |
 
-CSS location: `styles.css:3762-3766` (desktop), `styles.css:4112` (mobile)
+Asymmetric bottom (40px desktop / 32px mobile) is deliberate: it tightens the hero-to-first-section gap to ~88px. See "Sitewide vertical density" below.
+
+CSS location: `styles.css` → `body.redesign-prototype .hero` (desktop) + `@media (max-width:900px)` block (mobile)
 
 ### Content section — `section.content-section`
 
 | Property | Desktop | ≤900px |
 |---|---|---|
-| padding | 96px 0 | 64px 0 |
+| padding | 48px 0 | 32px 0 |
 | border-top | `1px solid rgba(255,255,255,0.15)` | — |
 
-CSS location: `styles.css:3757-3760` (desktop), `styles.css:4111` (mobile)
+CSS location: `styles.css` → `body.redesign-prototype section.content-section` (desktop) + `@media (max-width:900px)` block (mobile)
+
+### Final CTA section — `.final-cta-section`
+
+| Property | Desktop | ≤900px |
+|---|---|---|
+| padding | 48px 0 0 | padding-top 32px |
+
+The wrapper only sets top spacing; the inner `.final-cta` card carries its own padding (see Section 9).
+
+CSS location: `styles.css` → `body.redesign-prototype .final-cta-section`
+
+### Sitewide vertical density (locked 2026-08-13)
+
+The hero / content-section / final-cta rhythm was tightened ~25% from the original 96/64 spacing to the 72/48 rhythm above. This density was first tuned on the tool pages (`/ad-set-calculator`) and then adopted sitewide as the canonical rhythm for every `body.redesign-prototype` page. Blogs are excluded — they run the blog template's own spacing. Page-scoped hero/section padding overrides are no longer needed; the global rule governs. If a future page needs looser spacing, document the exception here rather than hardcoding a one-off override.
 
 ### Footer — `.footer`
 
@@ -518,9 +534,9 @@ Single-band dark background per the locked Color System; no separate token intro
 - Tool card border (hover): `rgba(255,255,255,0.16)` — Tier system token `--border-strong` once shipped
 - Tool card icon background: `var(--orange-glow)` = `rgba(255,92,26,0.18)`
 - Tool card icon color: `var(--cta)` = `#FF5C1A`
-- Sitemap heading: `var(--text-tertiary)` = `#737373`
+- Sitemap heading: `var(--text-tertiary)` = `#8A8A8A`
 - Sitemap link: `var(--text-muted)` = `#999999`
-- Baseline text: `var(--text-tertiary)` = `#737373`
+- Baseline text: `var(--text-tertiary)` = `#8A8A8A`
 
 #### Typography
 

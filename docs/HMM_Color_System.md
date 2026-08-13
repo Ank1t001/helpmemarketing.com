@@ -17,7 +17,7 @@
 | Carbon | `#1A1A1A` | Elevated surface | One shade lighter than Obsidian. Cards, modals, scrolled nav. Six-point lightness creates hierarchy without borders. Linear / GitHub / Vercel use similar. |
 | Pure White | `#FFFFFF` | Primary text | Full white on dark — not off-white. Counterintuitive but pure white creates the crispness that separates premium dark sites from muddy ones. |
 | Graphite | `#999999` | Muted text | Secondary text, captions, default nav links, metadata. ~60% perceived luminance against Obsidian. Creates hierarchy. |
-| Slate | `#737373` | Tertiary / disabled | Placeholder text, disabled buttons, deep metadata, decorative labels. Thin dividers. |
+| Slate | `#8A8A8A` | Tertiary / disabled | Placeholder text, disabled buttons, deep metadata, decorative labels. Thin dividers. **Lifted from `#737373` to `#8A8A8A` on 2026-08-13** for WCAG AA (~4.9:1 on Obsidian; `#737373` was ~3.9:1, below the 4.5:1 small-text floor). See Decision 11. |
 
 ---
 
@@ -76,7 +76,7 @@ Defined in `styles.css` `:root`. Variable names are intentionally semantic (`--c
   /* Text hierarchy */
   --text: #FFFFFF;
   --text-muted: #999999;
-  --text-tertiary: #737373;
+  --text-tertiary: #8A8A8A;  /* AA-lifted from #737373 — see Decision 11 */
 
   /* Accents */
   --cta: #FF5C1A;
@@ -211,6 +211,10 @@ Five tokens documented in Section 7 but not yet added to `styles.css`. Will be a
 ### Decision 10 — This file's existence
 
 Markdown version of the Color System docx, committed to the repo so Claude Code can read it on every session. The docx remains the prepared-by-Claude source in the Claude.ai project; this markdown is the canonical machine-readable version.
+
+### Decision 11 — Tertiary token AA lift (`#737373` → `#8A8A8A`), locked 2026-08-13
+
+`--text-tertiary` was raised from `#737373` (Slate, ~3.9:1 on Obsidian) to `#8A8A8A` (~4.9:1) to clear the WCAG AA 4.5:1 floor for small tertiary text. The change was first proven as a per-tool override on `/ad-set-calculator`, then promoted to the global `body.redesign-prototype` token so every dark page benefits and the page-level override could be removed. The blog token (`body.blog-dark`) is a separate scope and was **not** changed. "Slate" remains the color's name; only its shipped value moved.
 
 ---
 

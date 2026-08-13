@@ -5187,7 +5187,10 @@ body.redesign-prototype {
   --bg-elevated: #1A1A1A;
   --text: #FFFFFF;
   --text-muted: #999999;
-  --text-tertiary: #737373;
+  /* Tertiary lifted from #737373 to #8A8A8A for WCAG AA (~4.9:1) on small
+     tertiary text against Obsidian. #737373 was ~3.9:1, below the 4.5:1
+     floor. Promoted to global canon 2026-08-13 (was a per-tool override). */
+  --text-tertiary: #8A8A8A;
   --cta: #FF5C1A;
   --cta-hover: #FF7038;
   --mint: #00D4AA;
@@ -5356,12 +5359,17 @@ body.redesign-prototype .container {
 }
 
 body.redesign-prototype section.content-section {
-  padding: 64px 0;
+  /* Section rhythm: 48px vertical (tool-page density adopted sitewide
+     2026-08-13, was 64px). Divider unchanged. */
+  padding: 48px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 body.redesign-prototype .hero {
-  padding: 96px 0;
+  /* Hero rhythm: 72px top, 40px bottom (was 96/96). Asymmetric bottom
+     tightens the hero -> first-section gap to ~88px (40 + section's 48).
+     Sitewide density pass 2026-08-13. */
+  padding: 72px 0 40px;
   position: relative;
   overflow: hidden;
 }
@@ -5841,7 +5849,7 @@ body.redesign-prototype .svc-faq-item > p {
 }
 
 /* Final CTA section wrapper (inner .final-cta is the existing shared class) */
-body.redesign-prototype .final-cta-section { padding: 64px 0 0; }
+body.redesign-prototype .final-cta-section { padding: 48px 0 0; } /* was 64px; sitewide density pass 2026-08-13 */
 body.redesign-prototype .final-cta-section .final-cta { padding: 40px 64px; }
 body.redesign-prototype .final-cta-section .final-cta-actions {
   display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 32px 0 20px;
@@ -5993,8 +6001,9 @@ body.redesign-prototype .footer-baseline a:hover {
   body.redesign-prototype h3.card-title { font-size: 20px; }
 
   body.redesign-prototype .container { padding: 0 20px; }
-  body.redesign-prototype section.content-section { padding: 40px 0; }
-  body.redesign-prototype .hero { padding: 64px 0; }
+  body.redesign-prototype section.content-section { padding: 32px 0; }
+  body.redesign-prototype .hero { padding: 56px 0 32px; }
+  body.redesign-prototype .final-cta-section { padding-top: 32px; }
 
   body.redesign-prototype .hero-grid {
     grid-template-columns: 1fr;

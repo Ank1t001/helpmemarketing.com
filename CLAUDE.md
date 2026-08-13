@@ -115,6 +115,13 @@ Two cards: Ad Spend Calculator (`/ad-calculator`) and Marketing Audit (`/tools/m
 - ✓ 5 remaining category pages — shipped (Performance Marketing, Branding & Social, Website Development, Analytics & Attribution, AI Automation & Workflow Systems)
 - ✓ Redesign merged to `main` at `04cbc2a` (dark redesign production ship)
 
+### Sitewide consistency pass (locked 2026-08-13)
+
+Two prototype-scope canon changes, derived from auditing `/ad-set-calculator` as the reference page. Both are **global** (all `body.redesign-prototype` pages; blogs excluded — the blog `body.blog-dark` scope is untouched):
+
+- **Vertical density tightened ~25%.** Canonical rhythm is now `.hero` `72px 0 40px` (mobile `56px 0 32px`), `section.content-section` `48px 0` (mobile `32px 0`), `.final-cta-section` `48px 0 0` (mobile top `32px`) — was 96/64. Set once in global `styles.css`; per-page hero/section padding overrides are no longer needed (removed from `/ad-set-calculator`). Spec in `/docs/HMM_Design_System.md` §5 ("Sitewide vertical density").
+- **`--text-tertiary` AA lift:** `#737373` → `#8A8A8A` (WCAG AA ~4.9:1 on Obsidian). Global prototype token; page-local override on `/ad-set-calculator` removed. See `/docs/HMM_Color_System.md` Decision 11.
+
 ## Architecture (both legacy and prototype)
 
 ### Page inventory and conventions
