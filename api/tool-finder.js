@@ -27,6 +27,11 @@ var TOOLS = [
     when: 'They have a question about ad budget or spend: how much to spend on ads, expected cost per lead (CPL), ROAS, or planning paid media budgets.'
   },
   {
+    url: '/ad-set-calculator',
+    name: 'Ad Set Calculator',
+    when: 'They have a question about ad account structure or the Meta learning phase: how many ad sets to run, whether they have too many ad sets, which optimisation event (event, purchase, lead) their budget can support, or why their ad sets are stuck in learning limited.'
+  },
+  {
     url: '/seo-growth-os',
     name: 'SEO Growth OS',
     when: 'They care about SEO, organic traffic, Google rankings, being cited by AI search, "why isn\'t my site ranking", or technical/content SEO problems.'

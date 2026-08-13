@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager (delayed to idle/first-interaction for CWV) -->
+<script>(function(w,d){w.dataLayer=w.dataLayer||[];var loaded=false;
+function load(){if(loaded)return;loaded=true;
+w.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var f=d.getElementsByTagName('script')[0],j=d.createElement('script');
+j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-NSQPX93X';
+f.parentNode.insertBefore(j,f);}
+['scroll','mousemove','touchstart','keydown','click'].forEach(function(e){
+w.addEventListener(e,load,{once:true,passive:true});});
+('requestIdleCallback' in w)?w.requestIdleCallback(load,{timeout:3500}):setTimeout(load,3500);
+})(window,document);</script>
+<!-- End Google Tag Manager -->
+<title>Ad Set Calculator | HelpMeMarketing</title>
+<meta name="description" content="A free calculator that shows how many ad sets your budget can actually feed, using Meta's 50 optimisation events per ad set per week rule. Find the deepest event you can afford to optimise for.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="canonical" href="https://helpmemarketing.com/ad-set-calculator">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HelpMeMarketing">
+<meta property="og:title" content="Ad Set Calculator | HelpMeMarketing">
+<meta property="og:description" content="How many ad sets can your budget actually feed? A free calculator built on Meta's 50 events per ad set per week rule.">
+<meta property="og:url" content="https://helpmemarketing.com/ad-set-calculator">
+<meta property="og:image" content="https://helpmemarketing.com/og-image.svg">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ad Set Calculator | HelpMeMarketing">
+<meta name="twitter:description" content="How many ad sets can your budget actually feed? A free calculator built on Meta's 50 events per ad set per week rule.">
+<meta name="twitter:image" content="https://helpmemarketing.com/og-image.svg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://helpmemarketing.com/"},
+    {"@type": "ListItem", "position": 2, "name": "AI Tools", "item": "https://helpmemarketing.com/ai-tools"},
+    {"@type": "ListItem", "position": 3, "name": "Ad Set Calculator", "item": "https://helpmemarketing.com/ad-set-calculator"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Ad Set Calculator",
+  "url": "https://helpmemarketing.com/ad-set-calculator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "A free calculator that shows how many ad sets your budget can feed, using Meta's roughly 50 optimisation events per ad set per week guidance, and which optimisation event is the deepest one your budget can afford.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Help Me Marketing",
+    "url": "https://helpmemarketing.com/"
+  }
+}
+</script>
+<script src="/consent.js" defer></script>
+</head>
+<body class="redesign-prototype">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSQPX93X"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="app" data-screen-label="ad-set-calculator">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="/">
+      <div class="logo-mark">H<span class="me-italic">MM</span></div>
+      <span class="logo-text">Help<em style="font-family:var(--serif); font-size:19px; padding:0 1px">Me</em>Marketing</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/services">Services</a>
+      <a class="nav-link active" href="/ai-tools">AI Tools</a>
+      <a class="nav-link" href="/work">Case Studies</a>
+      <a class="nav-link" href="/blog">Blog</a>
+      <a class="nav-link" href="/about">About</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-accent nav-main-cta" href="/tools/marketing-audit">Free AI Audit</a>
+      <a class="btn btn-outline" href="/contact">Need Help? Book a call</a>
+      <button class="nav-hamburger" aria-label="Menu" onclick="var m=document.querySelector('.nav-mobile-menu'); var o=m.classList.toggle('open'); this.classList.toggle('open', o);"><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile-menu">
+  <a class="nav-link" href="/">Home</a>
+  <a class="nav-link" href="/services">Services</a>
+  <a class="nav-link active" href="/ai-tools">AI Tools</a>
+  <a class="nav-link" href="/work">Case Studies</a>
+  <a class="nav-link" href="/blog">Blog</a>
+  <a class="nav-link" href="/about">About</a>
+  <div class="mobile-cta-row">
+    <a class="btn btn-accent" href="/tools/marketing-audit">Free AI Audit</a>
+    <a class="btn btn-outline" href="/contact">Need Help? Book a call</a>
+  </div>
+</div>
+
+<div class="page-enter">
+
+<!-- ========== Hero ========== -->
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Ad Set Calculator</p>
+    <h1 class="hero-headline">How many ad sets can your budget actually <em>feed</em>?</h1>
+    <p class="hero-subtitle">Meta needs roughly 50 optimisation events per ad set per week to leave the learning phase. That one number decides your account structure, and it decides which event you are allowed to optimise for. Put your numbers in and see it.</p>
+  </div>
+</section>
+
+<!-- ========== The tool ========== -->
+<section class="content-section" id="tool">
+  <div class="container">
+
+    <div class="asc-tabs" id="asc-tabs" role="tablist">
+      <button class="asc-tab is-on" type="button" data-v="0" role="tab" aria-selected="true">Calculator</button>
+      <button class="asc-tab" type="button" data-v="1" role="tab" aria-selected="false">Case gallery</button>
+    </div>
+
+    <!-- VIEW 0: calculator -->
+    <div class="asc-view is-on" id="asc-v0">
+      <div class="asc-board">
+
+        <!-- inputs -->
+        <div class="asc-side">
+          <div class="asc-lab">Start from</div>
+          <div class="asc-presets" id="asc-presets">
+            <button class="asc-preset is-on" type="button" data-p="lead">Lead gen</button>
+            <button class="asc-preset" type="button" data-p="ecom">E-commerce</button>
+            <button class="asc-preset" type="button" data-p="high">High-ticket</button>
+          </div>
+
+          <div class="asc-fld">
+            <div class="asc-lab">Monthly ad budget</div>
+            <div class="asc-row2">
+              <select id="asc-cur" aria-label="Currency">
+                <option value="$">$ USD</option>
+                <option value="C$">C$ CAD</option>
+                <option value="&#8377;">&#8377; INR</option>
+                <option value="AED ">AED</option>
+                <option value="S$">S$ SGD</option>
+                <option value="A$">A$ AUD</option>
+                <option value="&euro;">&euro; EUR</option>
+              </select>
+              <input id="asc-budget" type="number" value="5000" min="0" step="100" aria-label="Monthly ad budget">
+            </div>
+            <div class="asc-weekly" id="asc-wk"></div>
+          </div>
+
+          <div class="asc-fld">
+            <div class="asc-lab">Your optimisation event ladder</div>
+            <div class="asc-ladder" id="asc-ladder"></div>
+            <div class="asc-hint">Shallow event at the top, deep at the bottom. Enter the cost per event you actually see, not the one you want.</div>
+          </div>
+
+          <div class="asc-fld">
+            <div class="asc-lab">Ad sets you run today</div>
+            <input id="asc-current" type="number" value="6" min="0" step="1" aria-label="Ad sets you run today">
+          </div>
+        </div>
+
+        <!-- results -->
+        <div class="asc-main">
+          <p class="asc-q">Run the same budget down the ladder. <strong>The deepest event where the answer is 1 or more is your event.</strong> Everything below it is unfeedable, no matter how much better the signal would be.</p>
+          <div id="asc-out"></div>
+          <div class="asc-verdict" id="asc-verdict"></div>
+          <div class="asc-gap" id="asc-gap"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- VIEW 1: case gallery (placeholder until our own cases are added) -->
+    <div class="asc-view" id="asc-v1">
+      <div class="asc-placeholder">
+        <h3>Case gallery</h3>
+        <p>Real briefs, same formula, run against the numbers a business actually gave us. We are assembling this gallery from our own client work now. Each card will show a budget, an optimisation event, and the number of ad sets that budget can honestly feed, so you can see the rule land on a real account instead of a blank form.</p>
+        <p class="asc-placeholder-note">Want us to run your numbers before the gallery is live? <a href="/contact">Send them over</a> and we will walk you through the structure your budget can support.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== How it works ========== -->
+<section class="content-section">
+  <div class="container">
+    <h2 class="section-heading">Why <em>50</em> is the number that matters.</h2>
+    <p class="section-deck">Meta's delivery system needs a minimum volume of optimisation events to calibrate. Below that floor an ad set stays in the learning phase, spends unevenly, and never settles into a stable cost. The published guidance is around 50 events per ad set in a rolling week. That gives you a simple test: take your weekly budget, divide by the cost of the event you want to optimise for, and see how many blocks of 50 you can buy. That is how many ad sets your budget can feed at that event, no more.</p>
+    <p class="section-closing">The trap is optimising for a deep event, like a purchase or a qualified lead, on a budget that cannot generate 50 of them a week. The signal would be better, but you cannot afford it, so every ad set starves. This calculator finds the deepest event you can actually feed, and tells you how many ad sets to run once you get there. If you want a human read on the output, <a href="/contact">book a call</a>.</p>
+  </div>
+</section>
+
+<!-- ========== Final CTA ========== -->
+<section class="final-cta-section">
+  <div class="container">
+    <div class="final-cta">
+      <h2 class="section-heading">Want us to structure the <em>account</em> with you?</h2>
+      <p class="subhead">Run your numbers here, then bring us the output. A 30-minute call, and we will tell you which event to optimise for, how many ad sets to run, and what to stop splitting on.</p>
+      <div class="final-cta-actions">
+        <a class="btn btn-primary" href="/contact">Book a free call &rarr;</a>
+        <a class="btn btn-outline" href="/ai-tools">See all our free tools &rarr;</a>
+      </div>
+      <p class="subhead final-cta-note">30-minute call &bull; Straight answers &bull; Response within 1-3 business days</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <!-- BAND 1: brand + tools -->
+  <div class="footer-band-brand">
+    <div class="container">
+      <div class="footer-brand-row">
+        <div class="footer-brand-statement">
+          <h3 class="footer-brand-headline">Try a tool. <em class="italic-accent">No email gate.</em></h3>
+          <p class="footer-brand-descriptor">Free utilities built from our actual client work. Use them, share them, run the numbers yourself.</p>
+        </div>
+        <div class="footer-tools-grid">
+          <a href="/ad-calculator" class="footer-tool-card">
+            <div class="footer-tool-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Tabler ti-calculator -->
+                <path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/>
+                <path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z"/>
+                <path d="M8 14l0 .01"/>
+                <path d="M12 14l0 .01"/>
+                <path d="M16 14l0 .01"/>
+                <path d="M8 17l0 .01"/>
+                <path d="M12 17l0 .01"/>
+                <path d="M16 17l0 .01"/>
+              </svg>
+            </div>
+            <div class="footer-tool-title">AdSpend Calculator</div>
+            <div class="footer-tool-description">Model CPL, ROAS, and budget across 4 platforms &times; 11 verticals.</div>
+            <div class="footer-tool-affordance">Run the numbers &rarr;</div>
+          </a>
+          <a href="/tools/marketing-audit" class="footer-tool-card">
+            <div class="footer-tool-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Tabler ti-checkup-list -->
+                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/>
+                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/>
+                <path d="M9 14h.01"/>
+                <path d="M9 17h.01"/>
+                <path d="M12 16l1 1l3 -3"/>
+              </svg>
+            </div>
+            <div class="footer-tool-title">AI Marketing Audit</div>
+            <div class="footer-tool-description">Score your marketing maturity across 5 dimensions in 10 min.</div>
+            <div class="footer-tool-affordance">Take the audit &rarr;</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAND 2: sitemap + baseline -->
+  <div class="footer-band-utility">
+    <div class="container">
+      <div class="footer-utility-grid">
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/performance-marketing">Performance Marketing</a></li>
+            <li><a href="/services/seo">SEO &amp; AEO</a></li>
+            <li><a href="/services/branding-social">Branding &amp; Social</a></li>
+            <li><a href="/services/website-development">Website Development</a></li>
+            <li><a href="/services/analytics-attribution">Analytics &amp; Attribution</a></li>
+            <li><a href="/services/ai-automation">AI Automation &amp; Workflow Systems</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Industries</h4>
+          <ul>
+            <li><a href="/industries/dtc">DTC</a></li>
+            <li><a href="/industries/saas">SaaS</a></li>
+            <li><a href="/industries/healthcare">Healthcare</a></li>
+            <li><a href="/industries/finance">Finance</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/work">Case Studies</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-baseline">
+        <div class="footer-baseline-left">
+          <div class="footer-badges">
+            <span class="footer-badge">Google Partner</span>
+            <span class="footer-badge">Meta Partner</span>
+          </div>
+          <p class="footer-baseline-meta">Help Me Marketing &middot; Burlington, ON &middot; Hello@helpmemarketing.com</p>
+        </div>
+        <div class="footer-baseline-right">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <span>&copy; 2026 HelpMeMarketing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<!-- ========== Ad Set Calculator styles (page-scoped, prototype tokens only) ========== -->
+<style>
+body.redesign-prototype .asc-tabs { display: flex; gap: 4px; margin: 0 0 22px; border-bottom: 1px solid var(--border); }
+body.redesign-prototype .asc-tab {
+  font-family: var(--sans); font-size: 14px; font-weight: 600; padding: 10px 18px; cursor: pointer;
+  background: none; border: none; border-bottom: 2px solid transparent; color: var(--text-tertiary); transition: all 0.16s ease;
+}
+body.redesign-prototype .asc-tab:hover { color: var(--text); }
+body.redesign-prototype .asc-tab.is-on { color: var(--cta); border-bottom-color: var(--cta); }
+body.redesign-prototype .asc-view { display: none; }
+body.redesign-prototype .asc-view.is-on { display: block; }
+
+body.redesign-prototype .asc-board {
+  border: 1px solid var(--border); border-radius: 16px; background: var(--bg-elevated); overflow: hidden;
+  display: grid; grid-template-columns: 340px 1fr;
+}
+body.redesign-prototype .asc-side { border-right: 1px solid var(--border); background: rgba(0, 0, 0, 0.25); padding: 24px; }
+body.redesign-prototype .asc-lab {
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--text-tertiary); margin: 0 0 8px;
+}
+body.redesign-prototype .asc-presets { display: flex; gap: 6px; margin-bottom: 20px; }
+body.redesign-prototype .asc-preset {
+  flex: 1; font-family: var(--sans); font-size: 12px; font-weight: 600; padding: 8px 4px; border-radius: 7px; cursor: pointer;
+  background: transparent; border: 1px solid var(--border); color: var(--text-muted); transition: all 0.16s ease;
+}
+body.redesign-prototype .asc-preset:hover { border-color: rgba(255, 255, 255, 0.2); color: var(--text); }
+body.redesign-prototype .asc-preset.is-on { background: var(--cta); border-color: var(--cta); color: var(--bg); }
+
+body.redesign-prototype .asc-fld { margin-bottom: 18px; }
+body.redesign-prototype .asc-row2 { display: grid; grid-template-columns: 96px 1fr; gap: 8px; }
+body.redesign-prototype .asc-side input,
+body.redesign-prototype .asc-side select {
+  font-family: var(--sans); font-size: 15px; font-weight: 600; width: 100%;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; color: var(--text);
+  outline: none; transition: all 0.16s ease;
+}
+body.redesign-prototype .asc-side input:focus,
+body.redesign-prototype .asc-side select:focus { border-color: var(--cta); box-shadow: 0 0 0 3px rgba(255, 92, 26, 0.15); }
+body.redesign-prototype .asc-side select { cursor: pointer; }
+body.redesign-prototype .asc-side select option { background: var(--bg-elevated); color: var(--text); }
+body.redesign-prototype .asc-weekly { font-size: 12px; color: var(--text-tertiary); margin-top: 7px; }
+body.redesign-prototype .asc-weekly strong { color: var(--cta); font-weight: 700; }
+
+body.redesign-prototype .asc-ladder { margin-top: 4px; }
+body.redesign-prototype .asc-lrow { display: grid; grid-template-columns: 1fr 96px; gap: 8px; margin-bottom: 8px; }
+body.redesign-prototype .asc-lrow input { font-size: 14px; padding: 9px 11px; }
+body.redesign-prototype .asc-hint { font-size: 11.5px; color: var(--text-tertiary); line-height: 1.5; margin-top: 10px; }
+
+body.redesign-prototype .asc-main { padding: 24px 26px; }
+body.redesign-prototype .asc-q { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0 0 18px; }
+body.redesign-prototype .asc-q strong { color: var(--text); font-weight: 600; }
+
+body.redesign-prototype .asc-res {
+  margin-bottom: 10px; padding: 15px 17px; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--bg); transition: all 0.25s ease;
+}
+body.redesign-prototype .asc-res.is-feedable { border-color: rgba(255, 255, 255, 0.14); }
+body.redesign-prototype .asc-res.is-best { border-color: var(--cta); background: var(--orange-glow); box-shadow: 0 0 0 1px var(--cta); }
+body.redesign-prototype .asc-res.is-no { opacity: 0.62; }
+body.redesign-prototype .asc-res-top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 9px; }
+body.redesign-prototype .asc-res-nm { font-size: 15px; font-weight: 700; color: var(--text); }
+body.redesign-prototype .asc-res-cpa { font-size: 12px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; }
+body.redesign-prototype .asc-res-vd {
+  margin-left: auto; font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+  padding: 3px 8px; border-radius: 5px; border: 1px solid var(--border); color: var(--text-muted);
+}
+body.redesign-prototype .asc-res-vd.is-best { background: var(--cta); color: var(--bg); border-color: var(--cta); }
+
+body.redesign-prototype .asc-math {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 13px; color: var(--text-muted);
+  font-variant-numeric: tabular-nums; margin-bottom: 11px;
+}
+body.redesign-prototype .asc-math strong { color: var(--text); font-weight: 700; }
+body.redesign-prototype .asc-math .asc-op { color: var(--text-tertiary); }
+body.redesign-prototype .asc-math .asc-eq { color: var(--cta); font-weight: 800; font-size: 15px; }
+body.redesign-prototype .asc-res.is-no .asc-math .asc-eq { color: var(--text-muted); }
+
+body.redesign-prototype .asc-bar { height: 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.07); overflow: hidden; }
+body.redesign-prototype .asc-bar i { display: block; height: 100%; background: var(--cta); border-radius: 4px; transition: width 0.45s ease; }
+body.redesign-prototype .asc-res.is-no .asc-bar i { background: var(--text-tertiary); }
+body.redesign-prototype .asc-bar-lab { font-size: 11px; color: var(--text-tertiary); margin-top: 6px; }
+
+body.redesign-prototype .asc-verdict {
+  margin-top: 18px; padding: 17px 19px; border-radius: 12px; background: var(--orange-glow);
+  border: 1px solid var(--cta); font-size: 15px; line-height: 1.6; color: var(--text-muted);
+}
+body.redesign-prototype .asc-verdict.is-bad { background: var(--bg-elevated); border-color: var(--border); }
+body.redesign-prototype .asc-verdict strong { color: var(--cta); font-weight: 700; }
+body.redesign-prototype .asc-verdict.is-bad strong { color: var(--text); }
+body.redesign-prototype .asc-verdict .asc-big { font-size: 19px; font-weight: 700; color: var(--text); display: block; margin-bottom: 6px; }
+
+body.redesign-prototype .asc-gap {
+  margin-top: 12px; padding: 14px 17px; border-radius: 10px; border: 1px dashed var(--border);
+  font-size: 14px; line-height: 1.55; color: var(--text-muted);
+}
+body.redesign-prototype .asc-gap strong { color: var(--text); font-weight: 700; }
+body.redesign-prototype .asc-gap .asc-warn { color: var(--cta); font-weight: 700; }
+
+body.redesign-prototype .asc-placeholder {
+  border: 1px dashed var(--border); border-radius: 16px; background: var(--bg-elevated); padding: 40px 36px; max-width: 760px;
+}
+body.redesign-prototype .asc-placeholder h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--text); margin: 0 0 14px; }
+body.redesign-prototype .asc-placeholder p { font-size: 16px; line-height: 1.7; color: var(--text-muted); margin: 0 0 14px; }
+body.redesign-prototype .asc-placeholder-note { font-size: 14px; }
+body.redesign-prototype .asc-placeholder a { color: var(--cta); }
+
+@media (max-width: 900px) {
+  body.redesign-prototype .asc-board { grid-template-columns: 1fr; }
+  body.redesign-prototype .asc-side { border-right: none; border-bottom: 1px solid var(--border); }
+}
+</style>
+
+<!-- ========== Ad Set Calculator logic (no inline handlers) ========== -->
+<script>
+(function () {
+  var PRESETS = {
+    lead: { budget: 5000,  cur: '$', current: 6, ladder: [['Lead (form fill)', 25], ['Qualified lead', 90], ['Closed deal', 500]] },
+    ecom: { budget: 10000, cur: '$', current: 6, ladder: [['Add to cart', 8], ['Initiate checkout', 20], ['Purchase', 45]] },
+    high: { budget: 10000, cur: '$', current: 4, ladder: [['View content', 4], ['Add to cart', 40], ['Purchase', 300]] }
+  };
+
+  var EVENTS_FLOOR = 50;   // Meta learning-phase guidance: ~50 events / ad set / week
+  var WEEKS = 4.33;
+
+  var ladder = [];
+  var els = {};
+
+  function $(id) { return document.getElementById(id); }
+  function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function drawLadder() {
+    els.ladder.innerHTML = ladder.map(function (r, i) {
+      return '<div class="asc-lrow">' +
+        '<input data-i="' + i + '" data-k="0" value="' + esc(r[0]) + '" aria-label="Event name">' +
+        '<input data-i="' + i + '" data-k="1" type="number" min="1" value="' + r[1] + '" aria-label="Cost per event">' +
+      '</div>';
+    }).join('');
+    var inputs = els.ladder.querySelectorAll('input');
+    for (var j = 0; j < inputs.length; j++) {
+      inputs[j].addEventListener('input', function (e) {
+        var i = +e.target.dataset.i, k = +e.target.dataset.k;
+        ladder[i][k] = k === 1 ? (+e.target.value || 0) : e.target.value;
+        calc();
+      });
+    }
+  }
+
+  function loadPreset(p) {
+    var d = PRESETS[p];
+    els.budget.value = d.budget;
+    els.cur.value = d.cur;
+    els.current.value = d.current;
+    ladder = d.ladder.map(function (r) { return r.slice(); });
+    drawLadder();
+    calc();
+  }
+
+  function calc() {
+    var cur = els.cur.value;
+    var monthly = +els.budget.value || 0;
+    var weekly = monthly / WEEKS;
+    var runningNow = +els.current.value || 0;
+
+    els.wk.innerHTML = '= <strong>' + cur + fmt(weekly) + '</strong> per week &nbsp;&middot;&nbsp; ' + cur + fmt(monthly) + ' &divide; ' + WEEKS;
+
+    var rows = ladder.map(function (pair) {
+      var nm = pair[0], cpa = pair[1];
+      var conv = cpa > 0 ? weekly / cpa : 0;
+      var sets = Math.floor(conv / EVENTS_FLOOR);
+      return { nm: nm, cpa: cpa, conv: conv, sets: sets };
+    });
+
+    var bestIdx = -1;
+    rows.forEach(function (r, i) { if (r.sets >= 1) bestIdx = i; });
+
+    els.out.innerHTML = rows.map(function (r, i) {
+      var no = r.sets < 1;
+      var best = i === bestIdx;
+      var cls = no ? 'is-no' : (best ? 'is-best' : 'is-feedable');
+      var vd = no ? 'cannot feed' : (best ? 'your event' : 'feedable');
+      var vdCls = best ? 'is-best' : '';
+      var pct = Math.max(3, Math.min(100, (r.conv / EVENTS_FLOOR) / 6 * 100));
+      var barLab = no
+        ? 'Needs ' + cur + fmt(r.cpa * EVENTS_FLOOR) + '/wk to feed even one ad set. You are ' + cur + fmt(Math.max(0, r.cpa * EVENTS_FLOOR - weekly)) + ' short.'
+        : 'One ad set needs ' + cur + fmt(r.cpa * EVENTS_FLOOR) + '/wk. You can feed ' + r.sets + '.';
+      return '<div class="asc-res ' + cls + '">' +
+        '<div class="asc-res-top">' +
+          '<span class="asc-res-nm">' + esc(r.nm) + '</span>' +
+          '<span class="asc-res-cpa">' + cur + fmt(r.cpa) + ' per event</span>' +
+          '<span class="asc-res-vd ' + vdCls + '">' + vd + '</span>' +
+        '</div>' +
+        '<div class="asc-math">' +
+          '<span>' + cur + fmt(weekly) + '/wk</span><span class="asc-op">&divide;</span>' +
+          '<span>' + cur + fmt(r.cpa) + '</span><span class="asc-op">=</span>' +
+          '<strong>' + fmt(r.conv) + '</strong><span>events/wk</span><span class="asc-op">&divide;</span>' +
+          '<span>' + EVENTS_FLOOR + '</span><span class="asc-op">=</span>' +
+          '<span class="asc-eq">' + r.sets + ' ad set' + (r.sets === 1 ? '' : 's') + '</span>' +
+        '</div>' +
+        '<div class="asc-bar"><i data-pct="' + pct + '"></i></div>' +
+        '<div class="asc-bar-lab">' + barLab + '</div>' +
+      '</div>';
+    }).join('');
+
+    // Set bar widths via CSSOM (prototype canon: no inline style attributes in markup).
+    var bars = els.out.querySelectorAll('.asc-bar i');
+    for (var b = 0; b < bars.length; b++) { bars[b].style.width = bars[b].getAttribute('data-pct') + '%'; }
+
+    var v = els.verdict;
+    if (bestIdx < 0) {
+      v.className = 'asc-verdict is-bad';
+      v.innerHTML = '<span class="asc-big">Your budget cannot feed a single ad set at any event on this ladder.</span>' +
+        'Either add a shallower event to the top of the ladder, or raise the budget. Running anything here means ' +
+        '<strong>permanent learning limited</strong>, and delivery never gets a stable read on you.';
+    } else {
+      var r = rows[bestIdx];
+      var deeper = rows.slice(bestIdx + 1).map(function (x) { return x.nm; });
+      v.className = 'asc-verdict';
+      v.innerHTML = '<span class="asc-big">Optimise for ' + esc(r.nm) + '. Run ' + r.sets + ' ad set' + (r.sets === 1 ? '' : 's') + '.</span>' +
+        'That is the deepest event this budget can actually feed.' +
+        (deeper.length ? ' <strong>' + esc(deeper.join(' and ')) + '</strong> would be better signal, and you cannot afford ' + (deeper.length > 1 ? 'them' : 'it') + ' at this budget. Wanting it does not fund it.' : '');
+    }
+
+    var g = els.gap;
+    if (bestIdx < 0) {
+      g.innerHTML = 'You are running <strong>' + runningNow + '</strong> ad sets on a budget that feeds none.';
+      return;
+    }
+    var can = rows[bestIdx].sets;
+    if (runningNow > can) {
+      var each = runningNow > 0 ? weekly / runningNow / rows[bestIdx].cpa : 0;
+      g.innerHTML = 'You run <strong>' + runningNow + '</strong> ad sets. This budget feeds <strong>' + can + '</strong>. ' +
+        '<span class="asc-warn">You are ' + (runningNow / Math.max(can, 1)).toFixed(1) + '&times; over.</span> ' +
+        'Spread across ' + runningNow + ', each ad set gets about <strong>' + fmt(each) + '</strong> events a week against a floor of ' + EVENTS_FLOOR + ', ' +
+        'so every one of them is starving and none of them ever calibrates.';
+    } else if (runningNow < can) {
+      g.innerHTML = 'You run <strong>' + runningNow + '</strong> ad sets and could feed <strong>' + can + '</strong>. You have headroom. ' +
+        'Only use it if you have a real reason to separate: a different optimisation event, genuinely different unit economics, ' +
+        'or a test you need a clean read on. Placement, age, gender and creative format are not reasons.';
+    } else {
+      g.innerHTML = 'You run <strong>' + runningNow + '</strong> ad sets and this budget feeds <strong>' + can + '</strong>. That is the number.';
+    }
+  }
+
+  function setView(v) {
+    var tabs = document.querySelectorAll('.asc-tab');
+    for (var i = 0; i < tabs.length; i++) {
+      var on = +tabs[i].dataset.v === v;
+      tabs[i].classList.toggle('is-on', on);
+      tabs[i].setAttribute('aria-selected', on ? 'true' : 'false');
+    }
+    $('asc-v0').classList.toggle('is-on', v === 0);
+    $('asc-v1').classList.toggle('is-on', v === 1);
+  }
+
+  function init() {
+    els.cur = $('asc-cur');
+    els.budget = $('asc-budget');
+    els.current = $('asc-current');
+    els.ladder = $('asc-ladder');
+    els.wk = $('asc-wk');
+    els.out = $('asc-out');
+    els.verdict = $('asc-verdict');
+    els.gap = $('asc-gap');
+    if (!els.budget || !els.ladder) return;
+
+    var presets = document.querySelectorAll('.asc-preset');
+    for (var i = 0; i < presets.length; i++) {
+      presets[i].addEventListener('click', function (e) {
+        var all = document.querySelectorAll('.asc-preset');
+        for (var k = 0; k < all.length; k++) all[k].classList.remove('is-on');
+        e.currentTarget.classList.add('is-on');
+        loadPreset(e.currentTarget.dataset.p);
+      });
+    }
+
+    els.budget.addEventListener('input', calc);
+    els.current.addEventListener('input', calc);
+    els.cur.addEventListener('change', calc);
+
+    var tabs = document.querySelectorAll('.asc-tab');
+    for (var t = 0; t < tabs.length; t++) {
+      tabs[t].addEventListener('click', function (e) { setView(+e.currentTarget.dataset.v); });
+    }
+
+    loadPreset('lead');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>
