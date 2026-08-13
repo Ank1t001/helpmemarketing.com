@@ -28,7 +28,7 @@ var TOOLS = [
   },
   {
     url: '/ad-set-calculator',
-    name: 'Ad Set Calculator',
+    name: 'Meta Learning Phase Calculator',
     when: 'They have a question about ad account structure or the Meta learning phase: how many ad sets to run, whether they have too many ad sets, which optimisation event (event, purchase, lead) their budget can support, or why their ad sets are stuck in learning limited.'
   },
   {
