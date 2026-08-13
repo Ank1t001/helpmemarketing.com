@@ -330,6 +330,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ========== Ad Set Calculator styles (page-scoped, prototype tokens only) ========== -->
 <style>
+/* Canon Mint (Color System §2: success / positive metric callouts) as a local
+   token for this tool's positive/feedable states. Signal Orange stays the
+   primary accent, reserved for the single recommended "your event". */
+body.redesign-prototype #tool {
+  --asc-good: #00D4AA;
+  --asc-good-glow: rgba(0, 212, 170, 0.14);
+  --asc-good-line: rgba(0, 212, 170, 0.42);
+}
 body.redesign-prototype .asc-tabs { display: flex; gap: 4px; margin: 0 0 22px; border-bottom: 1px solid var(--border); }
 body.redesign-prototype .asc-tab {
   font-family: var(--sans); font-size: 14px; font-weight: 600; padding: 10px 18px; cursor: pointer;
@@ -384,16 +392,17 @@ body.redesign-prototype .asc-res {
   margin-bottom: 10px; padding: 15px 17px; border-radius: 12px; border: 1px solid var(--border);
   background: var(--bg); transition: all 0.25s ease;
 }
-body.redesign-prototype .asc-res.is-feedable { border-color: rgba(255, 255, 255, 0.14); }
-body.redesign-prototype .asc-res.is-best { border-color: var(--cta); background: var(--orange-glow); box-shadow: 0 0 0 1px var(--cta); }
-body.redesign-prototype .asc-res.is-no { opacity: 0.62; }
+body.redesign-prototype .asc-res.is-feedable { border-color: var(--asc-good-line); background: var(--asc-good-glow); }
+body.redesign-prototype .asc-res.is-best { border-color: var(--cta); background: var(--orange-glow); box-shadow: 0 0 0 1px var(--cta), 0 10px 32px var(--orange-glow); }
+body.redesign-prototype .asc-res.is-no { opacity: 0.72; }
 body.redesign-prototype .asc-res-top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 9px; }
 body.redesign-prototype .asc-res-nm { font-size: 15px; font-weight: 700; color: var(--text); }
 body.redesign-prototype .asc-res-cpa { font-size: 12px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; }
 body.redesign-prototype .asc-res-vd {
   margin-left: auto; font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
-  padding: 3px 8px; border-radius: 5px; border: 1px solid var(--border); color: var(--text-muted);
+  padding: 3px 8px; border-radius: 5px; border: 1px solid var(--border); color: var(--text-tertiary);
 }
+body.redesign-prototype .asc-res-vd.is-feedable { background: var(--asc-good-glow); color: var(--asc-good); border-color: var(--asc-good-line); }
 body.redesign-prototype .asc-res-vd.is-best { background: var(--cta); color: var(--bg); border-color: var(--cta); }
 
 body.redesign-prototype .asc-math {
@@ -402,11 +411,13 @@ body.redesign-prototype .asc-math {
 }
 body.redesign-prototype .asc-math strong { color: var(--text); font-weight: 700; }
 body.redesign-prototype .asc-math .asc-op { color: var(--text-tertiary); }
-body.redesign-prototype .asc-math .asc-eq { color: var(--cta); font-weight: 800; font-size: 15px; }
+body.redesign-prototype .asc-math .asc-eq { color: var(--asc-good); font-weight: 800; font-size: 15px; }
+body.redesign-prototype .asc-res.is-best .asc-math .asc-eq { color: var(--cta); }
 body.redesign-prototype .asc-res.is-no .asc-math .asc-eq { color: var(--text-muted); }
 
 body.redesign-prototype .asc-bar { height: 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.07); overflow: hidden; }
-body.redesign-prototype .asc-bar i { display: block; height: 100%; background: var(--cta); border-radius: 4px; transition: width 0.45s ease; }
+body.redesign-prototype .asc-bar i { display: block; height: 100%; background: var(--asc-good); border-radius: 4px; transition: width 0.45s ease; }
+body.redesign-prototype .asc-res.is-best .asc-bar i { background: var(--cta); }
 body.redesign-prototype .asc-res.is-no .asc-bar i { background: var(--text-tertiary); }
 body.redesign-prototype .asc-bar-lab { font-size: 11px; color: var(--text-tertiary); margin-top: 6px; }
 
@@ -445,12 +456,12 @@ body.redesign-prototype .asc-cases { display: grid; grid-template-columns: repea
 body.redesign-prototype .asc-case { padding: 13px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-elevated); cursor: pointer; transition: all 0.16s ease; }
 body.redesign-prototype .asc-case:hover { border-color: rgba(255, 255, 255, 0.2); transform: translateY(-1px); }
 body.redesign-prototype .asc-case.is-no { opacity: 0.68; }
-body.redesign-prototype .asc-case.is-big { border-color: var(--cta); background: var(--orange-glow); }
+body.redesign-prototype .asc-case.is-big { border-color: var(--asc-good-line); background: var(--asc-good-glow); }
 body.redesign-prototype .asc-case.is-dead { cursor: default; opacity: 0.72; }
 body.redesign-prototype .asc-case.is-dead:hover { transform: none; border-color: var(--border); }
 body.redesign-prototype .asc-c-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 3px; }
 body.redesign-prototype .asc-c-nm { font-size: 13px; font-weight: 700; line-height: 1.25; color: var(--text); }
-body.redesign-prototype .asc-c-sets { font-size: 17px; font-weight: 800; color: var(--cta); white-space: nowrap; }
+body.redesign-prototype .asc-c-sets { font-size: 17px; font-weight: 800; color: var(--asc-good); white-space: nowrap; }
 body.redesign-prototype .asc-case.is-no .asc-c-sets { color: var(--text-muted); }
 body.redesign-prototype .asc-case.is-dead .asc-c-sets { color: var(--text-tertiary); }
 body.redesign-prototype .asc-c-ty { font-size: 10.5px; color: var(--text-tertiary); margin-bottom: 7px; }
@@ -546,7 +557,7 @@ body.redesign-prototype .asc-note b { color: var(--text-muted); }
       var best = i === bestIdx;
       var cls = no ? 'is-no' : (best ? 'is-best' : 'is-feedable');
       var vd = no ? 'cannot feed' : (best ? 'your event' : 'feedable');
-      var vdCls = best ? 'is-best' : '';
+      var vdCls = no ? 'is-no' : (best ? 'is-best' : 'is-feedable');
       var pct = Math.max(3, Math.min(100, (r.conv / EVENTS_FLOOR) / 6 * 100));
       var barLab = no
         ? 'Needs ' + cur + fmt(r.cpa * EVENTS_FLOOR) + '/wk to feed even one ad set. You are ' + cur + fmt(Math.max(0, r.cpa * EVENTS_FLOOR - weekly)) + ' short.'
