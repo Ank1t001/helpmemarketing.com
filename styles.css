@@ -5228,6 +5228,44 @@ body.redesign-prototype .app {
   background: transparent;
 }
 
+/* ---------------------------------------------------------------------------
+   Industry pages dark-theme fix (dtc / finance / saas / healthcare).
+   These pages reuse the legacy homepage layout classes (.home-hero,
+   section.alt, .metric-card, .service-card, .case-card, .final-cta, etc.)
+   whose styles reference legacy tokens (--gray-surface, --deep, --ink-60 ...)
+   that are intentionally NOT remapped at body scope. Result: light bg + dark
+   text = a light-themed page under the dark nav/footer. Remap those tokens to
+   dark equivalents, SCOPED to industry pages only (data-screen-label), so the
+   whole legacy content body renders dark with no sitewide cascade risk.
+   --------------------------------------------------------------------------- */
+body.redesign-prototype [data-screen-label="industry"] {
+  --gray-surface:  var(--bg);
+  --cream:         var(--bg-elevated);
+  --cream-warm:    var(--bg-elevated);
+  --ivory:         var(--text);
+  --deep:          var(--text);
+  --deep-soft:     var(--text-muted);
+  --ink:           var(--text);
+  --ink-80:        var(--text);
+  --ink-60:        var(--text-muted);
+  --ink-40:        var(--text-tertiary);
+  --text-primary:  var(--text);
+  --text-secondary:var(--text-muted);
+  --line:          var(--border);
+  --line-soft:     var(--border);
+  --primary:       var(--cta);
+  --primary-dark:  var(--cta-hover);
+  --gold:          var(--cta);
+  --coral:         var(--cta);
+  --navy:          var(--bg-elevated);
+  --shadow-md:     0 8px 30px rgba(0, 0, 0, 0.4);
+}
+/* Legacy classes with hardcoded light values (not tokens) need explicit dark. */
+body.redesign-prototype [data-screen-label="industry"] .metric-card {
+  background: var(--bg-elevated);
+  box-shadow: none;
+}
+
 /* Dark-scope heading color: the global default (L74) sets h1-h4 to var(--deep) (navy),
    invisible on Obsidian. Restore to --text for prototype-scoped pages. Blog POSTS get
    correct heading color from V2-region rules with higher specificity; this does not affect them. */
