@@ -122,6 +122,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="content-section" id="tool">
   <div class="container">
 
+    <h2 class="sr-only">Ad set calculator</h2>
     <div class="asc-tabs" id="asc-tabs" role="tablist">
       <button class="asc-tab is-on" type="button" data-v="0" role="tab" aria-selected="true">Calculator</button>
       <button class="asc-tab" type="button" data-v="1" role="tab" aria-selected="false">Case gallery</button>
@@ -185,7 +186,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="asc-view" id="asc-v1">
       <div class="asc-gallery">
         <div class="asc-gallery-head">
-          <h2>Same formula, real budgets.</h2>
+          <h3>Same formula, real budgets.</h3>
           <p>Every card below is a real brief with the names removed. Two numbers, a monthly budget and a cost per event, were all the formula needed, and together they already decided the account structure. Click any card to load it into the calculator.</p>
         </div>
         <div class="asc-stats" id="asc-stats"></div>
@@ -444,7 +445,7 @@ body.redesign-prototype .asc-gap .asc-warn { color: var(--cta); font-weight: 700
 
 /* Case gallery (anonymized) */
 body.redesign-prototype .asc-gallery-head { max-width: 760px; margin: 0 0 22px; }
-body.redesign-prototype .asc-gallery-head h2 { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--text); margin: 0 0 10px; }
+body.redesign-prototype .asc-gallery-head h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--text); margin: 0 0 10px; }
 body.redesign-prototype .asc-gallery-head p { font-size: 15px; line-height: 1.65; color: var(--text-muted); margin: 0; }
 
 body.redesign-prototype .asc-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 26px; }
@@ -485,7 +486,7 @@ body.redesign-prototype .asc-note b { color: var(--text-muted); }
 
 @media (max-width: 900px) {
   body.redesign-prototype .asc-board { grid-template-columns: 1fr; }
-  body.redesign-prototype .asc-side { border-right: none; border-bottom: 1px solid var(--border); }
+  body.redesign-prototype .asc-side { border-right: none; border-bottom: 1px solid var(--border); border-bottom-right-radius: 0; }
 }
 
 /* ---------- Page rhythm: hero + prose measure ----------
@@ -498,7 +499,6 @@ body.redesign-prototype .hero-subtitle { max-width: 980px; margin-top: 20px; }
 /* 2. Close the gap between the hero and the calculator.
       Was 96px hero-bottom + 64px section-top = 160px. Now 40 + 48 = 88px. */
 body.redesign-prototype .hero { padding: 72px 0 40px; }
-body.redesign-prototype section.content-section#tool { padding-top: 48px; }
 
 /* 3. "Why 50" prose: deck was 720px while the closing para ran the full
       1176px container, so the two blocks did not line up. Match both at a
@@ -508,7 +508,6 @@ body.redesign-prototype .section-closing { max-width: 900px; margin-top: 20px; }
 
 @media (max-width: 900px) {
   body.redesign-prototype .hero { padding: 56px 0 32px; }
-  body.redesign-prototype section.content-section#tool { padding-top: 32px; }
   body.redesign-prototype .hero-subtitle,
   body.redesign-prototype .section-deck,
   body.redesign-prototype .section-closing { max-width: none; }
@@ -521,16 +520,33 @@ body.redesign-prototype .section-closing { max-width: 900px; margin-top: 20px; }
 body.redesign-prototype section.content-section { padding: 48px 0; }
 body.redesign-prototype .final-cta-section { padding-top: 48px; }
 
+/* Sidebar sizes to its inputs (align-items:start on .asc-board) and closes
+   off as a card instead of reading as a truncated column. */
+body.redesign-prototype .asc-side {
+  border-bottom: 1px solid var(--border);
+  border-bottom-right-radius: 14px;
+}
+
 @media (max-width: 900px) {
   body.redesign-prototype section.content-section { padding: 32px 0; }
   body.redesign-prototype .final-cta-section { padding-top: 32px; }
 
   /* Touch targets: primary controls to the 44px minimum on mobile, where
      most people hit this page. On desktop they stay compact for the mouse. */
+  body.redesign-prototype .asc-tab,
   body.redesign-prototype .asc-preset,
   body.redesign-prototype .asc-side input,
   body.redesign-prototype .asc-side select,
   body.redesign-prototype .asc-lrow input { min-height: 44px; }
+}
+
+/* Heading order: #tool had no heading of its own, so the first heading after
+   the H1 was the gallery's H3. Give #tool a screen-reader-only H2 (no visual
+   change) so the outline reads H1 -> H2 -> H3. No sr-only utility exists in
+   styles.css, so define one here. */
+body.redesign-prototype .sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 </style>
 
