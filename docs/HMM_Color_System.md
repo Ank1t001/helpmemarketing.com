@@ -212,6 +212,17 @@ Five tokens documented in Section 7 but not yet added to `styles.css`. Will be a
 
 Markdown version of the Color System docx, committed to the repo so Claude Code can read it on every session. The docx remains the prepared-by-Claude source in the Claude.ai project; this markdown is the canonical machine-readable version.
 
+### Decision 12 — Positive-result figures use Mint, sitewide (locked 2026-08-13)
+
+Mint's "positive metric callout" role (Section 2) is now **enforced across all results-bearing prototype pages**, not just the tool pages. Any figure that communicates a positive outcome — case-study result numbers, proof-strip figures, metric deltas, metric sparklines, proof stats — is rendered in `var(--mint)`. This replaced three inconsistent prior treatments: legacy emerald `#10B981` (industry metric deltas), off-canon blue `#2563EB` (industry sparklines), and Signal Orange (`work.html` case + proof figures, which read as CTAs when they are actually outcomes).
+
+Rules that keep this canon-safe:
+- **Figures only, not their labels.** The result number is Mint; its qualifier/label stays `var(--text-muted)`. The big neutral number in a `.metric-value` stays white — the *delta* is the Mint slot.
+- **Mint never becomes a CTA** (Rule 2 still holds). Every button, nav, and primary action stays Signal Orange. Orange remains the ~80%-of-accent primary; Mint is the functional-result counterpoint.
+- **Purely decorative or content-only pages** (privacy, terms, about) legitimately stay single-accent — there is no positive metric to color.
+
+Components affected: `.case-study-metric` / `.proof-strip-figure` (work), `.pm-proof-stat` (performance-marketing), `.metric-delta` + `.metric-sparkline` (industry pages, scoped under `[data-screen-label="industry"]`). Sparkline SVGs were converted from a hardcoded hex to `var(--mint)` (SVG presentation attributes accept `var()`), removing an off-canon literal.
+
 ### Decision 11 — Tertiary token AA lift (`#737373` → `#8A8A8A`), locked 2026-08-13
 
 `--text-tertiary` was raised from `#737373` (Slate, ~3.9:1 on Obsidian) to `#8A8A8A` (~4.9:1) to clear the WCAG AA 4.5:1 floor for small tertiary text. The change was first proven as a per-tool override on `/ad-set-calculator`, then promoted to the global `body.redesign-prototype` token so every dark page benefits and the page-level override could be removed. The blog token (`body.blog-dark`) is a separate scope and was **not** changed. "Slate" remains the color's name; only its shipped value moved.

@@ -121,6 +121,7 @@ Two prototype-scope canon changes, derived from auditing `/ad-set-calculator` as
 
 - **Vertical density tightened ~25%.** Canonical rhythm is now `.hero` `72px 0 40px` (mobile `56px 0 32px`), `section.content-section` `48px 0` (mobile `32px 0`), `.final-cta-section` `48px 0 0` (mobile top `32px`) — was 96/64. Set once in global `styles.css`; per-page hero/section padding overrides are no longer needed (removed from `/ad-set-calculator`). Spec in `/docs/HMM_Design_System.md` §5 ("Sitewide vertical density").
 - **`--text-tertiary` AA lift:** `#737373` → `#8A8A8A` (WCAG AA ~4.9:1 on Obsidian). Global prototype token; page-local override on `/ad-set-calculator` removed. See `/docs/HMM_Color_System.md` Decision 11.
+- **Functional-Mint pass (positive results = Mint):** positive-result figures now render in `var(--mint)` across results-bearing pages, matching the `/ad-set-calculator` treatment and replacing three inconsistent prior colors (emerald `#10B981` on industry deltas, off-canon blue `#2563EB` on industry sparklines, Signal Orange on `work.html` case/proof figures). Components: `.case-study-metric` + `.proof-strip-figure` (work), `.pm-proof-stat` (performance-marketing), `.metric-delta` + `.metric-sparkline` (industry pages, scoped). Figures only — labels stay muted, big neutral numbers stay white, Mint never a CTA. See `/docs/HMM_Color_System.md` Decision 12.
 
 ## Architecture (both legacy and prototype)
 
