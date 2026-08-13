@@ -5638,8 +5638,11 @@ body.redesign-prototype .finder-row {
 body.redesign-prototype .finder-input {
   flex: 1 1 auto;
   min-width: 0;
-  background: var(--bg);
-  border: 1px solid var(--border);
+  /* Elevated Carbon surface so the field reads against the Obsidian hero
+     (was var(--bg), identical to the page, which made it near-invisible).
+     Slightly stronger resting border for a crisp edge; hover 0.2, focus cta. */
+  background: var(--bg-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   color: var(--text);
   border-radius: 8px;
   padding: 14px 16px;
