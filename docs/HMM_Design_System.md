@@ -317,6 +317,22 @@ transform: translateY(-2px);
 
 The card-arrow inside uses `var(--cta)` — counts as CTA affordance per Color System Decision 2.
 
+### Card tags (`.card-tags` / `.card-tag`)
+
+Small descriptor badges shown inside a `.service-card`, between the `<p>` and the `.card-arrow`. Introduced for the `/ai-tools` hub to label each tool with concrete specifics (capability, counts, coverage). Structure:
+```html
+<div class="card-tags">
+  <span class="card-tag is-ai">AI Assisted</span>
+  <span class="card-tag">4 platforms</span>
+  <span class="card-tag">11 verticals</span>
+</div>
+```
+- `.card-tags` — flex row, wraps, `gap: 6px`, `margin: 0 0 20px`.
+- `.card-tag` — 11px/600, `padding: 5px 9px`, `border-radius: 6px`, transparent background with `1px solid var(--border)`, text `var(--text-muted)`. Outline chip so it reads on any card background.
+- `.card-tag.is-ai` — the AI-capability variant: text `var(--cta)` (Signal Orange) on `var(--orange-glow)`. Use it only on the one tag per card that names the AI capability, so the orange stays a signal, not decoration (Color System Golden Rules). Neutral tags carry counts and coverage.
+
+Tokens only, no hardcoded hex. Defined at `styles.css` under the prototype `.service-card` block.
+
 ### Final CTA card (callout)
 
 `.final-cta` (`styles.css:4011-4016`):

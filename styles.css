@@ -5540,6 +5540,31 @@ body.redesign-prototype .service-card .card-arrow {
   font-weight: 500;
 }
 
+/* Card tags — small descriptor badges on cards (AI Tools hub). Neutral by
+   default; .is-ai variant uses Signal Orange to flag AI-driven capability. */
+body.redesign-prototype .card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 20px;
+}
+body.redesign-prototype .card-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  padding: 5px 9px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+}
+body.redesign-prototype .card-tag.is-ai {
+  color: var(--cta);
+  background: var(--orange-glow);
+  border-color: var(--border);
+}
+
 /* Bullet list */
 body.redesign-prototype .bullet-list {
   list-style: none;
