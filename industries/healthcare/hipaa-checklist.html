@@ -40,7 +40,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://helpmemarketing.com/"},{"@type":"ListItem","position":2,"name":"Healthcare","item":"https://helpmemarketing.com/industries/healthcare"},{"@type":"ListItem","position":3,"name":"HIPAA Checklist","item":"https://helpmemarketing.com/industries/healthcare/hipaa-checklist"}]}
 </script>
 <script type="application/ld+json" data-cfasync="false">
-{"@context":"https://schema.org","@type":"HowTo","name":"The HIPAA marketing checklist for clinics","description":"A 22-point HIPAA-aware checklist covering administrative, technical, physical, marketing, and breach-response safeguards every healthcare practice should run at least once a year.","totalTime":"PT60M","step":[{"@type":"HowToStep","name":"Administrative safeguards","text":"Designate a Privacy Officer, run annual HIPAA training, document written policies, sign BAAs with every PHI-touching vendor, and complete a risk analysis in the last 12 months."},{"@type":"HowToStep","name":"Technical safeguards","text":"Encrypt PHI in transit (TLS 1.2+) and at rest, enforce unique user IDs with MFA, set automatic session logoff under 15 minutes, and retain audit logs of PHI access for 6 years."},{"@type":"HowToStep","name":"Physical safeguards","text":"Lock workstation areas away from patient sightlines, maintain a device inventory with secure disposal, and keep paper records under lock and key — shredded, not binned."},{"@type":"HowToStep","name":"Marketing and website","text":"Strip PHI from Google Analytics and Meta Pixel using server-side tracking, sign a BAA with your marketing agency, get explicit consent for booking-widget tracking, disable session-replay on patient pages, run compliant review flows, and obtain written consent for before/after photos."},{"@type":"HowToStep","name":"Breach preparedness","text":"Maintain a written incident-response plan, document breach-notification procedures (60-day patient notice, HHS notice, media notice if &gt;500 affected), and carry cyber liability insurance covering HIPAA fines and notification costs."}]}
+{"@context":"https://schema.org","@type":"HowTo","name":"The HIPAA marketing checklist for clinics","description":"A 22-point HIPAA-aware checklist covering administrative, technical, physical, marketing, and breach-response safeguards every healthcare practice should run at least once a year.","totalTime":"PT60M","step":[{"@type":"HowToStep","name":"Administrative safeguards","text":"Designate a Privacy Officer, run annual HIPAA training, document written policies, sign BAAs with every PHI-touching vendor, and complete a risk analysis in the last 12 months."},{"@type":"HowToStep","name":"Technical safeguards","text":"Encrypt PHI in transit (TLS 1.2+) and at rest, enforce unique user IDs with MFA, set automatic session logoff under 15 minutes, and retain audit logs of PHI access for 6 years."},{"@type":"HowToStep","name":"Physical safeguards","text":"Lock workstation areas away from patient sightlines, maintain a device inventory with secure disposal, and keep paper records under lock and key: shredded, not binned."},{"@type":"HowToStep","name":"Marketing and website","text":"Strip PHI from Google Analytics and Meta Pixel using server-side tracking, sign a BAA with your marketing agency, get explicit consent for booking-widget tracking, disable session-replay on patient pages, run compliant review flows, and obtain written consent for before/after photos."},{"@type":"HowToStep","name":"Breach preparedness","text":"Maintain a written incident-response plan, document breach-notification procedures (60-day patient notice, HHS notice, media notice if &gt;500 affected), and carry cyber liability insurance covering HIPAA fines and notification costs."}]}
 </script>
 <script src="/consent.js" defer></script>
 </head>
@@ -85,195 +85,193 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<div class="page">
+<div class="page-enter">
 
-<section style="padding:80px 0 40px; border-bottom:1px solid var(--line-soft)">
+<section class="hipaa-hero">
   <div class="container">
-    <div style="font-size:13px; color:var(--ink-60); margin-bottom:20px">
-      <a href="/" style="color:inherit">Home</a> <span style="color:var(--ink-40); margin:0 6px">/</span>
-      <a href="/industries/healthcare" style="color:inherit">Healthcare</a> <span style="color:var(--ink-40); margin:0 6px">/</span>
+    <div class="hipaa-crumb">
+      <a href="/">Home</a> <span class="sep">/</span>
+      <a href="/industries/healthcare">Healthcare</a> <span class="sep">/</span>
       HIPAA Checklist
     </div>
-    <div class="eyebrow"><span class="eyebrow-dot"></span>Free resource · Checklist</div>
-    <h1 class="serif display-xl" style="font-size:clamp(40px, 5vw, 76px); margin-top:14px; line-height:1.04; color:var(--deep); max-width:980px; letter-spacing:-0.025em">
-      The HIPAA checklist <span class="italic-accent">every</span> clinic should run at least once a year.
-    </h1>
-    <p style="font-size:18px; color:var(--ink-60); margin-top:22px; max-width:640px; line-height:1.55">A working list of 22 items — administrative, technical, physical, marketing and breach response. Tick them off as you go; progress saves in this browser. No email required.</p>
+    <span class="eyebrow">Free resource · Checklist</span>
+    <h1 class="hipaa-h1">The HIPAA checklist <span class="italic-accent">every</span> clinic should run at least once a year.</h1>
+    <p class="hipaa-lead">A working list of 22 items: administrative, technical, physical, marketing and breach response. Tick them off as you go; progress saves in this browser. No email required.</p>
   </div>
 </section>
 
-<section style="padding:40px 0 120px">
-  <div class="container" style="max-width:1080px">
+<section class="hipaa-body">
+  <div class="container hipaa-narrow">
 
-    <div style="position:sticky; top:72px; z-index:5; background:var(--cream); border:1px solid var(--line-soft); border-radius:16px; padding:20px 24px; margin-bottom:40px; box-shadow:0 8px 24px -16px rgba(10,46,44,0.1)">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:12px">
-        <div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap">
-          <div class="serif" style="font-size:34px; color:var(--deep); line-height:1; letter-spacing:-0.01em"><span id="hipaa-done">0</span><span style="color:var(--ink-60); font-size:22px"> / <span id="hipaa-total">22</span></span></div>
-          <div style="font-size:13px; color:var(--ink-60)">items complete</div>
+    <div class="hipaa-progress">
+      <div class="hipaa-progress-top">
+        <div class="hipaa-progress-count">
+          <div class="hipaa-count-num"><span id="hipaa-done">0</span><span class="hipaa-count-total"> / <span id="hipaa-total">22</span></span></div>
+          <div class="hipaa-count-label">items complete</div>
         </div>
-        <div style="display:flex; align-items:center; gap:16px">
-          <span id="hipaa-label" style="padding:4px 12px; border-radius:999px; background:white; color:var(--primary-dark); font-size:12px; font-weight:600; border:1px solid var(--line)">Start here</span>
-          <button id="hipaa-reset" style="display:none; font-size:12px; color:var(--ink-60); background:none; border:none; cursor:pointer; text-decoration:underline; font-family:inherit">Reset</button>
+        <div class="hipaa-progress-status">
+          <span id="hipaa-label" class="hipaa-status-pill">Start here</span>
+          <button id="hipaa-reset" class="hipaa-reset">Reset</button>
         </div>
       </div>
-      <div style="height:8px; background:white; border:1px solid var(--line-soft); border-radius:999px; overflow:hidden">
-        <div id="hipaa-bar" style="height:100%; width:0%; background:linear-gradient(90deg, var(--primary) 0%, var(--mint) 100%); transition:width 0.3s ease"></div>
+      <div class="hipaa-track">
+        <div id="hipaa-bar" class="hipaa-bar"></div>
       </div>
     </div>
 
-    <div id="hipaa-groups" style="display:flex; flex-direction:column; gap:48px">
+    <div id="hipaa-groups" class="hipaa-groups">
 
       <div class="hgroup" data-group="Administrative safeguards">
-        <div style="display:flex; align-items:baseline; gap:16px; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--line-soft)">
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--mint); flex-shrink:0; transform:translateY(-3px)"></div>
-          <h2 class="serif" style="font-size:28px; color:var(--deep); letter-spacing:-0.01em; line-height:1.1; flex:1">Administrative safeguards</h2>
-          <div class="hgroup-count" style="font-size:13px; color:var(--ink-60); font-variant-numeric:tabular-nums"><span class="hgroup-done">0</span> / 5</div>
+        <div class="hgroup-head">
+          <div class="hgroup-dot"></div>
+          <h2 class="hgroup-title">Administrative safeguards</h2>
+          <div class="hgroup-count"><span class="hgroup-done">0</span> / 5</div>
         </div>
-        <div style="display:grid; gap:10px">
+        <div class="hgroup-items">
           <button class="hitem" data-key="Administrative safeguards::Designated Privacy Officer">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Designated Privacy Officer</div><div class="hdesc">A named person responsible for HIPAA compliance, accessible to staff and patients.</div></div>
+            <div class="hitem-body"><div class="htitle">Designated Privacy Officer</div><div class="hdesc">A named person responsible for HIPAA compliance, accessible to staff and patients.</div></div>
           </button>
           <button class="hitem" data-key="Administrative safeguards::Annual HIPAA training for all staff">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Annual HIPAA training for all staff</div><div class="hdesc">Documented with date, attendee list, and topics covered — retained 6 years.</div></div>
+            <div class="hitem-body"><div class="htitle">Annual HIPAA training for all staff</div><div class="hdesc">Documented with date, attendee list, and topics covered, retained 6 years.</div></div>
           </button>
           <button class="hitem" data-key="Administrative safeguards::Written policies &amp; procedures">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Written policies &amp; procedures</div><div class="hdesc">PHI handling, breach response, access controls, subcontractor vetting.</div></div>
+            <div class="hitem-body"><div class="htitle">Written policies &amp; procedures</div><div class="hdesc">PHI handling, breach response, access controls, subcontractor vetting.</div></div>
           </button>
           <button class="hitem" data-key="Administrative safeguards::Business Associate Agreements (BAAs)">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Business Associate Agreements (BAAs)</div><div class="hdesc">Signed with every vendor that touches PHI — hosting, email, CRM, marketing agency.</div></div>
+            <div class="hitem-body"><div class="htitle">Business Associate Agreements (BAAs)</div><div class="hdesc">Signed with every vendor that touches PHI: hosting, email, CRM, marketing agency.</div></div>
           </button>
           <button class="hitem" data-key="Administrative safeguards::Risk analysis conducted in the last 12 months">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Risk analysis conducted in the last 12 months</div><div class="hdesc">A documented review of where PHI lives and how it could be exposed.</div></div>
+            <div class="hitem-body"><div class="htitle">Risk analysis conducted in the last 12 months</div><div class="hdesc">A documented review of where PHI lives and how it could be exposed.</div></div>
           </button>
         </div>
       </div>
 
       <div class="hgroup" data-group="Technical safeguards">
-        <div style="display:flex; align-items:baseline; gap:16px; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--line-soft)">
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--coral); flex-shrink:0; transform:translateY(-3px)"></div>
-          <h2 class="serif" style="font-size:28px; color:var(--deep); letter-spacing:-0.01em; line-height:1.1; flex:1">Technical safeguards</h2>
-          <div class="hgroup-count" style="font-size:13px; color:var(--ink-60); font-variant-numeric:tabular-nums"><span class="hgroup-done">0</span> / 5</div>
+        <div class="hgroup-head">
+          <div class="hgroup-dot is-mint"></div>
+          <h2 class="hgroup-title">Technical safeguards</h2>
+          <div class="hgroup-count"><span class="hgroup-done">0</span> / 5</div>
         </div>
-        <div style="display:grid; gap:10px">
+        <div class="hgroup-items">
           <button class="hitem" data-key="Technical safeguards::Encryption in transit (TLS 1.2+)">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Encryption in transit (TLS 1.2+)</div><div class="hdesc">All web forms, patient portals, email integrations.</div></div>
+            <div class="hitem-body"><div class="htitle">Encryption in transit (TLS 1.2+)</div><div class="hdesc">All web forms, patient portals, email integrations.</div></div>
           </button>
           <button class="hitem" data-key="Technical safeguards::Encryption at rest">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Encryption at rest</div><div class="hdesc">Databases, backups, local machines that store PHI.</div></div>
+            <div class="hitem-body"><div class="htitle">Encryption at rest</div><div class="hdesc">Databases, backups, local machines that store PHI.</div></div>
           </button>
           <button class="hitem" data-key="Technical safeguards::Unique user IDs &amp; MFA">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Unique user IDs &amp; MFA</div><div class="hdesc">No shared logins. MFA on every system with PHI access.</div></div>
+            <div class="hitem-body"><div class="htitle">Unique user IDs &amp; MFA</div><div class="hdesc">No shared logins. MFA on every system with PHI access.</div></div>
           </button>
           <button class="hitem" data-key="Technical safeguards::Automatic session logoff">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Automatic session logoff</div><div class="hdesc">Idle timeout of 15 minutes or less on clinical systems.</div></div>
+            <div class="hitem-body"><div class="htitle">Automatic session logoff</div><div class="hdesc">Idle timeout of 15 minutes or less on clinical systems.</div></div>
           </button>
           <button class="hitem" data-key="Technical safeguards::Audit logs of PHI access">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Audit logs of PHI access</div><div class="hdesc">Who viewed what, when — retained 6 years.</div></div>
+            <div class="hitem-body"><div class="htitle">Audit logs of PHI access</div><div class="hdesc">Who viewed what and when, retained 6 years.</div></div>
           </button>
         </div>
       </div>
 
       <div class="hgroup" data-group="Physical safeguards">
-        <div style="display:flex; align-items:baseline; gap:16px; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--line-soft)">
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--butter); flex-shrink:0; transform:translateY(-3px)"></div>
-          <h2 class="serif" style="font-size:28px; color:var(--deep); letter-spacing:-0.01em; line-height:1.1; flex:1">Physical safeguards</h2>
-          <div class="hgroup-count" style="font-size:13px; color:var(--ink-60); font-variant-numeric:tabular-nums"><span class="hgroup-done">0</span> / 3</div>
+        <div class="hgroup-head">
+          <div class="hgroup-dot"></div>
+          <h2 class="hgroup-title">Physical safeguards</h2>
+          <div class="hgroup-count"><span class="hgroup-done">0</span> / 3</div>
         </div>
-        <div style="display:grid; gap:10px">
+        <div class="hgroup-items">
           <button class="hitem" data-key="Physical safeguards::Locked workstation areas">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Locked workstation areas</div><div class="hdesc">Reception and clinical stations not visible to waiting patients.</div></div>
+            <div class="hitem-body"><div class="htitle">Locked workstation areas</div><div class="hdesc">Reception and clinical stations not visible to waiting patients.</div></div>
           </button>
           <button class="hitem" data-key="Physical safeguards::Device inventory &amp; secure disposal">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Device inventory &amp; secure disposal</div><div class="hdesc">All laptops, phones and USBs tracked. Drives wiped or shredded on decommission.</div></div>
+            <div class="hitem-body"><div class="htitle">Device inventory &amp; secure disposal</div><div class="hdesc">All laptops, phones and USBs tracked. Drives wiped or shredded on decommission.</div></div>
           </button>
           <button class="hitem" data-key="Physical safeguards::Paper records under lock and key">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Paper records under lock and key</div><div class="hdesc">Never left on desks overnight. Shredded, not binned.</div></div>
+            <div class="hitem-body"><div class="htitle">Paper records under lock and key</div><div class="hdesc">Never left on desks overnight. Shredded, not binned.</div></div>
           </button>
         </div>
       </div>
 
       <div class="hgroup" data-group="Marketing &amp; website">
-        <div style="display:flex; align-items:baseline; gap:16px; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--line-soft)">
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--sand); flex-shrink:0; transform:translateY(-3px)"></div>
-          <h2 class="serif" style="font-size:28px; color:var(--deep); letter-spacing:-0.01em; line-height:1.1; flex:1">Marketing &amp; website</h2>
-          <div class="hgroup-count" style="font-size:13px; color:var(--ink-60); font-variant-numeric:tabular-nums"><span class="hgroup-done">0</span> / 6</div>
+        <div class="hgroup-head">
+          <div class="hgroup-dot is-mint"></div>
+          <h2 class="hgroup-title">Marketing &amp; website</h2>
+          <div class="hgroup-count"><span class="hgroup-done">0</span> / 6</div>
         </div>
-        <div style="display:grid; gap:10px">
+        <div class="hgroup-items">
           <button class="hitem" data-key="Marketing &amp; website::No PHI in Google Analytics or Meta Pixel">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">No PHI in Google Analytics or Meta Pixel</div><div class="hdesc">Server-side tracking with identifier stripping is the only safe pattern.</div></div>
+            <div class="hitem-body"><div class="htitle">No PHI in Google Analytics or Meta Pixel</div><div class="hdesc">Server-side tracking with identifier stripping is the only safe pattern.</div></div>
           </button>
           <button class="hitem" data-key="Marketing &amp; website::BAA with your marketing agency">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">BAA with your marketing agency</div><div class="hdesc">If they touch form data, patient emails or campaign lists.</div></div>
+            <div class="hitem-body"><div class="htitle">BAA with your marketing agency</div><div class="hdesc">If they touch form data, patient emails or campaign lists.</div></div>
           </button>
           <button class="hitem" data-key="Marketing &amp; website::Explicit consent before booking-widget tracking">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Explicit consent before booking-widget tracking</div><div class="hdesc">Patients know what is being recorded and by whom.</div></div>
+            <div class="hitem-body"><div class="htitle">Explicit consent before booking-widget tracking</div><div class="hdesc">Patients know what is being recorded and by whom.</div></div>
           </button>
           <button class="hitem" data-key="Marketing &amp; website::No session-replay on patient-facing pages">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">No session-replay on patient-facing pages</div><div class="hdesc">FullStory, Hotjar etc. capture PHI. Use only on logged-out marketing pages.</div></div>
+            <div class="hitem-body"><div class="htitle">No session-replay on patient-facing pages</div><div class="hdesc">FullStory, Hotjar etc. capture PHI. Use only on logged-out marketing pages.</div></div>
           </button>
           <button class="hitem" data-key="Marketing &amp; website::Review request flow is compliant">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Review request flow is compliant</div><div class="hdesc">No star-gating, no incentives, no impersonation.</div></div>
+            <div class="hitem-body"><div class="htitle">Review request flow is compliant</div><div class="hdesc">No star-gating, no incentives, no impersonation.</div></div>
           </button>
           <button class="hitem" data-key="Marketing &amp; website::Before/after photos with written consent">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Before/after photos with written consent</div><div class="hdesc">Separate consent from treatment consent. Revocable in writing.</div></div>
+            <div class="hitem-body"><div class="htitle">Before/after photos with written consent</div><div class="hdesc">Separate consent from treatment consent. Revocable in writing.</div></div>
           </button>
         </div>
       </div>
 
       <div class="hgroup" data-group="Breach preparedness">
-        <div style="display:flex; align-items:baseline; gap:16px; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--line-soft)">
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--mint); flex-shrink:0; transform:translateY(-3px)"></div>
-          <h2 class="serif" style="font-size:28px; color:var(--deep); letter-spacing:-0.01em; line-height:1.1; flex:1">Breach preparedness</h2>
-          <div class="hgroup-count" style="font-size:13px; color:var(--ink-60); font-variant-numeric:tabular-nums"><span class="hgroup-done">0</span> / 3</div>
+        <div class="hgroup-head">
+          <div class="hgroup-dot"></div>
+          <h2 class="hgroup-title">Breach preparedness</h2>
+          <div class="hgroup-count"><span class="hgroup-done">0</span> / 3</div>
         </div>
-        <div style="display:grid; gap:10px">
+        <div class="hgroup-items">
           <button class="hitem" data-key="Breach preparedness::Written incident response plan">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Written incident response plan</div><div class="hdesc">Who to call, in what order, within the first hour of a suspected breach.</div></div>
+            <div class="hitem-body"><div class="htitle">Written incident response plan</div><div class="hdesc">Who to call, in what order, within the first hour of a suspected breach.</div></div>
           </button>
           <button class="hitem" data-key="Breach preparedness::Breach notification procedures">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Breach notification procedures</div><div class="hdesc">Patient notice within 60 days. HHS notice. Media notice if &gt;500 affected.</div></div>
+            <div class="hitem-body"><div class="htitle">Breach notification procedures</div><div class="hdesc">Patient notice within 60 days. HHS notice. Media notice if &gt;500 affected.</div></div>
           </button>
           <button class="hitem" data-key="Breach preparedness::Cyber liability insurance">
             <div class="hbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hcheck"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div style="flex:1; min-width:0"><div class="htitle">Cyber liability insurance</div><div class="hdesc">Covering HIPAA fines, forensic costs, notification costs.</div></div>
+            <div class="hitem-body"><div class="htitle">Cyber liability insurance</div><div class="hdesc">Covering HIPAA fines, forensic costs, notification costs.</div></div>
           </button>
         </div>
       </div>
 
     </div>
 
-    <div class="hipaa-cta" style="margin-top:80px; padding:40px; border-radius:20px; background:var(--deep); color:white; display:grid; grid-template-columns:1.5fr 1fr; gap:40px; align-items:center">
+    <div class="hipaa-cta">
       <div>
-        <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--mint); font-weight:600; margin-bottom:14px">Need a hand?</div>
-        <h3 class="serif" style="font-size:30px; line-height:1.1; letter-spacing:-0.015em; margin-bottom:14px">We&rsquo;ll do a HIPAA-aware audit of your marketing stack — free.</h3>
-        <p style="font-size:15px; color:rgba(255,255,255,0.7); line-height:1.55">Pixels, GTM, forms, session tools, BAAs. A 30-minute call, a short report, zero pitch.</p>
+        <div class="hipaa-cta-eyebrow">Need a hand?</div>
+        <h3 class="hipaa-cta-title">We&rsquo;ll do a HIPAA-aware audit of your marketing stack, free.</h3>
+        <p class="hipaa-cta-text">Pixels, GTM, forms, session tools, BAAs. A 30-minute call, a short report, zero pitch.</p>
       </div>
-      <a href="/contact" class="btn btn-primary" style="justify-self:start">Request free audit →</a>
+      <a href="/contact" class="btn btn-primary hipaa-cta-btn">Request free audit →</a>
     </div>
 
-    <div style="margin-top:32px; font-size:12px; color:var(--ink-60); line-height:1.55; max-width:720px">
-      <b>Note —</b> this checklist is a starting point, not legal advice. HIPAA compliance depends on your specific workflows, covered-entity status and state law. Work with qualified counsel before certifying your practice.
+    <div class="hipaa-note">
+      <b>Note:</b> this checklist is a starting point, not legal advice. HIPAA compliance depends on your specific workflows, covered-entity status and state law. Work with qualified counsel before certifying your practice.
     </div>
 
   </div>
@@ -384,23 +382,284 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <style>
-.hitem {
-  display:flex; gap:16px; padding:18px 22px; border-radius:14px; text-align:left;
-  border:1px solid var(--line); background:white;
-  cursor:pointer; transition:all 0.15s ease; font-family:inherit; width:100%;
+/* ============================================================
+   HIPAA checklist - prototype-scoped components
+   Prototype tokens only. No legacy tokens, no inline styles.
+   ============================================================ */
+
+/* Hero */
+body.redesign-prototype .hipaa-hero {
+  padding: 80px 0 40px;
+  border-bottom: 1px solid var(--border);
 }
-.hbox {
-  width:24px; height:24px; border-radius:7px; flex-shrink:0;
-  border:1.5px solid var(--line); background:white;
-  display:grid; place-items:center; transition:all 0.15s ease; margin-top:2px;
+body.redesign-prototype .hipaa-crumb {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
 }
-.hcheck { display:none; }
-.htitle { font-size:15.5px; font-weight:600; color:var(--deep); margin-bottom:6px; line-height:1.35; }
-.hdesc { font-size:13.5px; color:var(--ink-60); line-height:1.55; }
-.hitem.on { border:1px solid rgba(0,181,165,0.4); background:var(--mint-soft); }
-.hitem.on .hbox { border:none; background:var(--primary); }
-.hitem.on .hcheck { display:block; }
-.hitem.on .htitle { color:var(--primary-dark); }
+body.redesign-prototype .hipaa-crumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+body.redesign-prototype .hipaa-crumb a:hover { color: var(--cta); }
+body.redesign-prototype .hipaa-crumb .sep {
+  color: var(--text-tertiary);
+  margin: 0 6px;
+}
+body.redesign-prototype .hipaa-hero .eyebrow { margin-bottom: 14px; }
+body.redesign-prototype .hipaa-h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 76px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  max-width: 980px;
+  margin: 0;
+}
+body.redesign-prototype .hipaa-lead {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-top: 22px;
+  max-width: 640px;
+  line-height: 1.55;
+}
+
+/* Body wrapper */
+body.redesign-prototype .hipaa-body { padding: 40px 0 120px; }
+body.redesign-prototype .hipaa-narrow { max-width: 1080px; }
+
+/* Sticky progress card */
+body.redesign-prototype .hipaa-progress {
+  position: sticky;
+  top: 72px;
+  z-index: 5;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+body.redesign-prototype .hipaa-progress-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+body.redesign-prototype .hipaa-progress-count {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+body.redesign-prototype .hipaa-count-num {
+  font-family: var(--serif);
+  font-size: 34px;
+  color: var(--text);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+body.redesign-prototype .hipaa-count-total {
+  color: var(--text-muted);
+  font-size: 22px;
+}
+body.redesign-prototype .hipaa-count-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+body.redesign-prototype .hipaa-progress-status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+body.redesign-prototype .hipaa-status-pill {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+}
+body.redesign-prototype .hipaa-reset {
+  display: none;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: inherit;
+}
+body.redesign-prototype .hipaa-track {
+  height: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+body.redesign-prototype .hipaa-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--cta) 0%, #00D4AA 100%);
+  transition: width 0.3s ease;
+}
+
+/* Groups */
+body.redesign-prototype .hipaa-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+body.redesign-prototype .hgroup-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+body.redesign-prototype .hgroup-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cta);
+  flex-shrink: 0;
+  transform: translateY(-3px);
+}
+body.redesign-prototype .hgroup-dot.is-mint { background: #00D4AA; }
+body.redesign-prototype .hgroup-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 28px;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  flex: 1;
+  margin: 0;
+}
+body.redesign-prototype .hgroup-count {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+body.redesign-prototype .hgroup-items {
+  display: grid;
+  gap: 10px;
+}
+
+/* Checklist items */
+body.redesign-prototype .hitem {
+  display: flex;
+  gap: 16px;
+  padding: 18px 22px;
+  border-radius: 14px;
+  text-align: left;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  width: 100%;
+}
+body.redesign-prototype .hitem:hover { border-color: var(--cta); }
+body.redesign-prototype .hitem-body { flex: 1; min-width: 0; }
+body.redesign-prototype .hbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  flex-shrink: 0;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  display: grid;
+  place-items: center;
+  transition: all 0.15s ease;
+  margin-top: 2px;
+}
+body.redesign-prototype .hcheck { display: none; }
+body.redesign-prototype .htitle {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+body.redesign-prototype .hdesc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+body.redesign-prototype .hitem.on {
+  border-color: var(--cta);
+  background: var(--orange-glow);
+}
+body.redesign-prototype .hitem.on .hbox {
+  border-color: var(--cta);
+  background: var(--cta);
+}
+body.redesign-prototype .hitem.on .hcheck { display: block; }
+body.redesign-prototype .hitem.on .htitle { color: var(--cta); }
+
+/* Closing CTA */
+body.redesign-prototype .hipaa-cta {
+  margin-top: 80px;
+  padding: 40px;
+  border-radius: 20px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  box-shadow: 0 0 60px var(--orange-glow);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+body.redesign-prototype .hipaa-cta-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #00D4AA;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+body.redesign-prototype .hipaa-cta-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin: 0 0 14px;
+}
+body.redesign-prototype .hipaa-cta-text {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+body.redesign-prototype .hipaa-cta-btn { justify-self: start; }
+
+/* Legal note */
+body.redesign-prototype .hipaa-note {
+  margin-top: 32px;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  max-width: 720px;
+}
+body.redesign-prototype .hipaa-note b { color: var(--text); }
+
+/* Responsive - prototype breakpoints only (900 / 720) */
+@media (max-width: 900px) {
+  body.redesign-prototype .hipaa-hero { padding: 56px 0 32px; }
+  body.redesign-prototype .hipaa-cta { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 720px) {
+  body.redesign-prototype .hgroup-title { font-size: 24px; }
+  body.redesign-prototype .hipaa-cta-title { font-size: 26px; }
+}
 </style>
 
 <script>
@@ -433,8 +692,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.getElementById('hipaa-bar').style.width = pct + '%';
     var lbl = document.getElementById('hipaa-label');
     lbl.textContent = label(pct);
-    if (pct === 100) { lbl.style.background = 'var(--mint)'; lbl.style.color = 'var(--deep)'; }
-    else { lbl.style.background = 'white'; lbl.style.color = 'var(--primary-dark)'; }
+    if (pct === 100) { lbl.style.background = 'var(--cta)'; lbl.style.color = 'var(--bg)'; }
+    else { lbl.style.background = 'var(--bg-elevated)'; lbl.style.color = 'var(--text-muted)'; }
 
     document.querySelectorAll('.hgroup').forEach(function(g){
       var groupItems = g.querySelectorAll('.hitem');
