@@ -333,6 +333,35 @@ Small descriptor badges shown inside a `.service-card`, between the `<p>` and th
 
 Tokens only, no hardcoded hex. Defined at `styles.css` under the prototype `.service-card` block.
 
+### Tool finder (`.finder`)
+
+The hero recommender on `/ai-tools`. A visitor describes what they are trying to do, and an AI (via `/api/tool-finder`) points them to the best-fit tool. Introduced when `/ai-tools` grew past a flat grid, so it scales as more tools ship without the visitor having to read every card. Structure:
+```html
+<div class="finder" id="finder">
+  <form class="finder-form" id="finder-form" role="search">
+    <label class="finder-label" for="finder-input">Describe what you are trying to do</label>
+    <div class="finder-row">
+      <input class="finder-input" id="finder-input" type="text" maxlength="500" ...>
+      <button class="btn btn-primary finder-submit" id="finder-submit" type="submit">Find my tool &rarr;</button>
+    </div>
+  </form>
+  <div class="finder-chips" id="finder-chips">
+    <span class="finder-chips-label">Or start here:</span>
+    <button class="finder-chip" type="button" data-q="...">How much should I spend on ads?</button>
+    <!-- more chips -->
+  </div>
+  <div class="finder-result" id="finder-result" role="status" aria-live="polite" hidden></div>
+</div>
+```
+- `.finder` — `max-width: 640px`, sits below the hero subtitle in place of hero CTAs.
+- `.finder-row` — flex row (input + submit); collapses to a column at `max-width: 720px` with a full-width submit.
+- `.finder-input` — reuses the prototype form-input visual language (`var(--bg)`, `1px solid var(--border)`, Signal Orange focus ring `0 0 0 4px rgba(255,92,26,0.15)`).
+- `.finder-chip` — pill quick-picks (`border-radius: 999px`, outline). Each carries a `data-q` full-sentence query it submits on click. Hover uses `var(--orange-glow)` + `var(--cta)` border.
+- `.finder-result` — AI response panel (`var(--bg-elevated)` card). `.finder-result-message` holds the copy; `.finder-result-actions` holds the recommended tool button(s).
+- `.service-card.is-recommended` — the matched card in the grid below gets a Signal Orange border + glow, and the finder scrolls it into view.
+
+**Behaviour (canon):** all JS is wired with `addEventListener` on `DOMContentLoaded`, no inline handlers. The endpoint returns `{primary_url, secondary_url, message}` constrained to the real tool URLs (enum) so links can never be hallucinated. If the API is unavailable (no `ANTHROPIC_API_KEY`, upstream error, network failure), the panel degrades to a "see all tools + book a free audit" fallback and never blocks the static grid. Tokens only, no hardcoded hex except the shared Signal Orange focus-ring rgba already used by the form pattern. Defined at `styles.css` under the prototype `.card-tag` block.
+
 ### Final CTA card (callout)
 
 `.final-cta` (`styles.css:4011-4016`):

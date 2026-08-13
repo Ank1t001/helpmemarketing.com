@@ -5565,6 +5565,125 @@ body.redesign-prototype .card-tag.is-ai {
   border-color: var(--border);
 }
 
+/* Tool finder — hero search that recommends a best-fit tool (AI Tools hub).
+   Text input + submit + quick-pick chips + an AI result panel. Posts to
+   /api/tool-finder; degrades to the tool grid when the API is unavailable. */
+body.redesign-prototype .finder {
+  max-width: 640px;
+  margin: 32px 0 0;
+}
+body.redesign-prototype .finder-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin: 0 0 10px;
+}
+body.redesign-prototype .finder-row {
+  display: flex;
+  gap: 10px;
+}
+body.redesign-prototype .finder-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+body.redesign-prototype .finder-input::placeholder {
+  color: var(--text-tertiary);
+}
+body.redesign-prototype .finder-input:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+body.redesign-prototype .finder-input:focus {
+  outline: none;
+  border-color: var(--cta);
+  box-shadow: 0 0 0 4px rgba(255, 92, 26, 0.15);
+}
+body.redesign-prototype .finder-submit {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+body.redesign-prototype .finder-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+body.redesign-prototype .finder-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 0;
+}
+body.redesign-prototype .finder-chips-label {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-right: 2px;
+}
+body.redesign-prototype .finder-chip {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+body.redesign-prototype .finder-chip:hover {
+  color: var(--text);
+  border-color: var(--cta);
+  background: var(--orange-glow);
+}
+
+body.redesign-prototype .finder-result {
+  margin: 20px 0 0;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+body.redesign-prototype .finder-result-message {
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+body.redesign-prototype .finder-result-loading {
+  color: var(--text-muted);
+}
+body.redesign-prototype .finder-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 0;
+}
+
+/* Card the finder recommended: Signal Orange border + glow to draw the eye. */
+body.redesign-prototype .service-card.is-recommended {
+  border-color: var(--cta);
+  box-shadow: 0 0 0 1px var(--cta), 0 8px 30px var(--orange-glow);
+}
+
+@media (max-width: 720px) {
+  body.redesign-prototype .finder-row {
+    flex-direction: column;
+  }
+  body.redesign-prototype .finder-submit {
+    width: 100%;
+  }
+}
+
 /* Bullet list */
 body.redesign-prototype .bullet-list {
   list-style: none;

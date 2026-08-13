@@ -103,11 +103,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="hero">
   <div class="container">
     <p class="eyebrow">AI Tools</p>
-    <h1 class="hero-headline">Free marketing tools, built from <em>real client work</em>.</h1>
-    <p class="hero-subtitle">The calculators, audits, and systems we use on live accounts, opened up for you to run yourself. No email gate, no pitch. Use them, share them, run your own numbers.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-primary" href="/tools/marketing-audit">Take the free audit &rarr;</a>
-      <a class="btn btn-outline" href="/contact">Talk to us &rarr;</a>
+    <h1 class="hero-headline">Find the right tool for what you're trying to <em>fix</em>.</h1>
+    <p class="hero-subtitle">Tell us what you are working on. Our AI points you to the free tool or system built for exactly that, from ad budgets to SEO to a full marketing audit.</p>
+
+    <!-- Tool finder: describe a need, get an AI-recommended tool. Posts to
+         /api/tool-finder. Degrades to the full tool grid below if the API is
+         unavailable. All behaviour wired in JS (no inline handlers). -->
+    <div class="finder" id="finder">
+      <form class="finder-form" id="finder-form" role="search" aria-label="Find the right tool">
+        <label class="finder-label" for="finder-input">Describe what you are trying to do</label>
+        <div class="finder-row">
+          <input class="finder-input" id="finder-input" type="text" autocomplete="off"
+                 placeholder="e.g. How much should I spend on ads to get 20 customers a month?"
+                 maxlength="500">
+          <button class="btn btn-primary finder-submit" id="finder-submit" type="submit">Find my tool &rarr;</button>
+        </div>
+      </form>
+      <div class="finder-chips" id="finder-chips">
+        <span class="finder-chips-label">Or start here:</span>
+        <button class="finder-chip" type="button" data-q="How much should I spend on ads to hit my customer goal?">How much should I spend on ads?</button>
+        <button class="finder-chip" type="button" data-q="Is my marketing actually working? I want an honest assessment.">Is my marketing working?</button>
+        <button class="finder-chip" type="button" data-q="Why isn't my site ranking on Google and in AI search?">Why isn't my site ranking?</button>
+        <button class="finder-chip" type="button" data-q="What is a good cost per lead and conversion rate for my industry?">What's a good cost per lead?</button>
+        <button class="finder-chip" type="button" data-q="I'm not sure where to start with my marketing.">I'm not sure where to start</button>
+      </div>
+      <div class="finder-result" id="finder-result" role="status" aria-live="polite" hidden></div>
     </div>
   </div>
 </section>
@@ -126,7 +146,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-deck">Four ways to get a straight answer about your marketing, free.</p>
 
     <div class="service-grid">
-      <a href="/tools/marketing-audit" class="service-card">
+      <a href="/tools/marketing-audit" class="service-card" data-tool="/tools/marketing-audit">
         <h3>AI Marketing Audit</h3>
         <p>A free 5-minute diagnostic that scores your marketing maturity from 0 to 100 across 5 dimensions and tells you what to fix next. 8 questions, no pitch.</p>
         <div class="card-tags">
@@ -137,7 +157,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="card-arrow">Take the audit &rarr;</span>
       </a>
 
-      <a href="/ad-calculator" class="service-card">
+      <a href="/ad-calculator" class="service-card" data-tool="/ad-calculator">
         <h3>AdSpend Calculator</h3>
         <p>How much should you actually spend on ads? Pick your segment and a monthly customer goal, and get a budget range based on aggregated benchmarks.</p>
         <div class="card-tags">
@@ -148,7 +168,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="card-arrow">Run the numbers &rarr;</span>
       </a>
 
-      <a href="/seo-growth-os" class="service-card">
+      <a href="/seo-growth-os" class="service-card" data-tool="/seo-growth-os">
         <h3>SEO Growth OS</h3>
         <p>Any audit finds SEO problems. This one ranks them by payback, produces the fixes, and proves they worked. Six nodes, 32 specialist checks.</p>
         <div class="card-tags">
@@ -159,7 +179,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="card-arrow">Explore the system &rarr;</span>
       </a>
 
-      <a href="/ad-calculator/benchmarks" class="service-card">
+      <a href="/ad-calculator/benchmarks" class="service-card" data-tool="/ad-calculator/benchmarks">
         <h3>Ad Spend Benchmarks</h3>
         <p>The platform and industry numbers behind the calculator: CPL, conversion, and LTV for DTC, SaaS, healthcare, and finance, plus the math.</p>
         <div class="card-tags">
@@ -300,5 +320,140 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 </div>
+
+<!-- Tool finder logic. Posts the visitor's need to /api/tool-finder and renders
+     the AI recommendation. Degrades to the full tool grid if the API is
+     unavailable. No inline handlers (prototype convention). -->
+<script>
+(function () {
+  // Keep in sync with the cards above and the catalog in /api/tool-finder.js.
+  var TOOLS = {
+    '/tools/marketing-audit':   { name: 'AI Marketing Audit',   cta: 'Take the audit' },
+    '/ad-calculator':           { name: 'AdSpend Calculator',   cta: 'Run the numbers' },
+    '/seo-growth-os':           { name: 'SEO Growth OS',        cta: 'Explore the system' },
+    '/ad-calculator/benchmarks':{ name: 'Ad Spend Benchmarks',  cta: 'See the benchmarks' }
+  };
+
+  function init() {
+    var form = document.getElementById('finder-form');
+    var input = document.getElementById('finder-input');
+    var submit = document.getElementById('finder-submit');
+    var result = document.getElementById('finder-result');
+    var chips = document.getElementById('finder-chips');
+    if (!form || !input || !result) return;
+
+    var busy = false;
+
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    function clearHighlight() {
+      var cards = document.querySelectorAll('.service-card.is-recommended');
+      for (var i = 0; i < cards.length; i++) cards[i].classList.remove('is-recommended');
+    }
+
+    function highlight(url) {
+      clearHighlight();
+      if (!url || url === 'none') return null;
+      var card = document.querySelector('.service-card[data-tool="' + url + '"]');
+      if (card) card.classList.add('is-recommended');
+      return card;
+    }
+
+    function showState(html) {
+      result.innerHTML = html;
+      result.hidden = false;
+    }
+
+    function actionLink(url, primary) {
+      var t = TOOLS[url];
+      if (!t) return '';
+      var cls = primary ? 'btn btn-primary' : 'btn btn-outline';
+      var label = primary ? (t.cta + ' &rarr;') : (t.name + ' &rarr;');
+      return '<a class="' + cls + '" href="' + url + '">' + label + '</a>';
+    }
+
+    function render(data) {
+      // Unavailable or nothing matched: fall back to the full grid.
+      if (!data || data.error || !data.primary_url || data.primary_url === 'none') {
+        clearHighlight();
+        var msg = (data && data.message)
+          ? esc(data.message)
+          : 'We could not pin it to one tool. Have a look at all four below, or book a free audit and we will point you the right way.';
+        showState(
+          '<p class="finder-result-message">' + msg + '</p>' +
+          '<div class="finder-result-actions">' +
+            '<a class="btn btn-outline" href="#tools">See all tools &darr;</a>' +
+            '<a class="btn btn-primary" href="/contact">Book a free audit &rarr;</a>' +
+          '</div>'
+        );
+        return;
+      }
+
+      var card = highlight(data.primary_url);
+      var actions = actionLink(data.primary_url, true);
+      if (data.secondary_url && data.secondary_url !== 'none' && TOOLS[data.secondary_url]) {
+        actions += actionLink(data.secondary_url, false);
+      }
+      showState(
+        '<p class="finder-result-message">' + esc(data.message || 'Here is the tool we would start with.') + '</p>' +
+        '<div class="finder-result-actions">' + actions + '</div>'
+      );
+      if (card && card.scrollIntoView) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function ask(query) {
+      if (busy) return;
+      query = (query || '').trim();
+      if (!query) { input.focus(); return; }
+      busy = true;
+      submit.disabled = true;
+      submit.textContent = 'Finding…';
+      showState('<p class="finder-result-message finder-result-loading">Reading your answer and matching a tool…</p>');
+
+      fetch('/api/tool-finder', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: query })
+      })
+        .then(function (r) { return r.json(); })
+        .then(render)
+        .catch(function () { render(null); })
+        .then(function () {
+          busy = false;
+          submit.disabled = false;
+          submit.textContent = 'Find my tool →';
+        });
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      ask(input.value);
+    });
+
+    if (chips) {
+      chips.addEventListener('click', function (e) {
+        var chip = e.target.closest('.finder-chip');
+        if (!chip) return;
+        var q = chip.getAttribute('data-q') || chip.textContent;
+        input.value = q;
+        ask(q);
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
 </body>
 </html>
