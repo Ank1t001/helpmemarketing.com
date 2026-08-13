@@ -185,7 +185,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="asc-view" id="asc-v1">
       <div class="asc-gallery">
         <div class="asc-gallery-head">
-          <h3>Same formula, real budgets.</h3>
+          <h2>Same formula, real budgets.</h2>
           <p>Every card below is a real brief with the names removed. Two numbers, a monthly budget and a cost per event, were all the formula needed, and together they already decided the account structure. Click any card to load it into the calculator.</p>
         </div>
         <div class="asc-stats" id="asc-stats"></div>
@@ -337,6 +337,10 @@ body.redesign-prototype #tool {
   --asc-good: #00D4AA;
   --asc-good-glow: rgba(0, 212, 170, 0.14);
   --asc-good-line: rgba(0, 212, 170, 0.42);
+  /* AA contrast lift for labels/metadata on the elevated panels. The global
+     Slate token (#737373) is 3.67:1 on #1A1A1A, under the 4.5:1 small-text
+     floor; #8A8A8A is ~4.9:1. Scoped here so the global token is untouched. */
+  --text-tertiary: #8A8A8A;
 }
 body.redesign-prototype .asc-tabs { display: flex; gap: 4px; margin: 0 0 22px; border-bottom: 1px solid var(--border); }
 body.redesign-prototype .asc-tab {
@@ -351,6 +355,7 @@ body.redesign-prototype .asc-view.is-on { display: block; }
 body.redesign-prototype .asc-board {
   border: 1px solid var(--border); border-radius: 16px; background: var(--bg-elevated); overflow: hidden;
   display: grid; grid-template-columns: 340px 1fr;
+  align-items: start; /* sidebar sizes to its inputs, no dead space below */
 }
 body.redesign-prototype .asc-side { border-right: 1px solid var(--border); background: rgba(0, 0, 0, 0.25); padding: 24px; }
 body.redesign-prototype .asc-lab {
@@ -439,7 +444,7 @@ body.redesign-prototype .asc-gap .asc-warn { color: var(--cta); font-weight: 700
 
 /* Case gallery (anonymized) */
 body.redesign-prototype .asc-gallery-head { max-width: 760px; margin: 0 0 22px; }
-body.redesign-prototype .asc-gallery-head h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--text); margin: 0 0 10px; }
+body.redesign-prototype .asc-gallery-head h2 { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--text); margin: 0 0 10px; }
 body.redesign-prototype .asc-gallery-head p { font-size: 15px; line-height: 1.65; color: var(--text-muted); margin: 0; }
 
 body.redesign-prototype .asc-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 26px; }
@@ -507,6 +512,25 @@ body.redesign-prototype .section-closing { max-width: 900px; margin-top: 20px; }
   body.redesign-prototype .hero-subtitle,
   body.redesign-prototype .section-deck,
   body.redesign-prototype .section-closing { max-width: none; }
+}
+
+/* ---------- Section rhythm + touch targets (page-scoped) ---------- */
+
+/* Consistent ~96px between sections (was 128px = 64 + 64). Match the final
+   CTA's top gap too so the whole page tightens uniformly and pulls up. */
+body.redesign-prototype section.content-section { padding: 48px 0; }
+body.redesign-prototype .final-cta-section { padding-top: 48px; }
+
+@media (max-width: 900px) {
+  body.redesign-prototype section.content-section { padding: 32px 0; }
+  body.redesign-prototype .final-cta-section { padding-top: 32px; }
+
+  /* Touch targets: primary controls to the 44px minimum on mobile, where
+     most people hit this page. On desktop they stay compact for the mouse. */
+  body.redesign-prototype .asc-preset,
+  body.redesign-prototype .asc-side input,
+  body.redesign-prototype .asc-side select,
+  body.redesign-prototype .asc-lrow input { min-height: 44px; }
 }
 </style>
 
