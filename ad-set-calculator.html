@@ -482,6 +482,32 @@ body.redesign-prototype .asc-note b { color: var(--text-muted); }
   body.redesign-prototype .asc-board { grid-template-columns: 1fr; }
   body.redesign-prototype .asc-side { border-right: none; border-bottom: 1px solid var(--border); }
 }
+
+/* ---------- Page rhythm: hero + prose measure ----------
+   Page-scoped only. Global styles.css is left untouched so other pages
+   keep their existing spacing. */
+
+/* 1. Subtitle sits on one line on desktop (global cap is 520px). */
+body.redesign-prototype .hero-subtitle { max-width: 980px; margin-top: 20px; }
+
+/* 2. Close the gap between the hero and the calculator.
+      Was 96px hero-bottom + 64px section-top = 160px. Now 40 + 48 = 88px. */
+body.redesign-prototype .hero { padding: 72px 0 40px; }
+body.redesign-prototype section.content-section#tool { padding-top: 48px; }
+
+/* 3. "Why 50" prose: deck was 720px while the closing para ran the full
+      1176px container, so the two blocks did not line up. Match both at a
+      readable 900px measure and tighten the gap between them. */
+body.redesign-prototype .section-deck { max-width: 900px; }
+body.redesign-prototype .section-closing { max-width: 900px; margin-top: 20px; }
+
+@media (max-width: 900px) {
+  body.redesign-prototype .hero { padding: 56px 0 32px; }
+  body.redesign-prototype section.content-section#tool { padding-top: 32px; }
+  body.redesign-prototype .hero-subtitle,
+  body.redesign-prototype .section-deck,
+  body.redesign-prototype .section-closing { max-width: none; }
+}
 </style>
 
 <!-- ========== Ad Set Calculator logic (no inline handlers) ========== -->
