@@ -9,7 +9,9 @@
 // Model: Haiku 4.5 is chosen deliberately for a public, high-volume, latency
 // sensitive recommender (fast + a fraction of a cent per query). Swap to
 // "claude-opus-5" here for maximum answer quality at higher cost/latency.
-var MODEL = 'claude-haiku-4-5';
+// Pinned to the dated snapshot: it is the exact id on the structured-outputs
+// supported-models list, so output_config.format is guaranteed to be accepted.
+var MODEL = 'claude-haiku-4-5-20251001';
 
 // The tool catalog. Keep the URLs in sync with the cards on /ai-tools and the
 // enum below. Adding a tool = add it here, add it to URL_ENUM, and add its card.
@@ -76,6 +78,7 @@ module.exports = async function (req, res) {
   var apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
     // Graceful: the page falls back to showing all tools.
+    console.error('[tool-finder] ANTHROPIC_API_KEY is not set');
     res.statusCode = 200;
     return res.end(JSON.stringify({ error: 'unavailable', primary_url: 'none', secondary_url: 'none', message: '' }));
   }
@@ -135,6 +138,9 @@ module.exports = async function (req, res) {
     clearTimeout(timer);
 
     if (!apiRes.ok) {
+      var errBody = '';
+      try { errBody = await apiRes.text(); } catch (e) { errBody = '(body read failed)'; }
+      console.error('[tool-finder] upstream ' + apiRes.status + ': ' + errBody.slice(0, 800));
       res.statusCode = 200;
       return res.end(JSON.stringify({ error: 'upstream', primary_url: 'none', secondary_url: 'none', message: '' }));
     }
@@ -155,6 +161,7 @@ module.exports = async function (req, res) {
     return res.end(JSON.stringify(out));
   } catch (e) {
     clearTimeout(timer);
+    console.error('[tool-finder] exception: ' + (e && e.message ? e.message : String(e)));
     res.statusCode = 200;
     return res.end(JSON.stringify({ error: 'exception', primary_url: 'none', secondary_url: 'none', message: '' }));
   }
