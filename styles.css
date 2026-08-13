@@ -5347,6 +5347,15 @@ body.redesign-prototype .section-deck {
   max-width: 720px;
 }
 
+/* /ai-tools: let the hero subtitle and section decks span the full content
+   width instead of the narrow 520px (legacy .hero-subtitle cap at
+   styles.css:1537) / 720px caps, so the long intro copy reads as continuous
+   lines rather than a cramped 3-line column. Scoped to this page only. */
+body.redesign-prototype [data-screen-label="ai-tools"] .hero-subtitle,
+body.redesign-prototype [data-screen-label="ai-tools"] .section-deck {
+  max-width: none;
+}
+
 body.redesign-prototype .table-leadin {
   color: var(--text-muted);
   margin-top: 32px;
