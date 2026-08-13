@@ -5337,6 +5337,10 @@ body.redesign-prototype .hero-subtitle {
   line-height: 1.55;
   color: var(--text-muted);
   margin: 24px 0 0;
+  /* Cap the measure without inheriting the legacy 520px (styles.css:1537):
+     92ch (~1035px) on desktop, 88% on narrow viewports so it fills width. */
+  max-width: min(88%, 92ch);
+  text-wrap: pretty;
 }
 
 body.redesign-prototype .section-deck {
@@ -5344,16 +5348,9 @@ body.redesign-prototype .section-deck {
   line-height: 1.6;
   color: var(--text-muted);
   margin: 24px 0 0;
-  max-width: 720px;
-}
-
-/* /ai-tools: let the hero subtitle and section decks span the full content
-   width instead of the narrow 520px (legacy .hero-subtitle cap at
-   styles.css:1537) / 720px caps, so the long intro copy reads as continuous
-   lines rather than a cramped 3-line column. Scoped to this page only. */
-body.redesign-prototype [data-screen-label="ai-tools"] .hero-subtitle,
-body.redesign-prototype [data-screen-label="ai-tools"] .section-deck {
+  /* Decks sit under short headings, so full-width paragraphs read correctly. */
   max-width: none;
+  text-wrap: pretty;
 }
 
 body.redesign-prototype .table-leadin {
@@ -5630,15 +5627,18 @@ body.redesign-prototype .card-tag.is-ai {
    Text input + submit + quick-pick chips + an AI result panel. Posts to
    /api/tool-finder; degrades to the tool grid when the API is unavailable. */
 body.redesign-prototype .finder {
-  max-width: 640px;
+  /* 640px rendered the input at 468px, truncating the 515px placeholder
+     mid-word; 780px gives the input ~608px so the full sentence fits. */
+  max-width: min(100%, 780px);
   margin: 32px 0 0;
 }
 body.redesign-prototype .finder-label {
   display: block;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-muted);
-  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, .82);
+  letter-spacing: .01em;
+  margin: 0 0 12px;
 }
 body.redesign-prototype .finder-row {
   display: flex;
@@ -5647,24 +5647,24 @@ body.redesign-prototype .finder-row {
 body.redesign-prototype .finder-input {
   flex: 1 1 auto;
   min-width: 0;
-  /* Elevated Carbon surface so the field reads against the Obsidian hero
-     (was var(--bg), identical to the page, which made it near-invisible).
-     Slightly stronger resting border for a crisp edge; hover 0.2, focus cta. */
-  background: var(--bg-elevated);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  /* Was var(--bg) (#0e0e0e, identical to the page) with an 8% border
+     (1.09:1) so the field never read as a field. #161616 fill + 34% border
+     gives 3.07:1, clearing WCAG 1.4.11. 16px font stops iOS focus-zoom. */
+  background: #161616;
+  border: 1px solid rgba(255, 255, 255, .34);
   color: var(--text);
   border-radius: 8px;
-  padding: 14px 16px;
+  padding: 16px 18px;
   font-family: var(--sans);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.4;
   transition: all 0.2s ease;
 }
 body.redesign-prototype .finder-input::placeholder {
-  color: var(--text-tertiary);
+  color: #9a9a9a;
 }
 body.redesign-prototype .finder-input:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, .5);
 }
 body.redesign-prototype .finder-input:focus {
   outline: none;
@@ -5684,21 +5684,21 @@ body.redesign-prototype .finder-chips {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  margin: 16px 0 0;
+  gap: 10px;
+  margin: 18px 0 0;
 }
 body.redesign-prototype .finder-chips-label {
   font-size: 13px;
-  color: var(--text-tertiary);
+  color: rgba(255, 255, 255, .55);
   margin-right: 2px;
 }
 body.redesign-prototype .finder-chip {
   font-family: var(--sans);
   font-size: 13px;
   font-weight: 500;
-  color: var(--text-muted);
-  background: transparent;
-  border: 1px solid var(--border);
+  color: rgba(255, 255, 255, .78);
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .28);
   border-radius: 999px;
   padding: 8px 14px;
   cursor: pointer;
