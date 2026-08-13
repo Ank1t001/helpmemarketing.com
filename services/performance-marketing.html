@@ -205,16 +205,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Tactical inline-style: featured callout with foundational signal (orange border-left).
          Promote to canonical .featured-callout class when next page needs it. -->
-    <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-left: 4px solid var(--cta); border-radius: 16px; padding: 36px 40px; margin-top: 32px; max-width: 1080px; margin-right: auto">
-      <h3 style="font-family: var(--serif); font-size: 24px; font-weight: 500; margin: 0 0 16px; color: var(--text)">Built into every engagement: <em class="italic-accent">Attribution &amp; Measurement</em></h3>
-      <p style="color: var(--text-muted); line-height: 1.65; margin: 0 0 14px">Every engagement includes:</p>
-      <ul class="bullet-list" style="margin: 0 0 14px">
+    <div class="pm-featured-callout">
+      <h3 class="pm-callout-h3">Built into every engagement: <em class="italic-accent">Attribution &amp; Measurement</em></h3>
+      <p class="pm-callout-p">Every engagement includes:</p>
+      <ul class="bullet-list pm-callout-list">
         <li>Server-side tracking</li>
         <li>GA4 setup</li>
         <li>Attribution modeling</li>
         <li>Incrementality testing where needed</li>
       </ul>
-      <p style="color: var(--text-muted); line-height: 1.65; margin: 0">Because scale without measurement breaks quickly. It is the same foundation we build in <a href="/services/analytics-attribution">analytics and attribution</a>.</p>
+      <p class="pm-callout-p-last">Because scale without measurement breaks quickly. It is the same foundation we build in <a href="/services/analytics-attribution">analytics and attribution</a>.</p>
     </div>
   </div>
 </section>
@@ -259,10 +259,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      Promote to canonical .featured-proof class when next page needs it. -->
 <section class="content-section">
   <div class="container">
-    <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 48px 56px; max-width: 760px; margin: 0 auto; text-align: center">
-      <p style="font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-tertiary); font-weight: 500; margin: 0 0 16px">Real outcome</p>
-      <p style="font-family: var(--serif); font-size: 36px; font-weight: 500; color: var(--text); margin: 0 0 24px; line-height: 1.15"><strong>+38% ROAS in 12 weeks.</strong></p>
-      <p style="color: var(--text-muted); line-height: 1.7; margin: 0; font-size: 16px"><em>We rebuilt TravelUp's paid foundation from the ground up. Attribution moved to server-side. Creative cadence shifted from monthly to weekly. Campaign structure went channel-led to margin-led. The unit economics held as spend scaled.</em></p>
+    <div class="pm-proof-card">
+      <p class="pm-proof-label">Real outcome</p>
+      <p class="pm-proof-stat"><strong>+38% ROAS in 12 weeks.</strong></p>
+      <p class="pm-proof-body"><em>We rebuilt TravelUp's paid foundation from the ground up. Attribution moved to server-side. Creative cadence shifted from monthly to weekly. Campaign structure went channel-led to margin-led. The unit economics held as spend scaled.</em></p>
     </div>
   </div>
 </section>
@@ -272,7 +272,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <h2 class="section-heading">Frequently asked questions.</h2>
 
-    <div style="max-width: 1080px; margin: 32px 0 0">
+    <div class="pm-faq-wrap">
 
       <details class="svc-faq-item">
         <summary>
@@ -474,6 +474,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What's the minimum ad spend to work with you?","acceptedAnswer":{"@type":"Answer","text":"Most engagements make sense at $6K-$10K/month paid spend. Below that, run campaigns yourself or start with an audit."}},{"@type":"Question","name":"How long until I see results?","acceptedAnswer":{"@type":"Answer","text":"Foundation in 30-45 days. Compounding results in 90-120 days. Anyone promising faster is skipping the measurement work."}},{"@type":"Question","name":"Do you take a percentage of ad spend?","acceptedAnswer":{"@type":"Answer","text":"No. Flat monthly fee. We get paid the same whether your spend goes up or down, so our recommendation is the right one for your business."}},{"@type":"Question","name":"Do you work with my existing team or replace them?","acceptedAnswer":{"@type":"Answer","text":"Alongside. We run strategy, attribution, and channel structure. Your team handles creative input and brand voice. You own the accounts."}},{"@type":"Question","name":"What if I just want an audit, not a full engagement?","acceptedAnswer":{"@type":"Answer","text":"Start with the audit. 45-minute deep dive, written recommendation, no commitment. About a third of audit clients implement themselves. Either is fine."}}]}
 </script>
+
+<style>
+body.redesign-prototype .pm-featured-callout { background: var(--bg-elevated); border: 1px solid var(--border); border-left: 4px solid var(--cta); border-radius: 16px; padding: 36px 40px; margin-top: 32px; max-width: 1080px; margin-right: auto; }
+body.redesign-prototype .pm-callout-h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; margin: 0 0 16px; color: var(--text); }
+body.redesign-prototype .pm-callout-p { color: var(--text-muted); line-height: 1.65; margin: 0 0 14px; }
+body.redesign-prototype .pm-callout-list { margin: 0 0 14px; }
+body.redesign-prototype .pm-callout-p-last { color: var(--text-muted); line-height: 1.65; margin: 0; }
+body.redesign-prototype .pm-proof-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 48px 56px; max-width: 760px; margin: 0 auto; text-align: center; }
+body.redesign-prototype .pm-proof-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-tertiary); font-weight: 500; margin: 0 0 16px; }
+body.redesign-prototype .pm-proof-stat { font-family: var(--serif); font-size: 36px; font-weight: 500; color: var(--text); margin: 0 0 24px; line-height: 1.15; }
+body.redesign-prototype .pm-proof-body { color: var(--text-muted); line-height: 1.7; margin: 0; font-size: 16px; }
+body.redesign-prototype .pm-faq-wrap { max-width: 1080px; margin: 32px 0 0; }
+</style>
 
 </body>
 </html>

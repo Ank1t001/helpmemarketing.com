@@ -97,42 +97,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="content-section">
   <div class="container">
     <div class="stack-about">
-      <div style="position:sticky; top:100px">
+      <div class="about-sticky">
         <span class="eyebrow"><span class="eyebrow-dot"></span>Our principles</span>
-        <h2 class="serif" style="font-size:clamp(40px, 5vw, 56px); margin-top:16px; line-height:1.05; font-weight:400; letter-spacing:-0.02em">
+        <h2 class="serif about-principles-h2">
           Four things we <em class="italic-accent">won't</em> compromise on.
         </h2>
       </div>
-      <div style="display:flex; flex-direction:column; gap:2px">
+      <div class="about-values-list">
         <div class="about-value-row">
-          <div style="font-family:var(--serif); font-size:32px; color:var(--cta); font-weight:500">01</div>
+          <div class="about-value-num">01</div>
           <div>
-            <h3 style="font-size:22px; font-family:var(--sans); font-weight:500; letter-spacing:0">Customer-first, always</h3>
-            <p style="font-size:15px; color:var(--text-muted); margin-top:6px; line-height:1.6">We market to real humans making real decisions. No dark patterns, no fake urgency, no manipulative copy.</p>
+            <h3 class="about-value-title">Customer-first, always</h3>
+            <p class="about-value-desc">We market to real humans making real decisions. No dark patterns, no fake urgency, no manipulative copy.</p>
           </div>
         </div>
         <div class="about-value-row">
-          <div style="font-family:var(--serif); font-size:32px; color:var(--cta); font-weight:500">02</div>
+          <div class="about-value-num">02</div>
           <div>
-            <h3 style="font-size:22px; font-family:var(--sans); font-weight:500; letter-spacing:0">Outcomes over optics</h3>
-            <p style="font-size:15px; color:var(--text-muted); margin-top:6px; line-height:1.6">We report on bookings, pipeline, and revenue, not impressions, likes, or reach. Every engagement has a number it has to move.</p>
+            <h3 class="about-value-title">Outcomes over optics</h3>
+            <p class="about-value-desc">We report on bookings, pipeline, and revenue, not impressions, likes, or reach. Every engagement has a number it has to move.</p>
           </div>
         </div>
         <div class="about-value-row">
-          <div style="font-family:var(--serif); font-size:32px; color:var(--cta); font-weight:500">03</div>
+          <div class="about-value-num">03</div>
           <div>
-            <h3 style="font-size:22px; font-family:var(--sans); font-weight:500; letter-spacing:0">Ethical &amp; compliant</h3>
-            <p style="font-size:15px; color:var(--text-muted); margin-top:6px; line-height:1.6">GDPR, CASL, consent-mode, HIPAA where it applies. We know the rules because we live in them, and our creative clears compliance on the first pass.</p>
+            <h3 class="about-value-title">Ethical &amp; compliant</h3>
+            <p class="about-value-desc">GDPR, CASL, consent-mode, HIPAA where it applies. We know the rules because we live in them, and our creative clears compliance on the first pass.</p>
           </div>
         </div>
         <div class="about-value-row">
-          <div style="font-family:var(--serif); font-size:32px; color:var(--cta); font-weight:500">04</div>
+          <div class="about-value-num">04</div>
           <div>
-            <h3 style="font-size:22px; font-family:var(--sans); font-weight:500; letter-spacing:0">Your team, in sync</h3>
-            <p style="font-size:15px; color:var(--text-muted); margin-top:6px; line-height:1.6">We work alongside your founders, marketers, and ops. Marketing that fits the way your team already ships, not the other way around.</p>
+            <h3 class="about-value-title">Your team, in sync</h3>
+            <p class="about-value-desc">We work alongside your founders, marketers, and ops. Marketing that fits the way your team already ships, not the other way around.</p>
           </div>
         </div>
-        <div style="border-top:1px solid var(--border)"></div>
+        <div class="about-values-divider"></div>
       </div>
     </div>
   </div>
@@ -254,5 +254,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 </div>
+<style>
+body.redesign-prototype .about-sticky { position:sticky; top:100px; }
+body.redesign-prototype .about-principles-h2 { font-size:clamp(40px, 5vw, 56px); margin-top:16px; line-height:1.05; font-weight:400; letter-spacing:-0.02em; }
+body.redesign-prototype .about-values-list { display:flex; flex-direction:column; gap:2px; }
+body.redesign-prototype .about-value-num { font-family:var(--serif); font-size:32px; color:var(--cta); font-weight:500; }
+body.redesign-prototype .about-value-title { font-size:22px; font-family:var(--sans); font-weight:500; letter-spacing:0; }
+body.redesign-prototype .about-value-desc { font-size:15px; color:var(--text-muted); margin-top:6px; line-height:1.6; }
+body.redesign-prototype .about-values-divider { border-top:1px solid var(--border); }
+</style>
 </body>
 </html>

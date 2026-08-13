@@ -33,6 +33,19 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .benchmark-table tr:last-child td { border-bottom:none; }
 .benchmark-commentary { font-size:15px; color:var(--text-muted); line-height:1.7; max-width:720px; margin-top:14px; }
 .content-section .subsection { margin-top: 40px; }
+body.redesign-prototype .bm-hero-section { padding:80px 0 0; }
+body.redesign-prototype .bm-back-row { margin:0 0 24px; }
+body.redesign-prototype .bm-back-link { color:var(--text-muted); text-decoration:none; font-size:13px; letter-spacing:0.05em; }
+body.redesign-prototype .bm-method-body { margin-top:24px; font-size:17px; color:var(--text); line-height:1.7; max-width:780px; }
+body.redesign-prototype .bm-para { margin:0 0 16px; }
+body.redesign-prototype .bm-para-last { margin:0; }
+body.redesign-prototype .bm-table-wrap { overflow-x:auto; border:1px solid var(--border); border-radius:14px; margin-top:18px; background:var(--bg-elevated); }
+body.redesign-prototype .bm-inline-link { color:var(--text); text-decoration:underline; text-underline-offset:2px; }
+body.redesign-prototype .bm-cta-section { padding:80px 0 120px; border-top:1px solid var(--border); }
+body.redesign-prototype .bm-cta-card { padding:28px 32px; border:1px dashed var(--border); border-radius:16px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+body.redesign-prototype .bm-cta-headline { font-size:22px; color:var(--text); margin-bottom:6px; }
+body.redesign-prototype .bm-cta-em { color:var(--cta); }
+body.redesign-prototype .bm-cta-sub { font-size:14px; color:var(--text-muted); }
 </style>
 <link rel="canonical" href="https://helpmemarketing.com/ad-calculator/benchmarks">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -97,9 +110,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="page-enter">
 
-<section style="padding:80px 0 0">
+<section class="bm-hero-section">
   <div class="container">
-    <p style="margin:0 0 24px"><a href="/ad-calculator" style="color:var(--text-muted); text-decoration:none; font-size:13px; letter-spacing:0.05em">&larr; Back to the ad spend calculator</a></p>
+    <p class="bm-back-row"><a href="/ad-calculator" class="bm-back-link">&larr; Back to the ad spend calculator</a></p>
     <h1 class="hero-headline">Ad spend benchmarks <span class="italic-accent">by platform &amp; industry</span></h1>
     <p class="section-deck">The data and methodology behind the calculator. Platform-level CPL, industry-by-industry tables, and how the math works.</p>
   </div>
@@ -109,11 +122,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <span class="eyebrow"><span class="eyebrow-dot"></span>Methodology</span>
     <h2 class="section-heading">How this calculator works</h2>
-    <div style="margin-top:24px; font-size:17px; color:var(--text); line-height:1.7; max-width:780px">
-      <p style="margin:0 0 16px">The calculator estimates monthly ad budget by combining four inputs: your industry, segment, primary platform, and target new-customer count. It uses cost-per-lead benchmarks aggregated from publicly available 2025 industry data, then applies your specified lead-to-customer conversion rate to derive the leads you need and the spend that gets you there.</p>
-      <p style="margin:0 0 16px">The math runs as: leads needed = customer goal divided by conversion rate. Monthly spend = leads needed × cost per lead. Projected return on ad spend = (customer count × lifetime value) divided by monthly spend.</p>
-      <p style="margin:0 0 16px">Three notes about precision. First, every benchmark is a median across hundreds or thousands of campaigns — your number will be different. Second, platform-level CPL varies more by creative quality and offer strength than by industry, so treat the platform multiplier as directional. Third, lifetime value is the single biggest unknown most businesses get wrong. If you don't have a confident LTV number, the calculator's projected ROAS is approximate at best.</p>
-      <p style="margin:0">What this calculator is good for: pressure-testing whether a budget assumption is roughly in the right zone, comparing platforms at-a-glance, and getting a starting number before deeper diligence. What it is not: a forecast, a guarantee, or a substitute for benchmarking against your actual account data.</p>
+    <div class="bm-method-body">
+      <p class="bm-para">The calculator estimates monthly ad budget by combining four inputs: your industry, segment, primary platform, and target new-customer count. It uses cost-per-lead benchmarks aggregated from publicly available 2025 industry data, then applies your specified lead-to-customer conversion rate to derive the leads you need and the spend that gets you there.</p>
+      <p class="bm-para">The math runs as: leads needed = customer goal divided by conversion rate. Monthly spend = leads needed × cost per lead. Projected return on ad spend = (customer count × lifetime value) divided by monthly spend.</p>
+      <p class="bm-para">Three notes about precision. First, every benchmark is a median across hundreds or thousands of campaigns. Your number will be different. Second, platform-level CPL varies more by creative quality and offer strength than by industry, so treat the platform multiplier as directional. Third, lifetime value is the single biggest unknown most businesses get wrong. If you don't have a confident LTV number, the calculator's projected ROAS is approximate at best.</p>
+      <p class="bm-para-last">What this calculator is good for: pressure-testing whether a budget assumption is roughly in the right zone, comparing platforms at-a-glance, and getting a starting number before deeper diligence. What it is not: a forecast, a guarantee, or a substitute for benchmarking against your actual account data.</p>
     </div>
   </div>
 </section>
@@ -122,10 +135,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <span class="eyebrow"><span class="eyebrow-dot"></span>Industry benchmarks</span>
     <h2 class="section-heading">Ad spend benchmarks by industry</h2>
-    <p class="section-deck">Benchmarks vary widely within an industry — DTC apparel and DTC home goods can be 2× different on cost per lead alone — but the segment-level numbers below cover most of the spread. These are baseline (Meta-default) figures; the calculator above adjusts them based on the platform you select.</p>
+    <p class="section-deck">Benchmarks vary widely within an industry (DTC apparel and DTC home goods can be 2× different on cost per lead alone), but the segment-level numbers below cover most of the spread. These are baseline (Meta-default) figures; the calculator above adjusts them based on the platform you select.</p>
 
     <h3 class="subsection">DTC e-commerce</h3>
-    <div style="overflow-x:auto; border:1px solid var(--border); border-radius:14px; margin-top:18px; background:var(--bg-elevated)">
+    <div class="bm-table-wrap">
       <table class="benchmark-table">
         <thead>
           <tr>
@@ -146,7 +159,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="benchmark-commentary">Apparel and food &amp; beverage are creative-led and TikTok-friendly. Home goods has the highest average order value but smallest audience pool. Beauty does well across Meta and TikTok if creative is strong.</p>
 
     <h3 class="subsection">SaaS</h3>
-    <div style="overflow-x:auto; border:1px solid var(--border); border-radius:14px; margin-top:18px; background:var(--bg-elevated)">
+    <div class="bm-table-wrap">
       <table class="benchmark-table">
         <thead>
           <tr>
@@ -167,7 +180,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="benchmark-commentary">SaaS CAC payback should be 12-18 months for healthy unit economics. LinkedIn dominates for mid-market and enterprise; Google performs well for SMB on intent terms; dev tools convert best on community-led plus content-led search.</p>
 
     <h3 class="subsection">Healthcare (11 specialties)</h3>
-    <div style="overflow-x:auto; border:1px solid var(--border); border-radius:14px; margin-top:18px; background:var(--bg-elevated)">
+    <div class="bm-table-wrap">
       <table class="benchmark-table">
         <thead>
           <tr>
@@ -192,10 +205,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </tbody>
       </table>
     </div>
-    <p class="benchmark-commentary">Healthcare conversion rates are higher than other verticals because the lead is usually pre-qualified by need. LTV varies wildly by specialty — orthodontics and cosmetic surgery have multi-year case values, pharmacy is volume play. See the <a href="/industries/healthcare" style="color:var(--text); text-decoration:underline; text-underline-offset:2px">healthcare marketing page</a> for the full breakdown.</p>
+    <p class="benchmark-commentary">Healthcare conversion rates are higher than other verticals because the lead is usually pre-qualified by need. LTV varies wildly by specialty: orthodontics and cosmetic surgery have multi-year case values, pharmacy is volume play. See the <a href="/industries/healthcare" class="bm-inline-link">healthcare marketing page</a> for the full breakdown.</p>
 
     <h3 class="subsection">Finance</h3>
-    <div style="overflow-x:auto; border:1px solid var(--border); border-radius:14px; margin-top:18px; background:var(--bg-elevated)">
+    <div class="bm-table-wrap">
       <table class="benchmark-table">
         <thead>
           <tr>
@@ -213,7 +226,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </tbody>
       </table>
     </div>
-    <p class="benchmark-commentary">Finance is one of the most regulated paid-media verticals — expect platform-level scrutiny on landing pages, claims, and audiences. Google dominates for high-intent finance queries. LinkedIn works well for advisory and B2B fintech. Meta's strict ad policies make finance creative challenging but not impossible.</p>
+    <p class="benchmark-commentary">Finance is one of the most regulated paid-media verticals. Expect platform-level scrutiny on landing pages, claims, and audiences. Google dominates for high-intent finance queries. LinkedIn works well for advisory and B2B fintech. Meta's strict ad policies make finance creative challenging but not impossible.</p>
   </div>
 </section>
 
@@ -224,25 +237,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-deck">Platform CPL is more about audience cost than industry-specific economics. Meta is broad and creative-driven, Google captures high-intent searchers, TikTok is the cheapest CPM with the highest creative bar, LinkedIn is the most expensive but reaches decision-makers who don't show up elsewhere.</p>
 
     <h3 class="subsection">Meta (Facebook &amp; Instagram)</h3>
-    <p class="benchmark-commentary">Meta's strength is volume and creative testing. Average CPL across all industries in 2025 is $27.66 (WordStream Lead Ads benchmark) with a range of $3.16 to $76.71. CPM in 2025 sits at ~$13.48 median for DTC e-commerce (Triple Whale). Best for DTC, healthcare, and consumer-facing finance. Weakest for B2B SaaS targeting mid-market or enterprise. Creative refresh cadence matters more than ad copy on Meta — top brands rotate 20-30% of creatives weekly.</p>
+    <p class="benchmark-commentary">Meta's strength is volume and creative testing. Average CPL across all industries in 2025 is $27.66 (WordStream Lead Ads benchmark) with a range of $3.16 to $76.71. CPM in 2025 sits at ~$13.48 median for DTC e-commerce (Triple Whale). Best for DTC, healthcare, and consumer-facing finance. Weakest for B2B SaaS targeting mid-market or enterprise. Creative refresh cadence matters more than ad copy on Meta: top brands rotate 20-30% of creatives weekly.</p>
 
     <h3 class="subsection">Google Ads</h3>
-    <p class="benchmark-commentary">Google captures the highest-intent moments — someone typing "dentist near me" is much closer to buying than someone scrolling Instagram. Average CPL across all industries in 2025 is $70.11 (WordStream), about 2.5× Meta. Highest CPL industries: Attorneys &amp; Legal ($131-144), Furniture ($119-121), Business Services ($103). Lowest: Restaurants ($30), Animals &amp; Pets ($31). Best for high-intent service-based businesses. Conversion rates are higher than Meta because intent is higher.</p>
+    <p class="benchmark-commentary">Google captures the highest-intent moments: someone typing "dentist near me" is much closer to buying than someone scrolling Instagram. Average CPL across all industries in 2025 is $70.11 (WordStream), about 2.5× Meta. Highest CPL industries: Attorneys &amp; Legal ($131-144), Furniture ($119-121), Business Services ($103). Lowest: Restaurants ($30), Animals &amp; Pets ($31). Best for high-intent service-based businesses. Conversion rates are higher than Meta because intent is higher.</p>
 
     <h3 class="subsection">TikTok</h3>
-    <p class="benchmark-commentary">TikTok has the lowest average CPC at $0.50 (Varos 2025 data, ~70% cheaper than Meta) and CPM of $13.26 (Triple Whale). However, conversion rates are lower (~2.01% median) and the creative bar is significantly higher — ads need to feel native to the platform. Best for DTC apparel, beauty, and food where creative-driven discovery works. ROAS is highest in apparel (2.49×). Weakest for B2B and finance.</p>
+    <p class="benchmark-commentary">TikTok has the lowest average CPC at $0.50 (Varos 2025 data, ~70% cheaper than Meta) and CPM of $13.26 (Triple Whale). However, conversion rates are lower (~2.01% median) and the creative bar is significantly higher. Ads need to feel native to the platform. Best for DTC apparel, beauty, and food where creative-driven discovery works. ROAS is highest in apparel (2.49×). Weakest for B2B and finance.</p>
 
     <h3 class="subsection">LinkedIn</h3>
     <p class="benchmark-commentary">LinkedIn is the most expensive platform per click ($5-12 CPC for B2B, often $8-12 for SaaS targeting senior decision-makers per Stackmatix 2026 data) but delivers the highest-quality B2B leads. Typical CPL ranges: $60-120 for mid-market SaaS, $150-250 for enterprise. Lead Gen Forms reduce CPL by 30-50% vs landing page conversions. Best for B2B SaaS, B2B services, and high-ticket professional services. Almost never the right channel for DTC.</p>
   </div>
 </section>
 
-<section style="padding:80px 0 120px; border-top:1px solid var(--border)">
+<section class="bm-cta-section">
   <div class="container">
-    <div style="padding:28px 32px; border:1px dashed var(--border); border-radius:16px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap">
+    <div class="bm-cta-card">
       <div>
-        <div class="serif" style="font-size:22px; color:var(--text); margin-bottom:6px">Want a plan built on <em style="color:var(--cta)">your</em> actual numbers?</div>
-        <div style="font-size:14px; color:var(--text-muted)">We&rsquo;ll look at your current spend and suggest a directional plan — 20 minutes, no deck.</div>
+        <div class="serif bm-cta-headline">Want a plan built on <em class="bm-cta-em">your</em> actual numbers?</div>
+        <div class="bm-cta-sub">We&rsquo;ll look at your current spend and suggest a directional plan: 20 minutes, no deck.</div>
       </div>
       <a href="/contact" class="btn btn-primary">Start a conversation &rarr;</a>
     </div>
