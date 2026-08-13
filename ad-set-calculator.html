@@ -150,6 +150,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <option value="AED ">AED</option>
                 <option value="S$">S$ SGD</option>
                 <option value="A$">A$ AUD</option>
+                <option value="NZ$">NZ$ NZD</option>
                 <option value="&euro;">&euro; EUR</option>
               </select>
               <input id="asc-budget" type="number" value="5000" min="0" step="100" aria-label="Monthly ad budget">
@@ -180,12 +181,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- VIEW 1: case gallery (placeholder until our own cases are added) -->
+    <!-- VIEW 1: anonymized case gallery -->
     <div class="asc-view" id="asc-v1">
-      <div class="asc-placeholder">
-        <h3>Case gallery</h3>
-        <p>Real briefs, same formula, run against the numbers a business actually gave us. We are assembling this gallery from our own client work now. Each card will show a budget, an optimisation event, and the number of ad sets that budget can honestly feed, so you can see the rule land on a real account instead of a blank form.</p>
-        <p class="asc-placeholder-note">Want us to run your numbers before the gallery is live? <a href="/contact">Send them over</a> and we will walk you through the structure your budget can support.</p>
+      <div class="asc-gallery">
+        <div class="asc-gallery-head">
+          <h3>Same formula, real budgets.</h3>
+          <p>Every card below is a real brief with the names removed. Two numbers, a monthly budget and a cost per event, were all the formula needed, and together they already decided the account structure. Click any card to load it into the calculator.</p>
+        </div>
+        <div class="asc-stats" id="asc-stats"></div>
+        <div class="asc-gallery-sec">Ran the arithmetic</div>
+        <div class="asc-cases" id="asc-cases"></div>
+        <div class="asc-gallery-sec is-dim">Could not run it &nbsp;&middot;&nbsp; the formula needs two numbers and only one was given</div>
+        <div class="asc-cases" id="asc-missing"></div>
+        <p class="asc-note" id="asc-note"></p>
       </div>
     </div>
 
@@ -418,13 +426,46 @@ body.redesign-prototype .asc-gap {
 body.redesign-prototype .asc-gap strong { color: var(--text); font-weight: 700; }
 body.redesign-prototype .asc-gap .asc-warn { color: var(--cta); font-weight: 700; }
 
-body.redesign-prototype .asc-placeholder {
-  border: 1px dashed var(--border); border-radius: 16px; background: var(--bg-elevated); padding: 40px 36px; max-width: 760px;
+/* Case gallery (anonymized) */
+body.redesign-prototype .asc-gallery-head { max-width: 760px; margin: 0 0 22px; }
+body.redesign-prototype .asc-gallery-head h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--text); margin: 0 0 10px; }
+body.redesign-prototype .asc-gallery-head p { font-size: 15px; line-height: 1.65; color: var(--text-muted); margin: 0; }
+
+body.redesign-prototype .asc-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 26px; }
+body.redesign-prototype .asc-stat { padding: 15px 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-elevated); }
+body.redesign-prototype .asc-stat.is-key { border-color: var(--cta); background: var(--orange-glow); }
+body.redesign-prototype .asc-stat b { display: block; font-size: 30px; font-weight: 800; line-height: 1; margin-bottom: 6px; color: var(--text); }
+body.redesign-prototype .asc-stat.is-key b { color: var(--cta); }
+body.redesign-prototype .asc-stat span { font-size: 11.5px; color: var(--text-muted); line-height: 1.4; display: block; }
+
+body.redesign-prototype .asc-gallery-sec { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--cta); margin: 0 0 12px; }
+body.redesign-prototype .asc-gallery-sec.is-dim { color: var(--text-tertiary); margin-top: 24px; }
+
+body.redesign-prototype .asc-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+body.redesign-prototype .asc-case { padding: 13px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-elevated); cursor: pointer; transition: all 0.16s ease; }
+body.redesign-prototype .asc-case:hover { border-color: rgba(255, 255, 255, 0.2); transform: translateY(-1px); }
+body.redesign-prototype .asc-case.is-no { opacity: 0.68; }
+body.redesign-prototype .asc-case.is-big { border-color: var(--cta); background: var(--orange-glow); }
+body.redesign-prototype .asc-case.is-dead { cursor: default; opacity: 0.72; }
+body.redesign-prototype .asc-case.is-dead:hover { transform: none; border-color: var(--border); }
+body.redesign-prototype .asc-c-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+body.redesign-prototype .asc-c-nm { font-size: 13px; font-weight: 700; line-height: 1.25; color: var(--text); }
+body.redesign-prototype .asc-c-sets { font-size: 17px; font-weight: 800; color: var(--cta); white-space: nowrap; }
+body.redesign-prototype .asc-case.is-no .asc-c-sets { color: var(--text-muted); }
+body.redesign-prototype .asc-case.is-dead .asc-c-sets { color: var(--text-tertiary); }
+body.redesign-prototype .asc-c-ty { font-size: 10.5px; color: var(--text-tertiary); margin-bottom: 7px; }
+body.redesign-prototype .asc-c-asm { font-size: 9px; color: var(--cta); font-weight: 700; letter-spacing: 0.06em; }
+body.redesign-prototype .asc-c-mt { font-size: 11px; color: var(--text-muted); font-variant-numeric: tabular-nums; line-height: 1.5; }
+body.redesign-prototype .asc-c-mt b { color: var(--text); }
+body.redesign-prototype .asc-c-why { font-size: 10.5px; color: var(--text-tertiary); line-height: 1.45; margin-top: 5px; }
+
+body.redesign-prototype .asc-note { margin-top: 24px; padding: 15px 17px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-elevated); font-size: 12.5px; color: var(--text-tertiary); line-height: 1.6; max-width: none; }
+body.redesign-prototype .asc-note b { color: var(--text-muted); }
+
+@media (max-width: 900px) {
+  body.redesign-prototype .asc-stats { grid-template-columns: repeat(2, 1fr); }
+  body.redesign-prototype .asc-cases { grid-template-columns: 1fr; }
 }
-body.redesign-prototype .asc-placeholder h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--text); margin: 0 0 14px; }
-body.redesign-prototype .asc-placeholder p { font-size: 16px; line-height: 1.7; color: var(--text-muted); margin: 0 0 14px; }
-body.redesign-prototype .asc-placeholder-note { font-size: 14px; }
-body.redesign-prototype .asc-placeholder a { color: var(--cta); }
 
 @media (max-width: 900px) {
   body.redesign-prototype .asc-board { grid-template-columns: 1fr; }
@@ -568,6 +609,102 @@ body.redesign-prototype .asc-placeholder a { color: var(--cta); }
     }
   }
 
+  // Anonymized case gallery. Real briefs with names and branding removed:
+  // business type + budget + optimisation event + cost per event only.
+  var ROOM = [
+    { a: 'Brief 02',  t: 'Women’s fashion e-com',    c: '₹', mo: 200000,   ev: 'Purchase',            cpa: 2800 },
+    { a: 'Brief 05',  t: 'Fintech',                       c: '₹', mo: 300000,   ev: 'Funded trader',       cpa: 1100 },
+    { a: 'Brief 07',  t: 'Bedding e-com, UK',             c: '₹', mo: 1400000,  ev: 'Purchase',            cpa: 3780 },
+    { a: 'Brief 10',  t: 'High-ticket lead-gen',          c: '₹', mo: 200000,   ev: 'Lead',                cpa: 6715 },
+    { a: 'Brief 10b', t: 'Same budget, deeper event',     c: '₹', mo: 200000,   ev: 'Qualified lead',      cpa: 22727 },
+    { a: 'Brief 12',  t: 'Auto finance, NZ',              c: 'NZ$',    mo: 20000,    ev: 'Finance application', cpa: 37.5 },
+    { a: 'Brief 15',  t: 'ESG consulting, B2B',           c: '$',      mo: 1500,     ev: 'Qualified lead',      cpa: 15 },
+    { a: 'Brief 16',  t: 'Health food e-com',             c: '₹', mo: 800000,   ev: 'Purchase',            cpa: 250 },
+    { a: 'Brief 19',  t: 'Certification, B2B',            c: '₹', mo: 640000,   ev: 'Qualified lead',      cpa: 1250 },
+    { a: 'Brief 19b', t: 'Same budget ÷ 6 verticals', c: '₹', mo: 106667,  ev: 'Qualified lead',      cpa: 1250, asm: 1 },
+    { a: 'Brief 20',  t: 'E-com, at ceiling',            c: '₹', mo: 600000,   ev: 'Purchase',            cpa: 1100 },
+    { a: 'Brief 20b', t: 'Same budget, real CAC',        c: '₹', mo: 600000,   ev: 'Purchase',            cpa: 2100 },
+    { a: 'Brief 24',  t: 'E-com, high budget',           c: '₹', mo: 12000000, ev: 'Purchase',            cpa: 1100 },
+    { a: 'Brief 25',  t: 'Consultations',                c: '₹', mo: 150000,   ev: 'Purchase',            cpa: 1458 },
+    { a: 'Brief 01',  t: 'Health, lead-gen',             c: '₹', mo: 300000,   ev: 'Qualified lead',      cpa: 400,  asm: 1 },
+    { a: 'Brief 18',  t: 'Agency, lead-gen',             c: '₹', mo: 150000,   ev: 'Qualified lead',      cpa: 5000, asm: 1 },
+    { a: 'Brief 26',  t: 'Immigration, lead-gen',        c: '₹', mo: 200000,   ev: 'Qualified lead',      cpa: 4500, asm: 1 },
+    { a: 'Brief 14',  t: 'B2B SaaS, zero paid budget',   c: '$',      mo: 0,        ev: 'Qualified lead',      cpa: 63 }
+  ];
+
+  var MISSING = [
+    { a: 'Brief 03', t: 'B2B SaaS',          w: 'CAC given, no budget.' },
+    { a: 'Brief 04', t: 'Lead-gen',          w: 'Cost per qualified lead given, no budget.' },
+    { a: 'Brief 06', t: 'Handmade decor',    w: 'CAC range given, budget introduced gradually with no figure.' },
+    { a: 'Brief 08', t: 'Agency',            w: 'No budget and no cost per event. Goal stated as retained clients.' },
+    { a: 'Brief 09', t: 'Lead-gen, SG',      w: 'No cap stated, deliberately.' },
+    { a: 'Brief 11', t: 'Fitness, lead-gen', w: 'CAC ceiling and current CAC given, no budget.' },
+    { a: 'Brief 13', t: 'E-com',             w: 'CAC and ceiling given, no budget, still testing.' },
+    { a: 'Brief 17', t: 'Hospital, lead-gen',w: 'Target qualified-lead cost given, no budget.' },
+    { a: 'Brief 21', t: 'E-com, GCC',        w: 'CAC target given, no budget.' },
+    { a: 'Brief 22', t: 'Sports e-com, AU',  w: 'No CAC. 2,000+ SKUs, so the real question is per-category vs blended.' },
+    { a: 'Brief 23', t: 'Lead-gen',          w: 'CPL stated as not mattering, plus performance decay after a month or two.' }
+  ];
+
+  function room() {
+    var rows = ROOM.map(function (r) {
+      var wk = r.mo / WEEKS;
+      var conv = r.cpa ? wk / r.cpa : 0;
+      var sets = Math.floor(conv / EVENTS_FLOOR);
+      return { r: r, wk: wk, conv: conv, sets: sets };
+    });
+
+    var cannot = rows.filter(function (x) { return x.sets < 1; }).length;
+    var headroom = rows.filter(function (x) { return x.sets >= 10; }).length;
+
+    $('asc-stats').innerHTML =
+      '<div class="asc-stat"><b>' + rows.length + '</b><span>real briefs, run through the formula</span></div>' +
+      '<div class="asc-stat is-key"><b>' + cannot + '</b><span>cannot feed a single ad set at their stated event</span></div>' +
+      '<div class="asc-stat"><b>' + headroom + '</b><span>have real headroom, and both are creative-constrained, not budget-constrained</span></div>' +
+      '<div class="asc-stat"><b>' + MISSING.length + '</b><span>could not be calculated: the formula needs two numbers</span></div>';
+
+    $('asc-cases').innerHTML = rows.map(function (x, i) {
+      var no = x.sets < 1, big = x.sets >= 10;
+      var cls = no ? 'is-no' : (big ? 'is-big' : '');
+      return '<div class="asc-case ' + cls + '" data-i="' + i + '">' +
+        '<div class="asc-c-top">' +
+          '<span class="asc-c-nm">' + esc(x.r.a) + '</span>' +
+          '<span class="asc-c-sets">' + x.sets + '</span>' +
+        '</div>' +
+        '<div class="asc-c-ty">' + esc(x.r.t) + (x.r.asm ? ' &nbsp;<span class="asc-c-asm">ASSUMED INPUT</span>' : '') + '</div>' +
+        '<div class="asc-c-mt">' + x.r.c + fmt(x.wk) + '/wk &divide; ' + x.r.c + fmt(x.r.cpa) + ' = <b>' + fmt(x.conv) + '</b>/wk &divide; ' + EVENTS_FLOOR + '</div>' +
+      '</div>';
+    }).join('');
+
+    var caseEls = $('asc-cases').querySelectorAll('.asc-case');
+    for (var k = 0; k < caseEls.length; k++) {
+      caseEls[k].addEventListener('click', function (e) {
+        var x = rows[+e.currentTarget.dataset.i];
+        var presets = document.querySelectorAll('.asc-preset');
+        for (var p = 0; p < presets.length; p++) presets[p].classList.remove('is-on');
+        els.cur.value = x.r.c;
+        els.budget.value = x.r.mo;
+        els.current.value = 6;
+        ladder = [[x.r.ev, x.r.cpa]];
+        drawLadder();
+        calc();
+        setView(0);
+      });
+    }
+
+    $('asc-missing').innerHTML = MISSING.map(function (m) {
+      return '<div class="asc-case is-dead">' +
+        '<div class="asc-c-top"><span class="asc-c-nm">' + esc(m.a) + '</span><span class="asc-c-sets">?</span></div>' +
+        '<div class="asc-c-ty">' + esc(m.t) + '</div>' +
+        '<div class="asc-c-why">' + esc(m.w) + '</div>' +
+      '</div>';
+    }).join('');
+
+    $('asc-note').innerHTML = '<b>Read these honestly.</b> Cards marked ASSUMED INPUT required one number to be inferred, so they are illustrative rather than exact. ' +
+      'A few briefs stated budgets that also cover channels other than Meta, so the real Meta-only figure is lower than shown. ' +
+      'Everywhere else these are the numbers as they were given, unchanged. Our own read on each is coming to this gallery next.';
+  }
+
   function setView(v) {
     var tabs = document.querySelectorAll('.asc-tab');
     for (var i = 0; i < tabs.length; i++) {
@@ -610,6 +747,7 @@ body.redesign-prototype .asc-placeholder a { color: var(--cta); }
     }
 
     loadPreset('lead');
+    room();
   }
 
   if (document.readyState === 'loading') {
