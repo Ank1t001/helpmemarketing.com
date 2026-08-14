@@ -40,6 +40,11 @@ var TOOLS = [
     url: '/ad-calculator/benchmarks',
     name: 'Ad Spend Benchmarks',
     when: 'They want reference benchmark data: a good CPL, conversion rate, or LTV for DTC, SaaS, healthcare, or finance, or to compare their numbers to industry averages.'
+  },
+  {
+    url: '/instagram-reindex',
+    name: 'Real Estate Index: Instagram',
+    when: 'They are in real estate (a brokerage, developer, or private real estate investment firm) and want competitive intelligence or social-media benchmarking: what other Canadian real estate firms post, boost, and get engagement on, specifically on Instagram. Only for real estate; do not recommend for general marketing questions.'
   }
 ];
 
