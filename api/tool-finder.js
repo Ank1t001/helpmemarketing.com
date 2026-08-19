@@ -37,6 +37,11 @@ var TOOLS = [
     when: 'They care about SEO, organic traffic, Google rankings, being cited by AI search, "why isn\'t my site ranking", or technical/content SEO problems.'
   },
   {
+    url: '/meta-growth-os',
+    name: 'Meta Growth OS',
+    when: 'They run paid ads on Meta (Facebook/Instagram) and want a system to audit, diagnose, and fix account performance: reading which metric is misleading, setting a target CPL/ROAS, campaign structure, creative, audiences, or "why are my Meta ads not working". The paid-media counterpart to SEO Growth OS.'
+  },
+  {
     url: '/ad-calculator/benchmarks',
     name: 'Ad Spend Benchmarks',
     when: 'They want reference benchmark data: a good CPL, conversion rate, or LTV for DTC, SaaS, healthcare, or finance, or to compare their numbers to industry averages.'
