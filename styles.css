@@ -4578,15 +4578,17 @@ body.blog-dark.redesign-prototype .final-cta {
   background: var(--bg-elevated);
   border: 0.5px solid var(--border);
   border-radius: 12px;
-  padding: 24px 28px;
+  padding: 28px;
   margin: 0;
 }
 .audit-question legend {
   display: block;
+  float: left;
   padding: 0;
-  margin: 0 0 16px;
+  margin: 0 0 20px;
   width: 100%;
 }
+.audit-question legend + * { clear: both; }
 .audit-dimension {
   display: block;
   font-size: 11px;
@@ -4594,7 +4596,7 @@ body.blog-dark.redesign-prototype .final-cta {
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: var(--text);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .audit-q-text {
   display: block;
@@ -4608,13 +4610,13 @@ body.blog-dark.redesign-prototype .final-cta {
 .audit-options {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 .audit-option {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 12px 14px;
+  padding: 14px 16px;
   border: 0.5px solid var(--border);
   border-radius: 8px;
   background: var(--bg-elevated);
