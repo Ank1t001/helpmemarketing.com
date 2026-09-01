@@ -223,6 +223,8 @@ Rules that keep this canon-safe:
 
 Components affected: `.case-study-metric` / `.proof-strip-figure` (work), `.pm-proof-stat` (performance-marketing), `.metric-delta` + `.metric-sparkline` (industry pages, scoped under `[data-screen-label="industry"]`). Sparkline SVGs were converted from a hardcoded hex to `var(--mint)` (SVG presentation attributes accept `var()`), removing an off-canon literal.
 
+**Sparkline fill implementation (updated 2026-09-01):** industry-page `.metric-sparkline` area fills now use a flat `fill="var(--mint)" fill-opacity="0.12"` on the closed area path, not an inline `<defs><linearGradient>` gradient. The gradient produced a "closing tag / open tag do not match" parse error in DataForSEO's (non-SVG-aware) on-page crawler at every `</linearGradient>` — valid HTML5 foreign content that browsers and Google parse fine, but it suppressed a clean crawl. The flat mint fill is visually near-identical at 60px sparkline height, removes the flagged construct, and keeps the Mint token. Applied to all four industry pages (finance, healthcare, dtc, saas). The stroke line above the fill is unchanged (`stroke="var(--mint)"`).
+
 ### Decision 11 — Tertiary token AA lift (`#737373` → `#8A8A8A`), locked 2026-08-13
 
 `--text-tertiary` was raised from `#737373` (Slate, ~3.9:1 on Obsidian) to `#8A8A8A` (~4.9:1) to clear the WCAG AA 4.5:1 floor for small tertiary text. The change was first proven as a per-tool override on `/ad-set-calculator`, then promoted to the global `body.redesign-prototype` token so every dark page benefits and the page-level override could be removed. The blog token (`body.blog-dark`) is a separate scope and was **not** changed. "Slate" remains the color's name; only its shipped value moved.
