@@ -6155,6 +6155,26 @@ body.redesign-prototype .contact-aside {
   --text-secondary: var(--text-muted);
 }
 
+/* Contact NAP details (entity wiring, 2 Sep 2026) */
+body.redesign-prototype .contact-address {
+  font-style: normal;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+}
+body.redesign-prototype .contact-address a {
+  color: var(--cta);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+body.redesign-prototype .contact-hours {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+}
+
 body.redesign-prototype .contact-thanks {
   --deep: var(--text);
   --ink-60: var(--text-muted);
@@ -6466,9 +6486,35 @@ body.redesign-prototype .footer-band-utility {
 
 body.redesign-prototype .footer-utility-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1.3fr;
   gap: 40px;
   margin-bottom: 28px;
+}
+
+/* F2 footer Contact/NAP column (entity wiring, 2 Sep 2026) */
+body.redesign-prototype .footer-contact address {
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text-muted);
+}
+body.redesign-prototype .footer-contact address a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+body.redesign-prototype .footer-contact address a:hover {
+  color: var(--cta);
+}
+body.redesign-prototype .footer-areas {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-tertiary);
+  margin: 14px 0 16px;
+}
+body.redesign-prototype .footer-social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Override F1 .footer-column h4 (F2 values: 10px / letter-spacing 1.5px) */

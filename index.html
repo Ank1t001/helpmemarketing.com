@@ -40,6 +40,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://helpmemarketing.com/#organization",
   "additionalType": "Marketing agency",
   "name": "Help Me Marketing",
   "alternateName": "HelpMeMarketing",
@@ -68,12 +69,13 @@ w.addEventListener(e,load,{once:true,passive:true});});
     "Greater Toronto and Hamilton Area"
   ],
   "email": "hello@helpmemarketing.com",
-  "telephone": "(416) 823-9694",
+  "telephone": "+1-416-823-9694",
+  "hasMap": "https://www.google.com/maps?cid=7855304921006956254",
   "sameAs": [
     "https://www.linkedin.com/company/helpmemarketing/",
     "https://www.facebook.com/helpmemarketing1",
     "https://www.instagram.com/helpmemarketing1/",
-    "https://www.google.com/maps/place/Help+Me+Marketing/@43.6372421,-79.8708458,17z/data=!3m1!4b1!4m6!3m5!1s0x882b6da3edd6f17d:0x6d03a634daff5ede!8m2!3d43.6372421!4d-79.8708458!16s%2Fg%2F11nbzhw91j"
+    "https://www.google.com/maps?cid=7855304921006956254"
   ],
   "knowsAbout": [
     "Growth Marketing",
@@ -90,17 +92,37 @@ w.addEventListener(e,load,{once:true,passive:true});});
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Burlington",
-    "addressRegion": "ON",
+    "addressRegion": "Ontario",
     "addressCountry": "CA"
   },
   "contactPoint": {
     "@type": "ContactPoint",
     "email": "hello@helpmemarketing.com",
-    "telephone": "(416) 823-9694",
+    "telephone": "+1-416-823-9694",
     "contactType": "customer service",
     "areaServed": ["CA", "US"],
     "availableLanguage": ["English"]
-  }
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "11:00",
+      "closes": "15:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "12:00",
+      "closes": "15:00"
+    }
+  ]
 }
 </script>
 
@@ -374,6 +396,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li><a href="/work">Case Studies</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column footer-contact">
+          <h4>Contact</h4>
+          <address>
+            Burlington, Ontario, Canada<br>
+            <a href="tel:+14168239694">(416) 823-9694</a><br>
+            <a href="mailto:Hello@helpmemarketing.com">Hello@helpmemarketing.com</a>
+          </address>
+          <p class="footer-areas">Serving Burlington, Oakville, Milton, Halton Hills, Hamilton and the Greater Toronto Area.</p>
+          <ul class="footer-social">
+            <li><a href="https://www.google.com/maps?cid=7855304921006956254" rel="noopener" target="_blank">Google Business Profile</a></li>
+            <li><a href="https://www.linkedin.com/company/helpmemarketing/" rel="noopener" target="_blank">LinkedIn</a></li>
+            <li><a href="https://www.facebook.com/helpmemarketing1" rel="noopener" target="_blank">Facebook</a></li>
           </ul>
         </div>
       </div>

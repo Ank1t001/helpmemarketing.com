@@ -603,7 +603,7 @@ Markup: `<em class="italic-accent">No email gate.</em>` for the orange accent.
 
 #### Lower band — utility grid
 
-3 columns: Services / Industries / Company
+4 columns: Services / Industries / Company / Contact. Grid `1fr 1fr 1fr 1.3fr` (Contact column slightly wider); collapses to `1fr 1fr` (2x2) at 900px and `1fr` at 720px. (Was 3 columns before the 2 Sep 2026 entity-wiring patch, which added the Contact NAP column.)
 
 Services column (6 items, all link to `/services/[slug]`):
 - Performance Marketing → `/services/performance-marketing`
@@ -626,13 +626,20 @@ Company column (5 items):
 - Blog → `/blog`
 - Contact → `/contact`
 
+Contact column (`.footer-column.footer-contact`) — NAP + owned profiles (entity wiring, 2 Sep 2026):
+- `<h4>Contact</h4>`
+- `<address>` (font-style normal): `Burlington, Ontario, Canada`, then `tel:+14168239694` shown as `(416) 823-9694`, then `mailto:Hello@helpmemarketing.com`
+- `.footer-areas` line: "Serving Burlington, Oakville, Milton, Halton Hills, Hamilton and the Greater Toronto Area."
+- `.footer-social` list: Google Business Profile (`maps?cid=7855304921006956254`), LinkedIn, Facebook — each `rel="noopener" target="_blank"`
+- Strings must match the homepage JSON-LD `#organization` block and the `/contact` NAP block character-for-character. Instagram is deliberately omitted from the visible footer (dormant account) though it remains in the schema `sameAs`.
+
 #### Baseline
 
 Two-line layout on the left, vertical-stacked legal on the right:
 
 Left cluster (vertical):
 - Partner badges (Google Partner · Meta Partner) inline
-- "HelpMeMarketing · Mississauga, Ontario · Hello@helpmemarketing.com"
+- `.footer-baseline-meta`: "Help Me Marketing · GTA marketing agency · Hello@helpmemarketing.com" (business name spelled "Help Me Marketing" with spaces, normalized sitewide 2 Sep 2026)
 
 Right cluster (vertical stack):
 - Privacy Policy
