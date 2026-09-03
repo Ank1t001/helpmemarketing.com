@@ -6837,3 +6837,85 @@ body.redesign-prototype .sched-fallback-ctas {
 }
 
 /* === END REDESIGN PROTOTYPE — DARK MODE === */
+
+/* ============================================================
+   Footer v3 — Direction F (CTA-forward + entity brand logos)
+   Added 2026-09-03. Prototype scope only. Replaces the F2
+   two-band footer markup on all body.redesign-prototype pages.
+   ============================================================ */
+body.redesign-prototype .footer { background: var(--bg); }
+body.redesign-prototype .footer .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+body.redesign-prototype .footer-cta {
+  display: grid;
+  grid-template-columns: 1.4fr 1.4fr;
+  gap: 56px;
+  padding: 52px 0 36px;
+  border-bottom: 1px solid var(--border);
+}
+body.redesign-prototype .footer-cta-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--cta); display: block; margin-bottom: 16px;
+}
+body.redesign-prototype .footer-cta-head {
+  font-family: var(--serif); font-weight: 400; font-size: 32px; line-height: 1.15;
+  letter-spacing: -0.015em; margin: 0 0 22px; color: var(--text); max-width: 16ch;
+}
+body.redesign-prototype .footer-cta-head em { color: var(--cta); font-style: italic; }
+body.redesign-prototype .footer-cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--cta); color: #0E0E0E; font-weight: 600; font-size: 15px;
+  padding: 13px 22px; border-radius: 10px; text-decoration: none;
+  transition: background .15s ease;
+}
+body.redesign-prototype .footer-cta-btn:hover { background: var(--cta-hover, #ff7038); }
+body.redesign-prototype .footer-cta-nap { font-size: 13.5px; color: var(--text-muted); margin: 22px 0 0; }
+body.redesign-prototype .footer-cta-nap a { color: var(--text-muted); text-decoration: none; }
+body.redesign-prototype .footer-cta-nap a:hover { color: var(--cta); }
+body.redesign-prototype .footer-dot { color: #4d4d4d; margin: 0 6px; }
+
+body.redesign-prototype .footer-cta-links {
+  display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 32px;
+}
+body.redesign-prototype .footer-linkcol h4 {
+  font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--text-tertiary); margin: 0 0 14px;
+}
+body.redesign-prototype .footer-linkcol ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+body.redesign-prototype .footer-linkcol ul li a { font-size: 14px; color: var(--text-muted); text-decoration: none; }
+body.redesign-prototype .footer-linkcol ul li a:hover { color: var(--cta); }
+
+body.redesign-prototype .footer-base {
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  flex-wrap: wrap; padding: 22px 0 26px;
+}
+body.redesign-prototype .footer-partners { display: flex; align-items: center; gap: 22px; }
+body.redesign-prototype .footer-partner { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--text-tertiary); }
+body.redesign-prototype .footer-base-right { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+body.redesign-prototype .footer-social { display: flex; align-items: center; gap: 14px; }
+body.redesign-prototype .footer-social a { color: var(--text-muted); display: inline-flex; }
+body.redesign-prototype .footer-social a:hover { color: var(--cta); }
+body.redesign-prototype .footer-base-sep { width: 1px; height: 16px; background: var(--border); }
+body.redesign-prototype .footer-legal { display: flex; align-items: center; gap: 16px; font-size: 12.5px; color: var(--text-tertiary); }
+body.redesign-prototype .footer-legal a { color: var(--text-tertiary); text-decoration: none; }
+body.redesign-prototype .footer-legal a:hover { color: var(--cta); }
+
+body.redesign-prototype .footer-brand-ico {
+  display: inline-block; background: currentColor; vertical-align: middle;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: center; mask-position: center;
+  -webkit-mask-size: contain; mask-size: contain;
+}
+body.redesign-prototype .ico-meta { width: 27px; height: 18px; -webkit-mask-image: url(/assets/brand/meta.svg); mask-image: url(/assets/brand/meta.svg); }
+body.redesign-prototype .ico-google { width: 16px; height: 16px; -webkit-mask-image: url(/assets/brand/google.svg); mask-image: url(/assets/brand/google.svg); }
+body.redesign-prototype .ico-linkedin { width: 18px; height: 18px; -webkit-mask-image: url(/assets/brand/linkedin.svg); mask-image: url(/assets/brand/linkedin.svg); }
+body.redesign-prototype .ico-facebook { width: 18px; height: 18px; -webkit-mask-image: url(/assets/brand/facebook.svg); mask-image: url(/assets/brand/facebook.svg); }
+
+@media (max-width: 900px) {
+  body.redesign-prototype .footer-cta { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 720px) {
+  body.redesign-prototype .footer-cta-links { grid-template-columns: 1fr 1fr; gap: 28px; }
+  body.redesign-prototype .footer-base { flex-direction: column; align-items: flex-start; gap: 18px; }
+  body.redesign-prototype .footer .container { padding: 0 24px; }
+}

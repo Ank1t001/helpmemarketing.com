@@ -501,7 +501,20 @@ Mobile (`styles.css:4129-4131`): column, align-items flex-start.
 
 ---
 
-## 8. Footer Architecture (F2 two-band)
+## 8. Footer Architecture
+
+> **Current canon: Footer v3 (Direction F — CTA-forward). Locked 2026-09-03.**
+> v3 replaces the F2 two-band footer on all 42 `body.redesign-prototype` pages. F2 (and F1 before it) are deprecated. The F2 spec below is retained for history only.
+>
+> **v3 structure** (`.footer > .container`):
+> - `.footer-cta` (grid, 1.4fr / 1.4fr; stacks at 900px) — **left** `.footer-cta-offer`: eyebrow "Free · No obligation", Fraunces headline "Ready to grow the *right* way?", orange `.footer-cta-btn` "Book a free audit" → `/contact`, then `.footer-cta-nap` "Burlington, Ontario, Canada · Hello@helpmemarketing.com" (**no phone** in footer; phone stays in `/contact` + schema). **right** `.footer-cta-links`: three `.footer-linkcol` — Industries / Company / Free tools. (Services column dropped — it lives in the top nav.)
+> - `.footer-base` (flex, space-between; stacks at 720px) — **left** `.footer-partners`: two `.footer-partner` marks, Meta + Google, each an icon + caption ("Meta Partner", "Google Partner"). **right** `.footer-base-right`: `.footer-social` (LinkedIn + Facebook icons) · separator · `.footer-legal` (Privacy · Terms · © 2026 HelpMeMarketing).
+> - **Brand icons** are monochrome SVGs in `/assets/brand/` (meta.svg extracted from Meta's official lockup; linkedin/facebook/google standard glyphs), rendered via CSS mask (`.footer-brand-ico` + `.ico-*`) so they inherit `currentColor` — muted at rest, `var(--cta)`/brighten on hover. Swap the mask URL to change a logo; never inline-recolor.
+> - CTA note: v3's footer CTA intentionally repeats the audit ask; on the 33 pages that also have a `.final-cta` section it stacks below that section (founder-approved 2026-09-03).
+>
+> ---
+>
+> ### (Deprecated) F2 two-band
 
 Pattern: Two-band horizontal layout. Upper band carries brand identity and tool discovery. Lower band carries sitemap and baseline.
 
