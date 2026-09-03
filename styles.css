@@ -6900,16 +6900,15 @@ body.redesign-prototype .footer-legal { display: flex; align-items: center; gap:
 body.redesign-prototype .footer-legal a { color: var(--text-tertiary); text-decoration: none; }
 body.redesign-prototype .footer-legal a:hover { color: var(--cta); }
 
-body.redesign-prototype .footer-brand-ico {
-  display: inline-block; background: currentColor; vertical-align: middle;
-  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-  -webkit-mask-position: center; mask-position: center;
-  -webkit-mask-size: contain; mask-size: contain;
+body.redesign-prototype .footer-brand-logo {
+  display: inline-block; vertical-align: middle; opacity: 0.95;
+  transition: opacity .15s ease;
 }
-body.redesign-prototype .ico-meta { width: 27px; height: 18px; -webkit-mask-image: url(/assets/brand/meta.svg); mask-image: url(/assets/brand/meta.svg); }
-body.redesign-prototype .ico-google { width: 16px; height: 16px; -webkit-mask-image: url(/assets/brand/google.svg); mask-image: url(/assets/brand/google.svg); }
-body.redesign-prototype .ico-linkedin { width: 18px; height: 18px; -webkit-mask-image: url(/assets/brand/linkedin.svg); mask-image: url(/assets/brand/linkedin.svg); }
-body.redesign-prototype .ico-facebook { width: 18px; height: 18px; -webkit-mask-image: url(/assets/brand/facebook.svg); mask-image: url(/assets/brand/facebook.svg); }
+body.redesign-prototype .footer-social a:hover .footer-brand-logo { opacity: 1; }
+body.redesign-prototype .logo-meta { height: 15px; width: auto; }
+body.redesign-prototype .logo-google { height: 16px; width: 16px; }
+body.redesign-prototype .logo-linkedin { height: 16px; width: 16px; }
+body.redesign-prototype .logo-facebook { height: 16px; width: 16px; }
 
 @media (max-width: 900px) {
   body.redesign-prototype .footer-cta { grid-template-columns: 1fr; gap: 36px; }
