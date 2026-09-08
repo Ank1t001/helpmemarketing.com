@@ -182,16 +182,29 @@ The `.eyebrow::before` pseudo-element is the mint live-indicator dot. CSS locati
 
 ### Pattern 2 — Wordmark "Me" italic
 
+> **Retired 2026-09-08** with the text logo. The nav no longer renders a `.logo-text` wordmark (see Pattern 3). Kept for history; do not add new instances.
+
 - HTML: `<em>` child inside `.nav .logo`
 - CSS: `body.redesign-prototype .nav .logo em { color: var(--cta) }`
 - Example: `<span class="logo-text">Help<em>Me</em>Marketing</span>`
 
-### Pattern 3 — Logo mark "MM" italic
+### Pattern 3 — Logo (image mark) — RETIRED text pattern below
+
+**Current canon (locked 2026-09-08):** the logo is an image, not text.
+- Nav: `<a class="logo" href="/"><img class="logo-img" src="/assets/brand/hmm-mark.svg" alt="Help Me Marketing" width="99" height="32"></a>` — mark-only SVG, 32px tall on desktop, 28px at ≤900px (`.logo-img`, unscoped so blog-dark pages match). The mark alone is the nav logo; the wordmark is not shown in the nav.
+- Footer: `<img class="footer-logo" src="/assets/brand/hmm-logo-full.svg" alt="Help Me Marketing" width="150" height="69">` at the top of `.footer-cta-offer`, above the eyebrow — the full stacked lockup, 150px wide, 26px below.
+- Always keep `width`/`height` attributes on both images (layout holds before CSS; no CLS).
+- SVG colours are baked in (off-white `#F7F6F2`, orange `#FF5A1F`) and sit on the Obsidian ground; do not recolour via CSS. The horizontal lockup (`HMM_Logo_Package`) is held in reserve, unused.
+- Related brand assets: favicon set at site root, `/og-image.png` default share image, `/logo.png` 400×400 schema logo (see CLAUDE.md → Deployment and SEO).
+
+<details><summary>Retired: text logo "H + italic MM" (pre-2026-09-08)</summary>
 
 - HTML: `<span class="me-italic">MM</span>` inside `.logo-mark` (NOT `<em>` — existing CSS targets `.me-italic` specifically)
 - CSS: `body.redesign-prototype .logo-mark .me-italic { color: var(--cta) }`
 - Italic enforced via legacy `.logo-mark .me-italic { font-style: italic }`
 - Example: `<div class="logo-mark">H<span class="me-italic">MM</span></div>`
+
+</details>
 
 ### Forbidden — never do this
 

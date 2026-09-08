@@ -6933,3 +6933,19 @@ body.redesign-prototype .logo-facebook { height: 16px; width: 16px; }
   body.redesign-prototype .footer .container { padding: 0 24px; }
   body.redesign-prototype .footer-tool-btn { min-height: 44px; padding: 11px 16px; }
 }
+
+/* ============================================================
+   Brand logo (image mark) — replaces the text H/MM logo, 2026-09-08.
+   Nav: mark-only SVG. Footer: full stacked lockup. Attribute width/height
+   on the <img> guard layout before CSS loads. Unscoped so blog-dark and
+   any legacy-scoped page size it identically.
+   ============================================================ */
+.logo { gap: 0; }
+.logo-img { height: 32px; width: auto; display: block; }
+.footer-logo { width: 150px; height: auto; display: block; margin-bottom: 26px; }
+@media (max-width: 900px) {
+  .logo-img { height: 28px; }
+  /* Mobile nav fix: the outline CTA kept its desktop size at <=900 and pushed the
+     hamburger off-screen. Shrink it like the (hidden) accent button is shrunk. */
+  body.redesign-prototype .nav-cta .btn-outline { padding: 10px 14px; font-size: 13px; }
+}

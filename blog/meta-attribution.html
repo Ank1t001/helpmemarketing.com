@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png">
 <title>Why Your Meta ROAS Is Lying to You (And What to Trust Instead) | HelpMeMarketing</title>
 <meta name="description" content="Meta's reported ROAS is almost always wrong. Here is why platform attribution overstates results by 30–60% — and the three-step fix that gives you numbers you can actually act on.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +19,7 @@
 <meta property="og:title" content="Why Your Meta ROAS Is Lying to You (And What to Trust Instead) | HelpMeMarketing">
 <meta property="og:description" content="Meta's reported ROAS is almost always wrong. Here is why platform attribution overstates results by 30–60% — and the three-step fix that gives you numbers you can actually act on.">
 <meta property="og:url" content="https://helpmemarketing.com/blog/meta-attribution">
-<meta property="og:image" content="https://helpmemarketing.com/og-image.svg">
+<meta property="og:image" content="https://helpmemarketing.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_CA">
@@ -30,9 +33,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Why Your Meta ROAS Is Lying to You (And What to Trust Instead) | HelpMeMarketing">
 <meta name="twitter:description" content="Meta's reported ROAS is almost always wrong. Here is why platform attribution overstates results by 30–60% — and the three-step fix that gives you numbers you can actually act on.">
-<meta name="twitter:image" content="https://helpmemarketing.com/og-image.svg">
+<meta name="twitter:image" content="https://helpmemarketing.com/og-image.png">
 <script type="application/ld+json" data-cfasync="false">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Why Your Meta ROAS Is Lying to You (And What to Trust Instead)","description":"Meta platform attribution overstates results by 30 to 60 percent. Here is the three-step fix.","datePublished":"2026-05-13","dateModified":"2026-05-13","keywords":["Meta ROAS","Meta attribution","Facebook ads attribution","server-side tracking","marketing attribution 2026","Meta Ads Manager accuracy"],"author":{"@type":"Organization","name":"HelpMeMarketing","url":"https://helpmemarketing.com"},"publisher":{"@type":"Organization","name":"HelpMeMarketing","url":"https://helpmemarketing.com"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://helpmemarketing.com/blog/meta-attribution"},"image":"https://helpmemarketing.com/og-image.svg"}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Why Your Meta ROAS Is Lying to You (And What to Trust Instead)","description":"Meta platform attribution overstates results by 30 to 60 percent. Here is the three-step fix.","datePublished":"2026-05-13","dateModified":"2026-05-13","keywords":["Meta ROAS","Meta attribution","Facebook ads attribution","server-side tracking","marketing attribution 2026","Meta Ads Manager accuracy"],"author":{"@type":"Organization","name":"HelpMeMarketing","url":"https://helpmemarketing.com"},"publisher":{"@type":"Organization","name":"HelpMeMarketing","url":"https://helpmemarketing.com"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://helpmemarketing.com/blog/meta-attribution"},"image":"https://helpmemarketing.com/og-image.png"}
 </script>
 <script type="application/ld+json" data-cfasync="false">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is Meta ROAS inaccurate?","acceptedAnswer":{"@type":"Answer","text":"Meta reports ROAS using a 7-day click and 1-day view attribution window by default. This means Meta claims credit for any purchase made within 7 days of a click or 1 day of someone merely seeing your ad — even if that person would have bought anyway. It also double-counts conversions that Google and other platforms are simultaneously claiming. The result is platform ROAS that overstates true impact by 30 to 60 percent in most accounts."}},{"@type":"Question","name":"What attribution window should I use for Meta Ads?","acceptedAnswer":{"@type":"Answer","text":"For most DTC and lead-generation accounts, a 7-day click, 1-day view window is the Meta default but overstates results. A more conservative and accurate setting is 7-day click only — removing view-through attribution entirely. For high-consideration purchases with longer decision cycles, 7-day click is still appropriate. Always compare platform-reported conversions against your own analytics as a sanity check."}},{"@type":"Question","name":"What is server-side tracking and why does it matter for Meta?","acceptedAnswer":{"@type":"Answer","text":"Server-side tracking sends conversion data directly from your server to Meta via the Conversions API, rather than relying on a browser pixel. This bypasses iOS privacy restrictions, ad blockers, and browser limitations that cause the Meta pixel to miss 20 to 40 percent of conversions. Server-side tracking improves event match quality, which improves Meta's ability to optimise campaigns and report results more accurately."}},{"@type":"Question","name":"How do I know if my Meta attribution is wrong?","acceptedAnswer":{"@type":"Answer","text":"Compare Meta Ads Manager reported conversions against the same period in your own analytics platform — Google Analytics 4, Shopify, or your CRM. If Meta is claiming 40 percent or more conversions than your analytics shows, your attribution is overstated. A gap of 20 to 30 percent is normal due to cross-device journeys. A gap above 40 percent indicates a view-through attribution or double-counting problem."}}]}
@@ -46,10 +49,7 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a class="logo" href="../index.html" style="cursor:pointer">
-      <div class="logo-mark">H<span class="me-italic">m</span></div>
-      <span class="logo-text">Help<span style="color:var(--gold); font-style:italic; font-family:var(--serif); font-size:19px; padding:0 1px">Me</span>Marketing</span>
-    </a>
+    <a class="logo" href="../index.html"><img class="logo-img" src="/assets/brand/hmm-mark.svg" alt="Help Me Marketing" width="99" height="32"></a>
     <div class="nav-links">
       <a class="nav-link" href="../index.html">Home</a>
       <a class="nav-link" href="../services.html">Services</a>

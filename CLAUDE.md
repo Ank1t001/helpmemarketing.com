@@ -63,7 +63,7 @@ These docs do **not** apply to legacy-scoped pages. They apply only inside body.
 - **Form taxonomy:** 7 chips in buyer language — SEO | Ads | Brand & Social | Website | Analytics | Email & retention | Not sure yet
 - **`data-service` attrs:** use category slugs (`performance-marketing`, `branding-social`, etc.)
   - **Note:** "Email & retention" chip routes to `data-service="lifecycle-retention"` for now. Service category was deprecated in Phase 2.5 (replaced by AI Automation & Workflow Systems), but the chip's data-service tag is retained as a routing label for the contact form payload. Implicit category bundling: leads from this chip are handled within existing service categories (Performance Marketing covers most email & lifecycle work). Backend routing label rename deferred to the next form-code commit.
-- **Logo:** "HMM" with italic Signal Orange "MM" using `<span class="me-italic">` pattern
+- **Logo:** image mark (locked 2026-09-08; the text "H + italic MM" pattern is retired). Nav: `<img class="logo-img" src="/assets/brand/hmm-mark.svg">` (mark-only, 32px desktop / 28px at ≤900). Footer: `<img class="footer-logo" src="/assets/brand/hmm-logo-full.svg">` (full lockup, 150px, top of the CTA offer column). Always set `width`/`height` attributes on both so layout holds before CSS. Brand colours in the SVGs: off-white `#F7F6F2`, orange `#FF5A1F`.
 - **Email casing:** `Hello@helpmemarketing.com` in visible UI; lowercase `hello@` acceptable in schema/metadata
 
 ### Phase 2.5 Sweep Decisions (locked 2026-05-25)
@@ -173,6 +173,7 @@ Elsewhere, the only JS is tiny inline event handlers (mobile-menu toggle). **Not
 ### Deployment and SEO
 
 - `vercel.json` sets `cleanUrls: true`, `trailingSlash: false`, adds `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: SAMEORIGIN` on all responses, and caches `styles.css` for 1h (`must-revalidate`).
+- **Brand assets (2026-09-08):** `/favicon.ico` + `/favicon-32x32.png`, `/favicon-192x192.png` (apple-touch), `/favicon-512x512.png`, linked from every page `<head>`; `/og-image.png` (1200×630) is the default `og:image`/`twitter:image` (blog posts keep their own hero OG); `/logo.png` (400×400) is the schema `logo`/`image`. Source package: HMM_Logo_Package.
 - `sitemap.xml` is hand-maintained — when adding or renaming a page, update it (use the clean-URL form without `.html`).
 - `pricing.html` was removed (commit `b80babb`); `/pricing` and `/pricing.html` now 301-redirect to `/contact` (see `vercel.json`). No pricing entry remains in `robots.txt` or `sitemap.xml`.
 
