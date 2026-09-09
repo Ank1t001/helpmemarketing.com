@@ -101,12 +101,11 @@ w.addEventListener(e,load,{once:true,passive:true});});
     
     --cta:#FF5C1A; --cta-hover:#FF7038; --mint:#00D4AA;
     --mint-dim:rgba(0,212,170,.12);
-    --terra:#C8542B; --terra-dim:rgba(200,84,43,.14); --terra-text:#E0714A;
     
     --border:rgba(255,255,255,.08); --grid-line:rgba(255,255,255,.025);
     --orange-glow:rgba(255,92,26,.12);}
 .sgos *{margin:0;padding:0;box-sizing:border-box}
-.sgos{overflow-x:hidden;overflow-x:clip;color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+.sgos{overflow-x:hidden;overflow-x:clip;color:var(--text);font-family:'Inter',-apple-system,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
 .sgos .wrap{max-width:1040px;margin:0 auto;padding:34px 22px 80px;position:relative}
 .sgos a{color:var(--mint);text-decoration:none}
 .sgos a:hover{text-decoration:underline}
@@ -119,24 +118,24 @@ w.addEventListener(e,load,{once:true,passive:true});});
     background:radial-gradient(ellipse at center,var(--orange-glow) 0%,transparent 68%)}
 .sgos .brandrow{display:flex;align-items:center;gap:11px;margin-bottom:12px}
 .sgos .mark{width:19px;height:19px;border-radius:4px;background:var(--cta);flex:none}
-.sgos .brandrow .t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--mint)}
-.sgos h1{font-size:52px;font-weight:800;margin:0 0 14px;letter-spacing:-.025em;line-height:1.03}
+.sgos .brandrow .t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--text-muted)}
+.sgos h1{font-family:'Fraunces',Georgia,serif;font-size:64px;font-weight:400;margin:0 0 20px;letter-spacing:-.02em;line-height:1.05} /* canon H1 */
 .sgos .lede{font-size:16.5px;color:var(--text-muted);max-width:690px}
 .sgos .lede b{color:var(--text);font-weight:600}
 .sgos .sec{margin-top:52px}
-.sgos .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--mint);margin-bottom:9px}
-.sgos .eyebrow.t{color:var(--terra-text)}
-.sgos h2{font-size:25px;font-weight:800;letter-spacing:-.018em;line-height:1.22;margin-bottom:7px}
+.sgos .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--text-muted);margin-bottom:12px} /* canonical eyebrow; Mint is a functional colour, not a label colour */
+.sgos .eyebrow.t{color:var(--text-muted)}
+.sgos h2{font-family:'Fraunces',Georgia,serif;font-size:40px;font-weight:400;letter-spacing:-.015em;line-height:1.1;margin-bottom:12px} /* canon H2 */
 .sgos .sub{font-size:14.5px;color:var(--text-muted);max-width:730px}
 .sgos .stagerow{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin-top:22px}
 .sgos .st{background:var(--bg-elevated);border:1px solid var(--border);border-radius:11px;padding:12px 11px;
       display:flex;flex-direction:column;transition:.25s}
 .sgos .st:hover{border-color:rgba(255,255,255,.18)}
-.sgos .st.you{border-color:rgba(200,84,43,.55)}
+.sgos .st.you{border-color:rgba(255,92,26,.3)}
 .sgos .st .num{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--text-tertiary);margin-bottom:7px}
 .sgos .badge{display:inline-block;font-size:9px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;
          border-radius:4px;padding:2.5px 6px;margin-bottom:9px;align-self:flex-start}
-.sgos .b-you{color:var(--terra-text);background:var(--terra-dim)}
+.sgos .b-you{color:var(--cta);background:var(--orange-glow)} /* was the reserved warm-break terracotta */
 .sgos .b-fix{color:var(--mint);background:var(--mint-dim)}
 .sgos .st .h{font-size:14.5px;font-weight:800;margin-bottom:4px;letter-spacing:-.01em}
 .sgos .st .w{font-size:12px;color:var(--text-muted);line-height:1.45;flex:1}
@@ -156,10 +155,10 @@ w.addEventListener(e,load,{once:true,passive:true});});
     background-repeat:no-repeat;background-position:right 14px center}
 .sgos select:focus{outline:none;border-color:var(--mint)}
 .sgos .assign{background:var(--bg-elevated);border:1px solid var(--border);border-radius:14px;padding:19px;margin-top:12px}
-.sgos .assign h3{font-size:19px;font-weight:800;letter-spacing:-.015em;margin-bottom:4px}
+.sgos .assign h3{font-family:'Fraunces',Georgia,serif;font-size:24px;font-weight:500;letter-spacing:-.01em;margin-bottom:4px} /* canon H3 */
 .sgos .assign .n{font-size:13px;color:var(--text-muted);margin-bottom:14px}
 .sgos .arow{display:grid;grid-template-columns:190px 1fr;gap:14px;padding:11px 0;border-top:1px solid var(--border);font-size:13.5px}
-.sgos .arow .k{color:var(--terra-text);font-weight:700}
+.sgos .arow .k{color:var(--text);font-weight:700}
 .sgos .arow .v{color:var(--text-muted)}
 .sgos .arow .v b{color:var(--text);font-weight:600}
 .sgos .skillbox{background:var(--bg-elevated);border:1px solid var(--border);border-radius:14px;padding:19px;margin-top:12px}
@@ -169,7 +168,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;color:var(--mint);
     background:var(--mint-dim);border:1px solid rgba(0,212,170,.25);border-radius:6px;padding:3px 8px;white-space:nowrap}
 .sgos .srow .d{font-size:13px;color:var(--text-muted);flex:1;min-width:220px}
-.sgos .warnline{border-top:1px dashed var(--border);margin-top:13px;padding-top:11px;font-size:12.5px;color:var(--terra-text)}
+.sgos .warnline{border-top:1px dashed var(--border);margin-top:13px;padding-top:11px;font-size:12.5px;color:var(--cta)}
 .sgos .cmd{border:1px solid var(--border);border-radius:14px;margin-top:26px;overflow:hidden}
 .sgos .cmdhead{background:var(--bg-elevated);display:flex;justify-content:space-between;align-items:center;
     padding:13px 17px;border-bottom:1px solid var(--border)}
@@ -181,12 +180,12 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos pre{background:var(--bg-sunk);padding:19px 17px;overflow-x:auto;font-family:ui-monospace,Menlo,Consolas,monospace;
       font-size:12px;line-height:1.72;color:var(--text-muted);white-space:pre-wrap;word-break:break-word}
 .sgos pre .s{color:var(--mint);font-weight:700}
-.sgos pre .h{color:var(--terra-text)}
+.sgos pre .h{color:var(--cta)}
 .sgos pre .w{color:var(--text)}
 .sgos .grp{border-top:1px solid var(--border);padding:16px 0 4px}
 .sgos .grphead{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;margin-bottom:11px}
 .sgos .grphead .c{color:var(--mint)}
-.sgos .grphead .y{color:var(--terra-text)}
+.sgos .grphead .y{color:var(--cta)}
 .sgos .grphead .m{color:var(--text-tertiary);letter-spacing:.02em;text-transform:none;font-weight:400;font-size:12.5px}
 .sgos .tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:8px}
 .sgos .tool{background:var(--bg-elevated);border:1px solid var(--border);border-radius:10px;padding:10px 12px;
@@ -199,7 +198,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .tool .w{font-size:11.5px;color:var(--text-muted);line-height:1.35}
 .sgos .tier{font-size:9px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;border-radius:4px;padding:3px 6px;flex:none}
 .sgos .ti-core{color:var(--mint);background:var(--mint-dim)}
-.sgos .ti-cond{color:var(--terra-text);background:var(--terra-dim)}
+.sgos .ti-cond{color:var(--cta);background:var(--orange-glow)}
 .sgos .ti-key{color:var(--text-tertiary);background:var(--bg-sunk)}
 .sgos .legend{border-top:1px dashed var(--border);margin-top:18px;padding-top:13px;font-size:12.5px;color:var(--text-muted);
           display:flex;gap:20px;flex-wrap:wrap}
@@ -207,7 +206,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .three{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:26px}
 .sgos .three .c{background:var(--bg-elevated);border:1px solid var(--border);border-radius:12px;padding:16px}
 .sgos .three .lab{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
-.sgos .three .c1 .lab{color:var(--terra-text)}
+.sgos .three .c1 .lab{color:var(--cta)}
 .sgos .three .c2 .lab{color:var(--mint)}
 .sgos .three .c3 .lab{color:var(--mint)}
 .sgos .three .big{font-size:14.5px;font-weight:700;margin-bottom:7px;line-height:1.4}
@@ -218,11 +217,11 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .d .n{font-size:13.5px;font-weight:700;margin-bottom:3px}
 .sgos .d .w{font-size:12px;color:var(--text-muted);line-height:1.45}
 .sgos .why .r{border-top:1px solid var(--border);padding:15px 0}
-.sgos .why h3{font-size:16.5px;font-weight:800;letter-spacing:-.012em;margin-bottom:4px}
+.sgos .why h3{font-family:'Fraunces',Georgia,serif;font-size:20px;font-weight:500;letter-spacing:-.01em;margin-bottom:4px}
 .sgos .why p{font-size:13.5px;color:var(--text-muted);max-width:790px}
 .sgos .closer{margin-top:56px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:16px;padding:36px 30px;text-align:center}
-.sgos .closer h2{font-size:31px;font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:12px}
-.sgos .closer h2 i{font-style:normal;color:var(--mint)}
+.sgos .closer h2{font-size:40px;font-weight:400;letter-spacing:-.015em;line-height:1.1;margin-bottom:12px}
+.sgos .closer h2 i{font-style:italic;font-weight:400;color:var(--cta)} /* canon heading accent; Mint is functional, not a brand accent */
 .sgos .closer p{font-size:14.5px;color:var(--text-muted);max-width:660px;margin:0 auto}
 .sgos .cta{display:inline-flex;align-items:center;justify-content:center;min-height:52px;font-size:19px;font-weight:800;
        letter-spacing:-.01em;line-height:1;color:#fff;background:var(--cta);border-radius:10px;padding:0 28px;transition:.25s}
@@ -249,10 +248,17 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .mxr .q{color:var(--text-muted)}
 .sgos .smm{display:none}
 .sgos .mxr:first-child .c{font-size:inherit;font-weight:700;letter-spacing:inherit}
-.sgos .mxr .c{text-align:center;font-weight:800;font-size:14px}
+.sgos .mxr .c{text-align:center;font-weight:700;font-size:14px}
+.sgos .mxr .c svg{width:14px;height:14px;color:var(--mint);vertical-align:middle}
+.sgos .sp-top{margin-top:14px}
+.sgos input{color:var(--text)}
+.sgos .lg-in{color:var(--mint)}
+.sgos .lg-conn{color:var(--cta)}
+.sgos .lg-note{color:var(--text-tertiary)}
+.sgos .ctarow.is-center{justify-content:center}
 .sgos .yes{color:var(--mint)}
 .sgos .no{color:var(--text-tertiary);opacity:.5}
-.sgos .part{color:var(--terra-text);font-size:11px;font-weight:700;letter-spacing:.04em}
+.sgos .part{color:var(--cta);font-size:11px;font-weight:700;letter-spacing:.04em}
 .sgos .mxfoot{background:var(--bg-elevated);padding:15px 16px;border-top:1px solid var(--border);
           display:flex;justify-content:space-between;align-items:center;gap:13px;flex-wrap:wrap}
 .sgos .mxfoot .cta2{min-height:44px;font-size:14px}
@@ -272,10 +278,11 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .mxfoot{padding:14px 13px}
 .sgos .ctarow{flex-direction:column;align-items:stretch}
 .sgos .cta,.sgos .cta2{justify-content:center}
-.sgos h1{font-size:33px}
+.sgos h1{font-size:40px}
+.sgos h2{font-size:28px}
 .sgos .stagerow{grid-template-columns:repeat(2,1fr)}
 .sgos .arow{grid-template-columns:1fr;gap:3px}
-.sgos .closer h2{font-size:23px}
+.sgos .closer h2{font-size:28px}
 }
 @media print{
 .sgos{background:#fff;color:#111}
@@ -310,7 +317,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .gate .go:hover{background:var(--cta-hover)}
 .sgos .gate .go[disabled]{opacity:.55;cursor:default}
 .sgos .gate .fine{font-size:11.5px;color:var(--text-tertiary);margin-top:12px;line-height:1.5}
-.sgos .gate .err{display:none;font-size:12.5px;color:var(--terra-text);margin-top:10px}
+.sgos .gate .err{display:none;font-size:12.5px;color:var(--cta);margin-top:10px}
 .sgos .gate .err.on{display:block}
 .sgos .gate .x{position:absolute;top:13px;right:14px;width:34px;height:34px;border:0;border-radius:8px;
   background:transparent;color:var(--text-tertiary);font-size:20px;line-height:1;cursor:pointer}
@@ -575,7 +582,7 @@ No CDN, no external images, no server. It must open on a laptop with no internet
     <button type="button" data-m="all" aria-pressed="false">What it’s costing you</button>
   </div>
 
-  <div class="stack oob" id="stack" style="margin-top:14px">
+  <div class="stack oob sp-top" id="stack">
     <div class="grp">
       <div class="grphead"><span class="c">Orchestration</span> <span class="m">· runs the pipeline and the fan-out</span></div>
       <div class="tools">
@@ -661,25 +668,25 @@ No CDN, no external images, no server. It must open on a laptop with no internet
   </div>
 
   <div class="legend">
-    <span><b style="color:var(--mint)">Built in</b>: runs the moment you download it</span>
-    <span><b style="color:var(--terra-text)">Connect</b>: needs a data source wired up first</span>
-    <span><b style="color:var(--text-tertiary)">Free / Paid</b>: noted on each card</span>
+    <span><b class="lg-in">Built in</b>: runs the moment you download it</span>
+    <span><b class="lg-conn">Connect</b>: needs a data source wired up first</span>
+    <span><b class="lg-note">Free / Paid</b>: noted on each card</span>
   </div>
 
   <div class="mx">
     <div class="mxr"><div>The question a client actually asks</div><div class="c"><span class="lgm">What’s wrong</span><span class="smm">Wrong</span></div><div class="c"><span class="lgm">What it’s costing</span><span class="smm">Costing</span></div></div>
-    <div class="mxr"><div class="q">What's broken on my site right now?</div><div class="c yes">✓</div><div class="c yes">✓</div></div>
-    <div class="mxr"><div class="q">Is my structured data valid, and what am I missing?</div><div class="c yes">✓</div><div class="c yes">✓</div></div>
-    <div class="mxr"><div class="q">Can AI engines read and cite my pages?</div><div class="c yes">✓</div><div class="c yes">✓</div></div>
-    <div class="mxr"><div class="q">What should I fix first, and in what order?</div><div class="c yes">✓</div><div class="c yes">✓</div></div>
-    <div class="mxr"><div class="q">Did last week's deploy break anything?</div><div class="c yes">✓</div><div class="c yes">✓</div></div>
-    <div class="mxr"><div class="q">Why isn't this page ranking?</div><div class="c part">Partly</div><div class="c yes">✓</div></div>
-    <div class="mxr"><div class="q">What am I currently ranking for, and where?</div><div class="c no">–</div><div class="c yes">✓</div></div>
-    <div class="mxr"><div class="q">How much traffic, and revenue, is each fix worth?</div><div class="c no">–</div><div class="c yes">✓</div></div>
-    <div class="mxr"><div class="q">Which keywords am I losing to competitors?</div><div class="c no">–</div><div class="c yes">✓</div></div>
-    <div class="mxr"><div class="q">Who links to my competitors but not to me?</div><div class="c no">–</div><div class="c yes">✓</div></div>
-    <div class="mxr"><div class="q">Are my real-world Core Web Vitals actually passing?</div><div class="c no">–</div><div class="c yes">✓</div></div>
-    <div class="mxr"><div class="q">Is ChatGPT citing me more this month than last?</div><div class="c no">–</div><div class="c yes">✓</div></div>
+    <div class="mxr"><div class="q">What's broken on my site right now?</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
+    <div class="mxr"><div class="q">Is my structured data valid, and what am I missing?</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
+    <div class="mxr"><div class="q">Can AI engines read and cite my pages?</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
+    <div class="mxr"><div class="q">What should I fix first, and in what order?</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
+    <div class="mxr"><div class="q">Did last week's deploy break anything?</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
+    <div class="mxr"><div class="q">Why isn't this page ranking?</div><div class="c part">Partly</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
+    <div class="mxr"><div class="q">What am I currently ranking for, and where?</div><div class="c no">–</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
+    <div class="mxr"><div class="q">How much traffic, and revenue, is each fix worth?</div><div class="c no">–</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
+    <div class="mxr"><div class="q">Which keywords am I losing to competitors?</div><div class="c no">–</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
+    <div class="mxr"><div class="q">Who links to my competitors but not to me?</div><div class="c no">–</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
+    <div class="mxr"><div class="q">Are my real-world Core Web Vitals actually passing?</div><div class="c no">–</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
+    <div class="mxr"><div class="q">Is ChatGPT citing me more this month than last?</div><div class="c no">–</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
     <div class="mxfoot">
       <div class="t"><b>The left column ships with the download. The right column needs a data source connected.</b> Four of the connections are free accounts you already own. They just need wiring up.</div>
       <a class="cta2" href="/contact">Book a setup call</a>
@@ -730,7 +737,7 @@ No CDN, no external images, no server. It must open on a laptop with no internet
 <section class="sec">
   <div class="eyebrow">Why this is different</div>
   <h2>Five things most SEO reports can't say.</h2>
-  <div class="why" style="margin-top:14px">
+  <div class="why sp-top">
     <div class="r"><h3>We never invent a number.</h3><p>If a data source isn't connected, the check is skipped and marked incomplete, never estimated. A category we couldn't measure is stated plainly and its weight redistributed, so the score you see is the score we actually earned.</p></div>
     <div class="r"><h3>Every recommendation says how it could be wrong.</h3><p>Each carries the observation it rests on, what it depends on, an explicit "here's how we'd know this failed", and a leading indicator you can check yourself. Advice you can't falsify isn't advice. It's decoration.</p></div>
     <div class="r"><h3>Nothing gets lost between audits.</h3><p>Everything writes to a linked record that persists. Re-engage in six months and the system knows what was found, what was fixed, and what regressed. No "let's start with a fresh audit" tax.</p></div>
@@ -742,8 +749,8 @@ No CDN, no external images, no server. It must open on a laptop with no internet
 <!-- ── CLOSER ────────────────────────────────────────── -->
 <div class="closer">
   <h2>Six nodes. Thirty-two checks.<br><i>One record that remembers.</i></h2>
-  <p>Everything marked in terracotta changes with the site. Everything in mint is the method, and it took years to write down. Download it, run it on your own machine, keep whatever it finds. The audit was never the hard part.</p>
-  <div class="ctarow" style="justify-content:center">
+  <p>Everything marked in orange changes with the site. Everything in mint is the method, and it took years to write down. Download it, run it on your own machine, keep whatever it finds. The audit was never the hard part.</p>
+  <div class="ctarow is-center">
     <a class="cta" href="/contact" data-gate-open>Download SEO Growth OS →</a>
     <a class="cta2" href="/contact">Need help with setup? Book a call</a>
   </div>
@@ -828,7 +835,7 @@ No CDN, no external images, no server. It must open on a laptop with no internet
 <!-- SEO Growth OS download gate -->
 <div class="sgos">
   <div class="gate-back" data-gate-close></div>
-  <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-h" style="position:fixed">
+  <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-h">
     <button class="x" type="button" aria-label="Close" data-gate-close>&times;</button>
 
     <div class="form">

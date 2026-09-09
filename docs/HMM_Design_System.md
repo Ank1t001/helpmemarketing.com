@@ -562,8 +562,31 @@ Hygiene applied to about, work, contact, ad-calculator and its benchmarks page, 
 | Consent banner (`consent.js`) | Tokens with hex fallbacks: elevated surface, `--border`, `--cta` accept button, `--text`. The fallbacks exist because the banner also renders on the own-scope Index pages |
 | Numerals and figures | `.about-value-num` tertiary; calculator result figures (`.adc-b-cta`, `.asc-weekly strong`, `.asc-verdict strong`) white; the best ad-set result Mint; `.asc-gallery-sec` labels muted. Warning and interactive states keep orange |
 | Headings | `.about-principles-h2` 40/28, `.hipaa-h1` 64, `.hgroup-title` 40/28, `.hipaa-cta-title` 24/20, privacy and terms H1 and the marketing-audit H1 on `hero-headline` |
-| `em` accents | `.italic-accent` removed from every prototype page except the blog index (pending its rebuild) |
+| `em` accents | `.italic-accent` removed from every prototype page |
 | Mint literals | `#00D4AA` in the HIPAA checklist and the ad-set calculator replaced with `var(--mint)` |
+
+### Blog index (`/blog`, rebuilt 2026-09-09)
+
+The index was the last light-theme build inside prototype scope (185 inline styles, legacy tokens, 28 hex literals, a 78px `h1.serif`). It now uses the canon hero (`.hero`, `.eyebrow`, `h1.hero-headline`, `.hero-subtitle`), `section.content-section`, the §9 `.chip` / `.chip-on` for the category filter (with `aria-pressed`), and these components, all `body.redesign-prototype`-scoped:
+
+| Class | Purpose |
+|---|---|
+| `.bi-feature` / `.bi-card` | Elevated dark card, `1px var(--border)`, 16px radius; feature is 1.2fr/1fr, cards 1fr/1.6fr; both stack at ≤900 / ≤720 |
+| `.bi-thumb` | 16:9 placeholder on `var(--bg)` with the case-card Signal Orange radial glow; `.bi-thumb-word` ghost word in Fraunces at 6% white; `.bi-thumb-label` muted eyebrow. Replaces the navy gradients and gold glows |
+| `.bi-meta`, `.bi-meta-sep`, `.bi-meta-featured` | 12px muted meta row; "Featured" is white 600 uppercase, not gold |
+| `.bi-title-lg`, `.bi-title` | Fraunces 32/400 (feature) and 24/500 (card, the H3 scale) |
+| `.bi-excerpt`, `.bi-author`, `.bi-avatar` | Muted excerpt; author row with a `var(--bg)` avatar (was legacy `--primary`) |
+| `.bi-news-*` | Newsletter band: `h2.section-heading`, `.section-deck`, `.form-input` + `.btn-primary`, Mint check in the thanks panel. Show/hide uses the `hidden` attribute |
+| `.bpost.is-hidden` | Filter state class; the script no longer writes inline styles |
+| `.sr-only` | Visually hidden utility (newsletter email label) |
+
+The `.eyebrow-dot` span is hidden in prototype scope: `.eyebrow::before` already draws the Mint dot, and pages that carried the span showed two dots.
+
+### `/seo-growth-os` (migrated 2026-09-09)
+
+Founder call: migrate rather than declare own-scope. The `.sgos` page block keeps its product-UI components (nodes, badges, matrix, command block) and now runs Inter for text and the canon heading scale: H1 Fraunces 64/40, H2 40/28, H3 24 and 20 at 500. Eyebrows are the canonical muted 13px (were Mint 11px/700); the "your business" badges use `--cta` on `--orange-glow` instead of the reserved warm-break terracotta, and the terracotta tokens are gone from the page. The comparison matrix checks are Tabler SVGs.
+
+`/meta-growth-os` stays own-scope (no body class) but follows the content rules: em dashes replaced in the title, the prompt block and the copy; the matrix checks are SVGs.
 
 ---
 
@@ -935,9 +958,6 @@ Every Phase 2 page migration must:
 - Additional opacity values founder review (Section 12)
 - `/services` Phase 2 migration — uses this doc as primary brief authority
 - HMM_Content_Rules v0.2 → v1.0 lock — currently DRAFT awaiting founder approval
-- Blog index (`/blog`), pending founder approval (audit 2026-09-09): still a light-theme build inside prototype scope. 185 inline styles, legacy tokens (`--line`, `--line-soft`, `--gold`, `--primary`, `--navy`), 28 hex literals (navy card thumbnails, gold glows, ivory text), `h1.serif` at 78px and `.italic-accent`. Needs a card-component rebuild on tokens.
-- `/seo-growth-os`, pending founder decision: declares `redesign-prototype` but runs its own visual language (Segoe UI/system sans at weight 800, no Fraunces, a 17 KB page block, terracotta badges from the reserved warm-break tokens). Either declare it own-scope like the Index pages or migrate the headings to canon.
-- `/meta-growth-os`, pending founder decision: no body scope, 14 visible em dashes and 17 emoji. Same choice: own-scope declaration or bring under the content rules.
 - Thank-you panel H2 anti-pattern at `contact.html:158` — inline `style="color:var(--deep)"` rescued by local token shim (Section 10); codify canonical H2 pattern when `/services` migration begins
 
 ### Site state caveat

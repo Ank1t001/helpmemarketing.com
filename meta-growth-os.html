@@ -6,7 +6,7 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png">
-<title>Meta Growth OS — One System. Any Account. | Help Me Marketing</title>
+<title>Meta Growth OS: One System. Any Account. | Help Me Marketing</title>
 <meta name="description" content="Any dashboard can hand you two hundred metrics. Knowing which one is lying and what to fix first is the whole job. Nine stages, thirteen specialist skills, yours to download and run.">
 <link rel="canonical" href="https://helpmemarketing.com/meta-growth-os">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -201,7 +201,8 @@ h2 .mt{color:var(--mint)}
 .qt th.c{text-align:center;width:130px}
 .qt td{padding:12px 16px;border-bottom:1px solid var(--bd);color:var(--tx2)}
 .qt td.c{text-align:center;font-weight:700}
-.qt td.c .y{color:var(--mint);font-size:15px}
+.qt td.c .y{color:var(--mint);font-size:15px;display:inline-flex;align-items:center}
+.qt td.c .y svg{width:14px;height:14px}
 .qt td.c .p{color:var(--cta);font-size:12.5px}
 .qt td.c .n{color:var(--tx3)}
 .qt tr:last-child td{border-bottom:0}
@@ -407,13 +408,13 @@ to generic best practice.
 
 <i>STAGE 0 · READINESS (can this run honestly)</i>
 Confirm the Meta connector and Google Drive are reachable. <b>Detect by capability, not by
-connector name</b> — names drift and contain typos. If either is missing, name the fix and
+connector name</b>: names drift and contain typos. If either is missing, name the fix and
 wait. When I say it's connected, re-probe rather than taking my word for it.
 Ask which CRM or commerce platform holds my outcome data. Branch to a connector or a
 named export. If I say "we don't track that", record it as a finding, not a failure.
 
 <i>STAGE 1 · DISCOVER (who this is)</i>
-Check memory first. If a contract exists, show it and ask what changed — never re-interview.
+Check memory first. If a contract exists, show it and ask what changed, never re-interview.
 <b>Do not pre-fill any declared truth from what you observe in the account.</b>
 Ask me: the business model, the end goal event, my funnel stage by stage <b>in my own words</b>,
 the primary conversion, and the source of truth.
@@ -425,7 +426,7 @@ Then ask for unit economics and derive my target. <b>Do not proceed without them
 <i>STAGE 2 · AUDIT (eleven phases, in order)</i>
 Present each phase's status block and <b>wait</b> before continuing.
 <b>Do not judge performance until tracking is validated.</b> If the wrong pixel may be connected,
-events are duplicated, or CRM leads can't be reconciled — pause and say what is blocked.
+events are duplicated, or CRM leads can't be reconciled, pause and say what is blocked.
 Segment before averaging: form type on Service, prospecting vs retargeting on E-commerce.
 Score 0-100 across eight weighted categories. Never score a category on guessed data.
 → Write file: 02-Audit/Audit-Report.md
@@ -435,7 +436,7 @@ Sort every finding into <s>Broken</s> (exists but wrong), <s>Missing</s> (should
 or <s>Leaking</s> (works, underperforms). Collapse findings that share a cause into ONE gap.
 Fourteen ad sets in Learning Limited is one gap, not fourteen. Count causes, not symptoms.
 Score every gap: Impact × Effort × Confidence × Time-to-Impact. Rank against the Leverage
-Ladder — offer beats creative beats targeting beats bid tweaks.
+Ladder: offer beats creative beats targeting beats bid tweaks.
 → Write files: 03-Diagnose/Gap-Inventory.md, 04-Prioritize/Roadmap.md
 
 <b>Wait for my yes before anything gets built.</b>
@@ -448,7 +449,7 @@ If a recommendation resets the learning phase, say so and estimate what the rese
 
 <i>STAGE 6·8 · MONITOR AND SCHEDULE (it runs without me)</i>
 Capture a baseline the day fixes ship. Then set a recurring weekly run from a cold start.
-Do not log a regression inside the learning phase or below ~50 conversions — that is noise.
+Do not log a regression inside the learning phase or below ~50 conversions, that is noise.
 Notify me only when something changed, broke, or crossed a threshold.
 → Write files: 06-Monitor/Baseline.md, 06-Monitor/Drift-Log.md, 07-Report/
 
@@ -544,18 +545,18 @@ No CDN, no external images, no server. It must open on a laptop with no internet
 <section><div class="wrap">
   <table class="qt">
     <tr><th>The question a client actually asks</th><th class="c">What's wrong</th><th class="c">What it's costing</th></tr>
-    <tr><td>What's broken in my account right now?</td><td class="c"><span class="y">✓</span></td><td class="c"><span class="y">✓</span></td></tr>
-    <tr><td>Is my tracking actually intact?</td><td class="c"><span class="y">✓</span></td><td class="c"><span class="y">✓</span></td></tr>
-    <tr><td>Which campaigns are burning money?</td><td class="c"><span class="y">✓</span></td><td class="c"><span class="y">✓</span></td></tr>
-    <tr><td>What should I fix first, and in what order?</td><td class="c"><span class="y">✓</span></td><td class="c"><span class="y">✓</span></td></tr>
-    <tr><td>Did last week's change break anything?</td><td class="c"><span class="y">✓</span></td><td class="c"><span class="y">✓</span></td></tr>
-    <tr><td>Why did my cost per result go up?</td><td class="c"><span class="p">Partly</span></td><td class="c"><span class="y">✓</span></td></tr>
-    <tr><td>Which creative should I actually kill?</td><td class="c"><span class="p">Partly</span></td><td class="c"><span class="y">✓</span></td></tr>
-    <tr><td>What is a lead actually worth to me?</td><td class="c"><span class="n">–</span></td><td class="c"><span class="y">✓</span></td></tr>
-    <tr><td>Which campaign produces clients, not leads?</td><td class="c"><span class="n">–</span></td><td class="c"><span class="y">✓</span></td></tr>
-    <tr><td>Which campaign feeds my no-shows?</td><td class="c"><span class="n">–</span></td><td class="c"><span class="y">✓</span></td></tr>
-    <tr><td>What does my traffic return rate do to true CPA?</td><td class="c"><span class="n">–</span></td><td class="c"><span class="y">✓</span></td></tr>
-    <tr><td>Am I actually profitable after margin?</td><td class="c"><span class="n">–</span></td><td class="c"><span class="y">✓</span></td></tr>
+    <tr><td>What's broken in my account right now?</td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td></tr>
+    <tr><td>Is my tracking actually intact?</td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td></tr>
+    <tr><td>Which campaigns are burning money?</td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td></tr>
+    <tr><td>What should I fix first, and in what order?</td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td></tr>
+    <tr><td>Did last week's change break anything?</td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td></tr>
+    <tr><td>Why did my cost per result go up?</td><td class="c"><span class="p">Partly</span></td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td></tr>
+    <tr><td>Which creative should I actually kill?</td><td class="c"><span class="p">Partly</span></td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td></tr>
+    <tr><td>What is a lead actually worth to me?</td><td class="c"><span class="n">–</span></td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td></tr>
+    <tr><td>Which campaign produces clients, not leads?</td><td class="c"><span class="n">–</span></td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td></tr>
+    <tr><td>Which campaign feeds my no-shows?</td><td class="c"><span class="n">–</span></td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td></tr>
+    <tr><td>What does my traffic return rate do to true CPA?</td><td class="c"><span class="n">–</span></td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td></tr>
+    <tr><td>Am I actually profitable after margin?</td><td class="c"><span class="n">–</span></td><td class="c"><span class="y"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></span></td></tr>
   </table>
   <div class="qfoot">
     <div class="tx"><b>The left column ships with the download.</b> The right column needs your CRM or store connected. Both are accounts you already own. They just need wiring up.</div>
@@ -595,17 +596,17 @@ No CDN, no external images, no server. It must open on a laptop with no internet
   <h2>Six things most Meta audits can't say.</h2>
   <div class="diffs">
     <div class="diff"><h4>We never assume your business.</h4>
-      <p>Not the model, not the goal, not the funnel shape, not what counts as a conversion, not whether a setting was intentional. Observable facts get read from the account. <b>Declared truths get asked as open questions and recorded in your words</b> — never pre-filled from a guess, because a pre-filled guess is an anchor, not a question.</p></div>
+      <p>Not the model, not the goal, not the funnel shape, not what counts as a conversion, not whether a setting was intentional. Observable facts get read from the account. <b>Declared truths get asked as open questions and recorded in your words</b>, never pre-filled from a guess, because a pre-filled guess is an anchor, not a question.</p></div>
     <div class="diff"><h4>We never invent a number.</h4>
-      <p>If a data source isn't connected, the check is skipped and marked incomplete, never estimated. Every benchmark carries its source, sample size and a confidence level — because published Meta benchmarks disagree with each other by up to 2×, and most posts don't say where their figures came from.</p></div>
+      <p>If a data source isn't connected, the check is skipped and marked incomplete, never estimated. Every benchmark carries its source, sample size and a confidence level, because published Meta benchmarks disagree with each other by up to 2×, and most posts don't say where their figures came from.</p></div>
     <div class="diff"><h4>Performance is never judged before tracking is validated.</h4>
-      <p>The audit pauses if the wrong pixel may be connected, events are duplicated, or CRM leads can't be reconciled. <b>"Your last 90 days of reporting can't be trusted, and here's why"</b> is frequently the most valuable sentence in the whole engagement — and most audits are structurally incapable of producing it.</p></div>
+      <p>The audit pauses if the wrong pixel may be connected, events are duplicated, or CRM leads can't be reconciled. <b>"Your last 90 days of reporting can't be trusted, and here's why"</b> is frequently the most valuable sentence in the whole engagement, and most audits are structurally incapable of producing it.</p></div>
     <div class="diff"><h4>Every recommendation says how it could be wrong.</h4>
       <p>Each carries the observation it rests on, what it depends on, an explicit "here's how we'd know this failed", and a leading indicator you can check yourself without commissioning another audit. Advice you can't falsify isn't advice. It's decoration.</p></div>
     <div class="diff"><h4>Noise is not treated as signal.</h4>
-      <p>Nothing is judged inside the learning phase or below roughly fifty conversions. Most of the damage done in ad accounts comes from decisive people acting on samples too small to have an opinion about — so the system is allowed to return <b>"wait"</b>, and does.</p></div>
+      <p>Nothing is judged inside the learning phase or below roughly fifty conversions. Most of the damage done in ad accounts comes from decisive people acting on samples too small to have an opinion about, so the system is allowed to return <b>"wait"</b>, and does.</p></div>
     <div class="diff"><h4>Nothing goes live without your explicit yes.</h4>
-      <p>Draft-first, paused-first, one item at a time. No bulk pauses, no budget changes, no audience edits. If a recommendation resets the learning phase, it says so and estimates what the reset costs — so you're choosing knowingly rather than discovering later.</p></div>
+      <p>Draft-first, paused-first, one item at a time. No bulk pauses, no budget changes, no audience edits. If a recommendation resets the learning phase, it says so and estimates what the reset costs, so you're choosing knowingly rather than discovering later.</p></div>
   </div>
 </div></section>
 
@@ -640,7 +641,7 @@ No CDN, no external images, no server. It must open on a laptop with no internet
       <a href="https://helpmemarketing.com/tools/marketing-audit">Take the audit →</a>
     </div>
   </div>
-  <p class="slede" style="margin:24px 0 0;font-size:13.5px">Doing organic too? The <a href="https://helpmemarketing.com/seo-growth-os">SEO Growth OS</a> is the same architecture for search — six nodes, thirty-two specialist checks. Meta Growth OS is its paid half.</p>
+  <p class="slede" style="margin:24px 0 0;font-size:13.5px">Doing organic too? The <a href="https://helpmemarketing.com/seo-growth-os">SEO Growth OS</a> is the same architecture for search, six nodes, thirty-two specialist checks. Meta Growth OS is its paid half.</p>
 </div></section>
 
 <footer><div class="wrap">
@@ -710,8 +711,8 @@ const P = {
   service: {
     buy: "<b>A lead.</b> A form fill, a call, a booked consultation.",
     paid: "<b>A closed deal</b>, weeks or months later.",
-    formula: "<b>Target CPL = (deal value × margin × close rate) ÷ payback multiple.</b> A $4,000 deal at 60% margin closing 18% of leads carries $432 of gross profit per lead. At 3× payback, target CPL is $144 — regardless of what any industry median says.",
-    lie: "<b>Cost per lead.</b> On Instant Form campaigns Meta folds two labels for the same submission into one action type, so the leads column reads at double and CPL at half. Rank on cost per result — it's de-duplicated and labels its own form type.",
+    formula: "<b>Target CPL = (deal value × margin × close rate) ÷ payback multiple.</b> A $4,000 deal at 60% margin closing 18% of leads carries $432 of gross profit per lead. At 3× payback, target CPL is $144, regardless of what any industry median says.",
+    lie: "<b>Cost per lead.</b> On Instant Form campaigns Meta folds two labels for the same submission into one action type, so the leads column reads at double and CPL at half. Rank on cost per result, it's de-duplicated and labels its own form type.",
     leak: "Between the lead and the deal. Lead quality, follow-up speed, and the no-show rate nobody instruments.",
     skills: [["meta-signal","Pixel, CAPI, dedup, and whether a qualified-lead event exists at all"],
              ["meta-funnel","Instant Form vs landing page, and the down-funnel your CRM holds"]]
@@ -719,7 +720,7 @@ const P = {
   ecom: {
     buy: "<b>A purchase.</b> Tracked, valued, attributable.",
     paid: "<b>Contribution margin</b> after COGS, shipping, fees and returns.",
-    formula: "<b>Break-even ROAS = 1 ÷ contribution margin.</b> At 40% margin that's 2.5× — above the published median of 1.86×, which means the median advertiser in the largest public dataset is not profitable on paid alone.",
+    formula: "<b>Break-even ROAS = 1 ÷ contribution margin.</b> At 40% margin that's 2.5×, above the published median of 1.86×, which means the median advertiser in the largest public dataset is not profitable on paid alone.",
     lie: "<b>ROAS.</b> Platform ROAS counts view-through and cross-device credit your bank account does not. Blending prospecting and retargeting hides weak prospecting behind strong remarketing. Check MER against it.",
     leak: "Cart to checkout. Roughly half of cart additions never reach checkout, and moving that from 45% to 60% is a 33% revenue lift at identical ad spend.",
     skills: [["meta-signal","Purchase dedup, value parameters, catalog match rate, refunds"],
