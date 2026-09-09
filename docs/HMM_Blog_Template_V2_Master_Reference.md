@@ -1656,7 +1656,7 @@ These have all bitten us in past sessions. Watch for them:
 | `IntersectionObserver` rootMargin tuned to nav height | If sitewide nav height changes, scroll-spy timing drifts |
 | Post shipped but missing from `/blog` index | Add the blog.html card during the build (Part 7 step 11), not as a follow-up |
 | A `<table>` placed straight in `.blog-content` makes the whole post scroll sideways on phones | Every table goes inside `<div class="table-scroll">` (inside the featured card when there is one). Check with a 375px render: `document.documentElement.scrollWidth` must equal the viewport width |
-| Emoji used as diagram icons (`.stage-icon`, `.outcome-card .icon`, `.lever-icon`) | Inline Tabler SVG only (18px, stroke currentColor), as on the marketing cost and healthcare channels posts. `/blog/dtc-cac-reduction` still carries 11 emoji and is the remaining retrofit |
+| Emoji used as diagram icons (`.stage-icon`, `.outcome-card .icon`, `.lever-icon`) | Inline Tabler SVG only (18px, stroke currentColor), as on the marketing cost, healthcare channels and DTC CAC posts. No live post carries emoji as of 9 Sep 2026 |
 | Share buttons as text glyphs ("in", "f", "𝕏") | 14px Tabler brand SVGs inside `.share-icon`; the JS keys off `data-network`, not the content |
 | Post loads Instrument Serif instead of Fraunces, so every serif heading falls back to Georgia | Use the sitewide Fraunces + Inter link from Part 2 Section A; never a different family |
 | A light-theme component (white `#fff` card, navy heading) is added to a post without a `body.blog-dark` override | Every new component ships with its dark override in the same commit; render on the dark page before calling it done |
