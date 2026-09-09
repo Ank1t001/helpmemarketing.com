@@ -50,6 +50,11 @@ var TOOLS = [
     url: '/instagram-reindex',
     name: 'Real Estate Index: Instagram',
     when: 'They are in real estate (a brokerage, developer, or private real estate investment firm) and want competitive intelligence or social-media benchmarking: what other Canadian real estate firms post, boost, and get engagement on, specifically on Instagram. Only for real estate; do not recommend for general marketing questions.'
+  },
+  {
+    url: '/hair-loss-index',
+    name: 'Hair Loss Index: Instagram',
+    when: 'They run a hair loss, wig, hair topper, scalp micropigmentation, or non-surgical hair restoration business (or a clinic offering it) and want competitive intelligence or Instagram benchmarking: what competing studios post, how far their reels reach, and how they turn posts into booked consultations. Only for the hair loss and hair restoration category; do not recommend for general marketing questions.'
   }
 ];
 
