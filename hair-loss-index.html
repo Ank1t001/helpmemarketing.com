@@ -63,6 +63,9 @@ w.addEventListener(e,load,{once:true,passive:true});});
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
+/* Hidden tooltips (.tip::after, visibility:hidden) still occupy layout; near the right edge they
+   widen the document at phone widths. clip (not hidden) keeps position:sticky on the nav working. */
+html,body{overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--text);
   font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
