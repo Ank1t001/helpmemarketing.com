@@ -3600,7 +3600,7 @@ body.blog-dark {
   --bg-elevated: #1A1A1A;
   --text: #FFFFFF;
   --text-muted: #999999;
-  --text-tertiary: #737373;
+  --text-tertiary: #8A8A8A;  /* AA-lifted from #737373 on 2026-09-09, matching Decision 11 (~4.9:1 on Obsidian) */
   --cta: #FF5C1A;
   --cta-hover: #FF7038;
   --mint: #00D4AA;

@@ -227,11 +227,11 @@ Components affected: `.case-study-metric` / `.proof-strip-figure` (work), `.pm-p
 
 ### Decision 11 — Tertiary token AA lift (`#737373` → `#8A8A8A`), locked 2026-08-13
 
-`--text-tertiary` was raised from `#737373` (Slate, ~3.9:1 on Obsidian) to `#8A8A8A` (~4.9:1) to clear the WCAG AA 4.5:1 floor for small tertiary text. The change was first proven as a per-tool override on `/ad-set-calculator`, then promoted to the global `body.redesign-prototype` token so every dark page benefits and the page-level override could be removed. The blog token (`body.blog-dark`) is a separate scope and was **not** changed. "Slate" remains the color's name; only its shipped value moved.
+`--text-tertiary` was raised from `#737373` (Slate, ~3.9:1 on Obsidian) to `#8A8A8A` (~4.9:1) to clear the WCAG AA 4.5:1 floor for small tertiary text. The change was first proven as a per-tool override on `/ad-set-calculator`, then promoted to the global `body.redesign-prototype` token so every dark page benefits and the page-level override could be removed. The blog token (`body.blog-dark`) is a separate scope and was **not** changed at the time (lifted 2026-09-09, see below). "Slate" remains the color's name; only its shipped value moved.
 
 **Amendment, 2026-09-09 (Index pages).** The HMM Index pages (`/instagram-reindex`, `/hair-loss-index`) do not use `body.redesign-prototype`. Each carries its own page-scoped `:root` token block, so the global lift never reached them: `/instagram-reindex` shipped `#737373` in its token block and in three hardcoded `fill="#737373"` SVG chart labels at 10 to 10.5px, exactly the small-text case this floor exists for. All four are now `#8A8A8A`, and `/hair-loss-index` shipped lifted. **Rule:** any new Index instance must define `--text-tertiary: #8A8A8A` in its own token block, and SVG text inside an Index page must use the token or the lifted value, never `#737373`. Decision 11 governs the Index scope explicitly even though the rest of the prototype canon does not.
 
-**Still open:** `body.blog-dark` in `styles.css` still ships `#737373`. Decision 11 deliberately excluded it in August 2026 and it has not been revisited. Same AA failure, different scope. Needs a call.
+**Amendment, 2026-09-09 (blog scope).** `body.blog-dark` in `styles.css` was the last scope still shipping `#737373`; Decision 11 had deliberately excluded it in August 2026. Founder call on 9 Sep 2026: lift it. The blog token is now `#8A8A8A`, so every dark scope on the site (prototype, blog, Index pages) shares one tertiary value. No blog page hardcodes the old hex. Decision 11 now applies sitewide with no exclusions; "Slate" keeps its name and `#737373` is retired everywhere except the legacy light-mode region, which never used it.
 
 ---
 
