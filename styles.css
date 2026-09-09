@@ -3833,7 +3833,7 @@ body.blog-dark article.blog-content a:hover {
   color: var(--cta-hover);
 }
 body.blog-dark .stat-inline {
-  color: var(--cta);
+  color: var(--text); /* inline figures are neutral: white, never orange (Rule 1) */
   font-weight: 600;
 }
 
@@ -4146,12 +4146,9 @@ body.blog-dark .comparison-table tbody tr:last-child td {
   border-bottom: none;
 }
 /* Winner column semantics: cells with .win-paid orange, .win-organic mint */
-body.blog-dark .comparison-table td.win-paid {
-  color: var(--cta);
-  font-weight: 700;
-}
+body.blog-dark .comparison-table td.win-paid,
 body.blog-dark .comparison-table td.win-organic {
-  color: var(--mint);
+  color: var(--text); /* the word carries the meaning; orange reads as a CTA and Mint as a positive result (Rule 1, Decision 12) */
   font-weight: 700;
 }
 body.blog-dark .comparison-table td.win-either {
@@ -4688,6 +4685,21 @@ body.blog-dark .table-note {
   line-height: 1.5;
   color: var(--text-muted);
   margin: 8px 0 0;
+}
+/* Third pass, remaining 12 posts (2026-09-09). The opened mobile TOC list kept
+   the light theme's #fff background with white links on it, so "Jump to
+   section" opened a blank white panel on every post. */
+body.blog-dark .toc-list-mobile {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+}
+body.blog-dark .cta-microcopy {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin: 12px 0 0;
+}
+body.blog-dark .lever-content p + p {
+  margin-top: 10px; /* replaces the inline margin-top the levers carried on their second paragraph */
 }
 body.blog-dark .toc-share .share-icon svg {
   width: 14px;

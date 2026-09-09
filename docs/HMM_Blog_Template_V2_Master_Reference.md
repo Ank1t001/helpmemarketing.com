@@ -1,6 +1,6 @@
 # HMM Blog Template V2 — Master Reference
 
-**Version:** 2.5 (D-hybrid sticky TOC sidebar)
+**Version:** 2.6 (D-hybrid sticky TOC sidebar)
 **First shipped:** Commit `2430e84`, May 5 2026, on `/blog/healthcare-marketing-channels`
 **Purpose:** Single source of truth for writing new blogs and retrofitting existing ones to V2 architecture.
 
@@ -683,6 +683,11 @@ Use `var(--navy)`, `var(--gold)`, etc. throughout. Don't hardcode hex values for
 | `.think-long` | `var(--text)` 15px with a 16px Signal Orange Tabler star; never orange text |
 | `.rule-of-thumb` | `display: block`, 14px `var(--text-body)`, bulb SVG inline before the text. Never `display: flex`: inline `strong` and links would each become a column |
 | `.table-note` | 12px `var(--text-muted)`, 8px above; use it for a table footnote instead of an inline style. `.table-source` stays the italic source line |
+| `.toc-list-mobile` | `var(--bg-elevated)` with a `var(--border)` edge (the light `#fff` list made the opened mobile TOC a blank white panel) |
+| `.stat-inline`, `td.win-paid`, `td.win-organic` | `var(--text)`; inline figures and winner labels are never orange or Mint |
+| `.cta-microcopy` | 13px `var(--text-tertiary)`, 12px above the CTA row |
+| `.lever-content p + p` | 10px gap; do not add an inline margin to a lever's second paragraph |
+| `.lever-icon`, `.stage-icon`, `.outcome-card .icon` | Inline Tabler SVG, or a single letter or digit (channel initial, step number). Never a Unicode symbol such as ⊞ ↻ ⊕ ⚡ |
 
 ```css
 .blog-content h2 {
@@ -1817,6 +1822,7 @@ When uncertain about a pattern, view that blog's source as the canonical impleme
 | Version | Date | Changes |
 |---|---|---|
 | 2.0 | May 5 2026 | Initial V2 template (D-hybrid sticky TOC sidebar). Replaces V1 (2-column body-layout with right-column visuals). |
+| 2.6 | Sep 9 2026 | Third pass across the remaining 12 posts: opened mobile TOC list gets a dark surface (was a white panel), every inline style stripped from every post (link colours, table footnotes, lever paragraph margins, author role), think-long stars and four Unicode symbol icons replaced with Tabler SVGs, `.stat-inline` and table winner labels neutral white, `.cta-microcopy` styled. |
 | 2.5 | Sep 9 2026 | Second pass from /blog/digital-marketing-cost: `.rule-of-thumb` is a block (flex split sentences into columns), `.think-long` white with an orange star, `.audit-card` / `.insight-card` / `.channel-cta` headings on the 20px scale, `.table-section h3` eyebrow style, new `.table-note`, inline link styles and the voice-rules HTML comment stripped from posts. |
 | 2.4 | Sep 9 2026 | Approved design pass: `--text-body` token for all post copy (Decision 13), H2 28/500 with 48px rhythm, card headings 20px, list items 16px, Fraunces italic 20px pull quote at 8% tint, eyebrow-style diagram titles, neutral (white) table figures, SVG share icons on all 14 posts, emoji replaced with Tabler SVGs on the healthcare post, FAQ aligned to the column, 8px buttons, author-line dots travel with their item. |
 | 2.3 | Sep 9 2026 | Dark-theme defect pass from the healthcare channels audit: all 14 posts load Fraunces + Inter (Instrument Serif link and dead light `:root` block removed), `.featured-table-card` / `.featured-conclusion-card` get dark overrides (were white cards with invisible table text), `.related-grid--3col` stacks inside `.related-and-cta`, hero image loses the 360px min-height band on phones, author line wraps cleanly. |
