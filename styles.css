@@ -5502,6 +5502,76 @@ body.redesign-prototype [data-screen-label="industry"] .metric-delta {
   color: var(--mint);
 }
 
+/* ---------------------------------------------------------------------------
+   Industry page components (2026-09-09 design pass). These rules used to live
+   in an identical <style> block copied into finance, dtc and saas (and a longer
+   one on healthcare). Moved here, scoped to the industry screen label, and
+   documented in Design System §7 "Industry page components".
+   --------------------------------------------------------------------------- */
+body.redesign-prototype [data-screen-label="industry"] section.ind-section { padding: 72px 0; }
+body.redesign-prototype [data-screen-label="industry"] section.ind-section.alt-tint { background: rgba(255,255,255,0.02); }
+body.redesign-prototype [data-screen-label="industry"] .ind-prose { max-width: 820px; }
+body.redesign-prototype [data-screen-label="industry"] .ind-prose .eyebrow { margin-bottom: 14px; }
+body.redesign-prototype [data-screen-label="industry"] .ind-prose h2 { font-family: var(--serif); font-size: 34px; font-weight: 400; line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 20px; }
+body.redesign-prototype [data-screen-label="industry"] .ind-prose p { font-size: 17px; line-height: 1.7; color: var(--text-muted); margin: 0 0 18px; }
+body.redesign-prototype [data-screen-label="industry"] .ind-prose p:last-child { margin-bottom: 0; }
+body.redesign-prototype [data-screen-label="industry"] .ind-prose a { color: var(--cta); text-decoration: underline; text-underline-offset: 2px; }
+body.redesign-prototype [data-screen-label="industry"] .ind-prose strong { color: var(--text); font-weight: 600; }
+body.redesign-prototype [data-screen-label="industry"] .ind-services-deck { max-width: 820px; margin: 6px 0 34px; font-size: 16px; line-height: 1.65; color: var(--text-muted); }
+body.redesign-prototype [data-screen-label="industry"] .ind-services-deck a { color: var(--cta); text-decoration: underline; text-underline-offset: 2px; }
+body.redesign-prototype [data-screen-label="industry"] .ind-faq { max-width: 880px; margin-top: 32px; }
+body.redesign-prototype [data-screen-label="industry"] .ind-faq-item { border-top: 1px solid rgba(255,255,255,0.14); padding-top: 22px; margin-top: 22px; }
+body.redesign-prototype [data-screen-label="industry"] .ind-faq-item:first-child { margin-top: 0; }
+body.redesign-prototype [data-screen-label="industry"] .ind-faq-item h3 { font-size: 19px; color: var(--text); margin: 0 0 10px; letter-spacing: -0.005em; }
+body.redesign-prototype [data-screen-label="industry"] .ind-faq-item p { font-size: 15.5px; color: var(--text-muted); line-height: 1.65; margin: 0; }
+body.redesign-prototype [data-screen-label="industry"] .ind-faq-item p a { color: var(--cta); text-decoration: underline; text-underline-offset: 2px; }
+@media (max-width: 720px) {
+  body.redesign-prototype [data-screen-label="industry"] .ind-prose h2 { font-size: 28px; }
+}
+
+/* Italic accent in headings: prototype canon uses <em>, never .italic-accent */
+body.redesign-prototype [data-screen-label="industry"] h1 em,
+body.redesign-prototype [data-screen-label="industry"] h2 em,
+body.redesign-prototype [data-screen-label="industry"] h3 em {
+  color: var(--cta);
+  font-style: italic;
+  font-weight: 400;
+}
+/* Breadcrumb (was inline-styled on three pages; healthcare had this class) */
+body.redesign-prototype [data-screen-label="industry"] .ind-breadcrumb {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: 20px;
+}
+body.redesign-prototype [data-screen-label="industry"] .ind-breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+body.redesign-prototype [data-screen-label="industry"] .ind-breadcrumb a:hover { color: var(--cta); }
+body.redesign-prototype [data-screen-label="industry"] .ind-breadcrumb .sep {
+  color: var(--text-tertiary);
+  margin: 0 6px;
+}
+/* Legacy homepage pieces these pages reuse, brought onto the canon palette */
+body.redesign-prototype [data-screen-label="industry"] .live-indicator { color: var(--mint); }   /* was legacy emerald --chart-green */
+body.redesign-prototype [data-screen-label="industry"] .live-dot { background: var(--mint); }
+body.redesign-prototype [data-screen-label="industry"] .btn-cta-primary {
+  background: var(--cta);   /* was legacy --navy-dark: a near-black primary button on a dark card */
+  color: var(--bg);
+  border: 1px solid transparent;
+  box-shadow: 0 4px 16px rgba(255, 92, 26, 0.25);
+}
+body.redesign-prototype [data-screen-label="industry"] .btn-cta-primary:hover {
+  background: var(--cta-hover);
+  color: var(--bg);
+}
+body.redesign-prototype [data-screen-label="industry"] .cta-card p { color: var(--text-muted); } /* was legacy ivory at 70% */
+body.redesign-prototype [data-screen-label="industry"] .rank-meta svg {
+  width: 12px;
+  height: 12px;
+  vertical-align: -1px;
+}
+
 /* Dark-scope heading color: the global default (L74) sets h1-h4 to var(--deep) (navy),
    invisible on Obsidian. Restore to --text for prototype-scoped pages. Blog POSTS get
    correct heading color from V2-region rules with higher specificity; this does not affect them. */

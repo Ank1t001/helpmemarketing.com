@@ -514,6 +514,24 @@ Mobile (`styles.css:4129-4131`): column, align-items flex-start.
 `.hero-visual` (`styles.css:3800-3804`): block, height auto, min-width 0.
 `.hero-image` (`styles.css:3806-3814`): width 100%, aspect-ratio 5/3, object-fit cover, border-radius 16px.
 
+### Industry page components (`/industries/*`, added 2026-09-09)
+
+The four industry pages (`finance`, `healthcare`, `dtc`, `saas`) are prototype-scoped and carry `data-screen-label="industry"`. They reuse legacy homepage layout classes (`.home-hero`, `.pain-grid`, `.case-card`, `.cta-card`) through the industry token shim at the top of the industry region in `styles.css`, plus these shared components, all scoped to `body.redesign-prototype [data-screen-label="industry"]`:
+
+| Class | Purpose |
+|---|---|
+| `section.ind-section` / `.alt-tint` | Content band, 72px vertical; `.alt-tint` adds `rgba(255,255,255,0.02)` |
+| `.ind-prose` | Prose column, max-width 820px; H2 Fraunces 34px/400, 17px muted paragraphs, orange underlined links |
+| `.ind-services-deck` | Deck under the services heading, 16px muted |
+| `.ind-faq` / `.ind-faq-item` | FAQ list, 880px; 19px question, 15.5px muted answer, hairline dividers |
+| `.ind-breadcrumb` | 13px tertiary breadcrumb with `.sep`; never inline-styled |
+| `h1 em`, `h2 em`, `h3 em` | Italic accent in Signal Orange. `.italic-accent` is forbidden here as everywhere in prototype scope |
+| `.live-indicator` / `.live-dot` | Mint (was legacy emerald) |
+| `.btn-cta-primary` | Signal Orange primary (was legacy near-black on the dark card) |
+| `.rank-meta svg` | 12px filled star, healthcare ranking demo; never a text glyph or emoji |
+
+Healthcare keeps a page-local `<style>` block for its page-specific components (`.heal-grid`, `.rank-demo`, `.hipaa-*`, `.spec-grid`, `.bench-table`), prototype tokens only. Until 9 Sep 2026 finance, dtc and saas each shipped an identical copy of the shared block inline; it now lives once in `styles.css`.
+
 ---
 
 ## 8. Footer Architecture
@@ -884,6 +902,7 @@ Every Phase 2 page migration must:
 - Additional opacity values founder review (Section 12)
 - `/services` Phase 2 migration — uses this doc as primary brief authority
 - HMM_Content_Rules v0.2 → v1.0 lock — currently DRAFT awaiting founder approval
+- Industry pages, pending founder approval (audit 2026-09-09): H1 renders at the legacy `.home-hero` 84px and section H2s at 34/52/56/60px instead of the canon 64/40 scale; `.ind-section` and the unclassed pain/case sections run 72 to 120px instead of the 48px rhythm; `.pain-num`, `.heal-num` and the HIPAA banner eyebrow are orange numerals/labels (Rule 1); case-study cards use six hardcoded hex gradients (healthcare `.case-rose/.case-teal/.case-amber`) and three legacy ones (`.case-1/2/3`); the final CTA is the legacy two-column `.cta-card` with an empty right half rather than the canon `.final-cta` card
 - Thank-you panel H2 anti-pattern at `contact.html:158` — inline `style="color:var(--deep)"` rescued by local token shim (Section 10); codify canonical H2 pattern when `/services` migration begins
 
 ### Site state caveat
