@@ -536,6 +536,20 @@ The four industry pages (`finance`, `healthcare`, `dtc`, `saas`) are prototype-s
 
 Healthcare keeps a page-local `<style>` block for its page-specific components (`.heal-grid`, `.rank-demo`, `.hipaa-*`, `.spec-grid`, `.bench-table`), prototype tokens only. Until 9 Sep 2026 finance, dtc and saas each shipped an identical copy of the shared block inline; it now lives once in `styles.css`.
 
+### Services pages (`/services`, `/services/*`, pass of 2026-09-09)
+
+The hub and the six category pages were already on the canon type scale and rhythm. The pass fixed hygiene and one layout bug:
+
+| Item | Rule |
+|---|---|
+| `.step-flow` on phones | Stacks to one column at ≤720px with the connector line hidden. There was no mobile rule before, so three ~110px columns overflowed at 390px |
+| `.step-flow .step-num` | White numeral in a `rgba(255,255,255,0.2)` ring. Was Signal Orange; numerals are not a brand accent |
+| `.svc-faq-wrap` | 1080px, 32px above; the FAQ wrapper on every category page. Replaces an inline `style` div |
+| `.svc-detail`, `.svc-faq` (hub), `.pm-*` (performance marketing) | Live in `styles.css`, not page `<style>` blocks. `.svc-detail h3` is the 24px H3; `.svc-faq-item h3` is 19px like the industry FAQ |
+| `.pm-callout-h3 em` | Signal Orange italic, same as the heading accent rule |
+| `.nav-mobile-menu .mobile-cta-row` | `var(--border)` divider. The legacy light `--line-soft` showed through on every prototype page's open mobile menu |
+| `em` in headings | The 43 `<em class="italic-accent">` on the category pages are plain `<em>`. `.italic-accent` still appears on `about`, `work`, `blog` index, `ad-calculator`, `tools/marketing-audit` and `industries/healthcare/hipaa-checklist`; those pages have not had this pass |
+
 ---
 
 ## 8. Footer Architecture

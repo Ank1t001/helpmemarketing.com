@@ -6173,9 +6173,11 @@ body.redesign-prototype .step-flow .step-line {
 body.redesign-prototype .step-flow .step { position: relative; z-index: 1; }
 body.redesign-prototype .step-flow .step-num {
   width: 56px; height: 56px; border-radius: 50%; background: var(--bg);
-  border: 2px solid var(--cta); display: flex; align-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.2); display: flex; align-items: center;
   justify-content: center; font-family: var(--serif); font-size: 24px;
-  font-weight: 500; color: var(--cta); margin-bottom: 20px;
+  font-weight: 500; color: var(--text); margin-bottom: 20px;
+  /* Was Signal Orange ring + numeral. Numerals are not a brand accent (Colour
+     System Rule 1); same call as the industry-page numerals, 2026-09-09. */
 }
 body.redesign-prototype .step-flow .step h3 {
   font-family: var(--serif); font-size: 20px; font-weight: 500;
@@ -6184,6 +6186,46 @@ body.redesign-prototype .step-flow .step h3 {
 body.redesign-prototype .step-flow .step p {
   font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0;
 }
+
+/* Step flow on phones (2026-09-09): there was no mobile rule, so the three
+   steps stayed side by side at ~110px each and the AI automation page scrolled
+   sideways at 390px. Stack them and drop the connector line. */
+@media (max-width: 720px) {
+  body.redesign-prototype .step-flow { grid-template-columns: 1fr; gap: 24px; }
+  body.redesign-prototype .step-flow .step-line { display: none; }
+}
+
+/* ---------------------------------------------------------------------------
+   Services pages (2026-09-09 design pass). The hub's .svc-* rules and the
+   performance-marketing .pm-* rules used to ship as page <style> blocks; they
+   live here now. .svc-faq-wrap replaces an inline max-width/margin div that
+   five category pages carried. Documented in Design System §7 "Services pages".
+   --------------------------------------------------------------------------- */
+body.redesign-prototype .svc-faq-wrap { max-width: 1080px; margin: 32px 0 0; }
+body.redesign-prototype .pm-callout-h3 em { color: var(--cta); font-style: italic; font-weight: 400; }
+body.redesign-prototype .nav-mobile-menu .mobile-cta-row { border-top-color: var(--border); } /* was the legacy light --line-soft on every prototype page */
+body.redesign-prototype .svc-detail-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px 44px; margin-top: 36px; }
+body.redesign-prototype .svc-detail h3 { font-family: var(--serif); font-size: 24px; /* canon H3 */ font-weight: 500; line-height: 1.25; margin: 0 0 8px; }
+body.redesign-prototype .svc-detail h3 a { color: var(--text); text-decoration: none; }
+body.redesign-prototype .svc-detail h3 a:hover { color: var(--cta); }
+body.redesign-prototype .svc-detail p { font-size: 15.5px; line-height: 1.65; color: var(--text-muted); margin: 0; }
+body.redesign-prototype .svc-faq { max-width: 820px; margin-top: 32px; }
+body.redesign-prototype .svc-faq-item { border-top: 1px solid rgba(255,255,255,0.14); padding-top: 22px; margin-top: 22px; }
+body.redesign-prototype .svc-faq-item:first-child { margin-top: 0; }
+body.redesign-prototype .svc-faq-item h3 { font-size: 19px; /* matches the industry FAQ */ color: var(--text); margin: 0 0 10px; letter-spacing: -0.005em; }
+body.redesign-prototype .svc-faq-item p { font-size: 15.5px; color: var(--text-muted); line-height: 1.65; margin: 0; }
+@media (max-width: 720px) {
+  body.redesign-prototype .svc-detail-list { grid-template-columns: 1fr; }
+}
+body.redesign-prototype .pm-featured-callout { background: var(--bg-elevated); border: 1px solid var(--border); border-left: 4px solid var(--cta); border-radius: 16px; padding: 36px 40px; margin-top: 32px; max-width: 1080px; margin-right: auto; }
+body.redesign-prototype .pm-callout-h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; margin: 0 0 16px; color: var(--text); }
+body.redesign-prototype .pm-callout-p { color: var(--text-muted); line-height: 1.65; margin: 0 0 14px; }
+body.redesign-prototype .pm-callout-list { margin: 0 0 14px; }
+body.redesign-prototype .pm-callout-p-last { color: var(--text-muted); line-height: 1.65; margin: 0; }
+body.redesign-prototype .pm-proof-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 48px 56px; max-width: 760px; margin: 0 auto; text-align: center; }
+body.redesign-prototype .pm-proof-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-tertiary); font-weight: 500; margin: 0 0 16px; }
+body.redesign-prototype .pm-proof-stat { font-family: var(--serif); font-size: 36px; font-weight: 500; color: var(--mint); margin: 0 0 24px; line-height: 1.15; } /* positive proof stat -> Mint, Color System Decision 12 */
+body.redesign-prototype .pm-proof-body { color: var(--text-muted); line-height: 1.7; margin: 0; font-size: 16px; }
 
 /* Compact related reading */
 body.redesign-prototype .related-reading-compact { padding: 32px 0; }
