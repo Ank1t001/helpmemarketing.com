@@ -4103,11 +4103,11 @@ body.blog-dark .table-section {
   margin-bottom: 40px;
 }
 body.blog-dark .table-section h3 {
-  font-family: 'Fraunces', Georgia, serif;
-  color: var(--cta);
-  font-weight: 600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* canonical eyebrow, same as the diagram titles */
+  color: var(--text-muted);
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   font-size: 13px;
 }
 body.blog-dark .comparison-table {
@@ -4639,6 +4639,55 @@ body.blog-dark .sidebar-cta .cta-title {
 }
 body.blog-dark .sidebar-cta .cta-button {
   border-radius: 8px;
+}
+/* Second pass, /blog/digital-marketing-cost (2026-09-09). Card headings that
+   missed the 20px scale, small card copy, and the rule-of-thumb callout, which
+   was a flex row: every inline <strong> and <a> became its own column and the
+   sentence broke into pieces. It is a block now with the icon inline. */
+body.blog-dark .audit-card h3,
+body.blog-dark .insight-card h3,
+body.blog-dark .channel-cta h4 {
+  font-size: 20px;
+  line-height: 1.3;
+}
+body.blog-dark .insight-card p,
+body.blog-dark .channel-cta p,
+body.blog-dark .audit-list li {
+  font-size: 15px;
+}
+body.blog-dark .levers-list li h4,
+body.blog-dark .lever-content h4 {
+  font-size: 16px;
+}
+body.blog-dark .insight-card .think-long {
+  color: var(--text); /* orange body text is a Rule 1 never; the star carries the accent */
+  font-size: 15px;
+}
+body.blog-dark .insight-card .think-long svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--cta);
+}
+body.blog-dark .rule-of-thumb {
+  display: block;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+body.blog-dark .rule-of-thumb > svg {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: -3px;
+  margin-right: 8px;
+  color: var(--cta);
+}
+body.blog-dark .table-note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 8px 0 0;
 }
 body.blog-dark .toc-share .share-icon svg {
   width: 14px;
