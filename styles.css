@@ -6946,6 +6946,18 @@ body.redesign-prototype .logo-facebook { height: 16px; width: 16px; }
 @media (max-width: 900px) {
   .logo-img { height: 28px; }
   /* Mobile nav fix: the outline CTA kept its desktop size at <=900 and pushed the
-     hamburger off-screen. Shrink it like the (hidden) accent button is shrunk. */
-  body.redesign-prototype .nav-cta .btn-outline { padding: 10px 14px; font-size: 13px; }
+     hamburger off-screen. Shrink it like the (hidden) accent button is shrunk.
+     Fluid below 375px (2026-09-09): at 320px the logo + CTA + hamburger still
+     overflowed by 26px. Prototype scope allows no breakpoint besides 900/720, so
+     the CTA and hamburger scale with the viewport instead. Each clamp() resolves
+     to its max at >=375px, so phones from 375px up render exactly as before;
+     at 320px the CTA is 11.2px / 12px padding and the hamburger is 36px. */
+  body.redesign-prototype .nav-cta .btn-outline {
+    padding: 10px clamp(10px, 3.75vw, 14px);
+    font-size: clamp(11px, 3.5vw, 13px);
+  }
+  body.redesign-prototype .nav-hamburger {
+    width: clamp(36px, 11vw, 40px);
+    height: clamp(36px, 11vw, 40px);
+  }
 }

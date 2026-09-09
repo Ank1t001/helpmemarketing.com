@@ -468,6 +468,8 @@ Hamburger (`styles.css:4201-4216`):
 
 Mobile (≤900px) hides `.nav-main-cta` (`styles.css:4133-4136`).
 
+Mobile nav fit (≤900px, added 2026-09-09): the outline CTA and the hamburger are fluid so the nav fits a 320px viewport without a third breakpoint. `.nav-cta .btn-outline` uses `padding: 10px clamp(10px, 3.75vw, 14px)` and `font-size: clamp(11px, 3.5vw, 13px)`; `.nav-hamburger` uses `clamp(36px, 11vw, 40px)` for width and height. Every clamp resolves to its max from 375px up, so only sub-375 phones see the smaller sizes (at 320px: 11.2px CTA text, 12px padding, 36px hamburger, 3px of right padding left). Do not add a 360px or 320px media query to solve this; the fluid rule is the canonical pattern.
+
 ### Footer
 
 Footer architecture has its own dedicated section. See **§8 — Footer Architecture (F2 two-band)** below.
