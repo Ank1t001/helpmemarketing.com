@@ -302,7 +302,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    token for this tool's positive/feedable states. Signal Orange stays the
    primary accent, reserved for the single recommended "your event". */
 body.redesign-prototype #tool {
-  --asc-good: #00D4AA;
+  --asc-good: var(--mint);
   --asc-good-glow: rgba(0, 212, 170, 0.14);
   --asc-good-line: rgba(0, 212, 170, 0.42);
   /* --text-tertiary AA lift (#8A8A8A) promoted to the global token
@@ -348,7 +348,7 @@ body.redesign-prototype .asc-side select:focus { border-color: var(--cta); box-s
 body.redesign-prototype .asc-side select { cursor: pointer; }
 body.redesign-prototype .asc-side select option { background: var(--bg-elevated); color: var(--text); }
 body.redesign-prototype .asc-weekly { font-size: 12px; color: var(--text-tertiary); margin-top: 7px; }
-body.redesign-prototype .asc-weekly strong { color: var(--cta); font-weight: 700; }
+body.redesign-prototype .asc-weekly strong { color: var(--text); font-weight: 700; } /* figures are neutral (Rule 1) */
 
 body.redesign-prototype .asc-ladder { margin-top: 4px; }
 body.redesign-prototype .asc-lrow { display: grid; grid-template-columns: 1fr 96px; gap: 8px; margin-bottom: 8px; }
@@ -383,7 +383,7 @@ body.redesign-prototype .asc-math {
 body.redesign-prototype .asc-math strong { color: var(--text); font-weight: 700; }
 body.redesign-prototype .asc-math .asc-op { color: var(--text-tertiary); }
 body.redesign-prototype .asc-math .asc-eq { color: var(--asc-good); font-weight: 800; font-size: 15px; }
-body.redesign-prototype .asc-res.is-best .asc-math .asc-eq { color: var(--cta); }
+body.redesign-prototype .asc-res.is-best .asc-math .asc-eq { color: var(--mint); } /* the best result is a positive result: Mint (Decision 12) */
 body.redesign-prototype .asc-res.is-no .asc-math .asc-eq { color: var(--text-muted); }
 
 body.redesign-prototype .asc-bar { height: 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.07); overflow: hidden; }
@@ -397,7 +397,7 @@ body.redesign-prototype .asc-verdict {
   border: 1px solid var(--cta); font-size: 15px; line-height: 1.6; color: var(--text-muted);
 }
 body.redesign-prototype .asc-verdict.is-bad { background: var(--bg-elevated); border-color: var(--border); }
-body.redesign-prototype .asc-verdict strong { color: var(--cta); font-weight: 700; }
+body.redesign-prototype .asc-verdict strong { color: var(--text); font-weight: 700; }
 body.redesign-prototype .asc-verdict.is-bad strong { color: var(--text); }
 body.redesign-prototype .asc-verdict .asc-big { font-size: 19px; font-weight: 700; color: var(--text); display: block; margin-bottom: 6px; }
 
@@ -420,7 +420,7 @@ body.redesign-prototype .asc-stat b { display: block; font-size: 30px; font-weig
 body.redesign-prototype .asc-stat.is-key b { color: var(--cta); }
 body.redesign-prototype .asc-stat span { font-size: 11.5px; color: var(--text-muted); line-height: 1.4; display: block; }
 
-body.redesign-prototype .asc-gallery-sec { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--cta); margin: 0 0 12px; }
+body.redesign-prototype .asc-gallery-sec { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--text-muted); margin: 0 0 12px; } /* section label, not a CTA */
 body.redesign-prototype .asc-gallery-sec.is-dim { color: var(--text-tertiary); margin-top: 24px; }
 
 body.redesign-prototype .asc-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }

@@ -52,20 +52,20 @@
     if (document.getElementById('hmm-consent-style')) return;
     var css =
       '.hmm-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:2147483000;' +
-      'max-width:560px;margin:0 auto;background:#14181f;color:#e8eaed;border:1px solid #2a2f3a;' +
+      'max-width:560px;margin:0 auto;background:var(--bg-elevated,#1A1A1A);color:var(--text,#FFFFFF);border:1px solid var(--border,rgba(255,255,255,0.08));' +
       'border-radius:12px;padding:18px 20px;box-shadow:0 10px 40px rgba(0,0,0,.45);' +
       'font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:14px;line-height:1.55;' +
       'opacity:0;transform:translateY(12px);transition:opacity .25s ease,transform .25s ease;}' +
       '.hmm-consent.hmm-show{opacity:1;transform:translateY(0);}' +
       '.hmm-consent p{margin:0 0 14px;}' +
-      '.hmm-consent a{color:#f78b4e;text-decoration:underline;}' +
+      '.hmm-consent a{color:var(--cta,#FF5C1A);text-decoration:underline;}' +
       '.hmm-consent-actions{display:flex;gap:10px;flex-wrap:wrap;}' +
       '.hmm-consent button{font:inherit;font-weight:600;cursor:pointer;border-radius:8px;' +
       'padding:9px 18px;border:1px solid transparent;}' +
-      '.hmm-consent .hmm-accept{background:#F26A21;color:#fff;}' +
-      '.hmm-consent .hmm-accept:hover{background:#e05d17;}' +
-      '.hmm-consent .hmm-decline{background:transparent;color:#e8eaed;border-color:#3a4150;}' +
-      '.hmm-consent .hmm-decline:hover{border-color:#5a6472;}' +
+      '.hmm-consent .hmm-accept{background:var(--cta,#FF5C1A);color:var(--bg,#0E0E0E);}' +
+      '.hmm-consent .hmm-accept:hover{background:var(--cta-hover,#FF7038);}' +
+      '.hmm-consent .hmm-decline{background:transparent;color:var(--text,#FFFFFF);border-color:rgba(255,255,255,0.2);}' +
+      '.hmm-consent .hmm-decline:hover{border-color:rgba(255,255,255,0.45);}' +
       '.hmm-consent button:focus-visible{outline:2px solid #f78b4e;outline-offset:2px;}' +
       '@media (prefers-reduced-motion:reduce){.hmm-consent{transition:none;}}';
     var s = document.createElement('style');

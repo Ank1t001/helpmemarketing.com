@@ -88,7 +88,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="hero">
   <div class="container">
     <p class="eyebrow">About us</p>
-    <h1 class="hero-headline">We started this agency because most marketing spend never meets the <em class="italic-accent">P&amp;L</em>.</h1>
+    <h1 class="hero-headline">We started this agency because most marketing spend never meets the <em>P&amp;L</em>.</h1>
     <p class="hero-subtitle">We spent years inside agencies watching good brands buy work that didn't move the number. Help Me Marketing is the alternative: a small, senior team that treats your P&amp;L like our own. We take fewer clients, ship more per week, and price on outcomes, not billable hours.</p>
   </div>
 </section>
@@ -100,7 +100,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="about-sticky">
         <span class="eyebrow"><span class="eyebrow-dot"></span>Our principles</span>
         <h2 class="serif about-principles-h2">
-          Four things we <em class="italic-accent">won't</em> compromise on.
+          Four things we <em>won't</em> compromise on.
         </h2>
       </div>
       <div class="about-values-list">
@@ -142,7 +142,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="final-cta-section">
   <div class="container">
     <div class="final-cta">
-      <h2 class="section-heading">Ready to grow the <em class="italic-accent">right</em> way?</h2>
+      <h2 class="section-heading">Ready to grow the <em>right</em> way?</h2>
       <p class="subhead">Book a 45-minute audit with our growth team. We'll show you exactly where revenue is leaking, and what to do about it.</p>
       <div class="final-cta-actions">
         <a href="/contact" class="btn btn-primary">Book a free audit</a>
@@ -223,9 +223,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <style>
 body.redesign-prototype .about-sticky { position:sticky; top:100px; }
-body.redesign-prototype .about-principles-h2 { font-size:clamp(40px, 5vw, 56px); margin-top:16px; line-height:1.05; font-weight:400; letter-spacing:-0.02em; }
+body.redesign-prototype .about-principles-h2 { font-size:40px; margin-top:16px; line-height:1.1; font-weight:400; letter-spacing:-0.015em; } /* canon H2 (was clamp to 56px) */
+@media (max-width: 900px) { body.redesign-prototype .about-principles-h2 { font-size:28px; } }
 body.redesign-prototype .about-values-list { display:flex; flex-direction:column; gap:2px; }
-body.redesign-prototype .about-value-num { font-family:var(--serif); font-size:32px; color:var(--cta); font-weight:500; }
+body.redesign-prototype .about-value-num { font-family:var(--serif); font-size:32px; color:var(--text-tertiary); font-weight:500; } /* numerals are not a brand accent (Rule 1) */
 body.redesign-prototype .about-value-title { font-size:22px; font-family:var(--sans); font-weight:500; letter-spacing:0; }
 body.redesign-prototype .about-value-desc { font-size:15px; color:var(--text-muted); margin-top:6px; line-height:1.6; }
 body.redesign-prototype .about-values-divider { border-top:1px solid var(--border); }

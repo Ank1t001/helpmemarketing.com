@@ -550,6 +550,21 @@ The hub and the six category pages were already on the canon type scale and rhyt
 | `.nav-mobile-menu .mobile-cta-row` | `var(--border)` divider. The legacy light `--line-soft` showed through on every prototype page's open mobile menu |
 | `em` in headings | The 43 `<em class="italic-accent">` on the category pages are plain `<em>`. `.italic-accent` still appears on `about`, `work`, `blog` index, `ad-calculator`, `tools/marketing-audit` and `industries/healthcare/hipaa-checklist`; those pages have not had this pass |
 
+### Remaining pages pass (2026-09-09)
+
+Hygiene applied to about, work, contact, ad-calculator and its benchmarks page, ad-set-calculator, the HIPAA checklist, the marketing audit tool, privacy, terms and the GTA page, plus the sitewide consent banner:
+
+| Item | Rule |
+|---|---|
+| `.eyebrow-dot` | Mint in prototype scope. The legacy rule painted it gold (`#C9A96E`) on every page that used the span |
+| `.about-value-row`, `.contact-contacts` | `var(--border)` dividers (were legacy `--line` / `--line-soft`) |
+| `.finder-input` | `var(--bg)` (was a `#161616` literal) |
+| Consent banner (`consent.js`) | Tokens with hex fallbacks: elevated surface, `--border`, `--cta` accept button, `--text`. The fallbacks exist because the banner also renders on the own-scope Index pages |
+| Numerals and figures | `.about-value-num` tertiary; calculator result figures (`.adc-b-cta`, `.asc-weekly strong`, `.asc-verdict strong`) white; the best ad-set result Mint; `.asc-gallery-sec` labels muted. Warning and interactive states keep orange |
+| Headings | `.about-principles-h2` 40/28, `.hipaa-h1` 64, `.hgroup-title` 40/28, `.hipaa-cta-title` 24/20, privacy and terms H1 and the marketing-audit H1 on `hero-headline` |
+| `em` accents | `.italic-accent` removed from every prototype page except the blog index (pending its rebuild) |
+| Mint literals | `#00D4AA` in the HIPAA checklist and the ad-set calculator replaced with `var(--mint)` |
+
 ---
 
 ## 8. Footer Architecture
@@ -920,6 +935,9 @@ Every Phase 2 page migration must:
 - Additional opacity values founder review (Section 12)
 - `/services` Phase 2 migration — uses this doc as primary brief authority
 - HMM_Content_Rules v0.2 → v1.0 lock — currently DRAFT awaiting founder approval
+- Blog index (`/blog`), pending founder approval (audit 2026-09-09): still a light-theme build inside prototype scope. 185 inline styles, legacy tokens (`--line`, `--line-soft`, `--gold`, `--primary`, `--navy`), 28 hex literals (navy card thumbnails, gold glows, ivory text), `h1.serif` at 78px and `.italic-accent`. Needs a card-component rebuild on tokens.
+- `/seo-growth-os`, pending founder decision: declares `redesign-prototype` but runs its own visual language (Segoe UI/system sans at weight 800, no Fraunces, a 17 KB page block, terracotta badges from the reserved warm-break tokens). Either declare it own-scope like the Index pages or migrate the headings to canon.
+- `/meta-growth-os`, pending founder decision: no body scope, 14 visible em dashes and 17 emoji. Same choice: own-scope declaration or bring under the content rules.
 - Thank-you panel H2 anti-pattern at `contact.html:158` — inline `style="color:var(--deep)"` rescued by local token shim (Section 10); codify canonical H2 pattern when `/services` migration begins
 
 ### Site state caveat

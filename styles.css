@@ -4760,8 +4760,8 @@ body.blog-dark .author-line > span:not(.dot) ~ span:not(.dot)::before {
   color: var(--text);
   margin: 12px 0 18px;
 }
-.audit-hero h1 .italic-accent {
-  color: var(--gold);
+.audit-hero h1 em {
+  color: var(--cta);
   font-family: var(--serif);
   font-style: italic;
   font-weight: 400;
@@ -5995,7 +5995,7 @@ body.redesign-prototype .finder-input {
   /* Was var(--bg) (#0e0e0e, identical to the page) with an 8% border
      (1.09:1) so the field never read as a field. #161616 fill + 34% border
      gives 3.07:1, clearing WCAG 1.4.11. 16px font stops iOS focus-zoom. */
-  background: #161616;
+  background: var(--bg);
   border: 1px solid rgba(255, 255, 255, .34);
   color: var(--text);
   border-radius: 8px;
@@ -6204,6 +6204,13 @@ body.redesign-prototype .step-flow .step p {
 body.redesign-prototype .svc-faq-wrap { max-width: 1080px; margin: 32px 0 0; }
 body.redesign-prototype .pm-callout-h3 em { color: var(--cta); font-style: italic; font-weight: 400; }
 body.redesign-prototype .nav-mobile-menu .mobile-cta-row { border-top-color: var(--border); } /* was the legacy light --line-soft on every prototype page */
+
+/* Remaining-pages pass (2026-09-09): legacy leftovers inside prototype scope */
+body.redesign-prototype .eyebrow-dot,
+body.redesign-prototype .eyebrow.on-dark .eyebrow-dot { background: var(--mint); } /* legacy gold #C9A96E dot on about, contact, calculators, blog index */
+body.redesign-prototype .about-value-row { border-top-color: var(--border); }      /* was legacy --line */
+body.redesign-prototype .contact-contacts { border-top-color: var(--border); }     /* was legacy --line-soft */
+body.redesign-prototype .pm-featured-callout .subsection { margin-top: 0; }        /* replaces an inline margin on /gta-marketing-agency */
 body.redesign-prototype .svc-detail-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px 44px; margin-top: 36px; }
 body.redesign-prototype .svc-detail h3 { font-family: var(--serif); font-size: 24px; /* canon H3 */ font-weight: 500; line-height: 1.25; margin: 0 0 8px; }
 body.redesign-prototype .svc-detail h3 a { color: var(--text); text-decoration: none; }

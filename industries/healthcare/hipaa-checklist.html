@@ -95,7 +95,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       HIPAA Checklist
     </div>
     <span class="eyebrow">Free resource · Checklist</span>
-    <h1 class="hipaa-h1">The HIPAA checklist <span class="italic-accent">every</span> clinic should run at least once a year.</h1>
+    <h1 class="hipaa-h1">The HIPAA checklist <em>every</em> clinic should run at least once a year.</h1>
     <p class="hipaa-lead">A working list of 22 items: administrative, technical, physical, marketing and breach response. Tick them off as you go; progress saves in this browser. No email required.</p>
   </div>
 </section>
@@ -377,7 +377,7 @@ body.redesign-prototype .hipaa-hero .eyebrow { margin-bottom: 14px; }
 body.redesign-prototype .hipaa-h1 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(40px, 5vw, 76px);
+  font-size: 64px; /* canon H1 */
   line-height: 1.04;
   letter-spacing: -0.025em;
   color: var(--text);
@@ -471,7 +471,7 @@ body.redesign-prototype .hipaa-track {
 body.redesign-prototype .hipaa-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, var(--cta) 0%, #00D4AA 100%);
+  background: linear-gradient(90deg, var(--cta) 0%, var(--mint) 100%);
   transition: width 0.3s ease;
 }
 
@@ -497,11 +497,12 @@ body.redesign-prototype .hgroup-dot {
   flex-shrink: 0;
   transform: translateY(-3px);
 }
-body.redesign-prototype .hgroup-dot.is-mint { background: #00D4AA; }
+body.redesign-prototype .hgroup-dot.is-mint { background: var(--mint); }
+body.redesign-prototype .hipaa-h1 em { color: var(--cta); font-style: italic; font-weight: 400; }
 body.redesign-prototype .hgroup-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 28px;
+  font-size: 40px; /* canon H2 */
   color: var(--text);
   letter-spacing: -0.01em;
   line-height: 1.1;
@@ -520,6 +521,7 @@ body.redesign-prototype .hgroup-items {
 
 /* Checklist items */
 body.redesign-prototype .hitem {
+  color: inherit;
   display: flex;
   gap: 16px;
   padding: 18px 22px;
@@ -587,14 +589,14 @@ body.redesign-prototype .hipaa-cta-eyebrow {
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #00D4AA;
+  color: var(--mint);
   font-weight: 600;
   margin-bottom: 14px;
 }
 body.redesign-prototype .hipaa-cta-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 30px;
+  font-size: 24px; /* canon H3 */
   line-height: 1.1;
   letter-spacing: -0.015em;
   color: var(--text);
@@ -624,8 +626,9 @@ body.redesign-prototype .hipaa-note b { color: var(--text); }
   body.redesign-prototype .hipaa-cta { grid-template-columns: 1fr; gap: 24px; }
 }
 @media (max-width: 720px) {
-  body.redesign-prototype .hgroup-title { font-size: 24px; }
-  body.redesign-prototype .hipaa-cta-title { font-size: 26px; }
+  body.redesign-prototype .hipaa-h1 { font-size: 40px; } /* canon H1 on phones */
+  body.redesign-prototype .hgroup-title { font-size: 28px; }
+  body.redesign-prototype .hipaa-cta-title { font-size: 20px; }
 }
 </style>
 
