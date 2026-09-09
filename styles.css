@@ -5508,11 +5508,11 @@ body.redesign-prototype [data-screen-label="industry"] .metric-delta {
    one on healthcare). Moved here, scoped to the industry screen label, and
    documented in Design System §7 "Industry page components".
    --------------------------------------------------------------------------- */
-body.redesign-prototype [data-screen-label="industry"] section.ind-section { padding: 72px 0; }
+body.redesign-prototype [data-screen-label="industry"] section.ind-section { padding: 48px 0; } /* canon content-section rhythm, was 72px */
 body.redesign-prototype [data-screen-label="industry"] section.ind-section.alt-tint { background: rgba(255,255,255,0.02); }
 body.redesign-prototype [data-screen-label="industry"] .ind-prose { max-width: 820px; }
 body.redesign-prototype [data-screen-label="industry"] .ind-prose .eyebrow { margin-bottom: 14px; }
-body.redesign-prototype [data-screen-label="industry"] .ind-prose h2 { font-family: var(--serif); font-size: 34px; font-weight: 400; line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 20px; }
+body.redesign-prototype [data-screen-label="industry"] .ind-prose h2 { font-family: var(--serif); font-size: 40px; font-weight: 400; line-height: 1.1; letter-spacing: -0.015em; margin: 0 0 20px; } /* canon H2, was 34px */
 body.redesign-prototype [data-screen-label="industry"] .ind-prose p { font-size: 17px; line-height: 1.7; color: var(--text-muted); margin: 0 0 18px; }
 body.redesign-prototype [data-screen-label="industry"] .ind-prose p:last-child { margin-bottom: 0; }
 body.redesign-prototype [data-screen-label="industry"] .ind-prose a { color: var(--cta); text-decoration: underline; text-underline-offset: 2px; }
@@ -5570,6 +5570,54 @@ body.redesign-prototype [data-screen-label="industry"] .rank-meta svg {
   width: 12px;
   height: 12px;
   vertical-align: -1px;
+}
+
+/* Approved design pass, 2026-09-09: canon type scale, 48px rhythm, neutral
+   numerals, canon case cards and the canon final CTA card. */
+body.redesign-prototype [data-screen-label="industry"] .home-hero {
+  padding: 72px 0 40px; /* canon hero rhythm, was the legacy 80px 0 104px */
+}
+body.redesign-prototype [data-screen-label="industry"] .home-hero .eyebrow {
+  margin-bottom: 24px; /* canon eyebrow spacing now that h1.hero-headline carries no margin */
+}
+body.redesign-prototype [data-screen-label="industry"] section:not(.home-hero):not(.final-cta-section) {
+  padding: 48px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15); /* canon content-section divider */
+}
+body.redesign-prototype [data-screen-label="industry"] .section-header-row h2 {
+  font-size: 40px; /* was the legacy clamp(40px, 5vw, 56px) */
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-top: 20px;
+  max-width: none;
+}
+body.redesign-prototype [data-screen-label="industry"] .pain-num {
+  color: var(--text-tertiary); /* was Signal Orange; numerals are not a brand accent (Colour System Rule 1) */
+}
+/* Case-study cards: legacy hex gradients replaced with the elevated dark surface,
+   a soft Signal Orange glow, and the result figure in Mint (Decision 12). */
+body.redesign-prototype [data-screen-label="industry"] .case-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+}
+body.redesign-prototype [data-screen-label="industry"] .case-image {
+  background: radial-gradient(120% 90% at 100% 0%, var(--orange-glow) 0%, rgba(255, 92, 26, 0) 60%), var(--bg-elevated);
+}
+body.redesign-prototype [data-screen-label="industry"] .case-overlay {
+  background: linear-gradient(to bottom, rgba(14, 14, 14, 0) 0%, rgba(14, 14, 14, 0.55) 100%);
+}
+body.redesign-prototype [data-screen-label="industry"] .case-metric {
+  color: var(--mint);
+}
+body.redesign-prototype [data-screen-label="industry"] .case-pill {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+@media (max-width: 900px) {
+  body.redesign-prototype [data-screen-label="industry"] .home-hero { padding: 56px 0 32px; }
+  body.redesign-prototype [data-screen-label="industry"] section:not(.home-hero):not(.final-cta-section) { padding: 32px 0; }
+  body.redesign-prototype [data-screen-label="industry"] .section-header-row h2 { font-size: 28px; }
 }
 
 /* Dark-scope heading color: the global default (L74) sets h1-h4 to var(--deep) (navy),
