@@ -77,6 +77,7 @@ Defined in `styles.css` `:root`. Variable names are intentionally semantic (`--c
   --text: #FFFFFF;
   --text-muted: #999999;
   --text-tertiary: #8A8A8A;  /* AA-lifted from #737373 — see Decision 11 */
+  --text-body: rgba(255, 255, 255, 0.78);  /* body.blog-dark only — see Decision 13 */
 
   /* Accents */
   --cta: #FF5C1A;
@@ -232,6 +233,11 @@ Components affected: `.case-study-metric` / `.proof-strip-figure` (work), `.pm-p
 **Amendment, 2026-09-09 (Index pages).** The HMM Index pages (`/instagram-reindex`, `/hair-loss-index`) do not use `body.redesign-prototype`. Each carries its own page-scoped `:root` token block, so the global lift never reached them: `/instagram-reindex` shipped `#737373` in its token block and in three hardcoded `fill="#737373"` SVG chart labels at 10 to 10.5px, exactly the small-text case this floor exists for. All four are now `#8A8A8A`, and `/hair-loss-index` shipped lifted. **Rule:** any new Index instance must define `--text-tertiary: #8A8A8A` in its own token block, and SVG text inside an Index page must use the token or the lifted value, never `#737373`. Decision 11 governs the Index scope explicitly even though the rest of the prototype canon does not.
 
 **Amendment, 2026-09-09 (blog scope).** `body.blog-dark` in `styles.css` was the last scope still shipping `#737373`; Decision 11 had deliberately excluded it in August 2026. Founder call on 9 Sep 2026: lift it. The blog token is now `#8A8A8A`, so every dark scope on the site (prototype, blog, Index pages) shares one tertiary value. No blog page hardcodes the old hex. Decision 11 now applies sitewide with no exclusions; "Slate" keeps its name and `#737373` is retired everywhere except the legacy light-mode region, which never used it.
+
+
+### Decision 13 — Long-form body-copy token `--text-body` (blog scope), locked 2026-09-09
+
+Blog paragraphs shipped in `--text-muted` (`#999999`, ~6.3:1) while FAQ answers and some closing paragraphs were pure white, so a 3,000-word post flipped tone mid-read. Rule 3 makes pure white the body colour on prototype pages, but at 17px over thousands of words it is harsh on Obsidian. Founder call on 9 Sep 2026: a third text step, **`--text-body: rgba(255, 255, 255, 0.78)`** (renders ~`#C7C7C7`, ~11:1 on Obsidian), defined on `body.blog-dark` only. It is the colour of every paragraph, list item, lever description, FAQ answer and featured-card paragraph inside a post. `--text` stays for headings, strong text and UI; `--text-muted` stays for subtitles, captions, meta lines and card body copy; `--text-tertiary` stays for the smallest labels. The token is not defined in `body.redesign-prototype`; prototype pages keep Rule 3 as written. The pull quote tint on blogs is `rgba(255, 92, 26, 0.08)`, a new opacity step below `--orange-glow` (18%), recorded here under Decision 4.
 
 ---
 

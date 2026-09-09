@@ -3601,6 +3601,7 @@ body.blog-dark {
   --text: #FFFFFF;
   --text-muted: #999999;
   --text-tertiary: #8A8A8A;  /* AA-lifted from #737373 on 2026-09-09, matching Decision 11 (~4.9:1 on Obsidian) */
+  --text-body: rgba(255, 255, 255, 0.78);  /* long-form body copy, Colour System Decision 13 (2026-09-09); blog scope only */
   --cta: #FF5C1A;
   --cta-hover: #FF7038;
   --mint: #00D4AA;
@@ -3795,11 +3796,11 @@ body.blog-dark .takeaways li::before {
 /* ============= PROSE (h2 with orange accent rule, p, a, strong) ============= */
 body.blog-dark article.blog-content h2 {
   font-family: 'Fraunces', Georgia, serif;
-  font-size: 26px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 500; /* 600 was never loaded (site ships Fraunces 400/500) and rendered faux-bold */
   color: var(--text);
   letter-spacing: -0.01em;
-  margin: 56px 0 20px;
+  margin: 30px 0 20px; /* 30 + 18 padding = 48px above every H2 */
   position: relative;
   padding-top: 18px;
 }
@@ -3814,7 +3815,7 @@ body.blog-dark article.blog-content h2::before {
   border-radius: 1px;
 }
 body.blog-dark article.blog-content h2:first-of-type {
-  margin-top: 24px;
+  margin-top: 0; /* takeaways card carries the 30px gap below it */
 }
 body.blog-dark article.blog-content p {
   color: var(--text-muted);
@@ -3838,10 +3839,16 @@ body.blog-dark .stat-inline {
 
 /* ============= PULL QUOTE ============= */
 body.blog-dark .pull-quote {
-  background: var(--orange-glow);
+  background: rgba(255, 92, 26, 0.08); /* 8% tint; the 18% glow read as a panel, not a quote */
   border-left: 3px solid var(--cta);
-  border-radius: 16px;
+  border-radius: 0 12px 12px 0;
   color: var(--text);
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.45;
+  padding: 20px 28px;
+  margin: 32px 0;
 }
 body.blog-dark .pull-quote em {
   font-family: 'Fraunces', Georgia, serif;
@@ -3944,11 +3951,11 @@ body.blog-dark .framework-diagram::before {
   background: linear-gradient(90deg, var(--cta), transparent);
 }
 body.blog-dark .framework-diagram h3 {
-  font-family: 'Fraunces', Georgia, serif;
-  color: var(--cta);
-  font-weight: 600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* canonical eyebrow; orange serif was a Rule 1 violation */
+  color: var(--text-muted);
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   font-size: 13px;
 }
 body.blog-dark .framework-row {
@@ -4040,11 +4047,11 @@ body.blog-dark .outcome-diagram::before {
   background: linear-gradient(90deg, var(--cta), transparent);
 }
 body.blog-dark .outcome-diagram h3 {
-  font-family: 'Fraunces', Georgia, serif;
-  color: var(--cta);
-  font-weight: 600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-muted);
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   font-size: 13px;
 }
 body.blog-dark .outcome-card {
@@ -4129,8 +4136,8 @@ body.blog-dark .comparison-table td:first-child {
   font-weight: 600;
 }
 body.blog-dark .comparison-table td.cac {
-  color: var(--cta);
-  font-weight: 700;
+  color: var(--text); /* cost figures are neutral numbers: white per Decision 12, never orange (reads as a CTA) */
+  font-weight: 600;
 }
 body.blog-dark .comparison-table tbody tr:hover td {
   background: rgba(255, 255, 255, 0.02);
@@ -4306,7 +4313,7 @@ body.blog-dark .final-cta p {
   color: var(--text-muted);
 }
 body.blog-dark .final-cta .btn {
-  border-radius: 999px;
+  border-radius: 8px; /* sitewide button radius (Design System §7); the pill was blog-only */
   font-weight: 600;
 }
 body.blog-dark .final-cta .btn.primary {
@@ -4584,11 +4591,88 @@ body.blog-dark .author-line > span {
   white-space: nowrap; /* "Ankit Kumar" and "10 min read" no longer break mid-phrase on phones */
 }
 
+/* ============= BLOG DESIGN PASS (approved 2026-09-09) =============
+   Founder-approved brief from the healthcare channels audit: body-copy token,
+   heading scale, list size, pull quote, eyebrow diagram titles, neutral figures,
+   SVG share icons, FAQ alignment, 8px buttons, 48px rhythm, author-line dots.
+   Everything here is body.blog-dark scope; the prototype pages are untouched. */
+body.blog-dark article.blog-content p,
+body.blog-dark .blog-content li,
+body.blog-dark .takeaways li,
+body.blog-dark .lever-content p,
+body.blog-dark .faq-answer,
+body.blog-dark .faq-answer p,
+body.blog-dark .blog-content .featured-conclusion-card p {
+  color: var(--text-body);
+}
+body.blog-dark .takeaways li,
+body.blog-dark .blog-content ul li,
+body.blog-dark .blog-content ol li {
+  font-size: 16px;
+}
+body.blog-dark .takeaways h3,
+body.blog-dark .related-section h3,
+body.blog-dark .dark-cta h4 {
+  font-size: 20px;
+  line-height: 1.3;
+}
+body.blog-dark .final-cta h3 {
+  font-size: 26px;
+  line-height: 1.25;
+}
+body.blog-dark .blog-faq-title {
+  font-size: 28px;
+}
+body.blog-dark .blog-faq {
+  max-width: none; /* was a 720px block centred inside the 760px column, indenting the FAQ 52px */
+  margin: 64px 0 0;
+  padding: 0;
+}
+body.blog-dark .dark-cta .btn {
+  border-radius: 8px;
+}
+body.blog-dark .sidebar-cta .cta-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+body.blog-dark .sidebar-cta .cta-button {
+  border-radius: 8px;
+}
+body.blog-dark .toc-share .share-icon svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+body.blog-dark .hero-zone {
+  padding-bottom: 0;
+  margin-bottom: 48px; /* was 40 padding + 40 margin = 80px */
+}
+body.blog-dark .takeaways {
+  margin: 0 0 30px; /* + the H2's 18px accent padding = 48px */
+}
+/* Author line: the separator dot travels with the item that follows it, so a
+   wrapped row never ends in an orphaned dot. */
+body.blog-dark .author-line .dot {
+  display: none;
+}
+body.blog-dark .author-line > span:not(.dot) ~ span:not(.dot)::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  margin: 0 10px 3px 0;
+  vertical-align: middle;
+}
+
 /* ============= RESPONSIVE (mobile) ============= */
 @media (max-width: 900px) {
   body.blog-dark article.blog-content h2 {
-    font-size: 22px;
-    margin-top: 40px;
+    font-size: 24px;
+    margin-top: 30px;
   }
 }
 

@@ -1,6 +1,6 @@
 # HMM Blog Template V2 — Master Reference
 
-**Version:** 2.3 (D-hybrid sticky TOC sidebar)
+**Version:** 2.4 (D-hybrid sticky TOC sidebar)
 **First shipped:** Commit `2430e84`, May 5 2026, on `/blog/healthcare-marketing-channels`
 **Purpose:** Single source of truth for writing new blogs and retrofitting existing ones to V2 architecture.
 
@@ -662,6 +662,22 @@ Use `var(--navy)`, `var(--gold)`, etc. throughout. Don't hardcode hex values for
 ```
 
 ## Section C — Typography
+
+**Live dark-theme values (body.blog-dark, 2026-09-09 design pass).** The light rules below are the historical base; on the live blog these win:
+
+| Element | Live value |
+|---|---|
+| `article.blog-content h2` | Fraunces 28px / 500, 24px at ≤900; 30px margin-top + 18px accent padding = 48px above, 20px below; 36px Signal Orange rule |
+| `.blog-faq-title` | Fraunces 28px / 500 |
+| `.takeaways h3`, `.related-section h3`, `.dark-cta h4` | Fraunces 20px / 500 |
+| `.final-cta h3` | Fraunces 26px / 500 |
+| `article.blog-content p`, list items, lever descriptions, FAQ answers | `var(--text-body)` (78% white, Colour System Decision 13), 17px paragraphs, 16px list items |
+| `.pull-quote` | Fraunces italic 20px / 1.45, 3px Signal Orange left rule, `rgba(255,92,26,0.08)` tint, radius 0 12px 12px 0 |
+| `.framework-diagram h3`, `.outcome-diagram h3` | Canonical eyebrow: Inter 13px / 500 uppercase, 0.12em, `var(--text-muted)`; never orange, never serif |
+| `.comparison-table td.cac` | `var(--text)` 600; figures are neutral, never orange |
+| `.final-cta .btn`, `.dark-cta .btn` | 8px radius (sitewide button radius) |
+| `.hero-zone` | 48px below the hero; `.takeaways` 30px below the card |
+| `.toc-share .share-icon` | 14px Tabler SVG inside the 28px circle, never a text glyph |
 
 ```css
 .blog-content h2 {
@@ -1640,6 +1656,8 @@ These have all bitten us in past sessions. Watch for them:
 | `IntersectionObserver` rootMargin tuned to nav height | If sitewide nav height changes, scroll-spy timing drifts |
 | Post shipped but missing from `/blog` index | Add the blog.html card during the build (Part 7 step 11), not as a follow-up |
 | A `<table>` placed straight in `.blog-content` makes the whole post scroll sideways on phones | Every table goes inside `<div class="table-scroll">` (inside the featured card when there is one). Check with a 375px render: `document.documentElement.scrollWidth` must equal the viewport width |
+| Emoji used as diagram icons (`.stage-icon`, `.outcome-card .icon`, `.lever-icon`) | Inline Tabler SVG only (18px, stroke currentColor), as on the marketing cost and healthcare channels posts. `/blog/dtc-cac-reduction` still carries 11 emoji and is the remaining retrofit |
+| Share buttons as text glyphs ("in", "f", "𝕏") | 14px Tabler brand SVGs inside `.share-icon`; the JS keys off `data-network`, not the content |
 | Post loads Instrument Serif instead of Fraunces, so every serif heading falls back to Georgia | Use the sitewide Fraunces + Inter link from Part 2 Section A; never a different family |
 | A light-theme component (white `#fff` card, navy heading) is added to a post without a `body.blog-dark` override | Every new component ships with its dark override in the same commit; render on the dark page before calling it done |
 | `.related-grid--3col` inside the two-column `.related-and-cta` block squeezes cards to 116px | The dark scope stacks it to one column; keep related cards in `.related-and-cta`, do not widen the block |
@@ -1792,6 +1810,7 @@ When uncertain about a pattern, view that blog's source as the canonical impleme
 | Version | Date | Changes |
 |---|---|---|
 | 2.0 | May 5 2026 | Initial V2 template (D-hybrid sticky TOC sidebar). Replaces V1 (2-column body-layout with right-column visuals). |
+| 2.4 | Sep 9 2026 | Approved design pass: `--text-body` token for all post copy (Decision 13), H2 28/500 with 48px rhythm, card headings 20px, list items 16px, Fraunces italic 20px pull quote at 8% tint, eyebrow-style diagram titles, neutral (white) table figures, SVG share icons on all 14 posts, emoji replaced with Tabler SVGs on the healthcare post, FAQ aligned to the column, 8px buttons, author-line dots travel with their item. |
 | 2.3 | Sep 9 2026 | Dark-theme defect pass from the healthcare channels audit: all 14 posts load Fraunces + Inter (Instrument Serif link and dead light `:root` block removed), `.featured-table-card` / `.featured-conclusion-card` get dark overrides (were white cards with invisible table text), `.related-grid--3col` stacks inside `.related-and-cta`, hero image loses the 360px min-height band on phones, author line wraps cleanly. |
 | 2.2 | Sep 9 2026 | `.table-scroll` wrapper is mandatory around every `<table>` in a post (Part 3 Section E CSS, template markup, Part 7 gotcha). Fixes sideways page scroll on phones across all 12 live posts. Diagram components (`.framework-issue`, `.outcome-grid`, `.channel-cta .btn`) shrink or reflow at ≤900px for the same reason. |
 | 2.1 | Jun 23 2026 | Sync to live canon: `.author-line` markup + CSS (replaces stale `.author-block`), `.accent` resolved to live dark-theme Signal Orange (`var(--cta)` #FF5C1A, italic, weight 400), 3-word "Help Me Marketing" name, ProfessionalService schema entity, blog-index card build step (Part 7 + Card 1), hero workflow made tool-agnostic (nano-banana-pro + Higgsfield/Recraft) with dark obsidian + Signal Orange as the canonical default aesthetic. |
