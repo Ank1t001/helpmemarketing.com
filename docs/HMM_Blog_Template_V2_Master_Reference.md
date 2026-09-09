@@ -1,6 +1,6 @@
 # HMM Blog Template V2 — Master Reference
 
-**Version:** 2.0 (D-hybrid sticky TOC sidebar)
+**Version:** 2.2 (D-hybrid sticky TOC sidebar)
 **First shipped:** Commit `2430e84`, May 5 2026, on `/blog/healthcare-marketing-channels`
 **Purpose:** Single source of truth for writing new blogs and retrofitting existing ones to V2 architecture.
 
@@ -502,10 +502,12 @@ At <900px viewport, sidebar hides; replaced with collapsible "Jump to section" b
     <p>[Lead paragraph introducing the table]</p>
     
     <div class="featured-table-card">
-      <table class="comparison-table">
-        <thead><tr><th>...</th></tr></thead>
-        <tbody><tr><td>...</td></tr></tbody>
-      </table>
+      <div class="table-scroll">
+        <table class="comparison-table">
+          <thead><tr><th>...</th></tr></thead>
+          <tbody><tr><td>...</td></tr></tbody>
+        </table>
+      </div>
       <p class="table-source">Source: Help Me Marketing client data, [Year range]. [Caveat about assumptions.]</p>
     </div>
     
@@ -767,6 +769,16 @@ body.blog-dark .post-title .accent {
   font-style: italic;
   color: var(--text-tertiary);
 }
+
+/* Every <table> in a post sits inside this wrapper, featured card or not.
+   Blog tables are 490 to 575px wide at phone widths; without the wrapper the
+   table widens the page and the whole post scrolls sideways. */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+.table-scroll > .comparison-table { min-width: 100%; }
 
 .blog-content .featured-conclusion-card {
   background: #fff;
@@ -1603,6 +1615,8 @@ These have all bitten us in past sessions. Watch for them:
 | `position: sticky` parent has overflow set | Sidebar parent (`.blog-body`) must NOT have overflow defined |
 | `IntersectionObserver` rootMargin tuned to nav height | If sitewide nav height changes, scroll-spy timing drifts |
 | Post shipped but missing from `/blog` index | Add the blog.html card during the build (Part 7 step 11), not as a follow-up |
+| A `<table>` placed straight in `.blog-content` makes the whole post scroll sideways on phones | Every table goes inside `<div class="table-scroll">` (inside the featured card when there is one). Check with a 375px render: `document.documentElement.scrollWidth` must equal the viewport width |
+| Fixed-width diagram pieces (`.framework-issue` 90px column, `.outcome-grid` 3-column layout, `.channel-cta .btn`) overflow at 320 to 375px | Shared CSS now lets them shrink or reflow at ≤900px; do not add per-post widths or `white-space: nowrap` to diagram components. Same 375px scrollWidth check applies |
 
 ## Section E — Retrofit considerations
 
@@ -1751,6 +1765,7 @@ When uncertain about a pattern, view that blog's source as the canonical impleme
 | Version | Date | Changes |
 |---|---|---|
 | 2.0 | May 5 2026 | Initial V2 template (D-hybrid sticky TOC sidebar). Replaces V1 (2-column body-layout with right-column visuals). |
+| 2.2 | Sep 9 2026 | `.table-scroll` wrapper is mandatory around every `<table>` in a post (Part 3 Section E CSS, template markup, Part 7 gotcha). Fixes sideways page scroll on phones across all 12 live posts. Diagram components (`.framework-issue`, `.outcome-grid`, `.channel-cta .btn`) shrink or reflow at ≤900px for the same reason. |
 | 2.1 | Jun 23 2026 | Sync to live canon: `.author-line` markup + CSS (replaces stale `.author-block`), `.accent` resolved to live dark-theme Signal Orange (`var(--cta)` #FF5C1A, italic, weight 400), 3-word "Help Me Marketing" name, ProfessionalService schema entity, blog-index card build step (Part 7 + Card 1), hero workflow made tool-agnostic (nano-banana-pro + Higgsfield/Recraft) with dark obsidian + Signal Orange as the canonical default aesthetic. |
 
 ---

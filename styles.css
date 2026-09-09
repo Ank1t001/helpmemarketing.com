@@ -4155,6 +4155,43 @@ body.blog-dark .table-source {
   font-style: italic;
 }
 
+/* Table scroll wrapper (2026-09-09). Blog data tables are wider than a phone
+   (491 to 574px at 375 wide) and were sitting straight in .blog-content, so the
+   table itself widened the page and every post scrolled sideways. Every
+   <table> in a post now sits inside <div class="table-scroll">, which scrolls
+   the table in place instead. Unscoped so the wrapper also works on legacy
+   blog markup; the table keeps its own margins, radius and clipped corners. */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+.table-scroll > .comparison-table { min-width: 100%; }
+
+/* Blog diagram components at phone widths (2026-09-09). Found while fixing the
+   table overflow: three fixed-width diagram pieces still pushed a post past the
+   viewport (26px at 375 on /blog/digital-marketing-cost, 12 to 33px at 320 on
+   five other posts). The framework issue column is now allowed to shrink, the
+   channel CTA button wraps, and the outcome diagram reflows from a 3-column
+   grid (card, circle, card) to two columns with the circle on its own row. */
+.framework-issue { flex: 0 1 90px; min-width: 0; }
+.channel-cta .btn { max-width: 100%; white-space: normal; }
+.rule-of-thumb > * { min-width: 0; }
+@media (max-width: 900px) {
+  .outcome-diagram { padding: 24px 16px; }
+  .outcome-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 12px;
+  }
+  .outcome-card.tl { grid-column: 1; grid-row: 1; }
+  .outcome-card.tr { grid-column: 2; grid-row: 1; }
+  .outcome-center  { grid-column: 1 / span 2; grid-row: 2; }
+  .outcome-card.bl { grid-column: 1; grid-row: 3; }
+  .outcome-card.br { grid-column: 2; grid-row: 3; }
+  .channel-cta { padding: 16px; }
+}
+
 /* ============= CHANNEL CTA ============= */
 body.blog-dark .channel-cta {
   background: var(--bg);
