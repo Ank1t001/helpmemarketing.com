@@ -590,6 +590,29 @@ Founder call: migrate rather than declare own-scope. The `.sgos` page block keep
 
 ---
 
+### The HMM Index shell, instance 03 (`/gta-medspa-index`, added 2026-09-10)
+
+Own-scope page (no body class), same shell as `/instagram-reindex` and `/hair-loss-index`: page-local token block with `--text-tertiary: #8A8A8A` (Color System Decision 11), `html,body{overflow-x:clip}`, `.hmm-nav` integration nav, `.wrap` / `header` / `.kicker` / `.lede` / `.byline` / `.livebar` / `.tiles` / `.card` / `.note` / `.tw` table / `details` FAQ / `.cta-btn` / warm-break `.about` footer. The artifact arrived as a light navy-and-gold standalone build; it was ported into the shell so all three instances read as one series. Unused shell blocks (pipeline, vision frames, log tabs, email gate, cohort bands) were not carried over.
+
+Page components added for this instance, all built from the shell tokens:
+
+| Component | Spec |
+|---|---|
+| `.takeaways` | `.card` with `h4` eyebrow and a counter-numbered `ol`; numerals are 11px tertiary, lead-ins white `b`, body muted |
+| `.prose` | 760px measure, 16px muted paragraphs, `b`/`strong`/`em` white |
+| `figure` / `figcaption` | figure margin `--s5` above; caption 12.5px tertiary above a `--border` rule |
+| `.quad-wrap` / `.quad` / `.cell` | 2x2 cadence x reach grid on `--bg-elevated` cards; axis labels 10.5px tertiary uppercase (vertical on desktop, horizontal at ≤760); cell `.tag` + `.qdot` colour by state: `.comp` Mint, `.eff` warn, `.grind` crit, `.quiet` tertiary; `.big` count 34px white |
+| `.bars` / `.bar-row` | 132px label / track / 56px value grid (96/50 at ≤760); fill is 85% white on an elevated track, value white tabular. Widths are inline `style="width:%"`, the same precedent as `.tbar` on `/hair-loss-index` |
+| Tier strip | reuses `.tiles` (`.tiles.mt` adds `--s5` top margin) |
+| `.flag.comp` / `.flag.eff` | pattern pills in the top-25 table: Mint outline for Compounding, warn outline for Efficient. `td.rank` tertiary, `td.area` nowrap, score is `b.score` white |
+| `.note.crit` + `.risk-row` | regulatory exposure list: 1fr / 80px grid rows, `.sub` 12.5px muted, `.pct` 22px crit (functional state, not a brand accent) |
+| `.method dl` | 140px `dt` (11px tertiary uppercase) / `dd` (14.5px muted) rows with `--border` rules; stacks at ≤760 |
+| `.cta-card` | elevated card with the header's orange glow at top-right, `h2`, muted `p`, `.cta-btn` (the page's only Signal Orange UI element besides the kicker and nav CTA) |
+
+Livebar carries "Data collected", "Window", "Posts analysed" and "Cycle" only. No "Next refresh" or "Cadence" cell: the source report set no cadence for this instance, so none was invented. Add both cells when the founder fixes a refresh schedule.
+
+Registries updated in the same commit: `sitemap.xml`, `/ai-tools` (card 9, ItemList position 9, client `TOOLS` map), `api/tool-finder.js` catalog, `/work` (case-study card + ItemList position 1). Breadcrumb schema is Home > Case Studies > page, matching the other two instances (the artifact pointed at a nonexistent `/index-series` hub). OG image is the site default; the artifact referenced `/images/gta-medspa-index-hero.png`, which does not exist.
+
 ## 8. Footer Architecture
 
 > **Current canon: Footer v3 (Direction F — CTA-forward). Locked 2026-09-03.**

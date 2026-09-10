@@ -55,6 +55,11 @@ var TOOLS = [
     url: '/hair-loss-index',
     name: 'Hair Loss Index: Instagram',
     when: 'They run a hair loss, wig, hair topper, scalp micropigmentation, or non-surgical hair restoration business (or a clinic offering it) and want competitive intelligence or Instagram benchmarking: what competing studios post, how far their reels reach, and how they turn posts into booked consultations. Only for the hair loss and hair restoration category; do not recommend for general marketing questions.'
+  },
+  {
+    url: '/gta-medspa-index',
+    name: 'GTA MedSpa Index: Instagram',
+    when: 'They run a medical spa, aesthetics or cosmetic injectables clinic (Botox, fillers, laser, skin treatments) in the Greater Toronto Area or Ontario and want Instagram benchmarks or competitive intelligence: how many plays a typical medspa reel gets, whether posting more helps, where their clinic ranks, or whether their posts follow Health Canada and CPSO advertising rules. Only for medical spas and aesthetic clinics; do not recommend for general marketing questions.'
   }
 ];
 
