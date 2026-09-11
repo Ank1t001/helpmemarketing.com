@@ -7809,3 +7809,19 @@ body.redesign-prototype .case-study-card p a { color: var(--text); text-decorati
   body.redesign-prototype .case-study-card { padding: 22px; }
   body.redesign-prototype .case-study-card p.case-study-metric { font-size: 28px; }
 }
+
+/* About page pass (2026-09-11): hero takes the shared image grid and gains CTAs
+   (it had none); principle numbers become 40px ring badges matching .pain-num and
+   .pf-icon, rows warm on hover; a "how we work" card row reuses the homepage
+   pf-how pattern above the shared final CTA. */
+body.redesign-prototype .about-value-num { width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--text-tertiary); border: 1px solid var(--border); background: rgba(255, 255, 255, 0.05); transition: background .2s ease, border-color .2s ease, color .2s ease; }
+body.redesign-prototype .about-value-row { grid-template-columns: 48px 1fr; gap: 20px; padding: 24px 0; transition: padding-left .2s ease; }
+body.redesign-prototype .about-value-row:hover { padding-left: 8px; }
+body.redesign-prototype .about-value-row:hover .about-value-num { background: var(--orange-glow); border-color: rgba(255, 92, 26, 0.45); color: var(--text); }
+body.redesign-prototype .about-value-title { font-size: 20px; }
+body.redesign-prototype .about-value-desc { font-size: 15.5px; }
+body.redesign-prototype .about-sticky .eyebrow { margin-bottom: 14px; }
+body.redesign-prototype .about-principles-h2 { margin-top: 0; }
+@media (max-width: 720px) {
+  body.redesign-prototype .about-value-row { grid-template-columns: 40px 1fr; gap: 14px; padding: 20px 0; }
+}
