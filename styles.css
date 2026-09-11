@@ -7732,6 +7732,7 @@ body.redesign-prototype [data-screen-label="industry"] .hero-ctas-row { margin-t
   body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof { left: 12px; bottom: 12px; padding: 8px 12px; gap: 8px; }
   body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof-figure { font-size: 18px; }
   body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof-text { font-size: 12px; }
+  body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof-when { display: none; }
 }
 
 /* Industry pages: consistency + interaction pass (2026-09-11). One rhythm for every
