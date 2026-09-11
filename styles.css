@@ -7674,3 +7674,32 @@ body.redesign-prototype [data-screen-label="industry"] .pf-scope .pf-how .pf-ref
    card capped at 640px instead of a three-column grid padded with placeholders. */
 body.redesign-prototype [data-screen-label="industry"] .case-grid-1 { grid-template-columns: minmax(0, 640px); }
 body.redesign-prototype [data-screen-label="industry"] .case-grid-1 .case-card { aspect-ratio: 16 / 10; }
+
+/* Healthcare page compaction (2026-09-11). HIPAA, specialties and ad-spend sections
+   reuse the pf-* pieces (pill rows, neutral stat tiles) with the detail moved to the
+   HIPAA checklist page and /ad-calculator/benchmarks. Neutral ranges stay white
+   (Colour System Decision 12: Mint is for positive results only). */
+body.redesign-prototype [data-screen-label="industry"] .pf-scope .ind-intro { margin-bottom: 28px; }
+body.redesign-prototype [data-screen-label="industry"] .pf-scope .pf-pills { margin-top: 0; }
+body.redesign-prototype [data-screen-label="industry"] .pf-scope .pf-pills + .hipaa-banner { margin-top: 32px; }
+body.redesign-prototype [data-screen-label="industry"] .pf-scope span.pf-pill { cursor: default; }
+body.redesign-prototype [data-screen-label="industry"] .pf-scope span.pf-pill:hover { border-color: var(--border); box-shadow: none; transform: none; }
+body.redesign-prototype [data-screen-label="industry"] .spec-details { margin-top: 24px; border-top: 1px solid var(--border); }
+body.redesign-prototype [data-screen-label="industry"] .spec-list { margin: 0; padding: 0; list-style: none; columns: 2; column-gap: 32px; font-size: 14.5px; line-height: 1.55; color: var(--text-muted); }
+body.redesign-prototype [data-screen-label="industry"] .spec-list li { break-inside: avoid; margin: 0 0 10px; }
+body.redesign-prototype [data-screen-label="industry"] .spec-list strong { color: var(--text); font-weight: 600; }
+body.redesign-prototype .pf-scope .pf-results-3 { grid-template-columns: repeat(3, 1fr); margin-top: 0; }
+body.redesign-prototype .pf-scope .pf-results-3 + .pf-pills { margin-top: 20px; }
+body.redesign-prototype .pf-scope .pf-metric.is-neutral { color: var(--text); }
+body.redesign-prototype .pf-scope .pf-how-2 { grid-template-columns: repeat(2, 1fr); }
+body.redesign-prototype [data-screen-label="hipaa-checklist"] .hipaa-primer { padding: 8px 0 40px; }
+body.redesign-prototype [data-screen-label="hipaa-checklist"] .hipaa-primer .section-deck { max-width: 720px; }
+body.redesign-prototype [data-screen-label="hipaa-checklist"] .hipaa-primer .pf-how { margin-top: 24px; }
+@media (max-width: 900px) {
+  body.redesign-prototype .pf-scope .pf-results-3 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+  body.redesign-prototype .pf-scope .pf-results-3 { grid-template-columns: 1fr; }
+  body.redesign-prototype .pf-scope .pf-how-2 { grid-template-columns: 1fr; }
+  body.redesign-prototype [data-screen-label="industry"] .spec-list { columns: 1; }
+}
