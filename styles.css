@@ -7443,7 +7443,7 @@ body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-serv
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-build p,
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-ref p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--text-muted); }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-num,
-body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-kind { display: block; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-kind { display: block; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--text-tertiary); }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-url { margin-top: auto; padding-top: 8px; font-size: 13px; font-weight: 500; color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; transition: color .2s ease; }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-build:hover .pf-url,
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-ref:hover .pf-url { color: var(--text); }
@@ -7454,9 +7454,9 @@ body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-plat
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-results { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 40px; }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-result { gap: 4px; padding: 22px; }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-metric { font-family: 'Fraunces', Georgia, serif; font-size: 34px; font-weight: 500; line-height: 1; color: var(--mint); font-variant-numeric: tabular-nums; }
-body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-label { font-size: 11.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--text-muted); }
+body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-label { font-size: 12px; letter-spacing: .09em; text-transform: uppercase; color: var(--text-muted); }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-client { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 14.5px; font-weight: 500; color: var(--text); }
-body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-work { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-work { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-work a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-note { font-size: 13px; color: var(--text-muted); margin: 22px 0 0; font-style: italic; }
 
@@ -7467,7 +7467,7 @@ body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-fram
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-media:hover .pf-frame { border-color: var(--border-strong); transform: translateY(-2px); }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-play { position: absolute; left: 12px; bottom: 12px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.3); color: var(--text); background: rgba(14, 14, 14, 0.62); backdrop-filter: blur(6px); transition: all .2s ease; }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-media:hover .pf-play { background: var(--cta); color: var(--bg); border-color: transparent; }
-body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-ratio { position: absolute; top: 10px; right: 10px; font-size: 10px; letter-spacing: .09em; color: var(--text); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 5px; padding: 3px 7px; background: rgba(14, 14, 14, 0.62); backdrop-filter: blur(6px); }
+body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-ratio { position: absolute; top: 10px; right: 10px; font-size: 11px; letter-spacing: .09em; color: var(--text); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 5px; padding: 3px 7px; background: rgba(14, 14, 14, 0.62); backdrop-filter: blur(6px); }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-media-body { display: block; padding: 11px 2px 0; }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-media-title { display: block; font-size: 14px; font-weight: 500; line-height: 1.35; color: var(--text); }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-media-sub { display: block; margin-top: 5px; font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
@@ -7563,4 +7563,29 @@ body.redesign-prototype .pf-scope .pf-how.is-in .pf-ref::before { transform: sca
 @media (prefers-reduced-motion: reduce) {
   body.redesign-prototype .pf-scope .pf-how.js-reveal .pf-ref { opacity: 1; transform: none; transition: none; }
   body.redesign-prototype .pf-scope .pf-how .pf-ref::before { transform: scaleX(1); transition: none; }
+}
+
+/* Homepage mobile + accessibility pass (2026-09-11). Skip link for keyboard and
+   screen-reader users (visible only on focus); 40px hit areas on the footer social
+   icons without moving them; at 720 the hero CTAs go full width, the pf-* cards
+   drop to 20px padding and 12px gaps to shorten the one-column page, and the hero
+   subtitle steps down one size so both CTAs sit inside the first screen. */
+body.redesign-prototype .skip-link { position: absolute; left: 16px; top: -100px; z-index: 10000; padding: 12px 18px; background: var(--cta); color: var(--bg); font-weight: 600; border-radius: 10px; text-decoration: none; }
+body.redesign-prototype .skip-link:focus { top: 16px; outline: 2px solid var(--text); outline-offset: 2px; }
+body.redesign-prototype .footer-social a { padding: 10px; margin: -10px; border-radius: 8px; }
+@media (max-width: 720px) {
+  body.redesign-prototype .hero-subtitle { font-size: 17px; margin-top: 20px; max-width: none; }
+  body.redesign-prototype .hero-ctas { gap: 12px; }
+  body.redesign-prototype .hero-ctas .btn { width: 100%; justify-content: center; }
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-head { gap: 14px; }
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-service,
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-build,
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-ref,
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-industry { padding: 20px; }
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-services,
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-builds,
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-refs,
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-industries { gap: 12px; margin-top: 28px; }
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-platforms { margin-top: 24px; gap: 8px 20px; }
+  body.redesign-prototype .footer-cta-nap .footer-dot { display: none; }
 }

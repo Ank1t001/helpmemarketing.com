@@ -147,9 +147,12 @@ w.addEventListener(e,load,{once:true,passive:true});});
 
 <!-- Styles -->
 <link rel="stylesheet" href="/styles.css">
+<link rel="preload" as="image" href="/images/hero-particle-wave.webp" fetchpriority="high" media="(min-width: 901px)">
+<meta name="theme-color" content="#0E0E0E">
 <script src="/consent.js" defer></script>
 </head>
 <body class="redesign-prototype">
+<a class="skip-link" href="#main-content">Skip to content</a>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSQPX93X"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -187,6 +190,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- SECTION 1: HERO -->
+<main id="main-content">
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
@@ -209,7 +213,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              class="hero-image"
              width="1108"
              height="663"
-             loading="eager">
+             loading="eager"
+             fetchpriority="high"
+             decoding="async">
       </div>
     </div>
   </div>
@@ -410,13 +416,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- SECTION 10: FOOTER -->
+</main>
+
 <footer class="footer">
   <div class="container">
 
     <!-- CTA + links -->
     <div class="footer-cta">
       <div class="footer-cta-offer">
-        <img class="footer-logo" src="/assets/brand/hmm-logo-full.svg" alt="Help Me Marketing" width="150" height="69">
+        <img class="footer-logo" src="/assets/brand/hmm-logo-full.svg" alt="Help Me Marketing" width="150" height="69" loading="lazy">
         <span class="footer-cta-eyebrow">Free · No obligation</span>
         <h2 class="footer-cta-head">Ready to grow the <em>right</em> way?</h2>
         <a href="/contact" class="footer-cta-btn">Book a free audit

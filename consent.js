@@ -67,7 +67,9 @@
       '.hmm-consent .hmm-decline{background:transparent;color:var(--text,#FFFFFF);border-color:rgba(255,255,255,0.2);}' +
       '.hmm-consent .hmm-decline:hover{border-color:rgba(255,255,255,0.45);}' +
       '.hmm-consent button:focus-visible{outline:2px solid #f78b4e;outline-offset:2px;}' +
-      '@media (prefers-reduced-motion:reduce){.hmm-consent{transition:none;}}';
+      '@media (prefers-reduced-motion:reduce){.hmm-consent{transition:none;}}' +
+      '@media (max-width:720px){.hmm-consent{left:12px;right:12px;bottom:12px;padding:14px 16px;font-size:13px;line-height:1.5;}' +
+      '.hmm-consent p{margin:0 0 10px;}.hmm-consent button{padding:8px 14px;}}';
     var s = document.createElement('style');
     s.id = 'hmm-consent-style';
     s.textContent = css;
