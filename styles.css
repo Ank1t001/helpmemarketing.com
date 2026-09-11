@@ -7511,3 +7511,29 @@ body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-how 
 @media (max-width: 720px) {
   body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-industries { grid-template-columns: 1fr; }
 }
+
+/* Homepage proof ticker (2026-09-11): the eight result cards run as one strip that
+   scrolls continuously. The track holds two identical sets; translating it by half
+   its own width lands exactly on the second set, so the loop never visibly restarts.
+   The second set is aria-hidden and its link is unfocusable. Pauses on hover and on
+   keyboard focus. Under prefers-reduced-motion the strip does not animate and
+   becomes a plain horizontal scroller with only the first set rendered. */
+body.redesign-prototype .pf-scope .pf-ticker { margin-top: 40px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, rgba(0, 0, 0, 1) 7%, rgba(0, 0, 0, 1) 93%, transparent); mask-image: linear-gradient(90deg, transparent, rgba(0, 0, 0, 1) 7%, rgba(0, 0, 0, 1) 93%, transparent); }
+body.redesign-prototype .pf-scope .pf-ticker-track { display: flex; width: max-content; animation: pf-ticker 56s linear infinite; will-change: transform; }
+body.redesign-prototype .pf-scope .pf-ticker:hover .pf-ticker-track,
+body.redesign-prototype .pf-scope .pf-ticker:focus-within .pf-ticker-track { animation-play-state: paused; }
+body.redesign-prototype .pf-scope .pf-ticker .pf-results { display: flex; flex: none; gap: 18px; margin-top: 0; padding-right: 18px; }
+body.redesign-prototype .pf-scope .pf-ticker .pf-result { flex: none; width: 272px; }
+@keyframes pf-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 900px) {
+  body.redesign-prototype .pf-scope .pf-ticker { margin-top: 32px; }
+  body.redesign-prototype .pf-scope .pf-ticker .pf-results { gap: 14px; padding-right: 14px; }
+}
+@media (max-width: 720px) {
+  body.redesign-prototype .pf-scope .pf-ticker .pf-result { width: 236px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.redesign-prototype .pf-scope .pf-ticker { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  body.redesign-prototype .pf-scope .pf-ticker-track { animation: none; }
+  body.redesign-prototype .pf-scope .pf-ticker-set[aria-hidden="true"] { display: none; }
+}
