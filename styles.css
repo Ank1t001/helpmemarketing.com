@@ -7646,3 +7646,26 @@ body.redesign-prototype .pf-scope .pf-pill:hover { border-color: rgba(255, 92, 2
 @media (prefers-reduced-motion: reduce) {
   body.redesign-prototype .pf-scope .pf-icon, body.redesign-prototype .pf-scope .pf-pill { transition: none; }
 }
+
+/* Industry page pass, /industries/dtc first (2026-09-11). Pain rows are links
+   (arrow warms on hover); FAQ uses the shared details pattern with a rotating plus;
+   the case grid holds two verified cases at 16:10, and every industry case card is
+   16:10 on phones instead of 4:5 so the section stops running to 1,600px. */
+body.redesign-prototype [data-screen-label="industry"] a.pain-item { color: inherit; text-decoration: none; }
+body.redesign-prototype [data-screen-label="industry"] a.pain-item:hover .pain-arrow { color: var(--cta); transform: translateX(4px); }
+body.redesign-prototype [data-screen-label="industry"] .pain-arrow { transition: color .2s ease, transform .2s ease; }
+body.redesign-prototype [data-screen-label="industry"] .svc-faq-item summary span[aria-hidden] { transition: transform .2s ease; }
+body.redesign-prototype [data-screen-label="industry"] details[open].svc-faq-item summary span[aria-hidden] { transform: rotate(45deg); }
+body.redesign-prototype [data-screen-label="industry"] .svc-faq-item summary::-webkit-details-marker { display: none; }
+body.redesign-prototype [data-screen-label="industry"] .ind-faq .svc-faq-item:first-child { border-top: 1px solid var(--border); }
+body.redesign-prototype [data-screen-label="industry"] .case-grid-2 { grid-template-columns: repeat(2, 1fr); }
+body.redesign-prototype [data-screen-label="industry"] .case-grid-2 .case-card { aspect-ratio: 16 / 10; }
+body.redesign-prototype [data-screen-label="industry"] .pf-scope .pf-how { margin-top: 28px; }
+body.redesign-prototype [data-screen-label="industry"] .pf-scope .pf-how .pf-ref p a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 900px) {
+  body.redesign-prototype [data-screen-label="industry"] .case-grid-2 { grid-template-columns: 1fr; }
+  body.redesign-prototype [data-screen-label="industry"] .case-card { aspect-ratio: 16 / 10; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.redesign-prototype [data-screen-label="industry"] .pain-arrow, body.redesign-prototype [data-screen-label="industry"] .svc-faq-item summary span[aria-hidden] { transition: none; }
+}
