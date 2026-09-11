@@ -609,7 +609,13 @@ Page components added for this instance, all built from the shell tokens:
 | `.method dl` | 140px `dt` (11px tertiary uppercase) / `dd` (14.5px muted) rows with `--border` rules; stacks at ≤760 |
 | `.cta-card` | elevated card with the header's orange glow at top-right, `h2`, muted `p`, `.cta-btn` (the page's only Signal Orange UI element besides the kicker and nav CTA) |
 
-Livebar carries "Data collected", "Window", "Posts analysed" and "Cycle" only. No "Next refresh" or "Cadence" cell: the source report set no cadence for this instance, so none was invented. Add both cells when the founder fixes a refresh schedule.
+Livebar carries the full shell set: Last synced 10 Sep 2026, Next refresh 10 Dec 2026, Cadence every 90 days (founder call 2026-09-11: quarterly, matching the 90-day window), Cycle 001.
+
+Parity pass (2026-09-11), after comparing against `/instagram-reindex`: the shell's `.metrics-note` card and `.tip` tooltips were added (12 dotted terms: median reach, response, Index score, qualified, correlation; table headers use `.tip.d` / `.tip.d.dr` so they open downward inside the `.tw` scroller, and `.tile .k .tip` keeps the tile label tertiary). A "What the index says to do" section was added before Method, four `.card`s in a `.read-grid` (fixed 2x2, single column at ≤760) with `h4` eyebrow, `h3` and `p.dek`. Every line in it is drawn from a finding on the page; nothing new was computed.
+
+Hero and OG (2026-09-11): a dedicated hero was generated (dark obsidian, orange quadrant with a scatter of clinic dots, orange bar chart; 1344x752 PNG) and stored at `/assets/index/gta-medspa/hero.png`, following the `/assets/index/<instance>/` convention. The OG card at `/assets/index/gta-medspa/og.png` (1200x630) composites the hero with the kicker, title, one-line deck and the HelpMeMarketing wordmark in Inter, rendered from a scratch HTML in headless Chromium. `og:image`, `twitter:image` and the Report schema `image` point at the card. The hero is not shown in the page header; none of the three Index instances carries one.
+
+Still pending the ranked dataset: the email-gated CSV for positions 26 to 176 (the Real Estate `.gate` pattern; the Apps Script endpoint already exists) and linked account handles in the top-25 table.
 
 Registries updated in the same commit: `sitemap.xml`, `/ai-tools` (card 9, ItemList position 9, client `TOOLS` map), `api/tool-finder.js` catalog, `/work` (case-study card + ItemList position 1). Breadcrumb schema is Home > Case Studies > page, matching the other two instances (the artifact pointed at a nonexistent `/index-series` hub). OG image is the site default; the artifact referenced `/images/gta-medspa-index-hero.png`, which does not exist.
 
