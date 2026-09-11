@@ -7847,3 +7847,28 @@ body.redesign-prototype [data-screen-label="contact"] .contact-direct-email:hove
   body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-details { grid-column: auto; grid-row: auto; order: 3; }
   body.redesign-prototype [data-screen-label="contact"] .contact-visual { display: none; }
 }
+
+/* Blog index pass (2026-09-11). Hero on the shared image grid. Every card now
+   carries the post's hero image in .bi-thumb (nine posts received one; five had
+   them), the grid is two columns of vertical cards on desktop, the featured post
+   keeps its wide layout, and cards take the orange-ring hover. Overlay label gets a
+   dark pill so it reads on artwork. */
+body.redesign-prototype .bi-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+body.redesign-prototype .bi-thumb-label { z-index: 1; font-size: 12px; padding: 5px 9px; border-radius: 999px; background: rgba(14, 14, 14, 0.72); color: var(--text); left: 12px; top: 12px; }
+body.redesign-prototype .bi-meta-featured { font-size: 12px; }
+body.redesign-prototype .bi-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+body.redesign-prototype .bi-card { grid-template-columns: 1fr; gap: 20px; align-content: start; }
+body.redesign-prototype .bi-card .bi-body { justify-content: flex-start; }
+body.redesign-prototype .bi-feature:hover,
+body.redesign-prototype .bi-card:hover { border-color: rgba(255, 92, 26, 0.45); box-shadow: 0 0 0 1px var(--orange-glow), 0 16px 40px rgba(0, 0, 0, 0.4); transform: translateY(-2px); }
+body.redesign-prototype .bi-feature .bi-thumb img,
+body.redesign-prototype .bi-card .bi-thumb img { transition: transform .4s ease; }
+body.redesign-prototype .bi-feature:hover .bi-thumb img,
+body.redesign-prototype .bi-card:hover .bi-thumb img { transform: scale(1.03); }
+body.redesign-prototype .bi-filter .chip:focus-visible { outline: 2px solid var(--cta); outline-offset: 2px; }
+@media (max-width: 900px) {
+  body.redesign-prototype .bi-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.redesign-prototype .bi-feature .bi-thumb img, body.redesign-prototype .bi-card .bi-thumb img { transition: none; }
+}
