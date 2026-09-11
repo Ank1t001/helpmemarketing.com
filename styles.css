@@ -7789,3 +7789,23 @@ body.redesign-prototype .pm-proof-label { font-size: 12px; }
 body.redesign-prototype .pf-scope .service-card .pf-card-top { margin-bottom: 18px; }
 body.redesign-prototype .pf-scope .service-card .card-arrow { transition: color .2s ease; }
 body.redesign-prototype .pf-scope .service-card:hover .pf-icon { background: var(--orange-glow); border-color: rgba(255, 92, 26, 0.45); color: var(--cta); transform: scale(1.06); }
+
+/* Case Studies page pass (2026-09-11). Bug fix: `.case-study-card p` (0,2,1) was
+   beating `.case-study-metric` (0,2,0), so every result figure rendered as 15px
+   muted body text instead of the 32px Mint callout the rule intended. Cards gain
+   the client avatar from the homepage ticker in the header, an orange-ring hover,
+   and equal-height columns; tags lift to 12px. Hero uses the shared image grid. */
+body.redesign-prototype .case-study-card p.case-study-metric { font-family: var(--serif); font-size: 32px; font-weight: 500; color: var(--mint); line-height: 1.1; margin: 0 0 18px; }
+body.redesign-prototype .case-study-card p.case-study-metric .case-study-metric-figure { color: var(--mint); }
+body.redesign-prototype .case-study-card p.case-study-metric .case-study-metric-qual { font-family: var(--sans); font-size: 14px; color: var(--text-muted); font-weight: 400; margin-left: 4px; }
+body.redesign-prototype .case-study-card { display: flex; flex-direction: column; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+body.redesign-prototype .case-study-card:hover { border-color: rgba(255, 92, 26, 0.45); box-shadow: 0 0 0 1px var(--orange-glow), 0 16px 40px rgba(0, 0, 0, 0.4); transform: translateY(-2px); }
+body.redesign-prototype .case-study-card-header { align-items: center; }
+body.redesign-prototype .case-study-card h3 { display: flex; align-items: center; gap: 10px; }
+body.redesign-prototype .case-study-logo { width: 28px; height: 28px; border-radius: 50%; flex: none; }
+body.redesign-prototype .case-study-tag { font-size: 12px; }
+body.redesign-prototype .case-study-card p a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 720px) {
+  body.redesign-prototype .case-study-card { padding: 22px; }
+  body.redesign-prototype .case-study-card p.case-study-metric { font-size: 28px; }
+}
