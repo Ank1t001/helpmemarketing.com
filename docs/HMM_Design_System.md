@@ -621,7 +621,24 @@ Email gate (2026-09-11): the Real Estate `.gate` pattern is live on this page wi
 
 Email gate on `/hair-loss-index` (2026-09-11): the same `.gate` block and script now sit as "Take the dataset with you" after Method and limits, source `hair-loss-cycle-001`, downloading `hair-loss-index-cycle-001-postlog.csv` (the 167 brand-authored rows of the on-page post log: brand, date, format, hook, likes, comments, plays, link). All three Index instances now carry the gate.
 
-Still pending the ranked dataset: positions 26 to 176 in the gated CSV, linked account handles in the scoreboard, and any post-level section (vision pass, themes, boost ledger, post log).
+Post-level build (2026-09-11, founder: "we don't have vision pass, scoreboard, the creative positioning map, the full post log"): the 25 ranked accounts were resolved to Instagram handles (DataForSEO SERP, clinic websites, Apify user search, then confirmed by Apify profile scrape) and re-collected on 11 September with `apify/instagram-scraper` (up to 30 most recent posts per account, 552 posts, 488 brand-authored and 64 collaborator-authored). Data lives in the session scratchpad only; the page carries the derived figures and the gated CSV. Sections added, all shell components:
+
+| Section | Components | Source |
+|---|---|---|
+| The scoreboard (extended) | `.brandcell` linked name + `.handle`; new columns Followers, Peak reel (`b` + `.cell-sub` x-followers), Comments / 1k, Mix (`.cell-sub` R/C/S); `.tip.d` headers | ranking columns from 10 Sep, new columns from the 11 Sep re-collection; the dek says so |
+| The vision pass | `.frames` / `.frame` (shell block restored): `.shot` img, `.verdict` with four state classes (`.v-hook` Mint, `.v-person` warn, `.v-promo` orange, `.v-proc` tertiary), `.badge`, `.fmets`, `.go` link; `.note` read | cover frame of each top-8 account's most-played brand-authored reel, self-hosted at `/assets/index/gta-medspa/frames/NN-handle.jpg` (position 7 has no brand-authored reel; position 9 takes the slot) |
+| The creative positioning map | `.quad-wrap` / `.quad` / `.cell` reused with `.cell-list` (ranked `li` with `.vanity` metrics) | computed, not judged: x = share of posts that are reels (split 50%), y = comments per 1k reel plays (split at field median 1.7) |
+| The collaborator ledger | `.tw` table + `.note.warn` | the 64 co-authored posts, per brand, with authors; excluded from every brand figure |
+| Which content themes actually work | `.tw` table with `.score` hi/mid/lo relative pull | keyword-tagged captions (seven themes), reel medians vs field median 2,550; labelled a keyword read |
+| Format | `.fmts` / `.fmt` (shell block restored) | reels / statics / carousels with median likes |
+| The full post log | `.logtabs` / `.logtab` (26 tabs) + `#postlog` `.tw` table with `data-brand` rows, `.hook` italic; filter via `addEventListener` on `DOMContentLoaded` toggling the `hidden` attribute (no inline handlers, no `style.display`) | 488 rows, newest first, every row linked |
+| Method and limits | `.note` "Two collections, one window" + handle-resolution note | mirrors the Hair Loss Index precedent: the ranking stays as published until cycle 002 re-scores from one collection |
+
+The gate now downloads the full post log (`gta-medspa-index-cycle-001-postlog.csv`: rank, clinic, handle, date, format, theme, hook, likes, comments, plays, url). `.logtab.active` uses `var(--text)` / `var(--bg)` instead of the shell's hex.
+
+Handle resolution notes that matter for cycle 002: Caras Clinic publishes as `@injectablesbymina` (`@carasclinic` is an empty pointer); Mirror by Nurse Yara's feed is 29 of 30 collaborator-authored (`@nurse.yara` and four `mirror.*` staff accounts); Hazel Aesthetics is `@hazelaesthetics_` (Aurora in bio, Newmarket in the ranking); SOL Skin resolves to the twelve-location group account `@solskin.spa`, whose 90-day feed is 26 statics, three carousels and one reel; Timeless Medispa is `@_timelessmedispa` (Brampton), which returned exactly the 7 in-window posts the ranking counted.
+
+Still pending the ranked dataset: positions 26 to 176 in the gated CSV. Not built: a boost ledger (no Meta Ad Library read was taken; zero posts in the re-collection carry the paid-partnership flag).
 
 Registries updated in the same commit: `sitemap.xml`, `/ai-tools` (card 9, ItemList position 9, client `TOOLS` map), `api/tool-finder.js` catalog, `/work` (case-study card + ItemList position 1). Breadcrumb schema is Home > Case Studies > page, matching the other two instances (the artifact pointed at a nonexistent `/index-series` hub). OG image is the site default; the artifact referenced `/images/gta-medspa-index-hero.png`, which does not exist.
 
