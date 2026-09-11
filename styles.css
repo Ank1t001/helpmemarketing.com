@@ -7720,11 +7720,18 @@ body.redesign-prototype [data-screen-label="industry"] .case-overlay { backgroun
    lower edge so the two read as one unit (2026-09-11). Same hero-image rules as the
    homepage wave, 5:3 crop. */
 body.redesign-prototype [data-screen-label="industry"] .ind-hero-visual { position: relative; }
-body.redesign-prototype [data-screen-label="industry"] .ind-hero-image { aspect-ratio: 5 / 3; margin-bottom: -48px; }
-body.redesign-prototype [data-screen-label="industry"] .ind-hero-visual .metric-card { position: relative; z-index: 2; margin: 0 20px; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
+body.redesign-prototype [data-screen-label="industry"] .ind-hero-image { aspect-ratio: 5 / 3; }
+/* Proof chip (2026-09-11): replaces the metric card and its illustrative sparkline.
+   One verified figure in Mint, sitting on the image's empty lower-left. */
+body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof { position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: baseline; gap: 10px; padding: 10px 16px 10px 14px; border-radius: 999px; background: rgba(14, 14, 14, 0.72); border: 1px solid rgba(255, 255, 255, 0.14); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); max-width: calc(100% - 32px); }
+body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof-figure { font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1; color: var(--mint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof-text { font-size: 13px; line-height: 1.3; color: var(--text); }
+body.redesign-prototype [data-screen-label="industry"] .hero-ctas-row { margin-top: 32px; }
 @media (max-width: 720px) {
-  body.redesign-prototype [data-screen-label="industry"] .ind-hero-image { margin-bottom: -36px; }
-  body.redesign-prototype [data-screen-label="industry"] .ind-hero-visual .metric-card { margin: 0 12px; }
+  body.redesign-prototype [data-screen-label="industry"] .hero-ctas-row { margin-top: 28px; }
+  body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof { left: 12px; bottom: 12px; padding: 8px 12px; gap: 8px; }
+  body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof-figure { font-size: 18px; }
+  body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof-text { font-size: 12px; }
 }
 
 /* Industry pages: consistency + interaction pass (2026-09-11). One rhythm for every
