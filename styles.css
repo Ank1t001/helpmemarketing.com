@@ -6280,10 +6280,7 @@ body.redesign-prototype .svc-detail h3 a { color: var(--text); text-decoration: 
 body.redesign-prototype .svc-detail h3 a:hover { color: var(--cta); }
 body.redesign-prototype .svc-detail p { font-size: 15.5px; line-height: 1.65; color: var(--text-muted); margin: 0; }
 body.redesign-prototype .svc-faq { max-width: 820px; margin-top: 32px; }
-body.redesign-prototype .svc-faq-item { border-top: 1px solid rgba(255,255,255,0.14); padding-top: 22px; margin-top: 22px; }
-body.redesign-prototype .svc-faq-item:first-child { margin-top: 0; }
-body.redesign-prototype .svc-faq-item h3 { font-size: 19px; /* matches the industry FAQ */ color: var(--text); margin: 0 0 10px; letter-spacing: -0.005em; }
-body.redesign-prototype .svc-faq-item p { font-size: 15.5px; color: var(--text-muted); line-height: 1.65; margin: 0; }
+/* (div-era .svc-faq-item rules removed 2026-09-11: they double-bordered the details version below) */
 @media (max-width: 720px) {
   body.redesign-prototype .svc-detail-list { grid-template-columns: 1fr; }
 }
@@ -6308,20 +6305,27 @@ body.redesign-prototype .related-reading-compact ul {
 }
 
 /* Inline-details FAQ (svc- prefix: .faq-item is owned by legacy pages) */
-body.redesign-prototype .svc-faq-item {
-  border-bottom: 1px solid var(--border); padding: 20px 0;
-}
+body.redesign-prototype .svc-faq-item { border-top: 1px solid var(--border); padding: 4px 0; margin: 0; }
+body.redesign-prototype .svc-faq-item:last-child { border-bottom: 1px solid var(--border); }
 body.redesign-prototype .svc-faq-item summary {
-  font-size: 18px; font-weight: 500; color: var(--text); cursor: pointer;
-  list-style: none; display: flex; justify-content: space-between;
-  align-items: center; gap: 16px;
+  font-size: 18px; font-weight: 500; line-height: 1.4; color: var(--text); cursor: pointer;
+  list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 16px 0; border-radius: 6px; transition: color .2s ease;
 }
+body.redesign-prototype .svc-faq-item summary::-webkit-details-marker { display: none; }
 body.redesign-prototype .svc-faq-item summary span[aria-hidden] {
-  color: var(--cta); font-size: 22px; line-height: 1;
+  flex: none; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  color: var(--cta); font-size: 20px; line-height: 1; border: 1px solid var(--border); background: rgba(255, 255, 255, 0.04);
+  transition: transform .25s ease, background .2s ease, border-color .2s ease;
 }
-body.redesign-prototype .svc-faq-item > p {
-  margin: 16px 0 0; color: var(--text-muted); line-height: 1.65;
-}
+body.redesign-prototype .svc-faq-item summary:hover span[aria-hidden],
+body.redesign-prototype .svc-faq-item summary:focus-visible span[aria-hidden] { background: var(--orange-glow); border-color: rgba(255, 92, 26, 0.45); }
+body.redesign-prototype .svc-faq-item summary:focus-visible { outline: 2px solid var(--cta); outline-offset: 2px; }
+body.redesign-prototype details[open].svc-faq-item summary span[aria-hidden] { transform: rotate(45deg); }
+body.redesign-prototype .svc-faq-item > p { margin: 0 0 18px; color: var(--text-muted); font-size: 15.5px; line-height: 1.65; max-width: 72ch; }
+body.redesign-prototype .svc-faq-item > p + p { margin-top: -6px; }
+body.redesign-prototype .svc-faq-item > ul { margin: 0 0 18px; }
+@media (prefers-reduced-motion: reduce) { body.redesign-prototype .svc-faq-item summary span[aria-hidden] { transition: none; } }
 
 /* Final CTA section wrapper (inner .final-cta is the existing shared class) */
 body.redesign-prototype .final-cta-section { padding: 48px 0 0; } /* was 64px; sitewide density pass 2026-08-13 */
@@ -7654,10 +7658,6 @@ body.redesign-prototype .pf-scope .pf-pill:hover { border-color: rgba(255, 92, 2
 body.redesign-prototype [data-screen-label="industry"] a.pain-item { color: inherit; text-decoration: none; }
 body.redesign-prototype [data-screen-label="industry"] a.pain-item:hover .pain-arrow { color: var(--cta); transform: translateX(4px); }
 body.redesign-prototype [data-screen-label="industry"] .pain-arrow { transition: color .2s ease, transform .2s ease; }
-body.redesign-prototype [data-screen-label="industry"] .svc-faq-item summary span[aria-hidden] { transition: transform .2s ease; }
-body.redesign-prototype [data-screen-label="industry"] details[open].svc-faq-item summary span[aria-hidden] { transform: rotate(45deg); }
-body.redesign-prototype [data-screen-label="industry"] .svc-faq-item summary::-webkit-details-marker { display: none; }
-body.redesign-prototype [data-screen-label="industry"] .ind-faq .svc-faq-item:first-child { border-top: 1px solid var(--border); }
 body.redesign-prototype [data-screen-label="industry"] .case-grid-2 { grid-template-columns: repeat(2, 1fr); }
 body.redesign-prototype [data-screen-label="industry"] .case-grid-2 .case-card { aspect-ratio: 16 / 10; }
 body.redesign-prototype [data-screen-label="industry"] .pf-scope .pf-how { margin-top: 28px; }
@@ -7679,12 +7679,12 @@ body.redesign-prototype [data-screen-label="industry"] .case-grid-1 .case-card {
    reuse the pf-* pieces (pill rows, neutral stat tiles) with the detail moved to the
    HIPAA checklist page and /ad-calculator/benchmarks. Neutral ranges stay white
    (Colour System Decision 12: Mint is for positive results only). */
-body.redesign-prototype [data-screen-label="industry"] .pf-scope .ind-intro { margin-bottom: 28px; }
+body.redesign-prototype [data-screen-label="industry"] .pf-scope .ind-intro { margin-bottom: 32px; }
 body.redesign-prototype [data-screen-label="industry"] .pf-scope .pf-pills { margin-top: 0; }
 body.redesign-prototype [data-screen-label="industry"] .pf-scope .pf-pills + .hipaa-banner { margin-top: 32px; }
 body.redesign-prototype [data-screen-label="industry"] .pf-scope span.pf-pill { cursor: default; }
 body.redesign-prototype [data-screen-label="industry"] .pf-scope span.pf-pill:hover { border-color: var(--border); box-shadow: none; transform: none; }
-body.redesign-prototype [data-screen-label="industry"] .spec-details { margin-top: 24px; border-top: 1px solid var(--border); }
+body.redesign-prototype [data-screen-label="industry"] .spec-details { margin-top: 24px; border-bottom: 1px solid var(--border); }
 body.redesign-prototype [data-screen-label="industry"] .spec-list { margin: 0; padding: 0; list-style: none; columns: 2; column-gap: 32px; font-size: 14.5px; line-height: 1.55; color: var(--text-muted); }
 body.redesign-prototype [data-screen-label="industry"] .spec-list li { break-inside: avoid; margin: 0 0 10px; }
 body.redesign-prototype [data-screen-label="industry"] .spec-list strong { color: var(--text); font-weight: 600; }
@@ -7725,4 +7725,38 @@ body.redesign-prototype [data-screen-label="industry"] .ind-hero-visual .metric-
 @media (max-width: 720px) {
   body.redesign-prototype [data-screen-label="industry"] .ind-hero-image { margin-bottom: -36px; }
   body.redesign-prototype [data-screen-label="industry"] .ind-hero-visual .metric-card { margin: 0 12px; }
+}
+
+/* Industry pages: consistency + interaction pass (2026-09-11). One rhythm for every
+   section header: eyebrow 14px above the H2, 20px H2 to intro copy, 32px header to
+   content. Intro copy is 17px/1.7 everywhere (pain-left and ind-intro were 16px).
+   Pain numbers become 40px ring badges to match .pf-icon; hero CTAs stack full width
+   on phones like the homepage; small labels lifted to a 12px floor. */
+body.redesign-prototype [data-screen-label="industry"] .ind-intro { margin-bottom: 32px; }
+body.redesign-prototype [data-screen-label="industry"] .ind-intro h2 { margin-bottom: 20px; }
+body.redesign-prototype [data-screen-label="industry"] .ind-intro p,
+body.redesign-prototype [data-screen-label="industry"] .pain-left > p { font-size: 17px; line-height: 1.7; max-width: none; }
+body.redesign-prototype [data-screen-label="industry"] .pain-left h2 { margin: 0 0 20px; }
+body.redesign-prototype [data-screen-label="industry"] .section-header-row { margin-bottom: 32px; align-items: flex-end; }
+body.redesign-prototype [data-screen-label="industry"] .section-header-row .eyebrow { margin-bottom: 14px; }
+body.redesign-prototype [data-screen-label="industry"] .section-header-row h2 { margin-top: 0; }
+body.redesign-prototype [data-screen-label="industry"] .ind-faq { margin-top: 0; }
+body.redesign-prototype [data-screen-label="industry"] .alt-tint .ind-prose h2,
+body.redesign-prototype [data-screen-label="industry"] #faq .ind-intro h2 { margin-bottom: 0; }
+body.redesign-prototype [data-screen-label="industry"] .alt-tint .ind-prose,
+body.redesign-prototype [data-screen-label="industry"] #faq .ind-intro { margin-bottom: 32px; }
+body.redesign-prototype [data-screen-label="industry"] .pain-num { width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--text-tertiary); border: 1px solid var(--border); background: rgba(255, 255, 255, 0.05); transition: background .2s ease, border-color .2s ease, color .2s ease; }
+body.redesign-prototype [data-screen-label="industry"] a.pain-item:hover .pain-num { background: var(--orange-glow); border-color: rgba(255, 92, 26, 0.45); color: var(--text); }
+body.redesign-prototype [data-screen-label="industry"] a.pain-item { padding: 24px 0; }
+body.redesign-prototype [data-screen-label="industry"] .case-pill { font-size: 12px; }
+body.redesign-prototype [data-screen-label="industry"] .metric-label { font-size: 12px; }
+body.redesign-prototype [data-screen-label="industry"] .rank-badge { font-size: 11px; }
+body.redesign-prototype [data-screen-label="industry"] .text-link { border-bottom-color: var(--cta); transition: color .2s ease, border-color .2s ease; }
+body.redesign-prototype [data-screen-label="industry"] .text-link:hover { color: var(--cta); }
+@media (max-width: 720px) {
+  body.redesign-prototype [data-screen-label="industry"] .hero-ctas-row { flex-direction: column; align-items: stretch; gap: 14px; }
+  body.redesign-prototype [data-screen-label="industry"] .hero-ctas-row .btn { width: 100%; justify-content: center; }
+  body.redesign-prototype [data-screen-label="industry"] .hero-ctas-row .text-link { align-self: flex-start; }
+  body.redesign-prototype [data-screen-label="industry"] .svc-faq-item summary { font-size: 17px; padding: 14px 0; }
+  body.redesign-prototype [data-screen-label="industry"] a.pain-item { padding: 20px 0; gap: 16px; grid-template-columns: 40px 1fr auto; }
 }
