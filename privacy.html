@@ -83,7 +83,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <div class="page-enter">
-<main>
+<main class="legal-scope">
 
 <section class="hero">
   <div class="container container-narrow">
@@ -93,6 +93,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<section class="content-section legal-section">
+  <div class="container">
+    <div class="legal-layout">
+      <nav class="legal-toc" aria-label="On this page">
+        <p class="legal-toc-title">On this page</p>
+        <ol class="legal-toc-list">
+          <li><a href="#sec-0">Who we are</a></li>
+          <li><a href="#sec-1">Information we collect</a></li>
+          <li><a href="#sec-cookies">Cookies and analytics</a></li>
+          <li><a href="#sec-2">How we use information</a></li>
+          <li><a href="#sec-3">Legal bases (GDPR)</a></li>
+          <li><a href="#sec-4">Sharing &amp; subprocessors</a></li>
+          <li><a href="#sec-5">Retention</a></li>
+          <li><a href="#sec-6">Your rights</a></li>
+          <li><a href="#sec-7">Security</a></li>
+          <li><a href="#sec-8">International transfers</a></li>
+          <li><a href="#sec-9">Changes &amp; contact</a></li>
+        </ol>
+      </nav>
+      <div class="legal-body">
 <section class="content-section" id="sec-0">
   <div class="container container-narrow">
     <h2 class="section-heading">Who we are</h2>
@@ -188,13 +208,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="content-section">
-  <div class="container container-narrow">
-    <p>Questions? <a href="/contact">Get in touch</a>.</p>
-    <p>HelpMeMarketing Inc.</p>
+<div class="legal-closing"><p>Questions? <a href="/contact">Get in touch</a>.</p><p>HelpMeMarketing Inc.</p></div>
+      </div>
+    </div>
   </div>
 </section>
-
 </main>
 </div>
 
@@ -267,5 +285,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 </div>
+<script>
+(function () {
+  function init() {
+    var links = document.querySelectorAll('.legal-toc-list a');
+    if (!links.length || !('IntersectionObserver' in window)) return;
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          links.forEach(function (a) { a.classList.remove('is-active'); });
+          var a = map[en.target.id]; if (a) a.classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+    Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
 </body>
 </html>
