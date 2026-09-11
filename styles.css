@@ -7608,3 +7608,41 @@ body.redesign-prototype .pf-scope .pf-refs-compact .pf-url { margin-top: 2px; pa
   body.redesign-prototype .pf-scope .pf-refs-compact .pf-ref { padding: 14px 16px; }
   body.redesign-prototype .pf-scope .pf-refs-compact .pf-ref h3 { font-size: 16px; }
 }
+
+/* Homepage visual-consistency pass (2026-09-11). Cards in the how-we-work, services
+   and industries sections get the same language as the proof ticker: a 40px round
+   icon badge (inline Tabler strokes, Mint at rest) beside the eyebrow, and an
+   interactive hover state (orange-glow ring, badge warms to Signal Orange, link line
+   brightens). Orange stays decorative and on links only, never on body or numerals.
+   Live builds compress to one-line cards and Published work becomes a pill row. */
+body.redesign-prototype .pf-scope .pf-card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+body.redesign-prototype .pf-scope .pf-icon { width: 40px; height: 40px; border-radius: 50%; flex: none; display: inline-flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); color: var(--mint); transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease; }
+body.redesign-prototype .pf-scope .pf-icon svg { width: 20px; height: 20px; }
+body.redesign-prototype .pf-scope .pf-service .pf-url { margin-top: auto; padding-top: 10px; color: var(--text-tertiary); }
+body.redesign-prototype .pf-scope a.pf-service:hover,
+body.redesign-prototype .pf-scope a.pf-industry:hover,
+body.redesign-prototype .pf-scope a.pf-build:hover { border-color: rgba(255, 92, 26, 0.45); box-shadow: 0 0 0 1px var(--orange-glow), 0 16px 40px rgba(0, 0, 0, 0.4); }
+body.redesign-prototype .pf-scope a.pf-service:hover .pf-icon,
+body.redesign-prototype .pf-scope a.pf-industry:hover .pf-icon,
+body.redesign-prototype .pf-scope .pf-how .pf-ref:hover .pf-icon { background: var(--orange-glow); border-color: rgba(255, 92, 26, 0.45); color: var(--cta); transform: scale(1.06); }
+body.redesign-prototype .pf-scope a.pf-service:hover .pf-url,
+body.redesign-prototype .pf-scope a.pf-industry:hover .pf-url { color: var(--text); }
+body.redesign-prototype .pf-scope .pf-how .pf-ref:hover { border-color: rgba(255, 255, 255, 0.16); }
+body.redesign-prototype .pf-scope .pf-builds-compact .pf-build { padding: 18px 20px; gap: 6px; }
+body.redesign-prototype .pf-scope .pf-builds-compact .pf-build h3 { font-size: 18px; }
+body.redesign-prototype .pf-scope .pf-builds-compact .pf-build p { font-size: 13.5px; }
+body.redesign-prototype .pf-scope .pf-builds-compact .pf-url { padding-top: 6px; }
+body.redesign-prototype .pf-scope .pf-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+body.redesign-prototype .pf-scope .pf-pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-elevated); color: var(--text); font-size: 14px; font-weight: 500; text-decoration: none; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+body.redesign-prototype .pf-scope .pf-pill-kind { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .pf-scope .pf-pill:hover { border-color: rgba(255, 92, 26, 0.45); box-shadow: 0 0 0 1px var(--orange-glow); transform: translateY(-1px); }
+@media (max-width: 720px) {
+  body.redesign-prototype .pf-scope .pf-icon { width: 36px; height: 36px; }
+  body.redesign-prototype .pf-scope .pf-icon svg { width: 18px; height: 18px; }
+  body.redesign-prototype .pf-scope .pf-pills { gap: 8px; }
+  body.redesign-prototype .pf-scope .pf-pill { padding: 9px 14px; font-size: 13px; }
+  body.redesign-prototype .pf-scope .pf-pill-kind { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.redesign-prototype .pf-scope .pf-icon, body.redesign-prototype .pf-scope .pf-pill { transition: none; }
+}
