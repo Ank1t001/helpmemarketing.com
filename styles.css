@@ -7589,3 +7589,22 @@ body.redesign-prototype .footer-social a { padding: 10px; margin: -10px; border-
   body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-platforms { margin-top: 24px; gap: 8px 20px; }
   body.redesign-prototype .footer-cta-nap .footer-dot { display: none; }
 }
+
+/* Homepage: published work folded into the live-builds section (2026-09-11). A
+   small subhead separates the six client build cards from six compact reference
+   tiles (kind, title, link line, no description) so the section reads as one unit
+   with hierarchy. Two columns on phones because the tiles are short. */
+body.redesign-prototype .pf-scope .pf-subhead { margin: 36px 0 0; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .pf-scope .pf-refs-compact { margin-top: 14px; gap: 12px; }
+body.redesign-prototype .pf-scope .pf-refs-compact .pf-ref { padding: 18px 20px; gap: 6px; min-width: 0; }
+body.redesign-prototype .pf-scope .pf-refs-compact .pf-ref h3 { font-size: 18px; }
+body.redesign-prototype .pf-scope .pf-refs-compact .pf-url { margin-top: 2px; padding-top: 4px; }
+@media (max-width: 900px) {
+  body.redesign-prototype .pf-scope .pf-refs-compact { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 14px; }
+}
+@media (max-width: 720px) {
+  body.redesign-prototype .pf-scope .pf-subhead { margin-top: 28px; }
+  body.redesign-prototype .pf-scope .pf-refs-compact { gap: 10px; }
+  body.redesign-prototype .pf-scope .pf-refs-compact .pf-ref { padding: 14px 16px; }
+  body.redesign-prototype .pf-scope .pf-refs-compact .pf-ref h3 { font-size: 16px; }
+}
