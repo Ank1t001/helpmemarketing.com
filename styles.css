@@ -7872,3 +7872,8 @@ body.redesign-prototype .bi-filter .chip:focus-visible { outline: 2px solid var(
 @media (prefers-reduced-motion: reduce) {
   body.redesign-prototype .bi-feature .bi-thumb img, body.redesign-prototype .bi-card .bi-thumb img { transition: none; }
 }
+
+/* Portfolio page pass (2026-09-11): sections carry .pf-scope so the shared hover
+   and badge rules apply; result cards in the static grid show the client avatar. */
+body.redesign-prototype .pf-scope .pf-results .pf-client { display: flex; align-items: center; gap: 10px; }
+body.redesign-prototype .pf-scope .pf-results .pf-logo { width: 28px; height: 28px; border-radius: 50%; flex: none; display: block; }
