@@ -7783,3 +7783,9 @@ body.redesign-prototype .pm-proof-label { font-size: 12px; }
 @media (max-width: 720px) {
   body.redesign-prototype .service-card { padding: 24px; }
 }
+
+/* Services hub (2026-09-11): the six category cards carry the homepage icon badge
+   and number row above the title; hero and CTA follow the shared patterns. */
+body.redesign-prototype .pf-scope .service-card .pf-card-top { margin-bottom: 18px; }
+body.redesign-prototype .pf-scope .service-card .card-arrow { transition: color .2s ease; }
+body.redesign-prototype .pf-scope .service-card:hover .pf-icon { background: var(--orange-glow); border-color: rgba(255, 92, 26, 0.45); color: var(--cta); transform: scale(1.06); }
