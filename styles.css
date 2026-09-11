@@ -7669,3 +7669,8 @@ body.redesign-prototype [data-screen-label="industry"] .pf-scope .pf-how .pf-ref
 @media (prefers-reduced-motion: reduce) {
   body.redesign-prototype [data-screen-label="industry"] .pain-arrow, body.redesign-prototype [data-screen-label="industry"] .svc-faq-item summary span[aria-hidden] { transition: none; }
 }
+
+/* Industry pages with a single verified case (SaaS, finance; 2026-09-11): one 16:10
+   card capped at 640px instead of a three-column grid padded with placeholders. */
+body.redesign-prototype [data-screen-label="industry"] .case-grid-1 { grid-template-columns: minmax(0, 640px); }
+body.redesign-prototype [data-screen-label="industry"] .case-grid-1 .case-card { aspect-ratio: 16 / 10; }
