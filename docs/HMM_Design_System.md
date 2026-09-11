@@ -619,6 +619,8 @@ Format parity pass (2026-09-11, founder: "it is still different from /instagram-
 
 Email gate (2026-09-11): the Real Estate `.gate` pattern is live on this page with tokenised CSS (`var(--bg)` input, `var(--cta)` focus, `var(--mint)` / `var(--crit)` messages). It posts to the existing Apps Script endpoint with source `gta-medspa-cycle-001` and downloads `gta-medspa-index-cycle-001-top25.csv` (rank, clinic, area, Index score, median reach, posts, pattern; the 25 rows on the page). The CSV is embedded as a JSON string literal so clinic names with quotes cannot break the script. When the ranked dataset arrives, the same gate carries positions 26 to 176.
 
+Email gate on `/hair-loss-index` (2026-09-11): the same `.gate` block and script now sit as "Take the dataset with you" after Method and limits, source `hair-loss-cycle-001`, downloading `hair-loss-index-cycle-001-postlog.csv` (the 167 brand-authored rows of the on-page post log: brand, date, format, hook, likes, comments, plays, link). All three Index instances now carry the gate.
+
 Still pending the ranked dataset: positions 26 to 176 in the gated CSV, linked account handles in the scoreboard, and any post-level section (vision pass, themes, boost ledger, post log).
 
 Registries updated in the same commit: `sitemap.xml`, `/ai-tools` (card 9, ItemList position 9, client `TOOLS` map), `api/tool-finder.js` catalog, `/work` (case-study card + ItemList position 1). Breadcrumb schema is Home > Case Studies > page, matching the other two instances (the artifact pointed at a nonexistent `/index-series` hub). OG image is the site default; the artifact referenced `/images/gta-medspa-index-hero.png`, which does not exist.
