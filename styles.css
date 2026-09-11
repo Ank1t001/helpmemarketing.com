@@ -7723,13 +7723,13 @@ body.redesign-prototype [data-screen-label="industry"] .ind-hero-visual { positi
 body.redesign-prototype [data-screen-label="industry"] .ind-hero-image { aspect-ratio: 5 / 3; }
 /* Proof chip (2026-09-11): replaces the metric card and its illustrative sparkline.
    One verified figure in Mint, sitting on the image's empty lower-left. */
-body.redesign-prototype .ind-hero-proof { position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: baseline; gap: 10px; padding: 10px 16px 10px 14px; border-radius: 999px; background: rgba(14, 14, 14, 0.72); border: 1px solid rgba(255, 255, 255, 0.14); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); max-width: calc(100% - 32px); }
+body.redesign-prototype .ind-hero-proof { display: inline-flex; align-items: baseline; gap: 10px; margin-top: 14px; padding: 10px 16px 10px 14px; border-radius: 999px; background: var(--bg-elevated); border: 1px solid var(--border); max-width: 100%; }
 body.redesign-prototype .ind-hero-proof-figure { font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1; color: var(--mint); font-variant-numeric: tabular-nums; white-space: nowrap; }
 body.redesign-prototype .ind-hero-proof-text { font-size: 13px; line-height: 1.3; color: var(--text); }
 body.redesign-prototype [data-screen-label="industry"] .hero-ctas-row { margin-top: 32px; }
 @media (max-width: 720px) {
   body.redesign-prototype [data-screen-label="industry"] .hero-ctas-row { margin-top: 28px; }
-  body.redesign-prototype .ind-hero-proof { left: 12px; bottom: 12px; padding: 8px 12px; gap: 8px; }
+  body.redesign-prototype .ind-hero-proof { margin-top: 12px; padding: 8px 12px; gap: 8px; }
   body.redesign-prototype .ind-hero-proof-figure { font-size: 18px; }
   body.redesign-prototype .ind-hero-proof-text { font-size: 12px; }
   body.redesign-prototype .ind-hero-proof-when { display: none; }
