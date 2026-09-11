@@ -642,6 +642,22 @@ Still pending the ranked dataset: positions 26 to 176 in the gated CSV. Not buil
 
 Registries updated in the same commit: `sitemap.xml`, `/ai-tools` (card 9, ItemList position 9, client `TOOLS` map), `api/tool-finder.js` catalog, `/work` (case-study card + ItemList position 1). Breadcrumb schema is Home > Case Studies > page, matching the other two instances (the artifact pointed at a nonexistent `/index-series` hub). OG image is the site default; the artifact referenced `/images/gta-medspa-index-hero.png`, which does not exist.
 
+### Portfolio page (`/portfolio`, added 2026-09-11)
+
+Founder supplied a standalone artifact already written in the prototype tokens; it was ported onto the canonical shell rather than shipped standalone: shared nav (Case Studies active), `.hero` with `.eyebrow` / `h1.hero-headline` / `.hero-subtitle` / `.hero-ctas`, `section.content-section` blocks with the canon `.section-heading` `<em>` accent and `.section-deck`, the `.final-cta-section` callout, the F2 footer, `styles.css` tokens (so `--text-tertiary` is the Decision 11 value, not the artifact's `#737373`). `data-screen-label="portfolio"`. Page components are namespaced `pf-*` and scoped to the label in the prototype region of `styles.css`:
+
+| Component | Spec |
+|---|---|
+| `.pf-head` | section header row: heading block left, `.section-deck` right, wraps at narrow widths |
+| `.pf-services` / `.pf-service` | 3-column grid of elevated cards linking to the six `/services/*` pages; `.pf-num` index is tertiary uppercase (the artifact had it in Signal Orange; Rule 1 moves numerals off orange); Fraunces 20/500 `h3`, muted 14px `p` |
+| `.pf-platforms` | inline list with tertiary 4px dots |
+| `.pf-results` / `.pf-result` | 4-column (2 at ≤900) result cards; `.pf-metric` Fraunces 34/500 in `var(--mint)` per Decision 12 (artifact used orange); `.pf-label` muted uppercase; `.pf-client` white above a `--border` rule; `.pf-work` muted. Eighth card added for the GTA MedSpa Index |
+| `.pf-builds` / `.pf-build`, `.pf-refs` / `.pf-ref` | 3-column card links; `.pf-url` / `.pf-kind` muted, white on hover (artifact used orange link accents) |
+| `.pf-media-grid` / `.pf-media` | 6 columns (3 at ≤900, 2 at ≤720); `.pf-frame` 4:5 with `.pf-ratio` tag and `.pf-play` button that turns orange on hover; two `<button>` cards open the lightbox, four `<a>` cards open Facebook reels |
+| `.pf-lb` | fixed lightbox with a `<video controls autoplay playsinline>`; Escape, backdrop click and the close button all close it and return focus; `body.pf-lb-open` locks scroll; wired with `addEventListener` on `DOMContentLoaded` |
+
+Media lives at `/assets/portfolio/` (two mp4 clips with jpg posters, four reel posters). Schema: BreadcrumbList (Home > Case Studies > Portfolio) and CollectionPage with the five external builds as `hasPart`. `/work` gained a "See the portfolio" outline button in its hero; sitemap entry added. Top nav unchanged (Decision 4).
+
 ## 8. Footer Architecture
 
 > **Current canon: Footer v3 (Direction F — CTA-forward). Locked 2026-09-03.**
