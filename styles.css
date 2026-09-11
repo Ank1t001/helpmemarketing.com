@@ -7723,16 +7723,16 @@ body.redesign-prototype [data-screen-label="industry"] .ind-hero-visual { positi
 body.redesign-prototype [data-screen-label="industry"] .ind-hero-image { aspect-ratio: 5 / 3; }
 /* Proof chip (2026-09-11): replaces the metric card and its illustrative sparkline.
    One verified figure in Mint, sitting on the image's empty lower-left. */
-body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof { position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: baseline; gap: 10px; padding: 10px 16px 10px 14px; border-radius: 999px; background: rgba(14, 14, 14, 0.72); border: 1px solid rgba(255, 255, 255, 0.14); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); max-width: calc(100% - 32px); }
-body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof-figure { font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1; color: var(--mint); font-variant-numeric: tabular-nums; white-space: nowrap; }
-body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof-text { font-size: 13px; line-height: 1.3; color: var(--text); }
+body.redesign-prototype .ind-hero-proof { position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: baseline; gap: 10px; padding: 10px 16px 10px 14px; border-radius: 999px; background: rgba(14, 14, 14, 0.72); border: 1px solid rgba(255, 255, 255, 0.14); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); max-width: calc(100% - 32px); }
+body.redesign-prototype .ind-hero-proof-figure { font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1; color: var(--mint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+body.redesign-prototype .ind-hero-proof-text { font-size: 13px; line-height: 1.3; color: var(--text); }
 body.redesign-prototype [data-screen-label="industry"] .hero-ctas-row { margin-top: 32px; }
 @media (max-width: 720px) {
   body.redesign-prototype [data-screen-label="industry"] .hero-ctas-row { margin-top: 28px; }
-  body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof { left: 12px; bottom: 12px; padding: 8px 12px; gap: 8px; }
-  body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof-figure { font-size: 18px; }
-  body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof-text { font-size: 12px; }
-  body.redesign-prototype [data-screen-label="industry"] .ind-hero-proof-when { display: none; }
+  body.redesign-prototype .ind-hero-proof { left: 12px; bottom: 12px; padding: 8px 12px; gap: 8px; }
+  body.redesign-prototype .ind-hero-proof-figure { font-size: 18px; }
+  body.redesign-prototype .ind-hero-proof-text { font-size: 12px; }
+  body.redesign-prototype .ind-hero-proof-when { display: none; }
 }
 
 /* Industry pages: consistency + interaction pass (2026-09-11). One rhythm for every
@@ -7767,4 +7767,19 @@ body.redesign-prototype [data-screen-label="industry"] .text-link:hover { color:
   body.redesign-prototype [data-screen-label="industry"] .hero-ctas-row .text-link { align-self: flex-start; }
   body.redesign-prototype [data-screen-label="industry"] .svc-faq-item summary { font-size: 17px; padding: 14px 0; }
   body.redesign-prototype [data-screen-label="industry"] a.pain-item { padding: 20px 0; gap: 16px; grid-template-columns: 40px 1fr auto; }
+}
+
+/* Service pages: hero image + proof chip, same treatment as the industry pages
+   (2026-09-11). Cards and steps join the shared interaction language: orange-ring
+   hover on .service-card, step numbers as ring badges. The proof-chip rules above are
+   now unscoped so both page families share them. */
+body.redesign-prototype .svc-hero-visual { position: relative; }
+body.redesign-prototype .svc-hero-image { aspect-ratio: 5 / 3; }
+body.redesign-prototype .service-card:hover { border-color: rgba(255, 92, 26, 0.45); box-shadow: 0 0 0 1px var(--orange-glow), 0 16px 40px rgba(0, 0, 0, 0.4); transform: translateY(-2px); }
+body.redesign-prototype .step-flow .step-num { width: 48px; height: 48px; border: 1px solid var(--border); background: rgba(255, 255, 255, 0.05); font-size: 20px; margin-bottom: 18px; }
+body.redesign-prototype .step-flow .step-line { top: 24px; }
+body.redesign-prototype .step-flow .step:hover .step-num { background: var(--orange-glow); border-color: rgba(255, 92, 26, 0.45); }
+body.redesign-prototype .pm-proof-label { font-size: 12px; }
+@media (max-width: 720px) {
+  body.redesign-prototype .service-card { padding: 24px; }
 }
