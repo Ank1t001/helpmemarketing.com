@@ -7825,3 +7825,25 @@ body.redesign-prototype .about-principles-h2 { margin-top: 0; }
 @media (max-width: 720px) {
   body.redesign-prototype .about-value-row { grid-template-columns: 40px 1fr; gap: 14px; padding: 20px 0; }
 }
+
+/* Contact page pass (2026-09-11). The column that held copy + contact details now
+   holds copy + the contact image and proof chip, with the details as a third grid
+   item under it; the form spans both rows. On phones the order is copy, form,
+   details, so the form no longer starts 700px down the page. */
+body.redesign-prototype [data-screen-label="contact"] .contact-layout { grid-template-columns: 1fr 1.1fr; grid-template-rows: auto 1fr; gap: 40px 80px; align-items: start; }
+body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-aside { position: static; grid-column: 1; grid-row: 1; }
+body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-details { grid-column: 1; grid-row: 2; }
+body.redesign-prototype [data-screen-label="contact"] .contact-layout > div:not(.contact-aside):not(.contact-details) { grid-column: 2; grid-row: 1 / span 2; }
+body.redesign-prototype [data-screen-label="contact"] .contact-microcopy { font-size: 13.5px; color: var(--text-tertiary); margin: 12px 0 0; max-width: 400px; }
+body.redesign-prototype [data-screen-label="contact"] .contact-visual { margin-top: 28px; }
+body.redesign-prototype [data-screen-label="contact"] .contact-hero-image { aspect-ratio: 16 / 10; }
+body.redesign-prototype [data-screen-label="contact"] .contact-details .contact-contacts { margin-top: 0; padding-top: 28px; border-top: 1px solid var(--border); }
+body.redesign-prototype [data-screen-label="contact"] .contact-direct-email { transition: color .2s ease; }
+body.redesign-prototype [data-screen-label="contact"] .contact-direct-email:hover { color: var(--cta); }
+@media (max-width: 960px) {
+  body.redesign-prototype [data-screen-label="contact"] .contact-layout { grid-template-columns: 1fr; grid-template-rows: none; gap: 32px; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-aside { grid-column: auto; grid-row: auto; order: 1; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-layout > div:not(.contact-aside):not(.contact-details) { grid-column: auto; grid-row: auto; order: 2; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-details { grid-column: auto; grid-row: auto; order: 3; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-visual { display: none; }
+}
