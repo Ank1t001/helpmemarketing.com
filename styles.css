@@ -7537,3 +7537,10 @@ body.redesign-prototype .pf-scope .pf-ticker .pf-result { flex: none; width: 272
   body.redesign-prototype .pf-scope .pf-ticker-track { animation: none; }
   body.redesign-prototype .pf-scope .pf-ticker-set[aria-hidden="true"] { display: none; }
 }
+
+/* Client avatars on the homepage proof ticker (2026-09-11). Each is a pre-composed
+   96px circular PNG in /assets/clients (white disc + mark, TravelUp on its brand
+   blue, the Index on Obsidian with a hairline ring), shown at 28px beside the
+   client name. Composed once so the card CSS stays trivial. */
+body.redesign-prototype .pf-scope .pf-ticker .pf-client { display: flex; align-items: center; gap: 10px; }
+body.redesign-prototype .pf-scope .pf-ticker .pf-logo { width: 28px; height: 28px; border-radius: 50%; flex: none; display: block; }
