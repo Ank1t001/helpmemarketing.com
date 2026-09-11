@@ -7544,3 +7544,23 @@ body.redesign-prototype .pf-scope .pf-ticker .pf-result { flex: none; width: 272
    client name. Composed once so the card CSS stays trivial. */
 body.redesign-prototype .pf-scope .pf-ticker .pf-client { display: flex; align-items: center; gap: 10px; }
 body.redesign-prototype .pf-scope .pf-ticker .pf-logo { width: 28px; height: 28px; border-radius: 50%; flex: none; display: block; }
+
+/* Homepage "how we work" reveal (2026-09-11). JS adds .js-reveal to .pf-how once an
+   IntersectionObserver is available (so no-JS users see the cards immediately), then
+   .is-in when the row enters the viewport. Cards rise and fade in with a 120ms
+   stagger, then a hairline highlight draws across each card's top edge. Disabled
+   under prefers-reduced-motion. */
+body.redesign-prototype .pf-scope .pf-how .pf-ref { position: relative; }
+body.redesign-prototype .pf-scope .pf-how .pf-ref::before { content: ""; position: absolute; top: -1px; left: 24px; right: 24px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.32), transparent); transform: scaleX(0); transform-origin: left center; }
+body.redesign-prototype .pf-scope .pf-how.js-reveal .pf-ref { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
+body.redesign-prototype .pf-scope .pf-how.js-reveal .pf-ref:nth-child(2) { transition-delay: .12s; }
+body.redesign-prototype .pf-scope .pf-how.js-reveal .pf-ref:nth-child(3) { transition-delay: .24s; }
+body.redesign-prototype .pf-scope .pf-how.js-reveal .pf-ref::before { transition: transform .8s ease .35s; }
+body.redesign-prototype .pf-scope .pf-how.js-reveal .pf-ref:nth-child(2)::before { transition-delay: .47s; }
+body.redesign-prototype .pf-scope .pf-how.js-reveal .pf-ref:nth-child(3)::before { transition-delay: .59s; }
+body.redesign-prototype .pf-scope .pf-how.is-in .pf-ref { opacity: 1; transform: none; }
+body.redesign-prototype .pf-scope .pf-how.is-in .pf-ref::before { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) {
+  body.redesign-prototype .pf-scope .pf-how.js-reveal .pf-ref { opacity: 1; transform: none; transition: none; }
+  body.redesign-prototype .pf-scope .pf-how .pf-ref::before { transform: scaleX(1); transition: none; }
+}

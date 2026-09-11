@@ -489,6 +489,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 (function () {
   function init() {
+    var how = document.querySelector('.pf-how');
+    if (how && 'IntersectionObserver' in window) {
+      how.classList.add('js-reveal');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { how.classList.add('is-in'); io.disconnect(); } });
+      }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+      io.observe(how);
+    }
     var lb = document.getElementById('pf-lightbox'), inner = document.getElementById('pf-lb-inner'), closeBtn = document.getElementById('pf-lb-close');
     if (!lb || !inner || !closeBtn) return;
     var opener = null;
