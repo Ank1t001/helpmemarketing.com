@@ -31,12 +31,12 @@ w.addEventListener(e,load,{once:true,passive:true});});
 <meta property="og:title" content="Free AI Marketing Tools | HelpMeMarketing">
 <meta property="og:description" content="Free marketing tools, no email gate: a marketing audit, an ad spend calculator, ad benchmarks, and the SEO Growth OS. Built from our actual client work.">
 <meta property="og:url" content="https://helpmemarketing.com/ai-tools">
-<meta property="og:image" content="https://helpmemarketing.com/og-image.png">
+<meta property="og:image" content="https://helpmemarketing.com/assets/tools/og.jpg">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Free AI Marketing Tools | HelpMeMarketing">
 <meta name="twitter:description" content="Free marketing tools, no email gate: a marketing audit, an ad spend calculator, ad benchmarks, and the SEO Growth OS. Built from our actual client work.">
-<meta name="twitter:image" content="https://helpmemarketing.com/og-image.png">
+<meta name="twitter:image" content="https://helpmemarketing.com/assets/tools/og.jpg">
 
 <script type="application/ld+json">
 {
@@ -110,12 +110,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="page-enter">
 
 <!-- ========== Hero ========== -->
-<section class="hero">
+<section class="hero svc-hero">
   <div class="container">
-    <p class="eyebrow">AI Tools</p>
-    <h1 class="hero-headline">Find the right tool for what you're trying to <em>fix</em>.</h1>
-    <p class="hero-subtitle">Tell us what you are working on. Our AI points you to the free tool or system built for exactly that, from ad budgets to SEO to a full marketing audit.</p>
-
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">AI Tools</p>
+        <h1 class="hero-headline">Find the right tool for what you're trying to <em>fix</em>.</h1>
+        <p class="hero-subtitle">Tell us what you are working on. Our AI points you to the free tool or system built for exactly that, from ad budgets to SEO to a full marketing audit.</p>
     <!-- Tool finder: describe a need, get an AI-recommended tool. Posts to
          /api/tool-finder. Degrades to the full tool grid below if the API is
          unavailable. All behaviour wired in JS (no inline handlers). -->
@@ -139,6 +140,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="finder-result" id="finder-result" role="status" aria-live="polite" hidden></div>
     </div>
+      </div>
+      <div class="hero-visual svc-hero-visual">
+        <img class="hero-image svc-hero-image" src="/assets/tools/hero.webp" alt="An open toolbox with a wrench, calculator and magnifying glass, drawn in glowing orange particles" width="1344" height="752" loading="eager" fetchpriority="high" decoding="async">
+      </div>
+    </div>
   </div>
 </section>
 
@@ -150,13 +156,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ========== The tools ========== -->
-<section class="content-section" id="tools">
+<section class="content-section pf-scope" id="tools">
   <div class="container">
     <h2 class="section-heading">The <em>tools</em>.</h2>
     <p class="section-deck">Four ways to get a straight answer about your marketing, free.</p>
 
     <div class="service-grid">
       <a href="/tools/marketing-audit" class="service-card" data-tool="/tools/marketing-audit">
+        <span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/><path d="M9 14l2 2l4 -4"/></svg></span><span class="pf-num">01</span></span>
         <h3>AI Marketing Audit</h3>
         <p>A free 5-minute diagnostic that scores your marketing maturity from 0 to 100 across 5 dimensions and tells you what to fix next. 8 questions, no pitch.</p>
         <div class="card-tags">
@@ -168,6 +175,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
 
       <a href="/ad-calculator" class="service-card" data-tool="/ad-calculator">
+        <span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z"/><path d="M8 14l0 .01"/><path d="M12 14l0 .01"/><path d="M16 14l0 .01"/><path d="M8 17l0 .01"/><path d="M12 17l0 .01"/><path d="M16 17l0 .01"/></svg></span><span class="pf-num">02</span></span>
         <h3>AdSpend Calculator</h3>
         <p>How much should you actually spend on ads? Pick your segment and a monthly customer goal, and get a budget range based on aggregated benchmarks.</p>
         <div class="card-tags">
@@ -179,6 +187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
 
       <a href="/ad-set-calculator" class="service-card" data-tool="/ad-set-calculator">
+        <span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 7h11"/><path d="M6.5 17h11"/><path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z"/><path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z"/></svg></span><span class="pf-num">03</span></span>
         <h3>Meta Learning Phase Calculator</h3>
         <p>How many ad sets can your budget actually feed? Enter your budget and cost per event to find the deepest optimisation event you can afford, using Meta's 50 events per ad set per week rule.</p>
         <div class="card-tags">
@@ -190,6 +199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
 
       <a href="/seo-growth-os" class="service-card" data-tool="/seo-growth-os">
+        <span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/></svg></span><span class="pf-num">04</span></span>
         <h3>SEO Growth OS</h3>
         <p>Any audit finds SEO problems. This one ranks them by payback, produces the fixes, and proves they worked. Six nodes, 32 specialist checks.</p>
         <div class="card-tags">
@@ -201,6 +211,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
 
       <a href="/meta-growth-os" class="service-card" data-tool="/meta-growth-os">
+        <span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/></svg></span><span class="pf-num">05</span></span>
         <h3>Meta Growth OS</h3>
         <p>The paid half of the same architecture. Any dashboard hands you 200 metrics; this ranks which one is lying and what to fix first. Nine stages, 13 specialist skills you download and run.</p>
         <div class="card-tags">
@@ -212,6 +223,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
 
       <a href="/ad-calculator/benchmarks" class="service-card" data-tool="/ad-calculator/benchmarks">
+        <span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M4 20h14"/></svg></span><span class="pf-num">06</span></span>
         <h3>Ad Spend Benchmarks</h3>
         <p>The platform and industry numbers behind the calculator: CPL, conversion, and LTV for DTC, SaaS, healthcare, and finance, plus the math.</p>
         <div class="card-tags">
@@ -223,6 +235,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
 
       <a href="/instagram-reindex" class="service-card" data-tool="/instagram-reindex">
+        <span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21l8 0"/><path d="M12 17l0 4"/><path d="M7 4l10 0"/><path d="M17 4v8a5 5 0 0 1 -10 0v-8"/><path d="M5 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M19 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/></svg></span><span class="pf-num">07</span></span>
         <h3>Real Estate Index: Instagram</h3>
         <p>Living competitive intelligence for Canadian private real estate on Instagram. A fortnightly scoreboard of what the top firms actually post, boost, and get engagement on, scraped from public data.</p>
         <div class="card-tags">
@@ -234,6 +247,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
 
       <a href="/hair-loss-index" class="service-card" data-tool="/hair-loss-index">
+        <span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21l8 0"/><path d="M12 17l0 4"/><path d="M7 4l10 0"/><path d="M17 4v8a5 5 0 0 1 -10 0v-8"/><path d="M5 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M19 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/></svg></span><span class="pf-num">08</span></span>
         <h3>Hair Loss Index: Instagram</h3>
         <p>Living competitive intelligence for non-surgical hair loss studios across Northern Ontario and the GTA. A monthly scoreboard of who reaches, who converts, and where the path to a booked consultation breaks, scraped from public data.</p>
         <div class="card-tags">
@@ -245,6 +259,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
 
       <a href="/gta-medspa-index" class="service-card" data-tool="/gta-medspa-index">
+        <span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21l8 0"/><path d="M12 17l0 4"/><path d="M7 4l10 0"/><path d="M17 4v8a5 5 0 0 1 -10 0v-8"/><path d="M5 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M19 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/></svg></span><span class="pf-num">09</span></span>
         <h3>GTA MedSpa Index: Instagram</h3>
         <p>Every medical spa in the Greater Toronto Area with a public Instagram account, ranked on reel reach and response. The median reel gets 769 plays, posting more has almost no effect, and two in three clinics publish something a Canadian regulator could question.</p>
         <div class="card-tags">

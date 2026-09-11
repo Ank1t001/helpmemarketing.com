@@ -7877,3 +7877,11 @@ body.redesign-prototype .bi-filter .chip:focus-visible { outline: 2px solid var(
    and badge rules apply; result cards in the static grid show the client avatar. */
 body.redesign-prototype .pf-scope .pf-results .pf-client { display: flex; align-items: center; gap: 10px; }
 body.redesign-prototype .pf-scope .pf-results .pf-logo { width: 28px; height: 28px; border-radius: 50%; flex: none; display: block; }
+
+/* AI Tools hub pass (2026-09-11): hero on the shared image grid with the tool
+   finder kept in the copy column; the nine tool cards carry the icon badge row
+   and the shared hover; card tags lifted to 12px. */
+body.redesign-prototype .svc-hero .finder { max-width: 100%; }
+body.redesign-prototype .svc-hero .finder-row { flex-wrap: wrap; }
+body.redesign-prototype .svc-hero .finder-input { min-width: 0; flex: 1 1 260px; }
+body.redesign-prototype .card-tag { font-size: 12px; }
