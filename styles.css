@@ -7812,6 +7812,7 @@ body.redesign-prototype [data-screen-label="industry"] .text-link:hover { color:
    now unscoped so both page families share them. */
 body.redesign-prototype .svc-hero-visual { position: relative; }
 body.redesign-prototype .svc-hero-image { aspect-ratio: 5 / 3; }
+body.redesign-prototype .hero-note { margin: 16px 0 0; font-size: 13px; color: var(--text-tertiary); }
 body.redesign-prototype .service-card:hover { border-color: rgba(255, 92, 26, 0.45); box-shadow: 0 0 0 1px var(--orange-glow), 0 16px 40px rgba(0, 0, 0, 0.4); transform: translateY(-2px); }
 body.redesign-prototype .step-flow .step-num { width: 48px; height: 48px; border: 1px solid var(--border); background: rgba(255, 255, 255, 0.05); font-size: 20px; margin-bottom: 18px; }
 body.redesign-prototype .step-flow .step-line { top: 24px; }

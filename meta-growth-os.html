@@ -8,6 +8,10 @@
 <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png">
 <title>Meta Growth OS: One System. Any Account. | Help Me Marketing</title>
 <meta name="description" content="Any dashboard can hand you two hundred metrics. Knowing which one is lying and what to fix first is the whole job. Nine stages, thirteen specialist skills, yours to download and run.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
 <link rel="canonical" href="https://helpmemarketing.com/meta-growth-os">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta property="og:type" content="website">
@@ -15,11 +19,13 @@
 <meta property="og:title" content="Meta Growth OS: One System. Any Account.">
 <meta property="og:description" content="Any dashboard can hand you two hundred metrics. Knowing which one is lying and what to fix first is the whole job. Nine stages, thirteen specialist skills, yours to download and run.">
 <meta property="og:url" content="https://helpmemarketing.com/meta-growth-os">
-<meta property="og:image" content="https://helpmemarketing.com/og-image.png">
+<meta property="og:image" content="https://helpmemarketing.com/assets/growth-os/meta-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Meta Growth OS: One System. Any Account.">
 <meta name="twitter:description" content="Nine stages, thirteen specialist skills for paid growth, yours to download and run.">
-<meta name="twitter:image" content="https://helpmemarketing.com/og-image.png">
+<meta name="twitter:image" content="https://helpmemarketing.com/assets/growth-os/meta-og.jpg">
 <!-- Google Tag Manager (delayed to idle/first-interaction for CWV) -->
 <script>(function(w,d){w.dataLayer=w.dataLayer||[];var loaded=false;
 function load(){if(loaded)return;loaded=true;
@@ -40,294 +46,295 @@ w.addEventListener(e,load,{once:true,passive:true});});
 </script>
 <script src="/consent.js" defer></script>
 <style>
-:root{
+.mgos{
   --bg:#0E0E0E; --panel:#161616; --panel2:#1A1A1A; --sunk:#121212;
   --tx:#FFFFFF; --tx2:#9A9A9A; --tx3:#7A7A7A;
   --cta:#FF5C1A; --cta-h:#FF7038;
   --mint:#00D4AA; --mint-dim:rgba(0,212,170,.11); --mint-bd:rgba(0,212,170,.34);
-  --terra:#E0714A; --terra-dim:rgba(200,84,43,.15);
+  --terra:#FF5C1A; --terra-dim:rgba(255,92,26,.12);
   --crit:#FF4D4D; --crit-dim:rgba(255,77,77,.12);
   --bd:rgba(255,255,255,.075); --bd2:rgba(255,255,255,.13);
   --grid:rgba(255,255,255,.021);
   --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:clip}
-body{overflow-x:clip;background:var(--bg);color:var(--tx);
-  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:58px 58px}
-.wrap{max-width:1000px;margin:0 auto;padding:0 26px}
-.mono{font-family:var(--mono)}
-a{color:var(--cta);text-decoration:none}
-
+.mgos *{margin:0;padding:0;box-sizing:border-box}
+.mgos{overflow-x:clip;color:var(--tx);
+  font-family:'Inter',-apple-system,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;
+  
+  }
+.mgos .wrap{max-width:1000px;margin:0 auto;padding:0 26px}
+.mgos .mono{font-family:var(--mono)}
+.mgos a{color:var(--cta);text-decoration:none}
 /* ── header ── */
-nav.top{border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:60;background:rgba(14,14,14,.95);backdrop-filter:blur(12px)}
-nav.top .in{max-width:1340px;margin:0 auto;padding:0 26px;display:flex;align-items:center;gap:4px;height:64px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16.5px;letter-spacing:-.022em;color:var(--tx);margin-right:22px}
-.logo .lm{font-family:var(--mono);font-size:9.5px;letter-spacing:.02em;border:1px solid var(--bd2);
-  border-radius:4px;padding:4px 5px;color:var(--tx2);line-height:1}
-.logo .lm i{font-style:normal;color:var(--cta)}
-.logo em{font-style:normal;color:var(--cta)}
-nav.top a.lnk{color:var(--tx2);font-size:14px;padding:8px 13px;border-radius:7px;white-space:nowrap;font-weight:500}
-nav.top a.lnk:hover{color:var(--tx)}
-nav.top .sp{margin-left:auto}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--cta);color:#fff;
+
+.mgos .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--cta);color:#fff;
   font-weight:700;font-size:14px;padding:11px 20px;border-radius:9px;border:0;cursor:pointer;
   transition:.15s;white-space:nowrap;font-family:inherit}
-.btn:hover{background:var(--cta-h)}
-.btn.dark{background:var(--panel2);color:var(--tx);border:1px solid var(--bd2)}
-.btn.dark:hover{background:#222;border-color:var(--tx3)}
-.btn.mint{background:var(--mint-dim);color:var(--mint);border:1px solid var(--mint-bd);font-size:12.5px;padding:7px 15px}
-.btn.mint:hover{background:rgba(0,212,170,.18)}
-@media (max-width:1080px){ nav.top a.lnk{display:none} }
-
+.mgos .btn:hover{background:var(--cta-h)}
+.mgos .btn.dark{background:var(--panel2);color:var(--tx);border:1px solid var(--bd2)}
+.mgos .btn.dark:hover{background:#222;border-color:var(--tx3)}
+.mgos .btn.mint{background:var(--mint-dim);color:var(--mint);border:1px solid var(--mint-bd);font-size:12.5px;padding:7px 15px}
+.mgos .btn.mint:hover{background:rgba(0,212,170,.18)}
 /* ── hero ── */
-.hero{padding:92px 0 58px}
-.eyebrow{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.19em;text-transform:uppercase;
-  font-weight:700;color:var(--mint);margin-bottom:22px}
-.eyebrow .sq{width:13px;height:13px;border-radius:3px;background:var(--cta);flex:none}
-.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);flex:none}
-h1{font-size:62px;font-weight:800;letter-spacing:-.042em;line-height:1.0;margin-bottom:26px}
-.hlede{font-size:16px;color:var(--tx2);max-width:66ch;margin-bottom:30px;line-height:1.65}
-.hlede b{color:var(--tx);font-weight:700}
-.hlede .dim{color:var(--tx3)}
-.hcta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
-.hcta .btn{font-size:15px;padding:14px 26px}
-.fine{font-size:12.5px;color:var(--tx3);font-family:var(--mono)}
 
+.mgos .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:600;color:var(--tx2);margin-bottom:22px}
+.mgos .eyebrow .sq{width:13px;height:13px;border-radius:3px;background:var(--cta);flex:none}
+.mgos .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);flex:none}
+.mgos .fine{font-size:12.5px;color:var(--tx3);font-family:var(--mono)}
 /* ── sections ── */
-section{padding:54px 0}
-h2{font-size:32px;font-weight:800;letter-spacing:-.03em;line-height:1.16;margin-bottom:11px}
-h2 em{font-style:normal;color:var(--cta)}
-h2 .mt{color:var(--mint)}
-.slede{font-size:14.5px;color:var(--tx2);max-width:78ch;margin-bottom:26px;line-height:1.65}
-.slede b{color:var(--tx)}
-
+.mgos section{padding:48px 0}
+.mgos section.tight{padding-top:0}
+.mgos h2{font-family:'Fraunces',Georgia,serif;font-size:40px;font-weight:400;letter-spacing:-.015em;line-height:1.1;margin-bottom:12px}
+.mgos h2 em{font-style:italic;color:var(--cta)}
+.mgos h2 .mt{color:var(--cta);font-style:italic}
+.mgos .slede{font-size:14.5px;color:var(--tx2);max-width:78ch;margin-bottom:26px;line-height:1.65}
+.mgos .slede b{color:var(--tx)}
 /* ── node cards ── */
-.nodes{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
-.nd{background:var(--panel);border:1px solid var(--bd);border-radius:11px;padding:15px 16px;display:flex;flex-direction:column}
-.nd .lb{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--tx3);margin-bottom:9px}
-.nd .chip{align-self:flex-start;font-size:9px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;
+.mgos .nodes{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.mgos .nd{background:var(--panel);border:1px solid var(--bd);border-radius:11px;padding:15px 16px;display:flex;flex-direction:column}
+.mgos .nd .lb{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--tx3);margin-bottom:9px}
+.mgos .nd .chip{align-self:flex-start;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
   border-radius:4px;padding:4px 7px;margin-bottom:11px}
-.chip.you{color:var(--terra);background:var(--terra-dim)}
-.chip.same{color:var(--mint);background:var(--mint-dim)}
-.chip.gate{color:var(--crit);background:var(--crit-dim)}
-.nd h4{font-size:15px;font-weight:700;margin-bottom:6px;letter-spacing:-.012em}
-.nd p{font-size:12.5px;color:var(--tx2);line-height:1.5;flex:1}
-.nd .sk{display:flex;gap:5px;flex-wrap:wrap;margin-top:12px}
-.nd .sk span{font-size:10px;font-family:var(--mono);color:var(--tx2);background:var(--sunk);
+.mgos .chip.you{color:var(--terra);background:var(--terra-dim)}
+.mgos .chip.same{color:var(--mint);background:var(--mint-dim)}
+.mgos .chip.gate{color:var(--crit);background:var(--crit-dim)}
+.mgos .nd h4{font-size:15px;font-weight:700;margin-bottom:6px;letter-spacing:-.012em}
+.mgos .nd p{font-size:12.5px;color:var(--tx2);line-height:1.5;flex:1}
+.mgos .nd .sk{display:flex;gap:5px;flex-wrap:wrap;margin-top:12px}
+.mgos .nd .sk span{font-size:12px;font-family:var(--mono);color:var(--tx2);background:var(--sunk);
   border:1px solid var(--bd);border-radius:4px;padding:3px 7px}
-.nd .sk span.m{color:var(--mint);background:var(--mint-dim);border-color:var(--mint-bd)}
-.ncap{text-align:center;font-size:13.5px;color:var(--tx2);margin-top:18px}
-.ncap b{color:var(--tx)}
-
+.mgos .nd .sk span.m{color:var(--mint);background:var(--mint-dim);border-color:var(--mint-bd)}
+.mgos .ncap{text-align:center;font-size:13.5px;color:var(--tx2);margin-top:18px}
+.mgos .ncap b{color:var(--tx)}
 /* ── selector ── */
-.selbox{border:1px solid var(--mint-bd);border-radius:12px;padding:16px 18px;margin-bottom:14px;background:var(--panel)}
-.selbox label{display:block;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
+.mgos .selbox{border:1px solid var(--mint-bd);border-radius:12px;padding:16px 18px;margin-bottom:14px;background:var(--panel)}
+.mgos .selbox label{display:block;font-size:12px;letter-spacing:.15em;text-transform:uppercase;
   color:var(--mint);font-weight:700;margin-bottom:11px}
-.selbox select{width:100%;background:var(--sunk);border:1px solid var(--bd2);border-radius:9px;
+.mgos .selbox select{width:100%;background:var(--sunk);border:1px solid var(--bd2);border-radius:9px;
   color:var(--tx);font:inherit;font-size:15px;font-weight:600;padding:13px 15px;cursor:pointer;
   appearance:none;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237A7A7A' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 15px center}
-.selbox select:focus{outline:0;border-color:var(--mint)}
-.card{background:var(--panel);border:1px solid var(--bd);border-radius:12px;padding:22px 24px}
-.card h3{font-size:19px;font-weight:800;letter-spacing:-.022em;margin-bottom:5px}
-.card .sub{font-size:13px;color:var(--tx2);margin-bottom:16px}
-.rw{display:grid;grid-template-columns:168px 1fr;gap:22px;padding:13px 0;border-top:1px solid var(--bd);font-size:13.5px}
-.rw .k{color:var(--terra);font-weight:700;font-size:12.5px}
-.rw .v{color:var(--tx2);line-height:1.6}
-.rw .v b{color:var(--tx)}
-
-.skbox{background:var(--panel);border:1px solid var(--bd);border-radius:12px;padding:20px 22px;margin-top:12px}
-.skbox .hd{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--mint);font-weight:700;margin-bottom:6px}
-.skbox .sub{font-size:12.8px;color:var(--tx2);margin-bottom:15px}
-.skrow{display:grid;grid-template-columns:112px 1fr;gap:11px;margin-bottom:9px}
-.skrow .nm{font-family:var(--mono);font-size:11.5px;color:var(--mint);background:var(--mint-dim);
+.mgos .selbox select:focus{outline:0;border-color:var(--mint)}
+.mgos .card{background:var(--panel);border:1px solid var(--bd);border-radius:12px;padding:22px 24px}
+.mgos .card h3{font-size:19px;font-weight:600;letter-spacing:-.022em;margin-bottom:5px}
+.mgos .card .sub{font-size:13px;color:var(--tx2);margin-bottom:16px}
+.mgos .rw{display:grid;grid-template-columns:168px 1fr;gap:22px;padding:13px 0;border-top:1px solid var(--bd);font-size:13.5px}
+.mgos .rw .k{color:var(--terra);font-weight:700;font-size:12.5px}
+.mgos .rw .v{color:var(--tx2);line-height:1.6}
+.mgos .rw .v b{color:var(--tx)}
+.mgos .skbox{background:var(--panel);border:1px solid var(--bd);border-radius:12px;padding:20px 22px;margin-top:12px}
+.mgos .skbox .hd{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--mint);font-weight:700;margin-bottom:6px}
+.mgos .skbox .sub{font-size:12.8px;color:var(--tx2);margin-bottom:15px}
+.mgos .skrow{display:grid;grid-template-columns:112px 1fr;gap:11px;margin-bottom:9px}
+.mgos .skrow .nm{font-family:var(--mono);font-size:12px;color:var(--mint);background:var(--mint-dim);
   border:1px solid var(--mint-bd);border-radius:7px;padding:9px 10px;text-align:center}
-.skrow .ds{font-size:13px;color:var(--tx2);background:var(--sunk);border:1px solid var(--bd);
+.mgos .skrow .ds{font-size:13px;color:var(--tx2);background:var(--sunk);border:1px solid var(--bd);
   border-radius:7px;padding:9px 13px}
-.skwarn{font-size:12.5px;color:var(--crit);margin-top:13px;padding-top:13px;border-top:1px dashed var(--bd2)}
-
+.mgos .skwarn{font-size:12.5px;color:var(--crit);margin-top:13px;padding-top:13px;border-top:1px dashed var(--bd2)}
 /* ── command ── */
-.cmd{background:var(--sunk);border:1px solid var(--bd);border-radius:12px;overflow:hidden}
-.cmd .bar{display:flex;align-items:center;gap:10px;padding:13px 18px}
-.cmd .bar .t{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--mint);
+.mgos .cmd{background:var(--sunk);border:1px solid var(--bd);border-radius:12px;overflow:hidden}
+.mgos .cmd .bar{display:flex;align-items:center;gap:10px;padding:13px 18px}
+.mgos .cmd .bar .t{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--mint);
   display:flex;align-items:center;gap:9px}
-.cmd .bar .t .dot{width:7px;height:7px;border-radius:50%;background:var(--mint)}
-.cmd .bar .sp{margin-left:auto}
-.cmd pre{padding:8px 22px 24px;overflow-x:auto;font-family:var(--mono);font-size:12.2px;line-height:1.72;
+.mgos .cmd .bar .t .dot{width:7px;height:7px;border-radius:50%;background:var(--mint)}
+.mgos .cmd .bar .sp{margin-left:auto}
+.mgos .cmd pre{padding:8px 22px 24px;overflow-x:auto;font-family:var(--mono);font-size:12.2px;line-height:1.72;
   color:var(--tx2);white-space:pre-wrap;word-break:break-word}
-.cmd pre b{color:var(--tx);font-weight:600}
-.cmd pre i{color:var(--mint);font-style:normal;font-weight:600}
-.cmd pre u{color:var(--cta);text-decoration:none}
-.cmd pre s{color:var(--terra);text-decoration:none}
+.mgos .cmd pre b{color:var(--tx);font-weight:600}
+.mgos .cmd pre i{color:var(--mint);font-style:normal;font-weight:600}
+.mgos .cmd pre u{color:var(--cta);text-decoration:none}
+.mgos .cmd pre s{color:var(--terra);text-decoration:none}
 /* ── skills matrix ── */
-.tabs{display:inline-flex;gap:3px;background:var(--sunk);border:1px solid var(--bd);border-radius:10px;padding:4px;margin-bottom:26px}
-.tabs button{background:transparent;border:0;color:var(--tx3);font:inherit;font-size:13.5px;font-weight:600;
+.mgos .tabs{display:inline-flex;gap:3px;background:var(--sunk);border:1px solid var(--bd);border-radius:10px;padding:4px;margin-bottom:26px}
+.mgos .tabs button{background:transparent;border:0;color:var(--tx3);font:inherit;font-size:13.5px;font-weight:600;
   padding:8px 17px;border-radius:7px;cursor:pointer;transition:.14s}
-.tabs button.on{background:var(--panel2);color:var(--tx)}
-.grp{margin-bottom:24px}
-.grp .gh{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;margin-bottom:12px;
+.mgos .tabs button.on{background:var(--panel2);color:var(--tx)}
+.mgos .grp{margin-bottom:24px}
+.mgos .grp .gh{font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;margin-bottom:12px;
   padding-bottom:11px;border-bottom:1px solid var(--bd)}
-.grp .gh .t{color:var(--terra)}
-.grp .gh .t.m{color:var(--mint)}
-.grp .gh .d{color:var(--tx3);font-weight:500;letter-spacing:.02em;text-transform:none;font-size:12.5px}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.cards.c2{grid-template-columns:repeat(2,1fr)}
-.sc{background:var(--panel);border:1px solid var(--bd);border-radius:10px;padding:12px 13px;
+.mgos .grp .gh .t{color:var(--terra)}
+.mgos .grp .gh .t.m{color:var(--mint)}
+.mgos .grp .gh .d{color:var(--tx3);font-weight:500;letter-spacing:.02em;text-transform:none;font-size:12.5px}
+.mgos .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.mgos .cards.c2{grid-template-columns:repeat(2,1fr)}
+.mgos .sc{background:var(--panel);border:1px solid var(--bd);border-radius:10px;padding:12px 13px;
   display:grid;grid-template-columns:26px 1fr auto;gap:10px;align-items:start}
-.sc .ic{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--tx3);background:var(--sunk);
+.mgos .sc .ic{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--tx3);background:var(--sunk);
   border:1px solid var(--bd);border-radius:5px;padding:5px 0;text-align:center}
-.sc h5{font-size:13.5px;font-weight:700;margin-bottom:3px;letter-spacing:-.01em}
-.sc p{font-size:11.8px;color:var(--tx2);line-height:1.42}
-.sc .tg{font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;border-radius:4px;
+.mgos .sc h5{font-size:13.5px;font-weight:700;margin-bottom:3px;letter-spacing:-.01em}
+.mgos .sc p{font-size:12px;color:var(--tx2);line-height:1.42}
+.mgos .sc .tg{font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;border-radius:4px;
   padding:3px 6px;white-space:nowrap;align-self:center}
-.tg.core{color:var(--mint);background:var(--mint-dim)}
-.tg.cond{color:var(--terra);background:var(--terra-dim)}
-.tg.req{color:var(--crit);background:var(--crit-dim)}
-.tg.dem{color:var(--tx3);background:var(--sunk)}
-.sc.off{opacity:.36}
-.sclegend{font-size:12.5px;color:var(--tx3);padding-top:16px;border-top:1px dashed var(--bd2);
+.mgos .tg.core{color:var(--mint);background:var(--mint-dim)}
+.mgos .tg.cond{color:var(--terra);background:var(--terra-dim)}
+.mgos .tg.req{color:var(--crit);background:var(--crit-dim)}
+.mgos .tg.dem{color:var(--tx3);background:var(--sunk)}
+.mgos .sc.off{opacity:.36}
+.mgos .sclegend{font-size:12.5px;color:var(--tx3);padding-top:16px;border-top:1px dashed var(--bd2);
   display:flex;gap:26px;flex-wrap:wrap}
-.sclegend b{color:var(--mint)}
-.sclegend b.t{color:var(--terra)}
-
+.mgos .sclegend b{color:var(--mint)}
+.mgos .sclegend b.t{color:var(--terra)}
 /* ── question table ── */
-.qt{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel);
+.mgos .qt{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel);
   border:1px solid var(--bd);border-radius:12px;overflow:hidden}
-.qt th{text-align:left;padding:15px 16px;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+.mgos .qt th{text-align:left;padding:15px 16px;font-size:12px;letter-spacing:.13em;text-transform:uppercase;
   color:var(--tx3);font-weight:700;background:var(--sunk);border-bottom:1px solid var(--bd)}
-.qt th.c{text-align:center;width:130px}
-.qt td{padding:12px 16px;border-bottom:1px solid var(--bd);color:var(--tx2)}
-.qt td.c{text-align:center;font-weight:700}
-.qt td.c .y{color:var(--mint);font-size:15px;display:inline-flex;align-items:center}
-.qt td.c .y svg{width:14px;height:14px}
-.qt td.c .p{color:var(--cta);font-size:12.5px}
-.qt td.c .n{color:var(--tx3)}
-.qt tr:last-child td{border-bottom:0}
-.qfoot{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:var(--panel);
+.mgos .qt th.c{text-align:center;width:130px}
+.mgos .qt td{padding:12px 16px;border-bottom:1px solid var(--bd);color:var(--tx2)}
+.mgos .qt td.c{text-align:center;font-weight:700}
+.mgos .qt td.c .y{color:var(--mint);font-size:15px;display:inline-flex;align-items:center}
+.mgos .qt td.c .y svg{width:14px;height:14px}
+.mgos .qt td.c .p{color:var(--cta);font-size:12.5px}
+.mgos .qt td.c .n{color:var(--tx3)}
+.mgos .qt tr:last-child td{border-bottom:0}
+.mgos .qfoot{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:var(--panel);
   border:1px solid var(--bd);border-top:0;border-radius:0 0 12px 12px;padding:18px 20px;margin-top:-1px}
-.qfoot .tx{flex:1;min-width:300px;font-size:13.5px;color:var(--tx2);line-height:1.6}
-.qfoot .tx b{color:var(--tx)}
-.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
-.tri .b{background:var(--panel);border:1px solid var(--bd);border-radius:11px;padding:19px 20px}
-.tri .b .hd{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
-.tri .b.a .hd{color:var(--terra)} .tri .b.c .hd{color:var(--mint)}
-.tri .b h4{font-size:15.5px;font-weight:800;letter-spacing:-.018em;margin-bottom:9px;line-height:1.32}
-.tri .b h4 .mt{color:var(--mint)}
-.tri .b p{font-size:12.8px;color:var(--tx2);line-height:1.6}
-
+.mgos .qfoot .tx{flex:1;min-width:300px;font-size:13.5px;color:var(--tx2);line-height:1.6}
+.mgos .qfoot .tx b{color:var(--tx)}
+.mgos .tri{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.mgos .tri .b{background:var(--panel);border:1px solid var(--bd);border-radius:11px;padding:19px 20px}
+.mgos .tri .b .hd{font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+.mgos .tri .b.a .hd{color:var(--terra)}
+.mgos .tri .b.c .hd{color:var(--mint)}
+.mgos .tri .b h4{font-size:15.5px;font-weight:600;letter-spacing:-.018em;margin-bottom:9px;line-height:1.32}
+.mgos .tri .b h4 .mt{color:var(--mint)}
+.mgos .tri .b p{font-size:12.8px;color:var(--tx2);line-height:1.6}
 /* ── artefacts ── */
-.arts{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
-.art{background:var(--panel);border:1px solid var(--bd);border-radius:11px;padding:16px 17px}
-.art h5{font-size:14px;font-weight:700;margin-bottom:6px;letter-spacing:-.012em}
-.art p{font-size:12.3px;color:var(--tx2);line-height:1.5}
-
+.mgos .arts{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+.mgos .art{background:var(--panel);border:1px solid var(--bd);border-radius:11px;padding:16px 17px}
+.mgos .art h5{font-size:14px;font-weight:700;margin-bottom:6px;letter-spacing:-.012em}
+.mgos .art p{font-size:12.3px;color:var(--tx2);line-height:1.5}
 /* ── differentiator list ── */
-.diffs{margin-top:8px}
-.diff{padding:20px 0;border-bottom:1px solid var(--bd)}
-.diff:last-child{border-bottom:0}
-.diff h4{font-size:16.5px;font-weight:800;letter-spacing:-.02em;margin-bottom:7px}
-.diff p{font-size:13.5px;color:var(--tx2);line-height:1.62;max-width:88ch}
-.diff p b{color:var(--tx)}
-
+.mgos .diffs{margin-top:8px}
+.mgos .diff{padding:20px 0;border-bottom:1px solid var(--bd)}
+.mgos .diff:last-child{border-bottom:0}
+.mgos .diff h4{font-size:16.5px;font-weight:600;letter-spacing:-.02em;margin-bottom:7px}
+.mgos .diff p{font-size:13.5px;color:var(--tx2);line-height:1.62;max-width:88ch}
+.mgos .diff p b{color:var(--tx)}
 /* ── final CTA ── */
-.finalbox{background:var(--panel);border:1px solid var(--bd);border-radius:14px;padding:46px 34px;text-align:center}
-.finalbox h2{font-size:35px;margin-bottom:16px}
-.finalbox p.d{font-size:14.5px;color:var(--tx2);max-width:62ch;margin:0 auto 26px;line-height:1.65}
-.finalbox .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
-.finalbox .cta .btn{font-size:15px;padding:14px 26px}
 
 /* ── tools ── */
-.tools{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:14px;align-items:start}
-.tool{background:var(--panel);border:1px solid var(--bd);border-radius:12px;padding:20px 21px;transition:.15s}
-.tool:hover{border-color:var(--bd2)}
-.tool .ic{width:26px;height:26px;border-radius:6px;background:var(--terra-dim);color:var(--cta);
+.mgos .tools{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:14px;align-items:start}
+.mgos .tool{background:var(--panel);border:1px solid var(--bd);border-radius:12px;padding:20px 21px;transition:.15s}
+.mgos .tool:hover{border-color:var(--bd2)}
+.mgos .tool .ic{width:26px;height:26px;border-radius:6px;background:var(--terra-dim);color:var(--cta);
   display:flex;align-items:center;justify-content:center;font-size:13px;margin-bottom:12px}
-.tool h4{font-size:15.5px;font-weight:700;margin-bottom:6px}
-.tool p{font-size:13px;color:var(--tx2);margin-bottom:12px;line-height:1.55}
-.tool a{font-size:13.5px;font-weight:600}
-.toolintro h2{font-size:28px;margin-bottom:10px}
-.toolintro p{font-size:13.5px;color:var(--tx2);line-height:1.6}
-
+.mgos .tool h4{font-size:15.5px;font-weight:700;margin-bottom:6px}
+.mgos .tool p{font-size:13px;color:var(--tx2);margin-bottom:12px;line-height:1.55}
+.mgos .tool a{font-size:13.5px;font-weight:600}
+.mgos .toolintro h2{font-size:28px;margin-bottom:10px}
+.mgos .toolintro p{font-size:13.5px;color:var(--tx2);line-height:1.6}
 /* ── footer ── */
-footer{border-top:1px solid var(--bd);padding:48px 0 40px;margin-top:40px}
-.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:34px}
-footer h5{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx);margin-bottom:14px;font-weight:700}
-footer ul{list-style:none}
-footer li{margin:8px 0}
-footer li a,.fbot a{color:var(--tx2);font-size:13.5px}
-footer li a:hover,.fbot a:hover{color:var(--tx)}
-footer .blurb{font-size:13.5px;color:var(--tx2);max-width:34ch;line-height:1.6;margin:12px 0 0}
-.fbadges{display:flex;gap:9px;margin-top:16px;flex-wrap:wrap}
-.bdg{font-size:10px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:var(--tx2);
-  border:1px solid var(--bd2);border-radius:6px;padding:6px 10px}
-.fbot{border-top:1px solid var(--bd);padding-top:22px;display:flex;gap:22px;flex-wrap:wrap;
-  align-items:center;font-size:13px;color:var(--tx3)}
-.fbot .sp{margin-left:auto}
 
 /* ── modal ── */
-.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;
+.mgos .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;
   background:rgba(0,0,0,.76);backdrop-filter:blur(5px)}
-.modal.on{display:flex}
-.mbox{background:var(--panel2);border:1px solid var(--bd2);border-radius:15px;padding:32px 34px;max-width:480px;width:100%;position:relative}
-.mbox .x{position:absolute;top:16px;right:19px;background:transparent;border:0;color:var(--tx3);font-size:23px;cursor:pointer;line-height:1}
-.mbox .x:hover{color:var(--tx)}
-.mbox h3{font-size:23px;letter-spacing:-.025em;margin-bottom:9px;font-weight:800}
-.mbox p.d{font-size:13.8px;color:var(--tx2);margin-bottom:20px;line-height:1.6}
-.mbox label.fl{display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);font-weight:700;margin-bottom:8px}
-.mbox input[type=email]{width:100%;background:var(--sunk);border:1px solid var(--bd2);border-radius:9px;
+.mgos .modal.on{display:flex}
+.mgos .mbox{background:var(--panel2);border:1px solid var(--bd2);border-radius:15px;padding:32px 34px;max-width:480px;width:100%;position:relative}
+.mgos .mbox .x{position:absolute;top:16px;right:19px;background:transparent;border:0;color:var(--tx3);font-size:23px;cursor:pointer;line-height:1}
+.mgos .mbox .x:hover{color:var(--tx)}
+.mgos .mbox h3{font-size:23px;letter-spacing:-.025em;margin-bottom:9px;font-weight:600}
+.mgos .mbox p.d{font-size:13.8px;color:var(--tx2);margin-bottom:20px;line-height:1.6}
+.mgos .mbox label.fl{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);font-weight:700;margin-bottom:8px}
+.mgos .mbox input[type=email]{width:100%;background:var(--sunk);border:1px solid var(--bd2);border-radius:9px;
   padding:13px 15px;color:var(--tx);font:inherit;font-size:14.5px;margin-bottom:15px}
-.mbox input[type=email]:focus{outline:0;border-color:var(--cta)}
-.mbox .chk{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--tx2);margin-bottom:19px;line-height:1.5}
-.mbox .chk input{margin-top:3px;flex:none}
-.mbox .btn{width:100%;padding:13px}
-.mbox .fine2{font-size:12px;color:var(--tx3);margin-top:14px;line-height:1.6}
-.mbox .done{display:none;font-size:14px;color:var(--tx2);line-height:1.65}
+.mgos .mbox input[type=email]:focus{outline:0;border-color:var(--cta)}
+.mgos .mbox .chk{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--tx2);margin-bottom:19px;line-height:1.5}
+.mgos .mbox .chk input{margin-top:3px;flex:none}
+.mgos .mbox .btn{width:100%;padding:13px}
+.mgos .mbox .fine2{font-size:12px;color:var(--tx3);margin-top:14px;line-height:1.6}
+.mgos .mbox .done{display:none;font-size:14px;color:var(--tx2);line-height:1.65}
+@media (max-width:920px){.mgos h2{font-size:26px}
+.mgos .nodes{grid-template-columns:repeat(2,1fr)}
+.mgos .cards,.mgos .arts{grid-template-columns:repeat(2,1fr)}
+.mgos .tri,.mgos .tools{grid-template-columns:1fr}
+.mgos .rw,.mgos .skrow{grid-template-columns:1fr;gap:6px}
 
-@media (max-width:920px){
-  h1{font-size:42px} h2{font-size:26px} .finalbox h2{font-size:28px}
-  .nodes{grid-template-columns:repeat(2,1fr)}
-  .cards,.arts{grid-template-columns:repeat(2,1fr)}
-  .tri,.tools{grid-template-columns:1fr}
-  .rw,.skrow{grid-template-columns:1fr;gap:6px}
-  .fgrid{grid-template-columns:1fr 1fr}
 }
-@media (max-width:580px){
-  h1{font-size:33px} .nodes,.cards,.arts{grid-template-columns:1fr} .fgrid{grid-template-columns:1fr}
-  .qt th.c{width:76px} .qt td,.qt th{padding:10px 11px;font-size:12.5px}
+@media (max-width:580px){.mgos .nodes,.mgos .cards,.mgos .arts{grid-template-columns:1fr}
+.mgos .qt th.c{width:76px}
+.mgos .qt td,.mgos .qt th{padding:10px 11px;font-size:12.5px}
+
 }
-@media print{ body{background:#fff;color:#000;background-image:none} nav.top,.modal{display:none} }
+@media print{.mgos{color:#000;}
+.mgos .modal{display:none}
+ }
+
+
+/* Shell alignment (2026-09-12): Meta Growth OS now sits inside the site nav, F2 footer and
+   shared hero; its own component CSS is scoped under .mgos so nothing leaks either way. */
+.mgos .mb9{margin-bottom:9px}
+.mgos .mbox h3.tight{margin-bottom:11px}
+.mgos .strong-tx{color:var(--tx)}
+.mgos .mt16{margin-top:16px}
+.mgos .slede.note{margin:24px 0 0;font-size:13.5px}
+.mgos .tool .ic svg{width:16px;height:16px}
+@media (max-width:720px){ .mgos section{padding:32px 0} .mgos h2{font-size:28px} }
 </style>
 </head>
-<body>
+<body class="redesign-prototype">
 <!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSQPX93X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
 
-<nav class="top"><div class="in">
-  <a href="https://helpmemarketing.com" class="logo"><span class="lm">H<i>MM</i></span>Help<em>Me</em>Marketing</a>
-  <a class="lnk" href="https://helpmemarketing.com">Home</a>
-  <a class="lnk" href="https://helpmemarketing.com/services">Services</a>
-  <a class="lnk" href="https://helpmemarketing.com/ai-tools">AI Tools</a>
-  <a class="lnk" href="https://helpmemarketing.com/work">Case Studies</a>
-  <a class="lnk" href="https://helpmemarketing.com/blog">Blog</a>
-  <a class="lnk" href="https://helpmemarketing.com/about">About</a>
-  <span class="sp"></span>
-  <a class="btn" href="https://helpmemarketing.com/tools/marketing-audit">Free AI Audit</a>
-  <a class="btn dark" href="https://helpmemarketing.com/contact">Need Help? Book a call</a>
-</div></nav>
 
-<div class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="sq"></span>HMM · Paid growth, engineered</div>
-  <h1>One System.<br>Any Account.</h1>
-  <p class="hlede">Any dashboard can hand you two hundred metrics. Knowing which one is lying, what it's costing you, and whether the fix worked. That's the whole job. <b>Nine stages, thirteen specialist skills, yours to download and run.</b> <span class="dim">Underneath, every account is the same nine steps. Pick a business type below and watch what actually changes.</span></p>
-  <div class="hcta">
-    <button class="btn" data-dl>Download Meta Growth OS →</button>
-    <a class="btn dark" href="https://helpmemarketing.com/contact">Need help with setup? Book a call</a>
+<div class="app" data-screen-label="meta-growth-os">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="/"><img class="logo-img" src="/assets/brand/hmm-mark.svg" alt="Help Me Marketing" width="99" height="32"></a>
+    <div class="nav-links">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/services">Services</a>
+      <a class="nav-link" href="/ai-tools">AI Tools</a>
+      <a class="nav-link" href="/work">Case Studies</a>
+      <a class="nav-link" href="/blog">Blog</a>
+      <a class="nav-link" href="/about">About</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-accent nav-main-cta" href="/tools/marketing-audit">Free AI Audit</a>
+      <a class="btn btn-outline" href="/contact">Need Help? Book a call</a>
+      <button class="nav-hamburger" aria-label="Menu" onclick="var m=document.querySelector('.nav-mobile-menu'); var o=m.classList.toggle('open'); this.classList.toggle('open', o);"><span></span></button>
+    </div>
   </div>
-  <p class="fine">Free · 13 skills · runs in your own LLM · no card</p>
-</div></div>
-<section style="padding-top:14px"><div class="wrap">
+</nav>
+<div class="nav-mobile-menu">
+  <a class="nav-link" href="/">Home</a>
+  <a class="nav-link" href="/services">Services</a>
+  <a class="nav-link" href="/ai-tools">AI Tools</a>
+  <a class="nav-link" href="/work">Case Studies</a>
+  <a class="nav-link" href="/blog">Blog</a>
+  <a class="nav-link" href="/about">About</a>
+  <div class="mobile-cta-row">
+    <a class="btn btn-accent" href="/tools/marketing-audit">Free AI Audit</a>
+    <a class="btn btn-outline" href="/contact">Need Help? Book a call</a>
+  </div>
+</div>
+
+<div class="page-enter">
+
+<section class="hero svc-hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Framework &middot; Paid growth, engineered</p>
+        <h1 class="hero-headline">One system. <em>Any account.</em></h1>
+        <p class="hero-subtitle">Any dashboard can hand you two hundred metrics. Knowing which one is lying, what it is costing you, and whether the fix worked is the whole job. Nine stages, thirteen specialist skills, yours to download and run.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-primary" type="button" data-dl>Download Meta Growth OS &rarr;</button>
+          <a class="btn btn-outline" href="/contact">Need help with setup? Book a call</a>
+        </div>
+        <p class="hero-note">Free &middot; 13 skills &middot; runs in your own LLM &middot; no card</p>
+      </div>
+      <div class="hero-visual svc-hero-visual">
+        <img class="hero-image svc-hero-image" src="/assets/growth-os/meta.webp" alt="An ad frame, a funnel, a bar chart and a refresh loop linked into one cycle, drawn in glowing orange particles" width="1344" height="752" loading="eager" fetchpriority="high" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mgos">
+<section class="tight"><div class="wrap">
+  <p class="ncap ncap-lead">Underneath, every account is the same nine steps. Pick a business type below and watch what actually changes.</p>
   <div class="nodes">
     <div class="nd"><div class="lb">STAGE 00</div><span class="chip gate">the gate</span>
       <h4>Readiness</h4><p>What's connected, what it unlocks, what's blocked before anything runs</p>
@@ -351,7 +358,7 @@ footer .blurb{font-size:13.5px;color:var(--tx2);max-width:34ch;line-height:1.6;m
   <p class="ncap">Three parts carry your business. <b>Five carry the method, and those never change.</b></p>
 </div></section>
 
-<section style="padding-top:14px"><div class="wrap">
+<section class="tight"><div class="wrap">
   <div class="selbox">
     <label for="pillar">Choose the business type</label>
     <select id="pillar">
@@ -560,7 +567,7 @@ No CDN, no external images, no server. It must open on a laptop with no internet
   </table>
   <div class="qfoot">
     <div class="tx"><b>The left column ships with the download.</b> The right column needs your CRM or store connected. Both are accounts you already own. They just need wiring up.</div>
-    <a class="btn dark" href="https://helpmemarketing.com/contact">Book a setup call</a>
+    <a class="btn dark" href="/contact">Book a setup call</a>
   </div>
 
   <div class="tri">
@@ -610,17 +617,7 @@ No CDN, no external images, no server. It must open on a laptop with no internet
   </div>
 </div></section>
 
-<section id="download"><div class="wrap">
-  <div class="finalbox">
-    <h2>Nine stages. Thirteen skills.<br><span class="mt">One record that remembers.</span></h2>
-    <p class="d">Everything marked in terracotta changes with the account. Everything in mint is the method, and it took years to write down. Download it, run it in your own LLM, keep whatever it finds. The audit was never the hard part.</p>
-    <div class="cta">
-      <button class="btn" data-dl>Download Meta Growth OS →</button>
-      <a class="btn dark" href="https://helpmemarketing.com/contact">Need help with setup? Book a call</a>
-    </div>
-    <p class="fine">Free · 13 skills · yours to keep · no card</p>
-  </div>
-</div></section>
+
 
 <section><div class="wrap">
   <div class="tools">
@@ -629,62 +626,118 @@ No CDN, no external images, no server. It must open on a laptop with no internet
       <p>Free utilities built from our actual client work. Use them, share them, run the numbers yourself.</p>
     </div>
     <div class="tool">
-      <div class="ic">▤</div>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z"/><path d="M8 14l0 .01"/><path d="M12 14l0 .01"/><path d="M16 14l0 .01"/><path d="M8 17l0 .01"/><path d="M12 17l0 .01"/><path d="M16 17l0 .01"/></svg></div>
       <h4>AdSpend Calculator</h4>
       <p>Model CPL, ROAS, and budget across 4 platforms × 11 verticals.</p>
-      <a href="https://helpmemarketing.com/ad-calculator">Run the numbers →</a>
+      <a href="/ad-calculator">Run the numbers →</a>
     </div>
     <div class="tool">
-      <div class="ic">▦</div>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/><path d="M9 14l2 2l4 -4"/></svg></div>
       <h4>AI Marketing Audit</h4>
       <p>Score your marketing maturity across 5 dimensions in 10 min.</p>
-      <a href="https://helpmemarketing.com/tools/marketing-audit">Take the audit →</a>
+      <a href="/tools/marketing-audit">Take the audit →</a>
     </div>
   </div>
-  <p class="slede" style="margin:24px 0 0;font-size:13.5px">Doing organic too? The <a href="https://helpmemarketing.com/seo-growth-os">SEO Growth OS</a> is the same architecture for search, six nodes, thirty-two specialist checks. Meta Growth OS is its paid half.</p>
+  <p class="slede note">Doing organic too? The <a href="/seo-growth-os">SEO Growth OS</a> is the same architecture for search, six nodes, thirty-two specialist checks. Meta Growth OS is its paid half.</p>
 </div></section>
 
-<footer><div class="wrap">
-  <div class="fgrid">
-    <div>
-      <a href="https://helpmemarketing.com" class="logo"><span class="lm">H<i>MM</i></span>Help<em>Me</em>Marketing</a>
-      <p class="blurb">For performance marketers and brand owners who want to think like Growth Architects, not media buyers.</p>
-      <div class="fbadges"><span class="bdg">Google Partner</span><span class="bdg">Meta Partner</span></div>
-    </div>
-    <div><h5>Services</h5><ul>
-      <li><a href="https://helpmemarketing.com/services/performance-marketing">Performance Marketing</a></li>
-      <li><a href="https://helpmemarketing.com/services/seo">SEO &amp; AEO</a></li>
-      <li><a href="https://helpmemarketing.com/services/branding-social">Branding &amp; Social</a></li>
-      <li><a href="https://helpmemarketing.com/services/website-development">Website Development</a></li>
-      <li><a href="https://helpmemarketing.com/services/analytics-attribution">Analytics &amp; Attribution</a></li>
-      <li><a href="https://helpmemarketing.com/services/ai-automation">AI Automation &amp; Workflow Systems</a></li>
-    </ul></div>
-    <div><h5>Industries</h5><ul>
-      <li><a href="https://helpmemarketing.com/industries/dtc">DTC</a></li>
-      <li><a href="https://helpmemarketing.com/industries/saas">SaaS</a></li>
-      <li><a href="https://helpmemarketing.com/industries/healthcare">Healthcare</a></li>
-      <li><a href="https://helpmemarketing.com/industries/finance">Finance</a></li>
-    </ul></div>
-    <div><h5>Company</h5><ul>
-      <li><a href="https://helpmemarketing.com/about">About</a></li>
-      <li><a href="https://helpmemarketing.com/work">Case Studies</a></li>
-      <li><a href="https://helpmemarketing.com/blog">Blog</a></li>
-      <li><a href="https://helpmemarketing.com/contact">Contact</a></li>
-    </ul></div>
-  </div>
-  <div class="fbot">
-    <span>Help Me Marketing · Burlington, ON · <a href="mailto:Hello@helpmemarketing.com">Hello@helpmemarketing.com</a></span>
-    <span class="sp"></span>
-    <a href="https://helpmemarketing.com/privacy">Privacy Policy</a>
-    <a href="https://helpmemarketing.com/terms">Terms of Service</a>
-    <span>© 2026 HelpMeMarketing</span>
-  </div>
-</div></footer>
 
+
+
+</div>
+
+<section class="final-cta-section" id="download">
+  <div class="container">
+    <div class="final-cta">
+      <h2 class="section-heading">Nine stages. Thirteen skills. <em>One record that remembers.</em></h2>
+      <p class="subhead">Everything marked in orange changes with the account. Everything in mint is the method, and it took years to write down. Download it, run it in your own LLM, keep whatever it finds.</p>
+      <div class="final-cta-actions">
+        <button class="btn btn-primary" type="button" data-dl>Download Meta Growth OS &rarr;</button>
+        <a class="btn btn-outline" href="/contact">Need help with setup? Book a call</a>
+      </div>
+      <p class="subhead final-cta-note">Free &bull; 13 skills &bull; yours to keep &bull; no card</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <div class="container">
+
+    <!-- CTA + links -->
+    <div class="footer-cta">
+      <div class="footer-cta-offer">
+        <img class="footer-logo" src="/assets/brand/hmm-logo-full.svg" alt="Help Me Marketing" width="150" height="69">
+        <span class="footer-cta-eyebrow">Free · No obligation</span>
+        <h2 class="footer-cta-head">Ready to grow the <em>right</em> way?</h2>
+        <a href="/contact" class="footer-cta-btn">Book a free audit
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <address class="footer-cta-nap">Burlington, Ontario, Canada <span class="footer-dot">·</span> <a href="mailto:Hello@helpmemarketing.com">Hello@helpmemarketing.com</a></address>
+      </div>
+
+      <div class="footer-cta-links">
+        <div class="footer-linkcol">
+          <h4>Industries</h4>
+          <ul>
+            <li><a href="/industries/dtc">DTC</a></li>
+            <li><a href="/industries/saas">SaaS</a></li>
+            <li><a href="/industries/healthcare">Healthcare</a></li>
+            <li><a href="/industries/finance">Finance</a></li>
+          </ul>
+        </div>
+        <div class="footer-linkcol">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/work">Case Studies</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-linkcol">
+          <h4>Free tools</h4>
+          <div class="footer-tool-btns">
+            <a class="footer-tool-btn" href="/ad-calculator">AdSpend Calculator</a>
+            <a class="footer-tool-btn" href="/tools/marketing-audit">AI Marketing Audit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Baseline -->
+    <div class="footer-base">
+      <div class="footer-partners">
+        <span class="footer-partner"><img class="footer-brand-logo logo-meta" src="/assets/brand/meta-color.svg" alt="" aria-hidden="true" width="23" height="15" loading="lazy">Meta Partner</span>
+        <span class="footer-partner"><img class="footer-brand-logo logo-google" src="/assets/brand/google-color.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy">Google Partner</span>
+      </div>
+      <div class="footer-base-right">
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/helpmemarketing/" rel="noopener" target="_blank" aria-label="Help Me Marketing on LinkedIn"><img class="footer-brand-logo logo-linkedin" src="/assets/brand/linkedin-color.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"></a>
+          <a href="https://www.facebook.com/helpmemarketing1" rel="noopener" target="_blank" aria-label="Help Me Marketing on Facebook"><img class="footer-brand-logo logo-facebook" src="/assets/brand/facebook-color.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"></a>
+        </div>
+        <span class="footer-base-sep"></span>
+        <div class="footer-legal">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <span>© 2026 HelpMeMarketing</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+</div>
+
+<!-- Meta Growth OS download modal (outside .page-enter so position:fixed is viewport-relative) -->
+<div class="mgos">
 <div class="modal" id="dlmodal"><div class="mbox">
   <button class="x" id="mclose" aria-label="Close">×</button>
   <div id="mform">
-    <div class="eyebrow" style="margin-bottom:9px"><span class="dot"></span>Free download</div>
+    <div class="eyebrow mb9"><span class="dot"></span>Free download</div>
     <h3>Where should we send it?</h3>
     <p class="d">Enter your email and the full bundle arrives in your inbox: 13 skills, a README, and a setup guide. It runs in your own LLM.</p>
     <form id="dlform">
@@ -694,17 +747,18 @@ No CDN, no external images, no server. It must open on a laptop with no internet
         <label for="dlopt">Send me occasional performance marketing notes and updates. Optional, and you can stop any time.</label></div>
       <button class="btn" type="submit">Send me the download</button>
     </form>
-    <p class="fine2">We send the file and nothing else unless you tick the box. See our <a href="https://helpmemarketing.com/privacy">privacy policy</a>.<br>
-      Rather not set it up yourself? <a href="https://helpmemarketing.com/contact">Book a setup call</a>.</p>
+    <p class="fine2">We send the file and nothing else unless you tick the box. See our <a href="/privacy">privacy policy</a>.<br>
+      Rather not set it up yourself? <a href="/contact">Book a setup call</a>.</p>
   </div>
   <div class="done" id="mdone">
-    <div class="eyebrow" style="margin-bottom:9px"><span class="dot"></span>Downloading</div>
-    <h3 style="margin-bottom:11px">Your download has started.</h3>
-    <p>The full bundle is downloading now: thirteen skills, a README, and a setup guide, as a single zip. It runs in your own LLM. We saved <b id="mdoneaddr" style="color:var(--tx)"></b> so we can send updates only if you asked for them.</p>
-    <p style="margin-top:16px">Didn't start? <a href="/meta-growth-os.zip" download>Download it directly</a>.<br>
-      Want it set up properly instead? <a href="https://helpmemarketing.com/contact">Book a setup call</a>.</p>
+    <div class="eyebrow mb9"><span class="dot"></span>Downloading</div>
+    <h3 class="tight">Your download has started.</h3>
+    <p>The full bundle is downloading now: thirteen skills, a README, and a setup guide, as a single zip. It runs in your own LLM. We saved <b id="mdoneaddr" class="strong-tx"></b> so we can send updates only if you asked for them.</p>
+    <p class="mt16">Didn't start? <a href="/meta-growth-os.zip" download>Download it directly</a>.<br>
+      Want it set up properly instead? <a href="/contact">Book a setup call</a>.</p>
   </div>
 </div></div>
+</div>
 
 <script>
 const P = {
