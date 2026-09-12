@@ -1243,6 +1243,13 @@ body.blog-dark .author-avatar {
 
 ---
 
+### Sitewide consistency pass (2026-09-12)
+
+- **Hero image block is mandatory on every post.** `.hero-illustration.hero-illustration--image` sits inside `.hero-zone` directly after the text column, with the post's `/blog/images/[slug]-hero.webp`, real `width`/`height`, `loading="eager"`, `fetchpriority="high"` and `decoding="async"`. Nine posts had shipped without the block even though their images existed; all 14 now carry it.
+- **FAQ questions use the site ring badge.** `body.blog-dark .faq-question` is 17px/500 with a 28px ring `::after` holding the plus, which rotates 45deg when the item is open and glows orange on hover and focus. Markup unchanged (`details.faq-item > summary.faq-question + .faq-answer`), so FAQPage schema is unaffected.
+- **Related cards** lift 2px with the orange-ring hover used by cards elsewhere on the site.
+- **12px label floor.** TOC title, sidebar CTA eyebrow and subnote, audit badge, table source, outcome-centre lower label and mobile TOC chevron are 12px (were 9 to 11px); the sidebar CTA button is 13px.
+
 # PART 5 — JAVASCRIPT TEMPLATE
 
 External file: `/blog/blog-template.js` (single source of truth across all blogs).
@@ -1822,6 +1829,7 @@ When uncertain about a pattern, view that blog's source as the canonical impleme
 | Version | Date | Changes |
 |---|---|---|
 | 2.0 | May 5 2026 | Initial V2 template (D-hybrid sticky TOC sidebar). Replaces V1 (2-column body-layout with right-column visuals). |
+| 2.7 | Sep 12 2026 | Sitewide consistency pass: hero image block added to the nine posts that lacked it (all 14 now carry it, with eager/high-priority loading), FAQ questions restyled to the site ring badge, related cards get the orange-ring hover, 12px label floor in the sidebar, badges and table sources. Part 3 Section J note. |
 | 2.6 | Sep 9 2026 | Third pass across the remaining 12 posts: opened mobile TOC list gets a dark surface (was a white panel), every inline style stripped from every post (link colours, table footnotes, lever paragraph margins, author role), think-long stars and four Unicode symbol icons replaced with Tabler SVGs, `.stat-inline` and table winner labels neutral white, `.cta-microcopy` styled. |
 | 2.5 | Sep 9 2026 | Second pass from /blog/digital-marketing-cost: `.rule-of-thumb` is a block (flex split sentences into columns), `.think-long` white with an orange star, `.audit-card` / `.insight-card` / `.channel-cta` headings on the 20px scale, `.table-section h3` eyebrow style, new `.table-note`, inline link styles and the voice-rules HTML comment stripped from posts. |
 | 2.4 | Sep 9 2026 | Approved design pass: `--text-body` token for all post copy (Decision 13), H2 28/500 with 48px rhythm, card headings 20px, list items 16px, Fraunces italic 20px pull quote at 8% tint, eyebrow-style diagram titles, neutral (white) table figures, SVG share icons on all 14 posts, emoji replaced with Tabler SVGs on the healthcare post, FAQ aligned to the column, 8px buttons, author-line dots travel with their item. |
