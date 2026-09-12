@@ -7977,3 +7977,28 @@ body.redesign-prototype .legal-closing p { margin: 0 0 6px; font-size: 15px; col
   body.redesign-prototype .legal-body h2.section-heading { font-size: 24px; }
   body.redesign-prototype .legal-body section.content-section { scroll-margin-top: 88px; }
 }
+
+/* ============================================================
+   CTA COLOUR RULE (founder decision, 2026-09-12)
+   Any button whose destination is /contact reads "Need Help? Let's Talk" and is the
+   Signal Orange fill. Any button whose destination is /tools/marketing-audit reads
+   "Free AI Audit" and is the Mint outline (the footer tool-card treatment). Applied by
+   destination so every scope (prototype, blog-dark, .sgos, .mgos, .msi) agrees; the
+   :is()/:not() pair lifts specificity to (0,3,2) so it outranks each scope's own
+   button rules. Download/gate triggers that fall back to /contact are excluded.
+   ============================================================ */
+body a[href^="/contact"]:is(.btn, .footer-cta-btn, .cta-button, .cta-btn, .cta2, .hmm-nav-cta):not([data-gate-open]) {
+  background: var(--cta); color: #0E0E0E; border: 1px solid var(--cta); border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(255, 92, 26, 0.25); text-decoration: none;
+}
+body a[href^="/contact"]:is(.btn, .footer-cta-btn, .cta-button, .cta-btn, .cta2, .hmm-nav-cta):not([data-gate-open]):hover {
+  background: var(--cta-hover, #FF7038); border-color: var(--cta-hover, #FF7038); color: #0E0E0E;
+}
+body a.footer-cta-btn[href^="/contact"]:not([data-gate-open]) { border-radius: 10px; }
+body a[href^="/tools/marketing-audit"]:is(.btn, .footer-tool-btn, .pf-pill):not([data-gate-open]) {
+  background: transparent; color: var(--mint); border: 1px solid var(--mint); box-shadow: none;
+}
+body a[href^="/tools/marketing-audit"]:is(.btn, .footer-tool-btn, .pf-pill):not([data-gate-open]):hover {
+  background: rgba(0, 212, 170, 0.12); color: var(--mint); border-color: var(--mint); transform: none;
+}
+body a[href^="/tools/marketing-audit"]:is(.pf-pill):not([data-gate-open]) .pf-pill-kind { color: var(--mint); opacity: .75; }

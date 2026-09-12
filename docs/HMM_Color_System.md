@@ -271,3 +271,7 @@ This doc is **descriptive of shipped reality**, not aspirational. Aspirational c
 *HMM Color System v1.0 — first markdown commit*
 *Source: HMM-Color-System.docx (May 2026)*
 *Reconciled: Homepage design audit, locked 10 decisions, founder-approved*
+
+### Decision 14 — CTA colour by destination (founder decision, 2026-09-12)
+
+Every button whose destination is `/contact` reads **"Need Help? Let's Talk"** and is the Signal Orange fill (`var(--cta)`, `#0E0E0E` text). Every button whose destination is `/tools/marketing-audit` reads **"Free AI Audit"** and is the **Mint outline** (transparent, `var(--mint)` text and 1px border, the footer tool-card treatment). This is a deliberate founder exception to "Mint never a CTA" (Decision 12): the audit is the free diagnostic, the orange button is the conversation. Implemented once in `styles.css` by destination attribute selectors so every scope (prototype, blog-dark, the Growth OS and Index page scopes) agrees; download and gate triggers that fall back to `/contact` are excluded. In the nav this makes the main pill Mint outline and the secondary pill orange; on the two Growth OS pages the download buttons step back to the white outline so the orange contact button carries the page.

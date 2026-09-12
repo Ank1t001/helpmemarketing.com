@@ -86,7 +86,7 @@ window.MARKETING_AUDIT_CONTENT = {
         { text: 'Read: How to build a marketing strategy from zero', href: '/blog/marketing-strategy-from-zero' },
         { text: 'Read: What marketing do you actually need at this stage?', href: '/blog/what-marketing-do-i-need' },
         { text: 'Explore: Performance marketing services', href: '/google-meta-ads' },
-        { text: 'Start a conversation', href: '/contact' }
+        { text: 'Need Help? Let’s Talk', href: '/contact' }
       ]
     },
 
@@ -258,7 +258,7 @@ window.MARKETING_AUDIT_CONTENT = {
         { text: 'Read: Why your Meta ROAS is lying to you', href: '/blog/meta-roas-attribution' },
         { text: 'Read: The marketing KPIs that actually predict revenue', href: '/blog/marketing-kpis' },
         { text: 'Explore: Analytics services', href: '/analytics' },
-        { text: 'Talk to us about a custom dashboard build', href: '/contact' }
+        { text: 'Need Help? Let’s Talk', href: '/contact' }
       ]
     },
 
@@ -347,7 +347,7 @@ window.MARKETING_AUDIT_CONTENT = {
       internalLinks: [
         { text: 'Read: How to think about marketing strategy', href: '/blog/marketing-strategy-from-zero' },
         { text: 'Explore: Analytics services', href: '/analytics' },
-        { text: 'Discuss a custom dashboard or marketing tool build', href: '/contact' }
+        { text: 'Need Help? Let’s Talk', href: '/contact' }
       ]
     }
 

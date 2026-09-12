@@ -496,7 +496,7 @@
       internalLinksBlock +
       '<a class="audit-final-cta" href="/contact">' +
         '<span class="audit-final-cta-label">Free · 30 min</span>' +
-        '<span class="audit-final-cta-text">Start a conversation</span>' +
+        '<span class="audit-final-cta-text">Need Help? Let’s Talk</span>' +
       '</a>';
 
     if (gate) gate.hidden = true;
