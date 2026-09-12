@@ -28,27 +28,21 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .benchmark-table { width:100%; border-collapse:collapse; font-size:14.5px; }
 .benchmark-table thead tr { background: var(--bg-elevated); }
 .benchmark-table tbody { font-variant-numeric: tabular-nums; }
-.benchmark-table th { padding:14px 18px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); font-weight:600; border-bottom:1px solid var(--border); text-align:left; }
+.benchmark-table th { padding:14px 18px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); font-weight:600; border-bottom:1px solid var(--border); text-align:left; }
 .benchmark-table th:not(:first-child) { text-align:right; }
 .benchmark-table td { padding:12px 18px; color:var(--text); border-bottom:1px solid var(--border); }
 .benchmark-table td:first-child { font-weight:500; }
 .benchmark-table td:not(:first-child) { text-align:right; }
 .benchmark-table tr:last-child td { border-bottom:none; }
 .benchmark-commentary { font-size:15px; color:var(--text-muted); line-height:1.7; max-width:720px; margin-top:14px; }
-.content-section .subsection { margin-top: 40px; }
-body.redesign-prototype .bm-hero-section { padding:80px 0 0; }
-body.redesign-prototype .bm-back-row { margin:0 0 24px; }
-body.redesign-prototype .bm-back-link { color:var(--text-muted); text-decoration:none; font-size:13px; letter-spacing:0.05em; }
+body.redesign-prototype .content-section .subsection { margin: 40px 0 14px; font-size:22px; font-weight:500; line-height:1.3; }
+.benchmark-table th { font-size:12px; }
+.bm-table-wrap + .benchmark-commentary { margin-top:16px; }
 body.redesign-prototype .bm-method-body { margin-top:24px; font-size:17px; color:var(--text); line-height:1.7; max-width:780px; }
 body.redesign-prototype .bm-para { margin:0 0 16px; }
 body.redesign-prototype .bm-para-last { margin:0; }
 body.redesign-prototype .bm-table-wrap { overflow-x:auto; border:1px solid var(--border); border-radius:14px; margin-top:18px; background:var(--bg-elevated); }
 body.redesign-prototype .bm-inline-link { color:var(--text); text-decoration:underline; text-underline-offset:2px; }
-body.redesign-prototype .bm-cta-section { padding:80px 0 120px; border-top:1px solid var(--border); }
-body.redesign-prototype .bm-cta-card { padding:28px 32px; border:1px dashed var(--border); border-radius:16px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
-body.redesign-prototype .bm-cta-headline { font-size:22px; color:var(--text); margin-bottom:6px; }
-body.redesign-prototype .bm-cta-em { color:var(--cta); }
-body.redesign-prototype .bm-cta-sub { font-size:14px; color:var(--text-muted); }
 </style>
 <link rel="canonical" href="https://helpmemarketing.com/ad-calculator/benchmarks">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -57,14 +51,14 @@ body.redesign-prototype .bm-cta-sub { font-size:14px; color:var(--text-muted); }
 <meta property="og:title" content="Ad Spend Benchmarks by Platform and Industry (2026)">
 <meta property="og:description" content="The platform and industry ad benchmarks behind our ad spend calculator: CPL, conversion, and LTV for DTC, SaaS, healthcare, and finance, plus the math.">
 <meta property="og:url" content="https://helpmemarketing.com/ad-calculator/benchmarks">
-<meta property="og:image" content="https://helpmemarketing.com/og-image.png">
+<meta property="og:image" content="https://helpmemarketing.com/assets/calculators/benchmarks-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ad Spend Benchmarks by Platform and Industry (2026)">
 <meta name="twitter:description" content="The platform and industry ad benchmarks behind our ad spend calculator: CPL, conversion, and LTV for DTC, SaaS, healthcare, and finance, plus the math.">
-<meta name="twitter:image" content="https://helpmemarketing.com/og-image.png">
+<meta name="twitter:image" content="https://helpmemarketing.com/assets/calculators/benchmarks-og.jpg">
 <script type="application/ld+json" data-cfasync="false">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://helpmemarketing.com/"},{"@type":"ListItem","position":2,"name":"Ad-spend Calculator","item":"https://helpmemarketing.com/ad-calculator"},{"@type":"ListItem","position":3,"name":"Benchmarks","item":"https://helpmemarketing.com/ad-calculator/benchmarks"}]}
 </script>
@@ -110,11 +104,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="page-enter">
 
-<section class="bm-hero-section">
+<section class="hero svc-hero">
   <div class="container">
-    <p class="bm-back-row"><a href="/ad-calculator" class="bm-back-link">&larr; Back to the ad spend calculator</a></p>
-    <h1 class="hero-headline">Ad spend benchmarks <em>by platform &amp; industry</em></h1>
-    <p class="section-deck">The data and methodology behind the calculator. Platform-level CPL, industry-by-industry tables, and how the math works.</p>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Free tool &middot; Methodology</p>
+        <h1 class="hero-headline">Ad spend benchmarks <em>by platform and industry</em></h1>
+        <p class="hero-subtitle">The data and methodology behind the calculator. Platform-level cost per lead, industry-by-industry tables, and how the math works.</p>
+        <div class="hero-ctas">
+          <a href="/ad-calculator" class="btn btn-primary">Open the calculator &rarr;</a>
+          <a href="#benchmarks-by-industry" class="btn btn-outline">Jump to the tables &rarr;</a>
+        </div>
+      </div>
+      <div class="hero-visual svc-hero-visual">
+        <img class="hero-image svc-hero-image" src="/assets/calculators/benchmarks.webp" alt="Four horizontal benchmark bars of different lengths against faint gridlines, drawn in glowing orange particles" width="1344" height="752" loading="eager" fetchpriority="high" decoding="async">
+      </div>
+    </div>
   </div>
 </section>
 
@@ -250,14 +255,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="bm-cta-section">
+<section class="final-cta-section">
   <div class="container">
-    <div class="bm-cta-card">
-      <div>
-        <div class="serif bm-cta-headline">Want a plan built on <em class="bm-cta-em">your</em> actual numbers?</div>
-        <div class="bm-cta-sub">We&rsquo;ll look at your current spend and suggest a directional plan: 20 minutes, no deck.</div>
+    <div class="final-cta">
+      <h2 class="section-heading">Want a plan built on <em>your</em> actual numbers?</h2>
+      <p class="subhead">Benchmarks tell you the zip code. Your account data tells you the street. Bring us your current spend and we&rsquo;ll suggest a directional plan.</p>
+      <div class="final-cta-actions">
+        <a class="btn btn-primary" href="/contact">Start a conversation &rarr;</a>
+        <a class="btn btn-outline" href="/ad-calculator">Back to the calculator &rarr;</a>
       </div>
-      <a href="/contact" class="btn btn-primary">Start a conversation &rarr;</a>
+      <p class="subhead final-cta-note">20-minute call &bull; Straight answers &bull; No obligation</p>
     </div>
   </div>
 </section>

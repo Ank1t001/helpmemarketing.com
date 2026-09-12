@@ -31,14 +31,14 @@ w.addEventListener(e,load,{once:true,passive:true});});
 <meta property="og:title" content="AdSpend Calculator | HelpMeMarketing">
 <meta property="og:description" content="How much should you actually spend on ads? Pick your segment and a monthly customer goal. We'll show a rough budget range based on aggregated benchmarks.">
 <meta property="og:url" content="https://helpmemarketing.com/ad-calculator">
-<meta property="og:image" content="https://helpmemarketing.com/og-image.png">
+<meta property="og:image" content="https://helpmemarketing.com/assets/calculators/ad-calculator-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AdSpend Calculator | HelpMeMarketing">
 <meta name="twitter:description" content="How much should you actually spend on ads? Pick your segment and a monthly customer goal. We'll show a rough budget range based on aggregated benchmarks.">
-<meta name="twitter:image" content="https://helpmemarketing.com/og-image.png">
+<meta name="twitter:image" content="https://helpmemarketing.com/assets/calculators/ad-calculator-og.jpg">
 <script type="application/ld+json" data-cfasync="false">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://helpmemarketing.com/"},{"@type":"ListItem","position":2,"name":"Ad-spend Calculator","item":"https://helpmemarketing.com/ad-calculator"}]}
 </script>
@@ -90,17 +90,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="page-enter">
 
-<section class="adc-hero-section">
+<section class="hero svc-hero">
   <div class="container">
-    <span class="eyebrow"><span class="eyebrow-dot"></span>Free tool · Resource</span>
-    <h1 class="hero-headline">
-      How much should you actually <em>spend</em> on ads?
-    </h1>
-    <p class="hero-subtitle">Pick your segment and a monthly customer goal. We&rsquo;ll show a rough budget range based on aggregated benchmarks. Numbers are averages. Your real numbers will vary with market, creative, and seasonality.</p>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Free tool &middot; Ad spend calculator</p>
+        <h1 class="hero-headline">How much should you actually <em>spend</em> on ads?</h1>
+        <p class="hero-subtitle">Pick your segment and a monthly customer goal. We&rsquo;ll show a rough budget range based on aggregated benchmarks. Numbers are averages. Your real numbers will vary with market, creative, and seasonality.</p>
+        <div class="hero-ctas">
+          <a href="#tool" class="btn btn-primary">Run the numbers &rarr;</a>
+          <a href="/ad-calculator/benchmarks" class="btn btn-outline">See the benchmarks &rarr;</a>
+        </div>
+      </div>
+      <div class="hero-visual svc-hero-visual">
+        <img class="hero-image svc-hero-image" src="/assets/calculators/ad-calculator.webp" alt="A budget dial feeding a stream of light into three rising bar-chart columns, drawn in glowing orange particles" width="1344" height="752" loading="eager" fetchpriority="high" decoding="async">
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="adc-main-section">
+<section id="tool" class="content-section adc-main-section">
   <div class="container adc-container-wide">
 
     <div class="calc-grid adc-calc-grid">
@@ -333,48 +342,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section id="faq" class="content-section blog-faq">
+<section id="faq" class="content-section">
   <div class="container">
     <span class="eyebrow"><span class="eyebrow-dot"></span>FAQ</span>
     <h2 class="section-heading">Frequently asked questions</h2>
     <p class="section-deck">Common questions about how to read these numbers and apply them to your situation.</p>
 
-    <div class="blog-faq-list adc-mt-48">
-      <details class="faq-item">
-        <summary class="faq-question">How accurate are these benchmarks?</summary>
-        <div class="faq-answer">
-          <p>The numbers are medians from public 2025 reports. Your actual cost per lead will likely fall within ±30-50% of the segment baseline depending on creative quality, offer strength, audience precision, and seasonality. Use the calculator to set a starting expectation, not a target. If your real-world numbers are 2× off these benchmarks in either direction, that's worth investigating; 30% off is normal variance.</p>
-        </div>
+    <div class="svc-faq-wrap">
+      <details class="svc-faq-item">
+        <summary>
+          <span>How accurate are these benchmarks?</span>
+          <span aria-hidden="true">+</span>
+        </summary>
+        <p>The numbers are medians from public 2025 reports. Your actual cost per lead will likely fall within ±30-50% of the segment baseline depending on creative quality, offer strength, audience precision, and seasonality. Use the calculator to set a starting expectation, not a target. If your real-world numbers are 2× off these benchmarks in either direction, that's worth investigating; 30% off is normal variance.</p>
       </details>
-      <details class="faq-item">
-        <summary class="faq-question">Should I trust the platform multipliers?</summary>
-        <div class="faq-answer">
-          <p>Treat them as directional, not precise. They reflect typical agency-managed performance ratios. For example, Google CPL is roughly 1.5× Meta CPL on average, but a poorly-managed Google account can be 3× or worse. Your actual ratio depends on bid strategy, keyword quality, ad relevance score, and landing page conversion rate. Use the calculator to get to "roughly the right zip code," then validate against your own data.</p>
-        </div>
+      <details class="svc-faq-item">
+        <summary>
+          <span>Should I trust the platform multipliers?</span>
+          <span aria-hidden="true">+</span>
+        </summary>
+        <p>Treat them as directional, not precise. They reflect typical agency-managed performance ratios. For example, Google CPL is roughly 1.5× Meta CPL on average, but a poorly-managed Google account can be 3× or worse. Your actual ratio depends on bid strategy, keyword quality, ad relevance score, and landing page conversion rate. Use the calculator to get to "roughly the right zip code," then validate against your own data.</p>
       </details>
-      <details class="faq-item">
-        <summary class="faq-question">What's a healthy CAC payback period?</summary>
-        <div class="faq-answer">
-          <p>For DTC, aim to recover CAC within 3-6 months from first purchase plus repeat orders. For SaaS, healthy payback is 12-18 months on annual contracts. For high-ticket professional services or healthcare with long patient lifetimes, 6-24 months is acceptable depending on retention. If your payback is over 24 months, either CAC is too high, LTV is too low, or both.</p>
-        </div>
+      <details class="svc-faq-item">
+        <summary>
+          <span>What's a healthy CAC payback period?</span>
+          <span aria-hidden="true">+</span>
+        </summary>
+        <p>For DTC, aim to recover CAC within 3-6 months from first purchase plus repeat orders. For SaaS, healthy payback is 12-18 months on annual contracts. For high-ticket professional services or healthcare with long patient lifetimes, 6-24 months is acceptable depending on retention. If your payback is over 24 months, either CAC is too high, LTV is too low, or both.</p>
       </details>
-      <details class="faq-item">
-        <summary class="faq-question">Why is LinkedIn so much more expensive than Meta?</summary>
-        <div class="faq-answer">
-          <p>LinkedIn charges a premium because the audience is uniquely qualified by job title, seniority, and company. You pay 3-5× Meta CPC because each click is a verified professional, not a verified scroller. For B2B with $50K+ deal sizes, LinkedIn often delivers better blended ROI despite the higher cost-per-lead. For DTC or low-ticket consumer products, LinkedIn rarely makes economic sense.</p>
-        </div>
+      <details class="svc-faq-item">
+        <summary>
+          <span>Why is LinkedIn so much more expensive than Meta?</span>
+          <span aria-hidden="true">+</span>
+        </summary>
+        <p>LinkedIn charges a premium because the audience is uniquely qualified by job title, seniority, and company. You pay 3-5× Meta CPC because each click is a verified professional, not a verified scroller. For B2B with $50K+ deal sizes, LinkedIn often delivers better blended ROI despite the higher cost-per-lead. For DTC or low-ticket consumer products, LinkedIn rarely makes economic sense.</p>
       </details>
-      <details class="faq-item">
-        <summary class="faq-question">How much should I spend before I know if a platform is working?</summary>
-        <div class="faq-answer">
-          <p>Minimum meaningful test budget: 30-50 conversions. If your CPL is $50, that's $1,500-$2,500. If it's $200, that's $6,000-$10,000. Below that volume, you can't separate signal from noise. Most platforms also require a 2-3 week learning phase where the algorithm optimizes targeting; pulling spend before then misreads early-phase performance.</p>
-        </div>
+      <details class="svc-faq-item">
+        <summary>
+          <span>How much should I spend before I know if a platform is working?</span>
+          <span aria-hidden="true">+</span>
+        </summary>
+        <p>Minimum meaningful test budget: 30-50 conversions. If your CPL is $50, that's $1,500-$2,500. If it's $200, that's $6,000-$10,000. Below that volume, you can't separate signal from noise. Most platforms also require a 2-3 week learning phase where the algorithm optimizes targeting; pulling spend before then misreads early-phase performance.</p>
       </details>
-      <details class="faq-item">
-        <summary class="faq-question">Why does my actual CPL differ so much from the benchmark?</summary>
-        <div class="faq-answer">
-          <p>Three usual reasons. First, lead quality differences: a $20 CPL filled with bot leads is worse than a $60 CPL of qualified prospects. Second, attribution windows: if you're using last-click on Google but view-through on Meta, you'll see different "performance" for the same campaigns. Third, geography and seasonality: Q4 CPLs run 30-40% higher than Q1 in most categories, and US CPMs are roughly 2× European CPMs.</p>
-        </div>
+      <details class="svc-faq-item">
+        <summary>
+          <span>Why does my actual CPL differ so much from the benchmark?</span>
+          <span aria-hidden="true">+</span>
+        </summary>
+        <p>Three usual reasons. First, lead quality differences: a $20 CPL filled with bot leads is worse than a $60 CPL of qualified prospects. Second, attribution windows: if you're using last-click on Google but view-through on Meta, you'll see different "performance" for the same campaigns. Third, geography and seasonality: Q4 CPLs run 30-40% higher than Q1 in most categories, and US CPMs are roughly 2× European CPMs.</p>
       </details>
     </div>
   </div>
@@ -397,6 +412,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3 class="serif adc-related-title">What does digital marketing actually cost?</h3>
         <p class="adc-related-desc">A full breakdown of typical agency, in-house, and tool costs.</p>
       </a>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta-section">
+  <div class="container">
+    <div class="final-cta">
+      <h2 class="section-heading">Want a plan built on <em>your</em> actual numbers?</h2>
+      <p class="subhead">Bring us the output of this calculator and your current spend. We&rsquo;ll tell you where the budget should go, which platform to lead with, and what to stop paying for.</p>
+      <div class="final-cta-actions">
+        <a class="btn btn-primary" href="/contact">Start a conversation &rarr;</a>
+        <a class="btn btn-outline" href="/ai-tools">See all our free tools &rarr;</a>
+      </div>
+      <p class="subhead final-cta-note">20-minute call &bull; Straight answers &bull; No obligation</p>
     </div>
   </div>
 </section>
@@ -482,13 +511,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .ibtn.active, .sbtn.active, .pbtn.active {
   border:1.5px solid var(--cta); background:rgba(255,92,26,0.18); color:var(--text);
 }
-.sbtn-grid-3 .sbtn { padding:8px 8px; font-size:11.5px; }
+.sbtn-grid-3 .sbtn { padding:8px 8px; font-size:12px; }
 .new-badge {
   display:inline-block; margin-left:8px; padding:2px 7px; border-radius:999px;
-  background:var(--cta); color:var(--bg); font-size:9px; font-weight:600;
+  background:var(--cta); color:var(--bg); font-size:10px; font-weight:600;
   letter-spacing:0.06em; text-transform:uppercase; vertical-align:middle;
 }
-.related-card:hover { border-color: var(--cta); }
+.related-card { transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.related-card:hover { border-color: rgba(255,92,26,0.45); box-shadow: 0 0 0 1px var(--orange-glow), 0 16px 40px rgba(0,0,0,0.4); transform: translateY(-2px); }
 .mode-tabs { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-bottom:20px; }
 .mode-tab { padding:10px 12px; border-radius:8px; border:1px solid var(--border); background:var(--bg-elevated); color:var(--text-muted); font-size:13px; font-weight:500; cursor:pointer; font-family:inherit; transition:border-color 0.15s ease, background 0.15s ease, color 0.15s ease; }
 .mode-tab:hover { color:var(--text); }
@@ -497,24 +527,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 @media (max-width: 720px) {
   .related-grid { grid-template-columns: 1fr !important; }
 }
-body.redesign-prototype .hero-subtitle { max-width: 720px; }
-body.redesign-prototype .blog-faq { max-width: none; margin: 0; padding: 0; }
-body.redesign-prototype .blog-faq-list { max-width: 720px; }
-body.redesign-prototype .faq-item { border-top:1px solid var(--border); }
-body.redesign-prototype .faq-question { color:var(--text); font-weight:600; cursor:pointer; }
-body.redesign-prototype .faq-question:hover { color:var(--cta); }
-body.redesign-prototype .faq-question::after { color:var(--cta); }
-body.redesign-prototype details[open] .faq-question::after { color:var(--cta); }
-body.redesign-prototype .faq-answer p { color:var(--text-muted); }
 
 /* Ad-calculator: inline-style -> class refactor (canon compliance).
    Declarations reproduced verbatim from the prior inline styles; rendering is unchanged. */
-body.redesign-prototype .adc-hero-section { padding:80px 0 40px; border-bottom:1px solid var(--border); }
-body.redesign-prototype .adc-main-section { padding:56px 0 120px; }
 body.redesign-prototype .adc-container-wide { max-width:1120px; }
 body.redesign-prototype .adc-calc-grid { display:grid; grid-template-columns:420px 1fr; gap:40px; align-items:start; }
 body.redesign-prototype .adc-inputs-card { background:var(--bg-elevated); border:1px solid var(--border); border-radius:20px; padding:32px; position:sticky; top:100px; }
-body.redesign-prototype .adc-inputs-eyebrow { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:24px; }
+body.redesign-prototype .adc-inputs-eyebrow { font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:24px; }
 body.redesign-prototype .adc-field { margin-bottom:28px; }
 body.redesign-prototype .adc-field-label { font-size:14px; color:var(--text); font-weight:500; display:block; margin-bottom:12px; }
 body.redesign-prototype .adc-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
@@ -524,7 +543,7 @@ body.redesign-prototype .adc-row-baseline { display:flex; justify-content:space-
 body.redesign-prototype .adc-label-strong { font-size:14px; color:var(--text); font-weight:500; }
 body.redesign-prototype .adc-big-val { font-size:28px; color:var(--text); line-height:1; }
 body.redesign-prototype .adc-range { width:100%; accent-color:var(--cta); }
-body.redesign-prototype .adc-range-scale { display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted); margin-top:6px; }
+body.redesign-prototype .adc-range-scale { display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); margin-top:6px; }
 body.redesign-prototype .adc-budget-input { width:100%; padding:10px 12px; border-radius:8px; border:1px solid var(--border); background:var(--bg-elevated); color:var(--text); font-size:15px; font-family:inherit; box-sizing:border-box; margin-bottom:14px; }
 body.redesign-prototype .adc-override { margin-top:8px; border-top:1px dashed var(--border); padding-top:18px; }
 body.redesign-prototype .adc-override-summary { font-size:13px; color:var(--text-muted); cursor:pointer; font-weight:500; margin-bottom:14px; }
@@ -533,7 +552,7 @@ body.redesign-prototype .adc-override-label { font-size:12px; color:var(--text-m
 body.redesign-prototype .adc-override-input { width:100%; padding:10px 12px; border-radius:8px; border:1px solid var(--border); font-size:14px; font-family:inherit; background:var(--bg-elevated); color:var(--text); }
 body.redesign-prototype .adc-result-hero { background:var(--bg-elevated); color:var(--text); border-radius:20px; padding:40px; margin-bottom:24px; position:relative; overflow:hidden; }
 body.redesign-prototype .adc-result-glow { position:absolute; top:-60px; right:-60px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, rgba(255,92,26,0.2) 0%, transparent 70%); pointer-events:none; }
-body.redesign-prototype .adc-result-eyebrow { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:14px; position:relative; }
+body.redesign-prototype .adc-result-eyebrow { font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:14px; position:relative; }
 body.redesign-prototype .adc-result-figure { font-size:clamp(56px, 7vw, 96px); line-height:1; letter-spacing:-0.025em; margin-bottom:18px; position:relative; font-weight:400; }
 body.redesign-prototype .adc-result-dash { color:var(--text-muted); font-size:0.5em; font-style:italic; font-weight:400; }
 body.redesign-prototype .adc-result-note { font-size:15px; color:var(--text-muted); max-width:520px; line-height:1.55; position:relative; }
@@ -545,7 +564,7 @@ body.redesign-prototype .adc-strong { font-weight:500; }
 body.redesign-prototype .adc-strong-cta { color:var(--cta); font-weight:500; }
 body.redesign-prototype .adc-stats-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-bottom:32px; }
 body.redesign-prototype .adc-stat-card { background:var(--bg-elevated); border:1px solid var(--border); border-radius:14px; padding:20px; }
-body.redesign-prototype .adc-stat-label { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:10px; }
+body.redesign-prototype .adc-stat-label { font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:10px; }
 body.redesign-prototype .adc-stat-val { font-size:36px; color:var(--text); line-height:1; letter-spacing:-0.01em; margin-bottom:8px; }
 body.redesign-prototype .adc-muted-12 { font-size:12px; color:var(--text-muted); }
 body.redesign-prototype .adc-funnel-card { margin-bottom:24px; background:var(--bg-elevated); border:1px solid var(--border); border-radius:16px; padding:24px 28px; }
@@ -555,7 +574,7 @@ body.redesign-prototype .adc-num { color:var(--text); font-weight:500; font-vari
 body.redesign-prototype .adc-funnel-bar-block { margin-bottom:16px; }
 body.redesign-prototype .adc-funnel-bar-block-last { margin-bottom:10px; }
 body.redesign-prototype .adc-funnel-bar-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px; }
-body.redesign-prototype .adc-funnel-bar-label { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); font-weight:500; }
+body.redesign-prototype .adc-funnel-bar-label { font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); font-weight:500; }
 body.redesign-prototype .adc-num-13 { font-size:13px; color:var(--text); font-weight:500; font-variant-numeric:tabular-nums; }
 body.redesign-prototype .adc-funnel-track { height:10px; background:var(--border); border-radius:999px; overflow:hidden; }
 body.redesign-prototype .adc-funnel-fill-full { height:100%; width:100%; background:var(--cta); border-radius:999px; }
@@ -572,7 +591,7 @@ body.redesign-prototype .adc-bd-row-hl-last { padding:16px 24px; display:flex; j
 body.redesign-prototype .adc-bd-label { font-size:14px; color:var(--text); }
 body.redesign-prototype .adc-num-15 { font-size:15px; color:var(--text); font-weight:500; font-variant-numeric:tabular-nums; }
 body.redesign-prototype .adc-platform-note { color:var(--text-muted); font-weight:400; }
-body.redesign-prototype .adc-cta-box { margin-top:40px; padding:28px 32px; border:1px dashed var(--border); border-radius:16px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+body.redesign-prototype .adc-cta-box { margin-top:40px; padding:28px 32px; background:var(--bg-elevated); border:1px solid var(--border); border-radius:16px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
 body.redesign-prototype .adc-cta-title { font-size:22px; color:var(--text); margin-bottom:6px; }
 body.redesign-prototype .adc-em-cta { color:var(--cta); }
 body.redesign-prototype .adc-cta-desc { font-size:14px; color:var(--text-muted); }
@@ -581,10 +600,9 @@ body.redesign-prototype .adc-sources { margin-top:14px; font-size:12px; color:va
 body.redesign-prototype .adc-source-link { color:var(--text); text-decoration:underline; text-underline-offset:2px; }
 body.redesign-prototype .adc-method-card { display:block; padding:40px; background:var(--bg-elevated); border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease; }
 body.redesign-prototype .adc-method-cta { margin-top:20px; font-size:14px; color:var(--cta); font-weight:500; }
-body.redesign-prototype .adc-mt-48 { margin-top:48px; }
 body.redesign-prototype .adc-related-grid { margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
 body.redesign-prototype .adc-related-card { display:block; padding:28px; background:var(--bg-elevated); border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:border-color 0.15s ease; }
-body.redesign-prototype .adc-related-label { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:12px; }
+body.redesign-prototype .adc-related-label { font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:12px; }
 body.redesign-prototype .adc-related-title { font-size:20px; color:var(--text); margin:0 0 10px; letter-spacing:-0.005em; font-weight:500; }
 body.redesign-prototype .adc-related-desc { margin:0; font-size:14.5px; color:var(--text-muted); line-height:1.55; }
 body.redesign-prototype .adc-b { font-weight:500; }
