@@ -7509,7 +7509,7 @@ body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-fram
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-media:hover .pf-frame { border-color: var(--border-strong); transform: translateY(-2px); }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-play { position: absolute; left: 12px; bottom: 12px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.3); color: var(--text); background: rgba(14, 14, 14, 0.62); backdrop-filter: blur(6px); transition: all .2s ease; }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-media:hover .pf-play { background: var(--cta); color: var(--bg); border-color: transparent; }
-body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-ratio { position: absolute; top: 10px; right: 10px; font-size: 11px; letter-spacing: .09em; color: var(--text); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 5px; padding: 3px 7px; background: rgba(14, 14, 14, 0.62); backdrop-filter: blur(6px); }
+body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-ratio { position: absolute; top: 10px; right: 10px; font-size: 12px; letter-spacing: .09em; color: var(--text); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 5px; padding: 3px 7px; background: rgba(14, 14, 14, 0.62); backdrop-filter: blur(6px); }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-media-body { display: block; padding: 11px 2px 0; }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-media-title { display: block; font-size: 14px; font-weight: 500; line-height: 1.35; color: var(--text); }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-media-sub { display: block; margin-top: 5px; font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
@@ -7676,7 +7676,7 @@ body.redesign-prototype .pf-scope .pf-builds-compact .pf-build p { font-size: 13
 body.redesign-prototype .pf-scope .pf-builds-compact .pf-url { padding-top: 6px; }
 body.redesign-prototype .pf-scope .pf-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
 body.redesign-prototype .pf-scope .pf-pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-elevated); color: var(--text); font-size: 14px; font-weight: 500; text-decoration: none; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
-body.redesign-prototype .pf-scope .pf-pill-kind { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .pf-scope .pf-pill-kind { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text-tertiary); }
 body.redesign-prototype .pf-scope .pf-pill:hover { border-color: rgba(255, 92, 26, 0.45); box-shadow: 0 0 0 1px var(--orange-glow); transform: translateY(-1px); }
 @media (max-width: 720px) {
   body.redesign-prototype .pf-scope .pf-icon { width: 36px; height: 36px; }
