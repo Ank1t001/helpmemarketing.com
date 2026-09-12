@@ -7692,7 +7692,6 @@ body.redesign-prototype .pf-scope .pf-results-3 { grid-template-columns: repeat(
 body.redesign-prototype .pf-scope .pf-results-3 + .pf-pills { margin-top: 20px; }
 body.redesign-prototype .pf-scope .pf-metric.is-neutral { color: var(--text); }
 body.redesign-prototype .pf-scope .pf-how-2 { grid-template-columns: repeat(2, 1fr); }
-body.redesign-prototype [data-screen-label="hipaa-checklist"] .hipaa-primer { padding: 8px 0 40px; }
 body.redesign-prototype [data-screen-label="hipaa-checklist"] .hipaa-primer .section-deck { max-width: 720px; }
 body.redesign-prototype [data-screen-label="hipaa-checklist"] .hipaa-primer .pf-how { margin-top: 24px; }
 @media (max-width: 900px) {
