@@ -4816,7 +4816,7 @@ body.blog-dark .author-line > span:not(.dot) ~ span:not(.dot)::before {
 .audit-question legend + * { clear: both; }
 .audit-dimension {
   display: block;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -4928,7 +4928,7 @@ body.blog-dark .author-line > span:not(.dot) ~ span:not(.dot)::before {
   margin: 22px 0;
 }
 .audit-gate-preview-label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -5096,7 +5096,7 @@ body.blog-dark .author-line > span:not(.dot) ~ span:not(.dot)::before {
 }
 .audit-rec-primary-label,
 .audit-rec-supporting-label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -5137,7 +5137,7 @@ body.blog-dark .author-line > span:not(.dot) ~ span:not(.dot)::before {
   border-radius: 12px;
 }
 .audit-internal-links h4 {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -5176,7 +5176,7 @@ body.blog-dark .author-line > span:not(.dot) ~ span:not(.dot)::before {
 .audit-final-cta:hover { background: var(--cta-hover); }
 .audit-final-cta-label {
   display: block;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -5260,7 +5260,7 @@ body.blog-dark .author-line > span:not(.dot) ~ span:not(.dot)::before {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 /* ----- Wizard question visibility (one at a time) ----- */

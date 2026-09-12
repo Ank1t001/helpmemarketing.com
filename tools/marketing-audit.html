@@ -31,12 +31,12 @@ w.addEventListener(e,load,{once:true,passive:true});});
 <meta property="og:title" content="AI Marketing Audit | HelpMeMarketing">
 <meta property="og:description" content="A free 5-minute diagnostic that scores your marketing maturity 0 to 100 across 5 dimensions and tells you what to do next.">
 <meta property="og:url" content="https://helpmemarketing.com/tools/marketing-audit">
-<meta property="og:image" content="https://helpmemarketing.com/og-image.png">
+<meta property="og:image" content="https://helpmemarketing.com/assets/tools/marketing-audit-og.jpg">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI Marketing Audit | HelpMeMarketing">
 <meta name="twitter:description" content="A free 5-minute diagnostic that scores your marketing maturity 0 to 100 across 5 dimensions and tells you what to do next.">
-<meta name="twitter:image" content="https://helpmemarketing.com/og-image.png">
+<meta name="twitter:image" content="https://helpmemarketing.com/assets/tools/marketing-audit-og.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -55,12 +55,12 @@ w.addEventListener(e,load,{once:true,passive:true});});
     "url": "https://helpmemarketing.com/",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://helpmemarketing.com/og-image.png"
+      "url": "https://helpmemarketing.com/assets/tools/marketing-audit-og.jpg"
     }
   },
   "primaryImageOfPage": {
     "@type": "ImageObject",
-    "url": "https://helpmemarketing.com/og-image.png"
+    "url": "https://helpmemarketing.com/assets/tools/marketing-audit-og.jpg"
   },
   "datePublished": "2026-05-11",
   "dateModified": "2026-05-11",
@@ -141,20 +141,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="page-enter">
 
-<main class="audit-page">
+<section class="hero svc-hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Free tool &middot; AI marketing audit</p>
+        <h1 class="hero-headline">Score your marketing <em>maturity</em> in five minutes.</h1>
+        <p class="hero-subtitle">A 5-minute diagnostic that scores your marketing maturity 0 to 100 and tells you what to do next.</p>
+        <div class="hero-ctas">
+          <a href="#audit" class="btn btn-primary">Start the audit &rarr;</a>
+          <a href="#dimensions" class="btn btn-outline">How it&rsquo;s scored &rarr;</a>
+        </div>
+        <p class="audit-meta">8 questions &middot; 5 minutes &middot; Free &middot; No account</p>
+      </div>
+      <div class="hero-visual svc-hero-visual">
+        <img class="hero-image svc-hero-image" src="/assets/tools/marketing-audit.webp" alt="A five-axis radar chart drawn in glowing orange particles with a filled pentagon inside and one teal vertex" width="1344" height="752" loading="eager" fetchpriority="high" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
 
-  <header class="audit-hero">
-    <span class="eyebrow"><span class="eyebrow-dot"></span>Tool</span>
-    <h1 class="hero-headline">AI Marketing <em>Audit</em></h1>
-    <p class="audit-subtitle">A 5-minute diagnostic that scores your marketing maturity 0 to 100 and tells you what to do next.</p>
-    <p class="audit-meta">8 questions · 5 minutes · Free</p>
-  </header>
+<section id="audit" class="content-section audit-tool-section">
+<div class="container">
+<div class="audit-page">
 
   <p class="audit-intro">Most marketing audits sell you something. This one diagnoses you. Answer 8 questions across foundation, acquisition, conversion, retention, and measurement, and we'll tell you where you actually are, what's typical at that tier, and the three things that will move you forward, whether you hire us or not.</p>
 
   <div class="audit-progress" id="audit-progress">
     <div class="audit-progress-bar" aria-hidden="true">
-      <div class="audit-progress-fill" id="audit-progress-fill" style="width: 0%"></div>
+      <div class="audit-progress-fill" id="audit-progress-fill"></div>
     </div>
     <div class="audit-progress-meta" aria-live="polite">
       <span id="audit-progress-counter">Question 1 of 8</span>
@@ -275,7 +290,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </fieldset>
 
     <!-- Honeypot field. Hidden from humans, bots fill it in -->
-    <div class="hp-field" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+    <div class="hp-field" aria-hidden="true">
       <label for="audit-hp">Leave this field blank</label>
       <input type="text" name="company_url_secondary" id="audit-hp" tabindex="-1" autocomplete="off">
     </div>
@@ -317,44 +332,96 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- populated by JS using window.MARKETING_AUDIT_CONTENT -->
   </section>
 
-</main>
+</div>
+</div>
+</section>
 
-<section class="audit-support">
-  <h2>What is marketing <em>maturity</em>?</h2>
-  <p>Marketing maturity is a measure of how deliberate and repeatable your marketing is, from how well you know your customer to how well you measure results. A low-maturity team markets on instinct: it spends when cash allows, picks channels it has heard of, and judges success by how busy it feels. A high-maturity team runs marketing as a system, with a defined audience, chosen channels, a measured funnel, and reporting that ties spend to revenue.</p>
+<section id="maturity" class="content-section">
+  <div class="container">
+    <span class="eyebrow"><span class="eyebrow-dot"></span>Background</span>
+    <h2 class="section-heading">What is marketing <em>maturity</em>?</h2>
+    <div class="audit-support">
+<p>Marketing maturity is a measure of how deliberate and repeatable your marketing is, from how well you know your customer to how well you measure results. A low-maturity team markets on instinct: it spends when cash allows, picks channels it has heard of, and judges success by how busy it feels. A high-maturity team runs marketing as a system, with a defined audience, chosen channels, a measured funnel, and reporting that ties spend to revenue.</p>
   <p>Maturity is not the same as budget. Plenty of well-funded brands score low because money papers over broken fundamentals, and plenty of small teams score high because they are disciplined. That is the point of this assessment: it tells you where your process actually stands, independent of how much you spend, and shows you the next move that will matter most.</p>
+    </div>
+  </div>
+</section>
 
-  <h2>The 5 dimensions we <em>score</em></h2>
-  <p>The audit scores you across five dimensions, because a marketing engine is only as strong as its weakest link.</p>
-  <ul>
-    <li><strong>Foundation.</strong> How clearly you have defined your ideal customer and positioning. Everything downstream depends on getting this right.</li>
-    <li><strong>Acquisition.</strong> How you attract new customers, how many channels you run, and how deliberately you chose them.</li>
-    <li><strong>Conversion.</strong> What happens between someone noticing you and becoming a customer: your funnel, your landing pages, and where people drop off.</li>
-    <li><strong>Retention.</strong> What happens after the first purchase: lifecycle programs, repeat rate, and lifetime value.</li>
-    <li><strong>Measurement.</strong> Whether you can attribute customers to the marketing that created them, and how often you act on the data.</li>
-  </ul>
-  <p>Each answer maps to a score, and the five combine into a single 0 to 100 maturity number plus a per-dimension breakdown.</p>
+<section id="dimensions" class="content-section pf-scope">
+  <div class="container">
+    <span class="eyebrow"><span class="eyebrow-dot"></span>How it&rsquo;s scored</span>
+    <h2 class="section-heading">The five dimensions we <em>score</em>.</h2>
+    <p class="section-deck">The audit scores you across five dimensions, because a marketing engine is only as strong as its weakest link.</p>
+    <div class="pf-refs pf-how audit-dims">
+      <div class="pf-ref"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/></svg></span><span class="pf-kind">01</span></span><h3>Foundation</h3><p>How clearly you have defined your ideal customer and positioning. Everything downstream depends on getting this right.</p></div>
+      <div class="pf-ref"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a3 3 0 0 1 0 6"/><path d="M10 8v11a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1v-5"/><path d="M12 8h0l4.524 -3.77a.9 .9 0 0 1 1.476 .692v12.156a.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8"/></svg></span><span class="pf-kind">02</span></span><h3>Acquisition</h3><p>How you attract new customers, how many channels you run, and how deliberately you chose them.</p></div>
+      <div class="pf-ref"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227z"/></svg></span><span class="pf-kind">03</span></span><h3>Conversion</h3><p>What happens between someone noticing you and becoming a customer: your funnel, your landing pages, and where people drop off.</p></div>
+      <div class="pf-ref"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v-3a3 3 0 0 1 3 -3h13m-3 -3l3 3l-3 3"/><path d="M20 12v3a3 3 0 0 1 -3 3h-13m3 3l-3 -3l3 -3"/></svg></span><span class="pf-kind">04</span></span><h3>Retention</h3><p>What happens after the first purchase: lifecycle programs, repeat rate, and lifetime value.</p></div>
+      <div class="pf-ref"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M4 20h14"/></svg></span><span class="pf-kind">05</span></span><h3>Measurement</h3><p>Whether you can attribute customers to the marketing that created them, and how often you act on the data.</p></div>
+    </div>
+    <p class="audit-dims-note">Each answer maps to a score, and the five combine into a single 0 to 100 maturity number plus a per-dimension breakdown.</p>
+  </div>
+</section>
 
-  <h2>How to read your <em>score</em></h2>
-  <p>Your score places you in a maturity tier, from early and instinct-led to advanced and system-led. The headline number is useful for tracking progress over time, but the more valuable output is the per-dimension breakdown, because it shows you the weakest link.</p>
+<section id="reading" class="content-section">
+  <div class="container">
+    <span class="eyebrow"><span class="eyebrow-dot"></span>Reading the result</span>
+    <h2 class="section-heading">How to read your <em>score</em>.</h2>
+    <div class="audit-support">
+<p>Your score places you in a maturity tier, from early and instinct-led to advanced and system-led. The headline number is useful for tracking progress over time, but the more valuable output is the per-dimension breakdown, because it shows you the weakest link.</p>
   <p>The rule of thumb is to fix the lowest dimension first. A brand with strong acquisition but weak conversion is pouring water into a leaky bucket, and more traffic will not fix it. A brand with strong conversion but weak measurement is flying blind and cannot tell which spend to scale. The audit points you at the one or two dimensions that will unlock the most growth next, whether you fix them yourself or <a href="/contact">bring in help</a>.</p>
+    </div>
+  </div>
+</section>
 
-  <h2>Frequently asked <em>questions</em></h2>
-  <div class="audit-faq-item">
-    <h3>What is a marketing maturity assessment?</h3>
-    <p>A marketing maturity assessment is a structured diagnostic that scores how developed your marketing process is across several dimensions, rather than judging a single campaign. This one asks eight questions across foundation, acquisition, conversion, retention, and measurement, then returns a 0 to 100 score and tells you what to improve first.</p>
+<section id="faq" class="content-section">
+  <div class="container">
+    <span class="eyebrow"><span class="eyebrow-dot"></span>FAQ</span>
+    <h2 class="section-heading">Frequently asked questions</h2>
+    <div class="svc-faq-wrap">
+      <details class="svc-faq-item">
+        <summary>
+          <span>What is a marketing maturity assessment?</span>
+          <span aria-hidden="true">+</span>
+        </summary>
+        <p>A marketing maturity assessment is a structured diagnostic that scores how developed your marketing process is across several dimensions, rather than judging a single campaign. This one asks eight questions across foundation, acquisition, conversion, retention, and measurement, then returns a 0 to 100 score and tells you what to improve first.</p>
+      </details>
+      <details class="svc-faq-item">
+        <summary>
+          <span>Is this a real marketing maturity model test or just a lead form?</span>
+          <span aria-hidden="true">+</span>
+        </summary>
+        <p>It is a real test. You answer eight scored questions and get a genuine maturity score with a per-dimension breakdown and specific next steps. We ask for an email to send your results, but the diagnosis is real and useful whether or not you ever talk to us.</p>
+      </details>
+      <details class="svc-faq-item">
+        <summary>
+          <span>How is this different from a paid marketing audit service?</span>
+          <span aria-hidden="true">+</span>
+        </summary>
+        <p>A full marketing audit service is a hands-on review of your accounts, analytics, and campaigns by a specialist, and it goes far deeper. This free tool is a fast self-assessment that tells you roughly where you stand and where to focus. If the results show you need a deeper look, we offer a full audit through our <a href="/contact">contact page</a>.</p>
+      </details>
+      <details class="svc-faq-item">
+        <summary>
+          <span>How long does the marketing audit take?</span>
+          <span aria-hidden="true">+</span>
+        </summary>
+        <p>About five minutes. Eight questions, multiple choice, no preparation needed.</p>
+      </details>
+    </div>
   </div>
-  <div class="audit-faq-item">
-    <h3>Is this a real marketing maturity model test or just a lead form?</h3>
-    <p>It is a real test. You answer eight scored questions and get a genuine maturity score with a per-dimension breakdown and specific next steps. We ask for an email to send your results, but the diagnosis is real and useful whether or not you ever talk to us.</p>
-  </div>
-  <div class="audit-faq-item">
-    <h3>How is this different from a paid marketing audit service?</h3>
-    <p>A full marketing audit service is a hands-on review of your accounts, analytics, and campaigns by a specialist, and it goes far deeper. This free tool is a fast self-assessment that tells you roughly where you stand and where to focus. If the results show you need a deeper look, we offer a full audit through our <a href="/contact">contact page</a>.</p>
-  </div>
-  <div class="audit-faq-item">
-    <h3>How long does the marketing audit take?</h3>
-    <p>About five minutes. Eight questions, multiple choice, no preparation needed.</p>
+</section>
+
+<section class="final-cta-section">
+  <div class="container">
+    <div class="final-cta">
+      <h2 class="section-heading">Want a human read on your <em>score</em>?</h2>
+      <p class="subhead">Bring your results to a 30-minute call. We&rsquo;ll look at the two weakest dimensions with you and tell you what to fix first, whether you hire us or not.</p>
+      <div class="final-cta-actions">
+        <a class="btn btn-primary" href="/contact">Book a free audit call &rarr;</a>
+        <a class="btn btn-outline" href="/ai-tools">See all our free tools &rarr;</a>
+      </div>
+      <p class="subhead final-cta-note">30-minute call &bull; Straight answers &bull; No obligation</p>
+    </div>
   </div>
 </section>
 
@@ -434,20 +501,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="/tools/marketing-audit.js" defer></script>
 
 <style>
-body.redesign-prototype .audit-support { max-width: 760px; margin: 0 auto; padding: 72px 32px 8px; }
-body.redesign-prototype .audit-support h2 { font-family: var(--serif); font-size: 30px; font-weight: 400; line-height: 1.15; letter-spacing: -0.015em; color: var(--text); margin: 52px 0 16px; }
-body.redesign-prototype .audit-support h2:first-child { margin-top: 0; }
-body.redesign-prototype .audit-support h2 em { color: var(--cta); font-style: italic; font-weight: 400; }
+/* Marketing audit: shared shell (2026-09-12). The hero, sections, FAQ and final CTA
+   use the sitewide patterns; only the tool column and prose measure are page-local. */
+body.redesign-prototype .audit-meta { margin-top: 18px; font-size: 13px; color: var(--text-tertiary); }
+body.redesign-prototype .audit-page { max-width: 760px; margin: 0 auto; padding: 0; }
+body.redesign-prototype .audit-tool-section { scroll-margin-top: 64px; }
+body.redesign-prototype .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+body.redesign-prototype .audit-progress-fill { width: 0; }
+body.redesign-prototype .audit-support { max-width: 760px; margin: 16px 0 0; padding: 0; }
 body.redesign-prototype .audit-support p { font-size: 17px; line-height: 1.7; color: var(--text-muted); margin: 0 0 18px; }
-body.redesign-prototype .audit-support ul { margin: 0 0 18px; padding-left: 0; list-style: none; }
-body.redesign-prototype .audit-support ul li { position: relative; padding-left: 20px; margin-bottom: 12px; font-size: 16px; line-height: 1.6; color: var(--text-muted); }
-body.redesign-prototype .audit-support ul li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--cta); }
-body.redesign-prototype .audit-support ul li strong { color: var(--text); font-weight: 600; }
+body.redesign-prototype .audit-support p:last-child { margin-bottom: 0; }
 body.redesign-prototype .audit-support a { color: var(--cta); text-decoration: underline; text-underline-offset: 2px; }
-body.redesign-prototype .audit-support .audit-faq-item { border-top: 1px solid rgba(255,255,255,0.14); padding-top: 22px; margin-top: 22px; }
-body.redesign-prototype .audit-support .audit-faq-item h3 { font-size: 18px; color: var(--text); margin: 0 0 10px; letter-spacing: -0.005em; }
-body.redesign-prototype .audit-support .audit-faq-item p { font-size: 15.5px; margin: 0; }
+body.redesign-prototype .pf-scope .audit-dims { grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 32px; }
+body.redesign-prototype .pf-scope .audit-dims .pf-ref h3 { font-size: 18px; }
+body.redesign-prototype .audit-dims-note { max-width: 720px; margin: 24px 0 0; font-size: 15.5px; line-height: 1.6; color: var(--text-muted); }
+@media (max-width: 900px) {
+  body.redesign-prototype .pf-scope .audit-dims { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  body.redesign-prototype .pf-scope .audit-dims { grid-template-columns: 1fr; }
+}
 </style>
+<script>
+(function () {
+  function init() {
+    var how = document.querySelector('.pf-how');
+    if (how && 'IntersectionObserver' in window) {
+      how.classList.add('js-reveal');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { how.classList.add('is-in'); io.disconnect(); } });
+      }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+      io.observe(how);
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
 
 </body>
 </html>
