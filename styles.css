@@ -7420,6 +7420,7 @@ body.redesign-prototype .logo-meta { height: 15px; width: auto; }
 body.redesign-prototype .logo-google { height: 16px; width: 16px; }
 body.redesign-prototype .logo-linkedin { height: 16px; width: 16px; }
 body.redesign-prototype .logo-facebook { height: 16px; width: 16px; }
+body.redesign-prototype .logo-instagram { height: 16px; width: 16px; }
 
 @media (max-width: 900px) {
   body.redesign-prototype .footer-cta { grid-template-columns: 1fr; gap: 36px; }
