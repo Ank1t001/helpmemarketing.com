@@ -6407,7 +6407,10 @@ body.redesign-prototype .case-study-grid {
   margin-top: 40px; max-width: 1080px;
 }
 @media (max-width: 900px) {
-  body.redesign-prototype .case-study-grid { grid-template-columns: 1fr; }
+  body.redesign-prototype .case-study-grid { grid-template-columns: minmax(0, 1fr); }
+  body.redesign-prototype .case-study-card { min-width: 0; }
+  body.redesign-prototype .case-study-card-header { flex-wrap: wrap; row-gap: 6px; }
+  body.redesign-prototype .case-study-card h3 { min-width: 0; overflow-wrap: anywhere; }
 }
 body.redesign-prototype .case-study-card {
   background: var(--bg-elevated); border: 1px solid var(--border);
@@ -7529,7 +7532,11 @@ body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) section[
   body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-services,
   body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-builds,
   body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-refs { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
-  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-results { grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 32px; }
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-results { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 32px; }
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-result { min-width: 0; }
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-client { flex-wrap: wrap; }
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-label,
+  body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-work { overflow-wrap: anywhere; }
   body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-media-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 14px; margin-top: 32px; }
 }
 @media (max-width: 720px) {
@@ -8003,3 +8010,7 @@ body a[href^="/tools/marketing-audit"]:is(.btn, .footer-tool-btn, .pf-pill):not(
   background: rgba(0, 212, 170, 0.12); color: var(--mint); border-color: var(--mint); transform: none;
 }
 body a[href^="/tools/marketing-audit"]:is(.pf-pill):not([data-gate-open]) .pf-pill-kind { color: var(--mint); opacity: .75; }
+
+/* Phone-width overflow fixes (SEO Growth OS run 2026-09-16, REC-307 and two more found in the
+   same sweep at 320 and 375px): grid tracks use minmax(0, 1fr) and items min-width: 0 so a
+   long nowrap figure or tag can no longer push the track wider than the viewport. */
