@@ -152,9 +152,9 @@ Active nav state is set manually per page by adding `.active` to the matching `<
 
 All styles live in `styles.css`. The file has two distinct regions:
 
-**Legacy region (lines 1-~3632):** Light-mode tokens (`--navy` `#1E4D8C`, `--gold`, `--cream`, `--ink-*`, etc.), permissive about inline styles. This is what legacy-scoped pages use.
+**Legacy region (after the `@font-face` block, up to the `BLOG TEMPLATE V2` header, ~line 870):** Light-mode tokens (`--navy` `#1E4D8C`, `--gold`, `--cream`, `--ink-*`, etc.), permissive about inline styles. This is what legacy-scoped pages use.
 
-**Prototype region (lines ~3633-4418):** Dark-mode tokens defined under `body.redesign-prototype` scope (`--bg`, `--text`, `--cta`, etc.). Strict scoping. This is what body.redesign-prototype-scoped pages use.
+**Blog region (`BLOG TEMPLATE V2` header to `body.redesign-prototype {`, ~lines 870-3780):** the `body.blog-dark` template. **Prototype region (from `body.redesign-prototype {`, ~line 3780, to end of file):** Dark-mode tokens defined under `body.redesign-prototype` scope (`--bg`, `--text`, `--cta`, etc.). Strict scoping. This is what body.redesign-prototype-scoped pages use.
 
 When editing styles for prototype pages, work inside the prototype region only. When editing styles for legacy pages, work outside it. Never mix the two systems on the same page.
 
@@ -174,6 +174,7 @@ Elsewhere, the only JS is tiny inline event handlers (mobile-menu toggle). **Not
 
 - `vercel.json` sets `cleanUrls: true`, `trailingSlash: false`, adds `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: SAMEORIGIN` on all responses, and caches `styles.css` for 1h (`must-revalidate`).
 - **Brand assets (2026-09-08):** `/favicon.ico` + `/favicon-32x32.png`, `/favicon-192x192.png` (apple-touch), `/favicon-512x512.png`, linked from every page `<head>`; `/og-image.png` (1200×630) is the default `og:image`/`twitter:image` (blog posts keep their own hero OG); `/logo.png` (400×400) is the schema `logo`/`image`. Source package: HMM_Logo_Package.
+- `styles.css` was pruned on 2026-09-16 (578 dead rules, 275KB to 212KB). Dead means the selector requires a class or id that appears in no served HTML file and no JS string literal. Re-run the same check before adding CSS back for a retired component; see `/docs/HMM_Design_System.md` (CSS trim note) for the method.
 - `sitemap.xml` is hand-maintained — when adding or renaming a page, update it (use the clean-URL form without `.html`).
 - `pricing.html` was removed (commit `b80babb`); `/pricing` and `/pricing.html` now 301-redirect to `/contact` (see `vercel.json`). No pricing entry remains in `robots.txt` or `sitemap.xml`.
 
