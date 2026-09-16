@@ -4,8 +4,6 @@
  * Behaviour logic lives in /tools/marketing-audit.js (CP3). This file is data only.
  */
 window.MARKETING_AUDIT_CONTENT = {
-  tierOrder: ['foundational', 'growing', 'scaling', 'advanced'],
-
   tiers: {
 
     // ============================================================
@@ -13,7 +11,6 @@ window.MARKETING_AUDIT_CONTENT = {
     // ============================================================
     foundational: {
       name: 'Foundational',
-      range: '0–30',
       descriptionHTML: `
 <p class="audit-tier-diagnosis"><strong>You're running marketing on intuition, not infrastructure. Most of what's happening is reactive.</strong></p>
 
@@ -95,7 +92,6 @@ window.MARKETING_AUDIT_CONTENT = {
     // ============================================================
     growing: {
       name: 'Growing',
-      range: '31–55',
       descriptionHTML: `
 <p class="audit-tier-diagnosis"><strong>You've built some marketing infrastructure, but it's working in pieces, not as a system.</strong></p>
 
@@ -179,7 +175,6 @@ window.MARKETING_AUDIT_CONTENT = {
     // ============================================================
     scaling: {
       name: 'Scaling',
-      range: '56–80',
       descriptionHTML: `
 <p class="audit-tier-diagnosis"><strong>You're running a measurable marketing operation. The question now is which parts to scale and which to rebuild.</strong></p>
 
@@ -267,7 +262,6 @@ window.MARKETING_AUDIT_CONTENT = {
     // ============================================================
     advanced: {
       name: 'Advanced',
-      range: '81–100',
       descriptionHTML: `
 <p class="audit-tier-diagnosis"><strong>You've built an integrated marketing program. The work now is compounding it, not adding to it.</strong></p>
 

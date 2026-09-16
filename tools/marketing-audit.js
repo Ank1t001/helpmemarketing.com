@@ -7,8 +7,8 @@
  * Storage policy: NONE. No localStorage, no sessionStorage, no cookies.
  * Page reload resets the audit. Closure state holds answers in memory only.
  *
- * Cloudflare compatibility: all listeners via addEventListener inside IIFE.
- * No inline onclick handlers anywhere on the page.
+ * All listeners are attached with addEventListener inside this IIFE. The nav
+ * hamburger is the sitewide legacy control and is not handled here.
  */
 (function () {
   'use strict';
@@ -56,7 +56,6 @@
     setupQuestionTracking();
     setupWizardNavigation();
     setupEmailForm();
-    setupNavHamburger();
 
     // Initialize wizard UI (progress fill, counter, dimension label, button states)
     updateProgress();
@@ -81,10 +80,6 @@
       answers[target.name] = score;
       updateNavButtons();
     });
-  }
-
-  function getAnsweredCount() {
-    return Object.keys(answers).length;
   }
 
   // ============================================================
@@ -151,7 +146,7 @@
   // rapid-click race conditions (Finding 5).
   // ============================================================
 
-  function showQuestion(index, direction) {
+  function showQuestion(index) {
     if (transitioning) return;
     transitioning = true;
 
@@ -226,13 +221,13 @@
       handleSubmit();
       return;
     }
-    showQuestion(currentQuestionIndex + 1, 'forward');
+    showQuestion(currentQuestionIndex + 1);
   }
 
   function goToPrevious() {
     if (transitioning) return;
     if (currentQuestionIndex === 0) return;
-    showQuestion(currentQuestionIndex - 1, 'backward');
+    showQuestion(currentQuestionIndex - 1);
   }
 
   // ============================================================
@@ -312,7 +307,7 @@
   function handleSubmit() {
     // Defensive guard: should never trigger with <8 answers because goToNext
     // checks isCurrentQuestionAnswered first. But cheap to verify.
-    if (getAnsweredCount() < 8) return;
+    if (Object.keys(answers).length < QUESTION_IDS.length) return;
 
     currentRawScore = calculateRawScore();
     currentScaledScore = Math.round(currentRawScore * 1.25);
@@ -475,7 +470,7 @@
     }
 
     const linksHTML = (tierData.internalLinks || []).map(function (l) {
-      return '<li><a href="' + escapeAttr(l.href) + '">' + escapeHtml(l.text) + '</a></li>';
+      return '<li><a href="' + escapeHtml(l.href) + '">' + escapeHtml(l.text) + '</a></li>';
     }).join('');
 
     const internalLinksBlock = linksHTML
@@ -522,31 +517,6 @@
   }
 
   // ============================================================
-  // NAV HAMBURGER (sitewide chrome — kept here so this page
-  // is fully Cloudflare-safe with no inline onclick handlers)
-  // ============================================================
-
-  function setupNavHamburger() {
-    const btn = document.getElementById('audit-nav-ham');
-    const menu = document.querySelector('.nav-mobile-menu');
-    if (!btn || !menu) return;
-
-    btn.addEventListener('click', function () {
-      const isOpen = menu.classList.toggle('open');
-      btn.classList.toggle('open', isOpen);
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-
-    document.addEventListener('click', function (e) {
-      if (!menu.classList.contains('open')) return;
-      if (menu.contains(e.target) || btn.contains(e.target)) return;
-      menu.classList.remove('open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    });
-  }
-
-  // ============================================================
   // ESCAPING UTILITIES
   // ============================================================
 
@@ -559,9 +529,6 @@
   };
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, function (c) { return HTML_ESCAPES[c]; });
-  }
-  function escapeAttr(s) {
-    return escapeHtml(s);
   }
 
   // ============================================================
