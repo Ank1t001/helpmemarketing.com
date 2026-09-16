@@ -40,6 +40,24 @@ w.addEventListener(e,load,{once:true,passive:true});});
 {"@context":"https://schema.org","@type":"Article","headline":"The Real Estate Index: Instagram","description":"Fortnightly competitive intelligence for Canadian private real estate on Instagram.","author":{"@type":"Person","name":"Ankit Kumar"},"publisher":{"@type":"Organization","name":"Help Me Marketing","url":"https://helpmemarketing.com","logo":"https://helpmemarketing.com/logo.png"},"url":"https://helpmemarketing.com/instagram-reindex","isAccessibleForFree":true}
 </script>
 <script src="/consent.js" defer></script>
+<script data-hash-settle>
+/* Sections below the fold use content-visibility:auto (REC-205), which makes a hash jump land
+   short because sections above the target render at full size after the jump. When the page
+   opens with a hash (or the hash changes), switch the deferral off for this visit, let layout
+   settle for two frames, then jump once. Hash visits are rare, so the deferral still wins. */
+(function(){
+  function settle(){
+    var id = location.hash && location.hash.slice(1); if (!id) return;
+    var el = document.getElementById(id) || document.getElementsByName(id)[0]; if (!el) return;
+    var wrap = document.querySelector('.msi'); if (wrap) wrap.classList.add('msi-hash');
+    function jump(){ if (Math.abs(el.getBoundingClientRect().top) > 2) el.scrollIntoView({ block: 'start' }); }
+    requestAnimationFrame(function(){ requestAnimationFrame(jump); });
+    setTimeout(jump, 600); setTimeout(jump, 1500); /* lazy images inside newly visible sections settle late */
+  }
+  if (document.readyState === 'complete') settle(); else window.addEventListener('load', settle);
+  window.addEventListener('hashchange', settle);
+})();
+</script>
 <style>
 /* ============ THE HMM INDEX / THE QUIET DISRUPTOR ============ *//* Built from the HMM color system v1. 60-30-10 discipline:
    Obsidian + Carbon carry 60%, text hierarchy 30%, accent 10%.
@@ -366,6 +384,13 @@ w.addEventListener(e,load,{once:true,passive:true});});
   .msi.msi .cta-card h2{font-size:28px}
 }
 
+/* REC-205 (2026-09-16): off-screen sections skip layout and paint until they approach the
+   viewport. The 488-row post log alone is most of the page's main-thread cost on phones;
+   content-visibility keeps it out of the critical path without touching the markup. The
+   intrinsic size placeholder keeps the scrollbar stable; anchors and find-in-page still work. */
+.msi.msi .wrap > section{content-visibility:auto;contain-intrinsic-size:auto 640px}
+.msi.msi .wrap > section:first-of-type,.msi.msi header{content-visibility:visible}
+.msi.msi-hash .wrap > section{content-visibility:visible}
 /* Neutralise the few unscoped rules styles.css applies to plain tags and shared class names */
 .msi.msi section{padding:0}
 .msi.msi h4,.msi.msi .card h4{color:var(--text-tertiary)}

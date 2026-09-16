@@ -263,7 +263,9 @@ section { padding: 88px 0; }
 
 /* ============ Page transitions ============ */
 .page-enter { animation: pageIn 0.35s cubic-bezier(.2,.8,.2,1); }
-@keyframes pageIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; }}
+/* Slide only: the opacity ramp kept the hero headline from counting as painted until the
+   animation ended, which pushed LCP back ~350ms on every page (SEO Growth OS run 2026-09-16). */
+@keyframes pageIn { from { transform: translateY(8px); } to { transform: none; }}
 
 /* ============================================================
    Responsive 2-col stack utilities
