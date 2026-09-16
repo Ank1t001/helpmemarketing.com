@@ -525,19 +525,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .mode-tab:hover { color:var(--text); }
 .mode-tab.active { border-color:var(--cta); background:rgba(255,92,26,0.10); color:var(--text); }
 .mode-tab:focus-visible { outline:2px solid var(--cta); outline-offset:2px; }
-@media (max-width: 900px) {
-  body.redesign-prototype .adc-calc-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-  body.redesign-prototype .adc-calc-grid > * { min-width: 0; }
-  body.redesign-prototype .adc-inputs-card { position: static; padding: 24px; }
-  body.redesign-prototype .adc-result-hero { padding: 28px 24px; }
-}
-@media (max-width: 720px) {
-  .related-grid { grid-template-columns: 1fr !important; }
-  body.redesign-prototype .adc-grid-3, body.redesign-prototype .sbtn-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  body.redesign-prototype .adc-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .ibtn, .sbtn, .pbtn, .mode-tab { min-width: 0; white-space: normal; }
-  body.redesign-prototype .adc-stats-grid { grid-template-columns: minmax(0, 1fr); }
-  body.redesign-prototype .adc-breakdown-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Ad-calculator: inline-style -> class refactor (canon compliance).
@@ -548,8 +535,8 @@ body.redesign-prototype .adc-inputs-card { background:var(--bg-elevated); border
 body.redesign-prototype .adc-inputs-eyebrow { font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:24px; }
 body.redesign-prototype .adc-field { margin-bottom:28px; }
 body.redesign-prototype .adc-field-label { font-size:14px; color:var(--text); font-weight:500; display:block; margin-bottom:12px; }
-body.redesign-prototype .adc-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
-body.redesign-prototype .adc-grid-3 { display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; }
+body.redesign-prototype .adc-grid-2 { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:6px; }
+body.redesign-prototype .adc-grid-3 { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:6px; }
 body.redesign-prototype .adc-input-note { margin-top:10px; font-size:12px; color:var(--text-muted); }
 body.redesign-prototype .adc-row-baseline { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
 body.redesign-prototype .adc-label-strong { font-size:14px; color:var(--text); font-weight:500; }
@@ -619,6 +606,21 @@ body.redesign-prototype .adc-related-title { font-size:20px; color:var(--text); 
 body.redesign-prototype .adc-related-desc { margin:0; font-size:14.5px; color:var(--text-muted); line-height:1.55; }
 body.redesign-prototype .adc-b { font-weight:500; }
 body.redesign-prototype .adc-b-cta { color:var(--text); font-weight:600; } /* a figure, not a CTA (Rule 1) */
+
+/* Phone rules last so they outrank the base grid rules above at equal specificity. */
+@media (max-width: 900px) {
+  body.redesign-prototype .adc-calc-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  body.redesign-prototype .adc-calc-grid > * { min-width: 0; }
+  body.redesign-prototype .adc-inputs-card { position: static; padding: 24px; }
+  body.redesign-prototype .adc-result-hero { padding: 28px 24px; }
+}
+@media (max-width: 720px) {
+  .related-grid { grid-template-columns: 1fr !important; }
+  body.redesign-prototype .adc-grid-3, body.redesign-prototype .sbtn-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.redesign-prototype .adc-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ibtn, .sbtn, .pbtn, .mode-tab { min-width: 0; white-space: normal; }
+  body.redesign-prototype .adc-stats-grid { grid-template-columns: minmax(0, 1fr); }
+  body.redesign-prototype .adc-breakdown-grid { grid-template-columns: minmax(0, 1fr); }
 </style>
 
 <script>
@@ -846,13 +848,11 @@ body.redesign-prototype .adc-b-cta { color:var(--text); font-weight:600; } /* a 
   }
 
   function applySegGridLayout(){
-    if (industry === 'Healthcare') {
-      segGrid.style.gridTemplateColumns = 'repeat(3, 1fr)';
-      segGrid.classList.add('sbtn-grid-3');
-    } else {
-      segGrid.style.gridTemplateColumns = '1fr 1fr';
-      segGrid.classList.remove('sbtn-grid-3');
-    }
+    // Column count is class-driven so the phone rules in the page CSS can override it
+    // (an inline gridTemplateColumns used to pin three columns at every width).
+    segGrid.classList.toggle('sbtn-grid-3', industry === 'Healthcare');
+    segGrid.classList.toggle('adc-grid-3', industry === 'Healthcare');
+    segGrid.classList.toggle('adc-grid-2', industry !== 'Healthcare');
   }
 
   function applyPlatformPillState(){
