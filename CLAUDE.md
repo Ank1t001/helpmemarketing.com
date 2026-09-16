@@ -131,7 +131,7 @@ Every page is a standalone, fully self-contained HTML document. There is **no te
 
 Each page shares this skeleton:
 
-- Same `<head>`: Google Fonts (Fraunces + Inter) preconnect + link, then `<link rel="stylesheet" href="styles.css">`.
+- Same `<head>`: two font preloads (`/assets/fonts/fraunces-latin.woff2`, `/assets/fonts/inter-latin.woff2`, `as="font" crossorigin`), then `<link rel="stylesheet" href="/styles.css">`. Fonts are self-hosted since 2026-09-16: the `@font-face` block at the top of `styles.css` serves Fraunces (variable, 400 to 500 upright, 400 italic) and Inter (variable, 400 to 700) in latin and latin-ext from `/assets/fonts`. No Google Fonts link or preconnect on any page.
 - `<div class="app" data-screen-label="{page-id}">` — the `data-screen-label` identifies the page type (`home`, `services`, `service-detail`, `contact`, `blog`, `privacy`, `terms`, `about`, `work`, `ad-calculator`, `hipaa-checklist`). Service-detail pages all share the label `service-detail`.
 - `<nav class="nav">` + hidden `<div class="nav-mobile-menu">`, with a mobile hamburger toggle.
 - `<div class="page-enter">` wraps the body content for the entry animation.

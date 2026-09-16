@@ -2,100 +2,377 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/docs/:path*", "destination": "/404" },
-    { "source": "/CLAUDE.md",   "destination": "/404" },
-    { "source": "/FINDINGS.md", "destination": "/404" },
-    { "source": "/PLAN.md",     "destination": "/404" },
-    { "source": "/blog/dtc-cac-reduction",     "destination": "/blog/dtc-cac-reduction.html" },
-    { "source": "/blog/meta-roas-attribution", "destination": "/blog/meta-roas-attribution.html" },
-    { "source": "/blog/choose-marketing-agency", "destination": "/blog/choose-marketing-agency.html" },
-    { "source": "/blog/paid-ads-vs-organic",     "destination": "/blog/paid-ads-vs-organic.html" },
-    { "source": "/blog/seo-ppc-or-social",       "destination": "/blog/seo-ppc-or-social.html" },
-    { "source": "/blog/marketing-kpis",          "destination": "/blog/marketing-kpis.html" },
-    { "source": "/blog/digital-marketing-cost",  "destination": "/blog/digital-marketing-cost.html" },
-    { "source": "/blog/what-marketing-do-i-need", "destination": "/blog/what-marketing-do-i-need.html" },
-    { "source": "/blog/what-services-do-i-need",  "destination": "/blog/what-services-do-i-need.html" },
-    { "source": "/blog/marketing-mistakes",        "destination": "/blog/marketing-mistakes.html" },
-    { "source": "/blog/marketing-strategy-from-zero", "destination": "/blog/marketing-strategy-from-zero.html" },
-
-    { "source": "/team/(.*)",     "destination": "/api/gone" },
-    { "source": "/category/(.*)", "destination": "/api/gone" },
-    { "source": "/2025/(.*)",     "destination": "/api/gone" },
-    { "source": "/feed",          "destination": "/api/gone" },
-    { "source": "/(.*)/feed",     "destination": "/api/gone" },
-
-    { "source": "/wp-includes",      "destination": "/api/gone" },
-    { "source": "/wp-includes/(.*)", "destination": "/api/gone" },
-    { "source": "/wp-content",       "destination": "/api/gone" },
-    { "source": "/wp-content/(.*)",  "destination": "/api/gone" },
-    { "source": "/wp-admin",         "destination": "/api/gone" },
-    { "source": "/wp-admin/(.*)",    "destination": "/api/gone" },
-    { "source": "/xmlrpc.php",       "destination": "/api/gone" }
+    {
+      "source": "/docs/:path*",
+      "destination": "/404"
+    },
+    {
+      "source": "/CLAUDE.md",
+      "destination": "/404"
+    },
+    {
+      "source": "/FINDINGS.md",
+      "destination": "/404"
+    },
+    {
+      "source": "/PLAN.md",
+      "destination": "/404"
+    },
+    {
+      "source": "/blog/dtc-cac-reduction",
+      "destination": "/blog/dtc-cac-reduction.html"
+    },
+    {
+      "source": "/blog/meta-roas-attribution",
+      "destination": "/blog/meta-roas-attribution.html"
+    },
+    {
+      "source": "/blog/choose-marketing-agency",
+      "destination": "/blog/choose-marketing-agency.html"
+    },
+    {
+      "source": "/blog/paid-ads-vs-organic",
+      "destination": "/blog/paid-ads-vs-organic.html"
+    },
+    {
+      "source": "/blog/seo-ppc-or-social",
+      "destination": "/blog/seo-ppc-or-social.html"
+    },
+    {
+      "source": "/blog/marketing-kpis",
+      "destination": "/blog/marketing-kpis.html"
+    },
+    {
+      "source": "/blog/digital-marketing-cost",
+      "destination": "/blog/digital-marketing-cost.html"
+    },
+    {
+      "source": "/blog/what-marketing-do-i-need",
+      "destination": "/blog/what-marketing-do-i-need.html"
+    },
+    {
+      "source": "/blog/what-services-do-i-need",
+      "destination": "/blog/what-services-do-i-need.html"
+    },
+    {
+      "source": "/blog/marketing-mistakes",
+      "destination": "/blog/marketing-mistakes.html"
+    },
+    {
+      "source": "/blog/marketing-strategy-from-zero",
+      "destination": "/blog/marketing-strategy-from-zero.html"
+    },
+    {
+      "source": "/team/(.*)",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/category/(.*)",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/2025/(.*)",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/feed",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/(.*)/feed",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/wp-includes",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/wp-includes/(.*)",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/wp-content",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/wp-content/(.*)",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/wp-admin",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/wp-admin/(.*)",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/xmlrpc.php",
+      "destination": "/api/gone"
+    }
   ],
   "redirects": [
-    { "source": "/(.*)", "has": [{ "type": "host", "value": "www.helpmemarketing.com" }], "destination": "https://helpmemarketing.com/$1", "statusCode": 301 },
-
-    { "source": "/blog/meta-attribution",      "destination": "/blog/meta-roas-attribution", "permanent": true },
-    { "source": "/blog/meta-attribution.html", "destination": "/blog/meta-roas-attribution", "permanent": true },
-    { "source": "/healthcare-seo",      "destination": "/services/seo",                  "permanent": true },
-    { "source": "/healthcare-seo.html", "destination": "/services/seo",                  "permanent": true },
-    { "source": "/clinic-websites",      "destination": "/services/website-development",  "permanent": true },
-    { "source": "/clinic-websites.html", "destination": "/services/website-development",  "permanent": true },
-    { "source": "/websites",      "destination": "/services/website-development",         "permanent": true },
-    { "source": "/websites.html", "destination": "/services/website-development",         "permanent": true },
-    { "source": "/retention",      "destination": "/services/ai-automation",             "permanent": true },
-    { "source": "/retention.html", "destination": "/services/ai-automation",             "permanent": true },
-    { "source": "/reputation",      "destination": "/services/branding-social#reviews",  "permanent": true },
-    { "source": "/reputation.html", "destination": "/services/branding-social#reviews",  "permanent": true },
-    { "source": "/brand",      "destination": "/services/branding-social",               "permanent": true },
-    { "source": "/brand.html", "destination": "/services/branding-social",               "permanent": true },
-    { "source": "/hipaa-checklist",      "destination": "/industries/healthcare/hipaa-checklist", "permanent": true },
-    { "source": "/hipaa-checklist.html", "destination": "/industries/healthcare/hipaa-checklist", "permanent": true },
-    { "source": "/_healthcare/healthcare-seo",  "destination": "/industries/healthcare",                 "permanent": true },
-    { "source": "/_healthcare/case-studies",    "destination": "/industries/healthcare#case-studies",    "permanent": true },
-    { "source": "/_healthcare/hipaa-checklist", "destination": "/industries/healthcare/hipaa-checklist", "permanent": true },
-    { "source": "/_healthcare/ad-calculator",   "destination": "/ad-calculator",                          "permanent": true },
-
-    { "source": "/seo",              "destination": "/services/seo",                       "permanent": true },
-    { "source": "/google-meta-ads",  "destination": "/services/performance-marketing",     "permanent": true },
-    { "source": "/website-design",   "destination": "/services/website-development",       "permanent": true },
-    { "source": "/social-media",     "destination": "/services/branding-social",           "permanent": true },
-    { "source": "/brand-content",    "destination": "/services/branding-social",           "permanent": true },
-    { "source": "/lifecycle-retention", "destination": "/services/ai-automation",           "permanent": true },
-    { "source": "/reviews-reputation",  "destination": "/services/branding-social#reviews", "permanent": true },
-    { "source": "/analytics",        "destination": "/services/analytics-attribution",     "permanent": true },
-
-    { "source": "/about-us",                         "destination": "/about",                          "statusCode": 301 },
-    { "source": "/services-2",                       "destination": "/services",                       "statusCode": 301 },
-    { "source": "/servicess/brand-acceleration",     "destination": "/services/branding-social",       "statusCode": 301 },
-    { "source": "/servicess/brand-acceleration-2",   "destination": "/services/branding-social",       "statusCode": 301 },
-    { "source": "/servicess/demand-generation",      "destination": "/services/performance-marketing", "statusCode": 301 },
-    { "source": "/servicess/demand-generation-2",    "destination": "/services/performance-marketing", "statusCode": 301 },
-    { "source": "/servicess/technology-performance", "destination": "/services/performance-marketing", "statusCode": 301 },
-    { "source": "/bussiness/seo-2",                  "destination": "/services/seo",                   "statusCode": 301 },
-    { "source": "/bussiness/online-marketing",       "destination": "/services",                       "statusCode": 301 },
-    { "source": "/bussiness/online-marketing-2",     "destination": "/services",                       "statusCode": 301 },
-    { "source": "/bussiness/advertising",            "destination": "/services/performance-marketing", "statusCode": 301 },
-    { "source": "/bussiness/digital-strategy",       "destination": "/services",                       "statusCode": 301 },
-
-    { "source": "/pricing",      "destination": "/contact", "permanent": true },
-    { "source": "/pricing.html", "destination": "/contact", "permanent": true },
-
-    { "source": "/schedule-a-call", "destination": "/contact", "permanent": true }
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.helpmemarketing.com"
+        }
+      ],
+      "destination": "https://helpmemarketing.com/$1",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/meta-attribution",
+      "destination": "/blog/meta-roas-attribution",
+      "permanent": true
+    },
+    {
+      "source": "/blog/meta-attribution.html",
+      "destination": "/blog/meta-roas-attribution",
+      "permanent": true
+    },
+    {
+      "source": "/healthcare-seo",
+      "destination": "/services/seo",
+      "permanent": true
+    },
+    {
+      "source": "/healthcare-seo.html",
+      "destination": "/services/seo",
+      "permanent": true
+    },
+    {
+      "source": "/clinic-websites",
+      "destination": "/services/website-development",
+      "permanent": true
+    },
+    {
+      "source": "/clinic-websites.html",
+      "destination": "/services/website-development",
+      "permanent": true
+    },
+    {
+      "source": "/websites",
+      "destination": "/services/website-development",
+      "permanent": true
+    },
+    {
+      "source": "/websites.html",
+      "destination": "/services/website-development",
+      "permanent": true
+    },
+    {
+      "source": "/retention",
+      "destination": "/services/ai-automation",
+      "permanent": true
+    },
+    {
+      "source": "/retention.html",
+      "destination": "/services/ai-automation",
+      "permanent": true
+    },
+    {
+      "source": "/reputation",
+      "destination": "/services/branding-social#reviews",
+      "permanent": true
+    },
+    {
+      "source": "/reputation.html",
+      "destination": "/services/branding-social#reviews",
+      "permanent": true
+    },
+    {
+      "source": "/brand",
+      "destination": "/services/branding-social",
+      "permanent": true
+    },
+    {
+      "source": "/brand.html",
+      "destination": "/services/branding-social",
+      "permanent": true
+    },
+    {
+      "source": "/hipaa-checklist",
+      "destination": "/industries/healthcare/hipaa-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/hipaa-checklist.html",
+      "destination": "/industries/healthcare/hipaa-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/_healthcare/healthcare-seo",
+      "destination": "/industries/healthcare",
+      "permanent": true
+    },
+    {
+      "source": "/_healthcare/case-studies",
+      "destination": "/industries/healthcare#case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/_healthcare/hipaa-checklist",
+      "destination": "/industries/healthcare/hipaa-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/_healthcare/ad-calculator",
+      "destination": "/ad-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/seo",
+      "destination": "/services/seo",
+      "permanent": true
+    },
+    {
+      "source": "/google-meta-ads",
+      "destination": "/services/performance-marketing",
+      "permanent": true
+    },
+    {
+      "source": "/website-design",
+      "destination": "/services/website-development",
+      "permanent": true
+    },
+    {
+      "source": "/social-media",
+      "destination": "/services/branding-social",
+      "permanent": true
+    },
+    {
+      "source": "/brand-content",
+      "destination": "/services/branding-social",
+      "permanent": true
+    },
+    {
+      "source": "/lifecycle-retention",
+      "destination": "/services/ai-automation",
+      "permanent": true
+    },
+    {
+      "source": "/reviews-reputation",
+      "destination": "/services/branding-social#reviews",
+      "permanent": true
+    },
+    {
+      "source": "/analytics",
+      "destination": "/services/analytics-attribution",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "statusCode": 301
+    },
+    {
+      "source": "/services-2",
+      "destination": "/services",
+      "statusCode": 301
+    },
+    {
+      "source": "/servicess/brand-acceleration",
+      "destination": "/services/branding-social",
+      "statusCode": 301
+    },
+    {
+      "source": "/servicess/brand-acceleration-2",
+      "destination": "/services/branding-social",
+      "statusCode": 301
+    },
+    {
+      "source": "/servicess/demand-generation",
+      "destination": "/services/performance-marketing",
+      "statusCode": 301
+    },
+    {
+      "source": "/servicess/demand-generation-2",
+      "destination": "/services/performance-marketing",
+      "statusCode": 301
+    },
+    {
+      "source": "/servicess/technology-performance",
+      "destination": "/services/performance-marketing",
+      "statusCode": 301
+    },
+    {
+      "source": "/bussiness/seo-2",
+      "destination": "/services/seo",
+      "statusCode": 301
+    },
+    {
+      "source": "/bussiness/online-marketing",
+      "destination": "/services",
+      "statusCode": 301
+    },
+    {
+      "source": "/bussiness/online-marketing-2",
+      "destination": "/services",
+      "statusCode": 301
+    },
+    {
+      "source": "/bussiness/advertising",
+      "destination": "/services/performance-marketing",
+      "statusCode": 301
+    },
+    {
+      "source": "/bussiness/digital-strategy",
+      "destination": "/services",
+      "statusCode": 301
+    },
+    {
+      "source": "/pricing",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/pricing.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/schedule-a-call",
+      "destination": "/contact",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
       ]
     },
     {
       "source": "/styles.css",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/assets/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
   ]
