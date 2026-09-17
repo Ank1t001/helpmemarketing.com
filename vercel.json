@@ -3,66 +3,6 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/docs/:path*",
-      "destination": "/404"
-    },
-    {
-      "source": "/CLAUDE.md",
-      "destination": "/404"
-    },
-    {
-      "source": "/FINDINGS.md",
-      "destination": "/404"
-    },
-    {
-      "source": "/PLAN.md",
-      "destination": "/404"
-    },
-    {
-      "source": "/blog/dtc-cac-reduction",
-      "destination": "/blog/dtc-cac-reduction.html"
-    },
-    {
-      "source": "/blog/meta-roas-attribution",
-      "destination": "/blog/meta-roas-attribution.html"
-    },
-    {
-      "source": "/blog/choose-marketing-agency",
-      "destination": "/blog/choose-marketing-agency.html"
-    },
-    {
-      "source": "/blog/paid-ads-vs-organic",
-      "destination": "/blog/paid-ads-vs-organic.html"
-    },
-    {
-      "source": "/blog/seo-ppc-or-social",
-      "destination": "/blog/seo-ppc-or-social.html"
-    },
-    {
-      "source": "/blog/marketing-kpis",
-      "destination": "/blog/marketing-kpis.html"
-    },
-    {
-      "source": "/blog/digital-marketing-cost",
-      "destination": "/blog/digital-marketing-cost.html"
-    },
-    {
-      "source": "/blog/what-marketing-do-i-need",
-      "destination": "/blog/what-marketing-do-i-need.html"
-    },
-    {
-      "source": "/blog/what-services-do-i-need",
-      "destination": "/blog/what-services-do-i-need.html"
-    },
-    {
-      "source": "/blog/marketing-mistakes",
-      "destination": "/blog/marketing-mistakes.html"
-    },
-    {
-      "source": "/blog/marketing-strategy-from-zero",
-      "destination": "/blog/marketing-strategy-from-zero.html"
-    },
-    {
       "source": "/team/(.*)",
       "destination": "/api/gone"
     },
@@ -129,17 +69,7 @@
       "permanent": true
     },
     {
-      "source": "/blog/meta-attribution.html",
-      "destination": "/blog/meta-roas-attribution",
-      "permanent": true
-    },
-    {
       "source": "/healthcare-seo",
-      "destination": "/services/seo",
-      "permanent": true
-    },
-    {
-      "source": "/healthcare-seo.html",
       "destination": "/services/seo",
       "permanent": true
     },
@@ -149,17 +79,7 @@
       "permanent": true
     },
     {
-      "source": "/clinic-websites.html",
-      "destination": "/services/website-development",
-      "permanent": true
-    },
-    {
       "source": "/websites",
-      "destination": "/services/website-development",
-      "permanent": true
-    },
-    {
-      "source": "/websites.html",
       "destination": "/services/website-development",
       "permanent": true
     },
@@ -169,17 +89,7 @@
       "permanent": true
     },
     {
-      "source": "/retention.html",
-      "destination": "/services/ai-automation",
-      "permanent": true
-    },
-    {
       "source": "/reputation",
-      "destination": "/services/branding-social#reviews",
-      "permanent": true
-    },
-    {
-      "source": "/reputation.html",
       "destination": "/services/branding-social#reviews",
       "permanent": true
     },
@@ -189,17 +99,7 @@
       "permanent": true
     },
     {
-      "source": "/brand.html",
-      "destination": "/services/branding-social",
-      "permanent": true
-    },
-    {
       "source": "/hipaa-checklist",
-      "destination": "/industries/healthcare/hipaa-checklist",
-      "permanent": true
-    },
-    {
-      "source": "/hipaa-checklist.html",
       "destination": "/industries/healthcare/hipaa-checklist",
       "permanent": true
     },
@@ -210,7 +110,7 @@
     },
     {
       "source": "/_healthcare/case-studies",
-      "destination": "/industries/healthcare#case-studies",
+      "destination": "/work",
       "permanent": true
     },
     {
@@ -325,11 +225,6 @@
     },
     {
       "source": "/pricing",
-      "destination": "/contact",
-      "permanent": true
-    },
-    {
-      "source": "/pricing.html",
       "destination": "/contact",
       "permanent": true
     },

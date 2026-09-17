@@ -23,7 +23,7 @@ Nothing to install or build. To preview locally, serve the directory with any st
 python -m http.server 8000
 ```
 
-Vercel serves with `cleanUrls: true`, so **write links without the `.html` suffix** (`/services/seo`, `/blog/foo`, `/` for home). This is the sitewide convention every live page uses. Vercel serves `foo.html` at `/foo`, and a request to `/foo.html` 301-redirects to `/foo`, so a `.html` link only adds a needless redirect hop. Use absolute root-relative paths (`/services/seo`), not relative ones (`../services/seo`). `sitemap.xml` uses the same clean-URL form. (Exception: the frozen `_healthcare/*` archive and the `blog/meta-attribution.html` redirect stub still carry relative `.html` links; they are not served or indexed, so leave them as-is.)
+Vercel serves with `cleanUrls: true`, so **write links without the `.html` suffix** (`/services/seo`, `/blog/foo`, `/` for home). This is the sitewide convention every live page uses. Vercel serves `foo.html` at `/foo`, and a request to `/foo.html` 301-redirects to `/foo`, so a `.html` link only adds a needless redirect hop. Use absolute root-relative paths (`/services/seo`), not relative ones (`../services/seo`). `sitemap.xml` uses the same clean-URL form. (Exception: `blog/meta-attribution.html` is a leftover stub that a `vercel.json` redirect shadows, so it is never served; it still carries relative `.html` links and is slated for deletion. The `_healthcare/*` archive is gone; its old URLs redirect.)
 
 ## Design & Content Canon — READ BEFORE ANY PROTOTYPE-SCOPED PAGE WORK
 
@@ -172,7 +172,7 @@ Elsewhere, the only JS is tiny inline event handlers (mobile-menu toggle). **Not
 
 ### Deployment and SEO
 
-- `vercel.json` sets `cleanUrls: true`, `trailingSlash: false`, adds `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: SAMEORIGIN` on all responses, and caches `styles.css` for 1h (`must-revalidate`).
+- `vercel.json` sets `cleanUrls: true`, `trailingSlash: false`, adds `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: SAMEORIGIN` on all responses, and serves `styles.css` with `max-age=0, must-revalidate` (every navigation revalidates it; a 304 when unchanged) and `/assets/fonts/*` immutable for a year. Note the `.html` request form never reaches a redirect: `cleanUrls` 308s `/foo.html` to `/foo` first, so redirects are written for the extensionless path only. Internal files are kept out of the deployment by `.vercelignore`, not by rewrites.
 - **Brand assets (2026-09-08):** `/favicon.ico` + `/favicon-32x32.png`, `/favicon-192x192.png` (apple-touch), `/favicon-512x512.png`, linked from every page `<head>`; `/og-image.png` (1200×630) is the default `og:image`/`twitter:image` (blog posts keep their own hero OG); `/logo.png` (400×400) is the schema `logo`/`image`. Source package: HMM_Logo_Package.
 - `styles.css` was pruned on 2026-09-16 (578 dead rules, 275KB to 212KB). Dead means the selector requires a class or id that appears in no served HTML file and no JS string literal. Re-run the same check before adding CSS back for a retired component; see `/docs/HMM_Design_System.md` (CSS trim note) for the method.
 - `sitemap.xml` is hand-maintained — when adding or renaming a page, update it (use the clean-URL form without `.html`).
