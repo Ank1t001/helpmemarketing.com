@@ -228,8 +228,8 @@ The reference blog implementing all V2 patterns is:
 
 ### Hero images
 - Generated tool-agnostic: nano-banana-pro skill (in-build) or Higgsfield/Recraft connector (generate, then hand off the PNG)
-- 16:9, 2K, PNG. Default aesthetic: dark obsidian + Signal Orange (canonical); muted gold + ivory is an acceptable alternative
-- Stored at `/blog/images/[slug]-hero.png`
+- 16:9, 2K, PNG master kept local. Default aesthetic: dark obsidian + Signal Orange (canonical); muted gold + ivory is an acceptable alternative
+- Committed as two derivatives: `/blog/images/[slug]-hero.webp` (1344 wide, the page image) and `/blog/images/[slug]-og.jpg` (1200x630, `og:image`, `twitter:image`, schema `image`). No PNG in the repo (2026-09-17)
 - JSON spec template in Part 6 Section B of master reference
 
 ### Voice rules (summary)

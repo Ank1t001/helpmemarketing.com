@@ -1,6 +1,6 @@
 # HMM Blog Template V2 — Master Reference
 
-**Version:** 2.6 (D-hybrid sticky TOC sidebar)
+**Version:** 2.8 (D-hybrid sticky TOC sidebar)
 **First shipped:** Commit `2430e84`, May 5 2026, on `/blog/healthcare-marketing-channels`
 **Purpose:** Single source of truth for writing new blogs and retrofitting existing ones to V2 architecture.
 
@@ -163,7 +163,9 @@ The dark theme sets Fraunces on the post title, H2s, takeaways heading, sidebar 
   <meta property="og:type" content="article">
   <meta property="og:title" content="[Title]">
   <meta property="og:description" content="[Same as meta description]">
-  <meta property="og:image" content="https://helpmemarketing.com/blog/images/[slug]-hero.png">
+  <meta property="og:image" content="https://helpmemarketing.com/blog/images/[slug]-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://helpmemarketing.com/blog/[slug]">
   <meta property="article:published_time" content="[YYYY-MM-DD]">
   <meta property="article:author" content="Ankit Kumar">
@@ -171,7 +173,7 @@ The dark theme sets Fraunces on the post title, H2s, takeaways heading, sidebar 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="[Title]">
   <meta name="twitter:description" content="[Same as meta description]">
-  <meta name="twitter:image" content="https://helpmemarketing.com/blog/images/[slug]-hero.png">
+  <meta name="twitter:image" content="https://helpmemarketing.com/blog/images/[slug]-og.jpg">
   
   <!-- Schema (4 blocks: see Section B) -->
   <script type="application/ld+json">{...BlogPosting...}</script>
@@ -226,7 +228,7 @@ Every blog needs these 4 schema blocks (HowTo only when applicable):
   "@type": "BlogPosting",
   "headline": "[Article H1]",
   "description": "[Meta description, same as <meta name='description'>]",
-  "image": "https://helpmemarketing.com/blog/images/[slug]-hero.png",
+  "image": "https://helpmemarketing.com/blog/images/[slug]-og.jpg",
   "datePublished": "[YYYY-MM-DD]",
   "dateModified": "[YYYY-MM-DD]",
   "author": {
@@ -457,9 +459,9 @@ At <900px viewport, sidebar hides; replaced with collapsible "Jump to section" b
         </div>
 
         <div class="hero-illustration hero-illustration--image">
-          <img src="/blog/images/[slug]-hero.png"
+          <img src="/blog/images/[slug]-hero.webp"
                alt="[Descriptive alt text matching the image concept]"
-               width="3000" height="1688">
+               width="1344" height="752" loading="eager" fetchpriority="high">
         </div>
       </div>
     </header>
@@ -1447,10 +1449,10 @@ This file is shared across all V2 blogs. Don't duplicate inline. Don't fork per-
 
 | Spec | Value |
 |---|---|
-| **Format** | PNG (compress to WebP in deferred follow-up if size matters) |
+| **Format** | Generate as PNG locally; commit two derivatives only: `[slug]-hero.webp` (1344 wide, q80, the page image) and `[slug]-og.jpg` (1200x630 centre crop, q80, the social and schema image). The PNG master stays local |
 | **Aspect ratio** | 16:9 |
 | **Resolution** | 2K (~3000×1688) |
-| **Path** | `/blog/images/[slug]-hero.png` |
+| **Path** | `/blog/images/[slug]-hero.webp` and `/blog/images/[slug]-og.jpg` |
 | **Style** | Brand-aligned. **Default (canonical): dark obsidian + Signal Orange (#FF5C1A)** editorial aesthetic, matching the live dark site. Gold/ivory editorial is an acceptable alternative, not the default. No medical/stock imagery either way. |
 | **Tool** | Tool-agnostic. Two paths: **nano-banana-pro** (Google Gemini 3 Pro Image, a Claude Code skill — generate in-build) OR **Higgsfield / Recraft** (chat connector — generate, then hand off the PNG to the build). The JSON spec below is a concept brief any model can take. |
 
@@ -1590,8 +1592,8 @@ After 3 iterations, if the concept still isn't landing, switch concept entirely 
 | Step | Detail |
 |---|---|
 | **Generate locally** | `D:\AI Projects\Image_Studio\[slug]_hero_v[N].png` (nano-banana-pro) OR via the chat connector (Higgsfield/Recraft), then save the PNG locally |
-| **Copy to repo** | `/blog/images/[slug]-hero.png` (note hyphen, not underscore, in repo path) |
-| **Commit** | Repo path included in blog HTML, OG tags, Twitter Cards, BlogPosting schema |
+| **Copy to repo** | `/blog/images/[slug]-hero.webp` + `/blog/images/[slug]-og.jpg` (note hyphen, not underscore, in repo path). Derive both from the PNG with PIL: webp 1344 wide q80; jpg resize-to-cover then centre-crop 1200x630 q80 progressive |
+| **Commit** | webp in the hero `<img>` and the blog.html card; og.jpg in `og:image` (with width/height 1200/630), `twitter:image` and BlogPosting `image` |
 | **Spec file** | `[slug]_hero.spec.json` kept LOCAL only — not committed |
 
 ## Section E — Alt text
@@ -1757,7 +1759,7 @@ Each retrofit is its own commit. Batch 2-3 blogs per commit if logically related
 
 ```
 Blog HTML:        /blog/[slug].html
-Hero image:       /blog/images/[slug]-hero.png
+Hero image:       /blog/images/[slug]-hero.webp (page) + [slug]-og.jpg (social/schema)
 Shared CSS:       /styles.css (BLOG TEMPLATE V2 section)
 Shared JS:        /blog/blog-template.js
 Blog index:       /blog.html (card + filter chip)
@@ -1801,7 +1803,7 @@ Final CTA:     Primary button → /contact
 5. If 3-4/6 pass → identify ONE handle to adjust, generate v02
 6. If <3/6 pass → re-concept the spec
 7. Max 3 iterations before re-concepting
-8. Commit final to repo as /blog/images/[slug]-hero.png
+8. Commit the derivatives to /blog/images/[slug]-hero.webp and [slug]-og.jpg (PNG master stays local)
 9. Keep .spec.json LOCAL only
 ```
 
@@ -1829,6 +1831,7 @@ When uncertain about a pattern, view that blog's source as the canonical impleme
 | Version | Date | Changes |
 |---|---|---|
 | 2.0 | May 5 2026 | Initial V2 template (D-hybrid sticky TOC sidebar). Replaces V1 (2-column body-layout with right-column visuals). |
+| 2.8 | Sep 17 2026 | Hero image storage: the 2K PNG masters (12.1MB across 14 posts) served only `og:image`, `twitter:image` and schema `image`; replaced by `[slug]-og.jpg` 1200x630 q80 (732KB for all 14) with `og:image:width`/`height` meta added to every post. Page image stays the 1344-wide webp. PNGs removed from the repo; masters stay local. Template head, schema, hero markup, Part 6 spec table and workflow updated |
 | 2.7 | Sep 12 2026 | Sitewide consistency pass: hero image block added to the nine posts that lacked it (all 14 now carry it, with eager/high-priority loading), FAQ questions restyled to the site ring badge, related cards get the orange-ring hover, 12px label floor in the sidebar, badges and table sources. Part 3 Section J note. |
 | 2.6 | Sep 9 2026 | Third pass across the remaining 12 posts: opened mobile TOC list gets a dark surface (was a white panel), every inline style stripped from every post (link colours, table footnotes, lever paragraph margins, author role), think-long stars and four Unicode symbol icons replaced with Tabler SVGs, `.stat-inline` and table winner labels neutral white, `.cta-microcopy` styled. |
 | 2.5 | Sep 9 2026 | Second pass from /blog/digital-marketing-cost: `.rule-of-thumb` is a block (flex split sentences into columns), `.think-long` white with an orange star, `.audit-card` / `.insight-card` / `.channel-cta` headings on the 20px scale, `.table-section h3` eyebrow style, new `.table-note`, inline link styles and the voice-rules HTML comment stripped from posts. |
