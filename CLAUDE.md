@@ -175,7 +175,13 @@ Elsewhere, the only JS is tiny inline event handlers (mobile-menu toggle). **Not
 - `vercel.json` sets `cleanUrls: true`, `trailingSlash: false`, adds `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: SAMEORIGIN` on all responses, and serves `styles.css` with `max-age=600, must-revalidate` (returning visitors reuse it for 10 minutes without a round trip, then revalidate; a CSS change reaches them within 10 minutes) and `/assets/fonts/*` immutable for a year. Note the `.html` request form never reaches a redirect: `cleanUrls` 308s `/foo.html` to `/foo` first, so redirects are written for the extensionless path only. Internal files are kept out of the deployment by `.vercelignore`, not by rewrites.
 - **Brand assets (2026-09-08):** `/favicon.ico` + `/favicon-32x32.png`, `/favicon-192x192.png` (apple-touch), `/favicon-512x512.png`, linked from every page `<head>`; `/og-image.png` (1200×630) is the default `og:image`/`twitter:image` (blog posts keep their own hero OG); `/logo.png` (400×400) is the schema `logo`/`image`. Source package: HMM_Logo_Package.
 - `styles.css` was pruned on 2026-09-16 (578 dead rules, 275KB to 212KB). Dead means the selector requires a class or id that appears in no served HTML file and no JS string literal. Re-run the same check before adding CSS back for a retired component; see `/docs/HMM_Design_System.md` (CSS trim note) for the method.
-- `sitemap.xml` is hand-maintained — when adding or renaming a page, update it (use the clean-URL form without `.html`).
+- `sitemap.xml` is hand-maintained — when adding or renaming a page, update it (use the clean-URL form without `.html`). Entries carry `loc` and `lastmod` only (`changefreq` and `priority` are ignored by Google and Bing and were dropped on 2026-09-17). `lastmod` must be true or search engines ignore it: it is the date of the last commit that touched the page's file. Refresh every entry after a sweep with:
+
+  ```
+  python3 -c "import re,subprocess;s=open('sitemap.xml').read();print(re.sub(r'<loc>(.*?)</loc>\s*<lastmod>.*?</lastmod>',lambda m:m.group(0).replace(re.search(r'<lastmod>(.*?)</lastmod>',m.group(0)).group(1),subprocess.run(['git','log','-1','--format=%as','--',('index.html' if m.group(1).endswith('.com/') else m.group(1).split('.com/')[1]+'.html')],capture_output=True,text=True).stdout.strip()),s),end='')" > sitemap.new && mv sitemap.new sitemap.xml
+  ```
+
+- `robots.txt` is a single wildcard allow plus the sitemap line. Per-bot blocks that repeat the wildcard change nothing; add a block only to disallow something for a specific crawler.
 - `pricing.html` was removed (commit `b80babb`); `/pricing` and `/pricing.html` now 301-redirect to `/contact` (see `vercel.json`). No pricing entry remains in `robots.txt` or `sitemap.xml`.
 
 ## When making changes
