@@ -1,26 +1,11 @@
 /*
- * HelpMeMarketing cookie consent banner (shared, sitewide).
- * Referenced once per page as <script src="/consent.js" defer>.
- *
- * Scope note: this is a self-contained JS component that injects its own
- * markup and styles. It is theme-independent so it renders consistently on
- * both legacy (light) and prototype (dark) pages. It does not use the
- * prototype CSS tokens and adds no inline style="" attributes to page HTML,
- * so it stays within the prototype no-inline convention.
- *
- * What it does (PIPEDA-appropriate foundation):
- *  - Shows a banner until the visitor makes a choice.
- *  - Stores the choice in localStorage ("hmm_consent" = granted | denied).
- *  - Emits the choice as a Google Consent Mode update AND a dataLayer event
- *    ("hmm_consent_update"), so GTM tags can be gated on it.
- *
- * IMPORTANT: this emits the consent SIGNAL. It does not by itself block any
- * GTM tag. To actually gate tags you must either (a) enable Consent Mode /
- * "Require additional consent" on your GA4 and ads tags in the GTM UI, or
- * (b) trigger those tags on the "hmm_consent_update" event with a condition
- * of consent == granted. Full default-denied-before-GTM gating also needs a
- * small Consent Mode default snippet in <head> above the GTM tag; ask to add
- * it when you want hard gating.
+ * HelpMeMarketing cookie consent banner, shared sitewide via
+ * <script src="/consent.js" defer>. Self-contained: injects its own markup
+ * and styles (tokens with hex fallbacks), no inline style attributes on
+ * page HTML. Stores the choice in localStorage ("hmm_consent"), emits it as a
+ * Google Consent Mode update plus a "hmm_consent_update" dataLayer event.
+ * Emits the signal only; tag gating is configured in GTM. See
+ * /docs/HMM_Design_System.md, "Consent banner".
  */
 (function () {
   'use strict';
@@ -76,10 +61,8 @@
     document.head.appendChild(s);
   }
 
-  // Keep the banner clear of any control the page pins to the bottom edge
-  // (marked with data-consent-avoid, e.g. the audit wizard's mobile nav).
-  // Measured, not hard-coded, so it follows breakpoints and disappears with
-  // the control. Sets a custom property on the banner, no page markup touched.
+  // Keep the banner clear of a control the page pins to the bottom edge
+  // (marked data-consent-avoid, e.g. the audit wizard's mobile nav).
   function placeAboveFixed(el) {
     var avoid = document.querySelector('[data-consent-avoid]');
     var offset = 0;
@@ -90,15 +73,13 @@
       if (pinned) offset = Math.round(r.height);
     }
     el.style.setProperty('--hmm-consent-offset', offset + 'px');
+    return avoid;
   }
 
-  function watchFixed(el) {
-    var avoid = document.querySelector('[data-consent-avoid]');
+  function watchFixed(el, avoid) {
     var update = function () { if (el.parentNode) placeAboveFixed(el); };
     window.addEventListener('resize', update);
-    // The page entry animation transforms an ancestor for ~350ms, during
-    // which a fixed control measures against that ancestor instead of the
-    // viewport. Re-measure after it settles.
+    // Re-measure once the .page-enter slide (350ms) has released its transform.
     setTimeout(update, 450);
     setTimeout(update, 1200);
     if (avoid && 'ResizeObserver' in window) {
@@ -137,8 +118,7 @@
       '<button type="button" class="hmm-decline">Decline</button>' +
       '</div>';
     document.body.appendChild(el);
-    placeAboveFixed(el);
-    watchFixed(el);
+    watchFixed(el, placeAboveFixed(el));
     el.querySelector('.hmm-accept').addEventListener('click', function () { choose('granted'); });
     el.querySelector('.hmm-decline').addEventListener('click', function () { choose('denied'); });
     requestAnimationFrame(function () { el.classList.add('hmm-show'); });
@@ -152,8 +132,7 @@
       applyConsent('denied'); // safe default until the visitor chooses
       showBanner();
     }
-    // Optional "Manage cookie preferences" link (e.g. on the privacy page):
-    // clicking it clears the stored choice and reopens the banner.
+    // "Manage cookie preferences" link on /privacy: clear the choice, reopen.
     var reset = document.getElementById('hmm-cookie-settings');
     if (reset) {
       reset.addEventListener('click', function (ev) {
