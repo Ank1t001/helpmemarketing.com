@@ -1,12 +1,11 @@
-# Vercel deploy exclusions — internal docs not for public serving.
-# Files stay in git for GitHub access and /init discoverability.
+# Vercel deploy exclusions: internal files that stay in git but must not be served.
+# Every path here must exist in the repo; remove the line when the file goes.
 
 /CLAUDE.md
 /FINDINGS.md
 /PLAN.md
 /docs/
 /memory/
-/_healthcare/
 
 # Session handoff notes are internal; the zip is the Meta Growth OS download and stays.
 /HMM_Session_Handoff_*.md
