@@ -51,7 +51,7 @@
   function injectStyles() {
     if (document.getElementById('hmm-consent-style')) return;
     var css =
-      '.hmm-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:2147483000;' +
+      '.hmm-consent{position:fixed;left:16px;right:16px;bottom:calc(16px + var(--hmm-consent-offset,0px));z-index:2147483000;' +
       'max-width:560px;margin:0 auto;background:var(--bg-elevated,#1A1A1A);color:var(--text,#FFFFFF);border:1px solid var(--border,rgba(255,255,255,0.08));' +
       'border-radius:12px;padding:18px 20px;box-shadow:0 10px 40px rgba(0,0,0,.45);' +
       'font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:14px;line-height:1.55;' +
@@ -68,12 +68,42 @@
       '.hmm-consent .hmm-decline:hover{border-color:rgba(255,255,255,0.45);}' +
       '.hmm-consent button:focus-visible{outline:2px solid #f78b4e;outline-offset:2px;}' +
       '@media (prefers-reduced-motion:reduce){.hmm-consent{transition:none;}}' +
-      '@media (max-width:720px){.hmm-consent{left:12px;right:12px;bottom:12px;padding:14px 16px;font-size:13px;line-height:1.5;}' +
+      '@media (max-width:720px){.hmm-consent{left:12px;right:12px;bottom:calc(12px + var(--hmm-consent-offset,0px));padding:14px 16px;font-size:13px;line-height:1.5;}' +
       '.hmm-consent p{margin:0 0 10px;}.hmm-consent button{padding:8px 14px;}}';
     var s = document.createElement('style');
     s.id = 'hmm-consent-style';
     s.textContent = css;
     document.head.appendChild(s);
+  }
+
+  // Keep the banner clear of any control the page pins to the bottom edge
+  // (marked with data-consent-avoid, e.g. the audit wizard's mobile nav).
+  // Measured, not hard-coded, so it follows breakpoints and disappears with
+  // the control. Sets a custom property on the banner, no page markup touched.
+  function placeAboveFixed(el) {
+    var avoid = document.querySelector('[data-consent-avoid]');
+    var offset = 0;
+    if (avoid) {
+      var r = avoid.getBoundingClientRect();
+      var pinned = getComputedStyle(avoid).position === 'fixed' && r.height > 0 &&
+        Math.abs(window.innerHeight - r.bottom) < 2;
+      if (pinned) offset = Math.round(r.height);
+    }
+    el.style.setProperty('--hmm-consent-offset', offset + 'px');
+  }
+
+  function watchFixed(el) {
+    var avoid = document.querySelector('[data-consent-avoid]');
+    var update = function () { if (el.parentNode) placeAboveFixed(el); };
+    window.addEventListener('resize', update);
+    // The page entry animation transforms an ancestor for ~350ms, during
+    // which a fixed control measures against that ancestor instead of the
+    // viewport. Re-measure after it settles.
+    setTimeout(update, 450);
+    setTimeout(update, 1200);
+    if (avoid && 'ResizeObserver' in window) {
+      new ResizeObserver(update).observe(avoid);
+    }
   }
 
   function removeBanner() {
@@ -107,6 +137,8 @@
       '<button type="button" class="hmm-decline">Decline</button>' +
       '</div>';
     document.body.appendChild(el);
+    placeAboveFixed(el);
+    watchFixed(el);
     el.querySelector('.hmm-accept').addEventListener('click', function () { choose('granted'); });
     el.querySelector('.hmm-decline').addEventListener('click', function () { choose('denied'); });
     requestAnimationFrame(function () { el.classList.add('hmm-show'); });
