@@ -1,7 +1,7 @@
-// Serves HTTP 410 Gone for retired WordPress URLs.
-// Wired up via the /api/gone rewrites in vercel.json (Group B: /team/*,
-// /category/*, /2025/* date archives, and any */feed). These pages are
-// permanently removed, so 410 (not 404) tells Google to drop them for good.
+// Serves HTTP 410 Gone for retired WordPress-era URLs. Wired up by the
+// /api/gone rewrites in vercel.json: /team/*, /category/*, /2025/*, /feed and
+// any */feed, /wp-includes, /wp-content, /wp-admin (and their subpaths), and
+// /xmlrpc.php. 410 rather than 404 tells search engines to drop them for good.
 module.exports = (req, res) => {
   res.statusCode = 410;
   res.setHeader('Content-Type', 'text/html; charset=utf-8');

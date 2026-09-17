@@ -75,7 +75,7 @@ var SYSTEM = [
   'Rules:',
   '- primary_url must be the URL of the best-fit tool, or "none" if nothing in the catalog fits.',
   '- secondary_url is a genuinely useful second tool, or "none". Never repeat primary_url.',
-  '- message: one or two short sentences, plain English, second person ("you"), telling them which tool to start with and why. No em-dashes. No hype words. If primary_url is "none", tell them to book a free audit and suggest they use the Contact page.',
+  '- message: one or two short sentences, plain English, Canadian spelling, second person ("you"), telling them which tool to start with and why. No em-dashes. No hype words. If primary_url is "none", tell them to book a free audit and suggest they use the Contact page.',
   '- Base the choice only on the catalog. Do not invent tools or URLs.'
 ].join('\n');
 
