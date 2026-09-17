@@ -1,7 +1,7 @@
 /* HelpMeMarketing — Marketing Maturity Audit content data
- * Source: HMM_Marketing_Audit_Content.md v1.0 (May 11, 2026)
- * V2.1 em-dash ban applied during build at CP2 (per blog template V2.1 rules).
- * Behaviour logic lives in /tools/marketing-audit.js (CP3). This file is data only.
+ * Source: HMM_Marketing_Audit_Content.md v1.0 (May 11, 2026). Data only;
+ * behaviour lives in /tools/marketing-audit.js. Links must be final URLs
+ * (no retired paths that 301), and contact links read "Need Help? Let's Talk".
  */
 window.MARKETING_AUDIT_CONTENT = {
   tiers: {
@@ -82,7 +82,7 @@ window.MARKETING_AUDIT_CONTENT = {
       internalLinks: [
         { text: 'Read: How to build a marketing strategy from zero', href: '/blog/marketing-strategy-from-zero' },
         { text: 'Read: What marketing do you actually need at this stage?', href: '/blog/what-marketing-do-i-need' },
-        { text: 'Explore: Performance marketing services', href: '/google-meta-ads' },
+        { text: 'Explore: Performance marketing services', href: '/services/performance-marketing' },
         { text: 'Need Help? Let’s Talk', href: '/contact' }
       ]
     },
@@ -165,7 +165,7 @@ window.MARKETING_AUDIT_CONTENT = {
       internalLinks: [
         { text: 'Read: The marketing KPIs that actually predict revenue', href: '/blog/marketing-kpis' },
         { text: 'Read: Why your Meta ROAS is lying to you', href: '/blog/meta-roas-attribution' },
-        { text: 'Explore: Performance marketing services', href: '/google-meta-ads' },
+        { text: 'Explore: Performance marketing services', href: '/services/performance-marketing' },
         { text: 'Try: Estimate your channel performance', href: '/ad-calculator' }
       ]
     },
@@ -252,7 +252,7 @@ window.MARKETING_AUDIT_CONTENT = {
       internalLinks: [
         { text: 'Read: Why your Meta ROAS is lying to you', href: '/blog/meta-roas-attribution' },
         { text: 'Read: The marketing KPIs that actually predict revenue', href: '/blog/marketing-kpis' },
-        { text: 'Explore: Analytics services', href: '/analytics' },
+        { text: 'Explore: Analytics and attribution services', href: '/services/analytics-attribution' },
         { text: 'Need Help? Let’s Talk', href: '/contact' }
       ]
     },
@@ -340,7 +340,7 @@ window.MARKETING_AUDIT_CONTENT = {
 
       internalLinks: [
         { text: 'Read: How to think about marketing strategy', href: '/blog/marketing-strategy-from-zero' },
-        { text: 'Explore: Analytics services', href: '/analytics' },
+        { text: 'Explore: Analytics and attribution services', href: '/services/analytics-attribution' },
         { text: 'Need Help? Let’s Talk', href: '/contact' }
       ]
     }
