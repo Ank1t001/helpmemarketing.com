@@ -152,9 +152,9 @@ Active nav state is set manually per page by adding `.active` to the matching `<
 
 All styles live in `styles.css`. The file has two distinct regions:
 
-**Legacy region (after the `@font-face` block, up to the `BLOG TEMPLATE V2` header, ~line 870):** Light-mode tokens (`--navy` `#1E4D8C`, `--gold`, `--cream`, `--ink-*`, etc.), permissive about inline styles. This is what legacy-scoped pages use.
+**Legacy region (after the `@font-face` block, up to the `BLOG TEMPLATE V2` header, ~line 869):** Light-mode tokens (`--navy` `#1E4D8C`, `--gold`, `--cream`, `--ink-*`, etc.), permissive about inline styles. This is what legacy-scoped pages use.
 
-**Blog region (`BLOG TEMPLATE V2` header to `body.redesign-prototype {`, ~lines 870-3780):** the `body.blog-dark` template. **Prototype region (from `body.redesign-prototype {`, ~line 3780, to end of file):** Dark-mode tokens defined under `body.redesign-prototype` scope (`--bg`, `--text`, `--cta`, etc.). Strict scoping. This is what body.redesign-prototype-scoped pages use.
+**Blog region (`BLOG TEMPLATE V2` header to `body.redesign-prototype {`, ~lines 869-3651):** the `body.blog-dark` template, plus the marketing-audit tool block that sits between them. Comments in this region are one-line headers; the history behind each block lives in the Master Reference and Design System, not in the stylesheet. **Prototype region (from `body.redesign-prototype {`, ~line 3651, to end of file):** Dark-mode tokens defined under `body.redesign-prototype` scope (`--bg`, `--text`, `--cta`, etc.). Strict scoping. This is what body.redesign-prototype-scoped pages use.
 
 When editing styles for prototype pages, work inside the prototype region only. When editing styles for legacy pages, work outside it. Never mix the two systems on the same page.
 

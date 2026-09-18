@@ -866,12 +866,7 @@ section.alt { background: var(--gray-surface); }
 
 /* ============ Blog article (long-form post body) ============ */
 
-/* ========================================
-   BLOG TEMPLATE V2 — D-HYBRID LAYOUT
-   Sticky TOC sidebar + hero, applied to all blog pages
-   First applied: /blog/healthcare-marketing-channels
-   Pass 2: retrofit existing 11 blogs to use these classes
-   ======================================== */
+/* BLOG TEMPLATE V2 — D-HYBRID LAYOUT. History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 
 /* Two-column layout: article + sticky sidebar */
 .blog-body {
@@ -943,8 +938,7 @@ section.alt { background: var(--gray-surface); }
   color: var(--text-primary);
 }
 
-/* Inline prose links — gold, always underlined, scoped to <p> and <li>
-   so .related-card / .btn / .cta-button / .breadcrumb / .share-icon are excluded. */
+/* Inline prose links — gold, always underlined, scoped to <p> and <li>. History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 .blog-content p a,
 .blog-content li a {
   color: var(--gold);
@@ -1354,44 +1348,7 @@ section.alt { background: var(--gray-surface); }
   }
 }
 
-/* ===================================================================
-   Promoted from embedded blocks - Phase 1 de-drift consolidation
-   ===================================================================
-   16 non-conflicting blog tokens promoted to shared :root + 142
-   byte-identical component rules + 2 drift selectors resolved to
-   canon (.post-title font-size = clamp(28px,4vw,44px); .related-grid
-   = 1fr 1fr) + 1 new .related-grid--3col modifier (V5 healthcare
-   opts in via class on the markup).
-
-   Source: V1-V6 embedded <style> blocks of 12 V2-grouping blog pages.
-   meta-attribution.html untouched (legacy non-V2 architecture).
-
-   Token strategy (Option B, conservative): 5 CONFLICTING tokens
-   (--navy, --navy-light, --border, --white, --text) remain in each
-   blog's embedded :root override to preserve byte-identical rendering
-   (they override the legacy/prototype definitions at page level
-   exactly as today). The 16 NEW tokens promote safely to shared
-   :root - verified zero refs in non-blog regions. --text was moved
-   to the conflicting set as a robustness choice: cascade trace shows
-   promotion works today via body.redesign-prototype shadowing on
-   <body>, but a future html-targeting rule that consumes var(--text)
-   could introduce a surprise. Embedding --text removes that latent
-   trap entirely for the cost of one token-line per blog.
-
-   Architecture caveat (Phase 2): only V5 (healthcare) uses the
-   .blog-content/.blog-body/sticky-TOC architecture matching the
-   existing 73 shared rules above. The other 11 blogs use an older
-   .article-content/.body-layout/.blog-container 2-column architecture.
-   Both architectures preserved verbatim - live rules stay live, dead
-   rules stay dead. Phase 2 will decide unify-vs-keep-two.
-
-   Phase 2 prerequisite logged: 5 blogs (digital-marketing-cost,
-   marketing-kpis, seo-ppc-or-social, marketing-strategy-from-zero,
-   dtc-cac-reduction) have an HTML structural bug - unclosed <div>s
-   cause the footer to nest INSIDE .blog-container. Harmless today
-   (page-level :root override is moot), but must be fixed before any
-   scoping or dark-theming work in Phase 2.
-   =================================================================== */
+/* Promoted from embedded blocks - Phase 1 de-drift consolidation. History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 
 /* ============= BLOG ARTICLE TOKENS ============= */
 :root {
@@ -1954,28 +1911,7 @@ details[open] .faq-question::after {
   font-style: italic;
 }
 
-/* ===================================================================
-   BLOG DARK THEME (body.blog-dark)
-   ===================================================================
-   Scoped dark theme for D-hybrid blog pages carrying class="blog-dark"
-   on <body>. Other blogs (no body class) inherit existing light styles
-   via the BLOG TEMPLATE V2 section above; non-blog pages unaffected.
-
-   Token strategy: 11 dark tokens defined under body.blog-dark scope. A
-   handful of legacy blog tokens (--soft-bg, --muted, --accent-blue) are
-   remapped to dark equivalents so existing component rules that use
-   var(--soft-bg) etc. automatically pick up dark surfaces without
-   touching the BLOG TEMPLATE V2 section above.
-
-   Color discipline (per HMM Color System Golden Rules):
-   - Signal Orange (--cta): CTAs (nav, sidebar button, dark-cta button),
-     H2 accent rules, title italic accent, hero glow, "Paid wins" cells,
-     center "Lower CAC" node ring.
-   - Mint (--mint): functional/positive ONLY — takeaway checks, "Organic
-     wins" cells, sidebar bullet ticks, compounding-phase icons, all four
-     outcome-quadrant icons. NEVER a CTA.
-   - Neutral grey (--text-tertiary): owned-asset phase, structural muted.
-   =================================================================== */
+/* BLOG DARK THEME (body.blog-dark). History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 
 body.blog-dark {
   /* Dark theme tokens */
@@ -2042,7 +1978,6 @@ body.blog-dark .blog-hero {
 }
 body.blog-dark .hero-zone {
   background: transparent;
-  padding-bottom: 40px;
   grid-template-columns: 1fr;
 }
 body.blog-dark .breadcrumb {
@@ -2155,7 +2090,6 @@ body.blog-dark .takeaways {
   border-left: 3px solid var(--cta);
   border-radius: 16px;
   padding: 32px;
-  margin: 40px 0;
   color: var(--text);
 }
 body.blog-dark .takeaways h3 {
@@ -2308,7 +2242,6 @@ body.blog-dark .lever-content p {
 body.blog-dark .rule-of-thumb {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
-  color: var(--text-muted);
 }
 body.blog-dark .rule-of-thumb strong {
   color: var(--mint);
@@ -2543,12 +2476,7 @@ body.blog-dark .table-source {
   font-style: italic;
 }
 
-/* Table scroll wrapper (2026-09-09). Blog data tables are wider than a phone
-   (491 to 574px at 375 wide) and were sitting straight in .blog-content, so the
-   table itself widened the page and every post scrolled sideways. Every
-   <table> in a post now sits inside <div class="table-scroll">, which scrolls
-   the table in place instead. Unscoped so the wrapper also works on legacy
-   blog markup; the table keeps its own margins, radius and clipped corners. */
+/* Table scroll wrapper (2026-09-09).. History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 .table-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -2556,12 +2484,7 @@ body.blog-dark .table-source {
 }
 .table-scroll > .comparison-table { min-width: 100%; }
 
-/* Blog diagram components at phone widths (2026-09-09). Found while fixing the
-   table overflow: three fixed-width diagram pieces still pushed a post past the
-   viewport (26px at 375 on /blog/digital-marketing-cost, 12 to 33px at 320 on
-   five other posts). The framework issue column is now allowed to shrink, the
-   channel CTA button wraps, and the outcome diagram reflows from a 3-column
-   grid (card, circle, card) to two columns with the circle on its own row. */
+/* Blog diagram components at phone widths (2026-09-09).. History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 .framework-issue { flex: 0 1 90px; min-width: 0; }
 .channel-cta .btn { max-width: 100%; white-space: normal; }
 .rule-of-thumb > * { min-width: 0; }
@@ -2623,7 +2546,6 @@ body.blog-dark .insight-card p {
   color: var(--text-muted);
 }
 body.blog-dark .insight-card .think-long {
-  color: var(--cta);
   font-weight: 600;
 }
 body.blog-dark .audit-list li {
@@ -2655,8 +2577,6 @@ body.blog-dark .related-card {
   color: var(--text);
 }
 body.blog-dark .related-card:hover {
-  border-color: var(--cta);
-  box-shadow: 0 4px 24px var(--orange-glow);
 }
 body.blog-dark .related-card h4 {
   color: var(--text);
@@ -2749,13 +2669,10 @@ body.blog-dark .faq-item:last-child {
 }
 body.blog-dark .faq-question {
   color: var(--text);
-  font-weight: 600;
 }
 body.blog-dark .faq-question:hover {
-  color: var(--cta);
 }
 body.blog-dark .faq-question::after {
-  color: var(--cta);
 }
 body.blog-dark details[open] .faq-question::after {
   color: var(--cta);
@@ -2878,9 +2795,7 @@ body.blog-dark .sidebar-cta .cta-eyebrow {
   text-transform: uppercase;
 }
 body.blog-dark .sidebar-cta .cta-title {
-  font-family: 'Fraunces', Georgia, serif;
   color: var(--text);
-  font-weight: 500;
   letter-spacing: -0.005em;
 }
 body.blog-dark .sidebar-cta .cta-list {
@@ -2902,7 +2817,6 @@ body.blog-dark .sidebar-cta .cta-list li::before {
 body.blog-dark .sidebar-cta .cta-button {
   background: var(--cta);
   color: var(--text);
-  border-radius: 999px;
   font-weight: 600;
   text-decoration: none;
   display: inline-flex;
@@ -2918,23 +2832,13 @@ body.blog-dark .sidebar-cta .cta-subnote {
   font-style: italic;
 }
 
-/* ============= COMPOUND-CLASS OVERRIDES (option-c chrome adoption) =============
-   Reasserts dark-blog Tier-C .final-cta tuning (from e06841c) over
-   body.redesign-prototype .final-cta (which sets 56px 64px / 24px radius
-   for prototype hero CTAs). Specificity 0,3,0 + later source order wins.
-   Required only on blogs that carry BOTH class="blog-dark" AND
-   class="redesign-prototype" on <body> (option-c multi-class). */
+/* COMPOUND-CLASS OVERRIDES (option-c chrome adoption). History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 body.blog-dark.redesign-prototype .final-cta {
   padding: 48px;
   border-radius: 20px;
 }
 
-/* ============= DARK-THEME DEFECTS (audit of /blog/healthcare-marketing-channels, 2026-09-09) =============
-   The V2 featured cards were written for the light theme (#fff background, navy
-   headings) and never got dark overrides, so on every post the card was a white
-   box with white table text: the specialty table's header row and first column
-   were invisible. Related cards inside the two-column .related-and-cta block
-   inherited the 3-column modifier and collapsed to 116px each. */
+/* DARK-THEME DEFECTS (audit of /blog/healthcare-marketing-channels, 2026-09-09). History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 body.blog-dark .blog-content .featured-table-card,
 body.blog-dark .blog-content .featured-conclusion-card {
   background: var(--bg-elevated);
@@ -2971,11 +2875,7 @@ body.blog-dark .author-line > span {
   white-space: nowrap; /* "Ankit Kumar" and "10 min read" no longer break mid-phrase on phones */
 }
 
-/* ============= BLOG DESIGN PASS (approved 2026-09-09) =============
-   Founder-approved brief from the healthcare channels audit: body-copy token,
-   heading scale, list size, pull quote, eyebrow diagram titles, neutral figures,
-   SVG share icons, FAQ alignment, 8px buttons, 48px rhythm, author-line dots.
-   Everything here is body.blog-dark scope; the prototype pages are untouched. */
+/* BLOG DESIGN PASS (approved 2026-09-09). History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 body.blog-dark article.blog-content p,
 body.blog-dark .blog-content li,
 body.blog-dark .takeaways li,
@@ -3020,10 +2920,7 @@ body.blog-dark .sidebar-cta .cta-title {
 body.blog-dark .sidebar-cta .cta-button {
   border-radius: 8px;
 }
-/* Second pass, /blog/digital-marketing-cost (2026-09-09). Card headings that
-   missed the 20px scale, small card copy, and the rule-of-thumb callout, which
-   was a flex row: every inline <strong> and <a> became its own column and the
-   sentence broke into pieces. It is a block now with the icon inline. */
+/* Second pass, /blog/digital-marketing-cost (2026-09-09).. History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 body.blog-dark .audit-card h3,
 body.blog-dark .insight-card h3,
 body.blog-dark .channel-cta h4 {
@@ -3069,9 +2966,7 @@ body.blog-dark .table-note {
   color: var(--text-muted);
   margin: 8px 0 0;
 }
-/* Third pass, remaining 12 posts (2026-09-09). The opened mobile TOC list kept
-   the light theme's #fff background with white links on it, so "Jump to
-   section" opened a blank white panel on every post. */
+/* Third pass, remaining 12 posts (2026-09-09).. History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 body.blog-dark .toc-list-mobile {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
@@ -3096,8 +2991,7 @@ body.blog-dark .hero-zone {
 body.blog-dark .takeaways {
   margin: 0 0 30px; /* + the H2's 18px accent padding = 48px */
 }
-/* Author line: the separator dot travels with the item that follows it, so a
-   wrapped row never ends in an orphaned dot. */
+/* Author line: the separator dot travels with the item that follows it, so a. History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 body.blog-dark .author-line .dot {
   display: none;
 }
@@ -3120,11 +3014,7 @@ body.blog-dark .author-line > span:not(.dot) ~ span:not(.dot)::before {
   }
 }
 
-/* ============= SITEWIDE CONSISTENCY PASS (blog posts, 2026-09-12) =============
-   Posts join the interaction language used on every other page: FAQ questions carry
-   the 28px ring badge with the plus that rotates 45deg when open, related cards get
-   the orange-ring hover and lift, and labels sit on the 12px floor. The hero image
-   block is now on all 14 posts (Master Reference Part 3 Section J). */
+/* SITEWIDE CONSISTENCY PASS (blog posts, 2026-09-12). History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 body.blog-dark .faq-question { font-size: 17px; font-weight: 500; line-height: 1.4; padding: 16px 44px 16px 0; transition: color .2s ease; }
 body.blog-dark .faq-question::after {
   content: "+"; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -3158,12 +3048,7 @@ body.blog-dark .blog-content .featured-table-card .table-source { font-size: 12p
   body.blog-dark .related-card:hover { transform: none; }
 }
 
-/* ============================================
-   MARKETING AUDIT TOOL
-   ============================================
-   Lives at /tools/marketing-audit. Page is content-heavy
-   (~5,000 words across 8 questions + 4 tier results).
-   Single column, max-width capped for readability. */
+/* MARKETING AUDIT TOOL. History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 
 .audit-page {
   max-width: 760px;
@@ -3573,18 +3458,9 @@ body.blog-dark .blog-content .featured-table-card .table-source { font-size: 12p
   .audit-tier-badge { font-size: 17px; padding: 12px 18px; }
 }
 
-/* ============================================
-   MARKETING AUDIT — WIZARD UX (refactor)
-   ============================================
-   One-question-at-a-time wizard pattern on top of the
-   audit-questions form. Coexists with the original
-   .audit-questions layout (form keeps both classes).
-*/
+/* MARKETING AUDIT — WIZARD UX (refactor). History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 
-/* ----- Sticky progress bar (sits below sticky .nav) -----
-   The 64px / 56px values are tied to .nav inner padding (14px top/bottom
-   desktop, 12px top/bottom at <=520px). If nav padding changes, update
-   these offsets in lockstep. */
+/* Sticky progress bar (sits below sticky .nav). History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 .audit-progress {
   position: sticky;
   top: 64px;
@@ -3769,12 +3645,7 @@ body.blog-dark .blog-content .featured-table-card .table-source { font-size: 12p
   }
 }
 
-/* ============================================================
-   REDESIGN PROTOTYPE — DARK MODE
-   Scoped under body.redesign-prototype
-   Active only on prototype pages during evaluation
-   Remove this section if migration is rejected
-   ============================================================ */
+/* REDESIGN PROTOTYPE — DARK MODE. History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 
 /* Design tokens — scoped to prototype only */
 body.redesign-prototype {
