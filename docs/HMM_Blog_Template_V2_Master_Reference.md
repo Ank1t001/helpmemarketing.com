@@ -1,6 +1,6 @@
 # HMM Blog Template V2 — Master Reference
 
-**Version:** 2.8 (D-hybrid sticky TOC sidebar)
+**Version:** 2.9 (D-hybrid sticky TOC sidebar)
 **First shipped:** Commit `2430e84`, May 5 2026, on `/blog/healthcare-marketing-channels`
 **Purpose:** Single source of truth for writing new blogs and retrofitting existing ones to V2 architecture.
 
@@ -460,6 +460,8 @@ At <900px viewport, sidebar hides; replaced with collapsible "Jump to section" b
 
         <div class="hero-illustration hero-illustration--image">
           <img src="/blog/images/[slug]-hero.webp"
+               srcset="/blog/images/[slug]-hero-720.webp 720w, /blog/images/[slug]-hero.webp 1344w"
+               sizes="(max-width: 900px) calc(100vw - 32px), 760px"
                alt="[Descriptive alt text matching the image concept]"
                width="1344" height="752" loading="eager" fetchpriority="high">
         </div>
@@ -1449,10 +1451,10 @@ This file is shared across all V2 blogs. Don't duplicate inline. Don't fork per-
 
 | Spec | Value |
 |---|---|
-| **Format** | Generate as PNG locally; commit two derivatives only: `[slug]-hero.webp` (1344 wide, q80, the page image) and `[slug]-og.jpg` (1200x630 centre crop, q80, the social and schema image). The PNG master stays local |
+| **Format** | Generate as PNG locally; commit three derivatives only: `[slug]-hero.webp` (1344 wide, q80, the page image at desktop), `[slug]-hero-720.webp` (720 wide, q80, the phone candidate in `srcset`) and `[slug]-og.jpg` (1200x630 centre crop, q80, the social and schema image). The PNG master stays local |
 | **Aspect ratio** | 16:9 |
 | **Resolution** | 2K (~3000×1688) |
-| **Path** | `/blog/images/[slug]-hero.webp` and `/blog/images/[slug]-og.jpg` |
+| **Path** | `/blog/images/[slug]-hero.webp`, `/blog/images/[slug]-hero-720.webp` and `/blog/images/[slug]-og.jpg` |
 | **Style** | Brand-aligned. **Default (canonical): dark obsidian + Signal Orange (#FF5C1A)** editorial aesthetic, matching the live dark site. Gold/ivory editorial is an acceptable alternative, not the default. No medical/stock imagery either way. |
 | **Tool** | Tool-agnostic. Two paths: **nano-banana-pro** (Google Gemini 3 Pro Image, a Claude Code skill — generate in-build) OR **Higgsfield / Recraft** (chat connector — generate, then hand off the PNG to the build). The JSON spec below is a concept brief any model can take. |
 
@@ -1592,8 +1594,8 @@ After 3 iterations, if the concept still isn't landing, switch concept entirely 
 | Step | Detail |
 |---|---|
 | **Generate locally** | `D:\AI Projects\Image_Studio\[slug]_hero_v[N].png` (nano-banana-pro) OR via the chat connector (Higgsfield/Recraft), then save the PNG locally |
-| **Copy to repo** | `/blog/images/[slug]-hero.webp` + `/blog/images/[slug]-og.jpg` (note hyphen, not underscore, in repo path). Derive both from the PNG with PIL: webp 1344 wide q80; jpg resize-to-cover then centre-crop 1200x630 q80 progressive |
-| **Commit** | webp in the hero `<img>` and the blog.html card; og.jpg in `og:image` (with width/height 1200/630), `twitter:image` and BlogPosting `image` |
+| **Copy to repo** | `/blog/images/[slug]-hero.webp` + `[slug]-hero-720.webp` + `[slug]-og.jpg` (note hyphen, not underscore, in repo path). Derive all three from the PNG with PIL: webp 1344 wide q80, webp 720 wide q80, jpg resize-to-cover then centre-crop 1200x630 q80 progressive |
+| **Commit** | webp pair in the hero `<img>` (`srcset` 720w + 1344w, `sizes="(max-width: 900px) calc(100vw - 32px), 760px"`) and in the blog.html card (same `srcset`, `sizes="(max-width: 900px) calc(100vw - 76px), 590px"`); og.jpg in `og:image` (with width/height 1200/630), `twitter:image` and BlogPosting `image` |
 | **Spec file** | `[slug]_hero.spec.json` kept LOCAL only — not committed |
 
 ## Section E — Alt text
@@ -1759,7 +1761,7 @@ Each retrofit is its own commit. Batch 2-3 blogs per commit if logically related
 
 ```
 Blog HTML:        /blog/[slug].html
-Hero image:       /blog/images/[slug]-hero.webp (page) + [slug]-og.jpg (social/schema)
+Hero image:       /blog/images/[slug]-hero.webp + [slug]-hero-720.webp (page, srcset) + [slug]-og.jpg (social/schema)
 Shared CSS:       /styles.css (BLOG TEMPLATE V2 section)
 Shared JS:        /blog/blog-template.js
 Blog index:       /blog.html (card + filter chip)
@@ -1803,7 +1805,7 @@ Final CTA:     Primary button → /contact
 5. If 3-4/6 pass → identify ONE handle to adjust, generate v02
 6. If <3/6 pass → re-concept the spec
 7. Max 3 iterations before re-concepting
-8. Commit the derivatives to /blog/images/[slug]-hero.webp and [slug]-og.jpg (PNG master stays local)
+8. Commit the derivatives to /blog/images/[slug]-hero.webp, [slug]-hero-720.webp and [slug]-og.jpg (PNG master stays local)
 9. Keep .spec.json LOCAL only
 ```
 
@@ -1831,6 +1833,7 @@ When uncertain about a pattern, view that blog's source as the canonical impleme
 | Version | Date | Changes |
 |---|---|---|
 | 2.0 | May 5 2026 | Initial V2 template (D-hybrid sticky TOC sidebar). Replaces V1 (2-column body-layout with right-column visuals). |
+| 2.9 | Sep 18 2026 | Hero image `srcset`: the hero renders at 760px in the article column (1344 stays the desktop candidate) but 358px on phones and 314px in blog index cards, so every post gains a `[slug]-hero-720.webp` (720 wide, q80, 214KB for all 14) and both the post hero and the index card carry a two-candidate `srcset` with a `sizes` hint. Template markup, Part 6 spec table and workflow updated |
 | 2.8 | Sep 17 2026 | Hero image storage: the 2K PNG masters (12.1MB across 14 posts) served only `og:image`, `twitter:image` and schema `image`; replaced by `[slug]-og.jpg` 1200x630 q80 (732KB for all 14) with `og:image:width`/`height` meta added to every post. Page image stays the 1344-wide webp. PNGs removed from the repo; masters stay local. Template head, schema, hero markup, Part 6 spec table and workflow updated |
 | 2.7 | Sep 12 2026 | Sitewide consistency pass: hero image block added to the nine posts that lacked it (all 14 now carry it, with eager/high-priority loading), FAQ questions restyled to the site ring badge, related cards get the orange-ring hover, 12px label floor in the sidebar, badges and table sources. Part 3 Section J note. |
 | 2.6 | Sep 9 2026 | Third pass across the remaining 12 posts: opened mobile TOC list gets a dark surface (was a white panel), every inline style stripped from every post (link colours, table footnotes, lever paragraph margins, author role), think-long stars and four Unicode symbol icons replaced with Tabler SVGs, `.stat-inline` and table winner labels neutral white, `.cta-microcopy` styled. |
