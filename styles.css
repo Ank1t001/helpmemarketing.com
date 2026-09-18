@@ -14,9 +14,7 @@
 @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/inter-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 
 /* ============ HelpMeMarketing — Premium Generalist ============ */
-/* Canonical tokens live in docs/HMM_Design_System.md. Phase 1 re-points the old token names
-   at the new palette so layouts keep rendering while colors shift. Legacy
-   aliases are removed progressively as pages migrate (Phases 3-6). */
+/* Canonical tokens live in docs/HMM_Design_System.md.. History and rationale: docs/HMM_Design_System.md. */
 :root {
   /* Surfaces */
   --ivory:          #FAF9F6;
@@ -201,8 +199,8 @@ section { padding: 88px 0; }
 
 @media (max-width: 640px){
 
-  section { padding: 48px 0; }
-  .container, .container-narrow { padding: 0 20px; }
+  section { }
+  .container, .container-narrow { }
 }
 .flex { display: flex; }
 
@@ -224,13 +222,10 @@ section { padding: 88px 0; }
 
 /* ============ Page transitions ============ */
 .page-enter { animation: pageIn 0.35s cubic-bezier(.2,.8,.2,1); }
-/* Slide only: the opacity ramp kept the hero headline from counting as painted until the
-   animation ended, which pushed LCP back ~350ms on every page (SEO Growth OS run 2026-09-16). */
+/* Slide only. History and rationale: docs/HMM_Design_System.md. */
 @keyframes pageIn { from { transform: translateY(8px); } to { transform: none; }}
 
-/* ============================================================
-   Responsive 2-col stack utilities
-   ============================================================ */
+/* Responsive 2-col stack utilities. History and rationale: docs/HMM_Design_System.md. */
 
 .stack-contact { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; }
 .stack-about { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
@@ -242,9 +237,7 @@ section { padding: 88px 0; }
 
 /* ============ Compliance section ============ */
 
-/* Ad-calculator breakdown — 2-col layout for "How we got there" rows.
-   Inputs/process column (rows 1-5) | outcomes/economics column (rows 6-9).
-   Mobile collapses to single column via the @media rule below. */
+/* Ad-calculator breakdown — 2-col layout for "How we got there" rows.. History and rationale: docs/HMM_Design_System.md. */
 .bd-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
 
 /* ============ Resources pages ============ */
@@ -416,18 +409,14 @@ section { padding: 88px 0; }
 
 /* Form 2-col rows */
 
-/* ============================================================
-   Footer responsive
-   ============================================================ */
+/* Footer responsive. History and rationale: docs/HMM_Design_System.md. */
 
 @media (max-width: 640px){
   .footer { padding: 56px 0 32px; }
 
 }
 
-/* ============================================================
-   Nav hamburger (mobile)
-   ============================================================ */
+/* Nav hamburger (mobile). History and rationale: docs/HMM_Design_System.md. */
 .nav-hamburger {
   display: none; width: 40px; height: 40px; border-radius: 10px;
   background: var(--cream); border: 1px solid var(--line);
@@ -460,9 +449,7 @@ section { padding: 88px 0; }
 
 }
 
-/* ============================================================
-   Mobile typography scale
-   ============================================================ */
+/* Mobile typography scale. History and rationale: docs/HMM_Design_System.md. */
 @media (max-width: 640px){
   body { font-size: 15px; }
   .container, .container-narrow { padding: 0 20px; }
@@ -471,7 +458,7 @@ section { padding: 88px 0; }
   .card { padding: 22px; border-radius: 18px; }
 }
 
-.cta-card { padding: 80px 60px; border-radius: 32px; }
+.cta-card { }
 @media (max-width: 900px){ .cta-card { padding: 56px 32px; border-radius: 24px; } }
 @media (max-width: 640px){ .cta-card { padding: 40px 24px; border-radius: 20px; } }
 
@@ -613,9 +600,7 @@ section { padding: 88px 0; }
   .btn-primary:hover, .btn-accent:hover { transform: none; }
 }
 
-/* ============================================================
-   Phase 2 shared components (new design system)
-   ============================================================ */
+/* Phase 2 shared components (new design system). History and rationale: docs/HMM_Design_System.md. */
 
 /* Italic-gold accent — one per headline, most important word only */
 
@@ -670,9 +655,7 @@ section { padding: 88px 0; }
 
 /* Dark-CTA button variants */
 
-/* ============================================================
-   Phase 3: Homepage components
-   ============================================================ */
+/* Phase 3. History and rationale: docs/HMM_Design_System.md. */
 
 section.alt { background: var(--gray-surface); }
 
