@@ -499,6 +499,23 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .msi.msi .wrap > section{content-visibility:auto;contain-intrinsic-size:auto 640px}
 .msi.msi .wrap > section:first-of-type,.msi.msi header{content-visibility:visible}
 .msi.msi-hash .wrap > section{content-visibility:visible}
+.msi.msi .em{font-style:italic}
+.msi.msi .m0{margin:0}
+.msi.msi .mt0{margin-top:0}
+.msi.msi .fx1{flex:1}
+.msi.msi .fx12{flex:1.2}
+.msi.msi .fx14{flex:1.4}
+.msi.msi .w-26{width:26%}
+.msi.msi .w-52{width:52%}
+.msi.msi .verdict.ok{background:var(--mint)}
+.msi.msi .verdict.avg{background:var(--text-tertiary)}
+.msi.msi .verdict.crit{background:var(--crit)}
+.msi.msi .card.navy{background:#0d1420;border-color:rgba(255,255,255,.1)}
+.msi.msi svg.fluid{width:100%;height:auto;display:block}
+.msi.msi .pnote{font-size:14.5px;line-height:1.65;color:var(--text-muted)}
+.msi.msi .pnote.mb12{margin-bottom:12px}
+/* Bars: width comes from data-w (0 to 100), applied by the head script below; no style attributes in the body. */
+.msi.msi [data-w]{width:0}
 .msi.msi .frame .shot::before{content:"Frame no longer available at the source"}
 /* Neutralise the few unscoped rules styles.css applies to plain tags and shared class names */
 .msi.msi section{padding:0}
@@ -513,9 +530,10 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .msi.msi th.r{white-space:normal}
 .msi.msi th .tip{white-space:normal}
 .msi.msi td{padding:14px 7px}
-</style></head><body class="redesign-prototype">
+</style><script data-bar-widths>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".msi [data-w]").forEach(function(el){var w=parseFloat(el.getAttribute("data-w"));if(!isNaN(w))el.style.width=Math.max(0,Math.min(100,w))+"%";});});</script>
+</head><body class="redesign-prototype">
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSQPX93X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSQPX93X" height="0" width="0" class="gtm-ns"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <div class="app" data-screen-label="gta-medspa-index">
 
@@ -716,12 +734,12 @@ w.addEventListener(e,load,{once:true,passive:true});});
 <p class="dek">A typical GTA medspa reel reaches 769 people. The best reaches 12,799. Most of the market is bunched at the bottom of that range.</p></div>
 <figure>
 <div class="bars">
-<div class="bar-row"><span class="bar-label">Under 250</span><span class="bar-track"><span class="bar-fill" style="width:59.5%"></span></span><span class="bar-val">25</span></div>
-<div class="bar-row"><span class="bar-label">250 to 500</span><span class="bar-track"><span class="bar-fill" style="width:100%"></span></span><span class="bar-val">42</span></div>
-<div class="bar-row"><span class="bar-label">500 to 1,000</span><span class="bar-track"><span class="bar-fill" style="width:100%"></span></span><span class="bar-val">42</span></div>
-<div class="bar-row"><span class="bar-label">1,000 to 2,000</span><span class="bar-track"><span class="bar-fill" style="width:85.7%"></span></span><span class="bar-val">36</span></div>
-<div class="bar-row"><span class="bar-label">2,000 to 4,000</span><span class="bar-track"><span class="bar-fill" style="width:47.6%"></span></span><span class="bar-val">20</span></div>
-<div class="bar-row"><span class="bar-label">Over 4,000</span><span class="bar-track"><span class="bar-fill" style="width:26.2%"></span></span><span class="bar-val">11</span></div>
+<div class="bar-row"><span class="bar-label">Under 250</span><span class="bar-track"><span class="bar-fill" data-w="59.5"></span></span><span class="bar-val">25</span></div>
+<div class="bar-row"><span class="bar-label">250 to 500</span><span class="bar-track"><span class="bar-fill" data-w="100"></span></span><span class="bar-val">42</span></div>
+<div class="bar-row"><span class="bar-label">500 to 1,000</span><span class="bar-track"><span class="bar-fill" data-w="100"></span></span><span class="bar-val">42</span></div>
+<div class="bar-row"><span class="bar-label">1,000 to 2,000</span><span class="bar-track"><span class="bar-fill" data-w="85.7"></span></span><span class="bar-val">36</span></div>
+<div class="bar-row"><span class="bar-label">2,000 to 4,000</span><span class="bar-track"><span class="bar-fill" data-w="47.6"></span></span><span class="bar-val">20</span></div>
+<div class="bar-row"><span class="bar-label">Over 4,000</span><span class="bar-track"><span class="bar-fill" data-w="26.2"></span></span><span class="bar-val">11</span></div>
 </div>
 <figcaption>Number of clinics by median plays per reel, 176 qualified clinics. Just 11 clinics clear 4,000 plays on a typical reel.</figcaption>
 </figure>
@@ -740,11 +758,11 @@ w.addEventListener(e,load,{once:true,passive:true});});
 <p class="dek">A Durham clinic performing at its regional median does roughly half what a Toronto clinic at its median does. If you are comparing yourself to a clinic you follow in another region, you are using the wrong yardstick.</p></div>
 <figure>
 <div class="bars">
-<div class="bar-row"><span class="bar-label">Toronto <small>(55)</small></span><span class="bar-track"><span class="bar-fill" style="width:100%"></span></span><span class="bar-val">903</span></div>
-<div class="bar-row"><span class="bar-label">Peel <small>(33)</small></span><span class="bar-track"><span class="bar-fill" style="width:92.8%"></span></span><span class="bar-val">838</span></div>
-<div class="bar-row"><span class="bar-label">York <small>(43)</small></span><span class="bar-track"><span class="bar-fill" style="width:78%"></span></span><span class="bar-val">704</span></div>
-<div class="bar-row"><span class="bar-label">Halton <small>(22)</small></span><span class="bar-track"><span class="bar-fill" style="width:62.9%"></span></span><span class="bar-val">568</span></div>
-<div class="bar-row"><span class="bar-label">Durham <small>(23)</small></span><span class="bar-track"><span class="bar-fill" style="width:46.6%"></span></span><span class="bar-val">421</span></div>
+<div class="bar-row"><span class="bar-label">Toronto <small>(55)</small></span><span class="bar-track"><span class="bar-fill" data-w="100"></span></span><span class="bar-val">903</span></div>
+<div class="bar-row"><span class="bar-label">Peel <small>(33)</small></span><span class="bar-track"><span class="bar-fill" data-w="92.8"></span></span><span class="bar-val">838</span></div>
+<div class="bar-row"><span class="bar-label">York <small>(43)</small></span><span class="bar-track"><span class="bar-fill" data-w="78"></span></span><span class="bar-val">704</span></div>
+<div class="bar-row"><span class="bar-label">Halton <small>(22)</small></span><span class="bar-track"><span class="bar-fill" data-w="62.9"></span></span><span class="bar-val">568</span></div>
+<div class="bar-row"><span class="bar-label">Durham <small>(23)</small></span><span class="bar-track"><span class="bar-fill" data-w="46.6"></span></span><span class="bar-val">421</span></div>
 </div>
 <figcaption>Median plays per reel by region, with the number of qualified clinics in brackets. Every region has at least one clinic clearing 5,700 plays, so the ceiling is not regional. The floor is.</figcaption>
 </figure></section>

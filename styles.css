@@ -849,6 +849,9 @@ section.alt { background: var(--gray-surface); }
 
 /* ============ Blog article (long-form post body) ============ */
 
+/* GTM noscript iframe (all pages): the standard snippet hides it inline; the class keeps prototype HTML free of style attributes. */
+.gtm-ns { display: none; visibility: hidden; }
+
 /* BLOG TEMPLATE V2 — D-HYBRID LAYOUT. History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
 
 /* Two-column layout: article + sticky sidebar */

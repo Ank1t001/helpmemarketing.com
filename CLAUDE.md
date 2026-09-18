@@ -38,12 +38,21 @@ These docs do **not** apply to legacy-scoped pages. They apply only inside body.
 ### Forbidden in prototype scope (recap)
 
 - Legacy color tokens (`--gold`, `--navy`, `--cream`, `--ivory`, `--deep`, `--ink-*`, `--line`, `--primary`, `--mint-soft`, `--white`)
-- Inline `style="..."` attributes on prototype HTML elements. Forbidden by default. Tactical exceptions require explicit founder approval and an inline CSS comment explaining the rescue mechanism.
+- Inline `style="..."` attributes on prototype HTML elements. Forbidden by default. Tactical exceptions require explicit founder approval and an inline CSS comment explaining the rescue mechanism. As of 2026-09-18 no served page carries a `style` attribute at all: the GTM noscript iframe uses `class="gtm-ns"` (rule in `styles.css`), and the three Index pages' report bodies use scoped utility classes plus `data-w` for bar widths (see the Index generator contract below).
 - Hardcoded hex values as property values — use tokens defined in Color System
 - `<span style="color:...">` patterns for italic accents — use `<em>` or `<span class="me-italic">` per Design System Section 4
 - `class="hero-h1"` on prototype H1s — use `class="hero-headline"`
 - `class="italic-accent"` on prototype elements — use `<em>`
 - Em-dashes (—) in any written content (Content Rules Section 2.3) — internal docs in `/docs/` are exempt because Google doesn't index them; site content is not
+
+### Index generator contract (gta-medspa-index, hair-loss-index, instagram-reindex)
+
+The report body between the REPORT BODY markers is regenerated each cycle; the head, nav, `.msi` wrapper and footer persist. The persistent head carries scoped utility classes and a `data-bar-widths` script, so the generator must emit these instead of `style` attributes:
+
+- Bars: `<span class="bar-fill" data-w="59.5">` or `<span class="tbar" data-w="42">` (0 to 100; the head script sets the width, `[data-w]` starts at 0).
+- Italic table cells: add `em` to the cell's class list. Zero margin paragraphs: `m0`. Zero top margin: `mt0`. Flex weights: `fx1`, `fx12` (1.2), `fx14` (1.4). Column widths: `w-26`, `w-52` (add a `w-N` rule to the head for any new value).
+- Verdict badges: `verdict ok` (mint), `verdict avg` (tertiary), `verdict crit`. Navy panel: `card navy`. Fluid inline SVG: `svg.fluid`. Muted note paragraph: `pnote`, with `mb12` when it needs the 12px bottom margin.
+- Frames: self-hosted 640x800 WebP under `/assets/index/<instance>/frames/`, never hotlinked (see the Design System note of 2026-09-18).
 
 ### Phase 2 page migration checklist
 
