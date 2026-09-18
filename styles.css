@@ -3653,9 +3653,7 @@ body.redesign-prototype {
   --bg-elevated: #1A1A1A;
   --text: #FFFFFF;
   --text-muted: #999999;
-  /* Tertiary lifted from #737373 to #8A8A8A for WCAG AA (~4.9:1) on small
-     tertiary text against Obsidian. #737373 was ~3.9:1, below the 4.5:1
-     floor. Promoted to global canon 2026-08-13 (was a per-tool override). */
+  /* Tertiary lifted from #737373 to #8A8A8A for WCAG AA (~4.9:1) on small. History and rationale: docs/HMM_Design_System.md. */
   --text-tertiary: #8A8A8A;
   --cta: #FF5C1A;
   --cta-hover: #FF7038;
@@ -3666,8 +3664,7 @@ body.redesign-prototype {
   --warm-bg: #F8F4ED;
   --warm-text: #1A1A1A;
   --warm-cta: #C8542B;
-  /* Error surface — derived from legacy --chart-red (#EF4444), tuned
-     for dark-theme contrast. Used by forms (any prototype page). */
+  /* Error surface — derived from legacy --chart-red (#EF4444), tuned. History and rationale: docs/HMM_Design_System.md. */
   --error-bg: rgba(239, 68, 68, 0.08);
   --error-border: rgba(239, 68, 68, 0.35);
   --error-text: #FCA5A5;
@@ -3688,25 +3685,12 @@ body.redesign-prototype {
   background-size: 56px 56px;
 }
 
-/* .app wrapper is sitewide infrastructure (29 pages). Legacy sets
-   background: var(--white) at styles.css:92. For dark prototype
-   pages, transparent lets body's var(--bg) Obsidian + grid pattern
-   show through naturally. Auto-applies to all future Phase 2 pages
-   that adopt body.redesign-prototype. */
+/* .app wrapper is sitewide infrastructure (29 pages).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .app {
   background: transparent;
 }
 
-/* ---------------------------------------------------------------------------
-   Industry pages dark-theme fix (dtc / finance / saas / healthcare).
-   These pages reuse the legacy homepage layout classes (.home-hero,
-   section.alt, .metric-card, .service-card, .case-card, .final-cta, etc.)
-   whose styles reference legacy tokens (--gray-surface, --deep, --ink-60 ...)
-   that are intentionally NOT remapped at body scope. Result: light bg + dark
-   text = a light-themed page under the dark nav/footer. Remap those tokens to
-   dark equivalents, SCOPED to industry pages only (data-screen-label), so the
-   whole legacy content body renders dark with no sitewide cascade risk.
-   --------------------------------------------------------------------------- */
+/* Industry pages dark-theme fix (dtc / finance / saas / healthcare).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype [data-screen-label="industry"] {
   --gray-surface:  var(--bg);
   --cream:         var(--bg-elevated);
@@ -3731,16 +3715,9 @@ body.redesign-prototype [data-screen-label="industry"] {
 }
 /* Legacy classes with hardcoded light values (not tokens) need explicit dark. */
 
-/* Positive metric delta -> canon Mint (was legacy emerald --chart-green
-   #10B981). The sparkline SVGs on these pages are likewise retinted to
-   var(--mint) inline. Color System Decision 12. */
+/* Positive metric delta -> canon Mint (was legacy emerald --chart-green. History and rationale: docs/HMM_Design_System.md. */
 
-/* ---------------------------------------------------------------------------
-   Industry page components (2026-09-09 design pass). These rules used to live
-   in an identical <style> block copied into finance, dtc and saas (and a longer
-   one on healthcare). Moved here, scoped to the industry screen label, and
-   documented in Design System §7 "Industry page components".
-   --------------------------------------------------------------------------- */
+/* Industry page components (2026-09-09 design pass).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype [data-screen-label="industry"] section.ind-section { padding: 48px 0; } /* canon content-section rhythm, was 72px */
 body.redesign-prototype [data-screen-label="industry"] section.ind-section.alt-tint { background: rgba(255,255,255,0.02); }
 body.redesign-prototype [data-screen-label="industry"] .ind-prose { max-width: 820px; }
@@ -3751,7 +3728,7 @@ body.redesign-prototype [data-screen-label="industry"] .ind-prose p:last-child {
 body.redesign-prototype [data-screen-label="industry"] .ind-prose a { color: var(--cta); text-decoration: underline; text-underline-offset: 2px; }
 body.redesign-prototype [data-screen-label="industry"] .ind-prose strong { color: var(--text); font-weight: 600; }
 
-body.redesign-prototype [data-screen-label="industry"] .ind-faq { max-width: 880px; margin-top: 32px; }
+body.redesign-prototype [data-screen-label="industry"] .ind-faq { max-width: 880px; }
 
 @media (max-width: 720px) {
   body.redesign-prototype [data-screen-label="industry"] .ind-prose h2 { font-size: 28px; }
@@ -3806,14 +3783,11 @@ body.redesign-prototype [data-screen-label="industry"] .section-header-row h2 {
   font-size: 40px; /* was the legacy clamp(40px, 5vw, 56px) */
   line-height: 1.1;
   letter-spacing: -0.015em;
-  margin-top: 20px;
   max-width: none;
 }
-body.redesign-prototype [data-screen-label="industry"] .pain-num {
-  color: var(--text-tertiary); /* was Signal Orange; numerals are not a brand accent (Colour System Rule 1) */
+body.redesign-prototype [data-screen-label="industry"] .pain-num { /* was Signal Orange; numerals are not a brand accent (Colour System Rule 1) */
 }
-/* Case-study cards: legacy hex gradients replaced with the elevated dark surface,
-   a soft Signal Orange glow, and the result figure in Mint (Decision 12). */
+/* Case-study cards. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype [data-screen-label="industry"] .case-card {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
@@ -3822,7 +3796,6 @@ body.redesign-prototype [data-screen-label="industry"] .case-image {
   background: radial-gradient(120% 90% at 100% 0%, var(--orange-glow) 0%, rgba(255, 92, 26, 0) 60%), var(--bg-elevated);
 }
 body.redesign-prototype [data-screen-label="industry"] .case-overlay {
-  background: linear-gradient(to bottom, rgba(14, 14, 14, 0) 0%, rgba(14, 14, 14, 0.55) 100%);
 }
 body.redesign-prototype [data-screen-label="industry"] .case-metric {
   color: var(--mint);
@@ -3838,9 +3811,7 @@ body.redesign-prototype [data-screen-label="industry"] .case-pill {
   body.redesign-prototype [data-screen-label="industry"] .section-header-row h2 { font-size: 28px; }
 }
 
-/* Dark-scope heading color: the global default (L74) sets h1-h4 to var(--deep) (navy),
-   invisible on Obsidian. Restore to --text for prototype-scoped pages. Blog POSTS get
-   correct heading color from V2-region rules with higher specificity; this does not affect them. */
+/* Dark-scope heading color. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype h1,
 body.redesign-prototype h2,
 body.redesign-prototype h3,
@@ -3875,9 +3846,7 @@ body.redesign-prototype h2.section-heading {
   margin: 0;
 }
 
-/* H2 section-heading italic accent. Scoped to em inside h2.section-heading so it
-   does not affect body-prose <em>. Lets prototype pages use plain <em> accents
-   (no .italic-accent class); service pages can drop .italic-accent in the hygiene pass. */
+/* H2 section-heading italic accent.. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype h2.section-heading em {
   color: var(--cta);
   font-style: italic;
@@ -3900,8 +3869,7 @@ body.redesign-prototype .hero-subtitle {
   line-height: 1.55;
   color: var(--text-muted);
   margin: 24px 0 0;
-  /* Cap the measure without inheriting the legacy 520px (styles.css:1537):
-     92ch (~1035px) on desktop, 88% on narrow viewports so it fills width. */
+  /* Cap the measure without inheriting the legacy 520px (styles.css:1537). History and rationale: docs/HMM_Design_System.md. */
   max-width: min(88%, 92ch);
   text-wrap: pretty;
 }
@@ -3936,9 +3904,7 @@ body.redesign-prototype section.content-section {
 }
 
 body.redesign-prototype .hero {
-  /* Hero rhythm: 72px top, 40px bottom (was 96/96). Asymmetric bottom
-     tightens the hero -> first-section gap to ~88px (40 + section's 48).
-     Sitewide density pass 2026-08-13. */
+  /* Hero rhythm. History and rationale: docs/HMM_Design_System.md. */
   padding: 72px 0 40px;
   position: relative;
   overflow: hidden;
@@ -4078,8 +4044,6 @@ body.redesign-prototype .service-card {
 }
 
 body.redesign-prototype .service-card:hover {
-  border-color: rgba(255, 255, 255, 0.16);
-  transform: translateY(-2px);
 }
 
 body.redesign-prototype .service-card h3 {
@@ -4103,8 +4067,7 @@ body.redesign-prototype .service-card .card-arrow {
   font-weight: 500;
 }
 
-/* Card tags — small descriptor badges on cards (AI Tools hub). Neutral by
-   default; .is-ai variant uses Signal Orange to flag AI-driven capability. */
+/* Card tags — small descriptor badges on cards (AI Tools hub).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .card-tags {
   display: flex;
   flex-wrap: wrap;
@@ -4112,7 +4075,6 @@ body.redesign-prototype .card-tags {
   margin: 0 0 20px;
 }
 body.redesign-prototype .card-tag {
-  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.01em;
   line-height: 1;
@@ -4128,12 +4090,9 @@ body.redesign-prototype .card-tag.is-ai {
   border-color: var(--border);
 }
 
-/* Tool finder — hero search that recommends a best-fit tool (AI Tools hub).
-   Text input + submit + quick-pick chips + an AI result panel. Posts to
-   /api/tool-finder; degrades to the tool grid when the API is unavailable. */
+/* Tool finder — hero search that recommends a best-fit tool (AI Tools hub).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .finder {
-  /* 640px rendered the input at 468px, truncating the 515px placeholder
-     mid-word; 780px gives the input ~608px so the full sentence fits. */
+  /* 640px rendered the input at 468px, truncating the 515px placeholder. History and rationale: docs/HMM_Design_System.md. */
   max-width: min(100%, 780px);
   margin: 32px 0 0;
 }
@@ -4327,17 +4286,14 @@ body.redesign-prototype .step-flow {
   margin-top: 40px; max-width: 1080px; position: relative;
 }
 body.redesign-prototype .step-flow .step-line {
-  position: absolute; top: 28px; left: 11%; right: 11%;
+  position: absolute; left: 11%; right: 11%;
   height: 2px; background: rgba(255, 255, 255, 0.08); z-index: 0;
 }
 body.redesign-prototype .step-flow .step { position: relative; z-index: 1; }
-body.redesign-prototype .step-flow .step-num {
-  width: 56px; height: 56px; border-radius: 50%; background: var(--bg);
-  border: 2px solid rgba(255, 255, 255, 0.2); display: flex; align-items: center;
-  justify-content: center; font-family: var(--serif); font-size: 24px;
-  font-weight: 500; color: var(--text); margin-bottom: 20px;
-  /* Was Signal Orange ring + numeral. Numerals are not a brand accent (Colour
-     System Rule 1); same call as the industry-page numerals, 2026-09-09. */
+body.redesign-prototype .step-flow .step-num { border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; font-family: var(--serif);
+  font-weight: 500; color: var(--text);
+  /* Was Signal Orange ring + numeral.. History and rationale: docs/HMM_Design_System.md. */
 }
 body.redesign-prototype .step-flow .step h3 {
   font-family: var(--serif); font-size: 20px; font-weight: 500;
@@ -4347,20 +4303,13 @@ body.redesign-prototype .step-flow .step p {
   font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0;
 }
 
-/* Step flow on phones (2026-09-09): there was no mobile rule, so the three
-   steps stayed side by side at ~110px each and the AI automation page scrolled
-   sideways at 390px. Stack them and drop the connector line. */
+/* Step flow on phones (2026-09-09). History and rationale: docs/HMM_Design_System.md. */
 @media (max-width: 720px) {
   body.redesign-prototype .step-flow { grid-template-columns: 1fr; gap: 24px; }
   body.redesign-prototype .step-flow .step-line { display: none; }
 }
 
-/* ---------------------------------------------------------------------------
-   Services pages (2026-09-09 design pass). The hub's .svc-* rules and the
-   performance-marketing .pm-* rules used to ship as page <style> blocks; they
-   live here now. .svc-faq-wrap replaces an inline max-width/margin div that
-   five category pages carried. Documented in Design System §7 "Services pages".
-   --------------------------------------------------------------------------- */
+/* Services pages (2026-09-09 design pass).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .svc-faq-wrap { max-width: 1080px; margin: 32px 0 0; }
 body.redesign-prototype .pm-callout-h3 em { color: var(--cta); font-style: italic; font-weight: 400; }
 body.redesign-prototype .nav-mobile-menu .mobile-cta-row { border-top-color: var(--border); } /* was the legacy light --line-soft on every prototype page */
@@ -4388,10 +4337,10 @@ body.redesign-prototype .bi-card {
   color: inherit; text-decoration: none; transition: border-color 0.2s ease, transform 0.2s ease;
 }
 body.redesign-prototype .bi-feature { grid-template-columns: 1.2fr 1fr; gap: 40px; margin-bottom: 32px; }
-body.redesign-prototype .bi-card { grid-template-columns: 1fr 1.6fr; }
+body.redesign-prototype .bi-card { }
 body.redesign-prototype .bi-feature:hover,
-body.redesign-prototype .bi-card:hover { border-color: rgba(255, 255, 255, 0.16); transform: translateY(-2px); }
-body.redesign-prototype .bi-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+body.redesign-prototype .bi-card:hover { }
+body.redesign-prototype .bi-grid { display: grid; }
 body.redesign-prototype .bpost.is-hidden { display: none; }
 body.redesign-prototype .bi-thumb {
   position: relative; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden;
@@ -4402,7 +4351,7 @@ body.redesign-prototype .bi-thumb {
 body.redesign-prototype .bi-body { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
 body.redesign-prototype .bi-meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; font-size: 12px; font-weight: 500; color: var(--text-muted); }
 body.redesign-prototype .bi-meta-sep { color: var(--text-tertiary); }
-body.redesign-prototype .bi-meta-featured { color: var(--text); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; }
+body.redesign-prototype .bi-meta-featured { color: var(--text); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
 body.redesign-prototype .bi-title-lg { font-family: var(--serif); font-size: 32px; font-weight: 400; line-height: 1.15; letter-spacing: -0.015em; color: var(--text); margin: 0 0 16px; }
 body.redesign-prototype .bi-title { font-family: var(--serif); font-size: 24px; font-weight: 500; line-height: 1.25; letter-spacing: -0.01em; color: var(--text); margin: 0 0 12px; }
 body.redesign-prototype .bi-excerpt { font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0; }
@@ -4437,7 +4386,7 @@ body.redesign-prototype .pm-callout-p { color: var(--text-muted); line-height: 1
 body.redesign-prototype .pm-callout-list { margin: 0 0 14px; }
 body.redesign-prototype .pm-callout-p-last { color: var(--text-muted); line-height: 1.65; margin: 0; }
 body.redesign-prototype .pm-proof-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 48px 56px; max-width: 760px; margin: 0 auto; text-align: center; }
-body.redesign-prototype .pm-proof-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-tertiary); font-weight: 500; margin: 0 0 16px; }
+body.redesign-prototype .pm-proof-label { letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-tertiary); font-weight: 500; margin: 0 0 16px; }
 body.redesign-prototype .pm-proof-stat { font-family: var(--serif); font-size: 36px; font-weight: 500; color: var(--mint); margin: 0 0 24px; line-height: 1.15; } /* positive proof stat -> Mint, Color System Decision 12 */
 body.redesign-prototype .pm-proof-body { color: var(--text-muted); line-height: 1.7; margin: 0; font-size: 16px; }
 
@@ -4484,11 +4433,7 @@ body.redesign-prototype .final-cta .subhead.final-cta-note {
   font-style: normal; opacity: 0.6; font-size: 13px; margin: 0 auto;
 }
 
-/* ============================================================
-   WORK PAGE PATTERNS
-   Page-specific dark patterns for /work (Case Studies).
-   Scoped under body.redesign-prototype.
-   ============================================================ */
+/* WORK PAGE PATTERNS. History and rationale: docs/HMM_Design_System.md. */
 
 /* Proof strip — 7 metrics, Signal-Orange figures, wraps responsively */
 body.redesign-prototype .proof-strip {
@@ -4526,20 +4471,18 @@ body.redesign-prototype .case-study-card {
   border-radius: 16px; padding: 28px;
 }
 body.redesign-prototype .case-study-card-header {
-  display: flex; justify-content: space-between; align-items: baseline;
+  display: flex; justify-content: space-between;
   gap: 16px; margin-bottom: 16px;
 }
 body.redesign-prototype .case-study-card h3 {
   font-family: var(--serif); font-size: 22px; font-weight: 500;
   color: var(--text); margin: 0;
 }
-body.redesign-prototype .case-study-tag {
-  font-size: 11px; font-weight: 500; text-transform: uppercase;
+body.redesign-prototype .case-study-tag { font-weight: 500; text-transform: uppercase;
   letter-spacing: 0.08em; color: var(--text-muted); white-space: nowrap;
 }
 body.redesign-prototype .case-study-metric {
-  /* Positive result callout -> Mint (Color System Section 2 / Decision 12).
-     The qual span below stays muted; CTAs on the page remain Signal Orange. */
+  /* Positive result callout -> Mint (Color System Section 2 / Decision 12).. History and rationale: docs/HMM_Design_System.md. */
   font-family: var(--serif); font-size: 32px; font-weight: 500;
   color: var(--mint); line-height: 1.1; margin: 0 0 20px;
 }
@@ -4552,15 +4495,8 @@ body.redesign-prototype .case-study-card p {
 }
 body.redesign-prototype .case-study-card p:last-child { margin-bottom: 0; }
 
-/* DEPRECATED: F1 footer styles, superseded by F2 below (canon locked at a53cddd).
-   F1 markup classes (.footer-grid, .footer-column wrapper, .footer-baseline original
-   variant) are no longer used by F2-migrated prototype pages. Retained here because
-   the F1 add-on classes (.footer-column h4, .footer-column ul li, etc.) collide with
-   F2 class names, and F2 source-ordered after these rules wins on cascade. Do not
-   delete — F2 relies on F1's structural defaults (list-style: none, etc.). */
 /* Footer */
 body.redesign-prototype .footer {
-  background: var(--bg);
   border-top: 1px solid var(--border);
   padding: 64px 0 40px;
 }
@@ -4593,9 +4529,7 @@ body.redesign-prototype .footer {
   body.redesign-prototype .hero-ctas { flex-direction: column; align-items: flex-start; }
   body.redesign-prototype .hero-ctas .btn { width: auto; }
 
-  /* Hide nav CTA on mobile — hamburger takes over nav access at this breakpoint.
-     Higher specificity than the legacy `.btn` rule that was unintentionally
-     overriding the legacy `.nav-main-cta { display: none }` at <=680px. */
+  /* Hide nav CTA on mobile — hamburger takes over nav access at this breakpoint.. History and rationale: docs/HMM_Design_System.md. */
   body.redesign-prototype .nav-main-cta { display: none; }
 }
 
@@ -4648,10 +4582,7 @@ body.redesign-prototype .nav-mobile-menu a {
   color: var(--text);
 }
 
-/* Hamburger dark variant: transparent box, visible border, white lines.
-   Border was previously var(--border) (rgba(255,255,255,0.08) — 8% white),
-   invisible on the Obsidian background. Bumped to 25% (base) / 45% (hover)
-   so the button is findable on real devices. */
+/* Hamburger dark variant. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .nav-hamburger {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -4669,9 +4600,7 @@ body.redesign-prototype .nav-hamburger span::after {
   background: var(--text);
 }
 
-/* ============================================================
-   PROTOTYPE — CONTACT PAGE
-   ============================================================ */
+/* PROTOTYPE — CONTACT PAGE. History and rationale: docs/HMM_Design_System.md. */
 
 /* Token shimming: redefine custom properties locally to override
    inline style="color:var(--text-primary)" without !important.
@@ -4771,9 +4700,7 @@ body.redesign-prototype .chip.chip-on {
   color: var(--cta);
 }
 
-/* Error banner (replaces legacy inline light styles). Uses the
-   prototype-scope --error-* tokens declared at the top of the
-   prototype section. Reusable across any prototype-scoped form. */
+/* Error banner (replaces legacy inline light styles).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .contact-err {
   margin: 0 40px;
   padding: 12px 14px;
@@ -4804,15 +4731,9 @@ body.redesign-prototype .contact-thanks {
   box-shadow: none;
 }
 
-/* DEPRECATED: F1 footer-baseline meta + badges (added during /contact migration).
-   F2 redefines .footer-baseline-meta as a <p> text element (vs F1's flex wrapper)
-   and overrides .footer-badges display + .footer-badge typography. F2 source-ordered
-   after these rules wins on cascade. F1 mobile rules below at @media (max-width:720px)
-   are similarly deprecated. */
 /* Footer-baseline right-side meta cluster (badges + email) */
 
-/* Reset the inherited margin: 0 12px from .footer-baseline a so the
-   email link sits cleanly inside the flex-gap layout of meta. */
+/* Reset the inherited margin. History and rationale: docs/HMM_Design_System.md. */
 
 /* Partner badges (dark variant) */
 
@@ -4831,21 +4752,14 @@ body.redesign-prototype .contact-thanks {
    explicit overrides where F1 inheritance would corrupt F2 layout.
    ============================================ */
 
-/* .italic-accent in prototype scope renders Signal Orange.
-   Legacy .italic-accent rule at styles.css:1430 uses var(--gold),
-   which resolves to legacy gold (#C9A96E) — wrong for prototype.
-   Currently used only by the F2 footer brand headline. */
+/* .italic-accent in prototype scope renders Signal Orange.. History and rationale: docs/HMM_Design_System.md. */
 
 body.redesign-prototype .footer {
-  background: var(--bg);
   color: var(--text);
   margin-top: 80px;
 }
 
 body.redesign-prototype .footer .container {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 32px;
 }
 
 /* BAND 1: brand statement + tool cards */
@@ -4864,8 +4778,7 @@ body.redesign-prototype .footer-social {
 
 /* F1 .footer-column ul applies (list-style none); F2 adds flex + gap */
 
-/* Override F1 .footer-column ul li { margin-bottom: 10px }
-   to neutralize the 10px margin that would compound with F2's gap (= 18px effective). */
+/* Override F1 .footer-column ul li { margin-bottom. History and rationale: docs/HMM_Design_System.md. */
 
 /* Override F1 .footer-column ul li a (F2 uses 12px not 14px) */
 
@@ -4875,8 +4788,7 @@ body.redesign-prototype .footer-social {
 
 /* Override F1 .footer-badge (F2: 10px / padding 4px 10px) */
 
-/* Override F1 .footer-baseline-meta (F1 was a flex wrapper; F2 is <p> text element).
-   display:block + gap:0 neutralize F1's display:flex; gap:20px inheritance. */
+/* Override F1 .footer-baseline-meta (F1 was a flex wrapper; F2 is <p> text element).. History and rationale: docs/HMM_Design_System.md. */
 
 /* F2 Mobile: ≤900px (upper band stacks; sitemap 3→2 col) */
 @media (max-width: 900px) {
@@ -4888,11 +4800,7 @@ body.redesign-prototype .footer-social {
 
 /* F2 Mobile: ≤720px (sitemap 2→1 col; tool cards stack; baseline stacks) */
 
-/* ---------------------------------------------------------------
-   SCHEDULE A CALL — three-step qualifying form (/schedule-a-call)
-   Reuses .form-input, .form-label, .form-textarea, .chip, .contact-err
-   and .contact-thanks-glyph. Everything below is new to this page.
-   --------------------------------------------------------------- */
+/* SCHEDULE A CALL — three-step qualifying form (/schedule-a-call). History and rationale: docs/HMM_Design_System.md. */
 
 body.redesign-prototype .req { color: var(--cta); }
 
@@ -4916,11 +4824,7 @@ body.redesign-prototype .hp-field {
 
 /* === END REDESIGN PROTOTYPE — DARK MODE === */
 
-/* ============================================================
-   Footer v3 — Direction F (CTA-forward + entity brand logos)
-   Added 2026-09-03. Prototype scope only. Replaces the F2
-   two-band footer markup on all body.redesign-prototype pages.
-   ============================================================ */
+/* Footer v3 — Direction F (CTA-forward + entity brand logos). History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .footer { background: var(--bg); }
 body.redesign-prototype .footer .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 
@@ -5013,24 +4917,13 @@ body.redesign-prototype .logo-instagram { height: 16px; width: 16px; }
   body.redesign-prototype .footer-tool-btn { min-height: 44px; padding: 11px 16px; }
 }
 
-/* ============================================================
-   Brand logo (image mark) — replaces the text H/MM logo, 2026-09-08.
-   Nav: mark-only SVG. Footer: full stacked lockup. Attribute width/height
-   on the <img> guard layout before CSS loads. Unscoped so blog-dark and
-   any legacy-scoped page size it identically.
-   ============================================================ */
+/* Brand logo (image mark) — replaces the text H/MM logo, 2026-09-08.. History and rationale: docs/HMM_Design_System.md. */
 .logo { gap: 0; }
 .logo-img { height: 32px; width: auto; display: block; }
 .footer-logo { width: 150px; height: auto; display: block; margin-bottom: 26px; }
 @media (max-width: 900px) {
   .logo-img { height: 28px; }
-  /* Mobile nav fix: the outline CTA kept its desktop size at <=900 and pushed the
-     hamburger off-screen. Shrink it like the (hidden) accent button is shrunk.
-     Fluid below 375px (2026-09-09): at 320px the logo + CTA + hamburger still
-     overflowed by 26px. Prototype scope allows no breakpoint besides 900/720, so
-     the CTA and hamburger scale with the viewport instead. Each clamp() resolves
-     to its max at >=375px, so phones from 375px up render exactly as before;
-     at 320px the CTA is 11.2px / 12px padding and the hamburger is 36px. */
+  /* Mobile nav fix. History and rationale: docs/HMM_Design_System.md. */
   body.redesign-prototype .nav-cta .btn-outline {
     padding: 10px clamp(10px, 3.75vw, 14px);
     font-size: clamp(11px, 3.5vw, 13px);
@@ -5041,11 +4934,7 @@ body.redesign-prototype .logo-instagram { height: 16px; width: 16px; }
   }
 }
 
-/* ============= PORTFOLIO PAGE (/portfolio, added 2026-09-11) =============
-   Scoped to data-screen-label="portfolio" or a .pf-scope section (the homepage
-   reuses the services, creative and reference blocks). Components are pf-* to avoid
-   colliding with the shell; figures follow Color System Decision 12 (Mint),
-   numerals and link accents stay off Signal Orange (Rule 1). */
+/* PORTFOLIO PAGE (/portfolio, added 2026-09-11). History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-head { display: flex; flex-wrap: wrap; gap: 20px 48px; align-items: flex-end; justify-content: space-between; }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-head .section-deck { margin-top: 0; }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .section-deck a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
@@ -5122,8 +5011,7 @@ body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) section[
   body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-metric { font-size: 30px; }
 }
 
-/* Homepage additions to the shared pf-* block (2026-09-11): industry cards and the
-   completed "how we work" row. Same card rules, new grid shapes. */
+/* Homepage additions to the shared pf-* block (2026-09-11). History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-industries { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 40px; }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-industry { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 14px; padding: 24px; text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 8px; transition: border-color .2s ease, transform .2s ease; }
 body.redesign-prototype :is([data-screen-label="portfolio"], .pf-scope) .pf-industry:hover { border-color: var(--border-strong); transform: translateY(-2px); }
@@ -5166,18 +5054,11 @@ body.redesign-prototype .pf-scope .pf-ticker .pf-result { flex: none; width: 272
   body.redesign-prototype .pf-scope .pf-ticker-set[aria-hidden="true"] { display: none; }
 }
 
-/* Client avatars on the homepage proof ticker (2026-09-11). Each is a pre-composed
-   96px circular PNG in /assets/clients (white disc + mark, TravelUp on its brand
-   blue, the Index on Obsidian with a hairline ring), shown at 28px beside the
-   client name. Composed once so the card CSS stays trivial. */
+/* Client avatars on the homepage proof ticker (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .pf-scope .pf-ticker .pf-client { display: flex; align-items: center; gap: 10px; }
 body.redesign-prototype .pf-scope .pf-ticker .pf-logo { width: 28px; height: 28px; border-radius: 50%; flex: none; display: block; }
 
-/* Homepage "how we work" reveal (2026-09-11). JS adds .js-reveal to .pf-how once an
-   IntersectionObserver is available (so no-JS users see the cards immediately), then
-   .is-in when the row enters the viewport. Cards rise and fade in with a 120ms
-   stagger, then a hairline highlight draws across each card's top edge. Disabled
-   under prefers-reduced-motion. */
+/* Homepage "how we work" reveal (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .pf-scope .pf-how .pf-ref { position: relative; }
 body.redesign-prototype .pf-scope .pf-how .pf-ref::before { content: ""; position: absolute; top: -1px; left: 24px; right: 24px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.32), transparent); transform: scaleX(0); transform-origin: left center; }
 body.redesign-prototype .pf-scope .pf-how.js-reveal .pf-ref { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
@@ -5193,11 +5074,7 @@ body.redesign-prototype .pf-scope .pf-how.is-in .pf-ref::before { transform: sca
   body.redesign-prototype .pf-scope .pf-how .pf-ref::before { transform: scaleX(1); transition: none; }
 }
 
-/* Homepage mobile + accessibility pass (2026-09-11). Skip link for keyboard and
-   screen-reader users (visible only on focus); 40px hit areas on the footer social
-   icons without moving them; at 720 the hero CTAs go full width, the pf-* cards
-   drop to 20px padding and 12px gaps to shorten the one-column page, and the hero
-   subtitle steps down one size so both CTAs sit inside the first screen. */
+/* Homepage mobile + accessibility pass (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .skip-link { position: absolute; left: 16px; top: -100px; z-index: 10000; padding: 12px 18px; background: var(--cta); color: var(--bg); font-weight: 600; border-radius: 10px; text-decoration: none; }
 body.redesign-prototype .skip-link:focus { top: 16px; outline: 2px solid var(--text); outline-offset: 2px; }
 body.redesign-prototype .footer-social a { padding: 10px; margin: -10px; border-radius: 8px; }
@@ -5218,10 +5095,7 @@ body.redesign-prototype .footer-social a { padding: 10px; margin: -10px; border-
   body.redesign-prototype .footer-cta-nap .footer-dot { display: none; }
 }
 
-/* Homepage: published work folded into the live-builds section (2026-09-11). A
-   small subhead separates the six client build cards from six compact reference
-   tiles (kind, title, link line, no description) so the section reads as one unit
-   with hierarchy. Two columns on phones because the tiles are short. */
+/* Homepage. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .pf-scope .pf-subhead { margin: 36px 0 0; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--text-tertiary); }
 
 @media (max-width: 720px) {
@@ -5277,10 +5151,7 @@ body.redesign-prototype .pf-scope .pf-pill:hover { border-color: rgba(255, 92, 2
   body.redesign-prototype .pf-scope .pf-icon, body.redesign-prototype .pf-scope .pf-pill { transition: none; }
 }
 
-/* Industry page pass, /industries/dtc first (2026-09-11). Pain rows are links
-   (arrow warms on hover); FAQ uses the shared details pattern with a rotating plus;
-   the case grid holds two verified cases at 16:10, and every industry case card is
-   16:10 on phones instead of 4:5 so the section stops running to 1,600px. */
+/* Industry page pass, /industries/dtc first (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype [data-screen-label="industry"] a.pain-item { color: inherit; text-decoration: none; }
 body.redesign-prototype [data-screen-label="industry"] a.pain-item:hover .pain-arrow { color: var(--cta); transform: translateX(4px); }
 body.redesign-prototype [data-screen-label="industry"] .pain-arrow { transition: color .2s ease, transform .2s ease; }
@@ -5296,15 +5167,11 @@ body.redesign-prototype [data-screen-label="industry"] .pf-scope .pf-how .pf-ref
   body.redesign-prototype [data-screen-label="industry"] .pain-arrow, body.redesign-prototype [data-screen-label="industry"] .svc-faq-item summary span[aria-hidden] { transition: none; }
 }
 
-/* Industry pages with a single verified case (SaaS, finance; 2026-09-11): one 16:10
-   card capped at 640px instead of a three-column grid padded with placeholders. */
+/* Industry pages with a single verified case (SaaS, finance; 2026-09-11). History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype [data-screen-label="industry"] .case-grid-1 { grid-template-columns: minmax(0, 640px); }
 body.redesign-prototype [data-screen-label="industry"] .case-grid-1 .case-card { aspect-ratio: 16 / 10; }
 
-/* Healthcare page compaction (2026-09-11). HIPAA, specialties and ad-spend sections
-   reuse the pf-* pieces (pill rows, neutral stat tiles) with the detail moved to the
-   HIPAA checklist page and /ad-calculator/benchmarks. Neutral ranges stay white
-   (Colour System Decision 12: Mint is for positive results only). */
+/* Healthcare page compaction (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype [data-screen-label="industry"] .pf-scope .ind-intro { margin-bottom: 32px; }
 body.redesign-prototype [data-screen-label="industry"] .pf-scope .pf-pills { margin-top: 0; }
 body.redesign-prototype [data-screen-label="industry"] .pf-scope .pf-pills + .hipaa-banner { margin-top: 32px; }
@@ -5329,10 +5196,7 @@ body.redesign-prototype [data-screen-label="hipaa-checklist"] .hipaa-primer .pf-
   body.redesign-prototype [data-screen-label="industry"] .spec-list { columns: 1; }
 }
 
-/* Industry case cards carry an industry image (2026-09-11): abstract Signal Orange
-   particle art per vertical in /assets/industries, subject on the right so the
-   figure and name at bottom-left stay clear. The orange-glow wash stays on top for
-   consistency with the pre-image cards; a second card on the same page is mirrored. */
+/* Industry case cards carry an industry image (2026-09-11). History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype [data-screen-label="industry"] .case-image { background-size: cover; background-position: center; }
 body.redesign-prototype [data-screen-label="industry"] .case-image.case-ind-dtc { background-image: radial-gradient(120% 90% at 100% 0%, var(--orange-glow) 0%, rgba(255, 92, 26, 0) 60%), url("/assets/industries/dtc.webp"); }
 body.redesign-prototype [data-screen-label="industry"] .case-image.case-ind-saas { background-image: radial-gradient(120% 90% at 100% 0%, var(--orange-glow) 0%, rgba(255, 92, 26, 0) 60%), url("/assets/industries/saas.webp"); }
@@ -5341,13 +5205,10 @@ body.redesign-prototype [data-screen-label="industry"] .case-image.case-ind-fina
 body.redesign-prototype [data-screen-label="industry"] .case-image.case-flip { transform: scaleX(-1); }
 body.redesign-prototype [data-screen-label="industry"] .case-overlay { background: linear-gradient(to bottom, rgba(14, 14, 14, 0.05) 0%, rgba(14, 14, 14, 0.3) 45%, rgba(14, 14, 14, 0.8) 100%); }
 
-/* Industry hero: the industry image sits above the metric card, which overlaps its
-   lower edge so the two read as one unit (2026-09-11). Same hero-image rules as the
-   homepage wave, 5:3 crop. */
+/* Industry hero. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype [data-screen-label="industry"] .ind-hero-visual { position: relative; }
 body.redesign-prototype [data-screen-label="industry"] .ind-hero-image { aspect-ratio: 5 / 3; }
-/* Proof chip (2026-09-11): replaces the metric card and its illustrative sparkline.
-   One verified figure in Mint, sitting on the image's empty lower-left. */
+/* Proof chip (2026-09-11). History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .ind-hero-proof { display: inline-flex; align-items: baseline; gap: 10px; margin-top: 14px; padding: 10px 16px 10px 14px; border-radius: 999px; background: var(--bg-elevated); border: 1px solid var(--border); max-width: 100%; }
 body.redesign-prototype .ind-hero-proof-figure { font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1; color: var(--mint); font-variant-numeric: tabular-nums; white-space: nowrap; }
 body.redesign-prototype .ind-hero-proof-text { font-size: 13px; line-height: 1.3; color: var(--text); }
@@ -5360,11 +5221,7 @@ body.redesign-prototype [data-screen-label="industry"] .hero-ctas-row { margin-t
   body.redesign-prototype .ind-hero-proof-when { display: none; }
 }
 
-/* Industry pages: consistency + interaction pass (2026-09-11). One rhythm for every
-   section header: eyebrow 14px above the H2, 20px H2 to intro copy, 32px header to
-   content. Intro copy is 17px/1.7 everywhere (pain-left and ind-intro were 16px).
-   Pain numbers become 40px ring badges to match .pf-icon; hero CTAs stack full width
-   on phones like the homepage; small labels lifted to a 12px floor. */
+/* Industry pages. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype [data-screen-label="industry"] .ind-intro { margin-bottom: 32px; }
 body.redesign-prototype [data-screen-label="industry"] .ind-intro h2 { margin-bottom: 20px; }
 body.redesign-prototype [data-screen-label="industry"] .ind-intro p,
@@ -5394,10 +5251,7 @@ body.redesign-prototype [data-screen-label="industry"] .text-link:hover { color:
   body.redesign-prototype [data-screen-label="industry"] a.pain-item { padding: 20px 0; gap: 16px; grid-template-columns: 40px 1fr auto; }
 }
 
-/* Service pages: hero image + proof chip, same treatment as the industry pages
-   (2026-09-11). Cards and steps join the shared interaction language: orange-ring
-   hover on .service-card, step numbers as ring badges. The proof-chip rules above are
-   now unscoped so both page families share them. */
+/* Service pages. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .svc-hero-visual { position: relative; }
 body.redesign-prototype .svc-hero-image { aspect-ratio: 5 / 3; }
 body.redesign-prototype .hero-note { margin: 16px 0 0; font-size: 13px; color: var(--text-tertiary); }
@@ -5410,17 +5264,12 @@ body.redesign-prototype .pm-proof-label { font-size: 12px; }
   body.redesign-prototype .service-card { padding: 24px; }
 }
 
-/* Services hub (2026-09-11): the six category cards carry the homepage icon badge
-   and number row above the title; hero and CTA follow the shared patterns. */
+/* Services hub (2026-09-11). History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .pf-scope .service-card .pf-card-top { margin-bottom: 18px; }
 body.redesign-prototype .pf-scope .service-card .card-arrow { transition: color .2s ease; }
 body.redesign-prototype .pf-scope .service-card:hover .pf-icon { background: var(--orange-glow); border-color: rgba(255, 92, 26, 0.45); color: var(--cta); transform: scale(1.06); }
 
-/* Case Studies page pass (2026-09-11). Bug fix: `.case-study-card p` (0,2,1) was
-   beating `.case-study-metric` (0,2,0), so every result figure rendered as 15px
-   muted body text instead of the 32px Mint callout the rule intended. Cards gain
-   the client avatar from the homepage ticker in the header, an orange-ring hover,
-   and equal-height columns; tags lift to 12px. Hero uses the shared image grid. */
+/* Case Studies page pass (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .case-study-card p.case-study-metric { font-family: var(--serif); font-size: 32px; font-weight: 500; color: var(--mint); line-height: 1.1; margin: 0 0 18px; }
 body.redesign-prototype .case-study-card p.case-study-metric .case-study-metric-figure { color: var(--mint); }
 body.redesign-prototype .case-study-card p.case-study-metric .case-study-metric-qual { font-family: var(--sans); font-size: 14px; color: var(--text-muted); font-weight: 400; margin-left: 4px; }
@@ -5436,10 +5285,7 @@ body.redesign-prototype .case-study-card p a { color: var(--text); text-decorati
   body.redesign-prototype .case-study-card p.case-study-metric { font-size: 28px; }
 }
 
-/* About page pass (2026-09-11): hero takes the shared image grid and gains CTAs
-   (it had none); principle numbers become 40px ring badges matching .pain-num and
-   .pf-icon, rows warm on hover; a "how we work" card row reuses the homepage
-   pf-how pattern above the shared final CTA. */
+/* About page pass (2026-09-11). History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .about-value-num { width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--text-tertiary); border: 1px solid var(--border); background: rgba(255, 255, 255, 0.05); transition: background .2s ease, border-color .2s ease, color .2s ease; }
 body.redesign-prototype .about-value-row { grid-template-columns: 48px 1fr; gap: 20px; padding: 24px 0; transition: padding-left .2s ease; }
 body.redesign-prototype .about-value-row:hover { padding-left: 8px; }
@@ -5452,10 +5298,7 @@ body.redesign-prototype .about-principles-h2 { margin-top: 0; }
   body.redesign-prototype .about-value-row { grid-template-columns: 40px 1fr; gap: 14px; padding: 20px 0; }
 }
 
-/* Contact page pass (2026-09-11). The column that held copy + contact details now
-   holds copy + the contact image and proof chip, with the details as a third grid
-   item under it; the form spans both rows. On phones the order is copy, form,
-   details, so the form no longer starts 700px down the page. */
+/* Contact page pass (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype [data-screen-label="contact"] .contact-layout { grid-template-columns: 1fr 1.1fr; grid-template-rows: auto 1fr; gap: 40px 80px; align-items: start; }
 body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-aside { position: static; grid-column: 1; grid-row: 1; }
 body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-details { grid-column: 1; grid-row: 2; }
@@ -5474,11 +5317,7 @@ body.redesign-prototype [data-screen-label="contact"] .contact-direct-email:hove
   body.redesign-prototype [data-screen-label="contact"] .contact-visual { display: none; }
 }
 
-/* Blog index pass (2026-09-11). Hero on the shared image grid. Every card now
-   carries the post's hero image in .bi-thumb (nine posts received one; five had
-   them), the grid is two columns of vertical cards on desktop, the featured post
-   keeps its wide layout, and cards take the orange-ring hover. Overlay label gets a
-   dark pill so it reads on artwork. */
+/* Blog index pass (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .bi-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 
 body.redesign-prototype .bi-meta-featured { font-size: 12px; }
@@ -5501,24 +5340,17 @@ body.redesign-prototype .bi-filter .chip:focus-visible { outline: 2px solid var(
   body.redesign-prototype .bi-feature .bi-thumb img, body.redesign-prototype .bi-card .bi-thumb img { transition: none; }
 }
 
-/* Portfolio page pass (2026-09-11): sections carry .pf-scope so the shared hover
-   and badge rules apply; result cards in the static grid show the client avatar. */
+/* Portfolio page pass (2026-09-11). History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .pf-scope .pf-results .pf-client { display: flex; align-items: center; gap: 10px; }
 body.redesign-prototype .pf-scope .pf-results .pf-logo { width: 28px; height: 28px; border-radius: 50%; flex: none; display: block; }
 
-/* AI Tools hub pass (2026-09-11): hero on the shared image grid with the tool
-   finder kept in the copy column; the nine tool cards carry the icon badge row
-   and the shared hover; card tags lifted to 12px. */
+/* AI Tools hub pass (2026-09-11). History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype .svc-hero .finder { max-width: 100%; }
 body.redesign-prototype .svc-hero .finder-row { flex-wrap: wrap; }
 body.redesign-prototype .svc-hero .finder-input { min-width: 0; flex: 1 1 260px; }
 body.redesign-prototype .card-tag { font-size: 12px; }
 
-/* Legal pages (privacy, terms) reading layout (2026-09-11). One article with a
-   sticky "On this page" index instead of twelve bordered sections. Body copy uses
-   the 78% white long-form token (Colour System Decision 13, extended here), one
-   size and one colour for decks and paragraphs, 70ch measure, H2 28px with a
-   40px/12px rhythm. Index becomes a wrapped pill row below 900. */
+/* Legal pages (privacy, terms) reading layout (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype main.legal-scope { --text-body: rgba(255, 255, 255, 0.78); }
 body.redesign-prototype .legal-section { padding: 40px 0 56px; }
 body.redesign-prototype .legal-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 64px; align-items: start; }
@@ -5581,6 +5413,4 @@ body a[href^="/tools/marketing-audit"]:is(.btn, .footer-tool-btn, .pf-pill):not(
 }
 body a[href^="/tools/marketing-audit"]:is(.pf-pill):not([data-gate-open]) .pf-pill-kind { color: var(--mint); opacity: .75; }
 
-/* Phone-width overflow fixes (SEO Growth OS run 2026-09-16, REC-307 and two more found in the
-   same sweep at 320 and 375px): grid tracks use minmax(0, 1fr) and items min-width: 0 so a
-   long nowrap figure or tag can no longer push the track wider than the viewport. */
+/* Phone-width overflow fixes (SEO Growth OS run 2026-09-16, REC-307 and two more found in the. History and rationale: docs/HMM_Design_System.md. */
