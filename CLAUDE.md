@@ -204,6 +204,7 @@ Elsewhere, the only JS is tiny inline event handlers (mobile-menu toggle). **Not
 ### Universal (both systems)
 
 - **New pages:** copy the structure of an existing similar page that uses the same system (legacy or prototype). Set `data-screen-label` appropriately, add an entry to `sitemap.xml`, decide whether `robots.txt` or internal links need updating.
+- **Page hero images (not blog):** two WebP files per hero, `name.webp` 1056x591 and `name-704.webp` 704x394, both quality 80. The tag carries `width="1056" height="591"`, `srcset="/path/name-704.webp 704w, /path/name.webp 1056w"` and `sizes="(max-width: 900px) calc(100vw - 40px), 522px"`; the hero never renders wider than 522 CSS px, so 1056 covers 2x screens and 704 covers phones. The Index pages use the 1056 file as a CSS background. Keep the homepage preload's `imagesrcset`/`imagesizes` in step with the tag.
 - **Forms that submit data** should follow the `contact.html` pattern (Google Apps Script endpoint + `no-cors` JSON POST + success/error UI swap) unless there's a reason to introduce a different backend.
 
 ## Blog template

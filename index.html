@@ -147,7 +147,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 
 <!-- Styles -->
 <link rel="stylesheet" href="/styles.css">
-<link rel="preload" as="image" href="/assets/home/hero.webp" fetchpriority="high" media="(min-width: 901px)">
+<link rel="preload" as="image" href="/assets/home/hero.webp" imagesrcset="/assets/home/hero-704.webp 704w, /assets/home/hero.webp 1056w" imagesizes="522px" fetchpriority="high" media="(min-width: 901px)">
 <meta name="theme-color" content="#0E0E0E">
 <script src="/consent.js" defer></script>
 </head>
@@ -208,11 +208,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="hero-visual">
-        <img src="/assets/home/hero.webp"
+        <img src="/assets/home/hero.webp" srcset="/assets/home/hero-704.webp 704w, /assets/home/hero.webp 1056w" sizes="(max-width: 900px) calc(100vw - 40px), 522px"
              alt="A radar sweep drawn in glowing orange particles revealing a cluster of customers lit in teal"
              class="hero-image"
-             width="1344"
-             height="752"
+             width="1056"
+             height="591"
              loading="eager"
              fetchpriority="high"
              decoding="async">
