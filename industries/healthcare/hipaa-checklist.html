@@ -45,6 +45,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 {"@context":"https://schema.org","@type":"HowTo","name":"The HIPAA marketing checklist for clinics","description":"A 22-point HIPAA-aware checklist covering administrative, technical, physical, marketing, and breach-response safeguards every healthcare practice should run at least once a year.","totalTime":"PT60M","step":[{"@type":"HowToStep","name":"Administrative safeguards","text":"Designate a Privacy Officer, run annual HIPAA training, document written policies, sign BAAs with every PHI-touching vendor, and complete a risk analysis in the last 12 months."},{"@type":"HowToStep","name":"Technical safeguards","text":"Encrypt PHI in transit (TLS 1.2+) and at rest, enforce unique user IDs with MFA, set automatic session logoff under 15 minutes, and retain audit logs of PHI access for 6 years."},{"@type":"HowToStep","name":"Physical safeguards","text":"Lock workstation areas away from patient sightlines, maintain a device inventory with secure disposal, and keep paper records under lock and key: shredded, not binned."},{"@type":"HowToStep","name":"Marketing and website","text":"Strip PHI from Google Analytics and Meta Pixel using server-side tracking, sign a BAA with your marketing agency, get explicit consent for booking-widget tracking, disable session-replay on patient pages, run compliant review flows, and obtain written consent for before/after photos."},{"@type":"HowToStep","name":"Breach preparedness","text":"Maintain a written incident-response plan, document breach-notification procedures (60-day patient notice, HHS notice, media notice if &gt;500 affected), and carry cyber liability insurance covering HIPAA fines and notification costs."}]}
 </script>
 <script src="/consent.js" defer></script>
+<script src="/site.js" defer></script>
 </head>
 <body class="redesign-prototype">
 <!-- Google Tag Manager (noscript) -->
@@ -67,11 +68,11 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     <div class="nav-cta">
       <a class="btn btn-accent nav-main-cta" href="/tools/marketing-audit">Free AI Audit</a>
       <a class="btn btn-outline" href="/contact">Need Help? Let&rsquo;s Talk</a>
-      <button class="nav-hamburger" aria-label="Menu" onclick="var m=document.querySelector('.nav-mobile-menu'); var o=m.classList.toggle('open'); this.classList.toggle('open', o);"><span></span></button>
+      <button class="nav-hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span></button>
     </div>
   </div>
 </nav>
-<div class="nav-mobile-menu">
+<div class="nav-mobile-menu" id="nav-mobile-menu">
   <a class="nav-link" href="/">Home</a>
   <a class="nav-link" href="/services">Services</a>
   <a class="nav-link" href="/ai-tools">AI Tools</a>

@@ -45,6 +45,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 {"@context": "https://schema.org", "@type": "ItemList", "name": "HelpMeMarketing Case Studies", "description": "Real brands, real numbers. Case studies across DTC, SaaS, healthcare, travel, real estate, and finance.", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "The GTA MedSpa Index: 176 clinics ranked on reach", "description": "Instance 03 of The HMM Index. Public Instagram benchmark for medical spas across the Greater Toronto Area, with a regulatory read of every ranked caption.", "url": "https://helpmemarketing.com/gta-medspa-index"}, {"@type": "ListItem", "position": 2, "name": "The Hair Loss Index: nine brands benchmarked live", "description": "Instance 02 of The HMM Index. Public competitive intelligence for non-surgical hair loss studios on Instagram, refreshed monthly.", "url": "https://helpmemarketing.com/hair-loss-index"}, {"@type": "ListItem", "position": 3, "name": "Shakti Warrior: 312% revenue growth", "description": "A wellness DTC brand. Brand identity and social rebuild drove 312% revenue growth over 12 months."}, {"@type": "ListItem", "position": 4, "name": "TravelUp: 12× monthly bookings", "description": "A travel brand. Full-funnel paid acquisition, SEO, and CRO drove 12× monthly bookings within a year."}, {"@type": "ListItem", "position": 5, "name": "Med Aesthetics: 186% lead growth", "description": "A med spa. Review generation and Google Business Profile management drove 186% lead growth in 4 months."}, {"@type": "ListItem", "position": 6, "name": "BoomerangFX: 3.2× demo pipeline", "description": "A B2B SaaS team. Analytics and attribution buildout drove 3.2× demo pipeline over a year."}, {"@type": "ListItem", "position": 7, "name": "Vanguard: 92% more consult requests", "description": "A healthcare practice. Brand and content drove 92% more consult requests in 6 months."}, {"@type": "ListItem", "position": 8, "name": "Luxe & Charme: 41% higher conversion rate", "description": "A DTC brand. Full website rebuild drove 41% higher conversion rate post-launch."}, {"@type": "ListItem", "position": 9, "name": "Equiton: 40% lower cost per lead", "description": "A real estate investment firm. GTM conversion tracking, SEO, CRO, and performance marketing drove 40% lower cost per lead in 9 months."}]}
 </script>
 <script src="/consent.js" defer></script>
+<script src="/site.js" defer></script>
 </head>
 <body class="redesign-prototype">
 <!-- Google Tag Manager (noscript) -->
@@ -67,11 +68,11 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     <div class="nav-cta">
       <a class="btn btn-accent nav-main-cta" href="/tools/marketing-audit">Free AI Audit</a>
       <a class="btn btn-outline" href="/contact">Need Help? Let&rsquo;s Talk</a>
-      <button class="nav-hamburger" aria-label="Menu" onclick="var m=document.querySelector('.nav-mobile-menu'); var o=m.classList.toggle('open'); this.classList.toggle('open', o);"><span></span></button>
+      <button class="nav-hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span></button>
     </div>
   </div>
 </nav>
-<div class="nav-mobile-menu">
+<div class="nav-mobile-menu" id="nav-mobile-menu">
   <a class="nav-link" href="/">Home</a>
   <a class="nav-link" href="/services">Services</a>
   <a class="nav-link" href="/ai-tools">AI Tools</a>

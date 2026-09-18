@@ -172,12 +172,12 @@ Breakpoints in prototype CSS: 900 (primary), 720 (secondary). Don't introduce ot
 
 ### JavaScript
 
-No bundler, no shared JS file. JavaScript only exists in two places:
+No bundler. Two small shared files load on every page with `defer`: `/consent.js` (cookie banner) and `/site.js` (the mobile nav: hamburger toggle with `aria-expanded`, close on link tap, Escape and outside click; added 2026-09-18 when the last inline `onclick` came out). Page features live in their own scripts:
 
 1. **`contact.html`** — vanilla IIFE that collects the form, builds a JSON payload, and `fetch`es it to a Google Apps Script web-app endpoint (`SHEET_URL`) with `mode: 'no-cors'`. On success the form is replaced with a thank-you panel; on failure an error banner points the user to `Hello@helpmemarketing.com`. Service chips are multi-select via a local `services` array. If you change the form fields, update the payload shape to match.
 2. **`ad-calculator.html`** — vanilla IIFE with an in-file `BENCH` lookup of healthcare specialties → `{ cpl, convRate, ltv, label }`. Specialty buttons (`.sbtn[data-s]`) drive the calculation; inputs `#goal`, `#ltv`, `#conv` recompute budget/leads/ROAS on each change. All output goes into `#out-*` and `#row-*` elements — if you rename these, update both the markup and the `render()` function.
 
-Elsewhere, the only JS is tiny inline event handlers (mobile-menu toggle). **Note for prototype work:** keep prototype HTML free of inline behavior — use `addEventListener` + `DOMContentLoaded` for any prototype-scoped JS. Legacy pages can keep their inline `onclick`.
+No page carries an inline event handler attribute (`onclick` etc.) as of 2026-09-18. Use `addEventListener` + `DOMContentLoaded` for any new behaviour, on every page, and put sitewide chrome behaviour in `site.js`.
 
 ### Deployment and SEO
 
@@ -283,7 +283,7 @@ Standard discipline for any non-trivial change:
 
 ## Common gotchas (prototype-specific)
 
-- **Avoid inline `onclick` on prototype HTML.** Use `addEventListener` + `DOMContentLoaded` for consistency with the prototype's "no inline behavior" convention. (The legacy mobile-menu uses inline `onclick`; that's fine on legacy pages but not prototype-scoped ones.)
+- **No inline `onclick` anywhere.** Use `addEventListener` + `DOMContentLoaded`. The mobile menu is handled by `site.js` on every page; the hamburger markup is `<button class="nav-hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-mobile-menu">` and the menu div carries `id="nav-mobile-menu"`.
 - `position: sticky` parents must NOT have overflow set. The blog sidebar broke once because of this.
 - The `.app` wrapper paints white by default in legacy CSS. Prototype pages need `body.redesign-prototype .app { background: transparent }` (already shipped at commit `ce577a6`).
 - Don't mix `hero-h1` and `hero-headline` classes. Legacy pages use `hero-h1`; prototype uses `hero-headline`. They have different CSS rules.
