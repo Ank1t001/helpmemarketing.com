@@ -53,6 +53,10 @@ The report body between the REPORT BODY markers is regenerated each cycle; the h
 - Italic table cells: add `em` to the cell's class list. Zero margin paragraphs: `m0`. Zero top margin: `mt0`. Flex weights: `fx1`, `fx12` (1.2), `fx14` (1.4). Column widths: `w-26`, `w-52` (add a `w-N` rule to the head for any new value).
 - Verdict badges: `verdict ok` (mint), `verdict avg` (tertiary), `verdict crit`. Navy panel: `card navy`. Fluid inline SVG: `svg.fluid`. Muted note paragraph: `pnote`, with `mb12` when it needs the 12px bottom margin.
 - Frames: self-hosted 640x800 WebP under `/assets/index/<instance>/frames/`, never hotlinked (see the Design System note of 2026-09-18).
+- Publish is a body swap only. The Build Kit's `build_v2.py` emits a standalone page on its own `_sys.css`; paste only the part between the REPORT BODY markers into the site page. The site head, nav, `.msi` wrapper and footer are the site's, not the kit's.
+- The head is cycle-agnostic: no cycle number, refresh date, firm count or coverage claim in `<title>`, the descriptions or the schema (fixed 2026-09-24 after "cycle 001" sat in two heads through two cycles). Those facts live in the body.
+- Frames are committed to the repo as `[firm]-cycleNNN.webp` for the cycle they were read in. The kit's step "re-host to WordPress media before publish" does not apply here; the repo is the host. Frames the kit could not read (over its 262,144-byte limit) get the unreviewed-read label in the body and no frame file.
+- Real Estate Index, Instagram board from cycle 003 (24 Sep 2026): Skyline, Equiton, Lankin, Pier 4, McGillivray Capital. Marlin Spring left the Instagram board (stays on LinkedIn); Starlight, Centurion and Hazelview are not carried. Wealthsimple is an out-of-category reference and never appears on the board. Wording rule: a firm "has no corporate Instagram account", never "has no Instagram account" (Hazelview runs @hazelviewproperties). Cycle 004 is the first clean comparison against this board.
 
 ### Phase 2 page migration checklist
 
