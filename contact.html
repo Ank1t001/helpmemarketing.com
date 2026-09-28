@@ -50,10 +50,12 @@ w.addEventListener(e,load,{once:true,passive:true});});
 /* ===== Contact form (scoped, dark theme) ===== */
 body.redesign-prototype .sched-section,
 body.redesign-prototype .contact-section{padding-top:0;}
-body.redesign-prototype #contact-form{max-width:640px;margin:0 auto;padding:28px clamp(20px,5vw,28px);box-sizing:border-box;}
+body.redesign-prototype #contact-form{display:grid;grid-template-columns:1fr 1fr;column-gap:20px;max-width:760px;margin:0 auto;padding:28px clamp(20px,5vw,28px);box-sizing:border-box;}
 
 /* Text fields */
 body.redesign-prototype .form-field{margin-bottom:1rem;}
+body.redesign-prototype #contact-form > *{grid-column:1 / -1;}
+body.redesign-prototype #contact-form > .form-half{grid-column:auto;}
 body.redesign-prototype .form-field label{display:block;font-size:13.5px;margin-bottom:.45rem;font-weight:500;color:var(--text);}
 body.redesign-prototype .form-optional{color:var(--text-tertiary);font-weight:400;font-size:12px;margin-left:.35rem;}
 body.redesign-prototype #contact-form .form-textarea{min-height:120px;resize:vertical;}
@@ -72,14 +74,17 @@ body.redesign-prototype .fbtn{font-family:inherit;font-size:15px;font-weight:500
 body.redesign-prototype .fbtn:active{transform:translateY(1px);}
 body.redesign-prototype .fbtn-primary{background:var(--cta);color:#fff;margin-left:auto;box-shadow:0 6px 20px var(--orange-glow);}
 body.redesign-prototype .fbtn-primary:hover{background:var(--cta-hover);}
-body.redesign-prototype #contact-form .contact-submit{margin-left:auto;width:auto;border-radius:12px;padding:15px 28px;}
+body.redesign-prototype #contact-form .contact-submit{margin:0 0 0 auto;width:auto;border-radius:12px;padding:15px 28px;}
 
+@media(max-width:720px){
+  body.redesign-prototype #contact-form{grid-template-columns:1fr;}
+}
 @media(max-width:559px){
   body.redesign-prototype .form-nav{flex-direction:column-reverse;gap:.6rem;}
-  body.redesign-prototype .form-nav .fbtn,body.redesign-prototype #contact-form .contact-submit{width:100%;margin-left:0;}
+  body.redesign-prototype .form-nav .fbtn,body.redesign-prototype #contact-form .contact-submit{width:100%;margin:0;}
 }
 body.redesign-prototype .contact-section { padding:72px 0 48px; }
-body.redesign-prototype .contact-intro { font-size:16.5px; color:var(--text-muted); margin-top:20px; line-height:1.6; max-width:400px; }
+body.redesign-prototype .contact-intro { font-size:16.5px; color:var(--text-muted); margin:20px auto 0; line-height:1.6; max-width:540px; }
 body.redesign-prototype .contact-direct-label { font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:6px; }
 body.redesign-prototype .contact-direct-email { font-size:16px; color:var(--text); font-weight:500; text-decoration:none; }
 body.redesign-prototype .is-hidden { display:none; }
@@ -125,29 +130,30 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 
 <div class="page-enter contact-page">
 <section class="contact-section">
-  <div class="container stack-contact contact-layout">
+  <div class="container contact-layout">
 
     <div class="contact-aside">
+      <figure class="contact-portrait">
+        <img src="/assets/contact/ankit-240.webp" srcset="/assets/contact/ankit-240.webp 240w, /assets/contact/ankit-360.webp 360w" sizes="120px" width="120" height="120" alt="Ankit Kumar, founder of HelpMeMarketing">
+        <figcaption>Ankit Kumar, Founder</figcaption>
+      </figure>
       <span class="eyebrow"><span class="eyebrow-dot"></span>Say hello</span>
       <h1 class="hero-headline">Let&rsquo;s talk <em>growth</em></h1>
       <p class="contact-intro">Tell us a little about your business so we can understand where we can help. It takes about a minute.</p>
       <p class="microcopy contact-microcopy">No pitch deck, no twelve month contract, no markup on your ad spend.</p>
-      <div class="contact-visual">
-        <img class="hero-image contact-hero-image" src="/assets/contact/hero.webp" srcset="/assets/contact/hero-704.webp 704w, /assets/contact/hero.webp 1056w" sizes="(max-width: 900px) calc(100vw - 40px), 522px" alt="An open envelope with a chat bubble and a calendar tile, drawn in glowing orange particles" width="1056" height="591" loading="lazy" decoding="async">
-        <div class="ind-hero-proof">
-          <span class="ind-hero-proof-figure">+312%</span>
-          <span class="ind-hero-proof-text">revenue growth &middot; Shakti Warrior<span class="ind-hero-proof-when"> &middot; 12 months</span></span>
-        </div>
+      <div class="ind-hero-proof">
+        <span class="ind-hero-proof-figure">+312%</span>
+        <span class="ind-hero-proof-text">revenue growth &middot; Shakti Warrior<span class="ind-hero-proof-when"> &middot; 12 months</span></span>
       </div>
     </div>
 
-    <div>
+    <div class="contact-form-col">
       <div id="contact-form-wrap">
         <form id="contact-form" class="contact-form contact-form-compact" data-turnstile-sitekey="" novalidate>
-<div class="form-field"><label for="cf-name">Name</label><input type="text" id="cf-name" name="name" class="form-input" autocomplete="name" maxlength="120" required></div>
-<div class="form-field"><label for="cf-email">Email</label><input type="email" id="cf-email" name="email" class="form-input" autocomplete="email" inputmode="email" maxlength="160" required></div>
-<div class="form-field"><label for="cf-phone">Phone <span class="form-optional">Optional</span></label><input type="tel" id="cf-phone" name="phone" class="form-input" autocomplete="tel" inputmode="tel" maxlength="40"></div>
-<div class="form-field"><label for="cf-website">Website</label><input type="url" id="cf-website" name="website" class="form-input" autocomplete="url" inputmode="url" placeholder="yourbusiness.com" maxlength="200" required></div>
+<div class="form-field form-half"><label for="cf-name">Name</label><input type="text" id="cf-name" name="name" class="form-input" autocomplete="name" maxlength="120" required></div>
+<div class="form-field form-half"><label for="cf-email">Email</label><input type="email" id="cf-email" name="email" class="form-input" autocomplete="email" inputmode="email" maxlength="160" required></div>
+<div class="form-field form-half"><label for="cf-phone">Phone <span class="form-optional">Optional</span></label><input type="tel" id="cf-phone" name="phone" class="form-input" autocomplete="tel" inputmode="tel" maxlength="40"></div>
+<div class="form-field form-half"><label for="cf-website">Website</label><input type="url" id="cf-website" name="website" class="form-input" autocomplete="url" inputmode="url" placeholder="yourbusiness.com" maxlength="200" required></div>
 <div class="form-field"><label for="cf-help">What do you need help with?</label><textarea id="cf-help" name="help_with[]" class="form-textarea" rows="4" maxlength="2000" placeholder="For example: our Google Ads cost too much per lead, or our website gets traffic but no enquiries." required></textarea></div>
 <div class="form-field"><label for="cf-notes">Anything we should know?</label><textarea id="cf-notes" name="biggest_challenge" class="form-textarea" rows="3" maxlength="2000" placeholder="Timeline, budget, what you have tried so far, or anything else that helps." required></textarea></div>
 <div class="hp-field" aria-hidden="true"><label for="cf-hp">Leave this field blank</label><input type="text" id="cf-hp" name="company_url_secondary" tabindex="-1" autocomplete="off"></div>

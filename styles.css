@@ -227,10 +227,9 @@ section { padding: 88px 0; }
 
 /* Responsive 2-col stack utilities. History and rationale: docs/HMM_Design_System.md. */
 
-.stack-contact { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; }
 .stack-about { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 @media (max-width: 960px){
-  .stack-lg, .stack-md, .stack-asym-lg, .stack-asym-right, .stack-contact, .stack-about {
+  .stack-lg, .stack-md, .stack-asym-lg, .stack-asym-right, .stack-about {
     grid-template-columns: 1fr; gap: 40px;
   }
 }
@@ -256,15 +255,6 @@ section { padding: 88px 0; }
 }
 
 /* ============ Contact page — refined ============ */
-.contact-page .stack-contact {
-  grid-template-columns: 380px 1fr;
-  gap: 80px;
-  align-items: start;
-}
-.contact-aside {
-  position: sticky;
-  top: 100px;
-}
 .contact-contacts {
   margin-top: 32px;
   padding-top: 28px;
@@ -380,8 +370,6 @@ section { padding: 88px 0; }
 }
 
 @media (max-width: 960px){
-  .contact-page .stack-contact { grid-template-columns: 1fr !important; gap: 40px !important; }
-  .contact-aside { position: static; }
   .contact-submit { margin: 18px 24px 28px; width: calc(100% - 48px); }
 }
 @media (max-width: 560px){
@@ -5285,22 +5273,20 @@ body.redesign-prototype .about-principles-h2 { margin-top: 0; }
 }
 
 /* Contact page pass (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */
-body.redesign-prototype [data-screen-label="contact"] .contact-layout { grid-template-columns: 1fr 1.1fr; grid-template-rows: auto 1fr; gap: 40px 80px; align-items: start; }
-body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-aside { position: static; grid-column: 1; grid-row: 1; }
-body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-details { grid-column: 1; grid-row: 2; }
-body.redesign-prototype [data-screen-label="contact"] .contact-layout > div:not(.contact-aside):not(.contact-details) { grid-column: 2; grid-row: 1 / span 2; }
-body.redesign-prototype [data-screen-label="contact"] .contact-microcopy { font-size: 13.5px; color: var(--text-tertiary); margin: 12px 0 0; max-width: 400px; }
-body.redesign-prototype [data-screen-label="contact"] .contact-visual { margin-top: 28px; }
-body.redesign-prototype [data-screen-label="contact"] .contact-hero-image { aspect-ratio: 16 / 10; }
-body.redesign-prototype [data-screen-label="contact"] .contact-details .contact-contacts { margin-top: 0; padding-top: 28px; border-top: 1px solid var(--border); }
+/* Centred single column since 2026-09-28: portrait and heading, then the form card, then the contact details. */
+body.redesign-prototype [data-screen-label="contact"] .contact-layout { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-aside { position: static; max-width: 620px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-form-col, body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-details { width: 100%; max-width: 760px; }
+body.redesign-prototype [data-screen-label="contact"] .contact-portrait { margin: 0 0 24px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+body.redesign-prototype [data-screen-label="contact"] .contact-portrait img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); }
+body.redesign-prototype [data-screen-label="contact"] .contact-portrait figcaption { font-size: 13px; color: var(--text-muted); }
+body.redesign-prototype [data-screen-label="contact"] .contact-microcopy { font-size: 13.5px; color: var(--text-tertiary); margin: 12px auto 0; max-width: 460px; }
+body.redesign-prototype [data-screen-label="contact"] .contact-details .contact-contacts { margin-top: 0; padding-top: 28px; border-top: 1px solid var(--border); text-align: center; }
 body.redesign-prototype [data-screen-label="contact"] .contact-direct-email { transition: color .2s ease; }
 body.redesign-prototype [data-screen-label="contact"] .contact-direct-email:hover { color: var(--cta); }
-@media (max-width: 960px) {
-  body.redesign-prototype [data-screen-label="contact"] .contact-layout { grid-template-columns: 1fr; grid-template-rows: none; gap: 32px; }
-  body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-aside { grid-column: auto; grid-row: auto; order: 1; }
-  body.redesign-prototype [data-screen-label="contact"] .contact-layout > div:not(.contact-aside):not(.contact-details) { grid-column: auto; grid-row: auto; order: 2; }
-  body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-details { grid-column: auto; grid-row: auto; order: 3; }
-  body.redesign-prototype [data-screen-label="contact"] .contact-visual { display: none; }
+@media (max-width: 720px) {
+  body.redesign-prototype [data-screen-label="contact"] .contact-layout { gap: 32px; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-portrait img { width: 104px; height: 104px; }
 }
 
 /* Blog index pass (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */
