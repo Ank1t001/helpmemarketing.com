@@ -60,6 +60,7 @@ body.redesign-prototype #contact-form .form-textarea{min-height:120px;resize:ver
 
 body.redesign-prototype #contact-form .form-input[aria-invalid="true"],body.redesign-prototype #contact-form .form-textarea[aria-invalid="true"]{border-color:var(--error-border);}
 body.redesign-prototype #contact-form .contact-submit[disabled]{opacity:.6;cursor:wait;}
+body.redesign-prototype #contact-form .cf-slot:not(:empty){margin-top:.5rem;}
 
 /* Error */
 body.redesign-prototype .form-error{color:var(--error-text);background:var(--error-bg);border:1px solid var(--error-border);border-radius:10px;font-size:13px;margin:1rem 0 0;padding:.7rem .9rem;animation:shake .3s;}
@@ -142,7 +143,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 
     <div>
       <div id="contact-form-wrap">
-        <form id="contact-form" class="contact-form contact-form-compact" novalidate>
+        <form id="contact-form" class="contact-form contact-form-compact" data-turnstile-sitekey="" novalidate>
 <div class="form-field"><label for="cf-name">Name</label><input type="text" id="cf-name" name="name" class="form-input" autocomplete="name" maxlength="120" required></div>
 <div class="form-field"><label for="cf-email">Email</label><input type="email" id="cf-email" name="email" class="form-input" autocomplete="email" inputmode="email" maxlength="160" required></div>
 <div class="form-field"><label for="cf-phone">Phone <span class="form-optional">Optional</span></label><input type="tel" id="cf-phone" name="phone" class="form-input" autocomplete="tel" inputmode="tel" maxlength="40"></div>
@@ -150,6 +151,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 <div class="form-field"><label for="cf-help">What do you need help with?</label><textarea id="cf-help" name="help_with[]" class="form-textarea" rows="4" maxlength="2000" placeholder="For example: our Google Ads cost too much per lead, or our website gets traffic but no enquiries." required></textarea></div>
 <div class="form-field"><label for="cf-notes">Anything we should know?</label><textarea id="cf-notes" name="biggest_challenge" class="form-textarea" rows="3" maxlength="2000" placeholder="Timeline, budget, what you have tried so far, or anything else that helps." required></textarea></div>
 <div class="hp-field" aria-hidden="true"><label for="cf-hp">Leave this field blank</label><input type="text" id="cf-hp" name="company_url_secondary" tabindex="-1" autocomplete="off"></div>
+<div class="cf-slot" id="cf-turnstile"></div>
 <div class="form-error is-hidden" id="contact-err" role="alert"></div>
 <div class="form-nav"><button type="submit" class="fbtn fbtn-primary contact-submit"><span id="contact-submit-label">Start the Conversation</span> <span aria-hidden="true">→</span></button></div>
 </form>
@@ -258,20 +260,48 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 <script>
 (function(){
   var SHEET_URL='https://script.google.com/macros/s/AKfycbzeefYKM_xZuJHIg9pjl0hTLo57v87Qfpb5DzwvikeyVY3_QdYHFd18zpzlfBsbALSp/exec';
-  var MIN_MS=3000;
+  var TS_SRC='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+  var MIN_MS=3000,TS_WAIT_MS=10000;
   function init(){
     var form=document.getElementById('contact-form');if(!form)return;
     var err=document.getElementById('contact-err');
     var btn=form.querySelector('.contact-submit');
+    var btnLabel=document.getElementById('contact-submit-label');
+    var btnText=btnLabel?btnLabel.textContent:'';
     var hp=document.getElementById('cf-hp');
     var thanks=document.getElementById('contact-thanks');
     var thanksName=document.getElementById('thanks-name');
     var t0=Date.now(),human=false,sending=false;
+    /* Cloudflare Turnstile. Off while data-turnstile-sitekey is empty; the form then behaves exactly as before.
+       The script loads on the first focus or tap inside the form, so the token is usually ready by submit. */
+    var ts={key:'',started:false,token:'',interactive:false,failed:false};
+    function loadTurnstile(){
+      ts.key=(form.getAttribute('data-turnstile-sitekey')||'').trim();
+      if(!ts.key||ts.started)return;ts.started=true;
+      var sc=document.createElement('script');sc.src=TS_SRC;sc.async=true;
+      sc.addEventListener('error',function(){ts.failed=true;});
+      sc.addEventListener('load',function(){
+        if(!window.turnstile){ts.failed=true;return;}
+        try{window.turnstile.render('#cf-turnstile',{
+          sitekey:ts.key,action:'contact',theme:'dark',size:'flexible',appearance:'interaction-only',
+          callback:function(t){ts.token=t;ts.failed=false;ts.interactive=false;},
+          'expired-callback':function(){ts.token='';},
+          'error-callback':function(){ts.failed=true;},
+          'before-interactive-callback':function(){ts.interactive=true;},
+          'after-interactive-callback':function(){ts.interactive=false;}
+        });}catch(e){ts.failed=true;}
+      });
+      document.head.appendChild(sc);
+    }
+    function waitForToken(){return new Promise(function(res){var start=Date.now();(function poll(){if(ts.token||ts.failed||ts.interactive||Date.now()-start>TS_WAIT_MS)return res();setTimeout(poll,150);})();});}
     function mark(){human=true;}
     ['pointerdown','keydown','touchstart','input'].forEach(function(t){form.addEventListener(t,mark,{passive:true});});
+    form.addEventListener('focusin',loadTurnstile);
+    form.addEventListener('pointerdown',loadTurnstile);
     function field(n){return form.elements.namedItem(n);}
     function show(msg,el){err.textContent=msg;err.classList.remove('is-hidden');if(el){el.setAttribute('aria-invalid','true');el.focus();}}
     function clear(){err.classList.add('is-hidden');form.querySelectorAll('[aria-invalid]').forEach(function(el){el.removeAttribute('aria-invalid');});}
+    function busy(on){sending=on;btn.disabled=on;if(on){btn.setAttribute('aria-busy','true');}else{btn.removeAttribute('aria-busy');}if(btnLabel)btnLabel.textContent=on?'Sending…':btnText;}
     function done(first){if(thanksName)thanksName.textContent=', '+first;form.classList.add('is-hidden');if(thanks)thanks.classList.remove('is-hidden');}
     function url(v){v=v.trim();if(v&&!/^https?:\/\//i.test(v))v='https://'+v;return v;}
     form.addEventListener('submit',function(e){
@@ -288,12 +318,18 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       /* Bot guard: a filled honeypot, a submit under three seconds, or no real key, pointer or input event.
          Bots get the thank-you panel so they learn nothing, and nothing is sent. */
       if((hp&&hp.value)||Date.now()-t0<MIN_MS||!human){done(first);return;}
-      sending=true;btn.disabled=true;btn.setAttribute('aria-busy','true');
-      var fd=new FormData();
-      fd.append('name',name);fd.append('email',email);fd.append('phone',phone);fd.append('website',site);
-      fd.append('help_with[]',help);fd.append('biggest_challenge',notes);
-      fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:fd}).then(function(){done(first);}).catch(function(){
-        sending=false;btn.disabled=false;btn.removeAttribute('aria-busy');
+      busy(true);loadTurnstile();
+      (ts.key?waitForToken():Promise.resolve()).then(function(){
+        /* A visitor Turnstile wants to check by hand must tick the box first. If Turnstile failed to load or
+           errored, the lead is still sent without a token and the Apps Script files it on the Spam tab, not lost. */
+        if(ts.key&&!ts.token&&ts.interactive){busy(false);show('Please complete the quick security check just above the button.');return;}
+        var fd=new FormData();
+        fd.append('name',name);fd.append('email',email);fd.append('phone',phone);fd.append('website',site);
+        fd.append('help_with[]',help);fd.append('biggest_challenge',notes);
+        if(ts.key)fd.append('cf-turnstile-response',ts.token);
+        return fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:fd}).then(function(){done(first);});
+      }).catch(function(){
+        busy(false);
         show('Something went wrong. Please email Hello@helpmemarketing.com and we will reply right away.');
       });
     });
