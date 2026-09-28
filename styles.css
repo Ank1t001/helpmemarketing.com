@@ -5273,22 +5273,40 @@ body.redesign-prototype .about-principles-h2 { margin-top: 0; }
 }
 
 /* Contact page pass (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */
-/* Centred single column since 2026-09-28: portrait and heading, then the form card, then the contact details. */
-body.redesign-prototype [data-screen-label="contact"] .contact-layout { display: flex; flex-direction: column; align-items: center; gap: 40px; }
-body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-aside { position: static; max-width: 620px; text-align: center; display: flex; flex-direction: column; align-items: center; }
-body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-form-col, body.redesign-prototype [data-screen-label="contact"] .contact-layout > .contact-details { width: 100%; max-width: 760px; }
-body.redesign-prototype [data-screen-label="contact"] .contact-portrait { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-body.redesign-prototype [data-screen-label="contact"] .contact-bio { font-size: 14px; line-height: 1.6; color: var(--text-muted); max-width: 440px; margin: 10px 0 28px; }
-body.redesign-prototype [data-screen-label="contact"] .contact-portrait img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); }
-body.redesign-prototype [data-screen-label="contact"] .contact-portrait figcaption { font-size: 13px; color: var(--text-muted); }
-body.redesign-prototype [data-screen-label="contact"] .contact-microcopy { font-size: 13.5px; color: var(--text-tertiary); margin: 12px auto 0; max-width: 460px; }
-body.redesign-prototype [data-screen-label="contact"] .contact-details .contact-contacts { margin-top: 0; padding-top: 28px; border-top: 1px solid var(--border); text-align: center; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+/* Two columns since 2026-09-28 (Look B): heading, portrait and results left; form and details right. Phones: heading, form, portrait and results, details. */
+body.redesign-prototype [data-screen-label="contact"] .contact-layout { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.1fr); gap: 40px 72px; align-items: start; }
+body.redesign-prototype [data-screen-label="contact"] .contact-col { display: flex; flex-direction: column; gap: 32px; min-width: 0; }
+body.redesign-prototype [data-screen-label="contact"] .contact-microcopy { font-size: 13.5px; color: var(--text-tertiary); margin: 12px 0 0; max-width: 460px; }
+body.redesign-prototype [data-screen-label="contact"] .contact-alt { font-size: 14px; color: var(--text-muted); margin: 16px 0 0; }
+body.redesign-prototype [data-screen-label="contact"] .contact-alt a { color: var(--cta); text-decoration: underline; text-underline-offset: 2px; }
+body.redesign-prototype [data-screen-label="contact"] .contact-founder { display: flex; flex-direction: column; gap: 16px; }
+body.redesign-prototype [data-screen-label="contact"] .contact-portrait { position: relative; margin: 0; max-width: 440px; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: var(--bg-elevated); }
+body.redesign-prototype [data-screen-label="contact"] .contact-portrait img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; }
+body.redesign-prototype [data-screen-label="contact"] .contact-portrait figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 64px 22px 20px; background: linear-gradient(to top, rgba(14, 14, 14, 0.94), rgba(14, 14, 14, 0.7) 55%, transparent); }
+body.redesign-prototype [data-screen-label="contact"] .contact-founder-name { font-size: 15px; font-weight: 600; color: var(--text); margin: 0; }
+body.redesign-prototype [data-screen-label="contact"] .contact-bio { font-size: 14px; line-height: 1.6; color: var(--text); opacity: 0.82; margin: 6px 0 0; }
+body.redesign-prototype [data-screen-label="contact"] .contact-proof { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; max-width: 440px; }
+body.redesign-prototype [data-screen-label="contact"] .contact-proof a { display: grid; grid-template-columns: 84px 1fr; column-gap: 14px; align-items: baseline; padding: 12px 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--bg-elevated); text-decoration: none; transition: border-color .2s ease; }
+body.redesign-prototype [data-screen-label="contact"] .contact-proof a:hover { border-color: rgba(255, 255, 255, 0.22); }
+body.redesign-prototype [data-screen-label="contact"] .contact-proof-figure { grid-row: 1 / span 2; font-family: var(--serif); font-size: 22px; line-height: 1.1; color: var(--mint); font-variant-numeric: tabular-nums; }
+body.redesign-prototype [data-screen-label="contact"] .contact-proof-name { font-size: 14px; font-weight: 500; color: var(--text); }
+body.redesign-prototype [data-screen-label="contact"] .contact-proof-what { font-size: 13px; color: var(--text-muted); }
+body.redesign-prototype [data-screen-label="contact"] .contact-details .contact-contacts { margin-top: 0; padding-top: 28px; border-top: 1px solid var(--border); grid-template-columns: 1fr 1fr; gap: 20px 24px; }
 body.redesign-prototype [data-screen-label="contact"] .contact-direct-email { transition: color .2s ease; }
 body.redesign-prototype [data-screen-label="contact"] .contact-direct-email:hover { color: var(--cta); }
+@media (max-width: 900px) {
+  body.redesign-prototype [data-screen-label="contact"] .contact-layout { display: flex; flex-direction: column; gap: 32px; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-col { display: contents; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-aside { order: 1; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-form-col { order: 2; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-founder { order: 3; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-details { order: 4; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-portrait, body.redesign-prototype [data-screen-label="contact"] .contact-proof { max-width: none; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-portrait img { aspect-ratio: 1 / 1; object-position: 50% 18%; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-portrait figcaption { position: static; padding: 18px 20px 20px; background: var(--bg-elevated); }
+}
 @media (max-width: 720px) {
-  body.redesign-prototype [data-screen-label="contact"] .contact-layout { gap: 32px; }
-  body.redesign-prototype [data-screen-label="contact"] .contact-portrait img { width: 104px; height: 104px; }
-  body.redesign-prototype [data-screen-label="contact"] .contact-details .contact-contacts { grid-template-columns: 1fr; }
+  body.redesign-prototype [data-screen-label="contact"] .contact-details .contact-contacts { grid-template-columns: 1fr; gap: 18px; }
 }
 
 /* Blog index pass (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */

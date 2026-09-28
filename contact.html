@@ -18,7 +18,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 ('requestIdleCallback' in w)?w.requestIdleCallback(load,{timeout:3500}):setTimeout(load,3500);
 })(window,document);</script>
 <!-- End Google Tag Manager -->
-<title>Book a Free Marketing Audit | HelpMeMarketing</title>
+<title>Contact Us: Talk Through Your Marketing | HelpMeMarketing</title>
 <meta name="description" content="Tell us about your business and what you need help with. It takes about a minute: no pitch deck, no twelve month contract, no markup on your ad spend.">
 <link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -27,7 +27,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HelpMeMarketing">
-<meta property="og:title" content="Book a Free Marketing Audit">
+<meta property="og:title" content="Contact Us: Talk Through Your Marketing">
 <meta property="og:description" content="Tell us about your business and what you need help with. It takes about a minute: no pitch deck, no twelve month contract, no markup on your ad spend.">
 <meta property="og:url" content="https://helpmemarketing.com/contact">
 <meta property="og:image" content="https://helpmemarketing.com/assets/contact/og.jpg">
@@ -35,21 +35,21 @@ w.addEventListener(e,load,{once:true,passive:true});});
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Book a Free Marketing Audit">
+<meta name="twitter:title" content="Contact Us: Talk Through Your Marketing">
 <meta name="twitter:description" content="Tell us about your business and what you need help with. It takes about a minute: no pitch deck, no twelve month contract, no markup on your ad spend.">
 <meta name="twitter:image" content="https://helpmemarketing.com/assets/contact/og.jpg">
 <script type="application/ld+json" data-cfasync="false">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://helpmemarketing.com/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://helpmemarketing.com/contact"}]}
 </script>
 <script type="application/ld+json" data-cfasync="false">
-{"@context":"https://schema.org","@type":"ContactPage","name":"Contact HelpMeMarketing","url":"https://helpmemarketing.com/contact","mainEntity":{"@type":"Organization","name":"Help Me Marketing","email":"hello@helpmemarketing.com","url":"https://helpmemarketing.com","founder":{"@type":"Person","name":"Ankit Kumar","jobTitle":"Founder","image":"https://helpmemarketing.com/assets/contact/ankit-360.webp","description":"9+ years building performance marketing programs for DTC, SaaS, healthcare and finance brands."}}}
+{"@context":"https://schema.org","@type":"ContactPage","name":"Contact HelpMeMarketing","url":"https://helpmemarketing.com/contact","mainEntity":{"@type":"Organization","name":"Help Me Marketing","email":"hello@helpmemarketing.com","url":"https://helpmemarketing.com","founder":{"@type":"Person","name":"Ankit Kumar","jobTitle":"Founder","image":"https://helpmemarketing.com/assets/contact/ankit-portrait-880.webp","description":"9+ years building performance marketing programs for DTC, SaaS, healthcare and finance brands."}}}
 </script>
 <script src="/consent.js" defer></script>
 <script src="/site.js" defer></script>
 <style>
 /* ===== Contact form (scoped, dark theme) ===== */
 body.redesign-prototype .contact-section{padding-top:0;}
-body.redesign-prototype #contact-form{display:grid;grid-template-columns:1fr 1fr;column-gap:20px;max-width:760px;margin:0 auto;padding:28px clamp(20px,5vw,28px);box-sizing:border-box;}
+body.redesign-prototype #contact-form{display:grid;grid-template-columns:1fr 1fr;column-gap:20px;max-width:none;margin:0;padding:28px clamp(20px,5vw,28px);scroll-margin-top:100px;box-sizing:border-box;}
 
 /* Text fields */
 body.redesign-prototype .form-field{margin-bottom:1rem;}
@@ -62,6 +62,16 @@ body.redesign-prototype #contact-form .form-textarea{min-height:120px;resize:ver
 body.redesign-prototype #contact-form .form-input[aria-invalid="true"],body.redesign-prototype #contact-form .form-textarea[aria-invalid="true"]{border-color:var(--error-border);}
 body.redesign-prototype #contact-form .contact-submit[disabled]{opacity:.6;cursor:wait;}
 body.redesign-prototype #contact-form .cf-slot:not(:empty){margin-top:.5rem;}
+
+body.redesign-prototype #contact-form .contact-nosite{display:flex;align-items:center;gap:8px;margin:10px 0 0;font-size:13px;font-weight:400;color:var(--text-muted);cursor:pointer;}
+body.redesign-prototype #contact-form .contact-nosite input{width:16px;height:16px;margin:0;accent-color:var(--cta);}
+body.redesign-prototype #contact-form .form-input:disabled{opacity:.45;cursor:not-allowed;}
+body.redesign-prototype #contact-form .contact-next{margin:.5rem 0 0;padding:16px 18px;border:1px solid var(--border);border-radius:12px;background:var(--bg);}
+body.redesign-prototype #contact-form .contact-next-title{margin:0 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);font-weight:500;}
+body.redesign-prototype #contact-form .contact-next ol{margin:0;padding-left:1.2em;font-size:14px;line-height:1.6;color:var(--text-muted);}
+body.redesign-prototype #contact-form .contact-privacy{margin:14px 0 0;font-size:13px;color:var(--text-tertiary);}
+body.redesign-prototype #contact-form .contact-privacy a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px;}
+body.redesign-prototype #contact-form .form-nav{margin-top:1.25rem;}
 
 /* Error */
 body.redesign-prototype .form-error{color:var(--error-text);background:var(--error-bg);border:1px solid var(--error-border);border-radius:10px;font-size:13px;margin:1rem 0 0;padding:.7rem .9rem;animation:shake .3s;}
@@ -83,7 +93,7 @@ body.redesign-prototype #contact-form .contact-submit{margin:0 0 0 auto;width:au
   body.redesign-prototype .form-nav .fbtn,body.redesign-prototype #contact-form .contact-submit{width:100%;margin:0;}
 }
 body.redesign-prototype .contact-section { padding:72px 0 48px; }
-body.redesign-prototype .contact-intro { font-size:16.5px; color:var(--text-muted); margin:20px auto 0; line-height:1.6; max-width:540px; }
+body.redesign-prototype .contact-intro { font-size:16.5px; color:var(--text-muted); margin:20px 0 0; line-height:1.6; max-width:480px; }
 body.redesign-prototype .contact-direct-label { font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:6px; }
 body.redesign-prototype .contact-direct-email { font-size:16px; color:var(--text); font-weight:500; text-decoration:none; }
 body.redesign-prototype .is-hidden { display:none; }
@@ -109,7 +119,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     </div>
     <div class="nav-cta">
       <a class="btn btn-accent nav-main-cta" href="/tools/marketing-audit">Free AI Audit</a>
-      <a class="btn btn-outline" href="/contact">Need Help? Let&rsquo;s Talk</a>
+      <a class="btn btn-outline" href="/contact#contact-form">Need Help? Let&rsquo;s Talk</a>
       <button class="nav-hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span></button>
     </div>
   </div>
@@ -123,7 +133,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   <a class="nav-link" href="/about">About</a>
   <div class="mobile-cta-row">
     <a class="btn btn-accent" href="/tools/marketing-audit">Free AI Audit</a>
-    <a class="btn btn-outline" href="/contact">Need Help? Let&rsquo;s Talk</a>
+    <a class="btn btn-outline" href="/contact#contact-form">Need Help? Let&rsquo;s Talk</a>
   </div>
 </div>
 
@@ -131,35 +141,44 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 <section class="contact-section">
   <div class="container contact-layout">
 
-    <div class="contact-aside">
-      <figure class="contact-portrait">
-        <img src="/assets/contact/ankit-240.webp" srcset="/assets/contact/ankit-240.webp 240w, /assets/contact/ankit-360.webp 360w" sizes="120px" width="120" height="120" alt="Ankit Kumar, founder of HelpMeMarketing">
-        <figcaption>Ankit Kumar, Founder</figcaption>
-      </figure>
-      <p class="contact-bio">Ankit has spent 9+ years building performance marketing programs for DTC, SaaS, healthcare and finance brands. The person who scopes your work stays on it, with no handoff to a junior team.</p>
+    <div class="contact-col contact-col-left">
+      <div class="contact-aside">
       <span class="eyebrow"><span class="eyebrow-dot"></span>Say hello</span>
       <h1 class="hero-headline">Let&rsquo;s talk <em>growth</em></h1>
-      <p class="contact-intro">Tell us a little about your business so we can understand where we can help. It takes about a minute.</p>
+      <p class="contact-intro">Tell us what you are working on and where your marketing is stuck. We will read it and come back with our honest take on whether and how we can help.</p>
       <p class="microcopy contact-microcopy">No pitch deck, no twelve month contract, no markup on your ad spend.</p>
-      <div class="ind-hero-proof">
-        <span class="ind-hero-proof-figure">+312%</span>
-        <span class="ind-hero-proof-text">revenue growth &middot; Shakti Warrior<span class="ind-hero-proof-when"> &middot; 12 months</span></span>
+      <p class="contact-alt">Want a quick self-serve check first? Try the <a href="/tools/marketing-audit">free AI marketing audit</a>.</p>
+      </div>
+
+      <div class="contact-founder">
+        <figure class="contact-portrait">
+          <img src="/assets/contact/ankit-portrait-880.webp" srcset="/assets/contact/ankit-portrait-560.webp 560w, /assets/contact/ankit-portrait-880.webp 880w" sizes="(max-width: 900px) calc(100vw - 40px), 440px" width="880" height="1100" decoding="async" alt="Ankit Kumar, founder of HelpMeMarketing">
+          <figcaption><p class="contact-founder-name">Ankit Kumar, Founder</p><p class="contact-bio">Ankit has spent 9+ years building performance marketing programs for DTC, SaaS, healthcare and finance brands. The person who scopes your work stays on it, with no handoff to a junior team.</p></figcaption>
+        </figure>
+        <ul class="contact-proof" aria-label="Recent client results">
+          <li><a href="/work#shakti-warrior"><span class="contact-proof-figure">+312%</span><span class="contact-proof-name">Shakti Warrior revenue, DTC</span><span class="contact-proof-what">Brand identity and social rebuild, 12 months</span></a></li>
+          <li><a href="/work#med-aesthetics"><span class="contact-proof-figure">+186%</span><span class="contact-proof-name">Med Aesthetics leads, healthcare</span><span class="contact-proof-what">Reviews and Google Business Profile, 4 months</span></a></li>
+          <li><a href="/work#boomerangfx"><span class="contact-proof-figure">3.2&times;</span><span class="contact-proof-name">BoomerangFX demo pipeline, SaaS</span><span class="contact-proof-what">Analytics and attribution buildout, 1 year</span></a></li>
+        </ul>
       </div>
     </div>
 
+    <div class="contact-col contact-col-right">
     <div class="contact-form-col">
       <div id="contact-form-wrap">
         <form id="contact-form" class="contact-form contact-form-compact" data-turnstile-sitekey="" novalidate>
 <div class="form-field form-half"><label for="cf-name">Name</label><input type="text" id="cf-name" name="name" class="form-input" autocomplete="name" maxlength="120" required></div>
 <div class="form-field form-half"><label for="cf-email">Email</label><input type="email" id="cf-email" name="email" class="form-input" autocomplete="email" inputmode="email" maxlength="160" required></div>
 <div class="form-field form-half"><label for="cf-phone">Phone <span class="form-optional">Optional</span></label><input type="tel" id="cf-phone" name="phone" class="form-input" autocomplete="tel" inputmode="tel" maxlength="40"></div>
-<div class="form-field form-half"><label for="cf-website">Website</label><input type="url" id="cf-website" name="website" class="form-input" autocomplete="url" inputmode="url" placeholder="yourbusiness.com" maxlength="200" required></div>
+<div class="form-field form-half"><label for="cf-website">Website</label><input type="text" id="cf-website" name="website" class="form-input" autocomplete="url" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="yourbusiness.com" maxlength="200" required><label class="contact-nosite"><input type="checkbox" id="cf-nosite"> I don&rsquo;t have a website yet</label></div>
 <div class="form-field"><label for="cf-help">What do you need help with?</label><textarea id="cf-help" name="help_with[]" class="form-textarea" rows="4" maxlength="2000" placeholder="For example: our Google Ads cost too much per lead, or our website gets traffic but no enquiries." required></textarea></div>
-<div class="form-field"><label for="cf-notes">Anything we should know?</label><textarea id="cf-notes" name="biggest_challenge" class="form-textarea" rows="3" maxlength="2000" placeholder="Timeline, budget, what you have tried so far, or anything else that helps." required></textarea></div>
+<div class="form-field"><label for="cf-notes">Anything we should know? <span class="form-optional">Optional</span></label><textarea id="cf-notes" name="biggest_challenge" class="form-textarea" rows="3" maxlength="2000" placeholder="Timeline, budget, what you have tried so far, or anything else that helps."></textarea></div>
 <div class="hp-field" aria-hidden="true"><label for="cf-hp">Leave this field blank</label><input type="text" id="cf-hp" name="company_url_secondary" tabindex="-1" autocomplete="off"></div>
 <div class="cf-slot" id="cf-turnstile"></div>
 <div class="form-error is-hidden" id="contact-err" role="alert"></div>
-<div class="form-nav"><button type="submit" class="fbtn fbtn-primary contact-submit"><span id="contact-submit-label">Start the Conversation</span> <span aria-hidden="true">→</span></button></div>
+<div class="contact-next"><p class="contact-next-title">What happens next</p><ol><li>We read what you shared.</li><li>We reply by email to talk about how we can help.</li><li>You decide whether to go further. No pitch deck, no pressure.</li></ol></div>
+<p class="contact-privacy">We use these details to reply to your enquiry. See our <a href="/privacy">Privacy Policy</a>.</p>
+<div class="form-nav"><button type="submit" class="fbtn fbtn-primary contact-submit"><span id="contact-submit-label">Send My Enquiry</span> <span aria-hidden="true">→</span></button></div>
 </form>
 <div id="contact-thanks" class="contact-thanks is-hidden"><h2 class="contact-thanks-title">Thanks for reaching out<span id="thanks-name"></span></h2><p>We’ll read what you shared and get back to you to talk about how we can help.</p></div>
       </div>
@@ -184,6 +203,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         </div>
       </div>
     </div>
+    </div>
   </div>
 </section>
 </div>
@@ -197,7 +217,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         <img class="footer-logo" src="/assets/brand/hmm-logo-full.svg" alt="Help Me Marketing" width="150" height="69">
         <span class="footer-cta-eyebrow">Free · No obligation</span>
         <h2 class="footer-cta-head">Ready to grow the <em>right</em> way?</h2>
-        <a href="/contact" class="footer-cta-btn">Need Help? Let&rsquo;s Talk
+        <a href="/contact#contact-form" class="footer-cta-btn">Need Help? Let&rsquo;s Talk
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <address class="footer-cta-nap">Burlington, Ontario, Canada <span class="footer-dot">·</span> <a href="mailto:Hello@helpmemarketing.com">Hello@helpmemarketing.com</a></address>
@@ -306,16 +326,18 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     function busy(on){sending=on;btn.disabled=on;if(on){btn.setAttribute('aria-busy','true');}else{btn.removeAttribute('aria-busy');}if(btnLabel)btnLabel.textContent=on?'Sending…':btnText;}
     function done(first){if(thanksName)thanksName.textContent=', '+first;form.classList.add('is-hidden');if(thanks)thanks.classList.remove('is-hidden');}
     function url(v){v=v.trim();if(v&&!/^https?:\/\//i.test(v))v='https://'+v;return v;}
+    var nosite=document.getElementById('cf-nosite');
+    if(nosite)nosite.addEventListener('change',function(){var w=field('website');w.disabled=nosite.checked;w.removeAttribute('aria-invalid');if(nosite.checked){w.value='';clear();}});
     form.addEventListener('submit',function(e){
       e.preventDefault();if(sending)return;clear();
       var name=field('name').value.trim(),email=field('email').value.trim(),phone=field('phone').value.trim();
-      var site=url(field('website').value),help=field('help_with[]').value.trim(),notes=field('biggest_challenge').value.trim();
+      var nosite=document.getElementById('cf-nosite');var noSite=!!(nosite&&nosite.checked);
+      var site=noSite?'No website yet':url(field('website').value),help=field('help_with[]').value.trim(),notes=field('biggest_challenge').value.trim();
       if(!name)return show('Please tell us your name.',field('name'));
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))return show('Please enter a valid email address.',field('email'));
       if(phone&&phone.replace(/\D/g,'').length<7)return show('Please check your phone number, or leave it blank.',field('phone'));
-      if(!/^https?:\/\/[^\s\/.]+\.[^\s]{2,}$/i.test(site))return show('Please enter your website, for example yourbusiness.com.',field('website'));
+      if(!noSite&&!/^https?:\/\/[^\s\/.]+\.[^\s]{2,}$/i.test(site))return show('Please enter your website, for example yourbusiness.com, or tick the box if you do not have one yet.',field('website'));
       if(!help)return show('Please tell us what you need help with.',field('help_with[]'));
-      if(!notes)return show('Please add anything we should know. A short line is fine.',field('biggest_challenge'));
       var first=name.split(/\s+/)[0];
       /* Bot guard: a filled honeypot, a submit under three seconds, or no real key, pointer or input event.
          Bots get the thank-you panel so they learn nothing, and nothing is sent. */
