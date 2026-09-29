@@ -816,12 +816,12 @@ document.getElementById('dlform').addEventListener('submit',function(e){
   e.preventDefault();
   var value=(document.getElementById('dlemail').value||'').trim();
   var optIn=document.getElementById('dlopt').checked;
-  // Lead capture: same Google Apps Script endpoint family as SEO Growth OS, source-tagged.
+  // Lead capture: the one forms script (docs/HMM_Forms_AppsScript.gs), Growth OS downloads tab.
   // text/plain avoids a CORS preflight, matching /contact and /seo-growth-os.
   try{
-    fetch('https://script.google.com/macros/s/AKfycby17hYUwYG9skNLEcURp0KKpwVmHMX6RG5Ph4O7ykVPpW3qhSPmqUdIxY-ph8cc-3zr/exec',{
+    fetch('https://script.google.com/macros/s/AKfycbzeefYKM_xZuJHIg9pjl0hTLo57v87Qfpb5DzwvikeyVY3_QdYHFd18zpzlfBsbALSp/exec',{
       method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},
-      body:JSON.stringify({email:value,marketingConsent:optIn,source:'/meta-growth-os',referrer:document.referrer||'',userAgent:navigator.userAgent||''})
+      body:JSON.stringify({form:'growth-os-download',product:'meta',email:value,marketingConsent:optIn,source:'/meta-growth-os',referrer:document.referrer||'',userAgent:navigator.userAgent||''})
     });
   }catch(_){}
   if(window.dataLayer){window.dataLayer.push({event:'meta_growth_os_download',marketing_consent:optIn});}

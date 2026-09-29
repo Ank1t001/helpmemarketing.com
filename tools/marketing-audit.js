@@ -391,7 +391,7 @@
       inp.removeAttribute('aria-invalid');
       if ($('ma-email-hp').value) { msg.textContent = 'Sent. Check your inbox in a few minutes.'; return; }
       msg.textContent = 'Sending…';
-      postJSON({ action: 'plan', email: v, plan_title: last.pr.title, plan_text: planText(last, true), plan_url: planUrl(), path: last.pk, priority: last.pid })
+      postJSON({ form: 'audit-plan', email: v, plan_title: last.pr.title, plan_text: planText(last, true), plan_url: planUrl(), path: last.pk, priority: last.pid })
         .then(function () { msg.textContent = 'Sent. Check your inbox in a few minutes.'; ef.reset(); track('audit_email_plan', { method: 'server' }); },
           function () { msg.textContent = 'That did not work. Please use Download or Copy instead.'; });
     });
@@ -402,7 +402,7 @@
       inp.removeAttribute('aria-invalid');
       if ($('ma-sub-hp').value) { msg.textContent = 'You’re subscribed. Thank you.'; return; }
       msg.textContent = 'Sending…';
-      postJSON({ action: 'subscribe', email: v, source: 'marketing-audit' })
+      postJSON({ form: 'subscribe', email: v, source: 'marketing audit' })
         .then(function () { msg.textContent = 'You’re subscribed. Thank you.'; sf.reset(); track('audit_subscribe'); },
           function () { msg.textContent = 'That did not work. Please try again later.'; });
     });
@@ -414,7 +414,7 @@
       ? 'Thanks for telling us. Try the first action anyway, or change an answer above if something did not fit.'
       : 'Thanks for telling us.';
     track('audit_feedback', { answer: labels[v], audit_priority: last && last.pid });
-    if (endpoint() && last) postJSON({ action: 'feedback', answer: labels[v], path: last.pk, priority: last.pid }).catch(function () {});
+    if (endpoint() && last) postJSON({ form: 'audit-feedback', answer: labels[v], path: last.pk, priority: last.pid }).catch(function () {});
   }
 
   /* ---------- contact (carries the plan forward) ---------- */
@@ -484,9 +484,9 @@
       (ts.key ? waitForToken() : Promise.resolve()).then(function () {
         if (ts.key && !ts.token && ts.interactive) { busy(false); show('Please complete the quick security check just above the button.'); return; }
         var fd = new FormData();
-        fd.append('name', name); fd.append('email', email); fd.append('phone', '');
+        fd.append('form', 'audit-help'); fd.append('name', name); fd.append('email', email); fd.append('phone', '');
         fd.append('website', site || 'Not given');
-        fd.append('help_with[]', '[From the marketing audit]\n' + sum);
+        fd.append('help_with[]', sum);
         fd.append('biggest_challenge', notes);
         if (ts.key) fd.append('cf-turnstile-response', ts.token);
         return fetch(CONTACT_URL, { method: 'POST', mode: 'no-cors', body: fd }).then(function () {

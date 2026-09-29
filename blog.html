@@ -254,6 +254,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
           <form id="news-form" class="bi-news-form">
             <label class="sr-only" for="news-email">Email address</label>
             <input class="form-input" type="email" required placeholder="you@yourbrand.com" id="news-email">
+            <div class="hp-field" aria-hidden="true"><label for="news-hp">Leave this field blank</label><input type="text" id="news-hp" tabindex="-1" autocomplete="off"></div>
             <button type="submit" class="btn btn-primary">Subscribe &rarr;</button>
           </form>
         </div>
@@ -360,11 +361,18 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   var emptyReset = document.querySelector('.bi-empty-reset');
   if (emptyReset) emptyReset.addEventListener('click', function(){ btns[0].click(); });
 
-  var form = document.getElementById('news-form');
+  /* Newsletter: saved to the Subscribers tab of the forms sheet (docs/HMM_Forms_AppsScript.gs).
+     A filled honeypot or a submit under three seconds shows the thanks and sends nothing. */
+  var form = document.getElementById('news-form'), newsT0 = Date.now();
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var email = document.getElementById('news-email').value.trim();
     if (!email) return;
+    if (!document.getElementById('news-hp').value && Date.now() - newsT0 > 3000) {
+      fetch('https://script.google.com/macros/s/AKfycbzeefYKM_xZuJHIg9pjl0hTLo57v87Qfpb5DzwvikeyVY3_QdYHFd18zpzlfBsbALSp/exec', { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ form: 'subscribe', email: email, source: 'blog' }) }).catch(function(){});
+      if (window.dataLayer) window.dataLayer.push({ event: 'newsletter_subscribe', source: 'blog' });
+    }
     document.getElementById('news-form-wrap').hidden = true;
     var thanks = document.getElementById('news-thanks');
     thanks.hidden = false;
