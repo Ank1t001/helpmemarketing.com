@@ -12,7 +12,7 @@
   var PAGE_URL = 'https://helpmemarketing.com/tools/marketing-audit';
   var MIN_MS = 3000, TS_WAIT_MS = 10000;
 
-  var C, root, stepHost, fill, count, backBtn, nextBtn, doneBtn, wizard, results, body;
+  var C, root, stepHost, fill, count, backBtn, nextBtn, doneBtn, wizard, results, body, stages = [];
   var answers = {}, idx = 0, started = false, pointerPick = false, current = null;
 
   /* ---------- helpers ---------- */
@@ -31,11 +31,12 @@
     return C.paths[pk].qs.filter(function (q) { return !q.when || q.when(answers); });
   }
   function steps() {
-    var list = C.shared.map(function (q) { return { q: q, tag: 'About your business' }; });
+    var list = C.shared.map(function (q, i) { return { q: q, stage: 0, n: i + 1, of: C.shared.length }; });
     var pk = pathKey();
     if (pk) {
-      pathQs(pk).forEach(function (q, i) { list.push({ q: q, tag: C.paths[pk].name, intro: i === 0 ? C.paths[pk].intro : '' }); });
-      list.push({ q: C.capability, tag: 'Last question' });
+      var pq = pathQs(pk);
+      pq.forEach(function (q, i) { list.push({ q: q, stage: 1, n: i + 1, of: pq.length, intro: i === 0 ? C.paths[pk].intro : '', path: C.paths[pk].name }); });
+      list.push({ q: C.capability, stage: 2 });
     }
     return list;
   }
@@ -54,20 +55,21 @@
     var list = steps(), s = list[idx];
     current = s.q;
     var total = pathKey() ? list.length : 9;
-    fill.style.width = Math.round((idx / total) * 100) + '%';
-    count.textContent = 'Question ' + (idx + 1) + ' of ' + (pathKey() ? total : 'about ' + total);
+    fill.style.width = Math.max(4, Math.round((idx / total) * 100)) + '%';
+    count.textContent = s.stage === 2 ? 'Last question' : (s.path ? s.path + ': question ' : 'Question ') + s.n + ' of ' + s.of;
+    stages.forEach(function (li, i) { li.classList.toggle('is-current', i === s.stage); li.classList.toggle('is-done', i < s.stage); });
     var h = '<fieldset class="ma-q"><legend class="ma-q-legend">' +
-      '<span class="ma-q-tag">' + esc(s.tag) + '</span>' +
       (s.intro ? '<span class="ma-q-intro">' + esc(s.intro) + '</span>' : '') +
       '<span class="ma-q-text" tabindex="-1">' + esc(s.q.q) + '</span></legend>' +
       (s.q.hint ? '<p class="ma-q-hint">' + esc(s.q.hint) + '</p>' : '') +
       '<div class="ma-opts">';
     s.q.opts.forEach(function (o) {
-      h += '<label class="ma-opt"><input type="radio" name="ma-' + s.q.id + '" value="' + esc(o.v) + '"' +
+      h += '<label class="ma-opt' + (o.unsure ? ' ma-opt--unsure' : '') + '"><input type="radio" name="ma-' + s.q.id + '" value="' + esc(o.v) + '"' +
         (answers[s.q.id] === o.v ? ' checked' : '') + '><span>' + esc(o.label) + '</span></label>';
     });
     h += '</div></fieldset>';
     stepHost.innerHTML = h;
+    backBtn.classList.toggle('is-invisible', idx === 0);
     backBtn.disabled = idx === 0;
     syncNav();
     if (focus) { var t = stepHost.querySelector('.ma-q-text'); if (t) t.focus({ preventScroll: true }); keepInView(); }
@@ -220,63 +222,77 @@
   }
 
   /* ---------- results ---------- */
-  function actionHTML(a, n, d) {
-    return '<li class="ma-act"><span class="ma-act-n" aria-hidden="true">' + n + '</span><div><p class="ma-act-do">' + esc(a.do) + '</p>' +
-      '<p class="ma-act-how">' + esc(a.how) + '</p>' +
-      (d.who === 'team' ? '<p class="ma-act-owner">Suggested owner: ' + esc(a.owner) + '</p>' : '') + '</div></li>';
+  var IC = {
+    check: '<path d="M5 12l5 5l10 -10"/>',
+    search: '<path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/>',
+    cal: '<path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/>',
+    file: '<path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M12 17v-6"/><path d="M9.5 14.5l2.5 2.5l2.5 -2.5"/>',
+    pen: '<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"/><path d="M13.5 6.5l4 4"/>',
+    user: '<path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/>'
+  };
+  function ic(k, cls) { return '<svg class="ma-ic' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true">' + IC[k] + '</svg>'; }
+  function actionHTML(a, n, d, first) {
+    return '<li class="ma-act' + (first ? ' ma-act--first' : '') + '"><span class="ma-act-n" aria-hidden="true">' + n + '</span><div class="ma-act-body">' +
+      '<p class="ma-act-do">' + esc(a.do) + '</p><p class="ma-act-how">' + esc(a.how) + '</p>' +
+      (d.who === 'team' ? '<p class="ma-act-owner">' + ic('user') + '<span>Suggested owner: ' + esc(lower1(a.owner)) + '</span></p>' : '') + '</div></li>';
   }
-  function list(items) { return '<ul class="ma-list">' + items.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>'; }
+  function ticks(items, icon) { return '<ul class="ma-ticks">' + items.map(function (x) { return '<li>' + ic(icon || 'check') + '<span>' + esc(x) + '</span></li>'; }).join('') + '</ul>'; }
+  function answerRow(q, label) {
+    return '<div class="ma-ans-row"><dt>' + esc(q.short) + '</dt><dd><span>' + esc(label) + '</span>' +
+      '<button type="button" class="ma-chip-btn" data-edit="' + q.id + '">Change<span class="sr-only"> ' + esc(lower1(q.short)) + '</span></button></dd></div>';
+  }
 
   function renderResults(d) {
     var pr = d.pr, h = '';
     var rows = situationRows();
-    h += '<div class="ma-block ma-situation"><h3 class="ma-h">Your situation</h3><dl class="ma-sit">';
-    rows.forEach(function (r) {
-      h += '<div class="ma-sit-row"><dt>' + esc(r.q.short) + '</dt><dd>' + esc(r.o.sum) +
-        ' <button type="button" class="ma-link" data-edit="' + r.q.id + '">Change<span class="sr-only"> ' + esc(lower1(r.q.short)) + '</span></button></dd></div>';
-    });
-    h += '</dl><details class="ma-more"><summary>Your other answers (' + pathQs(d.pk).length + ')</summary><dl class="ma-sit">';
-    pathQs(d.pk).forEach(function (q) {
-      h += '<div class="ma-sit-row"><dt>' + esc(q.short) + '</dt><dd>' + esc(opt(q, answers[q.id]).label) +
-        ' <button type="button" class="ma-link" data-edit="' + q.id + '">Change<span class="sr-only"> ' + esc(lower1(q.short)) + '</span></button></dd></div>';
-    });
-    h += '</dl></details></div>';
 
-    h += '<div class="ma-block ma-priority"><p class="ma-eyebrow">Your first priority</p><h2 class="ma-title" id="ma-title" tabindex="-1">' + esc(pr.title) + '</h2><p class="ma-plain">' + esc(pr.plain) + '</p></div>';
+    /* 1. Your situation */
+    h += '<div class="ma-sitbar"><div class="ma-sitbar-main"><p class="ma-mini">Your situation</p><ul class="ma-chips">' +
+      rows.map(function (r) { return '<li>' + esc(r.o.sum) + '</li>'; }).join('') + '</ul></div>' +
+      '<button type="button" class="ma-btn ma-btn--sm" id="ma-edit-toggle" aria-expanded="false" aria-controls="ma-answers">' + ic('pen') + 'Change answers</button></div>';
+    h += '<div class="ma-answers is-hidden" id="ma-answers"><p class="ma-small">Pick any answer to change it. Your plan updates when you finish.</p><dl class="ma-ans">';
+    rows.forEach(function (r) { h += answerRow(r.q, r.o.sum); });
+    pathQs(d.pk).forEach(function (q) { h += answerRow(q, opt(q, answers[q.id]).label); });
+    h += '</dl></div>';
 
-    h += '<div class="ma-block"><h3 class="ma-h">Why we picked this</h3>';
+    /* 2. Your first priority */
+    h += '<div class="ma-head"><p class="ma-eyebrow">Your first priority</p><h2 class="ma-plan-title" id="ma-title" tabindex="-1">' + esc(pr.title) + '</h2>' +
+      '<p class="ma-plain">' + esc(pr.plain) + '</p></div>';
+
+    /* 3. Why this was selected, and what to verify */
+    h += '<div class="ma-grid2"><div class="ma-panel"><h3 class="ma-panel-h">Why we picked this</h3>';
     if (d.reasons.length) {
-      h += '<ul class="ma-list ma-reasons">' + d.reasons.map(function (r) { return '<li><span class="ma-rq">' + esc(r.q) + '</span> You said: <strong>' + esc(r.a) + '</strong></li>'; }).join('') + '</ul>';
+      h += '<ul class="ma-why">' + d.reasons.map(function (r) { return '<li><span class="ma-why-q">' + esc(r.q) + '</span><span class="ma-why-a">' + esc(r.a) + '</span></li>'; }).join('') + '</ul>';
     }
-    h += '<p class="ma-p">' + esc(d.because) + (d.goalBoost ? ' It also matches what you said you want most: ' + esc(lower1(opt(C.shared[1], answers.goal).sum)) + '.' : '') + '</p></div>';
+    h += '<p class="ma-note">' + esc(d.because) + (d.goalBoost ? ' It also matches what you want most: ' + esc(lower1(opt(C.shared[1], answers.goal).sum)) + '.' : '') + '</p></div>';
+    h += '<div class="ma-panel"><h3 class="ma-panel-h">What to check first</h3>' +
+      (d.mode === 'find' ? '<p class="ma-note ma-note--lead">We can&rsquo;t be sure yet, so your first action is to find out. That is a normal, useful first step.</p>' : '') +
+      ticks(d.verify, 'search') + '</div></div>';
 
-    h += '<div class="ma-block"><h3 class="ma-h">What to check first</h3>' +
-      (d.mode === 'find' ? '<p class="ma-p">We can&rsquo;t be sure yet, so your first action below is to find out. That is a normal and useful first step.</p>' : '') +
-      list(d.verify) + '</div>';
+    /* 4. First action, next two actions */
+    h += '<div class="ma-panel ma-actions"><h3 class="ma-panel-h">Your first action</h3><ol class="ma-acts">' + actionHTML(d.actions[0], 1, d, true) + '</ol>' +
+      '<p class="ma-small">' + ({ team: 'Your team can start this today.', agency: 'You can start this today, or ask your agency or freelancer to.' }[d.who] || 'You can start this today, without talking to anyone.') + '</p>' +
+      '<h3 class="ma-panel-h ma-panel-h--gap">Your next two actions</h3><ol class="ma-acts">' + actionHTML(d.actions[1], 2, d) + actionHTML(d.actions[2], 3, d) + '</ol></div>';
 
-    h += '<div class="ma-block"><h3 class="ma-h">Your first action</h3><ol class="ma-acts">' + actionHTML(d.actions[0], 1, d) + '</ol>' +
-      '<p class="ma-small">' + ({ team: 'Your team can start this today.', agency: 'You can start this today, or ask your agency or freelancer to.' }[d.who] || 'You can start this today, without talking to anyone.') + '</p></div>';
-    h += '<div class="ma-block"><h3 class="ma-h">Your next two actions</h3><ol class="ma-acts">' + actionHTML(d.actions[1], 2, d) + actionHTML(d.actions[2], 3, d) + '</ol></div>';
-
-    h += '<div class="ma-block"><h3 class="ma-h">How to know it&rsquo;s working</h3><p class="ma-p"><strong>Measure:</strong> ' + esc(pr.measure) + '</p>' +
-      '<p class="ma-p"><strong>Check again</strong> ' + esc(pr.review) + '.</p>';
-    if (d.who === 'team') h += '<p class="ma-sub">Team review checklist</p>' + list(pr.review_list.map(function (x) { return x; }));
-    h += '</div>';
-
+    /* 5. Capability layer */
     if (d.who === 'agency') {
-      h += '<div class="ma-block ma-agency"><h3 class="ma-h">For your agency or freelancer</h3><p class="ma-sub">Questions to send</p>' + list(pr.agency) +
-        '<p class="ma-sub">Evidence to ask for</p>' + list(pr.evidence) +
-        '<button type="button" class="ma-btn" data-copy="agency">Copy these questions</button></div>';
+      h += '<div class="ma-panel ma-cap"><h3 class="ma-panel-h">For your agency or freelancer</h3><div class="ma-grid2 ma-grid2--flat"><div><p class="ma-sub">Questions to send</p>' + ticks(pr.agency) +
+        '</div><div><p class="ma-sub">Evidence to ask for</p>' + ticks(pr.evidence) + '</div></div>' +
+        '<button type="button" class="ma-btn" data-copy="agency">Copy the questions</button></div>';
     }
     if (d.who === 'help') {
-      h += '<div class="ma-block ma-agency"><h3 class="ma-h">The kind of help that fits</h3><p class="ma-p">' + esc(pr.help) + '</p>' +
+      h += '<div class="ma-panel ma-cap"><h3 class="ma-panel-h">The kind of help that fits</h3><p class="ma-lead">' + esc(pr.help) + '</p>' +
         '<p class="ma-small">You can take this plan to anyone you trust. Nobody will contact you unless you ask.</p></div>';
     }
 
-    h += '<div class="ma-block ma-resource"><h3 class="ma-h">Your free resource</h3><p class="ma-eyebrow">' + esc(d.res.kind) + '</p>' +
-      '<p class="ma-res-name">' + esc(d.res.name) + '</p><p class="ma-p">' + esc(d.res.blurb) + '</p><div class="ma-btns">' +
-      '<button type="button" class="ma-btn ma-btn--main" data-dl="plan">Download plan and ' + esc(d.res.kind.toLowerCase()) + '</button>' +
-      (d.res.csv ? '<button type="button" class="ma-btn" data-dl="csv">Download the spreadsheet</button>' : '') + '</div></div>';
+    /* 6. How to assess progress, and the resource */
+    h += '<div class="ma-grid2"><div class="ma-panel"><h3 class="ma-panel-h">How to know it&rsquo;s working</h3><p class="ma-measure">' + esc(pr.measure) + '</p>' +
+      '<p class="ma-when">' + ic('cal') + 'Check again ' + esc(pr.review) + '</p>' +
+      (d.who === 'team' ? '<p class="ma-sub">Team review checklist</p>' + ticks(pr.review_list) : '') + '</div>';
+    h += '<div class="ma-panel ma-res"><h3 class="ma-panel-h">Your free resource</h3><div class="ma-res-row"><span class="ma-res-ic">' + ic('file') + '</span><div>' +
+      '<p class="ma-res-kind">' + esc(d.res.kind) + '</p><p class="ma-res-name">' + esc(d.res.name) + '</p></div></div><p class="ma-note">' + esc(d.res.blurb) + '</p>' +
+      '<div class="ma-btns"><button type="button" class="ma-btn ma-btn--solid" data-dl="plan">Download plan and ' + esc(d.res.kind.toLowerCase()) + '</button>' +
+      (d.res.csv ? '<button type="button" class="ma-btn" data-dl="csv">Download the spreadsheet</button>' : '') + '</div></div></div>';
 
     body.innerHTML = h;
 
@@ -292,25 +308,25 @@
   function finish(fromLink) {
     var d = diagnose(); last = d;
     renderResults(d);
-    hide(wizard, true); hide(results, false);
+    document.body.classList.add('ma-planning'); hide(results, false);
     try { history.replaceState(null, '', '#plan=' + encode()); } catch (e) {}
     refreshMailto();
     track('audit_complete', { audit_path: d.pk, audit_priority: d.pid, audit_capability: d.who, audit_mode: d.mode, audit_from_link: !!fromLink });
     var t = $('ma-title');
-    results.scrollIntoView({ behavior: fromLink ? 'auto' : 'smooth', block: 'start' });
+    window.scrollTo(0, 0);
     if (t && !fromLink) t.focus({ preventScroll: true });
   }
   function edit(id) {
     var list = steps();
     for (var i = 0; i < list.length; i++) if (list[i].q.id === id) { idx = i; break; }
     track('audit_edit', { question: id });
-    hide(results, true); hide(wizard, false);
+    document.body.classList.remove('ma-planning'); hide(results, true);
     try { history.replaceState(null, '', location.pathname); } catch (e) {}
     renderStep(true);
   }
   function restart() {
     answers = {}; idx = 0; last = null;
-    hide(results, true); hide(wizard, false);
+    document.body.classList.remove('ma-planning'); hide(results, true);
     try { history.replaceState(null, '', location.pathname); } catch (e) {}
     renderStep(true);
   }
@@ -333,6 +349,10 @@
     var t = e.target.closest('button,a'); if (!t || !last) return;
     var d = last;
     if (t.hasAttribute('data-edit')) return edit(t.getAttribute('data-edit'));
+    if (t.id === 'ma-edit-toggle') {
+      var open = t.getAttribute('aria-expanded') !== 'true';
+      t.setAttribute('aria-expanded', String(open)); hide($('ma-answers'), !open); return;
+    }
     var dl = t.getAttribute('data-dl');
     if (dl === 'plan') { download('hmm-plan-' + slug(d.pr.title) + '.txt', planText(d, true), 'text/plain;charset=utf-8'); track('audit_download', { file: 'plan', audit_priority: d.pid }); track('audit_next_step', { choice: 'self_download' }); return; }
     if (dl === 'csv') { download('hmm-' + slug(d.res.name) + '.csv', csvText(d.res.columns), 'text/csv;charset=utf-8'); track('audit_download', { file: 'csv', audit_priority: d.pid }); return; }
@@ -486,6 +506,7 @@
     wizard = $('ma-wizard'); results = $('ma-results'); body = $('ma-results-body');
     stepHost = $('ma-step'); fill = $('ma-fill'); count = $('ma-count');
     backBtn = $('ma-back'); nextBtn = $('ma-next'); doneBtn = $('ma-done');
+    stages = Array.prototype.slice.call(root.querySelectorAll('.ma-stages li'));
     root.classList.add('is-ready');
 
     stepHost.addEventListener('pointerdown', function () { pointerPick = true; });

@@ -143,9 +143,9 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 
 <div class="page-enter">
 
-<section class="hero ma-hero">
+<section class="hero ma-hero ma-hide-on-plan" id="audit">
   <div class="container">
-    <div class="hero-grid">
+    <div class="hero-grid ma-hero-grid">
       <div class="hero-text">
         <p class="eyebrow">Free tool &middot; Marketing audit</p>
         <h1 class="hero-headline">Find the one thing to <em>fix first</em> in your marketing.</h1>
@@ -154,161 +154,165 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
           <li>See the area that needs your attention first.</li>
           <li>Get clear steps you can use yourself or share with your team.</li>
         </ul>
-        <div class="hero-ctas">
-          <a href="#audit" class="btn btn-primary">Start the audit &rarr;</a>
-        </div>
         <p class="ma-meta">About 3 minutes &middot; Free &middot; No email needed to see your plan</p>
+        <a class="ma-textbtn ma-sample-link" href="#sample">See a sample plan <span aria-hidden="true">&darr;</span></a>
       </div>
-      <div class="hero-visual">
-        <div class="ma-sample" aria-label="Sample result">
-          <p class="ma-sample-tag"><span>Sample result</span> A physio clinic</p>
-          <p class="ma-eyebrow">Your first priority</p>
-          <p class="ma-sample-title">Cut missed appointments</p>
-          <dl class="ma-sample-list">
-            <div><dt>Why we picked this</dt><dd>About 1 in 10 people miss their visit, and no reminder is sent.</dd></div>
-            <div><dt>Your first action</dt><dd>Send a confirmation right after every booking.</dd></div>
-            <div><dt>How to know it&rsquo;s working</dt><dd>Count missed visits out of every 20 bookings. Check again in 4 weeks.</dd></div>
-            <div><dt>Your free resource</dt><dd>Booking confirmation and reminder review checklist</dd></div>
-          </dl>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="audit" class="content-section ma-section">
-  <div class="container">
-    <div class="ma" id="ma" data-plan-endpoint="">
-      <noscript><p class="ma-p">This audit needs JavaScript to run. You can also <a href="/contact">tell us about your business</a> and we will reply by email.</p></noscript>
-
-      <div class="ma-wizard" id="ma-wizard">
-        <div class="ma-progress">
+      <div class="ma ma-scope" id="ma" data-plan-endpoint="">
+        <noscript><p class="ma-note">This audit needs JavaScript to run. You can also <a href="/contact">tell us about your business</a> and we will reply by email.</p></noscript>
+        <div class="ma-wizard" id="ma-wizard">
+          <ol class="ma-stages" aria-hidden="true">
+            <li>About you</li>
+            <li>Your situation</li>
+            <li>Your plan</li>
+          </ol>
           <div class="ma-bar" aria-hidden="true"><span class="ma-bar-fill" id="ma-fill"></span></div>
-          <p class="ma-count" id="ma-count" aria-live="polite">Question 1 of about 9</p>
-        </div>
-        <form class="ma-form" id="ma-form" novalidate>
-          <div id="ma-step"></div>
-          <div class="ma-nav">
-            <button type="button" class="ma-btn" id="ma-back">Back</button>
-            <button type="button" class="ma-btn is-hidden" id="ma-done">Back to my plan</button>
-            <button type="button" class="btn btn-primary ma-go" id="ma-next" disabled>Next</button>
-          </div>
-        </form>
-        <p class="ma-small ma-assure">Your answers stay in your browser. Nothing is sent unless you choose to send it.</p>
-      </div>
-
-      <div class="ma-results is-hidden" id="ma-results">
-        <div id="ma-results-body"></div>
-
-        <div class="ma-block ma-nextsteps">
-          <h2 class="ma-title">What would you like to do next?</h2>
-          <div class="ma-next-grid">
-            <div class="ma-card">
-              <h3 class="ma-card-h">I want to work through it myself</h3>
-              <p class="ma-p">Download or copy your plan and the resource that goes with it.</p>
-              <div class="ma-btns"><button type="button" class="ma-btn ma-btn--main" data-dl="plan">Download</button><button type="button" class="ma-btn" data-copy="plan">Copy the plan</button></div>
-            </div>
-            <div class="ma-card">
-              <h3 class="ma-card-h" id="ma-next-team-h">I want to discuss this with my team</h3>
-              <p class="ma-p">Copy a short summary with the questions to talk about.</p>
-              <div class="ma-btns"><button type="button" class="ma-btn ma-btn--main" data-copy="team">Copy the summary</button></div>
-            </div>
-            <div class="ma-card ma-card--help">
-              <h3 class="ma-card-h">I would like help applying this</h3>
-              <p class="ma-p" id="ma-next-help-p">Talk with Ankit about your plan. Your answers come with you, so you won&rsquo;t need to explain again.</p>
-              <div class="ma-btns"><button type="button" class="btn btn-primary" id="ma-open-contact">Get help with this</button></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ma-block ma-contact is-hidden" id="ma-contact">
-          <h2 class="ma-title" id="ma-contact-h">Get help with your plan</h2>
-          <p class="ma-p">Ankit, the founder, reads every message and replies by email within 1 to 2 business days.</p>
-          <form class="ma-cform" id="ma-cform" data-turnstile-sitekey="" novalidate>
-            <div class="ma-field">
-              <label for="ma-sum">Your audit summary <span class="form-optional">You can edit this</span></label>
-              <textarea id="ma-sum" class="form-textarea" rows="8" maxlength="2000"></textarea>
-              <p class="ma-small">This summary is sent with your message, so you won&rsquo;t need to explain again. Nothing is sent until you press Send.</p>
-            </div>
-            <div class="ma-field ma-half"><label for="ma-name">Name</label><input type="text" id="ma-name" class="form-input" autocomplete="name" maxlength="120" required></div>
-            <div class="ma-field ma-half"><label for="ma-cemail">Email</label><input type="email" id="ma-cemail" class="form-input" autocomplete="email" inputmode="email" maxlength="160" required></div>
-            <div class="ma-field"><label for="ma-site">Website <span class="form-optional">Optional</span></label><input type="text" id="ma-site" class="form-input" autocomplete="url" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="yourbusiness.com" maxlength="200"></div>
-            <div class="ma-field"><label for="ma-notes">Anything else we should know? <span class="form-optional">Optional</span></label><textarea id="ma-notes" class="form-textarea" rows="3" maxlength="2000" placeholder="For example, your timing, your budget, or what you have tried."></textarea></div>
-            <div class="hp-field" aria-hidden="true"><label for="ma-chp">Leave this field blank</label><input type="text" id="ma-chp" name="company_url_secondary" tabindex="-1" autocomplete="off"></div>
-            <div class="cf-slot" id="ma-turnstile"></div>
-            <p class="ma-err is-hidden" id="ma-cerr" role="alert"></p>
-            <div class="ma-cfoot">
-              <p class="ma-small">We only use these details to reply to you. See our <a href="/privacy">Privacy Policy</a>.</p>
-              <button type="submit" class="btn btn-primary" id="ma-csend">Send to Ankit</button>
+          <form class="ma-form" id="ma-form" novalidate>
+            <p class="ma-count" id="ma-count" aria-live="polite">Question 1 of 3</p>
+            <div id="ma-step"></div>
+            <div class="ma-nav">
+              <button type="button" class="ma-textbtn" id="ma-back"><span aria-hidden="true">&larr;</span> Back</button>
+              <button type="button" class="ma-textbtn is-hidden" id="ma-done">Back to my plan</button>
+              <button type="button" class="btn btn-primary ma-go" id="ma-next" disabled>Next</button>
             </div>
           </form>
-          <div class="ma-thanks is-hidden" id="ma-thanks" tabindex="-1">
-            <h3 class="ma-h">Thanks<span id="ma-thanks-name"></span>. Your summary is on its way.</h3>
-            <p class="ma-p">Ankit will read it and reply by email within 1 to 2 business days.</p>
-          </div>
         </div>
-
-        <div class="ma-block ma-save">
-          <h3 class="ma-h">Keep a copy</h3>
-          <div class="ma-save-grid">
-            <div>
-              <p class="ma-sub">Email my plan</p>
-              <a class="ma-btn" id="ma-mailto" href="mailto:">Email my plan</a>
-              <form class="ma-inline is-hidden" id="ma-email-form" novalidate>
-                <label class="sr-only" for="ma-email">Your email</label>
-                <input type="email" id="ma-email" class="form-input" autocomplete="email" inputmode="email" placeholder="you@yourbusiness.com" maxlength="160">
-                <div class="hp-field" aria-hidden="true"><label for="ma-email-hp">Leave this field blank</label><input type="text" id="ma-email-hp" tabindex="-1" autocomplete="off"></div>
-                <button type="submit" class="ma-btn ma-btn--main">Send</button>
-              </form>
-              <p class="ma-small" id="ma-email-msg" aria-live="polite">Get a copy of this plan by email. It does not sign you up for anything.</p>
-            </div>
-            <div>
-              <p class="ma-sub">Link to this plan</p>
-              <button type="button" class="ma-btn" data-copy="link">Copy the link</button>
-              <p class="ma-small">The link holds your answers, not your name or email.</p>
-            </div>
-            <div class="is-hidden" id="ma-sub-wrap">
-              <p class="ma-sub">Subscribe to updates</p>
-              <form class="ma-inline" id="ma-sub-form" novalidate>
-                <label class="sr-only" for="ma-sub-email">Your email</label>
-                <input type="email" id="ma-sub-email" class="form-input" autocomplete="email" inputmode="email" placeholder="you@yourbusiness.com" maxlength="160">
-                <div class="hp-field" aria-hidden="true"><label for="ma-sub-hp">Leave this field blank</label><input type="text" id="ma-sub-hp" tabindex="-1" autocomplete="off"></div>
-                <button type="submit" class="ma-btn ma-btn--main">Subscribe</button>
-              </form>
-              <p class="ma-small" id="ma-sub-msg" aria-live="polite">Optional. Occasional marketing tips, separate from your plan. Unsubscribe any time.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="ma-block ma-feedback">
-          <p class="ma-sub" id="ma-fb-q">Do you know what to do next?</p>
-          <div class="ma-btns" id="ma-fb-btns" role="group" aria-labelledby="ma-fb-q">
-            <button type="button" class="ma-btn" data-feedback="yes">Yes</button>
-            <button type="button" class="ma-btn" data-feedback="partly">Partly</button>
-            <button type="button" class="ma-btn" data-feedback="no">No</button>
-          </div>
-          <p class="ma-small" id="ma-fb-thanks" aria-live="polite">Optional. Your answer helps us make this audit better.</p>
-        </div>
-
-        <p class="ma-restart"><button type="button" class="ma-link" id="ma-restart">Start again with new answers</button></p>
+        <p class="ma-assure">Your answers stay in your browser. Nothing is sent unless you choose to send it.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="how" class="content-section">
+<section class="ma-plan-section ma-scope is-hidden" id="ma-results" tabindex="-1" aria-label="Your plan">
   <div class="container">
-    <span class="eyebrow"><span class="eyebrow-dot"></span>How it works</span>
-    <h2 class="section-heading">Three short steps to a <em>clear plan</em>.</h2>
-    <ol class="ma-steps">
-      <li><span class="ma-step-n" aria-hidden="true">1</span><h3>Tell us about your business</h3><p>Three quick questions: how people buy from you, what you want to improve, and where you are today.</p></li>
-      <li><span class="ma-step-n" aria-hidden="true">2</span><h3>Answer questions picked for you</h3><p>Four to six questions about your situation. Not sure of an answer? Say so. We will help you find out.</p></li>
-      <li><span class="ma-step-n" aria-hidden="true">3</span><h3>Get your plan</h3><p>Your first priority, why we picked it, three actions, a way to measure progress, and a free resource to use.</p></li>
-    </ol>
+    <div class="ma-plan">
+      <div id="ma-results-body"></div>
+
+      <div class="ma-next">
+        <h2 class="ma-next-h">What would you like to do next?</h2>
+        <div class="ma-next-grid">
+          <div class="ma-card">
+            <h3 class="ma-card-h">I want to work through it myself</h3>
+            <p class="ma-note">Download your plan and the resource that goes with it.</p>
+            <div class="ma-card-foot">
+              <button type="button" class="ma-btn ma-btn--solid" data-dl="plan">Download my plan</button>
+              <button type="button" class="ma-textbtn" data-copy="plan">or copy it</button>
+            </div>
+          </div>
+          <div class="ma-card">
+            <h3 class="ma-card-h" id="ma-next-team-h">I want to discuss this with my team</h3>
+            <p class="ma-note">Copy a short summary with the questions to talk about.</p>
+            <div class="ma-card-foot">
+              <button type="button" class="ma-btn ma-btn--solid" data-copy="team">Copy the summary</button>
+            </div>
+          </div>
+          <div class="ma-card ma-card--help">
+            <h3 class="ma-card-h">I would like help applying this</h3>
+            <p class="ma-note" id="ma-next-help-p">Talk with Ankit about your plan. Your answers come with you, so you won&rsquo;t need to explain again.</p>
+            <div class="ma-card-foot">
+              <button type="button" class="btn btn-primary" id="ma-open-contact">Get help with this</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ma-contact is-hidden" id="ma-contact">
+        <h2 class="ma-next-h" id="ma-contact-h">Get help with your plan</h2>
+        <p class="ma-note">Ankit, the founder, reads every message and replies by email within 1 to 2 business days.</p>
+        <form class="ma-cform" id="ma-cform" data-turnstile-sitekey="" novalidate>
+          <div class="ma-field">
+            <label for="ma-sum">Your audit summary <span class="form-optional">You can edit this</span></label>
+            <textarea id="ma-sum" class="form-textarea" rows="8" maxlength="2000"></textarea>
+            <p class="ma-small">This summary is sent with your message, so you won&rsquo;t need to explain again. Nothing is sent until you press Send.</p>
+          </div>
+          <div class="ma-field ma-half"><label for="ma-name">Name</label><input type="text" id="ma-name" class="form-input" autocomplete="name" maxlength="120" required></div>
+          <div class="ma-field ma-half"><label for="ma-cemail">Email</label><input type="email" id="ma-cemail" class="form-input" autocomplete="email" inputmode="email" maxlength="160" required></div>
+          <div class="ma-field"><label for="ma-site">Website <span class="form-optional">Optional</span></label><input type="text" id="ma-site" class="form-input" autocomplete="url" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="yourbusiness.com" maxlength="200"></div>
+          <div class="ma-field"><label for="ma-notes">Anything else we should know? <span class="form-optional">Optional</span></label><textarea id="ma-notes" class="form-textarea" rows="3" maxlength="2000" placeholder="For example, your timing, your budget, or what you have tried."></textarea></div>
+          <div class="hp-field" aria-hidden="true"><label for="ma-chp">Leave this field blank</label><input type="text" id="ma-chp" name="company_url_secondary" tabindex="-1" autocomplete="off"></div>
+          <div class="cf-slot" id="ma-turnstile"></div>
+          <p class="ma-err is-hidden" id="ma-cerr" role="alert"></p>
+          <div class="ma-cfoot">
+            <p class="ma-small">We only use these details to reply to you. See our <a href="/privacy">Privacy Policy</a>.</p>
+            <button type="submit" class="btn btn-primary" id="ma-csend">Send to Ankit</button>
+          </div>
+        </form>
+        <div class="ma-thanks is-hidden" id="ma-thanks" tabindex="-1">
+          <h3 class="ma-thanks-h">Thanks<span id="ma-thanks-name"></span>. Your summary is on its way.</h3>
+          <p class="ma-note">Ankit will read it and reply by email within 1 to 2 business days.</p>
+        </div>
+      </div>
+
+      <div class="ma-foot">
+        <div class="ma-foot-block">
+          <p class="ma-mini">Keep a copy</p>
+          <div class="ma-foot-actions">
+            <a class="ma-textbtn" id="ma-mailto" href="mailto:"><svg class="ma-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"/><path d="M3 7l9 6l9 -6"/></svg>Email my plan</a>
+            <button type="button" class="ma-textbtn" data-copy="link"><svg class="ma-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 15l6 -6"/><path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464"/><path d="M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463"/></svg>Copy link to this plan</button>
+            <button type="button" class="ma-textbtn" id="ma-restart"><svg class="ma-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4"/><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"/></svg>Start again</button>
+          </div>
+          <form class="ma-inline is-hidden" id="ma-email-form" novalidate>
+            <label class="sr-only" for="ma-email">Your email</label>
+            <input type="email" id="ma-email" class="form-input" autocomplete="email" inputmode="email" placeholder="you@yourbusiness.com" maxlength="160">
+            <div class="hp-field" aria-hidden="true"><label for="ma-email-hp">Leave this field blank</label><input type="text" id="ma-email-hp" tabindex="-1" autocomplete="off"></div>
+            <button type="submit" class="ma-btn">Email my plan</button>
+          </form>
+          <p class="ma-small" id="ma-email-msg" aria-live="polite"></p>
+          <div class="is-hidden" id="ma-sub-wrap">
+            <p class="ma-mini">Subscribe to updates <span class="form-optional">Optional</span></p>
+            <form class="ma-inline" id="ma-sub-form" novalidate>
+              <label class="sr-only" for="ma-sub-email">Your email</label>
+              <input type="email" id="ma-sub-email" class="form-input" autocomplete="email" inputmode="email" placeholder="you@yourbusiness.com" maxlength="160">
+              <div class="hp-field" aria-hidden="true"><label for="ma-sub-hp">Leave this field blank</label><input type="text" id="ma-sub-hp" tabindex="-1" autocomplete="off"></div>
+              <button type="submit" class="ma-btn">Subscribe</button>
+            </form>
+            <p class="ma-small" id="ma-sub-msg" aria-live="polite">Occasional marketing tips, separate from your plan. Unsubscribe any time.</p>
+          </div>
+        </div>
+        <div class="ma-foot-block ma-feedback">
+          <p class="ma-mini" id="ma-fb-q">Do you know what to do next?</p>
+          <div class="ma-pills" id="ma-fb-btns" role="group" aria-labelledby="ma-fb-q">
+            <button type="button" class="ma-pill" data-feedback="yes">Yes</button>
+            <button type="button" class="ma-pill" data-feedback="partly">Partly</button>
+            <button type="button" class="ma-pill" data-feedback="no">No</button>
+          </div>
+          <p class="ma-small" id="ma-fb-thanks" aria-live="polite">Optional. It helps us make this audit better.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="situations" class="content-section">
+<section id="sample" class="content-section ma-hide-on-plan">
+  <div class="container">
+    <div class="ma-sample-grid">
+      <div>
+        <span class="eyebrow"><span class="eyebrow-dot"></span>What you get</span>
+        <h2 class="section-heading">A short plan you can <em>start today</em>.</h2>
+        <p class="section-deck">Every plan has the same parts, in the same order, written in plain words.</p>
+        <ol class="ma-parts">
+          <li>Your first priority, and why we picked it</li>
+          <li>What to check before you change anything</li>
+          <li>Your first action, then the next two</li>
+          <li>How to know it&rsquo;s working, and when to check</li>
+          <li>A free checklist, worksheet or tracker to use</li>
+        </ol>
+      </div>
+      <div class="ma-sample" aria-label="Sample plan">
+        <p class="ma-sample-tag"><span>Sample plan</span> A physio clinic</p>
+        <p class="ma-eyebrow">Your first priority</p>
+        <p class="ma-sample-title">Cut missed appointments</p>
+        <dl class="ma-sample-list">
+          <div><dt>Why we picked this</dt><dd>About 1 in 10 people miss their visit, and no reminder is sent.</dd></div>
+          <div><dt>Your first action</dt><dd>Send a confirmation right after every booking.</dd></div>
+          <div><dt>How to know it&rsquo;s working</dt><dd>Count missed visits out of every 20 bookings. Check again in 4 weeks.</dd></div>
+          <div><dt>Your free resource</dt><dd>Booking confirmation and reminder review checklist</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="situations" class="content-section ma-hide-on-plan">
   <div class="container">
     <span class="eyebrow"><span class="eyebrow-dot"></span>What we look at</span>
     <h2 class="section-heading">Six situations, each with its own <em>takeaway</em>.</h2>
@@ -324,7 +328,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </section>
 
-<section id="faq" class="content-section">
+<section id="faq" class="content-section ma-hide-on-plan">
   <div class="container">
     <span class="eyebrow"><span class="eyebrow-dot"></span>FAQ</span>
     <h2 class="section-heading">Frequently asked questions</h2>
@@ -361,7 +365,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </section>
 
-<section class="final-cta-section">
+<section class="final-cta-section ma-hide-on-plan">
   <div class="container">
     <div class="final-cta">
       <h2 class="section-heading">Rather talk it through <em>first</em>?</h2>
