@@ -4005,6 +4005,9 @@ body.redesign-prototype .service-grid {
   max-width: 1080px;
   margin-right: auto;
 }
+/* /services overview (2026-09-29): cards span the content width so their edge matches the intro and final CTA; 32px heading-to-content gap as on /about; intro held to a readable measure. */
+body.redesign-prototype [data-screen-label="services"] .service-grid { max-width: none; margin-top: 32px; }
+body.redesign-prototype [data-screen-label="services"] .section-deck { max-width: 760px; }
 
 body.redesign-prototype .service-card {
   background: var(--bg-elevated);
