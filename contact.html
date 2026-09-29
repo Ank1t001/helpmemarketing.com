@@ -19,7 +19,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 })(window,document);</script>
 <!-- End Google Tag Manager -->
 <title>Contact Us: Talk Through Your Marketing | HelpMeMarketing</title>
-<meta name="description" content="Tell us about your business and what you need help with. It takes about a minute: no pitch deck, no twelve month contract, no markup on your ad spend.">
+<meta name="description" content="Tell us about your business and what you need help with. It takes about a minute, and Ankit replies by email within 1 to 2 business days.">
 <link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
@@ -28,7 +28,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HelpMeMarketing">
 <meta property="og:title" content="Contact Us: Talk Through Your Marketing">
-<meta property="og:description" content="Tell us about your business and what you need help with. It takes about a minute: no pitch deck, no twelve month contract, no markup on your ad spend.">
+<meta property="og:description" content="Tell us about your business and what you need help with. It takes about a minute, and Ankit replies by email within 1 to 2 business days.">
 <meta property="og:url" content="https://helpmemarketing.com/contact">
 <meta property="og:image" content="https://helpmemarketing.com/assets/contact/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -36,7 +36,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact Us: Talk Through Your Marketing">
-<meta name="twitter:description" content="Tell us about your business and what you need help with. It takes about a minute: no pitch deck, no twelve month contract, no markup on your ad spend.">
+<meta name="twitter:description" content="Tell us about your business and what you need help with. It takes about a minute, and Ankit replies by email within 1 to 2 business days.">
 <meta name="twitter:image" content="https://helpmemarketing.com/assets/contact/og.jpg">
 <script type="application/ld+json" data-cfasync="false">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://helpmemarketing.com/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://helpmemarketing.com/contact"}]}
@@ -52,7 +52,7 @@ body.redesign-prototype .contact-section{padding-top:0;}
 body.redesign-prototype #contact-form{display:grid;grid-template-columns:1fr 1fr;column-gap:20px;max-width:none;margin:0;padding:28px clamp(20px,5vw,28px);scroll-margin-top:100px;box-sizing:border-box;}
 
 /* Text fields */
-body.redesign-prototype .form-field{margin-bottom:1rem;}
+body.redesign-prototype .form-field{margin-bottom:20px;}
 body.redesign-prototype #contact-form > *{grid-column:1 / -1;}
 body.redesign-prototype #contact-form > .form-half{grid-column:auto;}
 body.redesign-prototype .form-field label{display:block;font-size:13.5px;margin-bottom:.45rem;font-weight:500;color:var(--text);}
@@ -66,12 +66,12 @@ body.redesign-prototype #contact-form .cf-slot:not(:empty){margin-top:.5rem;}
 body.redesign-prototype #contact-form .contact-nosite{display:flex;align-items:center;gap:8px;margin:10px 0 0;font-size:13px;font-weight:400;color:var(--text-muted);cursor:pointer;}
 body.redesign-prototype #contact-form .contact-nosite input{width:16px;height:16px;margin:0;accent-color:var(--cta);}
 body.redesign-prototype #contact-form .form-input:disabled{opacity:.45;cursor:not-allowed;}
-body.redesign-prototype #contact-form .contact-next{margin:.5rem 0 0;padding:16px 18px;border:1px solid var(--border);border-radius:12px;background:var(--bg);}
+body.redesign-prototype #contact-form .contact-next{margin:4px 0 0;padding:16px 18px;border:1px solid var(--border);border-radius:12px;background:var(--bg);}
 body.redesign-prototype #contact-form .contact-next-title{margin:0 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);font-weight:500;}
 body.redesign-prototype #contact-form .contact-next ol{margin:0;padding-left:1.2em;font-size:14px;line-height:1.6;color:var(--text-muted);}
-body.redesign-prototype #contact-form .contact-privacy{margin:14px 0 0;font-size:13px;color:var(--text-tertiary);}
+body.redesign-prototype #contact-form .contact-privacy{margin:16px 0 0;font-size:13px;color:var(--text-tertiary);}
 body.redesign-prototype #contact-form .contact-privacy a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px;}
-body.redesign-prototype #contact-form .form-nav{margin-top:1.25rem;}
+body.redesign-prototype #contact-form .form-nav{margin-top:24px;}
 
 /* Error */
 body.redesign-prototype .form-error{color:var(--error-text);background:var(--error-bg);border:1px solid var(--error-border);border-radius:10px;font-size:13px;margin:1rem 0 0;padding:.7rem .9rem;animation:shake .3s;}
@@ -96,7 +96,12 @@ body.redesign-prototype .contact-section { padding:72px 0 48px; }
 body.redesign-prototype .contact-intro { font-size:16.5px; color:var(--text-muted); margin:20px 0 0; line-height:1.6; max-width:480px; }
 body.redesign-prototype .contact-direct-label { font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:6px; }
 body.redesign-prototype .contact-direct-email { font-size:16px; color:var(--text); font-weight:500; text-decoration:none; }
-body.redesign-prototype .is-hidden { display:none; }
+body.redesign-prototype .is-hidden, body.redesign-prototype #contact-form.is-hidden { display:none; }
+body.redesign-prototype #contact-thanks .contact-thanks-title { margin:0 0 12px; }
+body.redesign-prototype #contact-thanks p { margin:0 auto; max-width:460px; color:var(--text-muted); line-height:1.6; }
+body.redesign-prototype #contact-thanks:focus { outline:none; }
+body.redesign-prototype #contact-form .form-input:-webkit-autofill, body.redesign-prototype #contact-form .form-input:-webkit-autofill:hover { -webkit-text-fill-color: var(--text); caret-color: var(--text); -webkit-box-shadow: 0 0 0 1000px var(--bg) inset; box-shadow: 0 0 0 1000px var(--bg) inset; transition: background-color 9999s ease-out 0s; }
+body.redesign-prototype #contact-form .form-input:-webkit-autofill:focus { -webkit-text-fill-color: var(--text); -webkit-box-shadow: 0 0 0 1000px var(--bg) inset, 0 0 0 4px rgba(255, 92, 26, 0.15); box-shadow: 0 0 0 1000px var(--bg) inset, 0 0 0 4px rgba(255, 92, 26, 0.15); }
 </style>
 </head>
 <body class="redesign-prototype">
@@ -146,7 +151,6 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       <span class="eyebrow"><span class="eyebrow-dot"></span>Say hello</span>
       <h1 class="hero-headline">Let&rsquo;s talk <em>growth</em></h1>
       <p class="contact-intro">Tell us what you are working on and where your marketing is stuck. We will read it and come back with our honest take on whether and how we can help.</p>
-      <p class="microcopy contact-microcopy">No pitch deck, no twelve month contract, no markup on your ad spend.</p>
       <p class="contact-alt">Want a quick self-serve check first? Try the <a href="/tools/marketing-audit">free AI marketing audit</a>.</p>
       </div>
 
@@ -156,8 +160,8 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
           <figcaption><p class="contact-founder-name">Ankit Kumar, Founder</p><p class="contact-bio">Ankit has spent 9+ years building performance marketing programs for DTC, SaaS, healthcare and finance brands. The person who scopes your work stays on it, with no handoff to a junior team.</p></figcaption>
         </figure>
         <ul class="contact-proof" aria-label="Recent client results">
-          <li><a href="/work#shakti-warrior"><span class="contact-proof-figure">+312%</span><span class="contact-proof-name">Shakti Warrior revenue, DTC</span><span class="contact-proof-what">Brand identity and social rebuild, 12 months</span></a></li>
-          <li><a href="/work#med-aesthetics"><span class="contact-proof-figure">+186%</span><span class="contact-proof-name">Med Aesthetics leads, healthcare</span><span class="contact-proof-what">Reviews and Google Business Profile, 4 months</span></a></li>
+          <li><a href="/work#vanguard"><span class="contact-proof-figure">+92%</span><span class="contact-proof-name">Vanguard Clinic &amp; Pharmacy consults, healthcare</span><span class="contact-proof-what">Brand and content, 6 months</span></a></li>
+          <li><a href="/work#equiton"><span class="contact-proof-figure">-40%</span><span class="contact-proof-name">Equiton cost per lead, real estate</span><span class="contact-proof-what">Conversion tracking, SEO, CRO and paid media, 9 months</span></a></li>
           <li><a href="/work#boomerangfx"><span class="contact-proof-figure">3.2&times;</span><span class="contact-proof-name">BoomerangFX demo pipeline, SaaS</span><span class="contact-proof-what">Analytics and attribution buildout, 1 year</span></a></li>
         </ul>
       </div>
@@ -176,7 +180,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 <div class="hp-field" aria-hidden="true"><label for="cf-hp">Leave this field blank</label><input type="text" id="cf-hp" name="company_url_secondary" tabindex="-1" autocomplete="off"></div>
 <div class="cf-slot" id="cf-turnstile"></div>
 <div class="form-error is-hidden" id="contact-err" role="alert"></div>
-<div class="contact-next"><p class="contact-next-title">What happens next</p><ol><li>Ankit reads what you shared.</li><li>You get an email reply within 1 to 2 business days to talk about how we can help.</li><li>You decide whether to go further. No pitch deck, no pressure.</li></ol></div>
+<div class="contact-next"><p class="contact-next-title">What happens next</p><ol><li>Ankit reads what you shared.</li><li>You get an email reply within 1 to 2 business days to talk about how we can help.</li><li>You decide whether to go further. No pressure.</li></ol></div>
 <p class="contact-privacy">We use these details to reply to your enquiry. See our <a href="/privacy">Privacy Policy</a>.</p>
 <div class="form-nav"><button type="submit" class="fbtn fbtn-primary contact-submit"><span id="contact-submit-label">Send My Enquiry</span> <span aria-hidden="true">→</span></button></div>
 </form>
@@ -324,7 +328,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     function show(msg,el){err.textContent=msg;err.classList.remove('is-hidden');if(el){el.setAttribute('aria-invalid','true');el.focus();}}
     function clear(){err.classList.add('is-hidden');form.querySelectorAll('[aria-invalid]').forEach(function(el){el.removeAttribute('aria-invalid');});}
     function busy(on){sending=on;btn.disabled=on;if(on){btn.setAttribute('aria-busy','true');}else{btn.removeAttribute('aria-busy');}if(btnLabel)btnLabel.textContent=on?'Sending…':btnText;}
-    function done(first){if(thanksName)thanksName.textContent=', '+first;form.classList.add('is-hidden');if(thanks)thanks.classList.remove('is-hidden');}
+    function done(first){if(thanksName)thanksName.textContent=', '+first;form.classList.add('is-hidden');if(thanks){thanks.classList.remove('is-hidden');thanks.setAttribute('tabindex','-1');thanks.focus({preventScroll:true});thanks.scrollIntoView({behavior:'smooth',block:'center'});}}
     function url(v){v=v.trim();if(v&&!/^https?:\/\//i.test(v))v='https://'+v;return v;}
     var nosite=document.getElementById('cf-nosite');
     if(nosite)nosite.addEventListener('change',function(){var w=field('website');w.disabled=nosite.checked;w.removeAttribute('aria-invalid');if(nosite.checked){w.value='';clear();}});
