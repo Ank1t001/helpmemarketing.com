@@ -19,6 +19,9 @@
  *   2. Put the SITE key live on the page first (data-turnstile-sitekey on the contact form).
  *      The site key is public; it is safe in the page and in chat. From this moment the form
  *      sends a token with every lead. Your sheet script ignores it until step 4.
+ *      The marketing audit's "help applying this" form (#ma-cform in tools/marketing-audit.html,
+ *      added 2026-09-29) posts to this same script, so put the same site key on it too, or its
+ *      leads will land on the Spam tab once step 4 is done.
  *
  *   3. Paste everything below the line into the contact form's Apps Script, and add the three
  *      marked lines to the very top of its existing doPost (shown at the bottom of this file).
