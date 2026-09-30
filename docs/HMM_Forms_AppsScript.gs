@@ -40,7 +40,7 @@
  *
  * Turnstile stays off until you add the script property TURNSTILE_SECRET (Project Settings →
  * Script properties). Put the site key on the page first, then the secret. Checked only on the
- * two lead forms. Setup order and details: see the Cloudflare notes at the bottom of this file.
+ * two lead forms, each with its own action: contact (/contact) and audit_help (the audit). Setup order and details: see the Cloudflare notes at the bottom of this file.
  */
 
 var SHEET_NAME = 'Leads';        // kept from the old script
@@ -66,8 +66,10 @@ var SEO_ZIP_FILENAME = 'seo-growth-os.zip';
 var RATE_LIMITS = { 'audit-plan': 5, 'growth-os-download': 3 };  // per email address, per 24 hours
 var DAY_MS = 24 * 60 * 60 * 1000;
 var INDEX_REPORTS = { 'gta-medspa': 'GTA MedSpa Index', 'hair-loss': 'Hair Loss Index', 'instagram': 'Real Estate Index (Instagram)' };
-var TURNSTILE_ACTION = 'contact';
-var TURNSTILE_HOSTS = ['helpmemarketing.com', 'www.helpmemarketing.com'];
+// Turnstile action per protected form. 'contact' is also accepted from the audit form until its page
+// change (action 'audit_help') is live; it can be removed after that.
+var TURNSTILE_ACTIONS = { 'contact': ['contact'], 'audit-help': ['audit_help', 'contact'] };
+var TURNSTILE_HOSTS = ['helpmemarketing.com', 'www.helpmemarketing.com'];   // production only, never localhost
 var DRY_RUN = false;             // true only inside testRouting: rows are written, no email is sent
 
 /* ============================ entry points ============================ */
@@ -124,7 +126,7 @@ function spamReason_(form, d) {
   if (form === 'unknown') return 'Unknown form';
   if (form === 'audit-feedback') return '';                       // no email address in it
   if (!isEmail_(pick_(d, 'email'))) return 'Invalid email';
-  if (form === 'contact' || form === 'audit-help') return turnstileReason_(d);
+  if (TURNSTILE_ACTIONS[form]) return turnstileReason_(form, d);
   return '';
 }
 
@@ -223,22 +225,28 @@ function spam_(form, d, reason) {
 
 /* ============================ Turnstile ============================ */
 
-function turnstileReason_(d) {
+// Cloudflare's standard server check: a present token of sane length, a 200 reply from siteverify,
+// success true, the form's own action and one of our hostnames. Anything else goes to Spam with the
+// reason and Cloudflare's error codes (for example timeout-or-duplicate for a reused token).
+function turnstileReason_(form, d) {
   var secret = PropertiesService.getScriptProperties().getProperty('TURNSTILE_SECRET');
   if (!secret) return '';                                   // not switched on yet
   var token = d['cf-turnstile-response'];
-  if (!token) return 'No Turnstile token';
+  if (typeof token !== 'string' || token.length === 0) return 'No Turnstile token';
+  if (token.length > 2048) return 'Turnstile token too long';
+  var r;
   try {
     var res = UrlFetchApp.fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
       method: 'post', payload: { secret: secret, response: token }, muteHttpExceptions: true });
-    var r = JSON.parse(res.getContentText());
-    if (r.success !== true) return 'Turnstile token did not verify';
-    if (r.action && r.action !== TURNSTILE_ACTION) return 'Turnstile action mismatch';
-    if (r.hostname && TURNSTILE_HOSTS.indexOf(r.hostname) === -1) return 'Turnstile hostname mismatch';
-    return '';
+    if (res.getResponseCode() !== 200) return 'Cloudflare replied ' + res.getResponseCode();
+    r = JSON.parse(res.getContentText());
   } catch (err) {
     return 'Cloudflare unreachable';                        // filed on Spam, not lost
   }
+  if (r.success !== true) return 'Turnstile token did not verify (' + (r['error-codes'] || []).join(', ') + ')';
+  if (TURNSTILE_ACTIONS[form].indexOf(r.action) === -1) return 'Turnstile action mismatch (' + r.action + ')';
+  if (TURNSTILE_HOSTS.indexOf(r.hostname) === -1) return 'Turnstile hostname mismatch (' + r.hostname + ')';
+  return '';
 }
 
 /* ============================ email ============================ */
@@ -415,8 +423,20 @@ function setup() {
   Object.keys(TABS).forEach(function (name) { tab_(name); });
   MailApp.getRemainingDailyQuota();
   DriveApp.getFileById(SEO_ZIP_FILE_ID).getName();
-  UrlFetchApp.getRequest('https://challenges.cloudflare.com/turnstile/v0/siteverify');
+  checkTurnstileSecret();
   Logger.log('Ready. Tabs: ' + Object.keys(TABS).join(', '));
+}
+
+// Run any time: tells you whether TURNSTILE_SECRET is set and whether Cloudflare accepts it. A dummy
+// token must fail as invalid-input-response (secret good), not invalid-input-secret (secret wrong).
+function checkTurnstileSecret() {
+  var secret = PropertiesService.getScriptProperties().getProperty('TURNSTILE_SECRET');
+  if (!secret) return Logger.log('TURNSTILE_SECRET is not set, so Turnstile checking is off.');
+  var r = JSON.parse(UrlFetchApp.fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'post', payload: { secret: secret, response: 'XXXX.DUMMY.TOKEN.XXXX' }, muteHttpExceptions: true }).getContentText());
+  var codes = r['error-codes'] || [];
+  Logger.log(codes.indexOf('invalid-input-secret') > -1 ? 'TURNSTILE_SECRET is WRONG: Cloudflare rejected it. Re-copy the secret key from the widget.'
+    : codes.indexOf('invalid-input-response') > -1 ? 'TURNSTILE_SECRET is valid.' : 'Unexpected reply from Cloudflare: ' + JSON.stringify(codes));
 }
 
 // Step 4. One test row per tab, the way each page sends it. Emails are skipped.

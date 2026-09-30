@@ -300,7 +300,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     var t0=Date.now(),human=false,sending=false;
     /* Cloudflare Turnstile. Off while data-turnstile-sitekey is empty; the form then behaves exactly as before.
        The script loads on the first focus or tap inside the form, so the token is usually ready by submit. */
-    var ts={key:'',started:false,token:'',interactive:false,failed:false};
+    var ts={key:'',started:false,token:'',interactive:false,failed:false,id:null};
     function loadTurnstile(){
       ts.key=(form.getAttribute('data-turnstile-sitekey')||'').trim();
       if(!ts.key||ts.started)return;ts.started=true;
@@ -308,7 +308,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       sc.addEventListener('error',function(){ts.failed=true;});
       sc.addEventListener('load',function(){
         if(!window.turnstile){ts.failed=true;return;}
-        try{window.turnstile.render('#cf-turnstile',{
+        try{ts.id=window.turnstile.render('#cf-turnstile',{
           sitekey:ts.key,action:'contact',theme:'dark',size:'flexible',appearance:'interaction-only',
           callback:function(t){ts.token=t;ts.failed=false;ts.interactive=false;},
           'expired-callback':function(){ts.token='';},
@@ -319,6 +319,8 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       });
       document.head.appendChild(sc);
     }
+    /* Tokens are single-use: reset the widget after every submit attempt so a retry gets a fresh one. */
+    function resetTurnstile(){ts.token='';if(window.turnstile&&ts.id!=null){try{window.turnstile.reset(ts.id);ts.failed=false;}catch(e){}}}
     function waitForToken(){return new Promise(function(res){var start=Date.now();(function poll(){if(ts.token||ts.failed||ts.interactive||Date.now()-start>TS_WAIT_MS)return res();setTimeout(poll,150);})();});}
     function mark(){human=true;}
     ['pointerdown','keydown','touchstart','input'].forEach(function(t){form.addEventListener(t,mark,{passive:true});});
@@ -355,9 +357,9 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         fd.append('form','contact');fd.append('name',name);fd.append('email',email);fd.append('phone',phone);fd.append('website',site);
         fd.append('help_with[]',help);fd.append('biggest_challenge',notes);
         if(ts.key)fd.append('cf-turnstile-response',ts.token);
-        return fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:fd}).then(function(){done(first);});
+        return fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:fd}).then(function(){resetTurnstile();done(first);});
       }).catch(function(){
-        busy(false);
+        resetTurnstile();busy(false);
         show('Something went wrong. Please email Hello@helpmemarketing.com and we will reply right away.');
       });
     });

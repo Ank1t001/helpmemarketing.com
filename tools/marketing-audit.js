@@ -419,7 +419,7 @@
 
   /* ---------- contact (carries the plan forward) ---------- */
   var cf, human = false, t0 = Date.now(), sending = false;
-  var ts = { key: '', started: false, token: '', interactive: false, failed: false };
+  var ts = { key: '', started: false, token: '', interactive: false, failed: false, id: null };
   function loadTurnstile() {
     ts.key = (cf.getAttribute('data-turnstile-sitekey') || '').trim();
     if (!ts.key || ts.started) return; ts.started = true;
@@ -428,8 +428,8 @@
     sc.addEventListener('load', function () {
       if (!window.turnstile) { ts.failed = true; return; }
       try {
-        window.turnstile.render('#ma-turnstile', {
-          sitekey: ts.key, action: 'contact', theme: 'dark', size: 'flexible', appearance: 'interaction-only',
+        ts.id = window.turnstile.render('#ma-turnstile', {
+          sitekey: ts.key, action: 'audit_help', theme: 'dark', size: 'flexible', appearance: 'interaction-only',
           callback: function (t) { ts.token = t; ts.failed = false; ts.interactive = false; },
           'expired-callback': function () { ts.token = ''; },
           'error-callback': function () { ts.failed = true; },
@@ -439,6 +439,11 @@
       } catch (e) { ts.failed = true; }
     });
     document.head.appendChild(sc);
+  }
+  /* Tokens are single-use: reset the widget after every submit attempt so a retry gets a fresh one. */
+  function resetTurnstile() {
+    ts.token = '';
+    if (window.turnstile && ts.id != null) { try { window.turnstile.reset(ts.id); ts.failed = false; } catch (e) {} }
   }
   function waitForToken() {
     return new Promise(function (res) { var s = Date.now(); (function poll() { if (ts.token || ts.failed || ts.interactive || Date.now() - s > TS_WAIT_MS) return res(); setTimeout(poll, 150); })(); });
@@ -491,10 +496,10 @@
         if (ts.key) fd.append('cf-turnstile-response', ts.token);
         return fetch(CONTACT_URL, { method: 'POST', mode: 'no-cors', body: fd }).then(function () {
           track('audit_contact_submit', { audit_priority: last && last.pid, audit_path: last && last.pk });
-          done(first);
+          resetTurnstile(); done(first);
         });
       }).catch(function () {
-        busy(false);
+        resetTurnstile(); busy(false);
         show('Something went wrong. Please email Hello@helpmemarketing.com and we will reply right away.');
       });
     });
