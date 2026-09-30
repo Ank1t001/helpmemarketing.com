@@ -350,7 +350,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       (ts.key?waitForToken():Promise.resolve()).then(function(){
         /* A visitor Turnstile wants to check by hand must tick the box first. If Turnstile failed to load or
            errored, the lead is still sent without a token and the Apps Script files it on the Spam tab, not lost. */
-        if(ts.key&&!ts.token&&ts.interactive){busy(false);show('Please complete the quick security check just above the button.');return;}
+        if(ts.key&&!ts.token&&ts.interactive){busy(false);show('Please tick the \u201cVerify you are human\u201d box, then press Send again.');return;}
         var fd=new FormData();
         fd.append('form','contact');fd.append('name',name);fd.append('email',email);fd.append('phone',phone);fd.append('website',site);
         fd.append('help_with[]',help);fd.append('biggest_challenge',notes);

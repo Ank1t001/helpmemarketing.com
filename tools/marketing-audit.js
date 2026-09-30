@@ -482,7 +482,7 @@
       if ($('ma-chp').value || Date.now() - t0 < MIN_MS || !human) { done(first); return; }
       busy(true); loadTurnstile();
       (ts.key ? waitForToken() : Promise.resolve()).then(function () {
-        if (ts.key && !ts.token && ts.interactive) { busy(false); show('Please complete the quick security check just above the button.'); return; }
+        if (ts.key && !ts.token && ts.interactive) { busy(false); show('Please tick the \u201cVerify you are human\u201d box, then press Send again.'); return; }
         var fd = new FormData();
         fd.append('form', 'audit-help'); fd.append('name', name); fd.append('email', email); fd.append('phone', '');
         fd.append('website', site || 'Not given');
