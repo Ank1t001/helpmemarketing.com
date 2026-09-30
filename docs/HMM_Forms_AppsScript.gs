@@ -121,7 +121,17 @@ function formOf_(d) {
 }
 
 // Returns why a submission is spam, or '' when it may go to its tab.
+// A page's own bot check tripped. The page still sends the submission so a real person caught by
+// mistake (for example by phone autofill) is kept, not lost.
+var CLIENT_FLAGS = {
+  'trap': 'Hidden trap field was filled',
+  'fast': 'Sent less than 3 seconds after the page opened',
+  'no-input': 'No typing or tapping before sending'
+};
+
 function spamReason_(form, d) {
+  if (d.client_flag) return 'Page bot check: ' + (CLIENT_FLAGS[d.client_flag] || String(d.client_flag).slice(0, 40)) +
+    (d.trap_value ? ' (trap held: ' + String(d.trap_value).slice(0, 60) + ')' : '');
   if (d.company_url_secondary && String(d.company_url_secondary).trim() !== '') return 'Honeypot filled';
   if (form === 'unknown') return 'Unknown form';
   if (form === 'audit-feedback') return '';                       // no email address in it

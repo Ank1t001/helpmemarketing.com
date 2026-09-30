@@ -177,7 +177,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 <div class="form-field form-half"><label for="cf-website">Website</label><input type="text" id="cf-website" name="website" class="form-input" autocomplete="url" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="yourbusiness.com" maxlength="200" required><label class="contact-nosite"><input type="checkbox" id="cf-nosite"> I don&rsquo;t have a website yet</label></div>
 <div class="form-field"><label for="cf-help">What do you need help with?</label><textarea id="cf-help" name="help_with[]" class="form-textarea" rows="4" maxlength="2000" placeholder="For example: our Google Ads cost too much per lead, or our website gets traffic but no enquiries." required></textarea></div>
 <div class="form-field"><label for="cf-notes">Anything we should know? <span class="form-optional">Optional</span></label><textarea id="cf-notes" name="biggest_challenge" class="form-textarea" rows="3" maxlength="2000" placeholder="Timeline, budget, what you have tried so far, or anything else that helps."></textarea></div>
-<div class="hp-field" aria-hidden="true"><label for="cf-hp">Leave this field blank</label><input type="text" id="cf-hp" name="company_url_secondary" tabindex="-1" autocomplete="off"></div>
+<div class="hp-field" aria-hidden="true"><label for="cf-hp">Leave this field blank</label><input type="text" id="cf-hp" name="hmm_trap" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore></div>
 <div class="cf-slot" id="cf-turnstile"></div>
 <div class="form-error is-hidden" id="contact-err" role="alert"></div>
 <div class="contact-next"><p class="contact-next-title">What happens next</p><ol><li>Ankit reads what you shared.</li><li>You get an email reply within 1 to 2 business days to talk about how we can help.</li><li>You decide whether to go further. No pressure.</li></ol></div>
@@ -345,17 +345,21 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       if(!noSite&&!/^https?:\/\/[^\s\/.]+\.[^\s]{2,}$/i.test(site))return show('Please enter your website, for example yourbusiness.com, or tick the box if you do not have one yet.',field('website'));
       if(!help)return show('Please tell us what you need help with.',field('help_with[]'));
       var first=name.split(/\s+/)[0];
-      /* Bot guard: a filled honeypot, a submit under three seconds, or no real key, pointer or input event.
-         Bots get the thank-you panel so they learn nothing, and nothing is sent. */
-      if((hp&&hp.value)||Date.now()-t0<MIN_MS||!human){done(first);return;}
+      function payload(){var fd=new FormData();
+        fd.append('form','contact');fd.append('name',name);fd.append('email',email);fd.append('phone',phone);fd.append('website',site);
+        fd.append('help_with[]',help);fd.append('biggest_challenge',notes);return fd;}
+      /* Bot guard: a filled trap field, a submit under three seconds, or no real key, pointer or input event.
+         The visitor sees the thank-you either way. The submission is still sent, flagged, so the forms script files
+         it on the Spam tab with the reason: a real person caught by mistake is never lost. */
+      var flag=(hp&&hp.value)?'trap':Date.now()-t0<MIN_MS?'fast':!human?'no-input':'';
+      if(flag){var bf=payload();bf.append('client_flag',flag);if(hp&&hp.value)bf.append('trap_value',hp.value.slice(0,100));
+        fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:bf}).catch(function(){});done(first);return;}
       busy(true);loadTurnstile();
       (ts.key?waitForToken():Promise.resolve()).then(function(){
         /* A visitor Turnstile wants to check by hand must tick the box first. If Turnstile failed to load or
            errored, the lead is still sent without a token and the Apps Script files it on the Spam tab, not lost. */
         if(ts.key&&!ts.token&&ts.interactive){busy(false);show('Please tick the \u201cVerify you are human\u201d box, then press Send again.');return;}
-        var fd=new FormData();
-        fd.append('form','contact');fd.append('name',name);fd.append('email',email);fd.append('phone',phone);fd.append('website',site);
-        fd.append('help_with[]',help);fd.append('biggest_challenge',notes);
+        var fd=payload();
         if(ts.key)fd.append('cf-turnstile-response',ts.token);
         return fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:fd}).then(function(){resetTurnstile();done(first);});
       }).catch(function(){

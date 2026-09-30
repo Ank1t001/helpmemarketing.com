@@ -483,16 +483,27 @@
       if (site && !/^https?:\/\/[^\s\/.]+\.[^\s]{2,}$/i.test(site)) return show('Please check your website, for example yourbusiness.com, or leave it blank.', $('ma-site'));
       if (!sum) return show('Please keep a short summary so Ankit knows what you need.', $('ma-sum'));
       var first = name.split(/\s+/)[0];
-      /* Bot guard, same as /contact: honeypot, three-second minimum, a real key, pointer, touch or input event. */
-      if ($('ma-chp').value || Date.now() - t0 < MIN_MS || !human) { done(first); return; }
-      busy(true); loadTurnstile();
-      (ts.key ? waitForToken() : Promise.resolve()).then(function () {
-        if (ts.key && !ts.token && ts.interactive) { busy(false); show('Please tick the \u201cVerify you are human\u201d box, then press Send again.'); return; }
+      function payload() {
         var fd = new FormData();
         fd.append('form', 'audit-help'); fd.append('name', name); fd.append('email', email); fd.append('phone', '');
         fd.append('website', site || 'Not given');
         fd.append('help_with[]', sum);
         fd.append('biggest_challenge', notes);
+        return fd;
+      }
+      /* Bot guard, same as /contact: trap field, three-second minimum, a real key, pointer, touch or input event.
+         A tripped guard still sends the submission, flagged, so the forms script files it on Spam with the reason. */
+      var trap = $('ma-chp').value;
+      var flag = trap ? 'trap' : Date.now() - t0 < MIN_MS ? 'fast' : !human ? 'no-input' : '';
+      if (flag) {
+        var bf = payload(); bf.append('client_flag', flag); if (trap) bf.append('trap_value', trap.slice(0, 100));
+        fetch(CONTACT_URL, { method: 'POST', mode: 'no-cors', body: bf }).catch(function () {});
+        done(first); return;
+      }
+      busy(true); loadTurnstile();
+      (ts.key ? waitForToken() : Promise.resolve()).then(function () {
+        if (ts.key && !ts.token && ts.interactive) { busy(false); show('Please tick the \u201cVerify you are human\u201d box, then press Send again.'); return; }
+        var fd = payload();
         if (ts.key) fd.append('cf-turnstile-response', ts.token);
         return fetch(CONTACT_URL, { method: 'POST', mode: 'no-cors', body: fd }).then(function () {
           track('audit_contact_submit', { audit_priority: last && last.pid, audit_path: last && last.pk });
