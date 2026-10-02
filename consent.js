@@ -193,7 +193,6 @@
     el.setAttribute('aria-label', 'Cookie consent');
     el.innerHTML =
       '<p>We use cookies to see how this site is used and to improve it. ' +
-      'Accept analytics cookies and session recordings, or decline and we will only keep what the site needs to work. ' +
       'See our <a href="/privacy">Privacy Policy</a>.</p>' +
       '<div class="hmm-consent-actions">' +
       '<button type="button" class="hmm-accept">Accept</button>' +
