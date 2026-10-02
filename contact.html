@@ -361,7 +361,10 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         if(ts.key&&!ts.token&&ts.interactive){busy(false);show('Please tick the \u201cVerify you are human\u201d box, then press Send again.');return;}
         var fd=payload();
         if(ts.key)fd.append('cf-turnstile-response',ts.token);
-        return fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:fd}).then(function(){resetTurnstile();done(first);});
+        return fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:fd}).then(function(){
+          /* Reported only for a real send, never for a bot-guard trip, so GA4 counts enquiries, not bots. */
+          try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'contact_submit',form:'contact',has_website:!noSite});}catch(e){}
+          resetTurnstile();done(first);});
       }).catch(function(){
         resetTurnstile();busy(false);
         show('Something went wrong. Please email Hello@helpmemarketing.com and we will reply right away.');
