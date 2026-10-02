@@ -98,7 +98,7 @@
       var done = false;
       function finish(v, cache) { if (done) return; done = true; if (cache) ssSet(REGION_KEY, v); resolve(v); }
       var timer = setTimeout(function () { finish('restricted', false); }, REGION_TIMEOUT_MS);
-      fetch('/api/region', { cache: 'no-store', credentials: 'omit' })
+      fetch('/api/region', { cache: 'no-store' })
         .then(function (r) { if (!r.ok) throw new Error('region ' + r.status); return r.json(); })
         .then(function (j) { clearTimeout(timer); finish(j && j.restricted === false ? 'open' : 'restricted', true); })
         .catch(function () { clearTimeout(timer); finish('restricted', false); });   // fail closed: ask
