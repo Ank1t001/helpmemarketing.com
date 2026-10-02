@@ -6,6 +6,8 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png">
+<!-- Consent default: denied until /consent.js decides; Google tags wait up to 0.8s for it -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:800});</script>
 <!-- Google Tag Manager (delayed to idle/first-interaction for CWV) -->
 <script>(function(w,d){w.dataLayer=w.dataLayer||[];var loaded=false;
 function load(){if(loaded)return;loaded=true;
@@ -89,7 +91,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   <div class="container container-narrow">
     <p class="eyebrow">Legal</p>
     <h1 class="hero-headline">Privacy Policy</h1>
-    <p class="hero-subtitle">Last updated · September 28, 2026</p>
+    <p class="hero-subtitle">Last updated · October 2, 2026</p>
   </div>
 </section>
 
@@ -124,7 +126,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 <section class="content-section" id="sec-1">
   <div class="container container-narrow">
     <h2 class="section-heading">Information we collect</h2>
-    <p class="section-deck">On this website, we collect only what you actively submit through a form (name, email, company or brand, website, phone, message) and a minimal set of analytics signals (anonymised pageviews, referrer, approximate region).</p>
+    <p class="section-deck">On this website, we collect only what you actively submit through a form (name, email, company or brand, website, phone, message) and a small set of analytics signals (pages viewed, referrer, approximate region). If you choose to allow session recordings, we also receive recordings of how you use our pages; they are off unless you turn them on.</p>
     <p>When you send our contact form, a security check from Cloudflare Turnstile reads a few technical signals from your browser, such as your IP address and browser type, to tell people apart from automated spam. It is not used to identify, profile or target you.</p>
     <p>When working with a client, we process information strictly defined in scope. We do not receive or process PHI unless a BAA is in place, and we do not process other regulated personal data outside the terms of the governing DPA.</p>
     <ul class="bullet-list">
@@ -138,13 +140,17 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 <section class="content-section" id="sec-cookies">
   <div class="container container-narrow">
     <h2 class="section-heading">Cookies and analytics</h2>
-    <p class="section-deck">We use Google Tag Manager to load a small set of measurement tools, primarily Google Analytics, so we can see how the site is used (pages viewed, referrer, approximate region) and improve it. These tools may set cookies in your browser.</p>
-    <p>When you first visit, a banner lets you accept or decline analytics cookies. If you decline, we keep only what the site needs to function. Your choice is stored in your browser and applied on future visits.</p>
+    <p class="section-deck">We use Google Tag Manager to load a small set of measurement tools. Google Analytics counts visits and enquiries so we can see how the site is used (pages viewed, referrer, approximate region). Hotjar and Microsoft Clarity record how pages are used, such as clicks and scrolling, so we can fix confusing ones, and they run only if you allow session recordings. These tools may set cookies in your browser.</p>
+    <p><strong>Where we ask first.</strong> If you visit from Quebec, the European Union or European Economic Area, the United Kingdom or Switzerland, or we cannot tell where you are, a banner asks you before we turn on analytics or session recordings. Both stay off until you accept.</p>
+    <p><strong>Everywhere else.</strong> Google Analytics is on by default and we do not show a cookie banner. Session recordings are off unless you turn them on. You can switch analytics off at any time with Privacy choices, in the footer of every page and below.</p>
+    <p>To decide whether to ask you first, our host works out your approximate location from your IP address when you first arrive. We use that only to decide whether to show the banner, and we do not store it.</p>
     <ul class="bullet-list">
+      <li>If your browser sends a Global Privacy Control signal, we treat it as an opt-out and keep analytics and recordings off until you choose otherwise.</li>
+      <li>Your choice is stored in your browser and applied on future visits. Turning session recordings off takes effect from the next page you open.</li>
       <li>We do not use these tools to identify you personally.</li>
       <li>We do not load analytics or advertising cookies on pages that collect sensitive or regulated data.</li>
-      <li>The spam check on our contact form is a security measure, not analytics, so it runs whether or not you accept analytics cookies.</li>
-      <li>You can change your choice at any time using <a href="#" id="hmm-cookie-settings">Manage cookie preferences</a>, or by clearing cookies for this site in your browser.</li>
+      <li>The spam check on our contact and audit forms is a security measure, not analytics, so it runs whatever you choose.</li>
+      <li>You can change your choice at any time with <a href="#" id="hmm-cookie-settings">Privacy choices</a>, or by clearing cookies and site data for this site in your browser.</li>
     </ul>
   </div>
 </section>
@@ -169,6 +175,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   <div class="container container-narrow">
     <h2 class="section-heading">Sharing &amp; subprocessors</h2>
     <p class="section-deck">We share information with a short list of vetted subprocessors (hosting, email, analytics, CRM and spam protection), each bound by data protection terms. A current list is available on request.</p>
+    <p>The measurement tools we use are Google (Google Analytics and Google Tag Manager), Hotjar and Microsoft (Clarity). Hotjar and Clarity run only if you allow session recordings.</p>
     <p>The spam check on our contact form is provided by Cloudflare, Inc. through its Turnstile service. Cloudflare acts as our processor for that check and describes how it handles the data in its <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener">Turnstile Privacy Addendum</a>.</p>
     <p>We do not share personal data with advertising networks in ways that would identify an individual client, patient, or prospective buyer.</p>
   </div>
@@ -185,6 +192,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   <div class="container container-narrow">
     <h2 class="section-heading">Your rights</h2>
     <p class="section-deck">Depending on your jurisdiction (PIPEDA, PHIPA, GDPR, CCPA), you may request access, correction, deletion, portability or restriction of your personal information, and withdraw consent at any time.</p>
+    <p>If you are in Quebec, analytics and session recordings stay off until you accept. If you are in California or another US state with an opt-out right, you can opt out of analytics with Privacy choices, and we treat a Global Privacy Control signal as that opt-out.</p>
     <p>To exercise a right, email privacy@helpmemarketing.com. We respond within 30 days.</p>
   </div>
 </section>
@@ -282,6 +290,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         <div class="footer-legal">
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
+          <a href="/privacy#sec-cookies" id="hmm-privacy-choices">Privacy choices</a>
           <span>© 2026 HelpMeMarketing</span>
         </div>
       </div>
