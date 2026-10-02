@@ -1,6 +1,7 @@
 # Vercel deploy exclusions: internal files that stay in git but must not be served.
 # Every path here must exist in the repo; remove the line when the file goes.
 
+/.claude/
 /CLAUDE.md
 /FINDINGS.md
 /PLAN.md
