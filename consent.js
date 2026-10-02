@@ -59,7 +59,13 @@
   }
 
   /* ---------- signals ---------- */
+  // Recordings and ad signals depend on analytics: with analytics off they are off too.
+  function norm(c) {
+    return c.a === 'granted' ? c : { a: 'denied', r: 'denied', ads: 'denied' };
+  }
+
   function signals(c) {
+    c = norm(c);
     current = c;
     var ads = c.a === 'granted' && c.ads === 'granted' ? 'granted' : 'denied';
     gtag('consent', 'update', { analytics_storage: c.a, ad_storage: ads, ad_user_data: ads, ad_personalization: ads });
@@ -76,6 +82,7 @@
   function decide(c, source) { signals(c); announce(source); }
 
   function save(c, source) {
+    c = norm(c);
     explicit = true;
     lsSet(KEY, JSON.stringify(c));
     decide(c, source);
@@ -239,8 +246,8 @@
       '<label class="hmm-pc-row"><input type="checkbox" id="hmm-pc-a"><span><strong>Analytics</strong>' +
       'Google Analytics counts visits and enquiries so we can improve the site.</span></label>' +
       '<label class="hmm-pc-row"><input type="checkbox" id="hmm-pc-r"><span><strong>Session recordings</strong>' +
-      'Hotjar and Microsoft Clarity record how pages are used so we can fix confusing ones. Off unless you turn it on. ' +
-      'Turning it off takes effect on the next page you open.</span></label>' +
+      'Hotjar and Microsoft Clarity record how pages are used so we can fix confusing ones. Off unless you turn it on, and ' +
+      'it needs Analytics to be on. Turning it off takes effect on the next page you open.</span></label>' +
       '<div class="hmm-pc-actions"><button type="button" class="hmm-save">Save choices</button>' +
       '<button type="button" class="hmm-close">Close</button></div>' +
       '<p class="hmm-pc-status" role="status" aria-live="polite"></p>' +
@@ -249,6 +256,8 @@
     var a = wrap.querySelector('#hmm-pc-a'), r = wrap.querySelector('#hmm-pc-r');
     a.checked = current.a === 'granted';
     r.checked = current.r === 'granted';
+    r.disabled = !a.checked;
+    a.addEventListener('change', function () { r.disabled = !a.checked; if (!a.checked) r.checked = false; });
     wrap.querySelector('.hmm-close').addEventListener('click', closePanel);
     wrap.addEventListener('click', function (ev) { if (ev.target === wrap) closePanel(); });
     wrap.querySelector('.hmm-save').addEventListener('click', function () {
