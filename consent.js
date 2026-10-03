@@ -79,7 +79,10 @@
     }
   }
 
-  function decide(c, source) { signals(c); announce(source); }
+  // Tell the page's GTM loader the consent answer is in, so Google tags start with the right state.
+  function go() { if (typeof window.hmmConsentGo === 'function') window.hmmConsentGo(); }
+
+  function decide(c, source) { signals(c); announce(source); go(); }
 
   function save(c, source) {
     c = norm(c);
@@ -301,6 +304,7 @@
         decide({ a: 'granted', r: REPLAY_DEFAULT_OPEN ? 'granted' : 'denied', ads: 'denied' }, 'region_default');
       } else {
         announce('pending');
+        go();
         showBanner();
       }
     });

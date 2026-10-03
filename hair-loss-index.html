@@ -24,13 +24,15 @@
 <meta name="twitter:image" content="https://helpmemarketing.com/assets/index/hair-loss/og.jpg">
 <!-- Consent default: denied until /consent.js decides; Google tags wait up to 0.8s for it -->
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:800});</script>
-<!-- Google Tag Manager (delayed to idle/first-interaction for CWV) -->
-<script>(function(w,d){w.dataLayer=w.dataLayer||[];var loaded=false;
-function load(){if(loaded)return;loaded=true;
+<!-- Google Tag Manager (delayed to idle/first-interaction for CWV, and until the consent answer is in) -->
+<script>(function(w,d){w.dataLayer=w.dataLayer||[];var loaded=false,ready=false,want=false;
+function load(){if(loaded)return;if(!ready){want=true;return;}loaded=true;
 w.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
 var f=d.getElementsByTagName('script')[0],j=d.createElement('script');
 j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-NSQPX93X';
 f.parentNode.insertBefore(j,f);}
+w.hmmConsentGo=function(){ready=true;if(want)load();};
+setTimeout(w.hmmConsentGo,2400);
 ['scroll','mousemove','touchstart','keydown','click'].forEach(function(e){
 w.addEventListener(e,load,{once:true,passive:true});});
 ('requestIdleCallback' in w)?w.requestIdleCallback(load,{timeout:3500}):setTimeout(load,3500);
