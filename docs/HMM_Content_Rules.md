@@ -112,9 +112,9 @@ HelpMeMarketing is one person. The copy says so. Nothing on the site may suggest
 | "Tell us what you are working on." | "Tell me what you are working on." |
 | "We know the rules because we live in them." | "I know the rules because I work inside them every day." |
 
-**Open decisions (founder)**
-1. **Freelancers or partners.** If none: "I" throughout, and no page mentions anyone else. If yes: "I run your account; for [design, development, ...] I bring in a specialist I have worked with, and I stay accountable for their work." Pick one; the copy must match what actually happens.
-2. **Name on the page.** Proposed: Ankit Kumar, on About, the homepage, the author bio and the `Person` schema.
+**Founder decisions** (1 and 2 decided; 3 open)
+1. **Freelancers or partners.** Decided 2026-10-08: none. "I" throughout; no page mentions anyone else doing the work.
+2. **Name on the page.** Decided 2026-10-08: Ankit Kumar, on About, the homepage, the author bio and the `Person` schema.
 3. **"What if you are unavailable?"** Needs a plain answer for an FAQ on About and Services (for example: notice periods, everything documented in the client's own accounts, and the client owns every login).
 
 ## Section 2 — Banned phrases & punctuation
