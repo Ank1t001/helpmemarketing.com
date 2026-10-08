@@ -45,7 +45,7 @@ A 30-second clarifying question saves a full rewrite. Don't guess.
 
 - **Clear over clever.** Plain language. If a sentence needs three reads, rewrite it.
 - **Conversational but credible.** Like explaining to a smart friend over coffee, not like a textbook.
-- **First person, one person.** Use "I" for the founder and "you" for the reader. Never "we" for HMM, never a team, never third person. Full rules in Content Rules Section 1.5. *(DRAFT 2026-10-08, pending founder approval.)*
+- **First person, one person.** Use "I" for the founder and "you" for the reader. Never "we" for HMM, never a team, never third person. Full rules in Content Rules Section 1.5. *(Approved 2026-10-08.)*
 - **Opinionated where it counts.** Hedged, everyone-agrees content is wallpaper.
 - **Canadian spelling by default.** Pick one per post and stay consistent.
 - **Sentence-case headings.** Always. Never Title Case in H1, H2, H3, or H4.
@@ -130,7 +130,7 @@ After drafting, run this check on each H2 section. Flag any missing elements wit
 Founder of Help Me Marketing. 9+ years building performance marketing programs for DTC, SaaS, healthcare, and finance brands. Writes about channel selection, attribution, and the unit economics of paid acquisition.
 ```
 
-**Proposed first-person bio (DRAFT 2026-10-08, pending founder approval; replaces the above in one sweep when approved):**
+**Approved first-person bio (2026-10-08; replaces the above in the blog sweep, one commit):**
 
 ```
 I'm Ankit Kumar, and I run HelpMeMarketing on my own. I've spent 9+ years building performance marketing programs for DTC, SaaS, healthcare, and finance brands. I write about channel selection, attribution, and the unit economics of paid acquisition, from accounts I run myself.
@@ -1839,7 +1839,7 @@ When uncertain about a pattern, view that blog's source as the canonical impleme
 | Version | Date | Changes |
 |---|---|---|
 | 2.0 | May 5 2026 | Initial V2 template (D-hybrid sticky TOC sidebar). Replaces V1 (2-column body-layout with right-column visuals). |
-| 2.10 | Oct 8 2026 | DRAFT, pending founder approval: voice moves from "you" + "we" to first person ("I" + "you") for a one-person agency (Section B, Card 2, proposed author bio). Full rules in Content Rules Section 1.5. |
+| 2.10 | Oct 8 2026 | Approved: voice moves from "you" + "we" to first person ("I" + "you") for a one-person agency (Section B, Card 2, proposed author bio). Full rules in Content Rules Section 1.5. |
 | 2.9 | Sep 18 2026 | Hero image `srcset`: the hero renders at 760px in the article column (1344 stays the desktop candidate) but 358px on phones and 314px in blog index cards, so every post gains a `[slug]-hero-720.webp` (720 wide, q80, 214KB for all 14) and both the post hero and the index card carry a two-candidate `srcset` with a `sizes` hint. Template markup, Part 6 spec table and workflow updated |
 | 2.8 | Sep 17 2026 | Hero image storage: the 2K PNG masters (12.1MB across 14 posts) served only `og:image`, `twitter:image` and schema `image`; replaced by `[slug]-og.jpg` 1200x630 q80 (732KB for all 14) with `og:image:width`/`height` meta added to every post. Page image stays the 1344-wide webp. PNGs removed from the repo; masters stay local. Template head, schema, hero markup, Part 6 spec table and workflow updated |
 | 2.7 | Sep 12 2026 | Sitewide consistency pass: hero image block added to the nine posts that lacked it (all 14 now carry it, with eager/high-priority loading), FAQ questions restyled to the site ring badge, related cards get the orange-ring hover, 12px label floor in the sidebar, badges and table sources. Part 3 Section J note. |

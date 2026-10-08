@@ -32,7 +32,7 @@ These apply to every page, every section, every sentence.
 
 1. **Clear over clever.** If a sentence needs to be read twice, rewrite it.
 2. **Specific over vague.** Numbers, names, examples beat adjectives and superlatives.
-3. **First person, one person.** "I" for the founder, "you" for the reader. Never "we" for HMM, and never third person ("the client," "customers," "businesses today"). Full rules in Section 1.5. *(DRAFT 2026-10-08, replaces "you" + "we"; pending founder approval.)*
+3. **First person, one person.** "I" for the founder, "you" for the reader. Never "we" for HMM, and never third person ("the client," "customers," "businesses today"). Full rules in Section 1.5. *(Approved 2026-10-08; replaces "you" + "we". Pages move over in a staged sweep; until a page is swept it may still read "we", but it may never claim a team.)*
 4. **Active voice.** Default to subject-verb-object construction. Passive only when the object genuinely matters more than the actor.
 5. **Sentence case.** Always. Never Title Case for headings.
 6. **Canadian spelling.** Centre not center. Optimise not optimize. Honour not honor. Consistent within a page.
@@ -73,7 +73,7 @@ When the buyer is more sophisticated (technical pages, AI-native content), indus
 
 ---
 
-### 1.5 First person: a one-person agency (DRAFT 2026-10-08, pending founder approval)
+### 1.5 First person: a one-person agency (approved 2026-10-08)
 
 HelpMeMarketing is one person. The copy says so. Nothing on the site may suggest a team that does not exist.
 
@@ -112,10 +112,10 @@ HelpMeMarketing is one person. The copy says so. Nothing on the site may suggest
 | "Tell us what you are working on." | "Tell me what you are working on." |
 | "We know the rules because we live in them." | "I know the rules because I work inside them every day." |
 
-**Founder decisions** (1 and 2 decided; 3 open)
+**Founder decisions** (all decided 2026-10-08)
 1. **Freelancers or partners.** Decided 2026-10-08: none. "I" throughout; no page mentions anyone else doing the work.
 2. **Name on the page.** Decided 2026-10-08: Ankit Kumar, on About, the homepage, the author bio and the `Person` schema.
-3. **"What if you are unavailable?"** Needs a plain answer for an FAQ on About and Services (for example: notice periods, everything documented in the client's own accounts, and the client owns every login).
+3. **"What if you are unavailable?"** Decided 2026-10-08: no FAQ and no mention on the site; it is a sales-call question. Instead, state what is already true: "You own every account, every login and every report."
 
 ## Section 2 — Banned phrases & punctuation
 
