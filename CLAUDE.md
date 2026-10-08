@@ -256,7 +256,7 @@ The reference blog implementing all V2 patterns is:
 - Plain English; no banned phrases (leverage, unlock, supercharge, in today's fast-paced world, etc.)
 - Sentence-case headings always
 - Canadian spelling
-- Second person ("you" + "we")
+- Second person ("you" + "we"). **DRAFT 2026-10-08, pending founder approval:** moving to first person ("I" for the founder, "you" for the reader, never "we" for HMM, never a team; legal pages keep "we" = Help Me Marketing Inc.). See `/docs/HMM_Content_Rules.md` Section 1.5. No page may claim a team in either voice
 - See Part 1 Section B of master reference for full list
 
 ### Visual hierarchy

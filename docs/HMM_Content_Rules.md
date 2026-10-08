@@ -32,7 +32,7 @@ These apply to every page, every section, every sentence.
 
 1. **Clear over clever.** If a sentence needs to be read twice, rewrite it.
 2. **Specific over vague.** Numbers, names, examples beat adjectives and superlatives.
-3. **Second person.** "You" for the reader, "we" for HMM. Never third person ("the client," "customers," "businesses today").
+3. **First person, one person.** "I" for the founder, "you" for the reader. Never "we" for HMM, and never third person ("the client," "customers," "businesses today"). Full rules in Section 1.5. *(DRAFT 2026-10-08, replaces "you" + "we"; pending founder approval.)*
 4. **Active voice.** Default to subject-verb-object construction. Passive only when the object genuinely matters more than the actor.
 5. **Sentence case.** Always. Never Title Case for headings.
 6. **Canadian spelling.** Centre not center. Optimise not optimize. Honour not honor. Consistent within a page.
@@ -46,7 +46,7 @@ These apply to every page, every section, every sentence.
 - "Traditional SEO doesn't reach AI engines."
 
 **Warm when describing HMM, the reader, or how the work happens together.**
-- "We help Toronto businesses get into those citations."
+- "I help Toronto businesses get into those citations."
 - "If you've ever asked ChatGPT for a recommendation and weren't mentioned, you have a problem."
 
 The voice shifts at the moment HMM enters the sentence. Two voices, one document.
@@ -72,6 +72,50 @@ Write in the language the buyer actually uses, not the formal industry name.
 When the buyer is more sophisticated (technical pages, AI-native content), industry terms are appropriate. Calibrate by audience: SMB pages use buyer-language defaults; AI-native pages can assume technical vocabulary.
 
 ---
+
+### 1.5 First person: a one-person agency (DRAFT 2026-10-08, pending founder approval)
+
+HelpMeMarketing is one person. The copy says so. Nothing on the site may suggest a team that does not exist.
+
+**Who is who**
+
+| Word | Means | Example |
+|---|---|---|
+| I, me, my | The founder, who does the work | "I audit your accounts before I touch a campaign." |
+| you, your | The reader | "You own every account and every login." |
+| HelpMeMarketing | The business, as a name only | Titles, schema, footer, "Why HelpMeMarketing" |
+| we | Only "you and I together" | "We agree the target before I start." |
+
+**Never imply a team.** No "our team", "our specialists", "account managers", "departments", "the people behind", "round-the-clock", "dedicated team", or any number of staff. No hand-off language, because there is no one to hand off to.
+
+**Make capacity a fact, not a weakness.** Say it plainly: "I take on a few clients at a time." The blog already argues against junior hand-offs; one senior person doing the work is the proof of that argument.
+
+**Say what AI does and what I do.** "AI drafts the reports; I decide what changes." Never let AI read as a team ("our AI team", "our agents handle your account").
+
+**Keep the reader in front.** "You" should appear more often than "I" on every page. Open sections with the reader's problem, not with me. Do not start two sentences in a row with "I".
+
+**Where "we" stays**
+- `privacy.html` and `terms.html`: "we" is the legal entity, Help Me Marketing Inc., defined at the top of each page. Legal convention; unchanged.
+- Quotations, including clients and the posts quoted in the Index reports.
+- "We" meaning you and I together (above).
+
+**Index reports** use the research voice in first person: "I read every post in the window", "I could not read this frame".
+
+**Titles, descriptions and schema.** Keep "agency" in `<title>` and descriptions: it is what buyers search for, and a one-person agency is still an agency. Descriptions follow this section's voice or stay neutral. Schema keeps the business entity (`ProfessionalService`) and adds a `Person` for the founder, linked by `founder` and used as the `author` of every `BlogPosting`.
+
+**Before and after (live sentences)**
+
+| Before | After |
+|---|---|
+| "We take fewer clients, ship more per week, and price on outcomes." | "I take on a few clients at a time, ship every week, and price on outcomes." |
+| "We will look at your accounts, measurement and site, then tell you what we would do first." | "I will look at your accounts, measurement and site, then tell you what I would do first." |
+| "Tell us what you are working on." | "Tell me what you are working on." |
+| "We know the rules because we live in them." | "I know the rules because I work inside them every day." |
+
+**Open decisions (founder)**
+1. **Freelancers or partners.** If none: "I" throughout, and no page mentions anyone else. If yes: "I run your account; for [design, development, ...] I bring in a specialist I have worked with, and I stay accountable for their work." Pick one; the copy must match what actually happens.
+2. **Name on the page.** Proposed: Ankit Kumar, on About, the homepage, the author bio and the `Person` schema.
+3. **"What if you are unavailable?"** Needs a plain answer for an FAQ on About and Services (for example: notice periods, everything documented in the client's own accounts, and the client owns every login).
 
 ## Section 2 — Banned phrases & punctuation
 
@@ -515,7 +559,9 @@ Run through before publishing any page. Every box checks.
 - [ ] No "premium" as marketing adjective
 - [ ] No "just" in promotional contexts
 - [ ] Sentence case on all headings
-- [ ] Second person used consistently
+- [ ] "I" for the founder, "you" for the reader; no "we" for HMM outside the legal pages, quotes and "you and I" (Section 1.5)
+- [ ] No sentence implies a team, staff or hand-off (Section 1.5)
+- [ ] "You" appears more often than "I"
 - [ ] Active voice as default
 - [ ] Canadian spelling consistent
 - [ ] Buyer's terminology (not formal industry names)
