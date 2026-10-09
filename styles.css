@@ -5157,6 +5157,51 @@ body.redesign-prototype .jr-what { margin: 16px 0 0; color: var(--text-muted); }
 body.redesign-prototype .jr-services { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0 0; font-size: 15px; font-weight: 600; color: var(--cta-ink, var(--cta)); }
 body.redesign-prototype .jr-services a { color: inherit; text-decoration: none; white-space: nowrap; }
 body.redesign-prototype .jr-services a:hover { text-decoration: underline; text-underline-offset: 4px; }
+/* Step 1 discovery strip: one fictional business on a search page, an AI answer and a sponsored post; the cards keep dark-on-white UI colours in both themes. */
+body.redesign-prototype .jr-find { margin: 0; padding: 20px; border: 1px solid var(--border-strong, var(--border)); border-radius: 16px; background: var(--bg-elevated); }
+body.redesign-prototype .jr-find-tabs { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0 0 16px; }
+body.redesign-prototype .jr-find-tab { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px; background: transparent; font: inherit; font-size: 13px; font-weight: 600; color: var(--text-tertiary); cursor: pointer; transition: color .3s ease, border-color .3s ease, background .3s ease; }
+body.redesign-prototype .jr-find-tab[aria-selected="true"] { color: var(--text); border-color: var(--cta); background: rgba(255, 92, 26, 0.1); }
+body.redesign-prototype .jr-find-tab:focus-visible { outline: 2px solid var(--cta); outline-offset: 2px; }
+@media (hover: hover) { body.redesign-prototype .jr-find-tab:hover { color: var(--text); } }
+body.redesign-prototype .jr-find-arrow { font-size: 13px; color: var(--text-tertiary); }
+body.redesign-prototype .jr-find-stage { display: grid; gap: 12px; }
+body.redesign-prototype .jr-find.is-live .jr-find-stage { position: relative; display: block; height: 290px; }
+body.redesign-prototype .jr-find.is-live .jr-find-card { position: absolute; left: 50%; top: 0; width: min(100%, 420px); opacity: 0; visibility: hidden; transform: translate(-50%, 12px) scale(0.98); transition: opacity .45s ease, transform .45s ease, visibility 0s linear .45s; }
+body.redesign-prototype .jr-find.is-live .jr-find-card.is-on { opacity: 1; visibility: visible; transform: translate(-50%, 0) scale(1); transition: opacity .45s ease, transform .45s ease; }
+body.redesign-prototype .jr-find-card { padding: 16px; border-radius: 14px; font-size: 13px; line-height: 1.45; box-shadow: var(--shadow-card, none); }
+body.redesign-prototype .jr-find-card p { margin: 0; }
+body.redesign-prototype .jr-find-card b, body.redesign-prototype .jr-find-card small { display: block; }
+body.redesign-prototype .jr-find-hit { margin: 0 -10px; padding: 10px; border-radius: 10px; }
+body.redesign-prototype .jr-find.is-live .jr-find-card.is-on .jr-find-hit { animation: jrHit .6s ease .5s both; }
+@keyframes jrHit { from { box-shadow: 0 0 0 0 rgba(255, 92, 26, 0); } to { box-shadow: 0 0 0 2px var(--cta); } }
+body.redesign-prototype .jr-find-logo { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--cta); color: var(--obsidian, #0E0E0E); font-size: 13px; font-weight: 700; }
+body.redesign-prototype .jr-find-search, body.redesign-prototype .jr-find-ad { border: 1px solid var(--border); background: var(--paper, #FFFFFF); color: var(--obsidian, #0E0E0E); }
+body.redesign-prototype .jr-find-card .jr-find-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; padding: 8px 12px; border: 1px solid rgba(14, 14, 14, 0.14); border-radius: 999px; color: rgba(14, 14, 14, 0.72); }
+body.redesign-prototype .jr-find-site { display: flex; align-items: center; gap: 8px; }
+body.redesign-prototype .jr-find-site small, body.redesign-prototype .jr-find-ad-head small { font-size: 12px; color: rgba(14, 14, 14, 0.6); }
+body.redesign-prototype .jr-find-card .jr-find-title { margin-top: 8px; font-size: 16px; font-weight: 600; line-height: 1.3; }
+body.redesign-prototype .jr-find-card .jr-find-snip { margin-top: 4px; color: rgba(14, 14, 14, 0.7); }
+body.redesign-prototype .jr-find-card .jr-find-meta { display: flex; align-items: center; gap: 4px; margin-top: 6px; font-size: 12px; color: rgba(14, 14, 14, 0.6); }
+body.redesign-prototype .jr-find-card .jr-find-ghost { display: grid; gap: 6px; margin-top: 12px; }
+body.redesign-prototype .jr-find-ghost i { display: block; width: 70%; height: 8px; border-radius: 4px; background: rgba(14, 14, 14, 0.08); }
+body.redesign-prototype .jr-find-ghost i + i { width: 45%; }
+body.redesign-prototype .jr-find-ai { border: 1px solid rgba(255, 255, 255, 0.12); background: var(--obsidian, #0E0E0E); color: var(--paper, #FFFFFF); }
+body.redesign-prototype .jr-find-card .jr-find-q { width: fit-content; max-width: 85%; margin: 0 0 12px auto; padding: 8px 12px; border-radius: 14px 14px 4px 14px; background: rgba(255, 255, 255, 0.1); }
+body.redesign-prototype .jr-find-card .jr-find-ai-label { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font-size: 12px; font-weight: 600; color: var(--mint-bright, #00D4AA); }
+body.redesign-prototype .jr-find-card .jr-find-ai-text { font-size: 14px; }
+body.redesign-prototype .jr-find-ai-text b { display: inline; }
+body.redesign-prototype .jr-find-card .jr-find-src { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; padding: 4px 10px; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 999px; font-size: 12px; color: rgba(255, 255, 255, 0.78); }
+body.redesign-prototype .jr-find-ad { padding: 12px; }
+body.redesign-prototype .jr-find-card .jr-find-ad-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+body.redesign-prototype .jr-find-creative { position: relative; display: flex; flex-direction: column; justify-content: flex-end; height: 128px; padding: 14px; border-radius: 10px; background: linear-gradient(135deg, var(--cta), rgba(255, 92, 26, 0.72)); color: var(--obsidian, #0E0E0E); }
+body.redesign-prototype .jr-find-card .jr-find-creative p { max-width: 72%; font-family: var(--serif); font-size: 20px; line-height: 1.15; }
+body.redesign-prototype .jr-find-creative small { margin-top: 6px; font-size: 12px; opacity: 0.8; }
+body.redesign-prototype .jr-find-run { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--paper, #FFFFFF); color: var(--cta-ink, var(--cta)); }
+body.redesign-prototype .jr-find-card .jr-find-cta { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; padding: 8px 10px; border-radius: 8px; background: rgba(14, 14, 14, 0.06); font-size: 13px; font-weight: 600; }
+body.redesign-prototype .jr-find-card .jr-find-actions { display: flex; gap: 12px; margin-top: 8px; color: rgba(14, 14, 14, 0.7); }
+body.redesign-prototype .jr-find figcaption { margin-top: 14px; text-align: center; font-size: 13px; color: var(--text-muted); }
+body.redesign-prototype .jr-find figcaption span { display: block; margin-top: 2px; font-size: 12px; color: var(--text-tertiary); }
 body.redesign-prototype .jr-motion { margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-strong, var(--border)); background: var(--obsidian, #0E0E0E); box-shadow: var(--shadow-card, none); }
 body.redesign-prototype .jr-loop { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: var(--obsidian, #0E0E0E); }
 body.redesign-prototype .jr-me { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-areas: "photo head" "photo body"; grid-template-rows: auto 1fr; column-gap: 72px; margin-top: 24px; }
@@ -5201,6 +5246,11 @@ body.redesign-prototype .jr-me-link:hover .jr-me-arrow { background: var(--cta);
   body.redesign-prototype .jr-stop-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   body.redesign-prototype .jr-track, body.redesign-prototype .jr-track-fill { stroke-width: 6; }
   body.redesign-prototype .jr-tour-bar { margin-top: 16px; }
+  body.redesign-prototype .jr-find { padding: 14px; }
+  body.redesign-prototype .jr-find-tabs { gap: 4px; }
+  body.redesign-prototype .jr-find-tab { padding: 6px 10px; font-size: 12px; white-space: nowrap; }
+  body.redesign-prototype .jr-find-tab svg { display: none; }
+  body.redesign-prototype .jr-find-arrow { display: none; }
   body.redesign-prototype .jr-feed { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   body.redesign-prototype .jr-feed li + li::before { display: none; }
   body.redesign-prototype .jr-feed li { padding: 10px; gap: 10px; }
@@ -5220,5 +5270,7 @@ body.redesign-prototype .jr-me-link:hover .jr-me-arrow { background: var(--cta);
   body.redesign-prototype .jr-feed li, body.redesign-prototype .jr-feed-ic { animation: none; }
   body.redesign-prototype .jr-feed li { opacity: 1; }
   body.redesign-prototype .jr-feed li:last-child { border-color: var(--mint-bright, #00D4AA); }
+  body.redesign-prototype .jr-find.is-live .jr-find-card, body.redesign-prototype .jr-find-tab { transition: none; }
+  body.redesign-prototype .jr-find.is-live .jr-find-card.is-on .jr-find-hit { animation: none; box-shadow: 0 0 0 2px var(--cta); }
   body.redesign-prototype .jr-panels.is-tabs > .jr-panel, body.redesign-prototype .jr-pin, body.redesign-prototype .jr-pin::before, body.redesign-prototype .jr-stop-label { transition: none; }
 }
