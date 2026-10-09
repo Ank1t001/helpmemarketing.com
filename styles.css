@@ -5091,16 +5091,9 @@ html:not([data-theme="light"]) .theme-toggle .tt-moon, html[data-theme="light"] 
 /* Journey layout. Sections, headings, eyebrows and the closing box are the shared prototype classes (hero, content-section, section-heading, eyebrow, final-cta), so spacing and type match every other page; these rules cover only what is unique to the journey. 8px scale. */
 /* Hero headline line breaks (founder spec 2026-10-09): two lines on desktop, four on phones; one sentence in the markup. */
 body.redesign-prototype .jr-h1 .jr-h1-a, body.redesign-prototype .jr-h1 .jr-h1-b { display: block; }
-body.redesign-prototype .jr-rail { position: relative; height: 14px; }
-body.redesign-prototype .jr-rail::before { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 2px; background: linear-gradient(90deg, rgba(255, 92, 26, 0.2), var(--cta)); }
-body.redesign-prototype .jr-dot { position: absolute; top: 0; left: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--mint-bright, #00D4AA); box-shadow: 0 0 0 6px rgba(0, 212, 170, 0.18); animation: jrTravel 6s cubic-bezier(.65, 0, .35, 1) infinite alternate; }
-@keyframes jrTravel { to { left: calc(100% - 14px); } }
 body.redesign-prototype .jr-journey { margin-top: 32px; }
-body.redesign-prototype .jr-bars, body.redesign-prototype .jr-feed, body.redesign-prototype .jr-marker { display: none; }
-body.redesign-prototype .jr-journey:not([data-rail="glide"]) .jr-rail { display: none; }
-body.redesign-prototype .jr-journey[data-rail="feed"] .jr-steps, body.redesign-prototype .jr-journey[data-rail="marker"] .jr-steps { display: none; }
-/* Feed: four event cards light up in turn (stranger sees an ad, visits, enquires, books), customer in mint; 8s cycle. */
-body.redesign-prototype .jr-journey[data-rail="feed"] .jr-feed { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin: 0; padding: 0; list-style: none; }
+/* Hero journey feed: four event cards light up in turn (stranger sees an ad, visits, enquires, books), customer in mint; 8s cycle. */
+body.redesign-prototype .jr-feed { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin: 0; padding: 0; list-style: none; }
 body.redesign-prototype .jr-feed li { position: relative; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-elevated); opacity: 0.45; }
 body.redesign-prototype .jr-feed li + li::before { content: "\2192"; position: absolute; left: -24px; top: 50%; transform: translateY(-50%); color: var(--text-tertiary); font-size: 14px; }
 body.redesign-prototype .jr-feed-ic { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--border-strong, var(--border)); color: var(--text-muted); }
@@ -5122,45 +5115,6 @@ body.redesign-prototype .jr-feed li:nth-child(4) { animation: jrFeed4 8s ease in
 body.redesign-prototype .jr-feed li:nth-child(4) .jr-feed-ic { animation: jrFeedIc4 8s ease infinite; }
 @keyframes jrFeed4 { 0%, 55% { opacity: 0.45; border-color: var(--border); transform: translateY(0); } 58%, 90% { opacity: 1; border-color: var(--mint-bright, #00D4AA); transform: translateY(-2px); } 96%, 100% { opacity: 0.45; border-color: var(--border); transform: translateY(0); } }
 @keyframes jrFeedIc4 { 0%, 55% { background: transparent; border-color: var(--border-strong, var(--border)); color: var(--text-muted); } 58%, 90% { background: var(--mint-bright, #00D4AA); border-color: var(--mint-bright, #00D4AA); color: var(--obsidian, #0E0E0E); } 96%, 100% { background: transparent; border-color: var(--border-strong, var(--border)); color: var(--text-muted); } }
-/* Bars: four columns rise in turn like a results chart, Customer tallest and mint; 8s cycle. */
-body.redesign-prototype .jr-journey[data-rail="bars"] .jr-bars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: end; height: 64px; }
-body.redesign-prototype .jr-bars i { display: block; width: 56px; height: 100%; border-radius: 6px 6px 2px 2px; background: linear-gradient(to top, rgba(255, 92, 26, 0.15), var(--cta)); transform-origin: bottom; transform: scaleY(0.06); }
-body.redesign-prototype .jr-bars i:nth-child(4) { background: linear-gradient(to top, rgba(0, 212, 170, 0.15), var(--mint-bright, #00D4AA)); box-shadow: 0 0 24px rgba(0, 212, 170, 0.25); }
-body.redesign-prototype .jr-bars i:nth-child(1) { animation: jrBar1 8s cubic-bezier(.3, 0, .2, 1) infinite; }
-@keyframes jrBar1 { 0%, 1% { transform: scaleY(0.06); } 4%, 90% { transform: scaleY(0.25); } 96%, 100% { transform: scaleY(0.06); } }
-body.redesign-prototype .jr-bars i:nth-child(2) { animation: jrBar2 8s cubic-bezier(.3, 0, .2, 1) infinite; }
-@keyframes jrBar2 { 0%, 19% { transform: scaleY(0.06); } 22%, 90% { transform: scaleY(0.45); } 96%, 100% { transform: scaleY(0.06); } }
-body.redesign-prototype .jr-bars i:nth-child(3) { animation: jrBar3 8s cubic-bezier(.3, 0, .2, 1) infinite; }
-@keyframes jrBar3 { 0%, 37% { transform: scaleY(0.06); } 40%, 90% { transform: scaleY(0.7); } 96%, 100% { transform: scaleY(0.06); } }
-body.redesign-prototype .jr-bars i:nth-child(4) { animation: jrBar4 8s cubic-bezier(.3, 0, .2, 1) infinite; }
-@keyframes jrBar4 { 0%, 55% { transform: scaleY(0.06); } 58%, 90% { transform: scaleY(1); } 96%, 100% { transform: scaleY(0.06); } }
-/* Marker: the four words in the serif face; a highlighter sweeps each in turn, Customer in mint; 8s cycle. */
-body.redesign-prototype .jr-journey[data-rail="marker"] .jr-marker { display: block; margin: 0; font-family: var(--serif); font-size: 28px; line-height: 1.3; color: var(--text-tertiary); }
-body.redesign-prototype .jr-marker i { font-style: normal; font-family: var(--sans, inherit); font-size: 18px; margin: 0 8px; color: var(--text-tertiary); }
-body.redesign-prototype .jr-marker span { position: relative; display: inline-block; isolation: isolate; }
-body.redesign-prototype .jr-marker span::before { content: ""; position: absolute; z-index: -1; left: -4px; right: -4px; bottom: 4px; height: 42%; border-radius: 3px; background: rgba(255, 92, 26, 0.38); transform: scaleX(0); transform-origin: left; }
-body.redesign-prototype .jr-marker span:last-child::before { background: rgba(0, 212, 170, 0.38); }
-body.redesign-prototype .jr-marker span:nth-of-type(1) { animation: jrMkT1 8s ease infinite; }
-body.redesign-prototype .jr-marker span:nth-of-type(1)::before { animation: jrMk1 8s cubic-bezier(.5, 0, .2, 1) infinite; }
-@keyframes jrMkT1 { 0%, 1% { color: var(--text-tertiary); } 4%, 90% { color: var(--text); } 96%, 100% { color: var(--text-tertiary); } }
-@keyframes jrMk1 { 0%, 1% { transform: scaleX(0); } 4%, 90% { transform: scaleX(1); } 96%, 100% { transform: scaleX(0); } }
-body.redesign-prototype .jr-marker span:nth-of-type(2) { animation: jrMkT2 8s ease infinite; }
-body.redesign-prototype .jr-marker span:nth-of-type(2)::before { animation: jrMk2 8s cubic-bezier(.5, 0, .2, 1) infinite; }
-@keyframes jrMkT2 { 0%, 19% { color: var(--text-tertiary); } 22%, 90% { color: var(--text); } 96%, 100% { color: var(--text-tertiary); } }
-@keyframes jrMk2 { 0%, 19% { transform: scaleX(0); } 22%, 90% { transform: scaleX(1); } 96%, 100% { transform: scaleX(0); } }
-body.redesign-prototype .jr-marker span:nth-of-type(3) { animation: jrMkT3 8s ease infinite; }
-body.redesign-prototype .jr-marker span:nth-of-type(3)::before { animation: jrMk3 8s cubic-bezier(.5, 0, .2, 1) infinite; }
-@keyframes jrMkT3 { 0%, 37% { color: var(--text-tertiary); } 40%, 90% { color: var(--text); } 96%, 100% { color: var(--text-tertiary); } }
-@keyframes jrMk3 { 0%, 37% { transform: scaleX(0); } 40%, 90% { transform: scaleX(1); } 96%, 100% { transform: scaleX(0); } }
-body.redesign-prototype .jr-marker span:nth-of-type(4) { animation: jrMkT4 8s ease infinite; }
-body.redesign-prototype .jr-marker span:nth-of-type(4)::before { animation: jrMk4 8s cubic-bezier(.5, 0, .2, 1) infinite; }
-@keyframes jrMkT4 { 0%, 55% { color: var(--text-tertiary); } 58%, 90% { color: var(--text); } 96%, 100% { color: var(--text-tertiary); } }
-@keyframes jrMk4 { 0%, 55% { transform: scaleX(0); } 58%, 90% { transform: scaleX(1); } 96%, 100% { transform: scaleX(0); } }
-body.redesign-prototype .jr-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 16px 0 0; padding: 0; list-style: none; font-size: 15px; }
-body.redesign-prototype .jr-steps li { color: var(--text-tertiary); }
-body.redesign-prototype .jr-steps li:nth-child(4) { font-weight: 600; }
-body.redesign-prototype .jr-journey:is([data-rail="glide"], [data-rail="bars"]) .jr-steps li:nth-child(2) { color: var(--text-muted); }
-body.redesign-prototype .jr-journey:is([data-rail="glide"], [data-rail="bars"]) .jr-steps li:nth-child(n+3) { color: var(--text); }
 body.redesign-prototype section.jr-trust { padding: 24px 0; background: var(--bg-elevated); border-bottom: 1px solid var(--border); }
 body.redesign-prototype .jr-logos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px 12px; }
 body.redesign-prototype .jr-logos li { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--text); }
@@ -5243,13 +5197,9 @@ body.redesign-prototype .jr-me-link:hover .jr-me-arrow { background: var(--cta);
   body.redesign-prototype .jr-stop-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   body.redesign-prototype .jr-track, body.redesign-prototype .jr-track-fill { stroke-width: 6; }
   body.redesign-prototype .jr-tour-bar { margin-top: 16px; }
-  body.redesign-prototype .jr-steps { font-size: 13px; }
-  body.redesign-prototype .jr-journey[data-rail="feed"] .jr-feed { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  body.redesign-prototype .jr-feed { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   body.redesign-prototype .jr-feed li + li::before { display: none; }
   body.redesign-prototype .jr-feed li { padding: 10px; gap: 10px; }
-  body.redesign-prototype .jr-bars i { width: 40px; }
-  body.redesign-prototype .jr-journey[data-rail="marker"] .jr-marker { font-size: 17px; white-space: nowrap; }
-  body.redesign-prototype .jr-marker i { font-size: 13px; margin: 0 2px; }
   body.redesign-prototype .jr-logos { gap: 20px 12px; }
   body.redesign-prototype .jr-logos li { flex-direction: column; gap: 8px; text-align: center; font-size: 13px; }
   body.redesign-prototype .jr-loop { aspect-ratio: 4 / 5; }
@@ -5263,15 +5213,8 @@ body.redesign-prototype .jr-me-link:hover .jr-me-arrow { background: var(--cta);
   body.redesign-prototype .jr-certs ul { flex-direction: column; }
 }
 @media (prefers-reduced-motion: reduce) {
-  body.redesign-prototype .jr-dot { animation: none; left: calc(100% - 14px); }
-  body.redesign-prototype .jr-feed li, body.redesign-prototype .jr-feed-ic, body.redesign-prototype .jr-bars i, body.redesign-prototype .jr-marker span, body.redesign-prototype .jr-marker span::before { animation: none; }
+  body.redesign-prototype .jr-feed li, body.redesign-prototype .jr-feed-ic { animation: none; }
   body.redesign-prototype .jr-feed li { opacity: 1; }
   body.redesign-prototype .jr-feed li:last-child { border-color: var(--mint-bright, #00D4AA); }
-  body.redesign-prototype .jr-bars i:nth-child(1) { transform: scaleY(0.25); }
-  body.redesign-prototype .jr-bars i:nth-child(2) { transform: scaleY(0.45); }
-  body.redesign-prototype .jr-bars i:nth-child(3) { transform: scaleY(0.7); }
-  body.redesign-prototype .jr-bars i:nth-child(4) { transform: none; }
-  body.redesign-prototype .jr-marker span { color: var(--text); }
-  body.redesign-prototype .jr-marker span::before { transform: none; }
   body.redesign-prototype .jr-panels.is-tabs > .jr-panel, body.redesign-prototype .jr-pin, body.redesign-prototype .jr-pin::before, body.redesign-prototype .jr-stop-label { transition: none; }
 }
