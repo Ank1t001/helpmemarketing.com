@@ -158,12 +158,11 @@ w.addEventListener(e,load,{once:true,passive:true});});
 
 <!-- Styles -->
 <link rel="stylesheet" href="/styles.css">
-<link rel="preload" as="image" href="/assets/home/hero.webp" imagesrcset="/assets/home/hero-704.webp 704w, /assets/home/hero.webp 1056w" imagesizes="522px" fetchpriority="high" media="(min-width: 901px)">
 <meta name="theme-color" content="#0E0E0E">
 <script src="/consent.js" defer></script>
 <script src="/site.js" defer></script>
 </head>
-<body class="redesign-prototype">
+<body class="redesign-prototype theme-light">
 <a class="skip-link" href="#main-content">Skip to content</a>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSQPX93X"
@@ -172,7 +171,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 
 <nav class="nav">
   <div class="nav-inner">
-    <a class="logo" href="/"><img class="logo-img" src="/assets/brand/hmm-mark.svg" alt="Help Me Marketing" width="99" height="32"></a>
+    <a class="logo" href="/"><img class="logo-img" src="/assets/brand/hmm-mark-dark.svg" alt="Help Me Marketing" width="99" height="32"></a>
     <div class="nav-links">
       <a class="nav-link active" href="/">Home</a>
       <a class="nav-link" href="/services">Services</a>
@@ -201,222 +200,147 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </div>
 
-<!-- SECTION 1: HERO -->
+<!-- HOMEPAGE: "Stranger to customer" journey, light theme (2026-10-09). Spec: docs/HMM_Design_System.md. -->
 <main id="main-content">
-<section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <p class="eyebrow">AI-native marketing</p>
-
-        <h1 class="hero-headline">I use AI to find your next <em>100 customers</em> before your competitors do.</h1>
-
-        <p class="hero-subtitle">Paid media, search, websites and measurement for DTC, SaaS, healthcare and finance brands across Canada.</p>
-
-        <div class="hero-ctas">
-          <a href="/contact" class="btn btn-primary">Need Help? Let&rsquo;s Talk &rarr;</a>
-          <a href="#how-we-work" class="btn btn-outline">See how I work</a>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <img src="/assets/home/hero.webp" srcset="/assets/home/hero-704.webp 704w, /assets/home/hero.webp 1056w" sizes="(max-width: 900px) calc(100vw - 40px), 522px"
-             alt="A radar sweep drawn in glowing orange particles revealing a cluster of customers lit in teal"
-             class="hero-image"
-             width="1056"
-             height="591"
-             loading="eager"
-             fetchpriority="high"
-             decoding="async">
-      </div>
+<section class="jr-hero">
+  <div class="jr-wrap">
+    <p class="jr-kicker">Ankit Kumar &middot; independent marketer &middot; Burlington, Ontario</p>
+    <h1 class="hero-headline">I turn strangers into <em>customers</em>.</h1>
+    <p class="jr-sub" id="industries">For <a href="/industries/dtc">DTC</a>, <a href="/industries/saas">SaaS</a>, <a href="/industries/healthcare">healthcare</a> and <a href="/industries/finance">finance</a> brands. Every stage, run by one senior marketer, measured in revenue.</p>
+    <div class="jr-actions">
+      <a class="btn btn-primary" href="#start">Get my free audit &rarr;</a>
+      <a class="btn btn-outline" href="#how">See how it works</a>
+    </div>
+    <div class="jr-track" aria-hidden="true">
+      <div class="jr-rail"><span class="jr-dot"></span></div>
+      <ol class="jr-steps"><li>Stranger</li><li>Visitor</li><li>Lead</li><li>Customer</li></ol>
     </div>
   </div>
 </section>
 
-<!-- SECTION 2: PROOF STRIP (portfolio pattern, 2026-09-11) -->
-<section class="content-section pf-scope" id="results">
-  <div class="container">
-    <div class="pf-head">
-      <div>
-        <p class="eyebrow">Selected results</p>
-        <h2 class="section-heading">What the work has <em>produced</em>.</h2>
-      </div>
-      <p class="section-deck">The full case studies and the measurement behind each number are on the <a href="/work">Case Studies</a> page.</p>
-    </div>
-    <div class="pf-ticker">
-      <div class="pf-ticker-track">
-        <div class="pf-results pf-ticker-set">
-        <div class="pf-result"><span class="pf-metric">+312%</span><span class="pf-label">Revenue</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/shakti-warrior.webp" alt="" width="28" height="28" loading="eager" decoding="async">Shakti Warrior</span><span class="pf-work">DTC &middot; Brand and social rebuild</span></div>
-        <div class="pf-result"><span class="pf-metric">12&times;</span><span class="pf-label">Bookings per month</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/travelup.webp" alt="" width="28" height="28" loading="eager" decoding="async">TravelUp</span><span class="pf-work">Travel &middot; Paid, SEO and CRO</span></div>
-        <div class="pf-result"><span class="pf-metric">+186%</span><span class="pf-label">Lead growth</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/med-aesthetics.webp" alt="" width="28" height="28" loading="eager" decoding="async">Med Aesthetics</span><span class="pf-work">Healthcare &middot; Reviews and local search</span></div>
-        <div class="pf-result"><span class="pf-metric">3.2&times;</span><span class="pf-label">Demo pipeline</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/boomerangfx.webp" alt="" width="28" height="28" loading="eager" decoding="async">BoomerangFX</span><span class="pf-work">SaaS &middot; Analytics and attribution</span></div>
-        <div class="pf-result"><span class="pf-metric">+92%</span><span class="pf-label">Consult requests</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/vanguard.webp" alt="" width="28" height="28" loading="eager" decoding="async">Vanguard</span><span class="pf-work">Healthcare &middot; Brand and content</span></div>
-        <div class="pf-result"><span class="pf-metric">+41%</span><span class="pf-label">Conversion rate</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/luxe-charme.webp" alt="" width="28" height="28" loading="eager" decoding="async">Luxe &amp; Charme</span><span class="pf-work">DTC &middot; Full website rebuild</span></div>
-        <div class="pf-result"><span class="pf-metric">40%</span><span class="pf-label">Lower CPL</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/equiton.webp" alt="" width="28" height="28" loading="eager" decoding="async">Equiton</span><span class="pf-work">Real estate &middot; Tracking, SEO and paid</span></div>
-        <div class="pf-result"><span class="pf-metric">176</span><span class="pf-label">Clinics ranked, live</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/gta-medspa-index.webp" alt="" width="28" height="28" loading="eager" decoding="async">The GTA MedSpa Index</span><span class="pf-work">Original research &middot; <a href="/gta-medspa-index">Read the index</a></span></div>
-        </div>
-        <div class="pf-results pf-ticker-set" aria-hidden="true">
-        <div class="pf-result"><span class="pf-metric">+312%</span><span class="pf-label">Revenue</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/shakti-warrior.webp" alt="" width="28" height="28" loading="eager" decoding="async">Shakti Warrior</span><span class="pf-work">DTC &middot; Brand and social rebuild</span></div>
-        <div class="pf-result"><span class="pf-metric">12&times;</span><span class="pf-label">Bookings per month</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/travelup.webp" alt="" width="28" height="28" loading="eager" decoding="async">TravelUp</span><span class="pf-work">Travel &middot; Paid, SEO and CRO</span></div>
-        <div class="pf-result"><span class="pf-metric">+186%</span><span class="pf-label">Lead growth</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/med-aesthetics.webp" alt="" width="28" height="28" loading="eager" decoding="async">Med Aesthetics</span><span class="pf-work">Healthcare &middot; Reviews and local search</span></div>
-        <div class="pf-result"><span class="pf-metric">3.2&times;</span><span class="pf-label">Demo pipeline</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/boomerangfx.webp" alt="" width="28" height="28" loading="eager" decoding="async">BoomerangFX</span><span class="pf-work">SaaS &middot; Analytics and attribution</span></div>
-        <div class="pf-result"><span class="pf-metric">+92%</span><span class="pf-label">Consult requests</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/vanguard.webp" alt="" width="28" height="28" loading="eager" decoding="async">Vanguard</span><span class="pf-work">Healthcare &middot; Brand and content</span></div>
-        <div class="pf-result"><span class="pf-metric">+41%</span><span class="pf-label">Conversion rate</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/luxe-charme.webp" alt="" width="28" height="28" loading="eager" decoding="async">Luxe &amp; Charme</span><span class="pf-work">DTC &middot; Full website rebuild</span></div>
-        <div class="pf-result"><span class="pf-metric">40%</span><span class="pf-label">Lower CPL</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/equiton.webp" alt="" width="28" height="28" loading="eager" decoding="async">Equiton</span><span class="pf-work">Real estate &middot; Tracking, SEO and paid</span></div>
-        <div class="pf-result"><span class="pf-metric">176</span><span class="pf-label">Clinics ranked, live</span><span class="pf-client"><img class="pf-logo" src="/assets/clients/gta-medspa-index.webp" alt="" width="28" height="28" loading="eager" decoding="async">The GTA MedSpa Index</span><span class="pf-work">Original research &middot; <a href="/gta-medspa-index" tabindex="-1">Read the index</a></span></div>
-        </div>
-      </div>
-    </div>
-    <p class="pf-note">Figures are client-reported or measured in the platforms and CRM named in each engagement.</p>
+<section class="jr-trust" aria-label="Clients">
+  <div class="jr-wrap">
+    <span>Trusted by</span>
+    <b>Vanguard</b><b>Equiton</b><b>BoomerangFX</b><b>TravelUp</b><b>Shakti Warrior</b><b>Luxe &amp; Charme</b>
+    <a href="/work">All case studies &rarr;</a>
   </div>
 </section>
 
-<!-- SECTION 3: THE CONTRAST, completed (2026-09-11) -->
-<section class="content-section pf-scope" id="how-we-work">
-  <div class="container">
-    <p class="eyebrow">How I work</p>
-    <h2 class="section-heading">Your next customer asked ChatGPT <em>before</em> they Googled you.</h2>
+<section class="jr-section" id="how">
+  <div class="jr-wrap">
+    <h2 class="jr-h2">The whole job, <em>start to finish</em>.</h2>
+    <ol class="jr-stages">
 
-    <p class="section-deck">Most agencies are still optimizing for a search engine that's quietly being replaced. I build <a href="/ai-marketing-agency">marketing systems</a> for the world buyers actually live in: AI-assisted research, zero-click answers, recommendations from AI assistants and from peers. The legacy playbook of keyword density and reports that show effort instead of results doesn't survive contact with how people buy in 2026.</p>
+      <li class="jr-stage">
+        <span class="jr-num">01</span>
+        <div>
+          <p class="jr-label">Get found</p>
+          <h3>On Google, in AI answers, and in the feed.</h3>
+          <p class="jr-what">SEO, AEO and paid ads, built around your margin.</p>
+          <a class="jr-more" href="/services/seo">SEO and AEO &rarr;</a><a class="jr-more" href="/services/performance-marketing">Paid ads &rarr;</a>
+        </div>
+        <figure class="jr-art jr-figure">
+          <img src="/assets/home/hero.webp" srcset="/assets/home/hero-704.webp 704w, /assets/home/hero.webp 1056w" sizes="(max-width: 900px) calc(100vw - 96px), 560px" width="1056" height="591" loading="lazy" alt="A radar sweep drawn in glowing orange particles revealing a cluster of customers lit in teal">
+          <figcaption class="jr-tag"><strong>-40%</strong> cost per lead &middot; Equiton</figcaption>
+        </figure>
+      </li>
 
+      <li class="jr-stage">
+        <span class="jr-num">02</span>
+        <div>
+          <p class="jr-label">Get chosen</p>
+          <h3>A brand and creative people stop for.</h3>
+          <p class="jr-what">Positioning, social and video, shot and edited in house. Press play.</p>
+          <a class="jr-more" href="/services/branding-social">Branding and social &rarr;</a>
+        </div>
+        <div class="jr-art jr-video">
+          <button class="pf-media" type="button" data-src="/assets/portfolio/clip-founder.mp4" data-cap="Founder story, Vanguard Pharmacy and Clinic" aria-label="Play the Founder story video">
+            <img src="/assets/portfolio/clip-founder.jpg" alt="Owner-led reel filmed inside the Vanguard pharmacy" width="720" height="900" loading="lazy">
+            <span class="jr-play" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+          <div class="jr-stat">
+            <div class="jr-stat-fig">+92%</div>
+            <p>Consult requests, Vanguard Pharmacy and Clinic</p>
+          </div>
+        </div>
+      </li>
 
-    <div class="pf-refs pf-how">
-      <div class="pf-ref"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4"/><path d="M15 19l2 2l4 -4"/></svg></span><span class="pf-kind">01 &middot; Who does the work</span></span><h3>One person, start to finish</h3><p>You deal with one person. Whoever scopes your work does it, with no strategist selling it and no junior delivering it.</p></div>
-      <div class="pf-ref"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14c0 1.657 2.686 3 6 3s6 -1.343 6 -3s-2.686 -3 -6 -3s-6 1.343 -6 3z"/><path d="M9 14v4c0 1.656 2.686 3 6 3s6 -1.344 6 -3v-4"/><path d="M3 6c0 1.072 1.144 2.062 3 2.598s4.144 .536 6 0s3 -1.526 3 -2.598s-1.144 -2.062 -3 -2.598s-4.144 -.536 -6 0s-3 1.526 -3 2.598z"/><path d="M3 6v10c0 .888 .772 1.45 2 2"/><path d="M3 11c0 .888 .772 1.45 2 2"/></svg></span><span class="pf-kind">02 &middot; What it costs</span></span><h3>Ad spend billed direct, zero markup</h3><p>Your platforms bill you. I bill for the work. A three to six month foundation, then month to month, with no twelve month lock.</p></div>
-      <div class="pf-ref"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l16 0"/><path d="M4 15l4 -6l4 2l4 -5l4 4"/></svg></span><span class="pf-kind">03 &middot; What you see</span></span><h3>Monthly reviews that show revenue</h3><p>GA4, server-side tracking and the CRM tied together, so the review shows profit by channel rather than activity by platform. You own every account, every login and every report.</p></div>
-    </div>
+      <li class="jr-stage">
+        <span class="jr-num">03</span>
+        <div>
+          <p class="jr-label">Get the enquiry</p>
+          <h3>Websites and landing pages that convert.</h3>
+          <p class="jr-what">Fast, clear, measured from day one.</p>
+          <a class="jr-more" href="/services/website-development">Website development &rarr;</a>
+        </div>
+        <div class="jr-art jr-browser">
+          <div class="jr-browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>luxeandcharme.com</span></div>
+          <img src="/assets/home/luxe-site.webp" srcset="/assets/home/luxe-site-704.webp 704w, /assets/home/luxe-site.webp 1056w" sizes="(max-width: 900px) calc(100vw - 96px), 560px" width="1056" height="594" loading="lazy" alt="The Luxe and Charme homepage after the rebuild">
+          <p><strong>+41%</strong> conversion rate after the rebuild</p>
+        </div>
+      </li>
+
+      <li class="jr-stage">
+        <span class="jr-num">04</span>
+        <div>
+          <p class="jr-label">Never miss a lead</p>
+          <h3>AI that follows up in under a minute.</h3>
+          <p class="jr-what">Missed calls, new leads, reviews and reactivation, handled automatically.</p>
+          <a class="jr-more" href="/services/ai-automation">AI automation &rarr;</a>
+        </div>
+        <div class="jr-art jr-chat">
+          <p class="jr-chat-cap">Illustration &middot; a missed call at 7:42 pm</p>
+          <p class="jr-bubble in">Sorry we missed your call. Want to book a consult? Here are tomorrow&rsquo;s times.</p>
+          <p class="jr-bubble out">10:30 works. Thanks!</p>
+          <p class="jr-chat-note">Booked automatically, no one on the phone.</p>
+        </div>
+      </li>
+
+      <li class="jr-stage">
+        <span class="jr-num">05</span>
+        <div>
+          <p class="jr-label">Prove it paid</p>
+          <h3>Reporting in revenue, not clicks.</h3>
+          <p class="jr-what">GA4, server-side tracking and your CRM, tied together.</p>
+          <a class="jr-more" href="/services/analytics-attribution">Analytics and attribution &rarr;</a>
+        </div>
+        <div class="jr-art jr-pair">
+          <div><div class="jr-stat-fig">3.2&times;</div><p>Demo pipeline, BoomerangFX</p></div>
+          <div><div class="jr-stat-fig">+312%</div><p>Revenue, Shakti Warrior</p></div>
+        </div>
+      </li>
+
+    </ol>
   </div>
 </section>
 
-<!-- SECTION 4: SERVICES (portfolio pattern, 2026-09-11) -->
-<section class="content-section pf-scope" id="services">
-  <div class="container">
-    <div class="pf-head">
-      <div>
-        <p class="eyebrow">Services</p>
-        <h2 class="section-heading">Six services. One <em>accountable</em> person.</h2>
-      </div>
-      <p class="section-deck">Most clients start with two and add the rest once the measurement justifies it.</p>
-    </div>
-    <div class="pf-services">
-      <a class="pf-service" href="/services/performance-marketing"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/></svg></span><span class="pf-num">01</span></span><h3>Performance Marketing</h3><p>Google, Meta, LinkedIn, Bing and TikTok, structured around the offer and the margin rather than the platform default.</p><span class="pf-url">See the service &rarr;</span></a>
-      <a class="pf-service" href="/services/seo"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/></svg></span><span class="pf-num">02</span></span><h3>SEO and AEO</h3><p>Technical SEO, content clusters and local search, plus optimisation for the AI engines buyers now ask first.</p><span class="pf-url">See the service &rarr;</span></a>
-      <a class="pf-service" href="/services/branding-social"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25"/><path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/></svg></span><span class="pf-num">03</span></span><h3>Branding and Social</h3><p>Positioning and identity, then a content system that actually ships weekly instead of stalling after month one.</p><span class="pf-url">See the service &rarr;</span></a>
-      <a class="pf-service" href="/services/website-development"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8l-4 4l4 4"/><path d="M17 8l4 4l-4 4"/><path d="M14 4l-4 16"/></svg></span><span class="pf-num">04</span></span><h3>Website Development</h3><p>Fast, accessible builds on a documented design system, tuned for conversion and measured from day one.</p><span class="pf-url">See the service &rarr;</span></a>
-      <a class="pf-service" href="/services/analytics-attribution"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M4 20h14"/></svg></span><span class="pf-num">05</span></span><h3>Analytics and Attribution</h3><p>GA4, server-side tracking and Meta CAPI tied to the CRM, so reporting shows profit rather than platform claims.</p><span class="pf-url">See the service &rarr;</span></a>
-      <a class="pf-service" href="/services/ai-automation"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></svg></span><span class="pf-num">06</span></span><h3>AI Automation</h3><p>Agents built around one bottleneck at a time: lead follow-up, missed calls, reviews, reporting, reactivation.</p><span class="pf-url">See the service &rarr;</span></a>
-    </div>
-    <ul class="pf-platforms">
-      <li>Google Ads</li><li>Meta</li><li>LinkedIn</li><li>Microsoft Ads</li><li>TikTok</li><li>GA4</li><li>Google Tag Manager</li><li>Power BI</li><li>Looker Studio</li><li>CRM integrations</li>
+<section class="jr-why" aria-label="Why work with me">
+  <div class="jr-wrap">
+    <ul>
+      <li><h3>You deal with me.</h3><p>The person who scopes the work does it. No hand-offs.</p></li>
+      <li><h3>0% markup.</h3><p>Your ad platforms bill you. I bill for the work.</p></li>
+      <li><h3>You own everything.</h3><p>Every account, login and report. No twelve month lock.</p></li>
     </ul>
   </div>
 </section>
 
-<!-- SECTION 5: LIVE BUILDS (portfolio pattern, 2026-09-11) -->
-<section class="content-section pf-scope" id="builds">
-  <div class="container">
-    <div class="pf-head">
-      <div>
-        <p class="eyebrow">Websites, tools and research</p>
-        <h2 class="section-heading">Things I <em>built</em>, live right now.</h2>
-      </div>
-      <p class="section-deck">Client pages first, then the free AI tools and research I publish. Every link is live.</p>
-    </div>
-    <div class="pf-builds pf-builds-compact pf-builds-mini">
-      <a class="pf-build" href="https://vanguardclinics.ca/lp-register-now/" target="_blank" rel="noopener"><h3>Patient registration</h3><span class="pf-url">vanguardclinics.ca/lp-register-now &rarr;</span></a>
-      <a class="pf-build" href="https://vanguardclinics.ca/" target="_blank" rel="noopener"><h3>Vanguard Pharmacy &amp; Clinic</h3><span class="pf-url">vanguardclinics.ca &rarr;</span></a>
-      <a class="pf-build" href="https://pl.torontoplasticsurgeon.com/hair-restoration/" target="_blank" rel="noopener"><h3>FUE Hair Restoration</h3><span class="pf-url">pl.torontoplasticsurgeon.com &rarr;</span></a>
-      <a class="pf-build" href="https://www.spamedica.com/positive-aging/morpheus8-toronto" target="_blank" rel="noopener"><h3>Morpheus8 Toronto</h3><span class="pf-url">spamedica.com/morpheus8-toronto &rarr;</span></a>
-      <a class="pf-build" href="https://luxeandcharme.com/" target="_blank" rel="noopener"><h3>Luxe &amp; Charme</h3><span class="pf-url">luxeandcharme.com &rarr;</span></a>
-      <a class="pf-build" href="/"><h3>HelpMeMarketing</h3><span class="pf-url">helpmemarketing.com &rarr;</span></a>
-    </div>
-    <p class="pf-subhead" id="resources">Free AI tools and research</p>
-    <div class="pf-pills">
-      <a class="pf-pill" href="/tools/marketing-audit"><span class="pf-pill-kind">Diagnostic</span>Free AI Audit &rarr;</a>
-      <a class="pf-pill" href="/ad-calculator"><span class="pf-pill-kind">Tool</span>Ad Spend Calculator &rarr;</a>
-      <a class="pf-pill" href="/seo-growth-os"><span class="pf-pill-kind">Framework</span>SEO Growth OS &rarr;</a>
-      <a class="pf-pill" href="/meta-growth-os"><span class="pf-pill-kind">Framework</span>Meta Growth OS &rarr;</a>
-      <a class="pf-pill" href="/ai-tools#indexes"><span class="pf-pill-kind">Research</span>The HMM Indexes, all three &rarr;</a>
-      <a class="pf-pill" href="/ai-tools"><span class="pf-pill-kind">All</span>Every free tool &rarr;</a>
+<section class="jr-start" id="start">
+  <div class="jr-wrap">
+    <div class="jr-start-box">
+      <h2>Where are you losing <em>customers</em>?</h2>
+      <p>Send your website. I reply within 1 to 2 business days with what to fix first.</p>
+      <form class="jr-form" id="jr-form" action="/contact" novalidate>
+        <label for="jr-site">Your website</label>
+        <input id="jr-site" name="website" type="text" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false" placeholder="yourbusiness.com" maxlength="200">
+        <label for="jr-email">Your email</label>
+        <input id="jr-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@business.com" maxlength="160">
+        <button type="submit">Get my free audit &rarr;</button>
+        <p class="jr-form-err" id="jr-form-err" role="alert" hidden></p>
+      </form>
+      <p class="jr-form-note">Next you add your name and what you need. It takes a minute.</p>
     </div>
   </div>
 </section>
-
-<!-- SECTION 6: CREATIVE (portfolio pattern, 2026-09-11) -->
-<section class="content-section pf-scope" id="creative">
-  <div class="container">
-    <div class="pf-head">
-      <div>
-        <p class="eyebrow">Creative</p>
-        <h2 class="section-heading">Video and static, produced <em>in house</em>.</h2>
-      </div>
-      <p class="section-deck">Concept, script, shoot, edit and platform resize. The first two play here, the rest open on Facebook.</p>
-    </div>
-    <div class="pf-media-grid">
-      <button class="pf-media" type="button" data-src="/assets/portfolio/clip-founder.mp4" data-cap="Founder story, Vanguard Pharmacy and Clinic">
-        <span class="pf-frame"><img src="/assets/portfolio/clip-founder.jpg" alt="Owner-led reel filmed inside the Vanguard pharmacy" width="720" height="900" loading="lazy"><span class="pf-ratio">9:16</span><span class="pf-play" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        <span class="pf-media-body"><span class="pf-media-title">Founder story</span><span class="pf-media-sub">Owner-led walkthrough shot in store, captioned for silent autoplay.</span></span>
-      </button>
-      <button class="pf-media" type="button" data-src="/assets/portfolio/clip-transfer.mp4" data-cap="Prescription transfer campaign, Vanguard Pharmacy and Clinic">
-        <span class="pf-frame"><img src="/assets/portfolio/clip-transfer.jpg" alt="Motion ad opening on the line Thinking about switching pharmacies" width="720" height="900" loading="lazy"><span class="pf-ratio">9:16</span><span class="pf-play" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        <span class="pf-media-body"><span class="pf-media-title">Prescription transfer</span><span class="pf-media-sub">Motion ad built on one objection, twelve seconds from hook to offer.</span></span>
-      </button>
-      <a class="pf-media" href="https://www.facebook.com/reel/1325283976227184" target="_blank" rel="noopener">
-        <span class="pf-frame"><img src="/assets/portfolio/reel-vanguard.jpg" alt="Opening reel filmed inside the new Hanover pharmacy" width="720" height="900" loading="lazy"><span class="pf-ratio">9:16</span><span class="pf-play" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></span>
-        <span class="pf-media-body"><span class="pf-media-title">Pharmacy and clinic launch</span><span class="pf-media-sub">Opening announcement running into the registration page above. Watch on Facebook.</span></span>
-      </a>
-      <a class="pf-media" href="https://www.facebook.com/reel/1764853128217263" target="_blank" rel="noopener">
-        <span class="pf-frame"><img src="/assets/portfolio/reel-cafe-open.jpg" alt="Cafe Vanguard exterior sign from the opening reel" width="720" height="900" loading="lazy"><span class="pf-ratio">9:16</span><span class="pf-play" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></span>
-        <span class="pf-media-body"><span class="pf-media-title">Neighbourhood opening film</span><span class="pf-media-sub">Launch reel introducing a new cafe to its town. Watch on Facebook.</span></span>
-      </a>
-      <a class="pf-media" href="https://www.facebook.com/reel/822774930714935" target="_blank" rel="noopener">
-        <span class="pf-frame"><img src="/assets/portfolio/reel-cafe-sip.jpg" alt="Pastry case from the Summer Sip offer reel" width="720" height="900" loading="lazy"><span class="pf-ratio">9:16</span><span class="pf-play" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></span>
-        <span class="pf-media-body"><span class="pf-media-title">Summer Sip offer campaign</span><span class="pf-media-sub">Dated offer reel with a redeemable in-store discount. Watch on Facebook.</span></span>
-      </a>
-      <a class="pf-media" href="https://www.facebook.com/reel/930441626273834" target="_blank" rel="noopener">
-        <span class="pf-frame"><img src="/assets/portfolio/reel-equiton.jpg" alt="Search bar motion graphic from the Equiton explainer" width="720" height="900" loading="lazy"><span class="pf-ratio">9:16</span><span class="pf-play" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></span>
-        <span class="pf-media-body"><span class="pf-media-title">Private real estate explainer</span><span class="pf-media-sub">Category education for an investor audience, built for silent viewing. Watch on Facebook.</span></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 7: INDUSTRIES (2026-09-11) -->
-<section class="content-section pf-scope" id="industries">
-  <div class="container">
-    <div class="pf-head">
-      <div>
-        <p class="eyebrow">Who this is for</p>
-        <h2 class="section-heading">Four industries, each with its own <em>playbook</em>.</h2>
-      </div>
-      <p class="section-deck">The channels are the same. The unit economics, the compliance and the buying cycle are not, so the plan is built per industry.</p>
-    </div>
-    <div class="pf-industries">
-      <a class="pf-industry" href="/industries/dtc"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z"/><path d="M9 11v-5a3 3 0 0 1 6 0v5"/></svg></span><span class="pf-kind">DTC</span></span><h3>Brands that compound, not churn</h3><p>Paid, lifecycle, websites and social tuned for consumer unit economics: rising CAC, flat LTV.</p><span class="pf-url">DTC playbook &rarr;</span></a>
-      <a class="pf-industry" href="/industries/saas"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.487 -3.465 3.487h-11.878"/></svg></span><span class="pf-kind">SaaS</span></span><h3>Pipeline that converts, not just fills</h3><p>Full-funnel acquisition, ABM motion and attribution designed for a long sales cycle.</p><span class="pf-url">SaaS playbook &rarr;</span></a>
-      <a class="pf-industry" href="/industries/healthcare"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 13.572l-7.5 7.428l-2.896 -2.868m-6.117 -8.104a5 5 0 0 1 9.013 -3.022a5 5 0 1 1 7.5 6.572"/><path d="M3 13h2l2 3l2 -6l1 3h3"/></svg></span><span class="pf-kind">Healthcare</span></span><h3>Built around how patients actually search</h3><p>Clinics, pharmacies, dental, derm and medspa: compliant paid media, healthcare SEO, conversion-led sites.</p><span class="pf-url">Healthcare playbook &rarr;</span></a>
-      <a class="pf-industry" href="/industries/finance"><span class="pf-card-top"><span class="pf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l18 0"/><path d="M3 10l18 0"/><path d="M5 6l7 -3l7 3"/><path d="M4 10l0 11"/><path d="M20 10l0 11"/><path d="M8 14l0 3"/><path d="M12 14l0 3"/><path d="M16 14l0 3"/></svg></span><span class="pf-kind">Finance</span></span><h3>Trust-first acquisition for a regulated market</h3><p>Advisors, fintech and professional firms: compliant content, tight attribution, lifecycle programs.</p><span class="pf-url">Finance playbook &rarr;</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 8: FINAL CTA (portfolio pattern, 2026-09-11) -->
-<section class="final-cta-section">
-  <div class="container">
-    <div class="final-cta">
-      <span class="eyebrow">Free, no obligation</span>
-      <h2 class="section-heading">Start with the <em>audit</em>.</h2>
-      <p class="subhead">I will look at your accounts, measurement and site, then tell you what to do first and what to leave alone.</p>
-      <div class="final-cta-actions">
-        <a class="btn btn-primary" href="/contact">Need Help? Let&rsquo;s Talk &rarr;</a>
-        <a class="btn btn-outline" href="/work">See the case studies &rarr;</a>
-      </div>
-      <p class="microcopy">In the Greater Toronto Area? See <a href="/gta-marketing-agency">how a GTA business should choose a marketing agency</a>.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 9: FOOTER -->
 </main>
 
 <footer class="footer">
@@ -425,7 +349,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     <!-- CTA + links -->
     <div class="footer-cta">
       <div class="footer-cta-offer">
-        <img class="footer-logo" src="/assets/brand/hmm-logo-full.svg" alt="Help Me Marketing" width="150" height="69" loading="lazy">
+        <img class="footer-logo" src="/assets/brand/hmm-logo-full-dark.svg" alt="Help Me Marketing" width="150" height="69" loading="lazy">
         <span class="footer-cta-eyebrow">Free · No obligation</span>
         <h2 class="footer-cta-head">Ready to grow the <em>right</em> way?</h2>
         <a href="/contact" class="footer-cta-btn">Need Help? Let&rsquo;s Talk
@@ -496,6 +420,28 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 </div>
 </div>
 
+<!-- Audit form hand-off: website and email go to /contact via sessionStorage (never the URL, so no email reaches analytics). -->
+<script>
+(function () {
+  function init() {
+    var form = document.getElementById('jr-form'), err = document.getElementById('jr-form-err');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var site = form.elements.website.value.trim(), email = form.elements.email.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+        err.textContent = 'Please add an email I can reply to.'; err.hidden = false; form.elements.email.focus(); return;
+      }
+      err.hidden = true;
+      try { sessionStorage.setItem('hmm_prefill', JSON.stringify({ website: site, email: email, help: 'Free audit: what should I fix first?' })); } catch (x) {}
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'home_audit_start', has_website: site ? 'yes' : 'no' });
+      window.location.href = '/contact#contact-form';
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
 <!-- Creative lightbox. No inline handlers (prototype convention). -->
 <script>
 (function () {
