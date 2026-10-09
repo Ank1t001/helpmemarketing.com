@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Theme before first paint: saved choice, else the device setting. Without JavaScript the page stays light. -->
-<script>(function(){var t;try{t=localStorage.getItem('hmm_theme');}catch(e){}if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})();</script>
+<!-- Theme before first paint: the saved choice, else dark (the default). Without JavaScript the page is dark too. -->
+<script>(function(){var t;try{t=localStorage.getItem('hmm_theme');}catch(e){}if(t!=='light'&&t!=='dark'){t='dark';}document.documentElement.setAttribute('data-theme',t);})();</script>
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png">
@@ -160,7 +160,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 
 <!-- Styles -->
 <link rel="stylesheet" href="/styles.css">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#0E0E0E">
 <script src="/consent.js" defer></script>
 <script src="/site.js" defer></script>
 </head>
@@ -203,14 +203,14 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </div>
 
-<!-- HOMEPAGE: "Stranger to customer" journey, light theme (2026-10-09). Spec: docs/HMM_Design_System.md. -->
+<!-- HOMEPAGE: "Stranger to customer" journey (2026-10-09). Built on the shared hero, content-section and final-cta patterns; journey-only parts use jr-*. Spec: docs/HMM_Design_System.md. -->
 <main id="main-content">
-<section class="jr-hero">
-  <div class="jr-wrap">
-    <p class="jr-kicker">Ankit Kumar &middot; independent marketer &middot; Burlington, Ontario</p>
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Ankit Kumar &middot; Burlington, Ontario</p>
     <h1 class="hero-headline">I turn strangers into <em>customers</em>.</h1>
-    <p class="jr-sub" id="industries">For <a href="/industries/dtc">DTC</a>, <a href="/industries/saas">SaaS</a>, <a href="/industries/healthcare">healthcare</a> and <a href="/industries/finance">finance</a> brands. Every stage, run by one senior marketer, measured in revenue.</p>
-    <div class="jr-actions">
+    <p class="hero-subtitle jr-industries" id="industries">For <a href="/industries/dtc">DTC</a>, <a href="/industries/saas">SaaS</a>, <a href="/industries/healthcare">healthcare</a> and <a href="/industries/finance">finance</a> brands. Every stage, run by one senior marketer, measured in revenue.</p>
+    <div class="hero-ctas">
       <a class="btn btn-primary" href="#start">Get my free audit &rarr;</a>
       <a class="btn btn-outline" href="#how">See how it works</a>
     </div>
@@ -221,29 +221,30 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </section>
 
-<section class="jr-trust" aria-label="Clients">
-  <div class="jr-wrap">
+<section class="content-section jr-trust" aria-label="Clients">
+  <div class="container">
     <span>Trusted by</span>
     <b>Vanguard</b><b>Equiton</b><b>BoomerangFX</b><b>TravelUp</b><b>Shakti Warrior</b><b>Luxe &amp; Charme</b>
     <a href="/work">All case studies &rarr;</a>
   </div>
 </section>
 
-<section class="jr-section" id="how">
-  <div class="jr-wrap">
-    <h2 class="jr-h2">The whole job, <em>start to finish</em>.</h2>
+<section class="content-section" id="how">
+  <div class="container">
+    <p class="eyebrow">How it works</p>
+    <h2 class="section-heading">The whole job, <em>start to finish</em>.</h2>
     <ol class="jr-stages">
 
       <li class="jr-stage">
         <span class="jr-num">01</span>
         <div>
-          <p class="jr-label">Get found</p>
-          <h3>On Google, in AI answers, and in the feed.</h3>
+          <p class="eyebrow">Get found</p>
+          <h3 class="subsection">On Google, in AI answers, and in the feed.</h3>
           <p class="jr-what">SEO, AEO and paid ads, built around your margin.</p>
           <a class="jr-more" href="/services/seo">SEO and AEO &rarr;</a><a class="jr-more" href="/services/performance-marketing">Paid ads &rarr;</a>
         </div>
         <figure class="jr-art jr-figure">
-          <img src="/assets/home/hero.webp" srcset="/assets/home/hero-704.webp 704w, /assets/home/hero.webp 1056w" sizes="(max-width: 900px) calc(100vw - 96px), 560px" width="1056" height="591" loading="lazy" alt="A radar sweep drawn in glowing orange particles revealing a cluster of customers lit in teal">
+          <img src="/assets/home/hero.webp" srcset="/assets/home/hero-704.webp 704w, /assets/home/hero.webp 1056w" sizes="(max-width: 900px) calc(100vw - 96px), 600px" width="1056" height="591" loading="lazy" alt="A radar sweep drawn in glowing orange particles revealing a cluster of customers lit in teal">
           <figcaption class="jr-tag"><strong>-40%</strong> cost per lead &middot; Equiton</figcaption>
         </figure>
       </li>
@@ -251,8 +252,8 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       <li class="jr-stage">
         <span class="jr-num">02</span>
         <div>
-          <p class="jr-label">Get chosen</p>
-          <h3>A brand and creative people stop for.</h3>
+          <p class="eyebrow">Get chosen</p>
+          <h3 class="subsection">A brand and creative people stop for.</h3>
           <p class="jr-what">Positioning, social and video, shot and edited in house. Press play.</p>
           <a class="jr-more" href="/services/branding-social">Branding and social &rarr;</a>
         </div>
@@ -271,14 +272,14 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       <li class="jr-stage">
         <span class="jr-num">03</span>
         <div>
-          <p class="jr-label">Get the enquiry</p>
-          <h3>Websites and landing pages that convert.</h3>
+          <p class="eyebrow">Get the enquiry</p>
+          <h3 class="subsection">Websites and landing pages that convert.</h3>
           <p class="jr-what">Fast, clear, measured from day one.</p>
           <a class="jr-more" href="/services/website-development">Website development &rarr;</a>
         </div>
         <div class="jr-art jr-browser">
           <div class="jr-browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>luxeandcharme.com</span></div>
-          <img src="/assets/home/luxe-site.webp" srcset="/assets/home/luxe-site-704.webp 704w, /assets/home/luxe-site.webp 1056w" sizes="(max-width: 900px) calc(100vw - 96px), 560px" width="1056" height="594" loading="lazy" alt="The Luxe and Charme homepage after the rebuild">
+          <img src="/assets/home/luxe-site.webp" srcset="/assets/home/luxe-site-704.webp 704w, /assets/home/luxe-site.webp 1056w" sizes="(max-width: 900px) calc(100vw - 96px), 600px" width="1056" height="594" loading="lazy" alt="The Luxe and Charme homepage after the rebuild">
           <p><strong>+41%</strong> conversion rate after the rebuild</p>
         </div>
       </li>
@@ -286,8 +287,8 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       <li class="jr-stage">
         <span class="jr-num">04</span>
         <div>
-          <p class="jr-label">Never miss a lead</p>
-          <h3>AI that follows up in under a minute.</h3>
+          <p class="eyebrow">Never miss a lead</p>
+          <h3 class="subsection">AI that follows up in under a minute.</h3>
           <p class="jr-what">Missed calls, new leads, reviews and reactivation, handled automatically.</p>
           <a class="jr-more" href="/services/ai-automation">AI automation &rarr;</a>
         </div>
@@ -302,8 +303,8 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       <li class="jr-stage">
         <span class="jr-num">05</span>
         <div>
-          <p class="jr-label">Prove it paid</p>
-          <h3>Reporting in revenue, not clicks.</h3>
+          <p class="eyebrow">Prove it paid</p>
+          <h3 class="subsection">Reporting in revenue, not clicks.</h3>
           <p class="jr-what">GA4, server-side tracking and your CRM, tied together.</p>
           <a class="jr-more" href="/services/analytics-attribution">Analytics and attribution &rarr;</a>
         </div>
@@ -317,30 +318,33 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </section>
 
-<section class="jr-why" aria-label="Why work with me">
-  <div class="jr-wrap">
-    <ul>
-      <li><h3>You deal with me.</h3><p>The person who scopes the work does it. No hand-offs.</p></li>
-      <li><h3>0% markup.</h3><p>Your ad platforms bill you. I bill for the work.</p></li>
-      <li><h3>You own everything.</h3><p>Every account, login and report. No twelve month lock.</p></li>
+<section class="content-section" aria-labelledby="why-h">
+  <div class="container">
+    <p class="eyebrow">Why work with me</p>
+    <h2 class="section-heading" id="why-h">Senior work, <em>no strings</em>.</h2>
+    <ul class="jr-why">
+      <li><h3 class="subsection">You deal with me.</h3><p>The person who scopes the work does it. No hand-offs.</p></li>
+      <li><h3 class="subsection">0% markup.</h3><p>Your ad platforms bill you. I bill for the work.</p></li>
+      <li><h3 class="subsection">You own everything.</h3><p>Every account, login and report. No twelve month lock.</p></li>
     </ul>
   </div>
 </section>
 
-<section class="jr-start" id="start">
-  <div class="jr-wrap">
-    <div class="jr-start-box">
-      <h2>Where are you losing <em>customers</em>?</h2>
-      <p>Send your website. I reply within 1 to 2 business days with what to fix first.</p>
+<section class="final-cta-section" id="start">
+  <div class="container">
+    <div class="final-cta">
+      <span class="eyebrow">Free, no obligation</span>
+      <h2 class="section-heading">Where are you losing <em>customers</em>?</h2>
+      <p class="subhead">Send your website. I reply within 1 to 2 business days with what to fix first.</p>
       <form class="jr-form" id="jr-form" action="/contact" novalidate>
         <label for="jr-site">Your website</label>
         <input id="jr-site" name="website" type="text" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false" placeholder="yourbusiness.com" maxlength="200">
         <label for="jr-email">Your email</label>
         <input id="jr-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@business.com" maxlength="160">
-        <button type="submit">Get my free audit &rarr;</button>
+        <button type="submit" class="btn btn-primary">Get my free audit &rarr;</button>
         <p class="jr-form-err" id="jr-form-err" role="alert" hidden></p>
       </form>
-      <p class="jr-form-note">Next you add your name and what you need. It takes a minute.</p>
+      <p class="subhead final-cta-note">Next you add your name and what you need. It takes a minute.</p>
     </div>
   </div>
 </section>
