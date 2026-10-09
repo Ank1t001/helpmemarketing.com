@@ -1181,6 +1181,8 @@ Homepage client strip (2026-10-09, founder decision). The label is "Brands I've 
 
 Nav squeeze 901 to 1120px (2026-10-09). The sitewide nav (logo, six links, two buttons) needs about 1060px; between 901 and about 1000px the buttons ran off screen on every page, and below about 1060px the links wrapped to two lines. Fix, above the 900 breakpoint only (min-width: 901px, same canon breakpoint): .nav-inner gap 12 to 28px, .nav-links left margin 0 to 12px, link side padding 6 to 14px with white-space nowrap, and .nav-cta button side padding 14 to 28px, each scaling linearly with the viewport from 900 to 1120px and full size from 1120px up (1440 measures as before). 900 and below is untouched. Same day: the /work case-study grid used repeat(3, 1fr), whose min-content let one card push the grid 31 to 154px past the screen between 901 and 1055px; it is now repeat(3, minmax(0, 1fr)) with the card min-width and header wrap rules applied at every width. Verified on all 48 served pages at 901, 960, 1024 and 1440: no overflow, buttons on screen, links on one line.
 
+Homepage section 3 copy (2026-10-09, founder copy). H2 "Getting noticed is only the beginning." with p.section-deck below it. Each stage is now h3.subsection (Get found; Get noticed. Get remembered.; Turn visits into enquiries; Keep every lead moving; Know what's working), one first-person line in .jr-what, and a services line p.jr-services (15px/600, var(--cta-ink, var(--cta))) whose words link to the service pages, ending in an arrow; it replaces the per-stage eyebrow and the .jr-more links. Stage artwork and result figures are unchanged.
+
 ## 16. Open Items
 
 ### Known followups (not blocking current work)

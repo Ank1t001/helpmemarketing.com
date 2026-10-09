@@ -5115,9 +5115,9 @@ body.redesign-prototype .jr-stage .eyebrow { margin-bottom: 16px; }
 body.redesign-prototype .jr-num { position: relative; z-index: 1; width: 48px; height: 48px; border-radius: 50%; background: var(--bg); border: 2px solid var(--cta); display: grid; place-items: center; font-weight: 600; font-size: 15px; color: var(--cta-ink, var(--cta)); }
 body.redesign-prototype .jr-stage:last-child .jr-num { background: var(--cta); color: var(--obsidian, #0E0E0E); }
 body.redesign-prototype .jr-what { margin: 16px 0 0; color: var(--text-muted); }
-body.redesign-prototype .jr-more { display: inline-block; margin-top: 16px; font-size: 15px; font-weight: 600; color: var(--cta-ink, var(--cta)); text-decoration: none; }
-body.redesign-prototype .jr-more + .jr-more { margin-left: 24px; }
-body.redesign-prototype .jr-more:hover { text-decoration: underline; text-underline-offset: 4px; }
+body.redesign-prototype .jr-services { margin: 16px 0 0; font-size: 15px; font-weight: 600; color: var(--cta-ink, var(--cta)); }
+body.redesign-prototype .jr-services a { color: inherit; text-decoration: none; }
+body.redesign-prototype .jr-services a:hover { text-decoration: underline; text-underline-offset: 4px; }
 body.redesign-prototype .jr-figure { position: relative; margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-card, none); }
 body.redesign-prototype .jr-figure img { width: 100%; height: auto; display: block; }
 body.redesign-prototype .jr-tag { position: absolute; left: 16px; bottom: 16px; margin: 0; padding: 8px 16px; border-radius: 8px; background: rgba(255, 255, 255, 0.94); color: var(--obsidian, #0E0E0E); font-size: 14px; }
