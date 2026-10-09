@@ -5091,7 +5091,6 @@ html:not([data-theme="light"]) .theme-toggle .tt-moon, html[data-theme="light"] 
 /* Journey layout. Sections, headings, eyebrows and the closing box are the shared prototype classes (hero, content-section, section-heading, eyebrow, final-cta), so spacing and type match every other page; these rules cover only what is unique to the journey. 8px scale. */
 /* Hero headline line breaks (founder spec 2026-10-09): two lines on desktop, four on phones; one sentence in the markup. */
 body.redesign-prototype .jr-h1 .jr-h1-a, body.redesign-prototype .jr-h1 .jr-h1-b { display: block; }
-body.redesign-prototype .jr-track { margin-top: 48px; max-width: 880px; }
 body.redesign-prototype .jr-rail { position: relative; height: 14px; }
 body.redesign-prototype .jr-rail::before { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 2px; background: linear-gradient(90deg, rgba(255, 92, 26, 0.2), var(--cta)); }
 body.redesign-prototype .jr-dot { position: absolute; top: 0; left: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--mint-bright, #00D4AA); box-shadow: 0 0 0 6px rgba(0, 212, 170, 0.18); animation: jrTravel 6s cubic-bezier(.65, 0, .35, 1) infinite alternate; }
@@ -5109,29 +5108,12 @@ body.redesign-prototype .jr-tour { margin-top: 40px; scroll-margin-top: 96px; }
 body.redesign-prototype .jr-tour-road { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
 body.redesign-prototype .jr-tour-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 0; }
 body.redesign-prototype .jr-tour-svg path { fill: none; stroke-linecap: round; }
-body.redesign-prototype .jr-track-edge { stroke: var(--border-strong, var(--border)); stroke-width: 22; }
-body.redesign-prototype .jr-track { stroke: var(--bg-elevated); stroke-width: 18; }
-body.redesign-prototype .jr-track-lane { stroke: var(--text-tertiary); stroke-width: 2; stroke-dasharray: 6 9; stroke-linecap: butt; opacity: 0.6; }
-body.redesign-prototype .jr-track-fill { stroke: var(--cta); stroke-width: 4; }
-body.redesign-prototype .jr-track-head { display: none; fill: var(--cta); filter: drop-shadow(0 0 6px rgba(255, 92, 26, 0.85)); }
-body.redesign-prototype .jr-tour:not([data-track="paved"]) .jr-track-edge, body.redesign-prototype .jr-tour:not([data-track="paved"]) .jr-track-lane { display: none; }
-body.redesign-prototype .jr-tour[data-track="signal"] .jr-track, body.redesign-prototype .jr-tour[data-track="flow"] .jr-track { stroke: var(--border-strong, var(--border)); stroke-width: 2; }
-body.redesign-prototype .jr-tour[data-track="signal"] .jr-track-fill { stroke-width: 2; }
-body.redesign-prototype .jr-tour[data-track="signal"] .jr-track-head { display: block; }
-body.redesign-prototype .jr-tour[data-track="flow"] .jr-track-fill { stroke-width: 3; stroke-dasharray: 10 8; stroke-linecap: butt; animation: jrFlow 0.9s linear infinite; }
-@keyframes jrFlow { to { stroke-dashoffset: -18; } }
-body.redesign-prototype .jr-tour[data-track="metro"] .jr-track { stroke: var(--border-strong, var(--border)); stroke-width: 8; }
-body.redesign-prototype .jr-tour[data-track="metro"] .jr-track-fill { stroke-width: 8; }
-body.redesign-prototype .jr-tour[data-track="trail"] .jr-track { stroke: var(--border-strong, var(--border)); stroke-width: 6; stroke-dasharray: 0 16; }
-body.redesign-prototype .jr-tour[data-track="trail"] .jr-track-fill { stroke-width: 6; stroke-dasharray: 0 16; }
-body.redesign-prototype .jr-tour[data-track="signal"] .jr-stop, body.redesign-prototype .jr-tour[data-track="metro"] .jr-stop, body.redesign-prototype .jr-tour[data-track="flow"] .jr-stop { gap: 16px; }
-body.redesign-prototype .jr-tour[data-track="signal"] .jr-pin::before, body.redesign-prototype .jr-tour[data-track="metro"] .jr-pin::before, body.redesign-prototype .jr-tour[data-track="flow"] .jr-pin::before { border-radius: 50%; transform: none; }
-body.redesign-prototype .jr-tour[data-track="signal"] .jr-pin, body.redesign-prototype .jr-tour[data-track="flow"] .jr-pin { width: 36px; height: 36px; font-size: 13px; }
-body.redesign-prototype .jr-tour[data-track="metro"] .jr-pin::before { border-width: 4px; }
-body.redesign-prototype .jr-stop { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 32px; padding: 4px 4px 0; border-radius: 12px; text-align: center; text-decoration: none; }
+body.redesign-prototype .jr-track { stroke: var(--border-strong, var(--border)); stroke-width: 8; }
+body.redesign-prototype .jr-track-fill { stroke: var(--cta); stroke-width: 8; }
+body.redesign-prototype .jr-stop { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 4px 4px 0; border-radius: 12px; text-align: center; text-decoration: none; }
 body.redesign-prototype .jr-stop:focus-visible { outline: 2px solid var(--cta); outline-offset: 4px; }
 body.redesign-prototype .jr-pin { position: relative; isolation: isolate; width: 40px; height: 40px; display: grid; place-items: center; font-size: 14px; font-weight: 600; color: var(--text-tertiary); transition: color .3s ease; }
-body.redesign-prototype .jr-pin::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--bg); border: 2px solid var(--border-strong, var(--border)); transition: background .3s ease, border-color .3s ease, box-shadow .3s ease; }
+body.redesign-prototype .jr-pin::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 50%; background: var(--bg); border: 4px solid var(--border-strong, var(--border)); transition: background .3s ease, border-color .3s ease, box-shadow .3s ease; }
 body.redesign-prototype .jr-stop-label { font-size: 14px; font-weight: 600; line-height: 1.3; color: var(--text-tertiary); transition: color .3s ease; }
 body.redesign-prototype .jr-stop:hover .jr-stop-label { color: var(--text); }
 body.redesign-prototype .jr-stop.is-done .jr-pin { color: var(--cta-ink, var(--cta)); }
@@ -5198,9 +5180,7 @@ body.redesign-prototype .jr-me-link:hover .jr-me-arrow { background: var(--cta);
 @media (max-width: 720px) {
   body.redesign-prototype .jr-h1 .jr-h1-b > span { display: block; }
   body.redesign-prototype .jr-stop-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  body.redesign-prototype .jr-track-edge { stroke-width: 16; }
-  body.redesign-prototype .jr-track { stroke-width: 12; }
-  body.redesign-prototype .jr-track-fill { stroke-width: 3; }
+  body.redesign-prototype .jr-track, body.redesign-prototype .jr-track-fill { stroke-width: 6; }
   body.redesign-prototype .jr-tour-bar { margin-top: 16px; }
   body.redesign-prototype .jr-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 8px; }
   body.redesign-prototype .jr-logos { gap: 20px 12px; }
@@ -5218,5 +5198,4 @@ body.redesign-prototype .jr-me-link:hover .jr-me-arrow { background: var(--cta);
 @media (prefers-reduced-motion: reduce) {
   body.redesign-prototype .jr-dot { animation: none; left: calc(100% - 14px); }
   body.redesign-prototype .jr-panels.is-tabs > .jr-panel, body.redesign-prototype .jr-pin, body.redesign-prototype .jr-pin::before, body.redesign-prototype .jr-stop-label { transition: none; }
-  body.redesign-prototype .jr-tour[data-track="flow"] .jr-track-fill { animation: none; }
 }
