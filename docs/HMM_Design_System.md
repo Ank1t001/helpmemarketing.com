@@ -1201,6 +1201,8 @@ Homepage tour track: Metro (2026-10-09, founder pick from five looks: paved, sig
 
 Homepage hero journey feed (2026-10-09, founder pick after two rounds: glide, stations, funnel, comet, bars and marker were all retired with their CSS and the ?rail= switch). Under the hero CTAs, 32px below them, div.jr-journey (aria-hidden, decorative) holds ol.jr-feed: four cards in a 4-column grid with 32px gaps and an arrow between, each a bg-elevated card (radius 12, 1px border) with a 36px Tabler icon box and two lines: "Stranger / Sees your ad" (user), "Visitor / Visits your site" (eye), "Lead / Sends an enquiry" (mail), "Customer / Books with you" (user-check). CSS keyframes on an 8s cycle light the cards in turn at 4, 22, 40 and 58% (full opacity, orange ring, icon box filled orange, 2px lift; Customer in mint) and reset from 92%. At 720 and below the cards sit 2x2 with no arrows. Reduced motion: all four lit, Customer ringed in mint, no animation.
 
+Homepage tour result lines (2026-10-09, founder decision). Step 2's "+92% consult requests in 6 months, Vanguard Pharmacy and Clinic" is removed: its loop is an illustrative demo brand, so a real client figure beside it implied the visuals were Vanguard's work. Result lines remain on step 1 (Equiton) and step 3 (Luxe & Charme); steps 2, 4 and 5 have none. The figure stays on /work.
+
 ## 16. Open Items
 
 ### Known followups (not blocking current work)
