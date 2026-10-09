@@ -24,14 +24,14 @@ w.addEventListener(e,load,{once:true,passive:true});});
 ('requestIdleCallback' in w)?w.requestIdleCallback(load,{timeout:3500}):setTimeout(load,3500);
 })(window,document);</script>
 <!-- End Google Tag Manager -->
-<title>Ankit Kumar, Digital Marketer in Ontario | HelpMeMarketing</title>
+<title>Ankit Kumar, Digital Marketer &amp; AI-Native Marketing in Ontario | HelpMeMarketing</title>
 <meta name="description" content="I help businesses get noticed, get leads and get customers. Branding, content, ads, websites and automation from Ontario, and I show you what's working.">
 <link rel="canonical" href="https://helpmemarketing.com/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HelpMeMarketing">
-<meta property="og:title" content="HelpMeMarketing: Ankit Kumar, Digital Marketer in Ontario">
+<meta property="og:title" content="Ankit Kumar, Digital Marketer &amp; AI-Native Marketing in Ontario">
 <meta property="og:description" content="I help businesses get noticed, get leads and get customers, then show you what's working.">
 <meta property="og:url" content="https://helpmemarketing.com/">
 <meta property="og:image" content="https://helpmemarketing.com/og-image.jpg">
@@ -41,7 +41,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 <meta property="og:locale" content="en_CA">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HelpMeMarketing: Ankit Kumar, Digital Marketer in Ontario">
+<meta name="twitter:title" content="Ankit Kumar, Digital Marketer &amp; AI-Native Marketing in Ontario">
 <meta name="twitter:description" content="I help businesses get noticed, get leads and get customers, then show you what's working.">
 <meta name="twitter:image" content="https://helpmemarketing.com/og-image.jpg">
 
@@ -239,6 +239,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     <h2 class="section-heading">Getting noticed is only the <em>beginning</em>.</h2>
     <p class="section-deck">From finding the right people to turning interest into customers, here&rsquo;s how I bring your marketing together.</p>
     <div class="jr-tour">
+      <div class="jr-tour-stage">
       <div class="jr-tour-road" role="tablist" aria-label="How it works, step by step">
         <a class="jr-stop" role="tab" id="jr-tab-1" href="#jr-step-1" aria-controls="jr-step-1" aria-selected="true"><span class="jr-pin" aria-hidden="true">1</span><span class="jr-stop-label">Get found</span></a>
         <a class="jr-stop" role="tab" id="jr-tab-2" href="#jr-step-2" aria-controls="jr-step-2" aria-selected="false"><span class="jr-pin" aria-hidden="true">2</span><span class="jr-stop-label">Get chosen</span></a>
@@ -246,7 +247,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         <a class="jr-stop" role="tab" id="jr-tab-4" href="#jr-step-4" aria-controls="jr-step-4" aria-selected="false"><span class="jr-pin" aria-hidden="true">4</span><span class="jr-stop-label">Never miss a lead</span></a>
         <a class="jr-stop" role="tab" id="jr-tab-5" href="#jr-step-5" aria-controls="jr-step-5" aria-selected="false"><span class="jr-pin" aria-hidden="true">5</span><span class="jr-stop-label">Prove it paid</span></a>
       </div>
-      <div class="jr-tour-bar"><button class="jr-tour-toggle" type="button" hidden>Pause</button></div>
+      <div class="jr-tour-bar"><p class="jr-tour-hint" hidden></p></div>
       <div class="jr-panels">
         <div class="jr-panel is-active" role="tabpanel" id="jr-step-1" aria-labelledby="jr-tab-1">
           <div class="jr-panel-text">
@@ -310,6 +311,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
             <video class="jr-loop" muted loop playsinline preload="none" width="1920" height="1080" poster="/assets/home/journey/hmm-journey-05-prove-it-paid-desktop-poster.webp" data-src="/assets/home/journey/hmm-journey-05-prove-it-paid-desktop.mp4" data-src-mobile="/assets/home/journey/hmm-journey-05-prove-it-paid-mobile.mp4" data-poster-mobile="/assets/home/journey/hmm-journey-05-prove-it-paid-mobile-poster.webp" aria-label="Illustration: Channel categories connect to an enquiry record, with missing customer and sales tracking clearly identified."></video>
           </figure>
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -440,16 +442,16 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </footer>
 
-<!-- Journey tour: a five-station metro line (ARIA tabs) over one panel at a time. The orange line fills along the track as the tour advances every 8 seconds while it is on screen; it pauses on hover or focus, stops on any click, tap or key, stops after step 5, and has a Pause button. Only the open step's loop loads and plays (phone file and poster at 720px and below). Without JavaScript every step shows in order and the stops are anchor links; under reduced motion there is no auto-advance and loops show their poster. -->
+<!-- Journey tour: a five-station metro line (ARIA tabs) over one step at a time, in one of three modes. Scroll (wider than 900px when the stage fits the screen): the stage sticks under the nav and scrolling walks through the steps, half a screen each, with the orange line filling continuously; stops and Next links scroll to their step. Swipe (900px and below): the steps are cards in a horizontal snap row with the next card peeking; the line follows the swipe and stops scroll the row. Tabs (wide but short screens): stops and Next links switch the panel. Only the open step's loop loads and plays (phone file and poster at 720px and below). Without JavaScript every step shows in order and the stops are anchor links; under reduced motion jumps are instant and loops show their poster. -->
 <script>
 (function () {
   function init() {
     var tour = document.querySelector('.jr-tour');
     if (!tour) return;
-    var road = tour.querySelector('.jr-tour-road'), wrap = tour.querySelector('.jr-panels'), toggle = tour.querySelector('.jr-tour-toggle');
-    var stops = [].slice.call(road.querySelectorAll('.jr-stop'));
+    var stage = tour.querySelector('.jr-tour-stage'), road = tour.querySelector('.jr-tour-road'), wrap = tour.querySelector('.jr-panels'), hint = tour.querySelector('.jr-tour-hint'), nav = document.querySelector('.nav');
+    var stops = [].slice.call(road.querySelectorAll('.jr-stop')), n = stops.length;
     var panels = stops.map(function (a) { return document.getElementById(a.getAttribute('aria-controls')); });
-    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches, phone = window.matchMedia('(max-width: 720px)').matches;
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches, narrow = window.matchMedia('(max-width: 900px)'), phone = window.matchMedia('(max-width: 720px)').matches;
     var vids = panels.map(function (p) {
       var v = p.querySelector('video.jr-loop');
       if (v) {
@@ -458,7 +460,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       }
       return v;
     });
-    tour.classList.add('is-live'); wrap.classList.add('is-tabs');
+    var HINT = { scroll: 'Scroll to go through the five steps, or pick one.', swipe: 'Swipe the cards or tap a step.', tabs: 'Pick a step to see how it works.' };
 
     var NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg');
     svg.setAttribute('class', 'jr-tour-svg'); svg.setAttribute('aria-hidden', 'true');
@@ -468,24 +470,21 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     line.setAttribute('class', 'jr-track'); fill.setAttribute('class', 'jr-track-fill'); fill.setAttribute('clip-path', 'url(#jr-track-clip)');
     svg.appendChild(line); svg.appendChild(fill);
     road.insertBefore(svg, road.firstChild);
-    var lens = [], total = 0, shown = 0;
-    function measure() {
-      var w = road.offsetWidth, xs = stops.map(function (a) { var pin = a.querySelector('.jr-pin'); return a.offsetLeft + pin.offsetLeft + pin.offsetWidth / 2; });
-      var pin0 = stops[0].querySelector('.jr-pin'), y = stops[0].offsetTop + pin0.offsetTop + pin0.offsetHeight / 2;
-      var d = 'M0 ' + y + ' H' + w;
-      lens = xs; total = w;
-      line.setAttribute('d', d); fill.setAttribute('d', d);
-      clipRect.setAttribute('y', String(y - 20)); clipRect.setAttribute('height', '40');
-      draw(target());
-    }
-    function draw(len) { shown = len; if (!total) return; clipRect.setAttribute('x', '-10'); clipRect.setAttribute('width', String(Math.max(0, len + 10))); }
 
-    var current = 0, inView = false, auto = !still, hold = false, elapsed = 0, last = 0, DUR = 8000, tween = null;
-    function target() { var base = lens[current] || 0; return auto && current < lens.length - 1 ? base + (lens[current + 1] - base) * Math.min(1, elapsed / DUR) : base; }
+    var mode = '', current = -1, inView = false, lens = [], total = 0, shown = 0, STEP = 1, top = 0, ticking = false, tween = null;
+    function measureLine() {
+      var w = road.offsetWidth, pin0 = stops[0].querySelector('.jr-pin'), y = stops[0].offsetTop + pin0.offsetTop + pin0.offsetHeight / 2;
+      lens = stops.map(function (a) { var pin = a.querySelector('.jr-pin'); return a.offsetLeft + pin.offsetLeft + pin.offsetWidth / 2; });
+      total = w; line.setAttribute('d', 'M0 ' + y + ' H' + w); fill.setAttribute('d', 'M0 ' + y + ' H' + w);
+      clipRect.setAttribute('x', '-10'); clipRect.setAttribute('y', String(y - 20)); clipRect.setAttribute('height', '40');
+    }
+    function draw(len) { shown = len; clipRect.setAttribute('width', String(Math.max(0, len + 10))); }
+    function at(pos) { var i = Math.max(0, Math.min(n - 1, Math.floor(pos))), f = Math.max(0, Math.min(1, pos - i)); return i < n - 1 ? lens[i] + (lens[i + 1] - lens[i]) * f : lens[n - 1]; }
     function animateTo(len) {
       if (still) { draw(len); return; }
       var from = shown, t0 = performance.now();
-      tween = function (now) { var k = Math.min(1, (now - t0) / 450), e = 1 - Math.pow(1 - k, 3); draw(from + (len - from) * e); if (k >= 1) tween = null; };
+      tween = function (now) { var k = Math.min(1, (now - t0) / 450), e = 1 - Math.pow(1 - k, 3); draw(from + (len - from) * e); if (k < 1) window.requestAnimationFrame(tween); else tween = null; };
+      window.requestAnimationFrame(tween);
     }
     function media() {
       vids.forEach(function (v, i) {
@@ -494,59 +493,69 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         else if (!v.paused) v.pause();
       });
     }
-    function select(i, byUser) {
-      current = Math.max(0, Math.min(stops.length - 1, i)); elapsed = 0;
-      stops.forEach(function (a, k) { var on = k === current; a.setAttribute('aria-selected', on ? 'true' : 'false'); a.tabIndex = on ? 0 : -1; a.classList.toggle('is-done', k < current); });
-      panels.forEach(function (p, k) { p.classList.toggle('is-active', k === current); });
-      if (byUser) stopAuto();
-      animateTo(lens[current] || 0); media();
+    function select(i) {
+      i = Math.max(0, Math.min(n - 1, i));
+      if (i === current) return;
+      current = i;
+      stops.forEach(function (a, k) { var on = k === i; a.setAttribute('aria-selected', on ? 'true' : 'false'); a.tabIndex = on ? 0 : -1; a.classList.toggle('is-done', k < i); });
+      panels.forEach(function (p, k) { p.classList.toggle('is-active', k === i); });
+      media();
     }
-    function stopAuto() { if (!auto) return; auto = false; elapsed = 0; syncToggle(); }
-    function syncToggle() { if (!toggle) return; toggle.textContent = auto ? 'Pause' : 'Play'; toggle.setAttribute('aria-label', auto ? 'Pause the step tour' : 'Play the step tour'); }
+    function go(i) {
+      i = Math.max(0, Math.min(n - 1, i));
+      var how = still ? 'auto' : 'smooth';
+      if (mode === 'scroll') window.scrollTo({ top: top - stickyTop() + i * STEP + 2, behavior: how });
+      else if (mode === 'swipe') wrap.scrollTo({ left: panels[i].offsetLeft - panels[0].offsetLeft, behavior: how });
+      else { select(i); animateTo(lens[i]); }
+    }
+    function stickyTop() { return (nav ? nav.offsetHeight : 0) + 16; }
+    function setMode() {
+      var m = narrow.matches ? 'swipe' : 'scroll';
+      tour.classList.remove('is-scroll', 'is-swipe', 'is-tabs'); tour.style.removeProperty('--jr-run'); tour.style.removeProperty('--jr-top');
+      wrap.classList.toggle('is-tabs', m !== 'swipe');
+      if (m === 'scroll' && stickyTop() + stage.offsetHeight > window.innerHeight) m = 'tabs';
+      mode = m; tour.classList.add('is-' + m);
+      if (hint) { hint.textContent = HINT[m]; hint.hidden = false; }
+      measureLine();
+      if (m === 'scroll') {
+        STEP = Math.round(window.innerHeight * 0.5);
+        tour.style.setProperty('--jr-top', stickyTop() + 'px');
+        tour.style.setProperty('--jr-run', ((n - 1) * STEP + Math.round(STEP * 0.6)) + 'px');
+      }
+      top = tour.getBoundingClientRect().top + window.scrollY;
+      if (m === 'swipe') wrap.scrollLeft = panels[Math.max(0, current)].offsetLeft - panels[0].offsetLeft;
+      sync();
+    }
+    function sync() {
+      ticking = false;
+      if (mode === 'scroll') {
+        var pos = Math.max(0, Math.min(n - 1 + 0.6, (window.scrollY + stickyTop() - top) / STEP));
+        select(Math.min(n - 1, Math.floor(pos))); draw(at(pos));
+      } else if (mode === 'swipe') {
+        var pitch = (panels[1].offsetLeft - panels[0].offsetLeft) || 1, p2 = wrap.scrollLeft / pitch;
+        select(Math.round(p2)); draw(at(p2));
+      } else { if (current < 0) select(0); if (!tween) draw(lens[current]); }
+    }
+    function onScroll() { if (!ticking) { ticking = true; window.requestAnimationFrame(sync); } }
 
     stops.forEach(function (a, i) {
-      a.addEventListener('click', function (e) { e.preventDefault(); select(i, true); });
+      a.addEventListener('click', function (e) { e.preventDefault(); go(i); });
       a.addEventListener('keydown', function (e) {
-        var k = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: stops.length - 1 }[e.key];
+        var k = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: n - 1 }[e.key];
         if (k === undefined) return;
-        e.preventDefault(); k = (k + stops.length) % stops.length; select(k, true); stops[k].focus();
+        e.preventDefault(); k = (k + n) % n; go(k); stops[k].focus({ preventScroll: true });
       });
     });
-    tour.querySelectorAll('.jr-next[data-step]').forEach(function (n) {
-      n.addEventListener('click', function (e) {
-        e.preventDefault(); select(parseInt(n.dataset.step, 10) - 1, true);
-        if (tour.getBoundingClientRect().top < 0) tour.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'start' });
-        stops[current].focus({ preventScroll: true });
-      });
+    tour.querySelectorAll('.jr-next[data-step]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); go(parseInt(a.dataset.step, 10) - 1); });
     });
-    wrap.addEventListener('pointerdown', stopAuto);
-    tour.addEventListener('mouseenter', function () { hold = true; });
-    tour.addEventListener('mouseleave', function () { hold = false; });
-    tour.addEventListener('focusin', function (e) { if (e.target !== toggle) hold = true; });
-    tour.addEventListener('focusout', function (e) { if (!tour.contains(e.relatedTarget)) hold = false; });
-    if (toggle && !still) {
-      toggle.hidden = false; syncToggle();
-      toggle.addEventListener('click', function () {
-        if (auto) { stopAuto(); animateTo(lens[current]); return; }
-        auto = true; hold = false; elapsed = 0; if (current === stops.length - 1) select(0, false); syncToggle();
-      });
-    }
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (en) { inView = en[0].isIntersecting; media(); }, { threshold: 0.35 }).observe(wrap);
-    } else { inView = true; }
-    function tick(now) {
-      var dt = last ? now - last : 0; last = now;
-      if (tween) tween(now);
-      else if (auto && inView && !hold && !document.hidden) {
-        elapsed += dt; draw(target());
-        if (elapsed >= DUR) { if (current < stops.length - 1) select(current + 1, false); else { stopAuto(); } }
-      }
-      window.requestAnimationFrame(tick);
-    }
-    measure(); select(0, false);
-    window.addEventListener('resize', measure); window.addEventListener('load', measure);
-    if ('ResizeObserver' in window) new ResizeObserver(measure).observe(road);
-    window.requestAnimationFrame(tick);
+    window.addEventListener('scroll', function () { if (mode === 'scroll') onScroll(); }, { passive: true });
+    wrap.addEventListener('scroll', function () { if (mode === 'swipe') onScroll(); }, { passive: true });
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { inView = en[0].isIntersecting; media(); }, { threshold: 0.35 }).observe(wrap);
+    else inView = true;
+    var rt = 0; function relayout() { window.clearTimeout(rt); rt = window.setTimeout(setMode, 120); }
+    window.addEventListener('resize', relayout); window.addEventListener('load', setMode);
+    select(0); setMode();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
