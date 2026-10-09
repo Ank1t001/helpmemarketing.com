@@ -3837,14 +3837,14 @@ body.redesign-prototype .proof-strip-label {
 
 /* Case-study grid + cards */
 body.redesign-prototype .case-study-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;
   margin-top: 40px; max-width: 1080px;
 }
+body.redesign-prototype .case-study-card { min-width: 0; }
+body.redesign-prototype .case-study-card-header { flex-wrap: wrap; row-gap: 6px; }
+body.redesign-prototype .case-study-card h3 { min-width: 0; overflow-wrap: anywhere; }
 @media (max-width: 900px) {
   body.redesign-prototype .case-study-grid { grid-template-columns: minmax(0, 1fr); }
-  body.redesign-prototype .case-study-card { min-width: 0; }
-  body.redesign-prototype .case-study-card-header { flex-wrap: wrap; row-gap: 6px; }
-  body.redesign-prototype .case-study-card h3 { min-width: 0; overflow-wrap: anywhere; }
 }
 body.redesign-prototype .case-study-card {
   background: var(--bg-elevated); border: 1px solid var(--border);
@@ -3941,6 +3941,14 @@ body.redesign-prototype .nav-link:hover {
 body.redesign-prototype .nav-link.active {
   color: var(--text);
   background: rgba(255, 255, 255, 0.05);
+}
+
+/* Nav squeeze 901 to 1120px (2026-10-09): six links and two buttons need about 1060px, so above the 900 breakpoint gaps, link padding and button padding shrink fluidly; full size from 1120px up. */
+@media (min-width: 901px) {
+  body.redesign-prototype .nav-inner { gap: clamp(12px, calc((100vw - 900px) * 0.0727 + 12px), 28px); }
+  body.redesign-prototype .nav-links { margin-left: clamp(0px, calc((100vw - 900px) * 0.0545), 12px); }
+  body.redesign-prototype .nav-links .nav-link { white-space: nowrap; padding-left: clamp(6px, calc((100vw - 900px) * 0.0364 + 6px), 14px); padding-right: clamp(6px, calc((100vw - 900px) * 0.0364 + 6px), 14px); }
+  body.redesign-prototype .nav-cta .btn { padding-left: clamp(14px, calc((100vw - 900px) * 0.0636 + 14px), 28px); padding-right: clamp(14px, calc((100vw - 900px) * 0.0636 + 14px), 28px); }
 }
 
 body.redesign-prototype .btn-accent {
@@ -5096,9 +5104,6 @@ body.redesign-prototype .jr-steps li:nth-child(2) { color: var(--text-muted); }
 body.redesign-prototype .jr-steps li:nth-child(3) { color: var(--text); }
 body.redesign-prototype .jr-steps li:nth-child(4) { color: var(--text); font-weight: 600; }
 body.redesign-prototype section.jr-trust { padding: 24px 0; background: var(--bg-elevated); border-bottom: 1px solid var(--border); }
-body.redesign-prototype .jr-trust-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-bottom: 20px; }
-body.redesign-prototype .jr-trust-label { margin: 0; font-size: 15px; font-weight: 500; line-height: 1.4; color: var(--text-tertiary); }
-body.redesign-prototype .jr-trust-head a { font-size: 15px; color: var(--cta-ink, var(--cta)); font-weight: 600; text-decoration: none; }
 body.redesign-prototype .jr-logos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px 12px; }
 body.redesign-prototype .jr-logos li { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--text); }
 body.redesign-prototype .jr-logos img { width: 36px; height: 36px; flex: none; border-radius: 50%; border: 1px solid var(--border); }
