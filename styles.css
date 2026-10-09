@@ -5079,8 +5079,6 @@ body.redesign-prototype .theme-toggle:focus-visible { outline: 2px solid var(--c
 html:not([data-theme="light"]) .theme-toggle .tt-moon, html[data-theme="light"] .theme-toggle .tt-sun { display: none; }
 
 /* Journey layout. Sections, headings, eyebrows and the closing box are the shared prototype classes (hero, content-section, section-heading, eyebrow, final-cta), so spacing and type match every other page; these rules cover only what is unique to the journey. 8px scale. */
-body.redesign-prototype .jr-industries a { color: var(--text); text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 4px; }
-body.redesign-prototype .jr-industries a:hover { text-decoration-color: var(--cta); }
 body.redesign-prototype .jr-track { margin-top: 48px; max-width: 880px; }
 body.redesign-prototype .jr-rail { position: relative; height: 14px; }
 body.redesign-prototype .jr-rail::before { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 2px; background: linear-gradient(90deg, rgba(255, 92, 26, 0.2), var(--cta)); }
