@@ -5073,12 +5073,18 @@ html:not([data-theme="light"]) body.redesign-prototype .jr-tag { background: rgb
 /* Logo pair: the homepage carries both marks and shows the one that reads on its background. */
 html:not([data-theme="light"]) img.logo-for-light, html[data-theme="light"] img.logo-for-dark { display: none; }
 /* Theme switch button (nav). */
-body.redesign-prototype .theme-toggle { display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0; border-radius: 8px; border: 1px solid var(--border-strong, rgba(255, 255, 255, 0.25)); background: transparent; color: var(--text); cursor: pointer; }
-body.redesign-prototype .theme-toggle:hover { background: var(--bg-elevated); }
-body.redesign-prototype .theme-toggle:focus-visible { outline: 2px solid var(--cta); outline-offset: 2px; }
+/* Theme switch: a text button in the footer baseline and in the phone menu (the nav has no room for a fourth control at tablet widths). */
+body.redesign-prototype .theme-toggle.tt-text { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--text-tertiary); font: inherit; font-size: 12.5px; cursor: pointer; white-space: nowrap; }
+body.redesign-prototype .theme-toggle.tt-text:hover { color: var(--cta); }
+body.redesign-prototype .theme-toggle.tt-text:focus-visible { outline: 2px solid var(--cta); outline-offset: 2px; border-radius: 4px; }
+body.redesign-prototype .theme-toggle.tt-text svg { width: 14px; height: 14px; }
+body.redesign-prototype .nav-mobile-menu .theme-toggle.tt-text { margin-top: 8px; font-size: 15px; color: var(--text-muted); }
+body.redesign-prototype .nav-mobile-menu .theme-toggle.tt-text svg { width: 18px; height: 18px; }
 html:not([data-theme="light"]) .theme-toggle .tt-moon, html[data-theme="light"] .theme-toggle .tt-sun { display: none; }
 
 /* Journey layout. Sections, headings, eyebrows and the closing box are the shared prototype classes (hero, content-section, section-heading, eyebrow, final-cta), so spacing and type match every other page; these rules cover only what is unique to the journey. 8px scale. */
+/* Hero headline line breaks (founder spec 2026-10-09): two lines on desktop, four on phones; one sentence in the markup. */
+body.redesign-prototype .jr-h1 .jr-h1-a, body.redesign-prototype .jr-h1 .jr-h1-b { display: block; }
 body.redesign-prototype .jr-track { margin-top: 48px; max-width: 880px; }
 body.redesign-prototype .jr-rail { position: relative; height: 14px; }
 body.redesign-prototype .jr-rail::before { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 2px; background: linear-gradient(90deg, rgba(255, 92, 26, 0.2), var(--cta)); }
@@ -5147,6 +5153,7 @@ body.redesign-prototype .jr-form-err { flex-basis: 100%; margin: 0; font-size: 1
   body.redesign-prototype .jr-why { grid-template-columns: minmax(0, 1fr); gap: 32px; }
 }
 @media (max-width: 720px) {
+  body.redesign-prototype .jr-h1 .jr-h1-b > span { display: block; }
   body.redesign-prototype .jr-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 8px; }
   body.redesign-prototype .jr-trust a { margin-left: 0; }
   body.redesign-prototype .jr-video { flex-direction: column; align-items: stretch; }

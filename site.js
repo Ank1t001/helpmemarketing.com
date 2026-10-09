@@ -35,23 +35,29 @@
     });
   }
 
-  // Light/dark switch, on pages that carry a [data-theme-toggle] button (the homepage since 2026-10-09).
+  // Light/dark switch, on pages that carry [data-theme-toggle] buttons (homepage footer and phone menu since 2026-10-09).
   // The inline head script has already set html[data-theme]: the saved choice, else dark (the default).
   function initTheme() {
-    var btn = document.querySelector('[data-theme-toggle]');
-    if (!btn) return;
+    var btns = document.querySelectorAll('[data-theme-toggle]');
+    if (!btns.length) return;
     var root = document.documentElement, meta = document.querySelector('meta[name="theme-color"]');
     function apply(t) {
       root.setAttribute('data-theme', t);
-      btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-      btn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+      btns.forEach(function (b) {
+        b.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        b.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+        var lbl = b.querySelector('[data-theme-label]');
+        if (lbl) lbl.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
+      });
       if (meta) meta.setAttribute('content', t === 'dark' ? '#0E0E0E' : '#FFFFFF');
     }
     apply(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
-    btn.addEventListener('click', function () {
-      var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      try { localStorage.setItem('hmm_theme', next); } catch (e) {}
-      apply(next);
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        try { localStorage.setItem('hmm_theme', next); } catch (e) {}
+        apply(next);
+      });
     });
   }
 
