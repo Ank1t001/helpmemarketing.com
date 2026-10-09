@@ -440,40 +440,42 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </footer>
 
-<!-- Journey path: an orthogonal line through the step numbers (right, down, left, down on desktop; straight down at 900px and below), drawn as the visitor scrolls. Steps ahead of the line are dimmed and the current number is filled. Without JavaScript nothing is dimmed; under reduced motion the line is drawn in full. -->
+<!-- Journey road: a winding road down the page through each step's map pin (pins alternate either side of the centre on desktop; the road runs down the left edge at 900px and below). An orange line drives along it as the visitor scrolls; steps ahead are dimmed and the current pin fills. Without JavaScript there is no road and nothing is dimmed; under reduced motion the line is drawn in full. -->
 <script>
 (function () {
   function init() {
     var flow = document.querySelector('.jr-flow'), list = flow && flow.querySelector('.jr-stages');
     if (!flow || !list) return;
-    var stages = [].slice.call(list.querySelectorAll('.jr-stage')), nums = stages.map(function (s) { return s.querySelector('.jr-num'); });
+    var stages = [].slice.call(list.querySelectorAll('.jr-stage')), pins = stages.map(function (s) { return s.querySelector('.jr-num'); });
     var NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg');
     svg.setAttribute('class', 'jr-path'); svg.setAttribute('aria-hidden', 'true');
-    var track = document.createElementNS(NS, 'path'), fill = document.createElementNS(NS, 'path');
-    track.setAttribute('class', 'jr-path-track'); fill.setAttribute('class', 'jr-path-fill');
-    svg.appendChild(track); svg.appendChild(fill); flow.insertBefore(svg, list);
+    var layers = ['jr-road-edge', 'jr-road', 'jr-road-lane', 'jr-path-fill'].map(function (cls) { var el = document.createElementNS(NS, 'path'); el.setAttribute('class', cls); svg.appendChild(el); return el; });
+    var fill = layers[3], probe = document.createElementNS(NS, 'path');
+    flow.insertBefore(svg, list);
     var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var pts = [], lens = [], keys = [], total = 0, ticking = false;
+    var lens = [], keys = [], total = 0, ticking = false;
+    function tip(n) {
+      var x = n.offsetWidth / 2, y = n.offsetHeight / 2, el = n;
+      while (el && el !== flow) { x += el.offsetLeft; y += el.offsetTop; el = el.offsetParent; }
+      return { x: x, y: y + n.offsetHeight * 0.7 };
+    }
     function measure() {
-      var top = flow.getBoundingClientRect().top + window.scrollY;
-      pts = nums.map(function (n) {
-        var x = n.offsetWidth / 2, y = n.offsetHeight / 2, el = n;
-        while (el && el !== flow) { x += el.offsetLeft; y += el.offsetTop; el = el.offsetParent; }
-        return { x: x, y: y, py: top + y };
-      });
-      var d = 'M' + pts[0].x + ' ' + pts[0].y; lens = [0]; total = 0;
-      for (var i = 1; i < pts.length; i++) {
-        var a = pts[i - 1], b = pts[i], dx = b.x - a.x, dy = b.y - a.y;
-        if (Math.abs(dx) > 1 && Math.abs(dy) > 1) { d += ' V' + b.y + ' H' + b.x; } else if (Math.abs(dy) <= 1) { d += ' H' + b.x; } else { d += ' V' + b.y; }
-        total += Math.abs(dx) + Math.abs(dy); lens.push(total);
+      var top = flow.getBoundingClientRect().top + window.scrollY, h = flow.offsetHeight;
+      var pts = pins.map(tip), start = { x: pts[0].x, y: 0 }, end = { x: pts[pts.length - 1].x, y: h };
+      var all = [start].concat(pts, [end]), d = 'M' + start.x + ' ' + start.y;
+      svg.appendChild(probe); lens = [];
+      for (var i = 1; i < all.length; i++) {
+        var a = all[i - 1], b = all[i], m = (b.y - a.y) / 2;
+        d += ' C' + a.x + ' ' + (a.y + m) + ' ' + b.x + ' ' + (b.y - m) + ' ' + b.x + ' ' + b.y;
+        probe.setAttribute('d', d); lens.push(probe.getTotalLength());
       }
-      track.setAttribute('d', d); fill.setAttribute('d', d);
+      svg.removeChild(probe);
+      total = lens[lens.length - 1];
+      layers.forEach(function (el) { el.setAttribute('d', d); });
       fill.style.strokeDasharray = total + ' ' + total;
-      keys = [{ s: pts[0].py, l: 0 }];
-      for (var k = 1; k < pts.length; k++) {
-        var prev = keys[keys.length - 1].s, flat = Math.abs(pts[k].py - pts[k - 1].py) <= 1;
-        keys.push({ s: Math.max(prev + 1, flat ? prev + 220 : pts[k].py), l: lens[k] });
-      }
+      keys = [{ s: top, l: 0 }];
+      pts.forEach(function (p, k) { keys.push({ s: Math.max(keys[keys.length - 1].s + 1, top + p.y), l: lens[k] }); });
+      keys.push({ s: Math.max(keys[keys.length - 1].s + 1, top + h), l: total });
       update();
     }
     function update() {
@@ -487,7 +489,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       }
       fill.style.strokeDashoffset = String(total - drawn);
       var active = -1;
-      stages.forEach(function (st, i) { var on = drawn >= lens[i] - 1 && (i > 0 || drawn > 0 || still); st.classList.toggle('is-reached', on); if (on) active = i; });
+      stages.forEach(function (st, i) { var on = drawn >= lens[i] - 1; st.classList.toggle('is-reached', on); if (on) active = i; });
       stages.forEach(function (st, i) { st.classList.toggle('is-active', i === active); });
     }
     function onScroll() { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } }
