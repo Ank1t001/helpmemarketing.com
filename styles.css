@@ -5096,10 +5096,59 @@ body.redesign-prototype .jr-rail::before { content: ""; position: absolute; left
 body.redesign-prototype .jr-dot { position: absolute; top: 0; left: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--mint-bright, #00D4AA); box-shadow: 0 0 0 6px rgba(0, 212, 170, 0.18); animation: jrTravel 6s cubic-bezier(.65, 0, .35, 1) infinite alternate; }
 @keyframes jrTravel { to { left: calc(100% - 14px); } }
 body.redesign-prototype .jr-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 16px 0 0; padding: 0; list-style: none; font-size: 15px; }
-body.redesign-prototype .jr-steps li:nth-child(1) { color: var(--text-tertiary); }
-body.redesign-prototype .jr-steps li:nth-child(2) { color: var(--text-muted); }
-body.redesign-prototype .jr-steps li:nth-child(3) { color: var(--text); }
-body.redesign-prototype .jr-steps li:nth-child(4) { color: var(--text); font-weight: 600; }
+body.redesign-prototype .jr-steps li { color: var(--text-tertiary); }
+body.redesign-prototype .jr-steps li:nth-child(4) { font-weight: 600; }
+body.redesign-prototype .jr-journey[data-rail="glide"] .jr-steps li:nth-child(2) { color: var(--text-muted); }
+body.redesign-prototype .jr-journey[data-rail="glide"] .jr-steps li:nth-child(n+3) { color: var(--text); }
+body.redesign-prototype .jr-rail-fill, body.redesign-prototype .jr-stn, body.redesign-prototype .jr-flock, body.redesign-prototype .jr-comet { display: none; }
+body.redesign-prototype .jr-journey:not([data-rail="glide"]) .jr-dot { animation: none; opacity: 0; }
+body.redesign-prototype .jr-journey:not([data-rail="glide"]) .jr-rail::before { background: var(--border-strong, var(--border)); }
+/* Stations: the dot hops stop to stop, the line fills behind it, each word lights on arrival, a pulse at Customer. 8s cycle. */
+body.redesign-prototype .jr-journey[data-rail="stations"] .jr-stn { display: block; position: absolute; top: 3px; width: 8px; height: 8px; margin-left: 3px; border-radius: 50%; background: var(--bg); border: 2px solid var(--border-strong, var(--border)); }
+body.redesign-prototype .jr-journey[data-rail="stations"] .jr-stn:nth-of-type(1) { left: 0; }
+body.redesign-prototype .jr-journey[data-rail="stations"] .jr-stn:nth-of-type(2) { left: 25%; }
+body.redesign-prototype .jr-journey[data-rail="stations"] .jr-stn:nth-of-type(3) { left: 50%; }
+body.redesign-prototype .jr-journey[data-rail="stations"] .jr-stn:nth-of-type(4) { left: 75%; }
+body.redesign-prototype .jr-journey[data-rail="stations"] .jr-rail-fill { display: block; position: absolute; left: 0; top: 6px; height: 2px; width: 0; background: var(--cta); animation: jrStnFill 8s ease-in-out infinite; }
+body.redesign-prototype .jr-journey[data-rail="stations"] .jr-dot { opacity: 1; animation: jrStnHop 8s ease-in-out infinite; }
+@keyframes jrStnHop { 0% { left: 0; opacity: 0; box-shadow: 0 0 0 6px rgba(0, 212, 170, 0.18); } 4%, 10% { left: 0; opacity: 1; } 22%, 35% { left: 25%; } 47%, 60% { left: 50%; } 72% { left: 75%; box-shadow: 0 0 0 6px rgba(0, 212, 170, 0.18); } 80% { box-shadow: 0 0 0 14px rgba(0, 212, 170, 0); } 81% { box-shadow: 0 0 0 6px rgba(0, 212, 170, 0.18); } 88% { left: 75%; opacity: 1; box-shadow: 0 0 0 14px rgba(0, 212, 170, 0); } 96%, 100% { left: 75%; opacity: 0; } }
+@keyframes jrStnFill { 0%, 10% { width: 0; opacity: 1; } 22%, 35% { width: 25%; } 47%, 60% { width: 50%; } 72%, 88% { width: calc(75% + 7px); opacity: 1; } 96%, 100% { width: calc(75% + 7px); opacity: 0; } }
+body.redesign-prototype .jr-journey[data-rail="stations"] .jr-steps li { animation: jrLit 8s ease infinite; }
+body.redesign-prototype .jr-journey[data-rail="stations"] .jr-steps li:nth-child(1) { animation-delay: -7.68s; }
+body.redesign-prototype .jr-journey[data-rail="stations"] .jr-steps li:nth-child(2) { animation-delay: -6.24s; }
+body.redesign-prototype .jr-journey[data-rail="stations"] .jr-steps li:nth-child(3) { animation-delay: -4.24s; }
+body.redesign-prototype .jr-journey[data-rail="stations"] .jr-steps li:nth-child(4) { animation-delay: -2.24s; }
+@keyframes jrLit { 0%, 20% { color: var(--text); } 26%, 96% { color: var(--text-tertiary); } 100% { color: var(--text); } }
+/* Funnel: six visitors set off, two drop before Visitor, two before Lead, one before Customer; one arrives, turns mint and pulses. 8s cycle. */
+body.redesign-prototype .jr-journey[data-rail="funnel"] .jr-flock { display: block; position: absolute; inset: 0; }
+body.redesign-prototype .jr-journey[data-rail="funnel"] .jr-flock i { position: absolute; top: 3px; left: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--text-tertiary); opacity: 0; animation: 8s linear infinite; }
+body.redesign-prototype .jr-journey[data-rail="funnel"] .jr-flock i:nth-child(1) { animation-name: jrF1; }
+body.redesign-prototype .jr-journey[data-rail="funnel"] .jr-flock i:nth-child(2) { animation-name: jrF2; }
+body.redesign-prototype .jr-journey[data-rail="funnel"] .jr-flock i:nth-child(3) { animation-name: jrF3; }
+body.redesign-prototype .jr-journey[data-rail="funnel"] .jr-flock i:nth-child(4) { animation-name: jrF4; }
+body.redesign-prototype .jr-journey[data-rail="funnel"] .jr-flock i:nth-child(5) { animation-name: jrF5; }
+body.redesign-prototype .jr-journey[data-rail="funnel"] .jr-flock i:nth-child(6) { animation-name: jrF6; }
+@keyframes jrF1 { 0% { left: 0; opacity: 0; } 2% { left: 0; opacity: 1; } 56% { left: 75%; opacity: 1; background: var(--text-tertiary); transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.35); } 60% { left: 75%; background: var(--mint-bright, #00D4AA); transform: scale(1.75); box-shadow: 0 0 0 4px rgba(0, 212, 170, 0.25); } 76% { box-shadow: 0 0 0 10px rgba(0, 212, 170, 0); } 88% { left: 75%; opacity: 1; background: var(--mint-bright, #00D4AA); transform: scale(1.75); } 96%, 100% { left: 75%; opacity: 0; background: var(--mint-bright, #00D4AA); transform: scale(1.75); } }
+@keyframes jrF2 { 0%, 3% { left: 0; opacity: 0; } 5% { left: 0; opacity: 1; } 19.5% { left: 22%; opacity: 1; } 23%, 100% { left: 23%; opacity: 0; } }
+@keyframes jrF3 { 0%, 6% { left: 0; opacity: 0; } 8% { left: 0; opacity: 1; } 21% { left: 20%; opacity: 1; } 24%, 100% { left: 21%; opacity: 0; } }
+@keyframes jrF4 { 0%, 9% { left: 0; opacity: 0; } 11% { left: 0; opacity: 1; } 43.5% { left: 46%; opacity: 1; } 47%, 100% { left: 47%; opacity: 0; } }
+@keyframes jrF5 { 0%, 12% { left: 0; opacity: 0; } 14% { left: 0; opacity: 1; } 45% { left: 44%; opacity: 1; } 48%, 100% { left: 45%; opacity: 0; } }
+@keyframes jrF6 { 0%, 15% { left: 0; opacity: 0; } 17% { left: 0; opacity: 1; } 66% { left: 68%; opacity: 1; } 69%, 100% { left: 69%; opacity: 0; } }
+body.redesign-prototype .jr-journey[data-rail="funnel"] .jr-steps li { animation: jrLit 8s ease infinite; }
+body.redesign-prototype .jr-journey[data-rail="funnel"] .jr-steps li:nth-child(1) { animation-delay: -8s; }
+body.redesign-prototype .jr-journey[data-rail="funnel"] .jr-steps li:nth-child(2) { animation-delay: -6.5s; }
+body.redesign-prototype .jr-journey[data-rail="funnel"] .jr-steps li:nth-child(3) { animation-delay: -5s; }
+body.redesign-prototype .jr-journey[data-rail="funnel"] .jr-steps li:nth-child(4) { animation-delay: -3.5s; }
+/* Comet: a streak of light runs the line and each word glows as it passes. 6s cycle. */
+body.redesign-prototype .jr-journey[data-rail="comet"] .jr-rail { overflow: hidden; }
+body.redesign-prototype .jr-journey[data-rail="comet"] .jr-comet { display: block; position: absolute; top: 5px; left: -25%; width: 25%; height: 4px; border-radius: 4px; background: linear-gradient(90deg, rgba(255, 92, 26, 0), var(--cta) 70%, var(--mint-bright, #00D4AA)); box-shadow: 0 0 12px rgba(255, 92, 26, 0.5); animation: jrComet 6s cubic-bezier(.45, 0, .55, 1) infinite; }
+@keyframes jrComet { 0% { left: -25%; } 50%, 100% { left: 100%; } }
+body.redesign-prototype .jr-journey[data-rail="comet"] .jr-steps li { animation: jrLitShort 6s ease infinite; }
+body.redesign-prototype .jr-journey[data-rail="comet"] .jr-steps li:nth-child(1) { animation-delay: -5.7s; }
+body.redesign-prototype .jr-journey[data-rail="comet"] .jr-steps li:nth-child(2) { animation-delay: -5.1s; }
+body.redesign-prototype .jr-journey[data-rail="comet"] .jr-steps li:nth-child(3) { animation-delay: -4.5s; }
+body.redesign-prototype .jr-journey[data-rail="comet"] .jr-steps li:nth-child(4) { animation-delay: -3.9s; }
+@keyframes jrLitShort { 0%, 18% { color: var(--text); } 34%, 96% { color: var(--text-tertiary); } 100% { color: var(--text); } }
 body.redesign-prototype section.jr-trust { padding: 24px 0; background: var(--bg-elevated); border-bottom: 1px solid var(--border); }
 body.redesign-prototype .jr-logos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px 12px; }
 body.redesign-prototype .jr-logos li { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--text); }
@@ -5182,7 +5231,7 @@ body.redesign-prototype .jr-me-link:hover .jr-me-arrow { background: var(--cta);
   body.redesign-prototype .jr-stop-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   body.redesign-prototype .jr-track, body.redesign-prototype .jr-track-fill { stroke-width: 6; }
   body.redesign-prototype .jr-tour-bar { margin-top: 16px; }
-  body.redesign-prototype .jr-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 8px; }
+  body.redesign-prototype .jr-steps { font-size: 13px; }
   body.redesign-prototype .jr-logos { gap: 20px 12px; }
   body.redesign-prototype .jr-logos li { flex-direction: column; gap: 8px; text-align: center; font-size: 13px; }
   body.redesign-prototype .jr-loop { aspect-ratio: 4 / 5; }
@@ -5197,5 +5246,9 @@ body.redesign-prototype .jr-me-link:hover .jr-me-arrow { background: var(--cta);
 }
 @media (prefers-reduced-motion: reduce) {
   body.redesign-prototype .jr-dot { animation: none; left: calc(100% - 14px); }
+  body.redesign-prototype .jr-journey:not([data-rail="glide"]) .jr-dot { opacity: 1; left: 75%; }
+  body.redesign-prototype .jr-rail-fill, body.redesign-prototype .jr-flock i, body.redesign-prototype .jr-comet, body.redesign-prototype .jr-steps li { animation: none; }
+  body.redesign-prototype .jr-journey[data-rail="stations"] .jr-rail-fill { width: calc(75% + 7px); }
+  body.redesign-prototype .jr-journey:not([data-rail="glide"]) .jr-steps li:nth-child(4) { color: var(--text); }
   body.redesign-prototype .jr-panels.is-tabs > .jr-panel, body.redesign-prototype .jr-pin, body.redesign-prototype .jr-pin::before, body.redesign-prototype .jr-stop-label { transition: none; }
 }
