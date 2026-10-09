@@ -239,7 +239,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     <p class="eyebrow">How it works</p>
     <h2 class="section-heading">Getting noticed is only the <em>beginning</em>.</h2>
     <p class="section-deck">From finding the right people to turning interest into customers, here&rsquo;s how I bring your marketing together.</p>
-    <div class="jr-tour">
+    <div class="jr-tour" data-track="paved">
       <div class="jr-tour-road" role="tablist" aria-label="How it works, step by step">
         <a class="jr-stop" role="tab" id="jr-tab-1" href="#jr-step-1" aria-controls="jr-step-1" aria-selected="true"><span class="jr-pin" aria-hidden="true">1</span><span class="jr-stop-label">Get found</span></a>
         <a class="jr-stop" role="tab" id="jr-tab-2" href="#jr-step-2" aria-controls="jr-step-2" aria-selected="false"><span class="jr-pin" aria-hidden="true">2</span><span class="jr-stop-label">Get chosen</span></a>
@@ -462,27 +462,38 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     });
     tour.classList.add('is-live'); wrap.classList.add('is-tabs');
 
+    var TRACKS = ['paved', 'signal', 'metro', 'trail', 'flow'], pick = (window.location.search.match(/[?&]track=([a-z]+)/) || [])[1];
+    if (pick && TRACKS.indexOf(pick) > -1) tour.setAttribute('data-track', pick);
+    var track = tour.getAttribute('data-track'), centred = track === 'signal' || track === 'metro' || track === 'flow', wave = track === 'metro' ? 0 : 9;
     var NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg');
     svg.setAttribute('class', 'jr-tour-svg'); svg.setAttribute('aria-hidden', 'true');
+    var clip = document.createElementNS(NS, 'clipPath'), clipRect = document.createElementNS(NS, 'rect'), defs = document.createElementNS(NS, 'defs');
+    clip.setAttribute('id', 'jr-track-clip'); clip.appendChild(clipRect); defs.appendChild(clip); svg.appendChild(defs);
     var layers = ['jr-track-edge', 'jr-track', 'jr-track-lane', 'jr-track-fill'].map(function (c) { var el = document.createElementNS(NS, 'path'); el.setAttribute('class', c); svg.appendChild(el); return el; });
-    var fill = layers[3], probe = document.createElementNS(NS, 'path');
+    var fill = layers[3], head = document.createElementNS(NS, 'circle'), probe = document.createElementNS(NS, 'path');
+    fill.setAttribute('clip-path', 'url(#jr-track-clip)'); head.setAttribute('class', 'jr-track-head'); head.setAttribute('r', '6'); svg.appendChild(head);
     road.insertBefore(svg, road.firstChild);
     var lens = [], total = 0, shown = 0;
     function measure() {
-      var w = road.offsetWidth, pts = stops.map(function (a) { var pin = a.querySelector('.jr-pin'); return { x: a.offsetLeft + pin.offsetLeft + pin.offsetWidth / 2, y: a.offsetTop + pin.offsetTop + pin.offsetHeight * 1.2 }; });
+      var w = road.offsetWidth, pts = stops.map(function (a) { var pin = a.querySelector('.jr-pin'); return { x: a.offsetLeft + pin.offsetLeft + pin.offsetWidth / 2, y: a.offsetTop + pin.offsetTop + pin.offsetHeight * (centred ? 0.5 : 1.2) }; });
       var y = pts[0].y, all = [{ x: 0, y: y }].concat(pts, [{ x: w, y: y }]), d = 'M0 ' + y;
       svg.appendChild(probe); lens = [];
       for (var i = 1; i < all.length; i++) {
-        var a = all[i - 1], b = all[i], h = (b.x - a.x) / 2, dip = (i > 1 && i < all.length - 1) ? (i % 2 ? 9 : -9) : 0;
+        var a = all[i - 1], b = all[i], h = (b.x - a.x) / 2, dip = (i > 1 && i < all.length - 1) ? (i % 2 ? wave : -wave) : 0;
         d += ' C' + (a.x + h) + ' ' + (a.y + dip) + ' ' + (b.x - h) + ' ' + (b.y + dip) + ' ' + b.x + ' ' + b.y;
         if (i < all.length - 1) { probe.setAttribute('d', d); lens.push(probe.getTotalLength()); }
       }
       probe.setAttribute('d', d); total = probe.getTotalLength(); svg.removeChild(probe);
       layers.forEach(function (el) { el.setAttribute('d', d); });
-      fill.style.strokeDasharray = total + ' ' + total;
+      clipRect.setAttribute('y', String(y - 60)); clipRect.setAttribute('height', '120');
       draw(target());
     }
-    function draw(len) { shown = len; fill.style.strokeDashoffset = String(total - len); }
+    function draw(len) {
+      shown = len; if (!total) return;
+      var pt = fill.getPointAtLength(Math.max(0, Math.min(total, len)));
+      clipRect.setAttribute('x', '-20'); clipRect.setAttribute('width', String(Math.max(0, pt.x + 20)));
+      head.setAttribute('cx', String(pt.x)); head.setAttribute('cy', String(pt.y));
+    }
 
     var current = 0, inView = false, auto = !still, hold = false, elapsed = 0, last = 0, DUR = 8000, tween = null;
     function target() { var base = lens[current] || 0; return auto && current < lens.length - 1 ? base + (lens[current + 1] - base) * Math.min(1, elapsed / DUR) : base; }
@@ -547,7 +558,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       }
       window.requestAnimationFrame(tick);
     }
-    select(0, false); measure();
+    measure(); select(0, false);
     window.addEventListener('resize', measure); window.addEventListener('load', measure);
     if ('ResizeObserver' in window) new ResizeObserver(measure).observe(road);
     window.requestAnimationFrame(tick);
