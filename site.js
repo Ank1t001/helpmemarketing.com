@@ -35,9 +35,38 @@
     });
   }
 
+  // Light/dark switch, on pages that carry a [data-theme-toggle] button (the homepage since 2026-10-09).
+  // The inline head script has already set html[data-theme] from the saved choice or the device setting.
+  function initTheme() {
+    var btn = document.querySelector('[data-theme-toggle]');
+    if (!btn) return;
+    var root = document.documentElement, meta = document.querySelector('meta[name="theme-color"]');
+    function saved() { try { return localStorage.getItem('hmm_theme'); } catch (e) { return null; } }
+    function apply(t) {
+      root.setAttribute('data-theme', t);
+      btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+      btn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+      if (meta) meta.setAttribute('content', t === 'dark' ? '#0E0E0E' : '#FFFFFF');
+    }
+    apply(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+    btn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('hmm_theme', next); } catch (e) {}
+      apply(next);
+    });
+    // Follow the device setting live until the visitor makes a choice of their own.
+    if (window.matchMedia) {
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      var onChange = function (e) { if (!saved()) apply(e.matches ? 'dark' : 'light'); };
+      if (mq.addEventListener) mq.addEventListener('change', onChange); else if (mq.addListener) mq.addListener(onChange);
+    }
+  }
+
+  function init() { initNav(); initTheme(); }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initNav);
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    initNav();
+    init();
   }
 })();

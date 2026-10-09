@@ -5032,8 +5032,8 @@ body.redesign-prototype .ma-path .ma-path-take { margin-top: auto; padding-top: 
   body.redesign-prototype .ma-bar-fill { transition: none; }
 }
 
-/* LIGHT THEME + HOMEPAGE JOURNEY (2026-10-09, founder decision: homepage moves to the light "Stranger to customer" design first). Token overrides only, applied by body.theme-light; spec and contrast notes in docs/HMM_Design_System.md. */
-body.redesign-prototype.theme-light {
+/* LIGHT THEME + HOMEPAGE JOURNEY (2026-10-09, founder decisions: the light "Stranger to customer" homepage first, then a light/dark switch). Token overrides only, applied by body.theme-light unless html[data-theme="dark"]; spec and contrast notes in docs/HMM_Design_System.md. */
+html:not([data-theme="dark"]) body.redesign-prototype.theme-light {
   --bg: #FFFFFF;
   --bg-elevated: #F6F5F2;
   --text: #0E0E0E;
@@ -5050,20 +5050,42 @@ body.redesign-prototype.theme-light {
   --paper: #FFFFFF;
   --shadow-card: 0 20px 48px rgba(14, 14, 14, 0.14);
   background-image: none;
+  color-scheme: light;
 }
-body.redesign-prototype.theme-light .btn-primary,
-body.redesign-prototype.theme-light .btn-accent,
-body.redesign-prototype.theme-light .skip-link { color: var(--text); }
-body.redesign-prototype.theme-light .btn-outline:hover { border-color: var(--border-strong); background: var(--bg-elevated); }
-body.redesign-prototype.theme-light .nav-link:hover,
-body.redesign-prototype.theme-light .nav-link.active { background: var(--bg-elevated); }
-body.redesign-prototype.theme-light .nav-hamburger { border-color: var(--border-strong); }
-body.redesign-prototype.theme-light .nav-hamburger:hover { border-color: var(--text-tertiary); background: var(--bg-elevated); }
-body.redesign-prototype.theme-light .footer-dot { color: var(--border-strong); }
+html:not([data-theme="dark"]) body.redesign-prototype.theme-light .btn-primary,
+html:not([data-theme="dark"]) body.redesign-prototype.theme-light .btn-accent,
+html:not([data-theme="dark"]) body.redesign-prototype.theme-light .skip-link { color: var(--text); }
+html:not([data-theme="dark"]) body.redesign-prototype.theme-light .btn-outline:hover { border-color: var(--border-strong); background: var(--bg-elevated); }
+html:not([data-theme="dark"]) body.redesign-prototype.theme-light .nav-link:hover,
+html:not([data-theme="dark"]) body.redesign-prototype.theme-light .nav-link.active { background: var(--bg-elevated); }
+html:not([data-theme="dark"]) body.redesign-prototype.theme-light .nav-hamburger { border-color: var(--border-strong); }
+html:not([data-theme="dark"]) body.redesign-prototype.theme-light .nav-hamburger:hover { border-color: var(--text-tertiary); background: var(--bg-elevated); }
+html:not([data-theme="dark"]) body.redesign-prototype.theme-light .footer-dot { color: var(--border-strong); }
 /* The video lightbox always sits on a dark overlay, so it keeps dark-theme tokens inside the light theme. */
-body.redesign-prototype.theme-light .pf-lb { --bg: #0E0E0E; --text: #FFFFFF; --text-muted: #BDBDBD; --border: rgba(255, 255, 255, 0.12); }
-body.redesign-prototype.theme-light .footer-tool-btn:hover,
-body.redesign-prototype.theme-light .footer-tool-btn:focus-visible { background: rgba(0, 122, 98, 0.08); }
+html:not([data-theme="dark"]) body.redesign-prototype.theme-light .pf-lb { --bg: #0E0E0E; --text: #FFFFFF; --text-muted: #BDBDBD; --border: rgba(255, 255, 255, 0.12); }
+html:not([data-theme="dark"]) body.redesign-prototype.theme-light .footer-tool-btn:hover,
+html:not([data-theme="dark"]) body.redesign-prototype.theme-light .footer-tool-btn:focus-visible { background: rgba(0, 122, 98, 0.08); }
+
+/* Dark side of the homepage switch: the base prototype tokens apply; these cover what the journey needs on dark. */
+html[data-theme="dark"] body.redesign-prototype.theme-light { --border-strong: rgba(255, 255, 255, 0.2); --shadow-card: 0 20px 48px rgba(0, 0, 0, 0.5); color-scheme: dark; }
+html[data-theme="dark"] body.redesign-prototype .jr-start-box { background: var(--cta); color: var(--obsidian, #0E0E0E); }
+html[data-theme="dark"] body.redesign-prototype .jr-start-box h2,
+html[data-theme="dark"] body.redesign-prototype .jr-start-box h2 em { color: var(--obsidian, #0E0E0E); }
+html[data-theme="dark"] body.redesign-prototype .jr-start-box > p { color: rgba(14, 14, 14, 0.82); }
+html[data-theme="dark"] body.redesign-prototype .jr-start-box .jr-form-note { color: rgba(14, 14, 14, 0.7); }
+html[data-theme="dark"] body.redesign-prototype .jr-form button { background: var(--obsidian, #0E0E0E); color: var(--paper, #FFFFFF); }
+html[data-theme="dark"] body.redesign-prototype .jr-form button:hover { background: #2A2A2A; }
+html[data-theme="dark"] body.redesign-prototype .jr-form :focus-visible { outline-color: var(--obsidian, #0E0E0E); }
+html[data-theme="dark"] body.redesign-prototype .jr-form-err { color: #7A1F0A; font-weight: 600; }
+html[data-theme="dark"] body.redesign-prototype .jr-tag { background: rgba(14, 14, 14, 0.85); color: var(--paper, #FFFFFF); }
+html[data-theme="dark"] body.redesign-prototype .jr-browser { border-color: var(--border); }
+/* Logo pair: the homepage carries both marks and shows the one that reads on its background. */
+html[data-theme="dark"] img.logo-for-light, html:not([data-theme="dark"]) img.logo-for-dark { display: none; }
+/* Theme switch button (nav). */
+body.redesign-prototype .theme-toggle { display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0; border-radius: 8px; border: 1px solid var(--border-strong, rgba(255, 255, 255, 0.25)); background: transparent; color: var(--text); cursor: pointer; }
+body.redesign-prototype .theme-toggle:hover { background: var(--bg-elevated); }
+body.redesign-prototype .theme-toggle:focus-visible { outline: 2px solid var(--cta); outline-offset: 2px; }
+html[data-theme="dark"] .theme-toggle .tt-moon, html:not([data-theme="dark"]) .theme-toggle .tt-sun { display: none; }
 
 /* Journey layout. 8px spacing scale: 8 16 24 32 48 72 96 120. */
 body.redesign-prototype .jr-wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
