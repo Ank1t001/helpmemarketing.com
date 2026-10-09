@@ -239,6 +239,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     <p class="eyebrow">How it works</p>
     <h2 class="section-heading">Getting noticed is only the <em>beginning</em>.</h2>
     <p class="section-deck">From finding the right people to turning interest into customers, here&rsquo;s how I bring your marketing together.</p>
+    <div class="jr-flow">
     <ol class="jr-stages">
 
       <li class="jr-stage">
@@ -306,11 +307,11 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         </div>
         <figure class="jr-art jr-motion">
           <video class="jr-loop" muted loop playsinline preload="none" width="1920" height="1080" poster="/assets/home/journey/hmm-journey-05-prove-it-paid-desktop-poster.webp" data-src="/assets/home/journey/hmm-journey-05-prove-it-paid-desktop.mp4" data-src-mobile="/assets/home/journey/hmm-journey-05-prove-it-paid-mobile.mp4" data-poster-mobile="/assets/home/journey/hmm-journey-05-prove-it-paid-mobile-poster.webp" aria-label="Illustration: Channel categories connect to an enquiry record, with missing customer and sales tracking clearly identified."></video>
-          <figcaption><span><strong>3.2&times;</strong> demo pipeline in a year &middot; BoomerangFX</span><span><strong>+312%</strong> revenue in 12 months &middot; Shakti Warrior</span></figcaption>
         </figure>
       </li>
 
     </ol>
+    </div>
   </div>
 </section>
 
@@ -439,6 +440,67 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </footer>
 
+<!-- Journey path: an orthogonal line through the step numbers (right, down, left, down on desktop; straight down at 900px and below), drawn as the visitor scrolls. Steps ahead of the line are dimmed and the current number is filled. Without JavaScript nothing is dimmed; under reduced motion the line is drawn in full. -->
+<script>
+(function () {
+  function init() {
+    var flow = document.querySelector('.jr-flow'), list = flow && flow.querySelector('.jr-stages');
+    if (!flow || !list) return;
+    var stages = [].slice.call(list.querySelectorAll('.jr-stage')), nums = stages.map(function (s) { return s.querySelector('.jr-num'); });
+    var NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'jr-path'); svg.setAttribute('aria-hidden', 'true');
+    var track = document.createElementNS(NS, 'path'), fill = document.createElementNS(NS, 'path');
+    track.setAttribute('class', 'jr-path-track'); fill.setAttribute('class', 'jr-path-fill');
+    svg.appendChild(track); svg.appendChild(fill); flow.insertBefore(svg, list);
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var pts = [], lens = [], keys = [], total = 0, ticking = false;
+    function measure() {
+      var top = flow.getBoundingClientRect().top + window.scrollY;
+      pts = nums.map(function (n) {
+        var x = n.offsetWidth / 2, y = n.offsetHeight / 2, el = n;
+        while (el && el !== flow) { x += el.offsetLeft; y += el.offsetTop; el = el.offsetParent; }
+        return { x: x, y: y, py: top + y };
+      });
+      var d = 'M' + pts[0].x + ' ' + pts[0].y; lens = [0]; total = 0;
+      for (var i = 1; i < pts.length; i++) {
+        var a = pts[i - 1], b = pts[i], dx = b.x - a.x, dy = b.y - a.y;
+        if (Math.abs(dx) > 1 && Math.abs(dy) > 1) { d += ' V' + b.y + ' H' + b.x; } else if (Math.abs(dy) <= 1) { d += ' H' + b.x; } else { d += ' V' + b.y; }
+        total += Math.abs(dx) + Math.abs(dy); lens.push(total);
+      }
+      track.setAttribute('d', d); fill.setAttribute('d', d);
+      fill.style.strokeDasharray = total + ' ' + total;
+      keys = [{ s: pts[0].py, l: 0 }];
+      for (var k = 1; k < pts.length; k++) {
+        var prev = keys[keys.length - 1].s, flat = Math.abs(pts[k].py - pts[k - 1].py) <= 1;
+        keys.push({ s: Math.max(prev + 1, flat ? prev + 220 : pts[k].py), l: lens[k] });
+      }
+      update();
+    }
+    function update() {
+      ticking = false;
+      var drawn = total;
+      if (!still) {
+        var t = window.scrollY + window.innerHeight * 0.6;
+        if (t <= keys[0].s) drawn = 0;
+        else if (t >= keys[keys.length - 1].s) drawn = total;
+        else for (var i = 1; i < keys.length; i++) { if (t < keys[i].s) { drawn = keys[i - 1].l + (keys[i].l - keys[i - 1].l) * (t - keys[i - 1].s) / (keys[i].s - keys[i - 1].s); break; } }
+      }
+      fill.style.strokeDashoffset = String(total - drawn);
+      var active = -1;
+      stages.forEach(function (st, i) { var on = drawn >= lens[i] - 1 && (i > 0 || drawn > 0 || still); st.classList.toggle('is-reached', on); if (on) active = i; });
+      stages.forEach(function (st, i) { st.classList.toggle('is-active', i === active); });
+    }
+    function onScroll() { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } }
+    if (!still) list.classList.add('is-live');
+    measure();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', measure);
+    window.addEventListener('load', measure);
+    if ('ResizeObserver' in window) new ResizeObserver(measure).observe(list);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
 <!-- Journey loops: silent, lazy, play only on screen; the poster stands in for reduced motion and no-JS. Phone source and poster at 720px and below. -->
 <script>
 (function () {
