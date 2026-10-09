@@ -339,10 +339,6 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     function url(v){v=v.trim();if(v&&!/^https?:\/\//i.test(v))v='https://'+v;return v;}
     var nosite=document.getElementById('cf-nosite');
     if(nosite)nosite.addEventListener('change',function(){var w=field('website');w.disabled=nosite.checked;w.removeAttribute('aria-invalid');if(nosite.checked){w.value='';clear();}});
-    /* Homepage audit form hand-off: website, email and a starter need arrive via sessionStorage (never the URL), used once. */
-    try{var pre=JSON.parse(sessionStorage.getItem('hmm_prefill')||'null');sessionStorage.removeItem('hmm_prefill');
-      if(pre){[['website',pre.website],['email',pre.email],['help_with[]',pre.help]].forEach(function(p){var f=field(p[0]);if(f&&p[1]&&!f.value)f.value=String(p[1]).slice(0,2000);});
-        var nm=field('name');if(nm)setTimeout(function(){nm.focus({preventScroll:true});},450);}}catch(x){}
     form.addEventListener('submit',function(e){
       e.preventDefault();if(sending)return;clear();
       var name=field('name').value.trim(),email=field('email').value.trim(),phone=field('phone').value.trim();

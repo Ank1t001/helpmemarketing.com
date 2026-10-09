@@ -5173,13 +5173,6 @@ body.redesign-prototype .jr-cert-logo img { width: auto; height: 22px; }
 body.redesign-prototype .jr-me-link { display: inline-flex; align-items: center; gap: 16px; margin-top: 24px; font-size: 15px; font-weight: 600; color: var(--text); text-decoration: none; }
 body.redesign-prototype .jr-me-arrow { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--cta); border-radius: 50%; color: var(--cta-ink, var(--cta)); font-size: 18px; transition: background .15s ease, color .15s ease; }
 body.redesign-prototype .jr-me-link:hover .jr-me-arrow { background: var(--cta); color: var(--obsidian, #0E0E0E); }
-body.redesign-prototype .jr-form { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 720px; margin: 0 auto 16px; }
-body.redesign-prototype .jr-form label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-body.redesign-prototype .jr-form input { flex: 1 1 200px; min-width: 0; min-height: 54px; padding: 0 16px; border: 1px solid var(--border-strong, var(--border)); border-radius: 8px; background: var(--bg); color: var(--text); font: inherit; font-size: 16px; }
-body.redesign-prototype .jr-form input::placeholder { color: var(--text-tertiary); }
-body.redesign-prototype .jr-form input:focus-visible { outline: 2px solid var(--cta); outline-offset: 2px; border-color: transparent; }
-body.redesign-prototype .jr-form .btn { flex: 0 0 auto; min-height: 54px; }
-body.redesign-prototype .jr-form-err { flex-basis: 100%; margin: 0; font-size: 14px; color: var(--error-text); }
 @media (max-width: 900px) {
   body.redesign-prototype .jr-stage { grid-template-columns: 56px minmax(0, 1fr); row-gap: 24px; column-gap: 16px; align-items: start; padding-bottom: 48px; }
   body.redesign-prototype .jr-stage > .jr-art { grid-column: 2; }
@@ -5205,7 +5198,6 @@ body.redesign-prototype .jr-form-err { flex-basis: 100%; margin: 0; font-size: 1
   body.redesign-prototype .jr-facts strong { font-size: 28px; }
   body.redesign-prototype .jr-facts span { font-size: 11px; }
   body.redesign-prototype .jr-certs ul { flex-direction: column; }
-  body.redesign-prototype .jr-form .btn { flex: 1 1 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   body.redesign-prototype .jr-dot { animation: none; left: calc(100% - 14px); }
