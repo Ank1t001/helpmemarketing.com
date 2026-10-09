@@ -263,16 +263,10 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
           <p class="jr-what">From branding and social media posts to videos and creative design, I create content that catches attention and makes your business memorable.</p>
           <p class="jr-services"><a href="/services/branding-social">Branding &amp; social &rarr;</a></p>
         </div>
-        <div class="jr-art jr-video">
-          <button class="pf-media" type="button" data-src="/assets/portfolio/clip-founder.mp4" data-cap="Founder story, Vanguard Pharmacy and Clinic" aria-label="Play the Founder story video">
-            <img src="/assets/portfolio/clip-founder.jpg" alt="Owner-led reel filmed inside the Vanguard pharmacy" width="720" height="900" loading="lazy">
-            <span class="jr-play" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
-          </button>
-          <div class="jr-stat">
-            <div class="jr-stat-fig">+92%</div>
-            <p>Consult requests in 6 months, Vanguard Pharmacy and Clinic</p>
-          </div>
-        </div>
+        <figure class="jr-art jr-motion">
+          <video class="jr-loop" muted loop playsinline preload="none" width="1920" height="1080" poster="/assets/home/journey/hmm-journey-02-get-chosen-desktop-poster.webp" data-src="/assets/home/journey/hmm-journey-02-get-chosen-desktop.mp4" data-src-mobile="/assets/home/journey/hmm-journey-02-get-chosen-mobile.mp4" data-poster-mobile="/assets/home/journey/hmm-journey-02-get-chosen-mobile-poster.webp" aria-label="Illustrative brand identity, two coordinated social designs and a motion design sample"></video>
+          <figcaption><strong>+92%</strong> consult requests in 6 months &middot; Vanguard Pharmacy and Clinic</figcaption>
+        </figure>
       </li>
 
       <li class="jr-stage">
@@ -449,48 +443,29 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </footer>
 
-<div class="pf-scope">
-<div class="pf-lb" id="pf-lightbox" role="dialog" aria-modal="true" aria-label="Creative preview" hidden>
-  <button class="pf-lb-close" id="pf-lb-close" type="button" aria-label="Close">&times;</button>
-  <div class="pf-lb-inner" id="pf-lb-inner"></div>
-</div>
-</div>
-
-<!-- Creative lightbox. No inline handlers (prototype convention). -->
+<!-- Journey loops: silent, lazy, play only on screen; the poster stands in for reduced motion and no-JS. Phone source and poster at 720px and below. -->
 <script>
 (function () {
   function init() {
-    var how = document.querySelector('.pf-how');
-    if (how && 'IntersectionObserver' in window) {
-      how.classList.add('js-reveal');
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) { if (en.isIntersecting) { how.classList.add('is-in'); io.disconnect(); } });
-      }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
-      io.observe(how);
-    }
-    var lb = document.getElementById('pf-lightbox'), inner = document.getElementById('pf-lb-inner'), closeBtn = document.getElementById('pf-lb-close');
-    if (!lb || !inner || !closeBtn) return;
-    var opener = null;
-    function close() {
-      lb.hidden = true; inner.innerHTML = '';
-      document.body.classList.remove('pf-lb-open');
-      if (opener && opener.focus) { opener.focus(); opener = null; }
-    }
-    function open(el) {
-      var src = el.getAttribute('data-src'), cap = el.getAttribute('data-cap') || '';
-      inner.innerHTML = '';
-      var media = document.createElement('video');
-      media.src = src; media.controls = true; media.autoplay = true; media.playsInline = true; media.setAttribute('playsinline', '');
-      inner.appendChild(media);
-      var c = document.createElement('p'); c.className = 'pf-lb-cap'; c.textContent = cap; inner.appendChild(c);
-      lb.hidden = false;
-      document.body.classList.add('pf-lb-open');
-      closeBtn.focus();
-    }
-    document.querySelectorAll('button.pf-media').forEach(function (b) { b.addEventListener('click', function () { opener = b; open(b); }); });
-    closeBtn.addEventListener('click', close);
-    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+    var vids = document.querySelectorAll('video.jr-loop');
+    if (!vids.length) return;
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var phone = window.matchMedia('(max-width: 720px)').matches;
+    vids.forEach(function (v) {
+      if (phone && v.dataset.posterMobile) { v.poster = v.dataset.posterMobile; v.width = 1080; v.height = 1350; }
+      v.dataset.pick = phone && v.dataset.srcMobile ? v.dataset.srcMobile : v.dataset.src;
+    });
+    if (still || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var v = en.target;
+        if (en.isIntersecting) {
+          if (!v.getAttribute('src')) { v.src = v.dataset.pick; }
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        } else if (!v.paused) { v.pause(); }
+      });
+    }, { threshold: 0.25 });
+    vids.forEach(function (v) { io.observe(v); });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

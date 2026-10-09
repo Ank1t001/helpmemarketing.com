@@ -5071,7 +5071,6 @@ html[data-theme="light"] body.redesign-prototype.theme-light .nav-hamburger { bo
 html[data-theme="light"] body.redesign-prototype.theme-light .nav-hamburger:hover { border-color: var(--text-tertiary); background: var(--bg-elevated); }
 html[data-theme="light"] body.redesign-prototype.theme-light .footer-dot { color: var(--border-strong); }
 /* The video lightbox always sits on a dark overlay, so it keeps dark-theme tokens inside the light theme. */
-html[data-theme="light"] body.redesign-prototype.theme-light .pf-lb { --bg: #0E0E0E; --text: #FFFFFF; --text-muted: #BDBDBD; --border: rgba(255, 255, 255, 0.12); }
 html[data-theme="light"] body.redesign-prototype.theme-light .footer-tool-btn:hover,
 html[data-theme="light"] body.redesign-prototype.theme-light .footer-tool-btn:focus-visible { background: rgba(0, 122, 98, 0.08); }
 
@@ -5121,16 +5120,12 @@ body.redesign-prototype .jr-services a:hover { text-decoration: underline; text-
 body.redesign-prototype .jr-figure { position: relative; margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-card, none); }
 body.redesign-prototype .jr-figure img { width: 100%; height: auto; display: block; }
 body.redesign-prototype .jr-tag { position: absolute; left: 16px; bottom: 16px; margin: 0; padding: 8px 16px; border-radius: 8px; background: rgba(255, 255, 255, 0.94); color: var(--obsidian, #0E0E0E); font-size: 14px; }
-body.redesign-prototype .jr-tag strong, body.redesign-prototype .jr-stat-fig, body.redesign-prototype .jr-chat-note, body.redesign-prototype .jr-browser p strong { color: var(--mint); }
-body.redesign-prototype .jr-video { display: flex; gap: 16px; align-items: flex-end; }
-body.redesign-prototype .jr-video .pf-media { flex: 0 0 56%; position: relative; display: block; padding: 0; border: 1px solid var(--border); background: var(--bg-elevated); border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 5; cursor: pointer; box-shadow: var(--shadow-card, none); }
-body.redesign-prototype .jr-video .pf-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-body.redesign-prototype .jr-play { position: absolute; left: 16px; bottom: 16px; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--paper, #FFFFFF); color: var(--obsidian, #0E0E0E); box-shadow: 0 4px 12px rgba(14, 14, 14, 0.18); transition: background .15s ease; }
-body.redesign-prototype .jr-video .pf-media:hover .jr-play, body.redesign-prototype .jr-video .pf-media:focus-visible .jr-play { background: var(--cta); }
-body.redesign-prototype .jr-video .pf-media:focus-visible { outline: 2px solid var(--cta); outline-offset: 4px; }
-body.redesign-prototype .jr-stat { flex: 1 1 auto; padding-bottom: 8px; }
+body.redesign-prototype .jr-tag strong, body.redesign-prototype .jr-stat-fig, body.redesign-prototype .jr-chat-note, body.redesign-prototype .jr-browser p strong, body.redesign-prototype .jr-motion figcaption strong { color: var(--mint); }
 body.redesign-prototype .jr-stat-fig { font-family: var(--serif); font-size: 48px; line-height: 1; }
-body.redesign-prototype .jr-stat p, body.redesign-prototype .jr-pair p { margin: 8px 0 0; font-size: 14px; color: var(--text-muted); }
+body.redesign-prototype .jr-pair p { margin: 8px 0 0; font-size: 14px; color: var(--text-muted); }
+body.redesign-prototype .jr-motion { margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-strong, var(--border)); background: var(--obsidian, #0E0E0E); box-shadow: var(--shadow-card, none); }
+body.redesign-prototype .jr-loop { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: var(--obsidian, #0E0E0E); }
+body.redesign-prototype .jr-motion figcaption { padding: 16px; border-top: 1px solid var(--border); background: var(--bg); font-size: 14px; color: var(--text); }
 body.redesign-prototype .jr-browser { border-radius: 16px; overflow: hidden; border: 1px solid var(--border-strong, var(--border)); background: var(--bg); box-shadow: var(--shadow-card, none); }
 body.redesign-prototype .jr-browser-bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--border); background: var(--bg-elevated); }
 body.redesign-prototype .jr-browser-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--border-strong, var(--border)); }
@@ -5187,9 +5182,8 @@ body.redesign-prototype .jr-me-link:hover .jr-me-arrow { background: var(--cta);
   body.redesign-prototype .jr-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 8px; }
   body.redesign-prototype .jr-logos { gap: 20px 12px; }
   body.redesign-prototype .jr-logos li { flex-direction: column; gap: 8px; text-align: center; font-size: 13px; }
-  body.redesign-prototype .jr-video { flex-direction: column; align-items: stretch; }
-  body.redesign-prototype .jr-video .pf-media { flex-basis: auto; width: 100%; max-width: 300px; }
-  body.redesign-prototype .jr-pair { grid-template-columns: minmax(0, 1fr); }
+      body.redesign-prototype .jr-pair { grid-template-columns: minmax(0, 1fr); }
+  body.redesign-prototype .jr-loop { aspect-ratio: 4 / 5; }
   body.redesign-prototype .jr-pillars { gap: 24px 16px; }
   body.redesign-prototype .jr-pillars li + li { padding-left: 16px; }
   body.redesign-prototype .jr-pillars li:nth-child(odd) { padding-left: 0; }
