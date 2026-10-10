@@ -51,10 +51,10 @@
       });
       if (meta) meta.setAttribute('content', t === 'dark' ? '#0E0E0E' : '#FFFFFF');
     }
-    apply(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+    apply(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
     btns.forEach(function (b) {
       b.addEventListener('click', function () {
-        var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         try { localStorage.setItem('hmm_theme', next); } catch (e) {}
         apply(next);
       });

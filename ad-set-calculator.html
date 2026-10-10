@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script>(function(){var t;try{t=localStorage.getItem('hmm_theme');}catch(e){}if(t!=='light'&&t!=='dark'){t='dark';}document.documentElement.setAttribute('data-theme',t);})();</script>
+<script>(function(){var t;try{t=localStorage.getItem('hmm_theme');}catch(e){}if(t!=='light'&&t!=='dark'){t='light';}document.documentElement.setAttribute('data-theme',t);})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -347,7 +347,7 @@ body.redesign-prototype .asc-board {
   align-items: start; /* sidebar sizes to its inputs, no dead space below */
 }
 body.redesign-prototype .asc-side { border-right: 1px solid var(--border); background: rgba(0, 0, 0, 0.25); padding: 24px; }
-html[data-theme="light"] body.redesign-prototype .asc-side { background: var(--bg-elevated); }
+html:not([data-theme="dark"]) body.redesign-prototype .asc-side { background: var(--bg-elevated); }
 body.redesign-prototype .asc-lab {
   font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--text-tertiary); margin: 0 0 8px;
 }

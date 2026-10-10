@@ -4756,7 +4756,7 @@ body.redesign-prototype .card-tag { font-size: 12px; }
 
 /* Legal pages (privacy, terms) reading layout (2026-09-11).. History and rationale: docs/HMM_Design_System.md. */
 body.redesign-prototype main.legal-scope { --text-body: rgba(255, 255, 255, 0.78); }
-html[data-theme="light"] body.redesign-prototype main.legal-scope { --text-body: rgba(14, 14, 14, 0.8); }
+html:not([data-theme="dark"]) body.redesign-prototype main.legal-scope { --text-body: rgba(14, 14, 14, 0.8); }
 body.redesign-prototype .legal-section { padding: 40px 0 56px; }
 body.redesign-prototype .legal-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 64px; align-items: start; }
 body.redesign-prototype .legal-toc { position: sticky; top: 96px; }
@@ -5041,8 +5041,8 @@ body.redesign-prototype .ma-path .ma-path-take { margin-top: auto; padding-top: 
   body.redesign-prototype .ma-bar-fill { transition: none; }
 }
 
-/* LIGHT THEME + HOMEPAGE JOURNEY (2026-10-09, founder decisions: the light "Stranger to customer" homepage first, then a light/dark switch). Token overrides only, applied by body.theme-light unless html:not([data-theme="light"]); spec and contrast notes in docs/HMM_Design_System.md. */
-html[data-theme="light"] body.redesign-prototype {
+/* LIGHT THEME + HOMEPAGE JOURNEY (2026-10-09, founder decisions: the light "Stranger to customer" homepage first, then a light/dark switch). Token overrides only, applied by body.theme-light unless html[data-theme="dark"]; spec and contrast notes in docs/HMM_Design_System.md. */
+html:not([data-theme="dark"]) body.redesign-prototype {
   --bg: #FFFFFF;
   --bg-elevated: #F6F5F2;
   --text: #0E0E0E;
@@ -5063,31 +5063,31 @@ html[data-theme="light"] body.redesign-prototype {
   background-image: none;
   color-scheme: light;
 }
-html[data-theme="light"] body.redesign-prototype .btn-primary,
-html[data-theme="light"] body.redesign-prototype .btn-accent,
-html[data-theme="light"] body.redesign-prototype .skip-link { color: var(--text); }
-html[data-theme="light"] body.redesign-prototype .btn-outline:hover { border-color: var(--border-strong); background: var(--bg-elevated); }
-html[data-theme="light"] body.redesign-prototype .nav-link:hover,
-html[data-theme="light"] body.redesign-prototype .nav-link.active { background: var(--bg-elevated); }
-html[data-theme="light"] body.redesign-prototype .nav-hamburger { border-color: var(--border-strong); }
-html[data-theme="light"] body.redesign-prototype .nav-hamburger:hover { border-color: var(--text-tertiary); background: var(--bg-elevated); }
-html[data-theme="light"] body.redesign-prototype .footer-dot { color: var(--border-strong); }
+html:not([data-theme="dark"]) body.redesign-prototype .btn-primary,
+html:not([data-theme="dark"]) body.redesign-prototype .btn-accent,
+html:not([data-theme="dark"]) body.redesign-prototype .skip-link { color: var(--text); }
+html:not([data-theme="dark"]) body.redesign-prototype .btn-outline:hover { border-color: var(--border-strong); background: var(--bg-elevated); }
+html:not([data-theme="dark"]) body.redesign-prototype .nav-link:hover,
+html:not([data-theme="dark"]) body.redesign-prototype .nav-link.active { background: var(--bg-elevated); }
+html:not([data-theme="dark"]) body.redesign-prototype .nav-hamburger { border-color: var(--border-strong); }
+html:not([data-theme="dark"]) body.redesign-prototype .nav-hamburger:hover { border-color: var(--text-tertiary); background: var(--bg-elevated); }
+html:not([data-theme="dark"]) body.redesign-prototype .footer-dot { color: var(--border-strong); }
 /* The video lightbox always sits on a dark overlay, so it keeps dark-theme tokens inside the light theme. */
-html[data-theme="light"] body.redesign-prototype .footer-tool-btn:hover,
-html[data-theme="light"] body.redesign-prototype .footer-tool-btn:focus-visible { background: rgba(0, 122, 98, 0.08); }
+html:not([data-theme="dark"]) body.redesign-prototype .footer-tool-btn:hover,
+html:not([data-theme="dark"]) body.redesign-prototype .footer-tool-btn:focus-visible { background: rgba(0, 122, 98, 0.08); }
 
 /* Light theme, sitewide (2026-10-10): small orange text uses the darker ink for contrast; large display accents keep Signal Orange. Page-scoped token sets (Index .msi, Growth OS .mgos and .sgos) get light values. */
-html[data-theme="light"] body.redesign-prototype { --cta-text: var(--cta-ink); --ink-rgb: 14, 14, 14; }
-html[data-theme="light"] body.redesign-prototype :is(h1, h2, .hero-headline, .section-heading, .subsection) em { color: var(--cta); }
-html[data-theme="light"] body.redesign-prototype .msi { --bg: #FFFFFF; --bg-elevated: #F6F5F2; --bg-raise: #ECEAE4; --text: #0E0E0E; --text-muted: #4A4A4A; --text-tertiary: #6B6B6B; --mint: #007A62; --border: #ECEAE4; --border-strong: #D4D0C6; --grid-line: transparent; --mint-glow: rgba(0, 122, 98, 0.08); --crit: #B42318; --crit-bg: rgba(180, 35, 24, 0.08); --warn: #9A6700; --warn-bg: rgba(154, 103, 0, 0.08); --good: #007A62; --good-bg: rgba(0, 122, 98, 0.08); }
-html[data-theme="light"] body.redesign-prototype .mgos { --bg: #FFFFFF; --panel: #F6F5F2; --panel2: #F1EFEA; --sunk: #ECEAE4; --tx: #0E0E0E; --tx2: #4A4A4A; --tx3: #6B6B6B; --mint: #007A62; --mint-dim: rgba(0, 122, 98, 0.08); --mint-bd: rgba(0, 122, 98, 0.35); --crit: #B42318; --crit-dim: rgba(180, 35, 24, 0.08); --bd: #ECEAE4; --bd2: #D4D0C6; --grid: transparent; }
-html[data-theme="light"] body.redesign-prototype .msi :is(.verdict.crit, .bandbar .bl.fx1) { color: var(--paper); }
-html[data-theme="light"] body.redesign-prototype .sgos { --bg: #FFFFFF; --bg-elevated: #F6F5F2; --bg-sunk: #ECEAE4; --text: #0E0E0E; --text-muted: #4A4A4A; --text-tertiary: #6B6B6B; --mint: #007A62; --mint-dim: rgba(0, 122, 98, 0.08); --border: #ECEAE4; --grid-line: transparent; }
+html:not([data-theme="dark"]) body.redesign-prototype { --cta-text: var(--cta-ink); --ink-rgb: 14, 14, 14; }
+html:not([data-theme="dark"]) body.redesign-prototype :is(h1, h2, .hero-headline, .section-heading, .subsection) em { color: var(--cta); }
+html:not([data-theme="dark"]) body.redesign-prototype .msi { --bg: #FFFFFF; --bg-elevated: #F6F5F2; --bg-raise: #ECEAE4; --text: #0E0E0E; --text-muted: #4A4A4A; --text-tertiary: #6B6B6B; --mint: #007A62; --border: #ECEAE4; --border-strong: #D4D0C6; --grid-line: transparent; --mint-glow: rgba(0, 122, 98, 0.08); --crit: #B42318; --crit-bg: rgba(180, 35, 24, 0.08); --warn: #9A6700; --warn-bg: rgba(154, 103, 0, 0.08); --good: #007A62; --good-bg: rgba(0, 122, 98, 0.08); }
+html:not([data-theme="dark"]) body.redesign-prototype .mgos { --bg: #FFFFFF; --panel: #F6F5F2; --panel2: #F1EFEA; --sunk: #ECEAE4; --tx: #0E0E0E; --tx2: #4A4A4A; --tx3: #6B6B6B; --mint: #007A62; --mint-dim: rgba(0, 122, 98, 0.08); --mint-bd: rgba(0, 122, 98, 0.35); --crit: #B42318; --crit-dim: rgba(180, 35, 24, 0.08); --bd: #ECEAE4; --bd2: #D4D0C6; --grid: transparent; }
+html:not([data-theme="dark"]) body.redesign-prototype .msi :is(.verdict.crit, .bandbar .bl.fx1) { color: var(--paper); }
+html:not([data-theme="dark"]) body.redesign-prototype .sgos { --bg: #FFFFFF; --bg-elevated: #F6F5F2; --bg-sunk: #ECEAE4; --text: #0E0E0E; --text-muted: #4A4A4A; --text-tertiary: #6B6B6B; --mint: #007A62; --mint-dim: rgba(0, 122, 98, 0.08); --border: #ECEAE4; --grid-line: transparent; }
 
 /* Dark side of the homepage switch (the default): the base prototype tokens apply; these cover what the journey needs on dark. */
-html:not([data-theme="light"]) body.redesign-prototype.theme-light { --border-strong: rgba(255, 255, 255, 0.2); --shadow-card: 0 20px 48px rgba(0, 0, 0, 0.5); color-scheme: dark; }
+html[data-theme="dark"] body.redesign-prototype.theme-light { --border-strong: rgba(255, 255, 255, 0.2); --shadow-card: 0 20px 48px rgba(0, 0, 0, 0.5); color-scheme: dark; }
 /* Logo pair: the homepage carries both marks and shows the one that reads on its background. */
-html:not([data-theme="light"]) img.logo-for-light, html[data-theme="light"] img.logo-for-dark { display: none; }
+html[data-theme="dark"] img.logo-for-light, html:not([data-theme="dark"]) img.logo-for-dark { display: none; }
 /* Theme switch button (nav). */
 /* Theme switch: a text button in the footer baseline and in the phone menu (the nav has no room for a fourth control at tablet widths). */
 body.redesign-prototype .theme-toggle.tt-text { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--text-tertiary); font: inherit; font-size: 12.5px; cursor: pointer; white-space: nowrap; }
@@ -5096,7 +5096,7 @@ body.redesign-prototype .theme-toggle.tt-text:focus-visible { outline: 2px solid
 body.redesign-prototype .theme-toggle.tt-text svg { width: 14px; height: 14px; }
 body.redesign-prototype .nav-mobile-menu .theme-toggle.tt-text { margin-top: 8px; font-size: 15px; color: var(--text-muted); }
 body.redesign-prototype .nav-mobile-menu .theme-toggle.tt-text svg { width: 18px; height: 18px; }
-html:not([data-theme="light"]) .theme-toggle .tt-moon, html[data-theme="light"] .theme-toggle .tt-sun { display: none; }
+html[data-theme="dark"] .theme-toggle .tt-moon, html:not([data-theme="dark"]) .theme-toggle .tt-sun { display: none; }
 
 /* Journey layout. Sections, headings, eyebrows and the closing box are the shared prototype classes (hero, content-section, section-heading, eyebrow, final-cta), so spacing and type match every other page; these rules cover only what is unique to the journey. 8px scale. */
 /* Hero headline line breaks (founder spec 2026-10-09): two lines on desktop, four on phones; one sentence in the markup. */
