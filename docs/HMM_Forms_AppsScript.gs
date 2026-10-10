@@ -176,8 +176,25 @@ function addLead_(form, d) {
     pick_(d, 'monthly_investment'),
     pick_(d, 'desired_outcome'),
     pick_(d, 'timeline'),
-    form === 'audit-help' ? 'marketing audit' : 'contact form'
+    leadSource_(form, d)
   ]);
+}
+
+// Source column for a lead. Contact leads add the intent (free review or general), the site CTA that sent them,
+// any UTM tags and the landing page, each checked against a pattern here: URL parameters are never trusted as sent.
+// Kept in the existing Source column so the Leads columns and order stay unchanged.
+function leadSource_(form, d) {
+  if (form === 'audit-help') return 'marketing audit';
+  var parts = ['contact form', pick_(d, 'contact_intent') === 'review' ? 'free review' : 'general'];
+  var entry = pick_(d, 'entry_point');
+  if (/^(home_hero|home_final|home_journey|direct)$/.test(entry)) parts.push('entry ' + entry);
+  ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) {
+    var v = pick_(d, k).replace(/[^\w.\-]/g, '').slice(0, 60);
+    if (v) parts.push(k.replace('utm_', '') + ' ' + v);
+  });
+  var lp = pick_(d, 'landing_page').replace(/[^\w\/.\-?=&]/g, '').slice(0, 160);
+  if (lp) parts.push('landing ' + lp);
+  return parts.join(' | ');
 }
 
 function addPlan_(d, email) {

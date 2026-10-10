@@ -211,7 +211,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     <h1 class="hero-headline jr-h1"><span class="jr-h1-a">I help businesses</span> <span class="jr-h1-b"><span>get noticed,</span> <span>get leads and</span> <span><em>get customers</em>.</span></span></h1>
     <p class="hero-subtitle" id="industries">From branding and content to ads, websites and automation, I bring every part of your marketing together and show you what&rsquo;s working.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="#start">Get my free marketing review &rarr;</a>
+      <a class="btn btn-primary" href="/contact?intent=review&amp;entry=home_hero#contact-form" data-review-cta="home_hero">Get my free marketing review &rarr;</a>
       <a class="btn btn-outline" href="#how">See how it works</a>
     </div>
     <div class="jr-journey" aria-hidden="true">
@@ -496,7 +496,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
             <h3 class="subsection">Know what your marketing is bringing back.</h3>
             <p class="jr-what">From analytics and campaign tracking to dashboards and reporting, I bring your marketing data together so you can see what&rsquo;s working and where to improve.</p>
             <p class="jr-services"><a href="/services/analytics-attribution">Analytics &amp; attribution &rarr;</a></p>
-            <a class="jr-next" href="#start">Get my free marketing review <span aria-hidden="true">&rarr;</span></a>
+            <a class="jr-next" href="/contact?intent=review&amp;entry=home_journey#contact-form" data-review-cta="home_journey">Get my free marketing review <span aria-hidden="true">&rarr;</span></a>
           </div>
           <figure class="jr-art jr-find jr-wide" aria-label="Illustration: an example report for the fictional ABC Clinic showing ad spend and website visits by channel, enquiries contacted and qualified, and new customers, revenue and return on ad spend">
             <div class="jr-find-tabs" role="tablist" aria-label="What the report shows">
@@ -593,7 +593,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       <h2 class="section-heading">Find out what&rsquo;s working and <em>what needs fixing</em>.</h2>
       <p class="subhead">Send your website and I&rsquo;ll look at the key parts of your marketing, then share what I&rsquo;d recommend improving first.</p>
       <div class="final-cta-actions">
-        <a href="/contact#contact-form" class="btn btn-primary">Get my free marketing review &rarr;</a>
+        <a href="/contact?intent=review&amp;entry=home_final#contact-form" class="btn btn-primary" data-review-cta="home_final">Get my free marketing review &rarr;</a>
       </div>
     </div>
   </div>
@@ -821,6 +821,20 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     var rt = 0; function relayout() { window.clearTimeout(rt); rt = window.setTimeout(setMode, 120); }
     window.addEventListener('resize', relayout); window.addEventListener('load', setMode);
     select(0); setMode();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+<!-- Review CTAs (2026-10-10): carry any UTM tags from this page to /contact and report the click by placement. A click is not a lead; the lead event fires only on a sent form. -->
+<script>
+(function () {
+  function init() {
+    var q = new URLSearchParams(location.search), keep = [];
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) { var v = q.get(k); if (v && /^[\w.\-]{1,60}$/.test(v)) keep.push([k, v]); });
+    document.querySelectorAll('[data-review-cta]').forEach(function (a) {
+      if (keep.length) { var u = new URL(a.getAttribute('href'), location.origin); keep.forEach(function (p) { u.searchParams.set(p[0], p[1]); }); a.setAttribute('href', u.pathname + u.search + u.hash); }
+      a.addEventListener('click', function () { try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'review_cta_click', entry_point: a.getAttribute('data-review-cta') }); } catch (e) {} });
+    });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <script>(function(){var t;try{t=localStorage.getItem('hmm_theme');}catch(e){}if(t!=='light'&&t!=='dark'){t='light';}document.documentElement.setAttribute('data-theme',t);})();</script>
+<script>(function(){try{if(/[?&]intent=review(&|$)/.test(location.search))document.documentElement.classList.add('intent-review');}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -107,6 +108,14 @@ body.redesign-prototype #contact-thanks p { margin:0 auto; max-width:460px; colo
 body.redesign-prototype #contact-thanks:focus { outline:none; }
 body.redesign-prototype #contact-form .form-input:-webkit-autofill, body.redesign-prototype #contact-form .form-input:-webkit-autofill:hover { -webkit-text-fill-color: var(--text); caret-color: var(--text); -webkit-box-shadow: 0 0 0 1000px var(--bg) inset; box-shadow: 0 0 0 1000px var(--bg) inset; transition: background-color 9999s ease-out 0s; }
 body.redesign-prototype #contact-form .form-input:-webkit-autofill:focus { -webkit-text-fill-color: var(--text); -webkit-box-shadow: 0 0 0 1000px var(--bg) inset, 0 0 0 4px rgba(255, 92, 26, 0.15); box-shadow: 0 0 0 1000px var(--bg) inset, 0 0 0 4px rgba(255, 92, 26, 0.15); }
+/* Dual intent (2026-10-10): html.intent-review is set before paint from ?intent=review; .when-review and .when-general hold each mode's copy. */
+html:not(.intent-review) .when-review, html.intent-review .when-general { display: none !important; }
+body.redesign-prototype #contact-form select.form-input { cursor: pointer; }
+body.redesign-prototype .contact-value { margin: 16px 0 0; font-size: 15px; line-height: 1.6; color: var(--text-muted); }
+body.redesign-prototype .contact-switch { margin: 16px 0 0; font-size: 14px; color: var(--text-muted); }
+body.redesign-prototype .contact-switch a, body.redesign-prototype .contact-nosite-note a { color: var(--cta-text, var(--cta)); }
+@media (max-width: 720px) { body.redesign-prototype #contact-form :is(.form-input, .form-textarea) { font-size: 16px; } }
+body.redesign-prototype #contact-form .contact-nosite-note { margin: 8px 0 0; font-size: 13px; line-height: 1.5; color: var(--text-muted); }
 </style>
 </head>
 <body class="redesign-prototype">
@@ -153,11 +162,18 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   <div class="container contact-layout">
 
     <div class="contact-col contact-col-left">
-      <div class="contact-aside">
+      <div class="contact-aside when-general">
       <span class="eyebrow"><span class="eyebrow-dot"></span>Say hello</span>
       <h1 class="hero-headline">Let&rsquo;s talk <em>growth</em></h1>
       <p class="contact-intro">Tell me what you are working on and where your marketing is stuck. I read every message myself, and you get an honest take on whether and how I can help.</p>
       <p class="contact-alt">Want a quick self-serve check first? Try the <a href="/tools/marketing-audit">free AI marketing audit</a>.</p>
+      </div>
+      <div class="contact-aside when-review">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Free marketing review</span>
+      <h1 class="hero-headline">Find out what&rsquo;s working and <em>what needs fixing</em>.</h1>
+      <p class="contact-intro">Send your website and I&rsquo;ll look at the key parts of your marketing, then share what I&rsquo;d recommend improving first.</p>
+      <p class="contact-value">I&rsquo;ll start with what I can see publicly, such as your website, messaging and the steps people take to contact your business. I&rsquo;ll explain what deserves attention first. No account access needed to get started.</p>
+      <p class="contact-switch">Need help with something else? <a href="/contact#contact-form" data-switch="general">Send a general enquiry</a>.</p>
       </div>
 
       <div class="contact-founder">
@@ -180,17 +196,19 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 <div class="form-field form-half"><label for="cf-name">Name</label><input type="text" id="cf-name" name="name" class="form-input" autocomplete="name" maxlength="120" required></div>
 <div class="form-field form-half"><label for="cf-email">Email</label><input type="email" id="cf-email" name="email" class="form-input" autocomplete="email" inputmode="email" maxlength="160" required></div>
 <div class="form-field form-half"><label for="cf-phone">Phone <span class="form-optional">Optional</span></label><input type="tel" id="cf-phone" name="phone" class="form-input" autocomplete="tel" inputmode="tel" maxlength="40"></div>
-<div class="form-field form-half"><label for="cf-website">Website</label><input type="text" id="cf-website" name="website" class="form-input" autocomplete="url" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="yourbusiness.com" maxlength="200" required><label class="contact-nosite"><input type="checkbox" id="cf-nosite"> I don&rsquo;t have a website yet</label></div>
-<div class="form-field"><label for="cf-help">What do you need help with?</label><textarea id="cf-help" name="help_with[]" class="form-textarea" rows="4" maxlength="2000" placeholder="For example: my Google Ads cost too much per lead, or my website gets traffic but no enquiries." required></textarea></div>
-<div class="form-field"><label for="cf-notes">Anything I should know? <span class="form-optional">Optional</span></label><textarea id="cf-notes" name="biggest_challenge" class="form-textarea" rows="3" maxlength="2000" placeholder="Timeline, budget, what you have tried so far, or anything else that helps."></textarea></div>
+<div class="form-field form-half"><label for="cf-website">Website</label><input type="text" id="cf-website" name="website" class="form-input" autocomplete="url" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="yourbusiness.com" maxlength="200" required><label class="contact-nosite"><input type="checkbox" id="cf-nosite"> I don&rsquo;t have a website yet</label><p class="contact-nosite-note when-review" id="cf-nosite-note" hidden>A review needs a website to look at. <a href="/contact#contact-form" data-switch="general">Send a general project enquiry instead</a>; what you have typed stays.</p></div>
+<div class="form-field"><label for="cf-type">What do you need help with?</label><select id="cf-type" class="form-input"><option value="general">A project or service enquiry</option><option value="review">A free marketing review</option></select></div>
+<div class="form-field when-general"><label for="cf-help">Tell me what you are working on</label><textarea id="cf-help" name="help_with[]" class="form-textarea" rows="4" maxlength="2000" placeholder="For example: my Google Ads cost too much per lead, or my website gets traffic but no enquiries." required></textarea></div>
+<div class="form-field"><label for="cf-notes"><span class="when-general">Anything I should know?</span><span class="when-review">What would you like me to focus on?</span> <span class="form-optional">Optional</span></label><textarea id="cf-notes" name="biggest_challenge" class="form-textarea" rows="3" maxlength="2000" placeholder="Timeline, budget, what you have tried so far, or anything else that helps."></textarea></div>
 <div class="hp-field" aria-hidden="true"><label for="cf-hp">Leave this field blank</label><input type="text" id="cf-hp" name="hmm_trap" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore></div>
 <div class="cf-slot" id="cf-turnstile"></div>
 <div class="form-error is-hidden" id="contact-err" role="alert"></div>
-<div class="contact-next"><p class="contact-next-title">What happens next</p><ol><li>Your message comes straight to me.</li><li>You get an email reply from me within 1 to 2 business days about how I can help.</li><li>You decide whether to go further. No pressure.</li></ol></div>
+<div class="contact-next when-general"><p class="contact-next-title">What happens next</p><ol><li>Your message comes straight to me.</li><li>You get an email reply from me within 1 to 2 business days about how I can help.</li><li>You decide whether to go further. No pressure.</li></ol></div>
+<div class="contact-next when-review"><p class="contact-next-title">What happens next</p><ol><li>I read your request and review what information is available.</li><li>I&rsquo;ll reply by email within 1 to 2 business days about the next steps.</li><li>You&rsquo;ll know what can be reviewed, what needs more information and how to proceed. No pressure.</li></ol></div>
 <p class="contact-privacy">Your details are used only to reply to your enquiry. See the <a href="/privacy">Privacy Policy</a>.</p>
-<div class="form-nav"><button type="submit" class="fbtn fbtn-primary contact-submit"><span id="contact-submit-label">Send My Enquiry</span> <span aria-hidden="true">→</span></button></div>
+<div class="form-nav"><button type="submit" class="fbtn fbtn-primary contact-submit"><span id="contact-submit-label">Send my enquiry</span> <span aria-hidden="true">→</span></button></div>
 </form>
-<div id="contact-thanks" class="contact-thanks is-hidden"><h2 class="contact-thanks-title">Thanks for reaching out<span id="thanks-name"></span></h2><p>You will get a reply by email within 1 to 2 business days.</p></div>
+<div id="contact-thanks" class="contact-thanks is-hidden" role="status"><div class="when-general"><h2 class="contact-thanks-title">Thanks for reaching out<span class="thanks-name"></span></h2><p>You will get a reply by email within 1 to 2 business days.</p></div><div class="when-review"><h2 class="contact-thanks-title">Your review request is in<span class="thanks-name"></span>.</h2><p>Thanks for sharing your details. I&rsquo;ll read your request and reply by email within 1 to 2 business days with the next steps for your marketing review.</p></div></div>
       </div>
     </div>
 
@@ -304,7 +322,37 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     var btnText=btnLabel?btnLabel.textContent:'';
     var hp=document.getElementById('cf-hp');
     var thanks=document.getElementById('contact-thanks');
-    var thanksName=document.getElementById('thanks-name');
+    var thanksNames=document.querySelectorAll('#contact-thanks .thanks-name');
+    /* Dual intent: ?intent=review is the review mode, anything else is general. The enquiry-type select is the
+       single source of truth on the page; changing it updates the copy, the button and the URL (no reload, Back and
+       Forward work). Entry point and UTM tags are read once from the arrival URL; nothing personal goes in the URL. */
+    var root=document.documentElement,typeSel=document.getElementById('cf-type'),notesEl=document.getElementById('cf-notes'),noteNoSite=document.getElementById('cf-nosite-note');
+    var NOTES_PH={general:notesEl?notesEl.getAttribute('placeholder'):'',review:'For example: website, ads, branding, content, leads, or not sure.'};
+    var LABEL={general:'Send my enquiry',review:'Request my free marketing review'};
+    var q=new URLSearchParams(location.search);
+    function clean(v,re){v=(v||'').trim();return re.test(v)?v:'';}
+    var entry=clean(q.get('entry'),/^(home_hero|home_final|home_journey)$/)||'direct';
+    var utm={};['utm_source','utm_medium','utm_campaign'].forEach(function(k){var v=clean(q.get(k),/^[\w.\-]{1,60}$/);if(v)utm[k]=v;});
+    var landing='';try{landing=sessionStorage.getItem('hmm_landing')||'';}catch(e){}
+    function modeFromUrl(){return new URLSearchParams(location.search).get('intent')==='review'?'review':'general';}
+    var mode='general',started=false;
+    function track(o){try{window.dataLayer=window.dataLayer||[];window.dataLayer.push(o);}catch(e){}}
+    function setMode(m,push){
+      mode=m==='review'?'review':'general';
+      root.classList.toggle('intent-review',mode==='review');
+      if(typeSel)typeSel.value=mode;
+      if(notesEl)notesEl.setAttribute('placeholder',NOTES_PH[mode]);
+      if(btnLabel&&!sending)btnLabel.textContent=LABEL[mode];
+      btnText=LABEL[mode];
+      syncNoSite();
+      if(push){var u=new URL(location.href);if(mode==='review')u.searchParams.set('intent','review');else u.searchParams.delete('intent');
+        if(u.href!==location.href)history.pushState({intent:mode},'',u.pathname+u.search+u.hash);}
+    }
+    function syncNoSite(){var ns=document.getElementById('cf-nosite');if(noteNoSite)noteNoSite.hidden=!(mode==='review'&&ns&&ns.checked);}
+    if(typeSel)typeSel.addEventListener('change',function(){setMode(typeSel.value,true);});
+    document.querySelectorAll('[data-switch]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();setMode(a.getAttribute('data-switch'),true);if(typeSel)typeSel.focus();});});
+    window.addEventListener('popstate',function(){setMode(modeFromUrl(),false);});
+    form.addEventListener('input',function(){if(started)return;started=true;track({event:'contact_form_start',contact_intent:mode,entry_point:entry});},{passive:true});
     var t0=Date.now(),human=false,sending=false;
     /* Cloudflare Turnstile. Off while data-turnstile-sitekey is empty; the form then behaves exactly as before.
        The script loads on the first focus or tap inside the form, so the token is usually ready by submit. */
@@ -317,7 +365,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       sc.addEventListener('load',function(){
         if(!window.turnstile){ts.failed=true;return;}
         try{ts.id=window.turnstile.render('#cf-turnstile',{
-          sitekey:ts.key,action:'contact',theme:'dark',size:'flexible',appearance:'interaction-only',
+          sitekey:ts.key,action:'contact',theme:'auto',size:'flexible',appearance:'interaction-only',
           callback:function(t){ts.token=t;ts.failed=false;ts.interactive=false;},
           'expired-callback':function(){ts.token='';},
           'error-callback':function(){ts.failed=true;},
@@ -338,10 +386,12 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     function show(msg,el){err.textContent=msg;err.classList.remove('is-hidden');if(el){el.setAttribute('aria-invalid','true');el.focus();}}
     function clear(){err.classList.add('is-hidden');form.querySelectorAll('[aria-invalid]').forEach(function(el){el.removeAttribute('aria-invalid');});}
     function busy(on){sending=on;btn.disabled=on;if(on){btn.setAttribute('aria-busy','true');}else{btn.removeAttribute('aria-busy');}if(btnLabel)btnLabel.textContent=on?'Sending…':btnText;}
-    function done(first){if(thanksName)thanksName.textContent=', '+first;form.classList.add('is-hidden');if(thanks){thanks.classList.remove('is-hidden');thanks.setAttribute('tabindex','-1');thanks.focus({preventScroll:true});thanks.scrollIntoView({behavior:'smooth',block:'center'});}}
+    function done(first){thanksNames.forEach(function(n){n.textContent=', '+first;});form.classList.add('is-hidden');if(thanks){thanks.classList.remove('is-hidden');thanks.setAttribute('tabindex','-1');thanks.focus({preventScroll:true});thanks.scrollIntoView({behavior:'smooth',block:'center'});}}
     function url(v){v=v.trim();if(v&&!/^https?:\/\//i.test(v))v='https://'+v;return v;}
     var nosite=document.getElementById('cf-nosite');
-    if(nosite)nosite.addEventListener('change',function(){var w=field('website');w.disabled=nosite.checked;w.removeAttribute('aria-invalid');if(nosite.checked){w.value='';clear();}});
+    if(nosite)nosite.addEventListener('change',function(){var w=field('website');w.disabled=nosite.checked;w.removeAttribute('aria-invalid');if(nosite.checked){w.value='';clear();}syncNoSite();});
+    setMode(modeFromUrl(),false);
+    track({event:'contact_view',contact_intent:mode,entry_point:entry});
     form.addEventListener('submit',function(e){
       e.preventDefault();if(sending)return;clear();
       var name=field('name').value.trim(),email=field('email').value.trim(),phone=field('phone').value.trim();
@@ -351,11 +401,14 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))return show('Please enter a valid email address.',field('email'));
       if(phone&&phone.replace(/\D/g,'').length<7)return show('Please check your phone number, or leave it blank.',field('phone'));
       if(!noSite&&!/^https?:\/\/[^\s\/.]+\.[^\s]{2,}$/i.test(site))return show('Please enter your website, for example yourbusiness.com, or tick the box if you do not have one yet.',field('website'));
-      if(!help)return show('Please tell me what you need help with.',field('help_with[]'));
+      if(mode==='review'&&noSite)return show('A review needs a website to look at. Add your website, or switch to a general enquiry.',typeSel);
+      if(mode==='general'&&!help)return show('Please tell me what you are working on.',field('help_with[]'));
       var first=name.split(/\s+/)[0];
       function payload(){var fd=new FormData();
         fd.append('form','contact');fd.append('name',name);fd.append('email',email);fd.append('phone',phone);fd.append('website',site);
-        fd.append('help_with[]',help);fd.append('biggest_challenge',notes);return fd;}
+        fd.append('help_with[]',mode==='review'?'Free marketing review':help);fd.append('biggest_challenge',notes);
+        fd.append('contact_intent',mode);fd.append('entry_point',entry);Object.keys(utm).forEach(function(k){fd.append(k,utm[k]);});
+        if(landing)fd.append('landing_page',landing);return fd;}
       /* Bot guard: a filled trap field, a submit under three seconds, or no real key, pointer or input event.
          The visitor sees the thank-you either way. The submission is still sent, flagged, so the forms script files
          it on the Spam tab with the reason: a real person caught by mistake is never lost. */
@@ -371,11 +424,12 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         if(ts.key)fd.append('cf-turnstile-response',ts.token);
         return fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:fd}).then(function(){
           /* Reported only for a real send, never for a bot-guard trip, so GA4 counts enquiries, not bots. */
-          try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'contact_submit',form:'contact',has_website:!noSite});}catch(e){}
+          try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'contact_submit',form:'contact',has_website:!noSite,contact_intent:mode,entry_point:entry});}catch(e){}
           resetTurnstile();done(first);});
       }).catch(function(){
         resetTurnstile();busy(false);
-        show('Something went wrong. Please email Hello@helpmemarketing.com and I will reply right away.');
+        track({event:'contact_submit_error',contact_intent:mode,entry_point:entry,error_type:'network'});
+        show('Your message couldn\u2019t be sent. Please try again, or email Hello@helpmemarketing.com and I will reply right away.');
       });
     });
   }

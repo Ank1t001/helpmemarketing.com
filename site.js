@@ -61,7 +61,18 @@
     });
   }
 
-  function init() { initNav(); initTheme(); }
+  /* First page of the visit (path plus UTM tags only, nothing personal), sent with contact form leads as landing_page. */
+  function initLanding() {
+    try {
+      if (sessionStorage.getItem('hmm_landing')) return;
+      var q = new URLSearchParams(location.search), keep = new URLSearchParams();
+      ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { var v = q.get(k); if (v && /^[\w.\-]{1,60}$/.test(v)) keep.set(k, v); });
+      var qs = keep.toString();
+      sessionStorage.setItem('hmm_landing', location.pathname + (qs ? '?' + qs : ''));
+    } catch (e) {}
+  }
+
+  function init() { initNav(); initTheme(); initLanding(); }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
