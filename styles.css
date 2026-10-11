@@ -5801,3 +5801,4 @@ body.redesign-prototype .ind2-proof-shot img { position: absolute; inset: 0; }
 body.redesign-prototype .ind2-proof-body p.wk-metric { font-size: 32px; line-height: 1.1; color: var(--mint); }
 body.redesign-prototype .ind2-proof-body p.wk-metric span { font-size: 14px; color: var(--text-muted); }
 @media (max-width: 900px) { body.redesign-prototype .ind2-proof-shot { min-height: 0; } }
+body.redesign-prototype .ind2-faq { margin-top: 24px; max-width: 760px; }
