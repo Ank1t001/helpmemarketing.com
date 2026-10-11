@@ -5624,3 +5624,32 @@ body.redesign-prototype .jr-me-link:hover .jr-me-arrow { background: var(--cta);
   body.redesign-prototype .jr-find.is-live .jr-find-card.is-on .jr-reel-img, body.redesign-prototype .jr-find.is-live .jr-find-card.is-on .jr-reel-bar { animation: none; }
   body.redesign-prototype .jr-panels.is-tabs > .jr-panel, body.redesign-prototype .jr-pin, body.redesign-prototype .jr-pin::before, body.redesign-prototype .jr-stop-label { transition: none; }
 }
+/* Work page (2026-10-11): intro, three project cards, compact results list. Spec in the Design System note "Work page rebuild". */
+body.redesign-prototype .wk-intro .hero-subtitle { max-width: 640px; }
+body.redesign-prototype .wk-projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+body.redesign-prototype .wk-project { display: flex; flex-direction: column; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+body.redesign-prototype .wk-shot { aspect-ratio: 16 / 10; background: var(--bg); border-bottom: 1px solid var(--border); overflow: hidden; }
+body.redesign-prototype .wk-shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+body.redesign-prototype .wk-shot-tall img { object-fit: contain; object-position: center; }
+body.redesign-prototype .wk-body { display: flex; flex-direction: column; flex: 1; padding: 24px; }
+body.redesign-prototype .wk-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 0; font-size: 15px; font-weight: 600; color: var(--text); }
+body.redesign-prototype .wk-meta img { width: 24px; height: 24px; border-radius: 6px; }
+body.redesign-prototype .wk-tag { width: 100%; font-size: 13px; font-weight: 400; color: var(--text-muted); }
+body.redesign-prototype .wk-metric { margin: 16px 0 0; font-family: var(--serif); font-size: 32px; font-weight: 500; line-height: 1.1; color: var(--mint); }
+body.redesign-prototype .wk-metric span { display: block; margin-top: 4px; font-family: var(--sans); font-size: 14px; color: var(--text-muted); }
+body.redesign-prototype .wk-facts { margin: 20px 0 0; display: grid; gap: 14px; }
+body.redesign-prototype .wk-facts dt { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .wk-facts dd { margin: 4px 0 0; font-size: 15px; line-height: 1.55; color: var(--text-body); }
+body.redesign-prototype .wk-link { margin-top: auto; padding-top: 20px; font-size: 14px; font-weight: 600; color: var(--cta-text, var(--cta)); text-decoration: none; }
+body.redesign-prototype .wk-link:hover { text-decoration: underline; }
+body.redesign-prototype .wk-more { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
+body.redesign-prototype .wk-more-title { margin: 0 0 12px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .wk-more ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+body.redesign-prototype .wk-more li { font-size: 14px; line-height: 1.5; color: var(--text-muted); scroll-margin-top: 96px; }
+body.redesign-prototype .wk-more li b { display: block; color: var(--text); font-weight: 600; }
+body.redesign-prototype .wk-more .wk-link { display: inline-block; padding-top: 16px; }
+body.redesign-prototype .wk-project { scroll-margin-top: 96px; }
+@media (max-width: 900px) {
+  body.redesign-prototype .wk-projects { grid-template-columns: 1fr; max-width: 560px; }
+  body.redesign-prototype .wk-more ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
