@@ -1334,4 +1334,4 @@ Work page restructure (2026-10-11, founder "Updated HMM Work page structure"). O
 
 Work page figures verified (2026-10-11, founder confirmation): Equiton 40% lower cost per lead in nine months and Vanguard Pharmacy & Clinic +92% consultation requests in six months are verified and stay. Cafe Vanguard shows a marketing goal until in-store data exists.
 
-Work creative section trimmed (2026-10-11, founder): three videos only, in a plain row of three (`.wk-creative-3`, one column of max 300px at 720px): Iced matcha latte in 7 steps, No appointment necessary, Prescription transfer (AI motion video). The brand board and website tiles live on /portfolio only. The prescription transfer ad is captioned "AI motion video" on both pages.
+Work creative section trimmed (2026-10-11, founder): three videos only, in a plain row of three (`.wk-creative-3`, one column of max 300px at 720px): Iced matcha latte in 7 steps, No appointment necessary, Prescription Transfer - Motion Video (renamed the same day). The brand board and website tiles live on /portfolio only. The prescription transfer ad is captioned "AI motion video" on both pages.
