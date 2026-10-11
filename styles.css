@@ -5750,3 +5750,7 @@ body.redesign-prototype .ix-how li { padding: 24px; background: var(--bg-elevate
 body.redesign-prototype .ix-how h3 { margin: 0; font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--text); }
 body.redesign-prototype .ix-how p { margin: 8px 0 0; font-size: 15px; line-height: 1.6; color: var(--text-body); }
 @media (max-width: 900px) { body.redesign-prototype .ix-how { grid-template-columns: 1fr; max-width: 520px; } }
+/* Portfolio masonry in reading order (script places tiles into .pg-col by shortest column). */
+body.redesign-prototype .pg-grid.is-js { columns: auto; display: flex; align-items: flex-start; gap: 24px; }
+body.redesign-prototype .pg-col { flex: 1 1 0; min-width: 0; }
+@media (max-width: 900px) { body.redesign-prototype .pg-grid.is-js { gap: 20px; } }
