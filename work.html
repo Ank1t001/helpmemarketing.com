@@ -125,6 +125,12 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     <p class="eyebrow">Featured projects</p>
     <h2 class="section-heading">The thinking behind the <em>work</em>.</h2>
     <p class="section-deck">Brands I&rsquo;ve worked with, what I did and what changed. Every figure is reported by the business or measured in its own ad platforms and CRM.</p>
+    <div class="wk-tour" data-wk-tour>
+    <div class="wk-tour-stage">
+    <div class="wk-tour-nav" hidden>
+      <button type="button" class="wk-tour-btn" data-dir="-1"><span aria-hidden="true">&larr;</span> <span class="wk-tour-name"></span></button>
+      <button type="button" class="wk-tour-btn" data-dir="1"><span class="wk-tour-name"></span> <span aria-hidden="true">&rarr;</span></button>
+    </div>
     <div class="wk-projects">
       <article class="wk-project" id="equiton">
         <div class="wk-shot wk-shot-tall"><img src="/assets/portfolio/reel-equiton.jpg" alt="Search bar motion graphic from an Equiton campaign video" width="720" height="900" loading="lazy" decoding="async"></div>
@@ -162,6 +168,8 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         </div>
       </article>
     </div>
+    </div>
+    </div>
     <div class="wk-more">
       <p class="wk-more-title">More client work</p>
       <ul>
@@ -188,6 +196,48 @@ document.addEventListener('DOMContentLoaded', function () {
       if (window.dataLayer) window.dataLayer.push({ event: 'work_video_play', video: v.src.split('/').pop() });
     });
   });
+});
+</script>
+
+<!-- Featured projects tour: one project at a time. Scroll mode (wider than 900px, stage fits the window): the stage sticks and scrolling moves through the projects; Previous and Next scroll to a project. Swipe mode (900px and below): cards in a snap row. Click mode (wide but short windows): Previous and Next switch the card. Without JavaScript all three rows show in order. -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var tour = document.querySelector('[data-wk-tour]'); if (!tour) return;
+  var stage = tour.querySelector('.wk-tour-stage'), row = tour.querySelector('.wk-projects');
+  var cards = Array.prototype.slice.call(row.querySelectorAll('.wk-project')), nav = tour.querySelector('.wk-tour-nav');
+  var btns = nav.querySelectorAll('.wk-tour-btn'), names = cards.map(function (c) { return c.querySelector('.wk-meta span').textContent; });
+  var mode = '', idx = 0, STEP = 0.6, reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  nav.hidden = false;
+  function show(i) {
+    idx = Math.max(0, Math.min(cards.length - 1, i));
+    cards.forEach(function (c, k) { c.classList.toggle('is-on', k === idx); c.setAttribute('aria-hidden', mode !== 'swipe' && k !== idx ? 'true' : 'false'); if ('inert' in c) c.inert = mode !== 'swipe' && k !== idx; });
+    [-1, 1].forEach(function (d, k) { var t = idx + d, b = btns[k]; b.disabled = t < 0 || t >= cards.length; b.querySelector('.wk-tour-name').textContent = b.disabled ? (d < 0 ? 'Previous' : 'Next') : names[t]; b.setAttribute('aria-label', b.disabled ? '' : (d < 0 ? 'Previous project: ' : 'Next project: ') + names[t]); });
+  }
+  function navH() { var n = document.querySelector('.nav'); return n ? n.offsetHeight : 0; }
+  function layout() {
+    tour.classList.remove('is-scroll', 'is-swipe', 'is-click'); tour.style.height = '';
+    if (window.innerWidth <= 900) mode = 'swipe';
+    else { tour.classList.add('is-click'); mode = stage.offsetHeight + navH() + 32 <= window.innerHeight ? 'scroll' : 'click'; tour.classList.remove('is-click'); }
+    tour.classList.add('is-' + mode);
+    if (mode === 'scroll') { stage.style.top = (navH() + 16) + 'px'; tour.style.height = (stage.offsetHeight + (cards.length - 1) * window.innerHeight * STEP) + 'px'; onScroll(); }
+    else { stage.style.top = ''; show(idx); if (mode === 'swipe') row.scrollLeft = 0; }
+  }
+  function onScroll() {
+    if (mode !== 'scroll') return;
+    var y = -tour.getBoundingClientRect().top + navH() + 16, i = Math.round(y / (window.innerHeight * STEP));
+    if (i !== idx || !cards[idx].classList.contains('is-on')) show(i);
+  }
+  function go(i) {
+    i = Math.max(0, Math.min(cards.length - 1, i));
+    if (mode === 'scroll') { var top = tour.getBoundingClientRect().top + window.scrollY - navH() - 16 + i * window.innerHeight * STEP; window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' }); }
+    else if (mode === 'swipe') { row.scrollTo({ left: cards[i].offsetLeft - row.offsetLeft, behavior: reduce ? 'auto' : 'smooth' }); show(i); }
+    else show(i);
+  }
+  btns.forEach(function (b) { b.addEventListener('click', function () { go(idx + Number(b.getAttribute('data-dir'))); }); });
+  row.addEventListener('scroll', function () { if (mode !== 'swipe') return; var w = cards[0].offsetWidth, i = Math.round(row.scrollLeft / (w + 16)); if (i !== idx) show(i); }, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(layout, 150); });
+  show(0); layout();
 });
 </script>
 

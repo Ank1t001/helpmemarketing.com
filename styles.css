@@ -5717,3 +5717,19 @@ body.redesign-prototype .wk-project .wk-shot:not(.wk-shot-tall) img { object-fit
 body.redesign-prototype .wk-creative-3 { columns: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 body.redesign-prototype .wk-creative-3 .pg-tile { margin: 0; }
 @media (max-width: 720px) { body.redesign-prototype .wk-creative-3 { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; } }
+/* Work featured projects tour (2026-10-11): homepage-style walk-through without numbered stations. Classes set by the inline script: is-scroll, is-click, is-swipe. */
+body.redesign-prototype .wk-tour { margin-top: 32px; }
+body.redesign-prototype .wk-tour .wk-projects { margin-top: 0; }
+body.redesign-prototype .wk-tour-nav { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+body.redesign-prototype .wk-tour-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-elevated); color: var(--text); font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; transition: border-color 0.2s ease; }
+body.redesign-prototype .wk-tour-btn:hover:not(:disabled) { border-color: var(--text); }
+body.redesign-prototype .wk-tour-btn:disabled { opacity: 0.4; cursor: default; }
+body.redesign-prototype .wk-tour-btn:focus-visible { outline: 2px solid var(--cta); outline-offset: 2px; }
+body.redesign-prototype .wk-tour:is(.is-scroll, .is-click) .wk-projects { display: grid; gap: 0; }
+body.redesign-prototype .wk-tour:is(.is-scroll, .is-click) .wk-project { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0s linear 0.35s; }
+body.redesign-prototype .wk-tour:is(.is-scroll, .is-click) .wk-project.is-on { opacity: 1; visibility: visible; transition: opacity 0.35s ease, visibility 0s; }
+body.redesign-prototype .wk-tour.is-scroll .wk-tour-stage { position: sticky; }
+body.redesign-prototype .wk-tour.is-swipe .wk-projects { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+body.redesign-prototype .wk-tour.is-swipe .wk-projects::-webkit-scrollbar { display: none; }
+body.redesign-prototype .wk-tour.is-swipe .wk-project { flex: 0 0 88%; scroll-snap-align: start; }
+@media (prefers-reduced-motion: reduce) { body.redesign-prototype .wk-tour .wk-project, body.redesign-prototype .wk-tour-btn { transition: none !important; } }
