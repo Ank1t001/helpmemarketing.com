@@ -5803,3 +5803,11 @@ body.redesign-prototype .ind2-proof-body p.wk-metric span { font-size: 14px; col
 @media (max-width: 900px) { body.redesign-prototype .ind2-proof-shot { min-height: 0; } }
 body.redesign-prototype .ind2-faq { margin-top: 24px; max-width: 760px; }
 body.redesign-prototype .ind2-proof-solo { grid-template-columns: 1fr; max-width: 760px; }
+body.redesign-prototype .ind2-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+body.redesign-prototype .ind2-card-link { display: flex; flex-direction: column; height: 100%; text-decoration: none; color: inherit; transition: border-color 0.2s ease; }
+body.redesign-prototype .ind2-card-link:hover { border-color: var(--border-strong); }
+body.redesign-prototype .ind2-card-link:focus-visible { outline: 2px solid var(--cta); outline-offset: 3px; }
+body.redesign-prototype .ind2-card-link h3:first-child { margin-top: 0; }
+body.redesign-prototype .ind2-card-link .wk-link { margin-top: auto; padding-top: 14px; }
+@media (max-width: 900px) { body.redesign-prototype .ind2-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) { body.redesign-prototype .ind2-grid-3 { grid-template-columns: 1fr; } }
