@@ -5744,3 +5744,9 @@ body.redesign-prototype .wk-tool-cta:focus-visible { outline: 2px solid var(--ct
 @media (prefers-reduced-motion: reduce) { body.redesign-prototype .wk-tool { transition: none; } }
 body.redesign-prototype .pg-banner { aspect-ratio: 1200 / 456; }
 body.redesign-prototype .pg-post img { display: block; width: 100%; height: auto; }
+/* HMM Index hub "How it works": three short points. */
+body.redesign-prototype .ix-how { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+body.redesign-prototype .ix-how li { padding: 24px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; }
+body.redesign-prototype .ix-how h3 { margin: 0; font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--text); }
+body.redesign-prototype .ix-how p { margin: 8px 0 0; font-size: 15px; line-height: 1.6; color: var(--text-body); }
+@media (max-width: 900px) { body.redesign-prototype .ix-how { grid-template-columns: 1fr; max-width: 520px; } }
