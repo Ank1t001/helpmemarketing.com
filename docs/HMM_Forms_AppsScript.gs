@@ -182,6 +182,31 @@ function addLead_(form, d) {
     pick_(d, 'timeline'),
     leadSource_(form, d)
   ]);
+  if (form === 'contact' && pick_(d, 'contact_intent') === 'review') sendReviewConfirmation_(d);
+}
+
+// Automatic receipt for an accepted free review request, sent straight after the row is saved. It is proof the
+// request arrived, not the personal reply promised within 1 to 2 business days. A mail failure never loses the lead.
+function sendReviewConfirmation_(d) {
+  var email = pick_(d, 'email');
+  if (!isEmail_(email)) return;
+  var first = (pick_(d, 'name').split(/\s+/)[0] || 'there').slice(0, 40);
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var text = 'Hi ' + first + ',\n\nThanks for sharing your website!\n\nI\'ve received your request for a free marketing review.\n\n' +
+    'Here\'s what happens next:\n\n' +
+    '- Within 1 to 2 business days: I\'ll personally reply to confirm the next steps.\n' +
+    '- Within 5 to 7 business days: You\'ll receive your written marketing review covering what\'s working, what needs attention and what I\'d recommend fixing first.\n\n' +
+    'If I need any more information, I\'ll let you know.\n\nThanks,\nAnkit\nHelp Me Marketing';
+  var html = '<p>Hi ' + esc(first) + ',</p><p>Thanks for sharing your website!</p><p>I&rsquo;ve received your request for a free marketing review.</p>' +
+    '<p><strong>Here&rsquo;s what happens next:</strong></p><ul>' +
+    '<li><strong>Within 1 to 2 business days:</strong> I&rsquo;ll personally reply to confirm the next steps.</li>' +
+    '<li><strong>Within 5 to 7 business days:</strong> You&rsquo;ll receive your written marketing review covering what&rsquo;s working, what needs attention and what I&rsquo;d recommend fixing first.</li></ul>' +
+    '<p>If I need any more information, I&rsquo;ll let you know.</p><p>Thanks,<br>Ankit<br>Help Me Marketing</p>';
+  try {
+    MailApp.sendEmail({ to: email, replyTo: REPLY_TO, name: FROM_NAME, subject: 'Your free marketing review request is in', body: text, htmlBody: html });
+  } catch (err) {
+    console.error('Review confirmation email failed: ' + err);
+  }
 }
 
 // Source column for a lead. Contact leads add the intent (free review or general), the site CTA that sent them,

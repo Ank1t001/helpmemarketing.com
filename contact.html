@@ -115,6 +115,7 @@ body.redesign-prototype .contact-value { margin: 16px 0 0; font-size: 15px; line
 body.redesign-prototype .contact-switch { margin: 16px 0 0; font-size: 14px; color: var(--text-muted); }
 body.redesign-prototype .contact-switch a, body.redesign-prototype .contact-nosite-note a { color: var(--cta-text, var(--cta)); }
 @media (max-width: 720px) { body.redesign-prototype #contact-form :is(.form-input, .form-textarea) { font-size: 16px; } }
+#contact-thanks:not(.is-held) .thanks-held, #contact-thanks.is-held .when-review, #contact-thanks.is-held .when-general { display: none !important; }
 body.redesign-prototype .contact-next b { color: var(--text); font-weight: 600; }
 body.redesign-prototype .contact-next-note { margin: 10px 0 0; font-size: 13px; color: var(--text-muted); }
 body.redesign-prototype #contact-form .contact-nosite-note { margin: 8px 0 0; font-size: 13px; line-height: 1.5; color: var(--text-muted); }
@@ -210,7 +211,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 <p class="contact-privacy">Your details are used only to reply to your enquiry. See the <a href="/privacy">Privacy Policy</a>.</p>
 <div class="form-nav"><button type="submit" class="fbtn fbtn-primary contact-submit"><span id="contact-submit-label">Send my enquiry</span> <span aria-hidden="true">→</span></button></div>
 </form>
-<div id="contact-thanks" class="contact-thanks is-hidden" role="status"><div class="when-general"><h2 class="contact-thanks-title">Thanks for reaching out<span class="thanks-name"></span></h2><p>You will get a reply by email within 1 to 2 business days.</p></div><div class="when-review"><h2 class="contact-thanks-title">Your review request is in<span class="thanks-name"></span>.</h2><p>Thanks for sharing your details! I&rsquo;ll reply within 1 to 2 business days. Your personalised marketing review will follow within 5 to 7 business days.</p><p>Keep an eye on your inbox.</p></div></div>
+<div id="contact-thanks" class="contact-thanks is-hidden" role="status"><div class="when-general"><h2 class="contact-thanks-title">Thanks for reaching out<span class="thanks-name"></span></h2><p>You will get a reply by email within 1 to 2 business days.</p></div><div class="thanks-held"><h2 class="contact-thanks-title">Thanks<span class="thanks-name"></span>, your message has reached me.</h2><p>I need to check it by hand before I can confirm it. If you don&rsquo;t hear from me within 2 business days, please email <a href="mailto:hello@helpmemarketing.com">Hello@helpmemarketing.com</a>.</p></div><div class="when-review"><h2 class="contact-thanks-title">Your review request is in<span class="thanks-name"></span>.</h2><p>Thanks for sharing your details! I&rsquo;ll reply within 1 to 2 business days. Your personalised marketing review will follow within 5 to 7 business days.</p><p>Keep an eye on your inbox.</p></div></div>
       </div>
     </div>
 
@@ -388,6 +389,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     function show(msg,el){err.textContent=msg;err.classList.remove('is-hidden');if(el){el.setAttribute('aria-invalid','true');el.focus();}}
     function clear(){err.classList.add('is-hidden');form.querySelectorAll('[aria-invalid]').forEach(function(el){el.removeAttribute('aria-invalid');});}
     function busy(on){sending=on;btn.disabled=on;if(on){btn.setAttribute('aria-busy','true');}else{btn.removeAttribute('aria-busy');}if(btnLabel)btnLabel.textContent=on?'Sending…':btnText;}
+    function held(first){done(first);if(thanks)thanks.classList.add('is-held');}
     function done(first){thanksNames.forEach(function(n){n.textContent=', '+first;});form.classList.add('is-hidden');if(thanks){thanks.classList.remove('is-hidden');thanks.setAttribute('tabindex','-1');thanks.focus({preventScroll:true});thanks.scrollIntoView({behavior:'smooth',block:'center'});}}
     function url(v){v=v.trim();if(v&&!/^https?:\/\//i.test(v))v='https://'+v;return v;}
     var nosite=document.getElementById('cf-nosite');
@@ -433,9 +435,13 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
            error with the email fallback. The conversion event fires only for saved 'lead' (or an older script that
            replies without 'saved'), so Spam-tab filings never count. */
         return fetch(SHEET_URL,{method:'POST',body:fd}).then(function(r){return r.json();}).then(function(j){
-          if(!j||j.result!=='ok')throw new Error('not saved');
-          if(j.saved!=='spam'){try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'contact_submit',form:'contact',has_website:!noSite,contact_intent:mode,entry_point:entry});}catch(e){}}
-          resetTurnstile();done(first);});
+          /* Only an explicit saved reply counts (the generic 'ok' of the older script does not). A request the script
+             filed on Spam gets a neutral "checking by hand" panel, never the review promise, and no conversion. */
+          if(!j||j.result!=='ok'||(j.saved!=='lead'&&j.saved!=='spam'))throw new Error('not saved');
+          resetTurnstile();
+          if(j.saved==='spam'){held(first);return;}
+          try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'contact_submit',form:'contact',has_website:!noSite,contact_intent:mode,entry_point:entry});}catch(e){}
+          done(first);});
       }).catch(function(){
         resetTurnstile();busy(false);
         track({event:'contact_submit_error',contact_intent:mode,entry_point:entry,error_type:'network'});
