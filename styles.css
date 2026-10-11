@@ -5682,3 +5682,27 @@ body.redesign-prototype .wk-research .wk-link { display: inline; padding: 0 0 0 
 @media (max-width: 720px) { body.redesign-prototype .wk-tools { grid-template-columns: 1fr; } }
 body.redesign-prototype .wk-video-more { display: inline-block; margin-top: 24px; padding-top: 0; }
 body.redesign-prototype .wk-frame-cover img { object-fit: cover; }
+/* Portfolio gallery (2026-10-11): filter chips over a masonry grid of real work. Spec in the Design System note "Portfolio gallery". */
+body.redesign-prototype .pg-intro .hero-subtitle { max-width: 640px; }
+body.redesign-prototype .pg-section { padding-top: 0; }
+body.redesign-prototype .pg-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+body.redesign-prototype .pg-chip { padding: 8px 16px; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--text-muted); font: inherit; font-size: 14px; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease; }
+body.redesign-prototype .pg-chip:hover { border-color: var(--border-strong); color: var(--text); }
+body.redesign-prototype .pg-chip[aria-pressed="true"] { border-color: var(--text); background: var(--text); color: var(--bg); }
+body.redesign-prototype .pg-chip:focus-visible { outline: 2px solid var(--cta); outline-offset: 2px; }
+body.redesign-prototype .pg-grid { columns: 3; column-gap: 24px; }
+body.redesign-prototype .pg-tile { break-inside: avoid; margin: 0 0 32px; }
+body.redesign-prototype .pg-tile[hidden] { display: none; }
+body.redesign-prototype .pg-media { position: relative; display: block; width: 100%; padding: 0; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--bg-elevated); }
+body.redesign-prototype .pg-wide { aspect-ratio: 16 / 10; }
+body.redesign-prototype .pg-wide img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.3s ease; }
+body.redesign-prototype .pg-wide:hover img { transform: scale(1.02); }
+body.redesign-prototype .pg-wide:focus-visible { outline: 2px solid var(--cta); outline-offset: 3px; }
+body.redesign-prototype .pg-tile figcaption { padding: 12px 2px 0; }
+body.redesign-prototype .pg-title { display: block; font-size: 16px; font-weight: 600; color: var(--text); }
+body.redesign-prototype .pg-sub { display: block; margin-top: 2px; font-size: 13px; color: var(--text-tertiary); }
+body.redesign-prototype .pg-note { margin: 8px 0 0; font-size: 15px; color: var(--text-muted); }
+body.redesign-prototype .pg-note .wk-link { padding: 0 0 0 4px; }
+@media (max-width: 900px) { body.redesign-prototype .pg-grid { columns: 2; column-gap: 20px; } }
+@media (max-width: 720px) { body.redesign-prototype .pg-grid { columns: 1; max-width: 420px; margin: 0 auto; } }
+@media (prefers-reduced-motion: reduce) { body.redesign-prototype .pg-wide img, body.redesign-prototype .pg-chip { transition: none; } }
