@@ -20,7 +20,9 @@
  *
  * Nothing is thrown away. A filled honeypot, a bad email, a failed Turnstile check, too many
  * requests from one address, or an unknown payload is written to the Spam tab with the reason.
- * The page cannot read replies (it posts with no-cors), so every request gets the same "ok".
+ * Since 2026-10-11 every reply says what happened: { result: 'ok', saved: 'lead' }, { result: 'ok',
+ * saved: 'spam', reason } or { result: 'error' }. /contact reads it and shows its thank-you only for a
+ * saved lead. Accepted free review requests get an automatic confirmation email.
  *
  * SET-UP (keeps the same /exec URL, so /contact keeps working the whole time):
  *   1. In the "HMM | Contact Us" sheet: Extensions → Apps Script.
@@ -202,11 +204,9 @@ function sendReviewConfirmation_(d) {
     '<li><strong>Within 1 to 2 business days:</strong> I&rsquo;ll personally reply to confirm the next steps.</li>' +
     '<li><strong>Within 5 to 7 business days:</strong> You&rsquo;ll receive your written marketing review covering what&rsquo;s working, what needs attention and what I&rsquo;d recommend fixing first.</li></ul>' +
     '<p>If I need any more information, I&rsquo;ll let you know.</p><p>Thanks,<br>Ankit<br>Help Me Marketing</p>';
-  try {
+  send_(function () {
     MailApp.sendEmail({ to: email, replyTo: REPLY_TO, name: FROM_NAME, subject: 'Your free marketing review request is in', body: text, htmlBody: html });
-  } catch (err) {
-    console.error('Review confirmation email failed: ' + err);
-  }
+  });
 }
 
 // Source column for a lead. Contact leads add the intent (free review or general), the site CTA that sent them,
@@ -504,6 +504,7 @@ function testRouting() {
   var me = 'test@example.com';
   var cases = [
     { parameters: { form: ['contact'], name: ['TEST contact'], email: [me], phone: [''], website: ['https://example.com'], 'help_with[]': ['TEST need'], biggest_challenge: [''] } },
+    { parameters: { form: ['contact'], name: ['TEST review'], email: [me], phone: [''], website: ['https://example.com'], 'help_with[]': ['Free marketing review'], biggest_challenge: [''], contact_intent: ['review'], entry_point: ['home_hero'], utm_source: ['test'] } },
     { parameters: { form: ['audit-help'], name: ['TEST audit lead'], email: [me], phone: [''], website: ['Not given'], 'help_with[]': ['TEST summary'], biggest_challenge: [''] } },
     { json: { form: 'audit-plan', email: me, plan_title: 'TEST plan', plan_text: 'YOUR MARKETING PLAN\nTEST', plan_url: AUDIT_URL + '#plan=test', path: 'online', priority: 'P_TEST' } },
     { json: { form: 'audit-feedback', answer: 'Yes', path: 'online', priority: 'P_TEST' } },
@@ -516,7 +517,7 @@ function testRouting() {
     var e = c.json ? { parameters: {}, postData: { contents: JSON.stringify(c.json) } } : { parameters: c.parameters };
     doPost(e);
   });
-  Logger.log('Wrote ' + cases.length + ' TEST rows: Leads 2, Audit 2, Index downloads 1, Growth OS downloads 1, Subscribers 1, Spam 1. Delete them when checked.');
+  Logger.log('Wrote ' + cases.length + ' TEST rows: Leads 3 (one a free review, Source should read contact form | free review | entry home_hero | source test), Audit 2, Index downloads 1, Growth OS downloads 1, Subscribers 1, Spam 1. Delete them when checked.');
 }
 
 // Step 5. Sends the SEO bundle and a sample plan to your own address.
