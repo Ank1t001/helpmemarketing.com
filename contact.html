@@ -410,7 +410,8 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       var first=name.split(/\s+/)[0];
       function payload(){var fd=new FormData();
         fd.append('form','contact');fd.append('name',name);fd.append('email',email);fd.append('phone',phone);fd.append('website',site);
-        fd.append('help_with[]',mode==='review'?'Free marketing review':help);fd.append('biggest_challenge',notes);
+        /* Review mode hides the need box; anything typed there earlier (in general mode) is still sent. */
+        fd.append('help_with[]',mode==='review'?('Free marketing review'+(help?' | '+help:'')):help);fd.append('biggest_challenge',notes);
         fd.append('contact_intent',mode);fd.append('entry_point',entry);Object.keys(utm).forEach(function(k){fd.append(k,utm[k]);});
         if(landing)fd.append('landing_page',landing);if(fast)fd.append('client_signal','fast');return fd;}
       /* Bot guard: a filled trap field, a submit under three seconds, or no real key, pointer or input event.
