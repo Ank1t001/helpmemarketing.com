@@ -96,7 +96,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     <h1 class="hero-headline">Marketing that helps healthcare brands build <em>trust</em> and get more patient enquiries.</h1>
     <p class="hero-subtitle">From websites and local search to content and follow-up, I help make it easier for patients to choose you.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="/contact?intent=review#contact-form">Get my free marketing review &rarr;</a>
+      <a class="btn btn-primary" href="/contact?intent=review&amp;entry=industry_healthcare_hero#contact-form" data-review-cta="industry_healthcare_hero">Get my free marketing review &rarr;</a>
       <a class="btn btn-outline" href="#help">See how I can help</a>
     </div>
   </div>
@@ -150,11 +150,18 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       <h2 class="section-heading">Want to see what to <em>fix first</em>?</h2>
       <p class="subhead">Send your website or current setup and I&rsquo;ll review the key parts of your marketing.</p>
       <div class="final-cta-actions">
-        <a href="/contact?intent=review#contact-form" class="btn btn-primary">Get my free marketing review &rarr;</a>
+        <a href="/contact?intent=review&amp;entry=industry_healthcare_final#contact-form" class="btn btn-primary" data-review-cta="industry_healthcare_final">Get my free marketing review &rarr;</a>
       </div>
     </div>
   </div>
 </section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('[data-review-cta^="industry_"]').forEach(function (a) {
+    a.addEventListener('click', function () { try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'review_cta_click', entry_point: a.getAttribute('data-review-cta') }); } catch (e) {} });
+  });
+});
+</script>
 
 </div>
 
