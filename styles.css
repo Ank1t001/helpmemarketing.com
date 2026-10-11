@@ -5826,3 +5826,12 @@ body.redesign-prototype .ab-facts span { display: block; margin-top: 4px; font-s
   body.redesign-prototype [data-screen-label="contact"] .contact-portrait figcaption { position: static; padding: 18px 20px; background: none; }
 }
 body.redesign-prototype [data-screen-label="contact"] .ct-ic { width: 36px; height: 36px; border-radius: 10px; margin-bottom: 10px; }
+/* Blog index matched to the industry components (2026-10-11): compact hero, three-column grid, Portfolio-style chips, newsletter card. */
+body.redesign-prototype .bi-hero-chips { margin-top: 20px; }
+body.redesign-prototype .bi-filter .chip { padding: 8px 16px; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--text-muted); font-size: 14px; }
+body.redesign-prototype .bi-filter .chip:hover { border-color: var(--border-strong); color: var(--text); }
+body.redesign-prototype .bi-filter .chip.chip-on, body.redesign-prototype .bi-filter .chip[aria-pressed="true"] { border-color: var(--text); background: var(--text); color: var(--bg); }
+body.redesign-prototype .bi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+body.redesign-prototype .bi-news .bi-news-grid { padding: 32px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; }
+@media (max-width: 900px) { body.redesign-prototype .bi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } body.redesign-prototype .bi-news .bi-news-grid { padding: 24px; } }
+@media (max-width: 720px) { body.redesign-prototype .bi-grid { grid-template-columns: 1fr; } }
