@@ -161,6 +161,44 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </section>
 
+<!-- 03 VIDEO AND CREATIVE: posters only; a video file loads when its play button is pressed, and plays in place. -->
+<section class="content-section" id="video">
+  <div class="container">
+    <p class="eyebrow">Video and creative</p>
+    <h2 class="section-heading">Real videos I&rsquo;ve <em>worked on</em>.</h2>
+    <p class="section-deck">Concept, script, filming, editing and resizing for each platform. Press play to watch.</p>
+    <div class="wk-videos">
+      <figure class="wk-video">
+        <button class="wk-frame" type="button" data-video="/assets/portfolio/clip-founder.mp4" aria-label="Play the Vanguard founder story video"><img src="/assets/portfolio/clip-founder.jpg" alt="Owner-led reel filmed inside the Vanguard pharmacy" width="720" height="900" loading="lazy" decoding="async"><span class="wk-play" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+        <figcaption><span class="wk-video-title">Founder-led reel</span><span class="wk-video-client">Vanguard Pharmacy &amp; Clinic</span><span class="wk-video-sub">An owner-led walkthrough shot in store, cut into a captioned reel that introduces the business through its people.</span></figcaption>
+      </figure>
+      <figure class="wk-video">
+        <button class="wk-frame" type="button" data-video="/assets/portfolio/clip-transfer.mp4" aria-label="Play the prescription transfer ad"><img src="/assets/portfolio/clip-transfer.jpg" alt="Motion ad opening on the line Thinking about switching pharmacies" width="720" height="900" loading="lazy" decoding="async"><span class="wk-play" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+        <figcaption><span class="wk-video-title">Direct-response ad</span><span class="wk-video-client">Vanguard Pharmacy &amp; Clinic</span><span class="wk-video-sub">A motion ad built around one objection, switching pharmacies, that gets from hook to offer in twelve seconds.</span></figcaption>
+      </figure>
+      <figure class="wk-video">
+        <a class="wk-frame" href="https://www.facebook.com/reel/930441626273834" target="_blank" rel="noopener" aria-label="Watch the Equiton explainer on Facebook (opens in a new tab)"><img src="/assets/portfolio/reel-equiton.jpg" alt="Search bar motion graphic from the Equiton explainer" width="720" height="900" loading="lazy" decoding="async"><span class="wk-play" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></a>
+        <figcaption><span class="wk-video-title">Real estate explainer</span><span class="wk-video-client">Equiton</span><span class="wk-video-sub">Explains private real estate investing to a new audience, made to work with the sound off. Opens on Facebook.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('button.wk-frame[data-video]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var v = document.createElement('video');
+      v.src = b.getAttribute('data-video'); v.poster = b.querySelector('img').src;
+      v.controls = true; v.playsInline = true; v.preload = 'auto';
+      v.className = 'wk-frame wk-frame-video'; v.setAttribute('aria-label', b.getAttribute('aria-label').replace(/^Play /, ''));
+      document.querySelectorAll('video.wk-frame-video').forEach(function (o) { o.pause(); });
+      b.replaceWith(v); v.focus(); var p = v.play(); if (p && p.catch) p.catch(function () {});
+      if (window.dataLayer) window.dataLayer.push({ event: 'work_video_play', video: v.src.split('/').pop() });
+    });
+  });
+});
+</script>
+
 <section class="content-section pf-scope" id="indexes">
   <div class="container">
     <p class="eyebrow">Research we publish</p>
