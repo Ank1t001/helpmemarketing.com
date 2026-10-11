@@ -5811,3 +5811,11 @@ body.redesign-prototype .ind2-card-link h3:first-child { margin-top: 0; }
 body.redesign-prototype .ind2-card-link .wk-link { margin-top: auto; padding-top: 14px; }
 @media (max-width: 900px) { body.redesign-prototype .ind2-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 720px) { body.redesign-prototype .ind2-grid-3 { grid-template-columns: 1fr; } }
+/* About page (2026-10-11): portrait block and three facts, on the industry components. */
+body.redesign-prototype .ab-me { margin-top: 0; }
+body.redesign-prototype .ab-portrait { min-height: 420px; }
+body.redesign-prototype .ab-portrait img { object-position: center top; }
+body.redesign-prototype .ab-facts { list-style: none; margin: 20px 0 0; padding: 16px 0 0; border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+body.redesign-prototype .ab-facts b { display: block; font-family: var(--serif); font-size: 26px; font-weight: 500; color: var(--text); }
+body.redesign-prototype .ab-facts span { display: block; margin-top: 4px; font-size: 13px; color: var(--text-muted); }
+@media (max-width: 900px) { body.redesign-prototype .ab-portrait { min-height: 0; aspect-ratio: 4 / 5; max-height: 520px; } }
