@@ -5673,3 +5673,8 @@ body.redesign-prototype .wk-video-sub { display: block; margin-top: 8px; font-si
   body.redesign-prototype .wk-videos { grid-template-columns: 1fr; max-width: 420px; }
 }
 @media (prefers-reduced-motion: reduce) { body.redesign-prototype .wk-play { transition: none; } }
+body.redesign-prototype .wk-tools { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 800px; }
+body.redesign-prototype .wk-research { margin: 24px 0 0; max-width: 800px; font-size: 15px; line-height: 1.6; color: var(--text-muted); }
+body.redesign-prototype .wk-research a:not(.wk-link) { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+body.redesign-prototype .wk-research .wk-link { display: inline; padding: 0 0 0 6px; }
+@media (max-width: 720px) { body.redesign-prototype .wk-tools { grid-template-columns: 1fr; } }

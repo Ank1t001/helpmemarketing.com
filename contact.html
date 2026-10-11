@@ -327,7 +327,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     var LABEL={general:'Send my enquiry',review:'Request my free marketing review'};
     var q=new URLSearchParams(location.search);
     function clean(v,re){v=(v||'').trim();return re.test(v)?v:'';}
-    var entry=clean(q.get('entry'),/^(home_hero|home_final|home_journey)$/)||'direct';
+    var entry=clean(q.get('entry'),/^(home_hero|home_final|home_journey|work_final)$/)||'direct';
     var utm={};['utm_source','utm_medium','utm_campaign'].forEach(function(k){var v=clean(q.get(k),/^[\w.\-]{1,60}$/);if(v)utm[k]=v;});
     var landing='';try{landing=sessionStorage.getItem('hmm_landing')||'';}catch(e){}
     function modeFromUrl(){return new URLSearchParams(location.search).get('intent')==='review'?'review':'general';}

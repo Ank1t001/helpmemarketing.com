@@ -216,7 +216,7 @@ function leadSource_(form, d) {
   if (form === 'audit-help') return /^fast$/.test(pick_(d, 'client_signal')) ? 'marketing audit | signal fast' : 'marketing audit';
   var parts = ['contact form', pick_(d, 'contact_intent') === 'review' ? 'free review' : 'general'];
   var entry = pick_(d, 'entry_point');
-  if (/^(home_hero|home_final|home_journey|direct)$/.test(entry)) parts.push('entry ' + entry);
+  if (/^(home_hero|home_final|home_journey|work_final|direct)$/.test(entry)) parts.push('entry ' + entry);
   ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) {
     var v = pick_(d, k).replace(/[^\w.\-]/g, '').slice(0, 60);
     if (v) parts.push(k.replace('utm_', '') + ' ' + v);
