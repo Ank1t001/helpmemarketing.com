@@ -5754,3 +5754,4 @@ body.redesign-prototype .ix-how p { margin: 8px 0 0; font-size: 15px; line-heigh
 body.redesign-prototype .pg-grid.is-js { columns: auto; display: flex; align-items: flex-start; gap: 24px; }
 body.redesign-prototype .pg-col { flex: 1 1 0; min-width: 0; }
 @media (max-width: 900px) { body.redesign-prototype .pg-grid.is-js { gap: 20px; } }
+body.redesign-prototype .wk-frame.pg-square, body.redesign-prototype video.wk-frame.pg-square { aspect-ratio: 1 / 1; }
