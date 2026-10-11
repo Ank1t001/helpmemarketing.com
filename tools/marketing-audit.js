@@ -489,12 +489,15 @@
         fd.append('website', site || 'Not given');
         fd.append('help_with[]', sum);
         fd.append('biggest_challenge', notes);
+        if (fast) fd.append('client_signal', 'fast');
         return fd;
       }
-      /* Bot guard, same as /contact: trap field, three-second minimum, a real key, pointer, touch or input event.
-         A tripped guard still sends the submission, flagged, so the forms script files it on Spam with the reason. */
-      var trap = $('ma-chp').value;
-      var flag = trap ? 'trap' : Date.now() - t0 < MIN_MS ? 'fast' : !human ? 'no-input' : '';
+      /* Bot guard, same as /contact: a filled trap field, or a send with no key, pointer, touch or input event at all.
+         Timing is a signal, not a verdict (2026-10-11): a send under three seconds from a real visitor (autofill) goes
+         through, tagged client_signal=fast; it is filed as a bot only when it also had no input. A tripped guard still
+         sends the submission, flagged, so the forms script files it on Spam with the reason. */
+      var trap = $('ma-chp').value, fast = Date.now() - t0 < MIN_MS;
+      var flag = trap ? 'trap' : (fast && !human) ? 'no-input' : '';
       if (flag) {
         var bf = payload(); bf.append('client_flag', flag); if (trap) bf.append('trap_value', trap.slice(0, 100));
         fetch(CONTACT_URL, { method: 'POST', mode: 'no-cors', body: bf }).catch(function () {});

@@ -1225,6 +1225,8 @@ Contact page delivery and review promise (2026-10-11, founder decisions after th
 
 Contact page, founder follow-up the same day (2026-10-11). (1) A Spam-tab filing no longer shows the review promise: the page shows a neutral panel ("Thanks, your message has reached me. I need to check it by hand before I can confirm it. If you don't hear from me within 2 business days, please email Hello@helpmemarketing.com.") via #contact-thanks.is-held and .thanks-held; client-side bot-guard trips still show the normal thank-you, so the page does not tell a bot it was caught. (2) The page requires the explicit saved reply: { result: 'ok' } without saved (the script live before this change) is now a failure, so the forms script must be redeployed before the page ships. (3) Accepted free review requests get an automatic email straight after the row is saved (sendReviewConfirmation_ in the forms script; subject "Your free marketing review request is in"; the founder's copy, plain text and HTML; from HelpMeMarketing, reply-to hello@); it is proof of receipt, not the personal reply within 1 to 2 business days, and a mail failure never loses the lead. General enquiries get no email, as before.
 
+Marketing audit form timing rule (2026-10-11, founder request): tools/marketing-audit.js now uses the /contact rule; a send under three seconds is a signal (client_signal=fast) and is filed as a bot only when it also had no key, pointer, touch or input event; the trap field and Turnstile are unchanged. The forms script writes "marketing audit | signal fast" in the Source column for those leads (needs the script redeployed to show; until then the lead is saved with plain "marketing audit").
+
 ## 16. Open Items
 
 ### Known followups (not blocking current work)

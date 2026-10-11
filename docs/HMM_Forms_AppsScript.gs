@@ -213,7 +213,7 @@ function sendReviewConfirmation_(d) {
 // any UTM tags and the landing page, each checked against a pattern here: URL parameters are never trusted as sent.
 // Kept in the existing Source column so the Leads columns and order stay unchanged.
 function leadSource_(form, d) {
-  if (form === 'audit-help') return 'marketing audit';
+  if (form === 'audit-help') return /^fast$/.test(pick_(d, 'client_signal')) ? 'marketing audit | signal fast' : 'marketing audit';
   var parts = ['contact form', pick_(d, 'contact_intent') === 'review' ? 'free review' : 'general'];
   var entry = pick_(d, 'entry_point');
   if (/^(home_hero|home_final|home_journey|direct)$/.test(entry)) parts.push('entry ' + entry);
