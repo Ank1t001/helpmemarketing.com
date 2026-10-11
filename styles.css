@@ -5641,11 +5641,6 @@ body.redesign-prototype .wk-metric { margin: 16px 0 0; font-family: var(--serif)
 body.redesign-prototype .wk-metric span { display: block; margin-top: 4px; font-family: var(--sans); font-size: 14px; color: var(--text-muted); }
 body.redesign-prototype .wk-link { margin-top: auto; padding-top: 20px; font-size: 14px; font-weight: 600; color: var(--cta-text, var(--cta)); text-decoration: none; }
 body.redesign-prototype .wk-link:hover { text-decoration: underline; }
-body.redesign-prototype .wk-more { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
-body.redesign-prototype .wk-more-title { margin: 0 0 12px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
-body.redesign-prototype .wk-more ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 32px; }
-body.redesign-prototype .wk-more li { font-size: 16px; font-weight: 600; line-height: 1.5; color: var(--text); scroll-margin-top: 96px; }
-body.redesign-prototype .wk-more .wk-link { display: inline-block; padding-top: 16px; }
 body.redesign-prototype .wk-project { scroll-margin-top: 96px; }
 @media (max-width: 900px) {
   body.redesign-prototype .wk-project { grid-template-columns: 1fr; }
