@@ -5741,3 +5741,4 @@ body.redesign-prototype .wk-tool-cta { margin-top: auto; padding-top: 20px; font
 body.redesign-prototype .wk-tool:hover .wk-tool-cta { text-decoration: underline; }
 @media (max-width: 900px) { body.redesign-prototype .wk-tools-grid { grid-template-columns: 1fr; max-width: 520px; } }
 @media (prefers-reduced-motion: reduce) { body.redesign-prototype .wk-tool { transition: none; } }
+body.redesign-prototype .pg-banner { aspect-ratio: 1200 / 456; }

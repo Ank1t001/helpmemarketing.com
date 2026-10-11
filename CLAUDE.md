@@ -97,7 +97,7 @@ Strategic context: Lifecycle & Retention was originally included to capture sign
 
 Sitewide canon:
 - "DTC" (not "DTC & E-commerce")
-- "Case Studies" Title Case (not "Case studies")
+- "Case Studies" Title Case (not "Case studies"). Superseded 2026-10-11: the nav, footer and breadcrumb label for /work is now "Work" (founder decision).
 - "© 2026 HelpMeMarketing" (drop "Inc.")
 - `Hello@helpmemarketing.com` (capitalized H)
 
