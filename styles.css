@@ -5713,3 +5713,7 @@ body.redesign-prototype .wk-goal { margin: 6px 0 0; font-size: 15px; line-height
 body.redesign-prototype .wk-creative { margin-top: 32px; }
 @media (max-width: 720px) { body.redesign-prototype .wk-head { font-size: 22px; } }
 body.redesign-prototype .wk-project .wk-shot:not(.wk-shot-tall) img { object-fit: contain; object-position: center; }
+/* Work creative section with three videos only: a plain row of three, not masonry. */
+body.redesign-prototype .wk-creative-3 { columns: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+body.redesign-prototype .wk-creative-3 .pg-tile { margin: 0; }
+@media (max-width: 720px) { body.redesign-prototype .wk-creative-3 { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; } }
