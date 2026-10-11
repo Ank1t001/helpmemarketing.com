@@ -72,9 +72,6 @@ body.redesign-prototype #contact-form .cf-slot:not(:empty){margin-top:.5rem;}
 body.redesign-prototype #contact-form .contact-nosite{display:flex;align-items:center;gap:8px;margin:10px 0 0;font-size:13px;font-weight:400;color:var(--text-muted);cursor:pointer;}
 body.redesign-prototype #contact-form .contact-nosite input{width:16px;height:16px;margin:0;accent-color:var(--cta);}
 body.redesign-prototype #contact-form .form-input:disabled{opacity:.45;cursor:not-allowed;}
-body.redesign-prototype #contact-form .contact-next{margin:4px 0 0;padding:16px 18px;border:1px solid var(--border);border-radius:12px;background:var(--bg);}
-body.redesign-prototype #contact-form .contact-next-title{margin:0 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);font-weight:500;}
-body.redesign-prototype #contact-form .contact-next ol{margin:0;padding-left:1.2em;font-size:14px;line-height:1.6;color:var(--text-muted);}
 body.redesign-prototype #contact-form .contact-privacy{margin:16px 0 0;font-size:13px;color:var(--text-tertiary);}
 body.redesign-prototype #contact-form .contact-privacy a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px;}
 body.redesign-prototype #contact-form .form-nav{margin-top:24px;}
@@ -116,8 +113,6 @@ body.redesign-prototype .contact-switch { margin: 16px 0 0; font-size: 14px; col
 body.redesign-prototype .contact-switch a, body.redesign-prototype .contact-nosite-note a { color: var(--cta-text, var(--cta)); }
 @media (max-width: 720px) { body.redesign-prototype #contact-form :is(.form-input, .form-textarea) { font-size: 16px; } }
 #contact-thanks:not(.is-held) .thanks-held, #contact-thanks.is-held .when-review, #contact-thanks.is-held .when-general { display: none !important; }
-body.redesign-prototype .contact-next b { color: var(--text); font-weight: 600; }
-body.redesign-prototype .contact-next-note { margin: 10px 0 0; font-size: 13px; color: var(--text-muted); }
 body.redesign-prototype #contact-form .contact-nosite-note { margin: 8px 0 0; font-size: 13px; line-height: 1.5; color: var(--text-muted); }
 </style>
 </head>
@@ -206,8 +201,6 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 <div class="hp-field" aria-hidden="true"><label for="cf-hp">Leave this field blank</label><input type="text" id="cf-hp" name="hmm_trap" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore></div>
 <div class="cf-slot" id="cf-turnstile"></div>
 <div class="form-error is-hidden" id="contact-err" role="alert"></div>
-<div class="contact-next when-general"><p class="contact-next-title">What happens next</p><ol><li>Your message comes straight to me.</li><li>You get an email reply from me within 1 to 2 business days about how I can help.</li><li>You decide whether to go further. No pressure.</li></ol></div>
-<div class="contact-next when-review"><p class="contact-next-title">What happens next</p><ol><li><b>Share your website.</b> Tell me about your business and what you&rsquo;d like me to review.</li><li><b>I&rsquo;ll get back to you.</b> I&rsquo;ll personally reply within 1 to 2 business days to confirm your request and next steps.</li><li><b>Get your marketing review.</b> Within 5 to 7 business days, you&rsquo;ll receive a personalised review covering what&rsquo;s working, what needs attention and what I&rsquo;d recommend fixing first.</li></ol><p class="contact-next-note">No account access needed to get started.</p></div>
 <p class="contact-privacy">Your details are used only to reply to your enquiry. See the <a href="/privacy">Privacy Policy</a>.</p>
 <div class="form-nav"><button type="submit" class="fbtn fbtn-primary contact-submit"><span id="contact-submit-label">Send my enquiry</span> <span aria-hidden="true">→</span></button></div>
 </form>
