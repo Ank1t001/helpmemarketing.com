@@ -103,7 +103,7 @@ Sitewide canon:
 
 #### Decision 4 — Top nav stays unchanged
 
-Home / Services / Case Studies / About + "Book a free audit" CTA. Blog stays in footer. Tools stay in footer (showcased in F2 upper band). No new top-nav items added during Phase 2.5.
+Home / Services / Case Studies / About + "Book a free audit" CTA. Blog stays in footer. Superseded 2026-10-11 (founder): the header is Services / Work / AI Tools / Blog / About (no Home link, the logo goes home) and one orange CTA, "Get my free marketing review" (`a.btn.btn-primary.nav-review-cta` to `/contact?intent=review#contact-form`, label "Free review" at 720px and below); the Free AI Audit button and "Need Help? Let's Talk" are gone from the header (the audit lives on /ai-tools). Tools stay in footer (showcased in F2 upper band). No new top-nav items added during Phase 2.5.
 
 #### Decision 5 — Sweep sequencing
 

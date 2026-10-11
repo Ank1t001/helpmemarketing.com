@@ -5755,3 +5755,6 @@ body.redesign-prototype .pg-grid.is-js { columns: auto; display: flex; align-ite
 body.redesign-prototype .pg-col { flex: 1 1 0; min-width: 0; }
 @media (max-width: 900px) { body.redesign-prototype .pg-grid.is-js { gap: 20px; } }
 body.redesign-prototype .wk-frame.pg-square, body.redesign-prototype video.wk-frame.pg-square { aspect-ratio: 1 / 1; }
+/* Header CTA (2026-10-11): one action, the free marketing review; short label on phones. */
+.nav-cta-short { display: none; }
+@media (max-width: 720px) { .nav-cta-long { display: none; } .nav-cta-short { display: inline; } }
