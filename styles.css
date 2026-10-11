@@ -5639,9 +5639,6 @@ body.redesign-prototype .wk-meta img { width: 24px; height: 24px; border-radius:
 body.redesign-prototype .wk-tag { margin: 6px 0 0; font-size: 13px; color: var(--text-muted); }
 body.redesign-prototype .wk-metric { margin: 16px 0 0; font-family: var(--serif); font-size: 32px; font-weight: 500; line-height: 1.1; color: var(--mint); }
 body.redesign-prototype .wk-metric span { display: block; margin-top: 4px; font-family: var(--sans); font-size: 14px; color: var(--text-muted); }
-body.redesign-prototype .wk-facts { margin: 20px 0 0; display: grid; gap: 14px; }
-body.redesign-prototype .wk-facts dt { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
-body.redesign-prototype .wk-facts dd { margin: 4px 0 0; font-size: 15px; line-height: 1.55; color: var(--text-body); }
 body.redesign-prototype .wk-link { margin-top: auto; padding-top: 20px; font-size: 14px; font-weight: 600; color: var(--cta-text, var(--cta)); text-decoration: none; }
 body.redesign-prototype .wk-link:hover { text-decoration: underline; }
 body.redesign-prototype .wk-more { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
@@ -5706,3 +5703,13 @@ body.redesign-prototype .pg-note .wk-link { padding: 0 0 0 4px; }
 @media (max-width: 900px) { body.redesign-prototype .pg-grid { columns: 2; column-gap: 20px; } }
 @media (max-width: 720px) { body.redesign-prototype .pg-grid { columns: 1; max-width: 420px; margin: 0 auto; } }
 @media (prefers-reduced-motion: reduce) { body.redesign-prototype .pg-wide img, body.redesign-prototype .pg-chip { transition: none; } }
+/* Work page featured project copy (2026-10-11): headline, short paragraphs and a result or goal box per row. */
+body.redesign-prototype .wk-head { margin: 16px 0 0; font-family: var(--serif); font-size: 26px; font-weight: 500; line-height: 1.2; color: var(--text); }
+body.redesign-prototype .wk-p { margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--text-body); }
+body.redesign-prototype .wk-result { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
+body.redesign-prototype .wk-result-label { margin: 0; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .wk-result .wk-metric { margin-top: 6px; }
+body.redesign-prototype .wk-goal { margin: 6px 0 0; font-size: 15px; line-height: 1.6; color: var(--text-body); }
+body.redesign-prototype .wk-creative { margin-top: 32px; }
+@media (max-width: 720px) { body.redesign-prototype .wk-head { font-size: 22px; } }
+body.redesign-prototype .wk-project .wk-shot:not(.wk-shot-tall) img { object-fit: contain; object-position: center; }
