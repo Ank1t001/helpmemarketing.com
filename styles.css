@@ -5503,8 +5503,8 @@ body.redesign-prototype .jr-portrait figcaption { position: absolute; inset: aut
 body.redesign-prototype .jr-sign { font-family: var(--serif); font-style: italic; font-size: 28px; letter-spacing: 0; text-transform: none; }
 body.redesign-prototype .jr-facts { list-style: none; margin: 16px 0 0; padding: 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; }
 body.redesign-prototype .jr-facts li + li { border-left: 1px solid var(--border); padding-left: 16px; }
-body.redesign-prototype .jr-facts strong { display: block; font-family: var(--serif); font-size: 32px; font-weight: 500; line-height: 1.1; color: var(--text); }
-body.redesign-prototype .jr-facts span { display: block; margin-top: 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .jr-facts strong { display: block; font-family: var(--serif); font-size: 24px; font-weight: 500; line-height: 1.1; color: var(--text); }
+body.redesign-prototype .jr-facts span { display: block; margin-top: 8px; font-size: 14px; line-height: 1.4; color: var(--text-tertiary); }
 body.redesign-prototype .jr-pillars { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
 body.redesign-prototype .jr-pillars li + li { border-left: 1px solid var(--border); padding-left: 24px; }
 body.redesign-prototype .jr-icon { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--border-strong, var(--border)); border-radius: 12px; color: var(--cta-text, var(--cta)); }
@@ -5610,8 +5610,8 @@ body.redesign-prototype .jr-me-link:hover .jr-me-arrow { background: var(--cta);
   body.redesign-prototype .jr-pillars li:nth-child(odd) { padding-left: 0; }
   body.redesign-prototype .jr-facts { padding: 20px 16px; gap: 12px; }
   body.redesign-prototype .jr-facts li + li { padding-left: 12px; }
-  body.redesign-prototype .jr-facts strong { font-size: 28px; }
-  body.redesign-prototype .jr-facts span { font-size: 11px; }
+  body.redesign-prototype .jr-facts strong { font-size: 18px; }
+  body.redesign-prototype .jr-facts span { font-size: 13px; }
   body.redesign-prototype .jr-certs ul { flex-direction: column; }
 }
 @media (prefers-reduced-motion: reduce) {
