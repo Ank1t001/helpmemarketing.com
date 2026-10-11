@@ -115,6 +115,8 @@ body.redesign-prototype .contact-value { margin: 16px 0 0; font-size: 15px; line
 body.redesign-prototype .contact-switch { margin: 16px 0 0; font-size: 14px; color: var(--text-muted); }
 body.redesign-prototype .contact-switch a, body.redesign-prototype .contact-nosite-note a { color: var(--cta-text, var(--cta)); }
 @media (max-width: 720px) { body.redesign-prototype #contact-form :is(.form-input, .form-textarea) { font-size: 16px; } }
+body.redesign-prototype .contact-next b { color: var(--text); font-weight: 600; }
+body.redesign-prototype .contact-next-note { margin: 10px 0 0; font-size: 13px; color: var(--text-muted); }
 body.redesign-prototype #contact-form .contact-nosite-note { margin: 8px 0 0; font-size: 13px; line-height: 1.5; color: var(--text-muted); }
 </style>
 </head>
@@ -172,7 +174,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       <span class="eyebrow"><span class="eyebrow-dot"></span>Free marketing review</span>
       <h1 class="hero-headline">Find out what&rsquo;s working and <em>what needs fixing</em>.</h1>
       <p class="contact-intro">Send your website and I&rsquo;ll look at the key parts of your marketing, then share what I&rsquo;d recommend improving first.</p>
-      <p class="contact-value">I&rsquo;ll start with what I can see publicly, such as your website, messaging and the steps people take to contact your business. I&rsquo;ll explain what deserves attention first. No account access needed to get started.</p>
+      <p class="contact-value">I&rsquo;ll start with what I can see publicly, such as your website, messaging and the steps people take to contact your business, and explain what deserves attention first.</p>
       <p class="contact-switch">Need help with something else? <a href="/contact#contact-form" data-switch="general">Send a general enquiry</a>.</p>
       </div>
 
@@ -204,11 +206,11 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 <div class="cf-slot" id="cf-turnstile"></div>
 <div class="form-error is-hidden" id="contact-err" role="alert"></div>
 <div class="contact-next when-general"><p class="contact-next-title">What happens next</p><ol><li>Your message comes straight to me.</li><li>You get an email reply from me within 1 to 2 business days about how I can help.</li><li>You decide whether to go further. No pressure.</li></ol></div>
-<div class="contact-next when-review"><p class="contact-next-title">What happens next</p><ol><li>I read your request and review what information is available.</li><li>I&rsquo;ll reply by email within 1 to 2 business days about the next steps.</li><li>You&rsquo;ll know what can be reviewed, what needs more information and how to proceed. No pressure.</li></ol></div>
+<div class="contact-next when-review"><p class="contact-next-title">What happens next</p><ol><li><b>Share your website.</b> Tell me about your business and what you&rsquo;d like me to review.</li><li><b>I&rsquo;ll get back to you.</b> I&rsquo;ll personally reply within 1 to 2 business days to confirm your request and next steps.</li><li><b>Get your marketing review.</b> Within 5 to 7 business days, you&rsquo;ll receive a personalised review covering what&rsquo;s working, what needs attention and what I&rsquo;d recommend fixing first.</li></ol><p class="contact-next-note">No account access needed to get started.</p></div>
 <p class="contact-privacy">Your details are used only to reply to your enquiry. See the <a href="/privacy">Privacy Policy</a>.</p>
 <div class="form-nav"><button type="submit" class="fbtn fbtn-primary contact-submit"><span id="contact-submit-label">Send my enquiry</span> <span aria-hidden="true">→</span></button></div>
 </form>
-<div id="contact-thanks" class="contact-thanks is-hidden" role="status"><div class="when-general"><h2 class="contact-thanks-title">Thanks for reaching out<span class="thanks-name"></span></h2><p>You will get a reply by email within 1 to 2 business days.</p></div><div class="when-review"><h2 class="contact-thanks-title">Your review request is in<span class="thanks-name"></span>.</h2><p>Thanks for sharing your details. I&rsquo;ll read your request and reply by email within 1 to 2 business days with the next steps for your marketing review.</p></div></div>
+<div id="contact-thanks" class="contact-thanks is-hidden" role="status"><div class="when-general"><h2 class="contact-thanks-title">Thanks for reaching out<span class="thanks-name"></span></h2><p>You will get a reply by email within 1 to 2 business days.</p></div><div class="when-review"><h2 class="contact-thanks-title">Your review request is in<span class="thanks-name"></span>.</h2><p>Thanks for sharing your details! I&rsquo;ll reply within 1 to 2 business days. Your personalised marketing review will follow within 5 to 7 business days.</p><p>Keep an eye on your inbox.</p></div></div>
       </div>
     </div>
 
@@ -408,11 +410,15 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         fd.append('form','contact');fd.append('name',name);fd.append('email',email);fd.append('phone',phone);fd.append('website',site);
         fd.append('help_with[]',mode==='review'?'Free marketing review':help);fd.append('biggest_challenge',notes);
         fd.append('contact_intent',mode);fd.append('entry_point',entry);Object.keys(utm).forEach(function(k){fd.append(k,utm[k]);});
-        if(landing)fd.append('landing_page',landing);return fd;}
+        if(landing)fd.append('landing_page',landing);if(fast)fd.append('client_signal','fast');return fd;}
       /* Bot guard: a filled trap field, a submit under three seconds, or no real key, pointer or input event.
          The visitor sees the thank-you either way. The submission is still sent, flagged, so the forms script files
          it on the Spam tab with the reason: a real person caught by mistake is never lost. */
-      var flag=(hp&&hp.value)?'trap':Date.now()-t0<MIN_MS?'fast':!human?'no-input':'';
+      /* Timing is a signal, not a verdict (2026-10-11): an autofilled form can be sent in under three seconds by a
+         real person. Only a filled trap field, or a fast send with no key, pointer, touch or input event at all, is
+         filed as a bot; a fast send from a real visitor goes through, tagged client_signal=fast for the Source column. */
+      var fast=Date.now()-t0<MIN_MS;
+      var flag=(hp&&hp.value)?'trap':(fast&&!human)?'no-input':'';
       if(flag){var bf=payload();bf.append('client_flag',flag);if(hp&&hp.value)bf.append('trap_value',hp.value.slice(0,100));
         fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:bf}).catch(function(){});done(first);return;}
       busy(true);loadTurnstile();
@@ -422,9 +428,13 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         if(ts.key&&!ts.token&&ts.interactive){busy(false);show('Please tick the \u201cVerify you are human\u201d box, then press Send again.');return;}
         var fd=payload();
         if(ts.key)fd.append('cf-turnstile-response',ts.token);
-        return fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:fd}).then(function(){
-          /* Reported only for a real send, never for a bot-guard trip, so GA4 counts enquiries, not bots. */
-          try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'contact_submit',form:'contact',has_website:!noSite,contact_intent:mode,entry_point:entry});}catch(e){}
+        /* The thank-you shows only once the forms script replies that it saved the row (it answers with readable JSON:
+           saved 'lead' or 'spam'). A network failure, a bad reply or result 'error' keeps everything typed and shows the
+           error with the email fallback. The conversion event fires only for saved 'lead' (or an older script that
+           replies without 'saved'), so Spam-tab filings never count. */
+        return fetch(SHEET_URL,{method:'POST',body:fd}).then(function(r){return r.json();}).then(function(j){
+          if(!j||j.result!=='ok')throw new Error('not saved');
+          if(j.saved!=='spam'){try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'contact_submit',form:'contact',has_website:!noSite,contact_intent:mode,entry_point:entry});}catch(e){}}
           resetTurnstile();done(first);});
       }).catch(function(){
         resetTurnstile();busy(false);

@@ -74,8 +74,11 @@ var DRY_RUN = false;             // true only inside testRouting: rows are writt
 
 /* ============================ entry points ============================ */
 
+// Replies with what happened so the page only says "sent" when the row is saved:
+// { result: 'ok', saved: 'lead' } for a filed form, { result: 'ok', saved: 'spam', reason } when it went to the Spam tab,
+// { result: 'error' } when nothing could be written (the page then keeps the visitor's text and offers email).
 function doPost(e) {
-  var data = {};
+  var data = {}, saved = 'error', why = '';
   try {
     data = parseIncoming_(e);
     var form = formOf_(data);
@@ -86,16 +89,17 @@ function doPost(e) {
     var lock = LockService.getScriptLock();
     lock.waitLock(20000);
     try {
-      if (reason) spam_(form, data, reason);
-      else route_(form, data);
+      if (reason) { spam_(form, data, reason); saved = 'spam'; why = reason; }
+      else { var filed = route_(form, data); saved = filed === 'spam' ? 'spam' : 'lead'; }
     } finally {
       lock.releaseLock();
     }
   } catch (err) {
     console.error('Form handling failed: ' + err + ' | ' + JSON.stringify(data).slice(0, 500));
-    try { spam_(data.form || 'unknown', data, 'Script error: ' + String(err).slice(0, 200)); } catch (ignore) {}
+    try { spam_(data.form || 'unknown', data, 'Script error: ' + String(err).slice(0, 200)); saved = 'spam'; why = 'Script error'; } catch (ignore) { saved = 'error'; }
   }
-  return jsonOut_({ result: 'ok' });
+  if (saved === 'error') return jsonOut_({ result: 'error' });
+  return jsonOut_(saved === 'spam' ? { result: 'ok', saved: 'spam', reason: String(why).slice(0, 80) } : { result: 'ok', saved: 'lead' });
 }
 
 // Open the /exec URL in a browser to confirm the deployment is live.
@@ -156,7 +160,7 @@ function route_(form, d) {
     case 'growth-os-download': return addGrowthOs_(d, email);
     case 'subscribe': return addSubscriber_(email, pick_(d, 'source') || 'website', 'Yes, subscribe form');
   }
-  spam_(form, d, 'Unknown form');
+  return spam_(form, d, 'Unknown form');
 }
 
 /* ============================ one handler per tab ============================ */
@@ -192,6 +196,8 @@ function leadSource_(form, d) {
     var v = pick_(d, k).replace(/[^\w.\-]/g, '').slice(0, 60);
     if (v) parts.push(k.replace('utm_', '') + ' ' + v);
   });
+  var sig = pick_(d, 'client_signal');
+  if (/^fast$/.test(sig)) parts.push('signal fast');
   var lp = pick_(d, 'landing_page').replace(/[^\w\/.\-?=&]/g, '').slice(0, 160);
   if (lp) parts.push('landing ' + lp);
   return parts.join(' | ');
@@ -248,6 +254,7 @@ function spam_(form, d, reason) {
   var copy = {};
   Object.keys(d || {}).forEach(function (k) { if (k !== 'cf-turnstile-response' && k !== 'plan_text') copy[k] = d[k]; });
   tab_('Spam').appendRow([new Date(), form, pick_(d, 'name'), pick_(d, 'email'), reason, JSON.stringify(copy).slice(0, 2000)]);
+  return 'spam';
 }
 
 /* ============================ Turnstile ============================ */
