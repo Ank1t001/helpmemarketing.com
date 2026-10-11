@@ -115,7 +115,7 @@ Home / Services / Case Studies / About + "Book a free audit" CTA. Blog stays in 
 
 #### Decision 6 — Tool cards in F2 upper band
 
-Two cards: Ad Spend Calculator (`/ad-calculator`) and Marketing Audit (`/tools/marketing-audit`). Both shipped at footer rollout; the Marketing Audit was rebuilt as a guided audit with a plan on 2026-09-29.
+Two cards: Ad Spend Calculator (`/ad-calculator`) and Marketing Audit (`/tools/marketing-audit`). Both shipped at footer rollout; the Marketing Audit was rebuilt as a guided audit with a plan on 2026-09-29. Superseded 2026-10-11: the footer tool buttons are AI Marketing Audit, Growth OS (/seo-growth-os) and The HMM Index (/hmm-index), matching the Work page tools.
 
 ### Phase 2 progress
 
