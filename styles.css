@@ -5927,3 +5927,10 @@ body.redesign-prototype .aw-note { margin: 12px 0 0; font-size: 13px; color: var
 @media (max-width: 720px) { body.redesign-prototype .aw-steps { grid-template-columns: 1fr; } }
 /* GTA page area labels (2026-10-12) */
 body.redesign-prototype .gta-k { margin: 20px 0 0; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+/* AI SEO page: illustrative search vs AI answer mocks (2026-10-12) */
+body.redesign-prototype .ai-mock { margin: 12px 0; padding: 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; display: grid; gap: 8px; }
+body.redesign-prototype .ai-q { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 999px; font-size: 14px; color: var(--text); }
+body.redesign-prototype .ai-q svg { color: var(--cta-text, var(--cta)); flex: none; }
+body.redesign-prototype .ai-line { display: block; height: 8px; border-radius: 4px; background: rgba(var(--ink-rgb, 255, 255, 255), 0.1); }
+body.redesign-prototype .ai-short { width: 60%; }
+body.redesign-prototype .ai-cmp .ind2-card > p:last-child { margin: 0; font-size: 15px; color: var(--text-body); }
