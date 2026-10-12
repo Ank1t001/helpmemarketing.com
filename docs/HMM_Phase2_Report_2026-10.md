@@ -170,3 +170,11 @@ Headlines unchanged in this phase.
 6. SEO Growth OS 2.2.1 README (prerequisites, files, 7 skill names, current prompt).
 7. AI-page direction for `/ai-agents-halton`.
 8. Run the first AI visibility cycle (manual; needs platform access).
+
+## Production release record (12 Oct 2026)
+
+- Production commit: `261bcbf` on main (pushed 14:46:51 UTC). Vercel deployment `dpl_Cur4jLL2GsLXGeeViNCJuHKvEo4o`; live change confirmed on helpmemarketing.com at 14:50:13 UTC.
+- Redirects (308): `/instagram-reindex` to `/realestate-index`; `/reputation` and `/reviews-reputation` to `/services/branding-social`.
+- HTTP 200: /, /about, /contact, /services, /gta-marketing-agency, /realestate-index, /industries/healthcare, /industries/finance, /industries/dtc, /industries/saas, /services/performance-marketing, /services/analytics-attribution, /services/branding-social, /blog/marketing-mistakes, /blog/marketing-strategy-from-zero, /blog/healthcare-marketing-channels.
+- Content checks on production: /about has no pricing terms and uses the two-card grid; homepage schema and footer say Halton Hills; GTA title "GTA Marketing Agency in Halton Hills | HelpMeMarketing"; Phase 2 links live on /industries/healthcare and /services/performance-marketing; /blog/healthcare-marketing-channels has no `/reviews-reputation` link.
+- Still separate pending work: Search Console intent validation, AI visibility baseline, forms Apps Script redeploy (Halton Hills sender line, entry tags), SEO Growth OS 2.2.1 package verification.
