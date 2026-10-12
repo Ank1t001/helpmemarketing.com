@@ -5882,3 +5882,16 @@ body.redesign-prototype .bs-shots .ind2-k { display: block; padding: 0 16px; mar
 body.redesign-prototype .bs-shots img.bs-contain { object-fit: contain; object-position: center; background: var(--bg); }
 body.redesign-prototype .bs-shot-name { display: block; padding: 0 16px; font-family: 'Fraunces', serif; font-size: 18px; }
 @media (max-width: 720px) { body.redesign-prototype .bs-shots { grid-template-columns: 1fr; } body.redesign-prototype .bs-shots img { aspect-ratio: 16 / 10; } }
+/* Website Development: experience check, 2x2 types, two-site previews (2026-10-12) */
+body.redesign-prototype .ind2-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+body.redesign-prototype .bs-shots-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+body.redesign-prototype .bs-shots-2 img { aspect-ratio: 16 / 10; }
+body.redesign-prototype .wd-xcheck { margin-top: 24px; padding: 20px 24px; border: 1px solid var(--border); border-radius: 16px; }
+body.redesign-prototype .wd-xcheck > .ind2-k { margin: 0; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .wd-xcheck-title { margin: 6px 0 0; font-family: 'Fraunces', serif; font-size: 20px; color: var(--text); }
+body.redesign-prototype .wd-xcheck-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+body.redesign-prototype .wd-xcheck-list li { padding-left: 12px; border-left: 2px solid var(--cta); font-size: 15px; color: var(--text-body); }
+body.redesign-prototype .wd-xcheck-list .ind2-k { display: block; margin-bottom: 2px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cta-text, var(--cta)); }
+body.redesign-prototype .wd-xcheck .pm-note { margin-top: 16px; }
+@media (max-width: 900px) { body.redesign-prototype .wd-xcheck-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) { body.redesign-prototype .ind2-grid-2, body.redesign-prototype .bs-shots-2, body.redesign-prototype .wd-xcheck-list { grid-template-columns: 1fr; } }
