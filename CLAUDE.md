@@ -45,7 +45,7 @@ These docs do **not** apply to legacy-scoped pages. They apply only inside body.
 - `class="italic-accent"` on prototype elements — use `<em>`
 - Em-dashes (—) in any written content (Content Rules Section 2.3) — internal docs in `/docs/` are exempt because Google doesn't index them; site content is not
 
-### Index generator contract (gta-medspa-index, hair-loss-index, instagram-reindex)
+### Index generator contract (gta-medspa-index, hair-loss-index, realestate-index; was instagram-reindex until 2026-10-12, which 301-redirects)
 
 The report body between the REPORT BODY markers is regenerated each cycle; the head, nav, `.msi` wrapper and footer persist. The persistent head carries scoped utility classes and a `data-bar-widths` script, so the generator must emit these instead of `style` attributes:
 
@@ -56,7 +56,7 @@ The report body between the REPORT BODY markers is regenerated each cycle; the h
 - Publish is a body swap only. The Build Kit's `build_v2.py` emits a standalone page on its own `_sys.css`; paste only the part between the REPORT BODY markers into the site page. The site head, nav, `.msi` wrapper and footer are the site's, not the kit's.
 - The head is cycle-agnostic: no cycle number, refresh date, firm count or coverage claim in `<title>`, the descriptions or the schema (fixed 2026-09-24 after "cycle 001" sat in two heads through two cycles). Those facts live in the body.
 - Frames are committed to the repo as `[firm]-cycleNNN.webp` for the cycle they were read in. The kit's step "re-host to WordPress media before publish" does not apply here; the repo is the host. Frames the kit could not read (over its 262,144-byte limit) get the unreviewed-read label in the body and no frame file.
-- Body brief (2026-10-12): `/docs/HMM_Index_Build_Kit_Brief_2026-10.md` sets the revised body structure, freshness rules (last verified data vs next scheduled refresh, never a cadence claim), buyer-friendly wording and methodology disclosures for all three instances. It is a handoff; the kit is not updated until the founder changes it, and the next generated body overwrites the manual cycle 003 patch on /instagram-reindex.
+- Body brief (2026-10-12): `/docs/HMM_Index_Build_Kit_Brief_2026-10.md` sets the revised body structure, freshness rules (last verified data vs next scheduled refresh, never a cadence claim), buyer-friendly wording and methodology disclosures for all three instances. It is a handoff; the kit is not updated until the founder changes it, and the next generated body overwrites the manual cycle 003 patch on /realestate-index.
 - Real Estate Index, Instagram board from cycle 003 (24 Sep 2026): Skyline, Equiton, Lankin, Pier 4, McGillivray Capital. Marlin Spring left the Instagram board (stays on LinkedIn); Starlight, Centurion and Hazelview are not carried. Wealthsimple is an out-of-category reference and never appears on the board. Wording rule: a firm "has no corporate Instagram account", never "has no Instagram account" (Hazelview runs @hazelviewproperties). Cycle 004 is the first clean comparison against this board.
 
 ### Phase 2 page migration checklist

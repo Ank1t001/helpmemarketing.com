@@ -229,6 +229,11 @@
       "statusCode": 301
     },
     {
+      "source": "/instagram-reindex",
+      "destination": "/realestate-index",
+      "permanent": true
+    },
+    {
       "source": "/pricing",
       "destination": "/contact",
       "permanent": true

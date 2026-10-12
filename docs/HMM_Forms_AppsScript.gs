@@ -10,7 +10,7 @@
  *   audit-help           Leads                 /tools/marketing-audit, "Get help with this"
  *   audit-plan           Audit                 /tools/marketing-audit, "Email my plan" (emails the plan)
  *   audit-feedback       Audit                 /tools/marketing-audit, "Do you know what to do next?"
- *   index-download       Index downloads       /gta-medspa-index, /hair-loss-index, /instagram-reindex
+ *   index-download       Index downloads       /gta-medspa-index, /hair-loss-index, /realestate-index
  *   growth-os-download   Growth OS downloads   /seo-growth-os (emails the bundle), /meta-growth-os
  *   subscribe            Subscribers           /blog newsletter, the audit's "Subscribe to updates"
  *   (anything that fails a check)  Spam

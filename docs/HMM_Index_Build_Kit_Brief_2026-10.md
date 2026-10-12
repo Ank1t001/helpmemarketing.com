@@ -1,8 +1,8 @@
 # HMM Index: Build Kit brief for the report body (October 2026)
 
-Status: **handoff only.** This brief describes what the external Build Kit (`build_v2.py`) should emit from cycle 004 onward. Writing it does not update the kit. Until the kit is changed, each cycle's generated body will overwrite the manual patch made to `/instagram-reindex` on 12 October 2026.
+Status: **handoff only.** This brief describes what the external Build Kit (`build_v2.py`) should emit from cycle 004 onward. Writing it does not update the kit. Until the kit is changed, each cycle's generated body will overwrite the manual patch made to `/realestate-index` on 12 October 2026.
 
-Applies to all three Index instances (`/instagram-reindex`, `/hair-loss-index`, `/gta-medspa-index`). The example figures below are cycle 003 Real Estate numbers and are for illustration only; the kit must always fill them from that cycle's verified data.
+Applies to all three Index instances (`/realestate-index`, `/hair-loss-index`, `/gta-medspa-index`). The example figures below are cycle 003 Real Estate numbers and are for illustration only; the kit must always fill them from that cycle's verified data.
 
 Source of the brief: founder review "HMM Real Estate Instagram Index: UX & Content Review" (12 October 2026).
 
@@ -88,7 +88,7 @@ Also: never present the Index Score as a measure of customers, leads or revenue;
 
 ## 6. What changed on the live page on 12 October 2026 (manual patch, cycle 003 body)
 
-Made directly in `instagram-reindex.html`, figures unchanged:
+Made directly in `realestate-index.html`, figures unchanged:
 
 - Lede "Living competitive intelligence" became "Competitive intelligence"; byline audience rewritten.
 - Status bar: "Live index" and the cadence removed; last verified date (24 Sep 2026) and next scheduled refresh (5 Oct 2026, not yet published) shown separately; same in the bottom "Last updated" line.
