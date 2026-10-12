@@ -95,7 +95,7 @@
     },
     {
       "source": "/reputation",
-      "destination": "/services/branding-social#reviews",
+      "destination": "/services/branding-social",
       "permanent": true
     },
     {
@@ -160,7 +160,7 @@
     },
     {
       "source": "/reviews-reputation",
-      "destination": "/services/branding-social#reviews",
+      "destination": "/services/branding-social",
       "permanent": true
     },
     {
