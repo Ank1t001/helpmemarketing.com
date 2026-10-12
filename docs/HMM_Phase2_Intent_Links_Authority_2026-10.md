@@ -75,12 +75,12 @@ Found on 12 October 2026:
 
 | Item | Site | Status |
 |---|---|---|
-| Base | Burlington, Ontario (footers, contact, GTA page, LocalBusiness/ProfessionalService `addressLocality`) | Consistent across served pages |
+| Base | **Halton Hills, Ontario** since 12 Oct 2026 (founder decision; was Burlington) in footers, FAQ answers, GTA page and `addressLocality` | Consistent across served pages after the update |
 | Old addresses | "Mississauga, Ontario" survives only in `/docs/_healthcare/*` (archive, not served) | No action needed for the live site |
 | Email | `Hello@helpmemarketing.com` visible; `hello@` in schema | Consistent with the casing rule |
 | Phone | None published | Consistent (no number to mismatch) |
 | sameAs profiles | Instagram `helpmemarketing1`, LinkedIn `company/helpmemarketing`, Facebook `helpmemarketing1`, Google Maps | Same three social profiles everywhere |
-| **Google Business Profile** | Schema links a Maps place whose pin is at **43.637, −79.871 (Halton Hills / Georgetown area), not Burlington** | **Founder action:** open the Business Profile and confirm the address or service-area settings match Burlington; then update the Maps URL in the schema if the place changes |
+| Google Business Profile | Maps place pin at 43.637, −79.871 (Halton Hills) | Resolved: matches the Halton Hills base; link kept |
 | Two Maps URL forms | `/maps/place/...` (2 pages) and `/maps?cid=...` (1 page) | Low priority; standardise on the cid form after the profile is confirmed |
 
 ## 4. Authority: evidence-led outreach list
