@@ -5910,3 +5910,18 @@ body.redesign-prototype .aa-bar i { display: block; height: 100%; background: va
 body.redesign-prototype .aa-w100 { width: 100%; } body.redesign-prototype .aa-w55 { width: 55%; } body.redesign-prototype .aa-w10 { width: 10%; }
 body.redesign-prototype #improve .pm-two { margin-top: 16px; }
 @media (max-width: 720px) { body.redesign-prototype .aa-tiles { grid-template-columns: 1fr; } }
+/* AI Automation workflow demo (2026-10-12) */
+body.redesign-prototype .aw-demo { margin-top: 24px; padding: 20px 24px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; }
+body.redesign-prototype .aw-head { margin: 0; font-family: 'Fraunces', serif; font-size: 20px; color: var(--text); }
+body.redesign-prototype .aw-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 18px; }
+body.redesign-prototype .aw-tabs button { font: inherit; font-size: 14px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg); color: var(--text-body); cursor: pointer; }
+body.redesign-prototype .aw-tabs button[aria-selected="true"] { border-color: var(--cta); color: var(--cta-text, var(--cta)); }
+body.redesign-prototype .aw-panel .ind2-k { margin: 0; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .aw-title { margin: 4px 0 12px; font-size: 17px; font-weight: 600; color: var(--text); }
+body.redesign-prototype .aw-steps { margin: 0; padding: 0; list-style: none; counter-reset: aw; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+body.redesign-prototype .aw-steps li { counter-increment: aw; padding: 12px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; font-size: 14px; color: var(--text-body); }
+body.redesign-prototype .aw-steps li::before { content: counter(aw); display: block; margin-bottom: 6px; font-family: 'Fraunces', serif; font-size: 18px; color: var(--cta-text, var(--cta)); }
+body.redesign-prototype .aw-why { margin: 14px 0 0; font-size: 15px; color: var(--text-body); }
+body.redesign-prototype .aw-note { margin: 12px 0 0; font-size: 13px; color: var(--text-tertiary); }
+@media (max-width: 900px) { body.redesign-prototype .aw-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) { body.redesign-prototype .aw-steps { grid-template-columns: 1fr; } }
