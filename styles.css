@@ -5854,3 +5854,5 @@ body.redesign-prototype .pm-pricing p { margin: 12px 0 0; font-size: 16px; line-
 body.redesign-prototype .pm-fit { margin-top: 24px; }
 @media (max-width: 900px) { body.redesign-prototype .ind2-journey-4 { grid-template-columns: 1fr; } body.redesign-prototype .pm-two { grid-template-columns: 1fr; } }
 body.redesign-prototype .pm-related { margin: 24px 0 0; font-size: 14px; color: var(--text-muted); }
+body.redesign-prototype .ind2-journey-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) { body.redesign-prototype .ind2-journey-3 { grid-template-columns: 1fr; } }
