@@ -5835,3 +5835,21 @@ body.redesign-prototype .bi-grid { grid-template-columns: repeat(3, minmax(0, 1f
 body.redesign-prototype .bi-news .bi-news-grid { padding: 32px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; }
 @media (max-width: 900px) { body.redesign-prototype .bi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } body.redesign-prototype .bi-news .bi-news-grid { padding: 24px; } }
 @media (max-width: 720px) { body.redesign-prototype .bi-grid { grid-template-columns: 1fr; } }
+/* Service page template (2026-10-12): extra parts used by Performance Marketing on top of the industry components. */
+body.redesign-prototype .ind2-journey-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+body.redesign-prototype .pm-note { margin: 20px 0 0; max-width: 680px; font-size: 16px; line-height: 1.6; color: var(--text-muted); }
+body.redesign-prototype .ind2-card p b { color: var(--text); font-weight: 600; }
+body.redesign-prototype .pm-check { margin-top: 24px; padding: 24px; border: 1px dashed var(--border-strong); border-radius: 16px; }
+body.redesign-prototype .pm-check-title { margin: 0; font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--text); }
+body.redesign-prototype .pm-check-sub { margin: 4px 0 0; font-size: 14px; color: var(--text-muted); }
+body.redesign-prototype .pm-check-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
+body.redesign-prototype .pm-check-list label { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; line-height: 1.5; color: var(--text-body); cursor: pointer; }
+body.redesign-prototype .pm-check-list input { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--cta); flex: 0 0 auto; }
+body.redesign-prototype .pm-check-result { margin: 16px 0 0; font-size: 15px; font-weight: 600; color: var(--text); }
+body.redesign-prototype .pm-tech { margin-top: 24px; max-width: 760px; }
+body.redesign-prototype .pm-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
+body.redesign-prototype .pm-list { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 6px; font-size: 15px; line-height: 1.5; color: var(--text-body); }
+body.redesign-prototype .pm-pricing { max-width: 720px; margin-top: 16px; }
+body.redesign-prototype .pm-pricing p { margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: var(--text-body); }
+body.redesign-prototype .pm-fit { margin-top: 24px; }
+@media (max-width: 900px) { body.redesign-prototype .ind2-journey-4 { grid-template-columns: 1fr; } body.redesign-prototype .pm-two { grid-template-columns: 1fr; } }
