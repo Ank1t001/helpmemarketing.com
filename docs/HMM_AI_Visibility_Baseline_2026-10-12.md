@@ -45,6 +45,17 @@ The four HMM appearances:
 
 HMM did not appear on any platform for the nine agency, SEO, AI search, paid ads or automation questions, including "Marketing consultant in Halton Hills".
 
+## Outcome types (kept separate, never added together)
+
+The four appearances above are different kinds of outcome. They are reported in separate columns and must not be summed into one "visibility" number.
+
+| Outcome type | Definition | Count, 12 Oct 2026 | Instance |
+|---|---|---|---|
+| Brand mention | HMM, HelpMeMarketing or Ankit Kumar named in the answer text | 1 | ChatGPT, ad spend calculator (also cited) |
+| Cited source, not named | A helpmemarketing.com URL in the sources, HMM not named in the text | 2 | Perplexity: `/hair-loss-index` (figures used), `/work` (listed, not used) |
+| Ordinary Google organic result | A helpmemarketing.com page in the organic top 10; not an AI answer | 1 | `/tools/marketing-audit`, position 4 |
+| Unassessed | Platform or feature with no readable result | 15 Google AI Overview rows, 15 Copilot rows | Needs a manual browser run |
+
 ## Most-cited other domains
 
 Counted as the number of answers (ChatGPT plus Perplexity, 30 answers) that cited each domain at least once:

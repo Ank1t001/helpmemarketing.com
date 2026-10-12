@@ -178,3 +178,11 @@ Headlines unchanged in this phase.
 - HTTP 200: /, /about, /contact, /services, /gta-marketing-agency, /realestate-index, /industries/healthcare, /industries/finance, /industries/dtc, /industries/saas, /services/performance-marketing, /services/analytics-attribution, /services/branding-social, /blog/marketing-mistakes, /blog/marketing-strategy-from-zero, /blog/healthcare-marketing-channels.
 - Content checks on production: /about has no pricing terms and uses the two-card grid; homepage schema and footer say Halton Hills; GTA title "GTA Marketing Agency in Halton Hills | HelpMeMarketing"; Phase 2 links live on /industries/healthcare and /services/performance-marketing; /blog/healthcare-marketing-channels has no `/reviews-reputation` link.
 - Still separate pending work: Search Console intent validation, AI visibility baseline, forms Apps Script redeploy (Halton Hills sender line, entry tags), SEO Growth OS 2.2.1 package verification.
+
+## Forms script verification log
+
+| Date | Test | Result | Counts as verification? |
+|---|---|---|---|
+| 2026-10-12 | Founder redeployed the forms Apps Script (new version, same /exec URL) | `doGet` returns "HMM forms endpoint is live." | Endpoint only |
+| 2026-10-12 | Server-side test POST from this environment (`TEST Claude check`, entry `home_hero`), no browser | Filed on Spam: "No Turnstile token" (Turnstile working as designed). A first attempt may also have left a Spam row. | No: never reached Leads, sent no confirmation email |
+| Pending | Real-browser review enquiry at `/contact?intent=review&entry=home_hero#contact-form` | Awaiting founder: Leads Source should read `contact form \| free review \| entry home_hero \| ...`; confirmation email should end "Help Me Marketing, Halton Hills, Ontario, Canada" | Yes, once recorded |
