@@ -5936,3 +5936,7 @@ body.redesign-prototype .ai-short { width: 60%; }
 body.redesign-prototype .ai-cmp .ind2-card > p:last-child { margin: 0; font-size: 15px; color: var(--text-body); }
 /* AI marketing page: outcome card under the two-part split (2026-10-12) */
 body.redesign-prototype .aim-outcome { margin-top: 16px; border-color: var(--cta); }
+/* AI tools page: input/output line and smaller secondary cards (2026-10-12) */
+body.redesign-prototype .tool-io { margin: 10px 0 0; font-size: 13px; line-height: 1.6; color: var(--text-muted); }
+body.redesign-prototype .tool-card-sm h3 { font-size: 18px; }
+body.redesign-prototype .tool-k { margin: 28px 0 0; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
