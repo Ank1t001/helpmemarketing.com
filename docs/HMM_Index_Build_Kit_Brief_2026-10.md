@@ -106,3 +106,40 @@ Not done on the live page (needs the kit, or real data the repo does not have):
 - The creative-examples gallery with observation and test per post (needs per-post baselines from the dataset).
 - Applying the same changes to `/hair-loss-index` and `/gta-medspa-index` (not touched in this patch).
 - Any cycle 004 data.
+
+## 7. Reading levels pass (12 October 2026, second founder review)
+
+Goal: 30 seconds to understand, 2 minutes to compare, then everything else available to verify.
+
+### Persistent (in the page head, survives every cycle, nothing for the kit to emit)
+
+`<style>` and `<script data-ri-reading>` in the head of `/realestate-index`:
+
+- **Section navigator** (`.ri-nav`, sticky): Overview, Rankings, Creative, Insights, Research, Data. Built from section ids; a link appears only when its id exists, and the nav needs at least three.
+- **Interactive comparison** (`.ri-cmp`) inserted above the scoreboard table: measure buttons (overall score, followers, posts, median likes, median comments, likes per play, peak plays ÷ followers with "lower is better"), one bar per firm, and a detail panel with that firm's full table row and Instagram link. It reads the scoreboard `<table>` the kit already emits, so **keep the scoreboard column headings exactly**: Account, Score, Followers, Posts, Mix, Median likes, Med comm, Like/play, Peak, Flag, Top post; first cell holds the account link. Renaming a heading drops that measure from the switcher.
+- **Larger creative frames**: two columns on desktop, 14px body text.
+- **Advanced toggles** style for `details.ri-adv`.
+
+### The kit must emit (body; done by hand for cycle 003)
+
+Section order and ids:
+
+1. Header, status bar (section 2 rules), metrics note.
+2. `<section id="ri-overview">` Three findings from this cycle.
+3. `<section id="ri-rankings">` The scoreboard (caveat under the dek), then the leader analysis wrapped as `<details class="ri-adv"><summary>What the top of the board is doing</summary>…</details>`.
+4. `<section id="ri-creative">` The vision pass, then What good looks like.
+5. `<section id="ri-insights">` Content themes, then Format.
+6. `<section id="ri-test">` What could be tested next: a two-column table (Observation, Possible test) with the dek "Proposed experiments based on this cycle's observations, not promises of better results." Rows must follow from that cycle's findings.
+7. `<section id="ri-advanced">` Advanced research and methodology (heading and dek), followed by each advanced section as its own `<section>` whose content is wrapped in `<details class="ri-adv"><summary>Title</summary>…</details>`: roster change, category pulse, category story, the high-posting account note, creative positioning map, boost ledger, campaign watch, cohort read, outside the category.
+8. `<section id="ri-data">` The full post log, then Take the dataset with you (gate and secondary review line), then FAQ, then the footer.
+
+All content stays in the HTML (details are closed, not removed), so search engines and readers who open them get the full research.
+
+### Live now vs still needed
+
+| Item | Status |
+|---|---|
+| Navigator, interactive comparison, larger frames, toggle style | Live, persistent (head) |
+| Section order, ids, details wrappers, "What could be tested next" | Live for cycle 003 only; kit must emit from cycle 004 |
+| Carousel or per-post "why it stood out / what to test" creative cards | Not built; needs per-post baselines from the kit's data |
+| Same treatment on /hair-loss-index and /gta-medspa-index | Not done |
