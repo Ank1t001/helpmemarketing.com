@@ -279,8 +279,7 @@
     /* 5. Capability layer */
     if (d.who === 'agency') {
       h += '<div class="ma-panel ma-cap"><h3 class="ma-panel-h">For your agency or freelancer</h3><div class="ma-grid2 ma-grid2--flat"><div><p class="ma-sub">Questions to send</p>' + ticks(pr.agency) +
-        '</div><div><p class="ma-sub">Evidence to ask for</p>' + ticks(pr.evidence) + '</div></div>' +
-        '<button type="button" class="ma-btn" data-copy="agency">Copy the questions</button></div>';
+        '</div><div><p class="ma-sub">Evidence to ask for</p>' + ticks(pr.evidence) + '</div></div></div>';
     }
     if (d.who === 'help') {
       h += '<div class="ma-panel ma-cap"><h3 class="ma-panel-h">The kind of help that fits</h3><p class="ma-lead">' + esc(pr.help) + '</p>' +
@@ -312,7 +311,6 @@
     renderResults(d);
     document.body.classList.add('ma-planning'); hide(results, false);
     try { history.replaceState(null, '', '#plan=' + encode()); } catch (e) {}
-    refreshMailto();
     track('audit_complete', { audit_path: d.pk, audit_priority: d.pid, audit_capability: d.who, audit_mode: d.mode, audit_from_link: !!fromLink });
     var t = $('ma-title');
     window.scrollTo(0, 0);
@@ -341,11 +339,6 @@
   }
   function csvText(cols) { return '﻿' + cols.map(function (c) { return '"' + c.replace(/"/g, '""') + '"'; }).join(',') + '\r\n'; }
   function slug(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
-  function copy(text, btn) {
-    function ok() { if (!btn) return; var t = btn.textContent; btn.textContent = 'Copied'; btn.classList.add('is-done'); setTimeout(function () { btn.textContent = t; btn.classList.remove('is-done'); }, 2000); }
-    function fallback() { var ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', ''); ta.className = 'ma-offscreen'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); ok(); } catch (e) {} ta.remove(); }
-    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(ok, fallback); else fallback();
-  }
 
   function onResultsClick(e) {
     var t = e.target.closest('button,a'); if (!t || !last) return;
@@ -356,29 +349,39 @@
       t.setAttribute('aria-expanded', String(open)); hide($('ma-answers'), !open); return;
     }
     var dl = t.getAttribute('data-dl');
-    if (dl === 'plan') { download('hmm-plan-' + slug(d.pr.title) + '.txt', planText(d, true), 'text/plain;charset=utf-8'); track('audit_download', { file: 'plan', audit_priority: d.pid }); track('audit_next_step', { choice: 'self_download' }); return; }
-    if (dl === 'csv') { download('hmm-' + slug(d.res.name) + '.csv', csvText(d.res.columns), 'text/csv;charset=utf-8'); track('audit_download', { file: 'csv', audit_priority: d.pid }); return; }
-    var cp = t.getAttribute('data-copy');
-    if (cp === 'plan') { copy(planText(d, true), t); track('audit_copy', { what: 'plan' }); track('audit_next_step', { choice: 'self_copy' }); return; }
-    if (cp === 'team') { copy(teamText(d), t); track('audit_copy', { what: 'team' }); track('audit_next_step', { choice: 'team' }); return; }
-    if (cp === 'agency') { copy(d.pr.agency.map(function (x, i) { return (i + 1) + '. ' + x; }).join('\n') + '\n\nEvidence I would like to see:\n' + d.pr.evidence.map(function (x) { return '- ' + x; }).join('\n'), t); track('audit_copy', { what: 'agency' }); return; }
-    if (cp === 'link') { copy(planUrl(), t); track('audit_copy', { what: 'link' }); return; }
+    if (dl && !unlocked) { pendingDl = dl; openGate(true); return; }
+    if (dl) { doDownload(dl, d); return; }
+    if (t.id === 'ma-email-open') { pendingDl = null; openGate(false); return; }
     if (t.id === 'ma-open-contact') { openContact(); return; }
-    if (t.id === 'ma-mailto') { track('audit_email_plan', { method: 'mailto' }); return; }
     if (t.id === 'ma-restart') { restart(); return; }
     var fb = t.getAttribute('data-feedback');
     if (fb) { sendFeedback(fb); return; }
+  }
+  /* Downloads are gated by email (founder, 2026-10-12): the first download asks for an email, posts it as
+     form=audit-plan (which also emails the plan), then starts the file. The on-screen plan stays free. */
+  var unlocked = false, pendingDl = null;
+  try { unlocked = sessionStorage.getItem('hmm_audit_email') === '1'; } catch (e) {}
+  function openGate(forDownload) {
+    var ef = $('ma-email-form'); hide(ef, false);
+    $('ma-gate-note').textContent = forDownload
+      ? 'Enter your email to download. I\u2019ll also email you a copy of your plan.'
+      : 'Enter your email and I\u2019ll send you a copy of your plan.';
+    hide($('ma-gate-note'), false);
+    ef.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    $('ma-email').focus({ preventScroll: true });
+    track('audit_gate_open', { reason: forDownload ? 'download' : 'email' });
+  }
+  function doDownload(dl, d) {
+    if (dl === 'plan') { download('hmm-plan-' + slug(d.pr.title) + '.txt', planText(d, true), 'text/plain;charset=utf-8'); track('audit_download', { file: 'plan', audit_priority: d.pid }); track('audit_next_step', { choice: 'self_download' }); return; }
+    if (dl === 'csv') { download('hmm-' + slug(d.res.name) + '.csv', csvText(d.res.columns), 'text/csv;charset=utf-8'); track('audit_download', { file: 'csv', audit_priority: d.pid }); return; }
+    if (dl === 'team') { download('hmm-team-summary-' + slug(d.pr.title) + '.txt', teamText(d), 'text/plain;charset=utf-8'); track('audit_download', { file: 'team', audit_priority: d.pid }); track('audit_next_step', { choice: 'team' }); return; }
   }
 
   function endpoint() { return (root.getAttribute('data-plan-endpoint') || '').trim(); }
   function setupSave() {
     var ep = endpoint();
-    hide($('ma-email-form'), !ep); hide($('ma-mailto'), !!ep); hide($('ma-sub-wrap'), !ep);
-  }
-  function refreshMailto() {
-    if (!last) return;
-    var body = teamText(last).replace(/^Marketing audit summary/, 'My marketing plan');
-    $('ma-mailto').href = 'mailto:?subject=' + encodeURIComponent('My marketing plan: ' + last.pr.title) + '&body=' + encodeURIComponent(body);
+    if (!ep) unlocked = true;
+    hide($('ma-email-open'), !ep); hide($('ma-sub-wrap'), !ep);
   }
   function postJSON(payload) {
     return fetch(endpoint(), { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
@@ -391,11 +394,19 @@
       var inp = $('ma-email'), msg = $('ma-email-msg'), v = inp.value.trim();
       if (!validEmail(v)) { msg.textContent = 'Please enter a valid email address.'; inp.setAttribute('aria-invalid', 'true'); inp.focus(); return; }
       inp.removeAttribute('aria-invalid');
-      if ($('ma-email-hp').value) { msg.textContent = 'Sent. Check your inbox in a few minutes.'; return; }
+      if ($('ma-email-hp').value) { msg.textContent = 'Sent. Check your inbox in a few minutes.'; pendingDl = null; return; }
       msg.textContent = 'Sending…';
       postJSON({ form: 'audit-plan', email: v, plan_title: last.pr.title, plan_text: planText(last, true), plan_url: planUrl(), path: last.pk, priority: last.pid })
-        .then(function () { msg.textContent = 'Sent. Check your inbox in a few minutes.'; ef.reset(); track('audit_email_plan', { method: 'server' }); },
-          function () { msg.textContent = 'That did not work. Please use Download or Copy instead.'; });
+        .then(function () { afterGate(true); }, function () { afterGate(false); });
+      function afterGate(ok) {
+        unlocked = true; try { sessionStorage.setItem('hmm_audit_email', '1'); } catch (e) {}
+        var p = pendingDl; pendingDl = null;
+        if (p) doDownload(p, last);
+        msg.textContent = ok
+          ? (p ? 'Your download has started, and a copy is on its way to your inbox.' : 'Sent. Check your inbox in a few minutes.')
+          : (p ? 'Your download has started. The email copy did not send.' : 'That did not work. Please try again, or download your plan instead.');
+        if (ok) { ef.reset(); track('audit_email_plan', { method: 'server', gate: !!p }); }
+      }
     });
     sf.addEventListener('submit', function (e) {
       e.preventDefault();
