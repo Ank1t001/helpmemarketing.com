@@ -256,49 +256,48 @@
     pathQs(d.pk).forEach(function (q) { h += answerRow(q, opt(q, answers[q.id]).label); });
     h += '</dl></div>';
 
-    /* 2. Your first priority */
-    h += '<div class="ma-head"><p class="ma-eyebrow">Your marketing starting plan</p><h2 class="ma-plan-title" id="ma-title" tabindex="-1">' + esc(pr.title) + '</h2>' +
+    /* 2 to 6. One connected plan (2026-10-12 second review): head, why, actions, measure, resource;
+       the checks and the capability layer sit in expandable details. */
+    h += '<div class="ma-planbox"><div class="ma-head"><p class="ma-eyebrow">Your marketing starting plan</p><h2 class="ma-plan-title" id="ma-title" tabindex="-1">' + esc(pr.title) + '</h2>' +
       '<p class="ma-plain">' + esc(pr.plain) + '</p>' +
-      '<p class="ma-small ma-basis">A starting plan built from your answers, not a verified audit of your accounts.' + (d.unsure ? ' You answered &ldquo;I&rsquo;m not sure&rdquo; ' + (d.unsure === 1 ? 'once' : d.unsure + ' times') + ', so check those points before you rely on this.' : '') + '</p></div>';
+      '<p class="ma-small ma-basis">Based on your answers, this is a good place to start. It&rsquo;s a starting plan, not a verified audit of your accounts.' + (d.unsure ? ' You answered &ldquo;I&rsquo;m not sure&rdquo; ' + (d.unsure === 1 ? 'once' : d.unsure + ' times') + ', so check those points before you rely on it.' : '') + '</p></div>';
 
-    /* 3. Why this was selected, and what to verify */
-    h += '<div class="ma-grid2"><div class="ma-panel"><h3 class="ma-panel-h">Why this comes first</h3>';
+    h += '<div class="ma-sec"><h3 class="ma-sec-h">Why this comes first</h3>';
     if (d.reasons.length) {
-      h += '<ul class="ma-why">' + d.reasons.map(function (r) { return '<li><span class="ma-why-q">' + esc(r.q) + '</span><span class="ma-why-a">' + esc(r.a) + '</span></li>'; }).join('') + '</ul>';
+      h += '<p class="ma-small ma-sec-lead">Based on your answers to ' + (d.reasons.length === 1 ? 'this question' : 'these questions') + ':</p>' +
+        '<ul class="ma-why">' + d.reasons.map(function (r) { return '<li><span class="ma-why-q">' + esc(r.q) + '</span><span class="ma-why-a">' + esc(r.a) + '</span></li>'; }).join('') + '</ul>';
     }
-    h += '<p class="ma-note">' + esc(d.because) + (d.goalBoost ? ' It also matches what you want most: ' + esc(lower1(opt(C.shared[1], answers.goal).sum)) + '.' : '') + '</p></div>';
-    h += '<div class="ma-panel"><h3 class="ma-panel-h">What to check first</h3>' +
+    h += '<p class="ma-note">' + esc(d.because) + (d.goalBoost ? ' It also matches what you want most: ' + esc(lower1(opt(C.shared[1], answers.goal).sum)) + '.' : '') + '</p>';
+    h += '<details class="ma-det"' + (d.mode === 'find' ? ' open' : '') + '><summary>What to check before you rely on this</summary>' +
       (d.mode === 'find' ? '<p class="ma-note ma-note--lead">I can&rsquo;t be sure yet, so your first action is to find out. That is a normal, useful first step.</p>' : '') +
-      ticks(d.verify, 'search') + '</div></div>';
+      ticks(d.verify, 'search') + '</details></div>';
 
-    /* 4. First action, next two actions */
-    h += '<div class="ma-panel ma-actions"><h3 class="ma-panel-h">Your first action</h3><ol class="ma-acts">' + actionHTML(d.actions[0], 1, d, true) + '</ol>' +
-      '<p class="ma-small">' + ({ team: 'Your team can start this today.', agency: 'You can start this today, or ask your agency or freelancer to.' }[d.who] || 'You can start this today, without talking to anyone.') + '</p>' +
-      '<h3 class="ma-panel-h ma-panel-h--gap">Your next two actions</h3><ol class="ma-acts">' + actionHTML(d.actions[1], 2, d) + actionHTML(d.actions[2], 3, d) + '</ol></div>';
-
-    /* 5. Capability layer */
+    h += '<div class="ma-sec"><h3 class="ma-sec-h">Your next three actions</h3><ol class="ma-acts">' +
+      actionHTML(d.actions[0], 1, d, true) + actionHTML(d.actions[1], 2, d) + actionHTML(d.actions[2], 3, d) + '</ol>' +
+      '<p class="ma-small">' + ({ team: 'Your team can start the first one today.', agency: 'You can start the first one today, or ask your agency or freelancer to.' }[d.who] || 'You can start the first one today, without talking to anyone.') + '</p>';
     if (d.who === 'agency') {
-      h += '<div class="ma-panel ma-cap"><h3 class="ma-panel-h">For your agency or freelancer</h3><div class="ma-grid2 ma-grid2--flat"><div><p class="ma-sub">Questions to send</p>' + ticks(pr.agency) +
-        '</div><div><p class="ma-sub">Evidence to ask for</p>' + ticks(pr.evidence) + '</div></div></div>';
+      h += '<details class="ma-det"><summary>Questions and evidence for your agency or freelancer</summary><div class="ma-grid2 ma-grid2--flat"><div><p class="ma-sub">Questions to send</p>' + ticks(pr.agency) +
+        '</div><div><p class="ma-sub">Evidence to ask for</p>' + ticks(pr.evidence) + '</div></div></details>';
     }
     if (d.who === 'help') {
-      h += '<div class="ma-panel ma-cap"><h3 class="ma-panel-h">The kind of help that fits</h3><p class="ma-lead">' + esc(pr.help) + '</p>' +
-        '<p class="ma-small">You can take this plan to anyone you trust. Nobody will contact you unless you ask.</p></div>';
+      h += '<details class="ma-det"><summary>The kind of help that fits</summary><p class="ma-note">' + esc(pr.help) + '</p>' +
+        '<p class="ma-small">You can take this plan to anyone you trust. Nobody will contact you unless you ask.</p></details>';
     }
+    h += '</div>';
 
-    /* 6. How to assess progress, and the resource */
-    h += '<div class="ma-grid2"><div class="ma-panel"><h3 class="ma-panel-h">How to know it&rsquo;s working</h3><p class="ma-measure">' + esc(pr.measure) + '</p>' +
+    h += '<div class="ma-sec"><h3 class="ma-sec-h">How to know it&rsquo;s working</h3><p class="ma-measure">' + esc(pr.measure) + '</p>' +
       '<p class="ma-when">' + ic('cal') + 'Check again ' + esc(pr.review) + '</p>' +
-      (d.who === 'team' ? '<p class="ma-sub">Team review checklist</p>' + ticks(pr.review_list) : '') + '</div>';
-    h += '<div class="ma-panel ma-res"><h3 class="ma-panel-h">Your free resource</h3><div class="ma-res-row"><span class="ma-res-ic">' + ic('file') + '</span><div>' +
-      '<p class="ma-res-kind">' + esc(d.res.kind) + '</p><p class="ma-res-name">' + esc(d.res.name) + '</p></div></div><p class="ma-note">' + esc(d.res.blurb) + '</p>' +
+      (d.who === 'team' ? '<details class="ma-det"><summary>Team review checklist</summary>' + ticks(pr.review_list) + '</details>' : '') + '</div>';
+
+    h += '<div class="ma-sec ma-res"><div class="ma-res-row"><span class="ma-res-ic">' + ic('file') + '</span><div>' +
+      '<p class="ma-res-kind">Free resource &middot; ' + esc(d.res.kind) + '</p><p class="ma-res-name">' + esc(d.res.name) + '</p><p class="ma-note">' + esc(d.res.blurb) + '</p></div></div>' +
       '<div class="ma-btns"><button type="button" class="ma-btn ma-btn--solid" data-dl="plan">Download plan and ' + esc(d.res.kind.toLowerCase()) + '</button>' +
       (d.res.csv ? '<button type="button" class="ma-btn" data-dl="csv">Download the spreadsheet</button>' : '') + '</div></div></div>';
 
     body.innerHTML = h;
 
     /* Next steps: text that depends on the result. */
-    $('ma-next-team-h').textContent = d.who === 'agency' ? 'Share it with your agency' : 'Share it with your team';
+    $('ma-next-team-h').textContent = d.who === 'agency' ? 'Share with my agency' : 'Share with my team';
     $('ma-next-help-p').textContent = 'Send your plan to Ankit for a personal reply about ' + d.pr.topic + '.';
     $('ma-contact-h').textContent = 'Get help with ' + lower1(d.pr.area);
     $('ma-sum').value = contactSummary(d);
@@ -353,6 +352,7 @@
     if (dl) { doDownload(dl, d); return; }
     if (t.id === 'ma-email-open') { pendingDl = null; openGate(false); return; }
     if (t.id === 'ma-open-contact') { openContact(); return; }
+    if (t.id === 'ma-back-plan') { hide($('ma-contact'), true); var tt = $('ma-title'); if (tt) { tt.scrollIntoView({ behavior: 'smooth', block: 'start' }); tt.focus({ preventScroll: true }); } return; }
     if (t.id === 'ma-restart') { restart(); return; }
     var fb = t.getAttribute('data-feedback');
     if (fb) { sendFeedback(fb); return; }
@@ -469,8 +469,8 @@
     hide(box, false);
     track('audit_next_step', { choice: 'contact' });
     track('audit_contact_open', { audit_priority: last && last.pid });
-    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(function () { $('ma-sum').focus({ preventScroll: true }); }, 400);
+    $('ma-contact-h').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function () { $('ma-name').focus({ preventScroll: true }); }, 400);
   }
   function setupContact() {
     cf = $('ma-cform'); if (!cf) return;

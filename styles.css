@@ -5940,3 +5940,36 @@ body.redesign-prototype .aim-outcome { margin-top: 16px; border-color: var(--cta
 body.redesign-prototype .tool-io { margin: 10px 0 0; font-size: 13px; line-height: 1.6; color: var(--text-muted); }
 body.redesign-prototype .tool-card-sm h3 { font-size: 18px; }
 body.redesign-prototype .tool-k { margin: 28px 0 0; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+/* Marketing audit result, second review (2026-10-12): one connected plan card, less orange, larger text */
+body.redesign-prototype .ma-planbox { margin: 20px 0 0; border: 1px solid var(--border); border-radius: 20px; background: var(--bg-elevated); }
+body.redesign-prototype .ma-planbox .ma-head { margin: 0; padding: 36px 40px 28px; border: 0; border-radius: 0; background: none; }
+body.redesign-prototype .ma-sec { padding: 28px 40px; border-top: 1px solid var(--border); }
+body.redesign-prototype .ma-sec-h { margin: 0 0 14px; font-family: var(--sans); font-size: 19px; font-weight: 600; line-height: 1.35; color: var(--text); }
+body.redesign-prototype .ma-sec-lead { margin: 0 0 10px; }
+body.redesign-prototype .ma-plan .ma-note { font-size: 16px; line-height: 1.65; }
+body.redesign-prototype .ma-plan .ma-small { font-size: 14px; line-height: 1.6; }
+body.redesign-prototype .ma-plan .ma-act-how { font-size: 16px; line-height: 1.65; }
+body.redesign-prototype .ma-basis { max-width: 720px; }
+body.redesign-prototype .ma-act--first { border-color: var(--border); background: rgba(var(--ink-rgb, 255, 255, 255), 0.02); }
+body.redesign-prototype .ma-act--first .ma-act-n { border-color: rgba(var(--ink-rgb, 255, 255, 255), 0.25); background: none; color: var(--text); }
+body.redesign-prototype .ma-card--help { border-color: var(--border); background: var(--bg-elevated); }
+body.redesign-prototype .ma-det { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px; }
+body.redesign-prototype .ma-det > summary { cursor: pointer; font-size: 15px; font-weight: 500; color: var(--text); }
+body.redesign-prototype .ma-det[open] > summary { margin-bottom: 14px; }
+body.redesign-prototype .ma-res .ma-res-row { align-items: flex-start; }
+body.redesign-prototype .ma-res .ma-note { margin-top: 6px; }
+body.redesign-prototype .ma-gate { margin-top: 14px; }
+body.redesign-prototype .ma-gate .ma-small:empty { display: none; }
+body.redesign-prototype .ma-back { margin-bottom: 10px; }
+body.redesign-prototype .ma-more { margin: 0 0 18px; }
+body.redesign-prototype .ma-more > summary { cursor: pointer; font-size: 14px; font-weight: 500; color: var(--text); }
+body.redesign-prototype .ma-more[open] > summary { margin-bottom: 14px; }
+body.redesign-prototype .ma-fb-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0; }
+body.redesign-prototype .ma-fb-row .ma-pill { padding: 5px 14px; font-size: 13px; }
+body.redesign-prototype .ma-subdet > summary { cursor: pointer; font-size: 14px; color: var(--text-muted); }
+body.redesign-prototype .ma-foot #ma-restart { margin-top: 10px; }
+body.redesign-prototype.ma-planning .footer-cta { display: none; }
+@media (max-width: 720px) {
+  body.redesign-prototype .ma-planbox .ma-head { padding: 24px 20px 20px; }
+  body.redesign-prototype .ma-sec { padding: 22px 20px; }
+}
