@@ -5853,3 +5853,4 @@ body.redesign-prototype .pm-pricing { max-width: 720px; margin-top: 16px; }
 body.redesign-prototype .pm-pricing p { margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: var(--text-body); }
 body.redesign-prototype .pm-fit { margin-top: 24px; }
 @media (max-width: 900px) { body.redesign-prototype .ind2-journey-4 { grid-template-columns: 1fr; } body.redesign-prototype .pm-two { grid-template-columns: 1fr; } }
+body.redesign-prototype .pm-related { margin: 24px 0 0; font-size: 14px; color: var(--text-muted); }
