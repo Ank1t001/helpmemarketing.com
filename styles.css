@@ -5934,3 +5934,5 @@ body.redesign-prototype .ai-q svg { color: var(--cta-text, var(--cta)); flex: no
 body.redesign-prototype .ai-line { display: block; height: 8px; border-radius: 4px; background: rgba(var(--ink-rgb, 255, 255, 255), 0.1); }
 body.redesign-prototype .ai-short { width: 60%; }
 body.redesign-prototype .ai-cmp .ind2-card > p:last-child { margin: 0; font-size: 15px; color: var(--text-body); }
+/* AI marketing page: outcome card under the two-part split (2026-10-12) */
+body.redesign-prototype .aim-outcome { margin-top: 16px; border-color: var(--cta); }
