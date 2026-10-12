@@ -5895,3 +5895,18 @@ body.redesign-prototype .wd-xcheck-list .ind2-k { display: block; margin-bottom:
 body.redesign-prototype .wd-xcheck .pm-note { margin-top: 16px; }
 @media (max-width: 900px) { body.redesign-prototype .wd-xcheck-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 720px) { body.redesign-prototype .ind2-grid-2, body.redesign-prototype .bs-shots-2, body.redesign-prototype .wd-xcheck-list { grid-template-columns: 1fr; } }
+/* Analytics & Attribution example dashboard (2026-10-12) */
+body.redesign-prototype .aa-dash { margin: 24px 0 0; padding: 20px 24px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; }
+body.redesign-prototype .aa-dash-label { margin: 0 0 14px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .aa-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+body.redesign-prototype .aa-tile { padding: 14px 16px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; }
+body.redesign-prototype .aa-tile .ind2-k { display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .aa-tile b { display: block; margin-top: 4px; font-family: 'Fraunces', serif; font-size: 28px; font-weight: 500; color: var(--text); }
+body.redesign-prototype .aa-bars { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 10px; }
+body.redesign-prototype .aa-bars li { display: grid; grid-template-columns: 90px 1fr 40px; align-items: center; gap: 12px; font-size: 14px; color: var(--text-body); }
+body.redesign-prototype .aa-bars b { text-align: right; color: var(--text); }
+body.redesign-prototype .aa-bar { height: 10px; background: var(--bg); border-radius: 6px; overflow: hidden; }
+body.redesign-prototype .aa-bar i { display: block; height: 100%; background: var(--cta); border-radius: 6px; }
+body.redesign-prototype .aa-w100 { width: 100%; } body.redesign-prototype .aa-w55 { width: 55%; } body.redesign-prototype .aa-w10 { width: 10%; }
+body.redesign-prototype #improve .pm-two { margin-top: 16px; }
+@media (max-width: 720px) { body.redesign-prototype .aa-tiles { grid-template-columns: 1fr; } }
