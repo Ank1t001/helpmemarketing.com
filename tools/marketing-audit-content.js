@@ -33,7 +33,7 @@ window.HMM_AUDIT = (function () {
   ];
 
   var capability = { id: 'who', short: 'Who makes changes', q: 'Who would usually make these changes?',
-    hint: 'This changes how we write your plan. It does not sign you up for anything.',
+    hint: 'This changes how I write your plan. It does not sign you up for anything.',
     opts: [
       { v: 'self', label: 'I would', sum: 'You would' },
       { v: 'team', label: 'My internal team', sum: 'Your internal team' },

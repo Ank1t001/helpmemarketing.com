@@ -139,7 +139,8 @@
     });
     verify.push('Before you change anything, write down where you are today. ' + pr.measure);
     var actions = typeof pr.actions === 'function' ? pr.actions(answers) : pr.actions;
-    return { pk: pk, path: P, pid: pid, pr: pr, mode: mode, reasons: reasons, goalBoost: goalBoost, verify: verify,
+    var unsure = qs.filter(function (q) { var o = opt(q, answers[q.id]); return o && o.unsure; }).length;
+    return { pk: pk, path: P, pid: pid, pr: pr, mode: mode, unsure: unsure, reasons: reasons, goalBoost: goalBoost, verify: verify,
       actions: actions, res: C.resources[pr.resource], who: answers.who,
       because: mode === 'healthy' && pr.healthy ? pr.healthy : pr.because };
   }
@@ -256,17 +257,18 @@
     h += '</dl></div>';
 
     /* 2. Your first priority */
-    h += '<div class="ma-head"><p class="ma-eyebrow">Your first priority</p><h2 class="ma-plan-title" id="ma-title" tabindex="-1">' + esc(pr.title) + '</h2>' +
-      '<p class="ma-plain">' + esc(pr.plain) + '</p></div>';
+    h += '<div class="ma-head"><p class="ma-eyebrow">Your marketing starting plan</p><h2 class="ma-plan-title" id="ma-title" tabindex="-1">' + esc(pr.title) + '</h2>' +
+      '<p class="ma-plain">' + esc(pr.plain) + '</p>' +
+      '<p class="ma-small ma-basis">A starting plan built from your answers, not a verified audit of your accounts.' + (d.unsure ? ' You answered &ldquo;I&rsquo;m not sure&rdquo; ' + (d.unsure === 1 ? 'once' : d.unsure + ' times') + ', so check those points before you rely on this.' : '') + '</p></div>';
 
     /* 3. Why this was selected, and what to verify */
-    h += '<div class="ma-grid2"><div class="ma-panel"><h3 class="ma-panel-h">Why we picked this</h3>';
+    h += '<div class="ma-grid2"><div class="ma-panel"><h3 class="ma-panel-h">Why this comes first</h3>';
     if (d.reasons.length) {
       h += '<ul class="ma-why">' + d.reasons.map(function (r) { return '<li><span class="ma-why-q">' + esc(r.q) + '</span><span class="ma-why-a">' + esc(r.a) + '</span></li>'; }).join('') + '</ul>';
     }
     h += '<p class="ma-note">' + esc(d.because) + (d.goalBoost ? ' It also matches what you want most: ' + esc(lower1(opt(C.shared[1], answers.goal).sum)) + '.' : '') + '</p></div>';
     h += '<div class="ma-panel"><h3 class="ma-panel-h">What to check first</h3>' +
-      (d.mode === 'find' ? '<p class="ma-note ma-note--lead">We can&rsquo;t be sure yet, so your first action is to find out. That is a normal, useful first step.</p>' : '') +
+      (d.mode === 'find' ? '<p class="ma-note ma-note--lead">I can&rsquo;t be sure yet, so your first action is to find out. That is a normal, useful first step.</p>' : '') +
       ticks(d.verify, 'search') + '</div></div>';
 
     /* 4. First action, next two actions */
@@ -297,8 +299,8 @@
     body.innerHTML = h;
 
     /* Next steps: text that depends on the result. */
-    $('ma-next-team-h').textContent = d.who === 'agency' ? 'I want to share this with my agency' : 'I want to discuss this with my team';
-    $('ma-next-help-p').textContent = 'Talk with Ankit about ' + d.pr.topic + '. Your answers come with you, so you won’t need to explain again.';
+    $('ma-next-team-h').textContent = d.who === 'agency' ? 'Share it with your agency' : 'Share it with your team';
+    $('ma-next-help-p').textContent = 'Send your plan to Ankit for a personal reply about ' + d.pr.topic + '.';
     $('ma-contact-h').textContent = 'Get help with ' + lower1(d.pr.area);
     $('ma-sum').value = contactSummary(d);
     resetContact();
@@ -411,8 +413,8 @@
     var labels = { yes: 'Yes', partly: 'Partly', no: 'No' };
     $('ma-fb-btns').classList.add('is-hidden');
     $('ma-fb-thanks').textContent = v === 'no'
-      ? 'Thanks for telling us. Try the first action anyway, or change an answer above if something did not fit.'
-      : 'Thanks for telling us.';
+      ? 'Thanks for telling me. Try the first action anyway, or change an answer above if something did not fit.'
+      : 'Thanks for telling me.';
     track('audit_feedback', { answer: labels[v], audit_priority: last && last.pid });
     if (endpoint() && last) postJSON({ form: 'audit-feedback', answer: labels[v], path: last.pk, priority: last.pid }).catch(function () {});
   }
@@ -478,7 +480,7 @@
       var sum = $('ma-sum').value.trim(), name = $('ma-name').value.trim(), email = $('ma-cemail').value.trim();
       var site = $('ma-site').value.trim(), notes = $('ma-notes').value.trim();
       if (site && !/^https?:\/\//i.test(site)) site = 'https://' + site;
-      if (!name) return show('Please tell us your name.', $('ma-name'));
+      if (!name) return show('Please tell me your name.', $('ma-name'));
       if (!validEmail(email)) return show('Please enter a valid email address.', $('ma-cemail'));
       if (site && !/^https?:\/\/[^\s\/.]+\.[^\s]{2,}$/i.test(site)) return show('Please check your website, for example yourbusiness.com, or leave it blank.', $('ma-site'));
       if (!sum) return show('Please keep a short summary so Ankit knows what you need.', $('ma-sum'));
@@ -514,7 +516,7 @@
         });
       }).catch(function () {
         resetTurnstile(); busy(false);
-        show('Something went wrong. Please email Hello@helpmemarketing.com and we will reply right away.');
+        show('Something went wrong. Please email Hello@helpmemarketing.com and I’ll reply as soon as I can.');
       });
     });
   }
