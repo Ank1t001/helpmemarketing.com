@@ -5874,3 +5874,11 @@ body.redesign-prototype .pm-check-result ol { margin: 10px 0 0; padding-left: 20
   body.redesign-prototype .ind2-strip .ind2-step + .ind2-step { margin-left: 0; }
   body.redesign-prototype .ind2-strip .ind2-step + .ind2-step::before { left: 33px; top: -10px; width: 2px; height: 10px; }
 }
+/* Branding & Social creative previews (2026-10-12) */
+body.redesign-prototype .bs-shots { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+body.redesign-prototype .bs-shots a { display: block; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; padding-bottom: 16px; color: var(--text); text-decoration: none; }
+body.redesign-prototype .bs-shots img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: top center; margin-bottom: 14px; }
+body.redesign-prototype .bs-shots .ind2-k { display: block; padding: 0 16px; margin: 0 0 4px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .bs-shots img.bs-contain { object-fit: contain; object-position: center; background: var(--bg); }
+body.redesign-prototype .bs-shot-name { display: block; padding: 0 16px; font-family: 'Fraunces', serif; font-size: 18px; }
+@media (max-width: 720px) { body.redesign-prototype .bs-shots { grid-template-columns: 1fr; } body.redesign-prototype .bs-shots img { aspect-ratio: 16 / 10; } }
