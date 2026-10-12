@@ -182,3 +182,26 @@ Freshness on cycle 001: last verified data 8 Sep 2026; next scheduled refresh 8 
 ### Still needed
 
 Selectable per-competitor profiles driven from the scoreboard (currently the profiles sit in one toggle), a creative carousel with per-post "why it stood out / what to test", and the kit change itself. /gta-medspa-index not yet reviewed.
+
+## 9. GTA MedSpa Index (12 October 2026, founder request, no separate review)
+
+Same rules and reading levels applied to `/gta-medspa-index` cycle 001 by hand. Data unchanged.
+
+### Persistent (head)
+
+Same `.ri-*` CSS and `data-ri-reading` script, adapted: the clinic name is read from the column headed **Clinic** (column 0 is the rank `#`); measures are Score, Median reach, Posts, Followers, Peak reel, Comments / 1k; the box shows the **top 15** of the scoreboard rows for the chosen measure (the scoreboard lists the top 25 of 176 ranked clinics) and says so. Keep those headings exactly.
+
+### The kit must emit (body)
+
+1. Header ("I measured…"), status bar per section 2 (on schedule: last verified data 10 Sep 2026, next scheduled refresh 10 Dec 2026; no cadence line, no "Live index" label), metrics note.
+2. `#ri-overview` the existing "What the data says" takeaways card.
+3. `#ri-rankings` scoreboard with the caveat `pnote` (public reach and response, not bookings, patients or revenue; paid reach and Stories invisible), then "What the top of the board is doing" in `details.ri-adv`.
+4. `#ri-creative` vision pass (two-column frames).
+5. `#ri-insights` themes ("received more reach in this sample"), Format, Posting more does almost nothing, The gap, Where your clinic sits, the compliance ledger (heading "Many clinics post content Canadian regulators could question"; keep "could question", never "do not allow" as a blanket claim about the market).
+6. `#ri-test` What the index says to do.
+7. `#ri-advanced` heading, then in `details.ri-adv`: coverage note, category pulse, creative positioning map, collaborator ledger.
+8. Method and limits, `#ri-data` post log (FAQ sits in the same block), dataset gate ("when it is published"), and a closing card: "Want a second opinion?" with the free marketing review (`/contact?intent=review#contact-form`), stating it is not a full competitor study or a compliance review. The old card offered a personal ranking report via "Need Help? Let's Talk"; that offer is retired.
+
+### Wording applied
+
+"We measured / We expected / We tested / We read / We are not claiming" in first person singular; "paying for an account nobody is watching" became "has an account with little or no recent video" and "posted little or no video in the window". Quoted clinic captions in the post log are verbatim and stay as they are.
