@@ -143,3 +143,42 @@ All content stays in the HTML (details are closed, not removed), so search engin
 | Section order, ids, details wrappers, "What could be tested next" | Live for cycle 003 only; kit must emit from cycle 004 |
 | Carousel or per-post "why it stood out / what to test" creative cards | Not built; needs per-post baselines from the kit's data |
 | Same treatment on /hair-loss-index and /gta-medspa-index | Not done |
+
+## 8. Hair Loss Index (12 October 2026, founder review "HMM Hair Loss Index: UX & Content Review")
+
+Same rules and reading levels as sections 1 to 7, applied to `/hair-loss-index` cycle 001 by hand. Data unchanged.
+
+### Persistent (head)
+
+The same `.ri-*` CSS and `data-ri-reading` script as the Real Estate Index, with this page's scoreboard measures: Score, Followers, Posts, Reels, Views / foll, Avg likes, Avg comm. **Keep those column headings exactly.** The navigator adds a Journey link for `#ri-journey`.
+
+### The kit must emit (body)
+
+1. Header (audience line: "For studio and clinic owners who want to see how their category uses Instagram, from first view to a booking enquiry."), status bar per section 2, metrics note.
+2. `#ri-overview` Three findings from this cycle (tiles: posts reviewed, brands compared, nearly dormant; three findings each traceable to a stage table).
+3. `#ri-rankings` scoreboard with the caveat `pnote` (public activity, not consultations, bookings or revenue; Stories and paid reach can be missed), then the account profiles in `details.ri-adv` with neutral headlines (e.g. "Strong reach, few calls to action", never "The reach engine that forgot to ask").
+4. `#ri-journey` "From Instagram attention to a consultation": three tiles (Discover / Build trust / Take action) with the dek that it organises the research and is not a measured booking funnel; then Stage 1, Stage 2 and Stage 3 tables. Stage 3 is an inspection of the public path to booking, not booking performance.
+5. `#ri-creative` vision pass (two-column frames), What good looks like.
+6. `#ri-insights` themes ("received more engagement in this sample", with the follower-count caveat), Format.
+7. `#ri-test` "What could be tested next" (was "What the index says to do"); dek "Proposed experiments … not promises of more bookings"; no claims such as "the entire distance between number two and number one".
+8. `#ri-advanced` heading, then in `details.ri-adv`: coverage note, category pulse, category story, large-audience note, the touring competitor, positioning map, boost ledger, campaign watch, cohort read.
+9. Method and limits (visible), `#ri-data` post log, dataset gate (no delivery date: "when it is published"), FAQ.
+
+Freshness on cycle 001: last verified data 8 Sep 2026; next scheduled refresh 8 Oct 2026, not yet published. "Living", "Live index" and "every 30 days" removed.
+
+### Wording applied (add to the section 4 table)
+
+| Avoid | Use instead |
+|---|---|
+| "the metric that predicts a booking" | "comments, the public measure closest to a booking enquiry" |
+| "The cause is not the content, it is the last line" | "One likely factor is the last line of the caption" |
+| "not luck and not audience love. It is a mechanic" | "line up with a clear mechanic" |
+| "books consultations in the comments" | "draws booking requests in public comments" |
+| "Buyers in an embarrassing category do not respond to proof…" | "In this sample, frames opening on a person drew more engagement than result reveals" |
+| "worth nothing until a caption tells the viewer what to do next" | "reach without a clear next step drew few public replies in this sample" |
+| "The cautionary tale / The largest idle audience" | "Large audience, low local reach" |
+| "It is an audience problem … The fix is not more posts" | "A likely factor is who the audience is … Something to test" |
+
+### Still needed
+
+Selectable per-competitor profiles driven from the scoreboard (currently the profiles sit in one toggle), a creative carousel with per-post "why it stood out / what to test", and the kit change itself. /gta-medspa-index not yet reviewed.
