@@ -5856,3 +5856,21 @@ body.redesign-prototype .pm-fit { margin-top: 24px; }
 body.redesign-prototype .pm-related { margin: 24px 0 0; font-size: 14px; color: var(--text-muted); }
 body.redesign-prototype .ind2-journey-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 900px) { body.redesign-prototype .ind2-journey-3 { grid-template-columns: 1fr; } }
+/* Service pages, second pass (2026-10-12): compact process strip, fit accordion, richer self-check result. */
+body.redesign-prototype .ind2-strip { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 0; align-items: stretch; }
+body.redesign-prototype .ind2-strip .ind2-step { display: flex; align-items: center; gap: 12px; flex: 1 1 0; min-width: 0; padding: 14px 16px; }
+body.redesign-prototype .ind2-strip .ind2-step + .ind2-step { margin-left: 24px; }
+body.redesign-prototype .ind2-strip .ind2-step + .ind2-step::before { left: -25px; top: 50%; width: 25px; }
+body.redesign-prototype .ind2-strip .ind2-ic { width: 36px; height: 36px; flex: 0 0 auto; }
+body.redesign-prototype .ind2-strip h3 { margin: 0; font-size: 17px; }
+body.redesign-prototype .ind2-strip p { display: none; }
+body.redesign-prototype .pm-fitacc { padding: 0 0 18px; }
+body.redesign-prototype .pm-fitacc .ind2-k { margin: 12px 0 0; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .pm-check-result .pm-check-head { margin: 0; }
+body.redesign-prototype .pm-check-result ol { margin: 10px 0 0; padding-left: 20px; display: grid; gap: 6px; font-weight: 400; color: var(--text-body); }
+@media (max-width: 900px) {
+  body.redesign-prototype .ind2-strip { flex-direction: column; gap: 10px; }
+  body.redesign-prototype .ind2-strip .ind2-step { display: flex; }
+  body.redesign-prototype .ind2-strip .ind2-step + .ind2-step { margin-left: 0; }
+  body.redesign-prototype .ind2-strip .ind2-step + .ind2-step::before { left: 33px; top: -10px; width: 2px; height: 10px; }
+}
