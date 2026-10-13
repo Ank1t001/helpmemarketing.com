@@ -519,6 +519,20 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi #ri-advanced .grid2{align-items:stretch}
 .msi.msi #ri-advanced .grid2 .card{margin:0}
 .msi.msi #ri-advanced .card a{color:var(--text);text-decoration:underline;text-decoration-color:var(--text-tertiary);text-underline-offset:3px}
+/* UX spacing pass 2 (2026-10-13): content 20px below an open summary, 24px between blocks, 12px between stacked boxes, one 24px box inset (16px sides at 720). */
+.msi.msi.msi details>summary+*{margin-top:20px}
+.msi.msi.msi details>summary+.sec-head:not(:has(>:not(h2)))+*{margin-top:20px}
+.msi.msi #ri-overview .tiles+.pnote{margin-bottom:24px}
+.msi.msi.msi .gate{padding:24px}
+.msi.msi .gate+.pnote{margin-top:24px}
+.msi.msi .band.card .bandbar{margin-bottom:0}
+.msi.msi .card>h4{margin-bottom:12px}
+.msi.msi .card>h4+h3{margin-top:0}
+.msi.msi details .grid2,.msi.msi details .grid3{gap:12px}
+.msi.msi details .grid2>.card,.msi.msi details .grid3>.card{margin:0}
+@media(max-width:720px){.msi.msi.msi .gate{padding:24px 16px}}
+.msi.msi .grid2{grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))}
+.msi.msi .grid3{grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr))}
 </style><script data-ri-reading>
 /* Reading levels (2026-10-12). Builds a section navigator from section ids and an interactive comparison from the
    scoreboard table the Build Kit emits; no data lives here, so it works for any cycle with the same table shape. */
