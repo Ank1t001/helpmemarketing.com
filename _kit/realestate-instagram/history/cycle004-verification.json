@@ -1,0 +1,8 @@
+{
+  "cycle": "004",
+  "status": "exception_approved",
+  "approved_by": "Ankit Kumar",
+  "approved_on": "2026-10-13",
+  "basis": "Scoring verified against cycle 003 raw posts (65, 56, 44, 36, 31 reproduced exactly). Cycle 004 raw inputs not recovered; its published scoreboard repeats cycle 003 metrics. Rank movement for cycle 005 is read from the published cycle 004 scoreboard CSV.",
+  "reason": "Only scoreboard recovered. Raw input dataset and fresh full captions unavailable."
+}

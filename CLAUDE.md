@@ -11,7 +11,6 @@ A hand-written static marketing site for HelpMeMarketing — a premium generalis
 The dark redesign is live. main is the production site:
 
 - **`main` branch** — serves the **dark redesign** to the public. This is what visitors currently see at helpmemarketing.com. It is the live, canonical site.
-- **`redesign-prototype-homepage` branch** — a **frozen early-prototype pointer** (~40 commits behind main). The redesign already merged to main at commit `04cbc2a`. This branch is historical only; do not treat it as a live alternate or a merge source.
 
 All current work targets main. The codebase contains two CSS systems (legacy-scoped pages and body.redesign-prototype-scoped pages), both live on main. When working on a page, **check which CSS scope the page uses**, not which branch.
 

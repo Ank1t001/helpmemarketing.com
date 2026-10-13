@@ -1,0 +1,6 @@
+cycle,rank,prev_rank,rank_move,brand,cohort,ig_score,prev_score,score_delta,ig_followers,ig_posts,ig_median_likes,ig_median_comments,ig_er_pct,comment_like_pct,like_play_pct,peak30_plays_over_followers,peak90_plays_over_followers,flag
+003,1,,,McGillivray Capital,BOUTIQUE,65,,,503,6,10.5,0.5,2.0875,7.58,5.3,1.0,1.0,ORGANIC
+003,2,4,2,Pier 4,BOUTIQUE,56,31,25,675,17,5,0,0.7407,6.21,2.45,0.48,6.86,ORGANIC
+003,3,1,-2,Skyline,MID,44,75,-31,2243,9,21,0,0.9362,0.0,4.35,0.39,0.56,ORGANIC
+003,4,3,-1,Lankin,MID,36,56,-20,3994,12,4.0,0.0,0.1002,0.0,0,0,0.09,ORGANIC
+003,5,2,-3,Equiton,MID,31,57,-26,18231,24,12.5,0.0,0.0686,0.61,1.99,0.07,0.08,ORGANIC

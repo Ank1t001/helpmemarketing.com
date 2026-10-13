@@ -1,0 +1,315 @@
+{
+ "window_label_end": "13 October 2026",
+ "founder_collab": {
+  "account": "scott_mcgillivray",
+  "followers": 351567,
+  "plays": 43066,
+  "plays_vs_combined": 0.12227260209021246
+ },
+ "ads": {
+  "Skyline": {
+   "first": "6 October",
+   "pages": [
+    {
+     "name": "Skyline Wealth Management Inc.",
+     "count": 16,
+     "audience": "investor"
+    },
+    {
+     "name": "Skyline Living",
+     "count": 7,
+     "audience": "resident"
+    }
+   ]
+  },
+  "Equiton": {
+   "first": "1 April",
+   "event_start": "6 October",
+   "pages": [
+    {
+     "name": "Equiton Inc.",
+     "count": 25,
+     "audience": "investor",
+     "capped": true
+    }
+   ]
+  },
+  "Lankin": {
+   "first": "22 June",
+   "pages": [
+    {
+     "name": "Lankin",
+     "count": 11,
+     "audience": "investor"
+    }
+   ]
+  },
+  "Pier 4": {
+   "first": "4 June",
+   "pages": [
+    {
+     "name": "Pier 4",
+     "count": 16,
+     "audience": "investor"
+    },
+    {
+     "name": "Pier 4 Residential",
+     "count": 7,
+     "audience": "resident"
+    }
+   ]
+  },
+  "McGillivray Capital": {
+   "first": "15 September",
+   "pages": [
+    {
+     "name": "McGillivray Capital Partners",
+     "count": 2,
+     "audience": "investor"
+    },
+    {
+     "name": "Scott McGillivray",
+     "count": 2,
+     "audience": "investor"
+    }
+   ]
+  }
+ },
+ "frames": {
+  "Skyline": {
+   "alt": "Opening frame of Skyline top post, charity golf classic",
+   "label": "top post, charity golf classic carousel",
+   "in_frame": "The Skyline wordmark above a gold line reading THANK YOU FOR MAKING OUR, then 22nd Annual Charity Golf Classic a Success in large serif type, over a photograph of one golfer at the top of his backswing on a tree-lined tee.",
+   "read": "Read this cycle. Their best post of the window, and like every Skyline post this cycle it drew no comments. A community event with a person in frame, where the cycle 003 winner was a results card with nobody in it."
+  },
+  "Equiton": {
+   "alt": "Opening frame of Equiton top post, lifestyle reel",
+   "label": "top post, lifestyle reel",
+   "in_frame": "The cover of a reel: the Equiton logo and its line Equity that’s Real against a pale sky, three men in golf clothes walking off a green past the flag, and the overlay There’s a different way to invest in real estate.",
+   "read": "Read this cycle. 901 plays, and the caption opens on a broken dishwasher. What we observed: their best post is a lifestyle reel about not managing property yourself, and the second best is a Day in the Life carousel with a named asset manager at 22 likes. What it may suggest: the problem-solved angle lands better here than the market updates do. What to test: one more problem-led reel against the next Markets in Minutes carousel."
+  },
+  "Lankin": {
+   "alt": "Opening frame of Lankin top post, Meet the Team card",
+   "label": "top post, Meet the Team card",
+   "in_frame": "Lankin’s navy MEET THE TEAM template: logo top left, ghosted lettering behind, a cut out headshot on a white and gold block, and the name Van Le above the title Director, Professional Partnerships.",
+   "read": "Read this cycle. Their best post by a wide margin. The caption gives the title as Director, Strategic Partnerships, a different title from the card, the same kind of mismatch this template carried in cycle 003. The badge reflects the likes; the mismatch is a craft note, not a performance verdict."
+  },
+  "Pier 4": {
+   "alt": "Opening frame of Pier 4 top post, Q3 events carousel",
+   "label": "top post, Q3 events carousel",
+   "in_frame": "Nine people in suits standing together in an office, a screen behind them reading EMPLOYEE OF THE QUARTER, with Q3 EVENTS in tall condensed type across the floor and the line ENRICHING COMMUNITIES ENHANCING RETURNS beneath.",
+   "read": "Read this cycle. A team photo from a quarterly recap, with one comment. Their five market carousels and statics in the same window drew a median of 4 likes."
+  },
+  "McGillivray Capital": {
+   "alt": "Opening frame of McGillivray Capital top post, co-authored reel",
+   "label": "top post, co-authored founder reel",
+   "in_frame": "A man in a white shirt at a table, face mostly hidden by a hand applying powder from a compact, a phone in his other hand, under the overlay preparing for my Netflix documentary about why you shouldn’t underestimate the guy from HGTV.",
+   "read": "Read this cycle. Co-authored with @scott_mcgillivray, 18 comments and 43,066 plays. What we observed: one post drew roughly 20 times the likes of the account’s other four posts in the window combined. What it may suggest: the co-author’s audience, not the firm’s, carried it. What to test: a second co-authored post, and a firm-only post with the founder on camera, to separate the face from the audience."
+  }
+ },
+ "frame_pattern": "<b>All five winning frames have at least one person in them this cycle.</b> Only Lankin’s names its person on the artwork. McGillivray Capital’s is a co-authored founder reel. Skyline, Equiton and Pier 4 show unnamed people at a golf course or a company event, and two of the five, Skyline and Equiton, are set on a golf course. What we observed: five frames in one cycle. What it may suggest: for these accounts, posts with people in them outdrew posts without. What to test: each account’s next event photo against its next text-led card. Cycle 003’s exception was Skyline’s results card with nobody in it, so this is not a settled pattern.",
+ "theme_reads": {
+  "CSR / community": "Charity golf, National Tree Day, a run for a cause and Truth and Reconciliation. Three of the four are Skyline",
+  "Culture / people": "Team recaps, an employee award, a conference visit and a Day in the Life, spread across four accounts",
+  "Development / asset": "Construction, leasing and disposition milestones. Nine of the ten are Skyline",
+  "Team / hire": "Named team member cards and a job expo. Six of its eight comments are on Lankin cards",
+  "Brand / other": "Lifestyle reels, event promotion, awards and holiday posts, plus the founder co-authored reel, which holds 18 of its 26 comments",
+  "Investor education": "Explainers on private investing, adding value and portfolio questions",
+  "Market / macro": "Weekly round ups and rate commentary from Equiton, Lankin and Pier 4. Bottom of the table again"
+ },
+ "theme_note": "Community and people posts sat at the top of the table and market commentary at the bottom, at a median of 5 likes across 15 posts, about a quarter of the calendar. The exceptions sit on the same board: Skyline’s National Day for Truth and Reconciliation post drew 11 and Pier 4’s run for a cause drew 2, both below their accounts’ medians, and Lankin’s market posts drew comments at the same rate as the rest of its feed. The top three themes also lean heavily on Skyline, the account with the highest median likes, so account and theme are tangled in this table.",
+ "format_note": "Reels lead at a median of 11 likes on 15 posts, against 8.5 for both carousels and statics. Eight of the 15 reels are Equiton’s, and the set includes McGillivray Capital’s 789 like reel, which a median barely registers. Pier 4 published no reels and still tops the board. At 57 posts across five firms a gap of 2.5 likes is not a ranking; we will hold the comparison against cycle 006 before claiming a direction.",
+ "tests": [
+  [
+   "A founder co-authored reel drew 789 likes on a 646 follower account",
+   "Post a second co-authored piece and a firm-only post with the founder on camera, then compare"
+  ],
+  [
+   "Community and people posts drew the highest median likes",
+   "Pair the next market update with a named person explaining it, and compare with a plain round up"
+  ],
+  [
+   "All five firms run Meta ads while organic engagement stays low",
+   "Echo one live ad’s message in an organic post and compare it with the account’s median"
+  ],
+  [
+   "Question-led first lines drew comments only on Lankin",
+   "Test a specific, answerable question on an educational post and count replies"
+  ],
+  [
+   "Pier 4 leads with no video in the window",
+   "Publish one reel and see whether the ranking holds when Distribution has something to measure"
+  ]
+ ],
+ "story": [
+  "Cycles 001 to 003 read this as a category where native accounts do better than cross-posted ones and the smallest accounts are the ones being answered. This cycle adds a fact the feed alone could not show: <b>all five firms are paying for Meta distribution</b>, at least 72 live investor-facing ads between them, and none of that spend is visible in the organic numbers this index scores.",
+  "The paid feed and the organic feed are saying different things. Skyline Wealth Management started 16 investor ads between 6 and 9 October while Skyline’s own feed posted leasing milestones and a charity golf day. Pier 4 has run investor ads since June, many placed on Instagram only, while its feed published no reel in this window.",
+  "So the suggestion is narrow. <b>In this sample, posts about people and community drew the most likes per post and market commentary the least.</b> The exceptions on the same board are named in the theme table above, and one cycle is not a pattern. We will hold it against cycle 006."
+ ],
+ "map_note": "McGillivray Capital moves far to the right, from 1.0x in cycle 003 to 66.7x, on a single reel co-authored with its founder’s account. Lankin appears for the first time after publishing two reels. Pier 4 published no video and drops off the chart. Skyline is the only account above the 3 percent resonance line, and every account except McGillivray Capital sits below 1x on reach.",
+ "ledger": {
+  "Pier 4": "No reel in the 30 day window. Its 90 day peak, 2,168 plays on 20 August, runs 3.14x. Its earlier 90 day peak from 13 July has aged out of the lookback, which is the window moving, not a finding. The ad library shows 16 investor ads from the Pier 4 page, live since 4 June, many placed on Instagram only, plus 7 resident leasing ads from Pier 4 Residential. Paid delivery does not show in the organic plays this column reads.",
+  "McGillivray Capital": "One reel, co-authored with @scott_mcgillivray (351,567 followers), took 43,066 plays: 66.7x the firm’s 646 followers, which sets the BOOST flag, and 0.12x of the two audiences combined. A co-authored post is shown to both audiences, so this ratio cannot separate the founder’s reach from paid promotion. The ad library shows 2 ads from McGillivray Capital Partners (from 15 September) and 2 from Scott McGillivray (from 2 October, an Ottawa investor event); neither ad text matches this reel’s caption. Both facts stand.",
+  "Skyline": "Peak 0.33x in the window and 0.40x across 90 days, proportionate to audience. Its earlier 90 day peak from 10 July has aged out of the lookback. The ad library shows 16 investor ads from Skyline Wealth Management Inc., all started between 6 and 9 October, and 7 resident leasing ads from Skyline Living. The organic column cannot see either.",
+  "Lankin": "Two reels this cycle after none in cycle 003, peaking at 0.05x; 0.06x across 90 days. Comment to like at 47.4 percent is the highest on the board, from 1 to 4 comments on every one of its 10 posts. The ad library shows 11 Lankin ads, live since 22 June, including RRSP and TFSA eligibility messages.",
+  "Equiton": "Peak 0.05x in the window and 0.07x across 90 days, the lowest reach relative to audience on the board. The ad library search returned its maximum of 25 live Equiton ads, so the true count may be higher, the earliest from 1 April, including an investor evening advertised from 6 October. No live ads were found under its founder’s name."
+ },
+ "ledger_note": "<b>Four of five flags read ORGANIC and all five firms had live investor ads. A clean flag is not a clean category.</b> The flag measures organic reach on each firm’s own handle. It cannot see ads that never appear in the feed, spend placed from separate pages, budget, objective or targeting, and play counts include replays and autoplays. The one BOOST flag this cycle comes from a co-authored post, which the instrument also cannot tell apart from paid reach. The right output from any row is a question for that firm’s marketing lead, not a verdict.",
+ "campaigns": [
+  [
+   "Pier 4",
+   "Investor ads, paid",
+   "16 live ads from the Pier 4 page, earliest 4 June, many placed on Instagram only: private REIT explainers, an advisor series and an RRSP message. Separately, 7 resident leasing ads from Pier 4 Residential.",
+   "16 ads",
+   "some",
+   "ADS 16"
+  ],
+  [
+   "Pier 4",
+   "Team and community recaps",
+   "A Q3 events recap (19 likes), the Employee Award (11) and a Top Growing Companies mention (10), its three best posts. <a href=\"https://www.instagram.com/p/Dd9B-u9EdaH/\" target=\"_blank\" rel=\"noopener\">post</a>",
+   "quarterly",
+   "none",
+   "WORKING"
+  ],
+  [
+   "Pier 4",
+   "Beyond the Market series",
+   "Launched 21 September with 1 like and 1 comment. A launch post is not a verdict on a series. <a href=\"https://www.instagram.com/p/DdjhivAkUMg/\" target=\"_blank\" rel=\"noopener\">post</a>",
+   "new",
+   "some",
+   "TOO EARLY"
+  ],
+  [
+   "McGillivray Capital",
+   "Founder co-authored reel",
+   "Co-authored with @scott_mcgillivray and built on his television profile. 789 likes, 18 comments, 43,066 plays. <a href=\"https://www.instagram.com/p/DeJ8U40jH7J/\" target=\"_blank\" rel=\"noopener\">post</a>",
+   "one post",
+   "heavy",
+   "BOOST 67x"
+  ],
+  [
+   "McGillivray Capital",
+   "Investor event ads, paid",
+   "2 live ads from McGillivray Capital Partners (from 15 September) and 2 from Scott McGillivray (from 2 October) for a free in-person passive investing event in Ottawa.",
+   "4 ads",
+   "some",
+   "ADS 4"
+  ],
+  [
+   "McGillivray Capital",
+   "Investor questions carousels",
+   "Answering investor questions about real estate investing, 8 likes this cycle against a median of 11. <a href=\"https://www.instagram.com/p/DeSGq5Kl4Mn/\" target=\"_blank\" rel=\"noopener\">post</a>",
+   "recurring",
+   "some",
+   "BELOW MEDIAN"
+  ],
+  [
+   "Skyline",
+   "Investor ads, paid, new flight",
+   "16 live ads from Skyline Wealth Management Inc., all started 6 to 9 October, for its apartment, retail and industrial REITs and its clean energy fund, some addressed to investors in named towns. Separately, 7 resident leasing ads from Skyline Living.",
+   "16 ads",
+   "some",
+   "ADS 16"
+  ],
+  [
+   "Skyline",
+   "SkyDev construction and leasing engine",
+   "Nine of 13 posts are construction, leasing or acquisition milestones, at a median of 19 likes. The most consistent editorial line in the index. <a href=\"https://www.instagram.com/p/DeKigCsDVYb/\" target=\"_blank\" rel=\"noopener\">post</a>",
+   "recurring",
+   "none",
+   "ORGANIC ENGINE"
+  ],
+  [
+   "Skyline",
+   "Community posts",
+   "The charity golf classic (63 likes) and National Tree Day (47) were its best and joint second best posts; the Truth and Reconciliation post drew 11. <a href=\"https://www.instagram.com/p/DePGaUAjZDQ/\" target=\"_blank\" rel=\"noopener\">post</a>",
+   "occasional",
+   "none",
+   "LANDED"
+  ],
+  [
+   "Lankin",
+   "Investor ads, paid",
+   "11 live ads, earliest 22 June, including RRSP and TFSA eligible private real estate and a 12 to 16 percent targeted net return message.",
+   "11 ads",
+   "some",
+   "ADS 11"
+  ],
+  [
+   "Lankin",
+   "Meet the Team cards",
+   "Two cards in the window at 20 and 9 likes against a median of 3.5, its two best posts. <a href=\"https://www.instagram.com/p/Ddubcjql_R7/\" target=\"_blank\" rel=\"noopener\">post</a>",
+   "monthly",
+   "none",
+   "WORKING"
+  ],
+  [
+   "Lankin",
+   "Live podcast promotion",
+   "Two reels promoting a live discussion with its capital markets leads, at 2 and 4 likes and 3 comments each. <a href=\"https://www.instagram.com/p/Ddr2qKmCJun/\" target=\"_blank\" rel=\"noopener\">post</a>",
+   "burst",
+   "some",
+   "BELOW MEDIAN"
+  ],
+  [
+   "Equiton",
+   "Investor ads, paid",
+   "The search returned its maximum of 25 live ads, earliest 1 April, including a private real estate evening advertised from 6 October. No live ads found under the founder’s name.",
+   "25+ ads",
+   "heavy",
+   "ADS 25+"
+  ],
+  [
+   "Equiton",
+   "Problem-solved lifestyle reels",
+   "A broken dishwasher (25 likes), more room in your day (19) and weekend plumbing (17), all above its median of 11.5. <a href=\"https://www.instagram.com/p/Dd97qTEBugi/\" target=\"_blank\" rel=\"noopener\">post</a>",
+   "weekly",
+   "none",
+   "WORKING"
+  ],
+  [
+   "Equiton",
+   "Markets in Minutes and macro carousels",
+   "Five posts at a median of 9 likes on 18,409 followers. <a href=\"https://www.instagram.com/p/DdSUQipjRDi/\" target=\"_blank\" rel=\"noopener\">post</a>",
+   "weekly",
+   "some",
+   "NOT LANDING"
+  ]
+ ],
+ "gate_script": "<script>\nvar GATE_ENDPOINT=\"https://script.google.com/macros/s/AKfycbzeefYKM_xZuJHIg9pjl0hTLo57v87Qfpb5DzwvikeyVY3_QdYHFd18zpzlfBsbALSp/exec\";\nvar GATE_SOURCE=\"instagram-cycle-{{CYCLE}}\";\nvar GATED_CSV={{GATED_CSV}};\n(function(){\nvar f=document.getElementById('gateform'),b=document.getElementById('gate-btn'),\nm=document.getElementById('gate-msg'),i=document.getElementById('gate-email');\nfunction msg(t,ok){m.textContent=t;m.className='gate-msg '+(ok?'ok':'err');}\nfunction dl(){var bl=new Blob([GATED_CSV],{type:'text/csv;charset=utf-8'});\nvar a=document.createElement('a');a.href=URL.createObjectURL(bl);\na.download='re-index-cycle-{{CYCLE}}-postlog.csv';document.body.appendChild(a);a.click();a.remove();}\nf.addEventListener('submit',function(ev){\nev.preventDefault();\nvar em=i.value.trim();\nif(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(em)){msg('Enter a valid email address.',0);return;}\nif(GATE_ENDPOINT.indexOf('http')!==0){msg('The capture endpoint is not configured yet. Add your Apps Script URL.',0);return;}\nb.disabled=true;var old=b.textContent;b.textContent='Sending...';\nfetch(GATE_ENDPOINT,{method:'POST',mode:'no-cors',\nbody:new URLSearchParams({form:'index-download',email:em,source:GATE_SOURCE})})\n.then(function(){msg('Done. Your download has started. I’ll email you when the next cycle is published.',1);dl();})\n.catch(function(){msg('Something went wrong. Check your connection and try again.',0);})\n.then(function(){b.disabled=false;b.textContent=old;});\n});\n})();\n</script>\n",
+ "faq": [
+  [
+   "Did the roster change this cycle?",
+   "No. The five firms are the same as cycle 003: Skyline, Equiton, Lankin, Pier 4 and McGillivray Capital. Marlin Spring left at cycle 003 after three consecutive windows at two posts. Because Resonance and Distribution are percentile pillars, any future roster change re-ranks every firm, and the page will say so."
+  ],
+  [
+   "Why do flags read ORGANIC when every firm is running ads?",
+   "Because the flag measures one thing: peak plays on the firm’s own handle against its followers. Ads placed from a separate page, or ads that never appear in the feed, do not add to those plays. The ad library count is published beneath each flag so the two facts sit side by side. A clean flag is not a clean category."
+  ],
+  [
+   "Why is Pier 4 first with no video in the window?",
+   "Distribution compares peak plays with followers. With no reel there is nothing pushing that ratio up, and under the method used since cycle 003 that places Pier 4 at the honest end of the pillar. The same treatment applied to Lankin in cycle 003. If Pier 4’s Distribution were scored at the middle of the pool instead, it would fall behind McGillivray Capital. We publish that sensitivity rather than change the method mid series."
+  ],
+  [
+   "What does BOOST 67x mean for McGillivray Capital?",
+   "Its best reel was co-authored with @scott_mcgillivray, which has 351,567 followers. Co-authored posts are shown to both audiences, so plays measured against the firm’s 646 followers look like a media buy even if the reach came from the founder’s audience. Against both audiences combined the reel ran 0.12x. The flag is arithmetically correct; the explanation it implies may not be."
+  ],
+  [
+   "Why is Wealthsimple on the page if it is not a real estate firm?",
+   "As a reference only. It is never pooled into any median, percentile or score, it does not appear on the scoreboard, and its rows in the downloadable CSV are tagged REFERENCE. It drew 200 comments on 12 posts in the same window that the five ranked firms drew 54 on 57."
+  ],
+  [
+   "Why like per play rather than like per view?",
+   "Instagram’s view counts are inconsistently reported and sometimes lower than like counts, which produces impossible ratios. Plays are reported reliably, so every resonance number on this page uses plays as the denominator."
+  ],
+  [
+   "How does the vision pass work, and what are its limits?",
+   "It reads the opening frame of each firm’s top post of the window, so the creative findings are independent of the captions and the metrics. All five frames were read this cycle. For a reel, the frame is the cover image, not the whole video. Where a frame cannot be read, this page labels it unreviewed and does not describe it."
+  ],
+  [
+   "Is any of the data estimated?",
+   "No. Every Instagram number comes from public data collected on 13 October 2026, and every claim links to its source post. Ad counts are minimums from the Meta ad library on the same day, grouped by the advertiser page that placed them."
+  ]
+ ]
+}

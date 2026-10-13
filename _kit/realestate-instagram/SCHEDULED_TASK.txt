@@ -1,0 +1,153 @@
+Run the monthly Instagram edition of HMM's Real Estate Index on the
+14th at 09:00 America/New_York. This task collects data and prepares a
+review candidate; website publication requires Ankit's explicit approval.
+
+Canonical URL: https://helpmemarketing.com/realestate-index
+Legacy /instagram-reindex is a redirect only.
+
+READ FIRST
+Read HMM Learnings & Notion and its relevant HMM pages 1, 4 and 11.
+Read the current repository CLAUDE.md Index generator contract and
+docs/HMM_Index_Build_Kit_Brief_2026-10.md, especially section 7.
+Do not access unrelated Notion projects or write Notion without Ankit's request.
+
+BUILD KIT
+Use the versioned Instagram monthly migration package in the shared
+Build Kit folder, not the old standalone builder files.
+Build Kit folder: 1Na03QhpmzChaVOGA5CSafQeL32qP6-_r
+Instagram output folder: 11Yto50TuGM9CeOXwKQ6ymGvi4y7kblyO
+Archive folder: 10a1tySIrKMyTQhXCJY18aDlNAptflZs5
+
+Download and extract the approved current package. Read updated/README.md.
+The initial 2026-10-13 package is a review draft with cycle 003 historical
+inputs. It is not a fresh October report. Verify package approval/status
+and the prior-cycle verification record before proceeding.
+
+Do not change other shared builders. Pull the latest realestate-index.html
+from GitHub for the persistent shell. The public URL does not establish
+the file path; inspect the repository. Preserve its head, navigation,
+wrapper, footer, comparison script and current gate endpoint/payload.
+
+ROSTER
+Skyline: skylinegroupofcompanies, MID
+Equiton: equitoninc, MID
+Lankin: lankin_investments, MID
+Pier 4: pier4ltd, BOUTIQUE
+McGillivray Capital: mcgillivraycapital, BOUTIQUE
+
+Marlin Spring remains excluded. Starlight, Centurion and Hazelview are
+not on this board. Never say Hazelview has no Instagram account;
+@hazelviewproperties exists, and corporate-account coverage is distinct.
+
+Wealthsimple is REFERENCE only. Never include it in ranked medians,
+percentiles, scores or the scoreboard. CSV rows use cohort=REFERENCE.
+
+COLLECT
+Use apify/instagram-scraper for these six handles over 90 days.
+Filter ranked analysis to 30 days using actual timestamps; pinned posts
+must also pass this check. Capture likes, comments, format, plays,
+shortcode, date and full caption. Permitted maisonriverain coauthored
+posts belong to Equiton. Exclude other owners from Wealthsimple data.
+Use apify/instagram-profile-scraper for current follower counts.
+Rebuild each firm's IG_PEAK_90D from the actual 90-day pull.
+
+Check Meta Ad Library for each firm and known founder advertiser.
+Keep plays-based flags separate from verified advertising. ORGANIC does
+not mean no ads. If access is blocked, report unavailable verification.
+
+Inspect the top post frame for each firm. Use the downloader/key-value
+store method when available and report store ID/record key privately.
+Do not describe an unseen image. Reader-limit failures mean unreviewed,
+not evidence that the creative looks a particular way.
+Frames are /assets/index/real-estate/frames/[firm]-cycleNNN.webp.
+Firm slugs: skyline, equiton, lankin, pier-4, mcgillivray.
+Deliver original images as [firm].jpg for the publish step's 640x800 WebP
+conversion. Never hotlink signed URLs or place production notes on-page.
+
+PRIOR-CYCLE CHECK
+Read the prior scoreboard CSV and recover its actual input dataset.
+Reproduce published scores and ranks with the unchanged method.
+Do not use a scoreboard as a substitute for raw posts/full captions.
+The initial package's cycle 004 verification is blocked. Recover its
+inputs or report the specific gap to Ankit; do not relabel cycle 003.
+Record any separately approved baseline exception explicitly. Do not
+invent that approval or silently bypass verification.
+
+BUILD
+Refresh IG, IG_BRANDS follower counts, IG_PEAK_90D, IG_REF,
+ig_postlog.json, ig_caps.json and an Instagram-only postlog CSV.
+Use ig_cycle.json for Instagram metadata, not legacy dataset constants.
+Keep REFERENCE rows out of ig_postlog.json and ranked calculations.
+
+Keep scoring unchanged: 45% percentile engagement rate, 30% comment/like
+intent, 25% percentile of negative peak plays/followers. Intent is healthy
+at 1.5 to 5 percent, with decay above 5. Fewer than five posts excludes a
+firm from eligible percentile pools and caps its score at 30.
+Like/play uses plays, not views. No video displays "no video", not zero.
+
+Refresh report_body.html with actual cycle findings, source links,
+creative observations, suggested tests, themes, formats, advanced
+research, methodology, post log and FAQs. Do not carry dated ad findings,
+frame reads or narrative claims as though they were checked this cycle.
+Preserve research and methodology; advanced content stays expandable.
+
+Preserve ordered IDs:
+ri-overview, ri-rankings, ri-creative, ri-insights, ri-test,
+ri-advanced, ri-data.
+Preserve exact scoreboard headings:
+Account, Score, Followers, Posts, Mix, Median likes, Med comm,
+Like/play, Peak, Flag, Top post.
+Keep the first account cell's profile link for the persistent script.
+
+Show Last verified data and Next scheduled refresh separately.
+Use the real scrape date; publication must be verified before claiming
+the public page has refreshed. Next refresh is the next monthly 14th.
+For a successful October 14, 2026 run, it is November 14, 2026.
+Do not promise a public cadence line or an email-delivery date.
+Overdue unpublished dates say "not yet published".
+
+Every claim describes this sample, not causes, leads, customers or revenue.
+Thin comment samples and roster effects must be stated beside rankings.
+Badges depend only on card-post likes versus that account's median;
+craft critique does not change a badge. Counts come from the actual CSV.
+General patterns name exceptions. A single comparison cannot prove a
+formula: state observation, possible implication and the next test.
+No private Reach or Impressions metric. No added scoring pillars.
+No em/en dashes, including hooks/CSV: between digits use " to "; otherwise
+use ", ". Canadian spelling, sentence-case headings, first-person publisher.
+
+Record reviewed body and dataset fingerprints in body_review.json only
+after checking evidence. Set publication_review=complete only when the
+cycle's checks are complete. Hashing is not a substitute for review.
+Set ig_cycle.json status=fresh only for actual fresh complete inputs.
+Run python3 build_v2.py on the scrape date.
+
+VERIFY
+Check source links, Instagram-only CSV counts, roster/reference isolation,
+no-video cells, badge/median consistency, current gate endpoint/payload,
+section IDs, exact headings, fresh dates and local frame paths.
+Run browser QA: no .tw overflow at 1280px, no page overflow on mobile,
+comparison controls and post-log filters work. No unseen-frame claims or
+visitor-facing implementation notes. Report failures and missing checks.
+Do not submit the live gate merely to validate markup.
+
+DELIVER AND SAVE
+Deliver Re Index Instagram v8.html, five original frame images, updated
+postlog/scoreboard CSVs, refreshed package and validation report.
+Include rank changes, sample limits, ad/boost checks, frame provenance,
+actual scrape date, next scheduled refresh and all blockers.
+Archive prior package only after the replacement successfully uploads
+and downloads back with matching SHA-256. Never truncate oversized files.
+Use available raw-file upload actions; if unavailable, deliver files to
+Ankit with exact destinations. Keep history and one approved current kit.
+
+PUBLICATION HANDOFF
+Claude Code owns repository edits, frame conversion, body-only insertion,
+release checks and deployment with Ankit's explicit approval. A candidate
+is not a published cycle. Claude Chrome verifies the live page after
+approved publication. The old 5th/19th publish trigger must be disabled or
+changed separately; this prompt does not change that schedule.
+
+If Drive, GitHub or Apify access is blocked, name the exact missing source
+and continue independent checks where possible. Never claim unperformed
+scrapes, uploads, deployments or verification as complete.
