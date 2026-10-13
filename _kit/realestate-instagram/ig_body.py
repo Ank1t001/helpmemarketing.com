@@ -20,13 +20,15 @@ def split_shell(source):
     finish = source.index(END, match.end())
     return source[:match.end()], source[match.end():finish], source[finish:]
 
-def render(csv_text, cycle, verified_date, next_date, as_of):
+def render(csv_text, cycle, verified_date, next_date, as_of, published_at=None):
     shell = (BASE / 'site_shell.html').read_text(encoding='utf-8')
     prefix, _, suffix = split_shell(shell)
     body = (BASE / 'report_body.html').read_text(encoding='utf-8')
     rows = list(csv.DictReader(io.StringIO(csv_text)))
     ranked = sum(r['cohort'] != 'REFERENCE' for r in rows)
     reference = len(rows) - ranked
+    body = body.replace('{{LAST_VERIFIED_LONG}}', long_date(verified_date))
+    body = body.replace('{{NEXT_REFRESH_LONG}}', long_date(next_date))
     body = body.replace('{{LAST_VERIFIED}}', verified_date)
     body = body.replace('{{NEXT_REFRESH}}', next_date)
     body = body.replace('{{OVERDUE}}', ', not yet published' if as_of > next_date else '')
@@ -37,4 +39,44 @@ def render(csv_text, cycle, verified_date, next_date, as_of):
     body = body.replace('{{GATED_CSV}}', json.dumps(csv_text, ensure_ascii=True).replace('</', '<\\/'))
     if re.search(r'\{\{[A-Z_]+\}\}', body):
         raise ValueError('Unresolved report token')
+    if published_at:
+        prefix, count = re.subn(r'"dateModified":"[^"]*"', '"dateModified":"' + published_at + 'T00:00:00+00:00"', prefix)
+        if count != 1:
+            raise ValueError('Expected one dateModified in the shell head')
     return prefix + '\n' + body + '\n' + suffix
+
+MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+          'September', 'October', 'November', 'December']
+
+def long_date(iso):
+    y, m, d = iso.split('-')
+    return f'{int(d)} {MONTHS[int(m) - 1]} {y}'
+
+CANON = 'https://helpmemarketing.com/realestate-index'
+
+def snapshot(page, cycle, verified_date):
+    """Fixed copy of a published edition at /realestate-index/edition-NNN (noindex, self canonical)."""
+    snap_url = f'{CANON}/edition-{cycle}'
+    swaps = [
+        (f'<link rel="canonical" href="{CANON}">', f'<link rel="canonical" href="{snap_url}">\n<meta name="robots" content="noindex, follow">'),
+        (f'<meta property="og:url" content="{CANON}">', f'<meta property="og:url" content="{snap_url}">'),
+        (f'"url":"{CANON}","isAccessibleForFree"', f'"url":"{snap_url}","isAccessibleForFree"'),
+        ('<div class="livebar">', f'<div class="note warn"><span class="lbl">Archived edition {cycle}</span><p>Data collected {long_date(verified_date)}. This snapshot does not change. <a href="/realestate-index">See the current edition</a>.</p></div>\n<div class="livebar">'),
+        (f'<a href="{CANON}">{CANON}</a></p>', f'<a href="{snap_url}">{snap_url}</a></p>'),
+        (f'This address always shows the latest edition. For a fixed version, cite the <a href="/realestate-index/edition-{cycle}">edition {cycle} snapshot</a>.',
+         f'This is the fixed snapshot of edition {cycle}. The <a href="/realestate-index">current edition</a> lives at /realestate-index.'),
+    ]
+    for old, new in swaps:
+        if page.count(old) != 1:
+            raise ValueError('Snapshot anchor not found: ' + old[:60])
+        page = page.replace(old, new)
+    crumb = None
+    for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>', page, re.S):
+        if '"BreadcrumbList"' in block:
+            crumb = block
+    if crumb:
+        j = json.loads(crumb)
+        items = j['itemListElement']
+        items.append({'@type': 'ListItem', 'position': len(items) + 1, 'name': f'Edition {cycle}', 'item': snap_url})
+        page = page.replace(crumb, json.dumps(j, ensure_ascii=False, separators=(',', ':')))
+    return page

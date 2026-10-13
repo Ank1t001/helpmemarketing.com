@@ -151,3 +151,11 @@ changed separately; this prompt does not change that schedule.
 If Drive, GitHub or Apify access is blocked, name the exact missing source
 and continue independent checks where possible. Never claim unperformed
 scrapes, uploads, deployments or verification as complete.
+
+AUTHORSHIP, CITATION AND SNAPSHOTS (2026-10-13)
+Start from report_body.html (the live, approved body); do not run gen_body.py.
+Set ig_cycle.json published_at to the go-live date. Keep the byline, About the
+researcher card, Cite this research card, How this research was produced and
+Edition history. Add the new edition's history row. After approval, publish
+output/edition-NNN.html as realestate-index/edition-NNN.html; never change an
+earlier snapshot.

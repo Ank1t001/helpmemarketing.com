@@ -16,5 +16,6 @@
   "expected_scoreboard": "history/reindex-cycle003-ig-scoreboard.csv",
   "prior_cycle": "004",
   "prior_verification": "history/cycle004-verification.json",
-  "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv"
+  "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv",
+  "published_at": "2026-10-13"
 }

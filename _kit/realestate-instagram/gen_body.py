@@ -11,6 +11,9 @@ construction:
   5. claim language: no "proves", "only variable" or "every frame" in generated copy.
 Editorial strings are cycle-specific and must be rewritten each cycle from the evidence.
 """
+import sys
+sys.exit("RETIRED 2026-10-13: gen_body.py emits the pre-13-October page structure (old header, BOOST/ORGANIC flags, Advanced research). "
+         "Start from report_body.html, the reviewed live body, and update its figures and editorial text from the new cycle's evidence.")
 import csv, html, io, json, math, statistics as st
 from collections import Counter, defaultdict
 from pathlib import Path

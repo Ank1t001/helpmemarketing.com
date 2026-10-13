@@ -12,7 +12,7 @@ from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
 import reindex_data as data
-from ig_body import BASE, render, split_shell
+from ig_body import BASE, render, split_shell, snapshot, long_date
 
 def normalise(value):
     return re.sub(r'[\u2013\u2014]', lambda m: ' to ' if
@@ -110,6 +110,17 @@ def validate(source, actual, rows, config):
     ids=['ri-overview','ri-rankings','ri-creative','ri-insights','ri-test','ri-advanced','ri-data']
     positions=[body.find('id="'+x+'"') for x in ids]
     if -1 in positions or positions!=sorted(positions): raise ValueError('Reading-level section contract failed')
+    # Authorship and citation (2026-10-13): byline linked to /about, researcher profile, cite block and edition history.
+    cyc,when=config['cycle'],long_date(config['scraped_at'])
+    need={'linked byline':'Research and analysis by <b><a href="/about">Ankit Kumar</a></b>',
+          'researcher profile':'<h4>About the researcher</h4>','profile links':'<a href="/about">About Ankit</a> &middot; <a href="/work">Explore HMM&rsquo;s work</a>',
+          'cite block':f'Edition {cyc}. Data collected {when}.','snapshot link':f'href="/realestate-index/edition-{cyc}"',
+          'edition history':'id="ri-editions"','methodology':'<summary>How this research was produced</summary>'}
+    for label,text in need.items():
+        if text not in body: raise ValueError('Missing '+label)
+    head=source.split('</head>')[0]
+    if '"@id":"https://helpmemarketing.com/about#ankit-kumar"' not in head or '"@id":"https://helpmemarketing.com/#organization"' not in head: raise ValueError('Article author/publisher not linked')
+    for blk in re.findall(r'<script type="application/ld\+json">(.*?)</script>',source,re.S): json.loads(blk)
     parser=Tables(); parser.feed(body)
     headings=['Account','Score','Followers','Posts','Mix','Median likes','Med comm','Like/play','Peak','Flag','Top post']
     board=next((t for t in parser.tables if t and t[0]==headings),None)
@@ -163,11 +174,13 @@ def main():
         if p is None or row['brand']!=p[0] or int(row['likes'])!=p[2] or int(row['comments'])!=p[3]: raise ValueError('Postlog metric mismatch')
     next_date=date.fromisoformat(config['next_scheduled_refresh'])
     if next_date.day!=14 or next_date<=scraped: raise ValueError('Next scheduled refresh must be a future monthly 14th')
-    source=normalise(render(csv_text,config['cycle'],config['scraped_at'],next_date.isoformat(),args.as_of.isoformat()))
+    source=normalise(render(csv_text,config['cycle'],config['scraped_at'],next_date.isoformat(),args.as_of.isoformat(),config.get('published_at')))
     checks=validate(source,actual,rows,config)
     output=BASE/'output'; output.mkdir(exist_ok=True)
     name='HISTORICAL_QA_cycle003.html' if args.verify_baseline else 'Re Index Instagram v8.html'
     (output/name).write_text(source,encoding='utf-8')
+    if not args.verify_baseline:
+        (output/f"edition-{config['cycle']}.html").write_text(snapshot(source,config['cycle'],config['scraped_at']),encoding='utf-8')
     (output/'cycle_metrics.json').write_text(json.dumps(actual,indent=2))
     result={'cycle':config['cycle'],'scraped_at':config['scraped_at'],
             'status':'historical_qa_only' if args.verify_baseline else 'review_candidate',

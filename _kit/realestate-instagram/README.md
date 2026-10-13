@@ -108,3 +108,11 @@ python3 build_v2.py --as-of YYYY-MM-DD             # on the scrape date
 
 To repeat the baseline check, temporarily point the kit at `history/reindex_data_cycle003.py` and
 `history/ig_postlog_cycle003.json` and run `python3 build_v2.py --verify-baseline` with `ig_cycle.json` set to cycle 003.
+
+## Authorship, citation and editions (2026-10-13)
+
+- `report_body.html` is now the reviewed live page body (founder-approved 13 October 2026), with tokens `{{CYCLE}}`, `{{LAST_VERIFIED_LONG}}`, `{{NEXT_REFRESH_LONG}}`, `{{OVERDUE}}`, `{{RANKED_ROWS}}`, `{{REFERENCE_ROWS}}` and `{{GATED_CSV}}`. Each cycle, update its figures and editorial text from the new evidence; keep its structure, wording rules and the authorship blocks.
+- `gen_body.py` is retired and exits on run: it emits the pre-13-October structure (old header, BOOST/ORGANIC flags, "Advanced research").
+- `ig_cycle.json` carries `published_at` (the date the edition goes live). `ig_body.render` writes it into the head's Article `dateModified`; `datePublished` stays 2026-08-14T05:45:59+00:00 (first publication, commit ebb052d).
+- `build_v2.py` also writes `output/edition-NNN.html`, a fixed snapshot (self canonical, noindex, archived-edition note, extra breadcrumb). On publication copy it to `realestate-index/edition-NNN.html` in the site repo and add a row to the Edition history table in `report_body.html`. Never edit or regenerate an earlier snapshot.
+- Validation now fails if the linked byline, researcher profile, cite block (matching the cycle and date), snapshot link, edition history, methodology section or the Article author/publisher `@id` links are missing.
