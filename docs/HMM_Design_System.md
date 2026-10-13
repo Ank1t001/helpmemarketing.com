@@ -1469,3 +1469,6 @@ Dates on `/realestate-index` read in full ("13 October 2026", "14 November 2026"
 
 ### Real Estate Index themes section (2026-10-13, founder)
 `#ri-insights` is "Which content themes stood out?": a short dek, a four-column table (Content theme, Posts analysed, Median likes, Key observation; the "Relative pull" bar column is gone because median likes already compares), one `pnote` caveat under the table, and the longer theme descriptions plus the pattern and takeaway notes in `details.ri-adv` "Explore the theme analysis". Theme names: Community / CSR, Culture / people, Development / assets, Team / hiring, Brand / other, Investor education, Market / macro. Inside REPORT BODY; the kit must emit this.
+
+### Real Estate Index format section (2026-10-13, founder)
+"Format" is now "How did post formats compare?" with a one-line dek, the three `fmt` cards (Reels, Carousels, Static posts; each "median likes, N posts analysed"), one `pnote` sentence, and the account mix, founder collaboration and next-edition comparison in `details.ri-adv` "Read the format analysis". A `pnote` straight after `.fmts` or `.tw` gets top spacing. Inside REPORT BODY; the kit must emit this.
