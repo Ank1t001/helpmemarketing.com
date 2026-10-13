@@ -4,11 +4,11 @@ Production baseline: main `261bcbf` (Phase 2 release, live 12 Oct 2026 14:50 UTC
 
 ## 1. Search Console actions (founder, in the GSC interface)
 
-This environment has no Search Console access, so nothing below has been submitted yet. Record each line when done. An indexing request is not proof of indexing.
+This environment has no Search Console access, so these are founder-performed and founder-reported. Record each line when done. An indexing request is not proof of indexing.
 
 | Action | Date and time | Status shown by GSC | URLs detected / result |
 |---|---|---|---|
-| Resubmit `https://helpmemarketing.com/sitemap.xml` | pending | pending | live file holds 49 `<loc>` entries (checked 12 Oct) |
+| Resubmit `https://helpmemarketing.com/sitemap.xml` | 2026-10-13 (founder-reported; time not recorded) | Success | 49 URLs detected, matching the 49 `<loc>` entries in the live file |
 | URL Inspection + request indexing `/realestate-index` | pending | pending | live: 200, self-canonical, no noindex, in sitemap |
 | URL Inspection + request indexing `/hmm-index` | pending | pending | live: 200, self-canonical, no noindex, in sitemap |
 | URL Inspection + request indexing `/services` | pending | pending | live: 200, self-canonical, no noindex, in sitemap |
