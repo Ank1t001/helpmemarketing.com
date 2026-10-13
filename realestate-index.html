@@ -451,9 +451,6 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .msi.msi .ri-detail dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--s2) var(--s4);margin:0}
 .msi.msi .ri-detail dt{font-size:12px;color:var(--text-muted)}
 .msi.msi .ri-detail dd{margin:0;font-size:14px;color:var(--text)}
-.msi.msi .ri-adv{border-top:1px solid var(--border);padding:var(--s3) 0}
-.msi.msi .ri-adv>summary{cursor:pointer;font-size:17px;font-weight:650;color:var(--text)}
-.msi.msi .ri-adv[open]>summary{margin-bottom:var(--s4)}
 .msi.msi .frames{grid-template-columns:repeat(2,1fr);gap:var(--s5)}
 .msi.msi .frame .body p{font-size:14px}
 @media(max-width:560px){.msi.msi .frames{grid-template-columns:1fr}.msi.msi .ri-nav{position:static;border-radius:var(--r2)}}
@@ -488,6 +485,34 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi .band.card h4{margin:0 0 4px}
 @media(max-width:720px){.msi.msi .bandbar{height:auto;min-height:30px}.msi.msi .bandbar span{padding:6px var(--s2);line-height:1.3}}
 .msi.msi .fmts+.pnote,.msi.msi .tw+.pnote{margin-top:var(--s4)}
+/* Expandables, one pattern (2026-10-13): bordered card, 24px inset (16px at 720), 12px between stacked cards. */
+.msi.msi details,.msi.msi details:last-of-type{border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated);padding:0 24px;margin:12px 0 0}
+.msi.msi section>details:first-of-type,.msi.msi .sec-head+details{margin-top:24px}
+.msi.msi section:has(>details:only-child){margin-bottom:12px}
+.msi.msi section:has(>details:only-child):has(+section:not(:has(>details:only-child))){margin-bottom:48px}
+.msi.msi #ri-advanced{margin-bottom:0}
+.msi.msi section:has(>details:only-child)>details{margin-top:0}
+.msi.msi details>summary{margin:0 -24px;padding:18px 24px;font-size:17px;font-weight:650;line-height:1.4}
+.msi.msi details[open]>summary{margin-bottom:0;border-bottom:1px solid var(--border)}
+.msi.msi details[open]{padding-bottom:24px}
+.msi.msi details>summary+*{margin-top:20px}
+.msi.msi details>:last-child{margin-bottom:0}
+.msi.msi details p{margin:0 0 12px}
+.msi.msi details h3{margin:24px 0 8px}
+.msi.msi details>summary+h3{margin-top:20px}
+.msi.msi details .tw,.msi.msi details .note,.msi.msi details .card,.msi.msi details .ri-method{margin-bottom:16px}
+@media(max-width:720px){.msi.msi details,.msi.msi details:last-of-type{padding:0 16px}.msi.msi details>summary{margin:0 -16px;padding:16px;font-size:16px}.msi.msi details[open]{padding-bottom:16px}}
+.msi.msi .livebar{margin-bottom:24px}
+.msi.msi .ri-nav{margin:0 0 48px}
+@media(max-width:720px){.msi.msi .ri-nav,.msi.msi .metrics-note{margin-bottom:32px}.msi.msi section:has(>details:only-child):has(+section:not(:has(>details:only-child))){margin-bottom:32px}}
+.msi.msi .tile,.msi.msi .fmt,.msi.msi .band.card{padding:20px 24px}
+.msi.msi .livebar{padding:12px 24px}
+@media(max-width:720px){.msi.msi .tile,.msi.msi .fmt,.msi.msi .band.card,.msi.msi .card,.msi.msi .ri-cmp,.msi.msi .note,.msi.msi .metrics-note,.msi.msi .livebar{padding-left:16px;padding-right:16px}}
+.msi.msi .band.card{margin-bottom:12px}
+.msi.msi details>.sec-head>h2{display:none}
+.msi.msi details>.sec-head{margin-bottom:16px}
+.msi.msi details>.sec-head:not(:has(>:not(h2))){display:none}
+.msi.msi.msi details>:last-child{margin-bottom:0}
 </style><script data-ri-reading>
 /* Reading levels (2026-10-12). Builds a section navigator from section ids and an interactive comparison from the
    scoreboard table the Build Kit emits; no data lives here, so it works for any cycle with the same table shape. */
@@ -660,8 +685,8 @@ document.addEventListener("DOMContentLoaded",function(){
 <p class="dek"><b>A small comment sample:</b> 54 comments were recorded across 57 posts. Lankin received 27, McGillivray Capital 21, Pier 4 five, Equiton one and Skyline none. Small differences can move the rankings.</p>
 <p class="dek m0"><b>Movement since the previous edition:</b> Changes compare with the published cycle 004 scoreboard. Its raw posts were unavailable for recalculation, so the comparison uses published ranks. The scoring method has not changed since cycle 003.</p>
 </details>
-</section>
-<section><details class="ri-adv"><summary>What the top of the board is doing</summary>
+
+<details class="ri-adv"><summary>What the top of the board is doing</summary>
 <div class="sec-head"><h2>What the top of the board is actually doing</h2>
 <p class="dek">Read from all 57 captions and the creative itself. Language and artifacts, not just counting.</p></div>
 <div class="grid2">
@@ -677,6 +702,7 @@ document.addEventListener("DOMContentLoaded",function(){
 <div class="note"><span class="lbl">Your takeaway, any category</span>
 <p>When a ranking moves, find the pillar with the smallest denominator and check it first. This cycle that is comments again, and the
 treatment of an account with no video. A scoreboard is only as stable as its scarcest input.</p></div></details></section>
+
 <section id="ri-creative"><div class="sec-head"><h2>The top post from each firm</h2>
 <p class="dek">See each firm&rsquo;s best-performing post from the last 30 days, ranked by likes. Each card compares the post&rsquo;s likes with that firm&rsquo;s median.</p></div>
 <div class="frames"><div class="frame">
