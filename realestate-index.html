@@ -456,7 +456,30 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .msi.msi .ri-adv[open]>summary{margin-bottom:var(--s4)}
 .msi.msi .frames{grid-template-columns:repeat(2,1fr);gap:var(--s5)}
 .msi.msi .frame .body p{font-size:14px}
-@media(max-width:560px){.msi.msi .frames{grid-template-columns:1fr}.msi.msi .ri-bar{grid-template-columns:110px 1fr 56px}.msi.msi .ri-nav{position:static;border-radius:var(--r2)}}
+@media(max-width:560px){.msi.msi .frames{grid-template-columns:1fr}.msi.msi .ri-nav{position:static;border-radius:var(--r2)}}
+.msi.msi .ri-cmp-top{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s3);margin:0 0 var(--s3)}
+.msi.msi .ri-cmp-top .ri-cmp-h{margin:0;font-size:16px}
+.msi.msi .ri-hint{font-size:12px;color:var(--text-tertiary)}
+.msi.msi .ri-metrics button[aria-pressed="true"]{background:var(--text);color:var(--bg-elevated);border-color:var(--text)}
+.msi.msi .ri-bar{grid-template-columns:24px 170px 1fr 80px;padding:10px}
+.msi.msi .ri-rank{font-size:12px;color:var(--text-tertiary)}
+.msi.msi .ri-scale{display:flex;justify-content:space-between;padding:4px 102px 0 228px;font-size:11px;color:var(--text-tertiary)}
+.msi.msi .ri-disc{margin:var(--s4) 0 0;font-size:13px;color:var(--text-muted)}
+.msi.msi .ri-detail{margin:var(--s5) 0 0;padding:var(--s5) 0 0}
+.msi.msi .ri-firm-top{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s3)}
+.msi.msi .ri-firm-top h3{margin:0 0 var(--s2);font-size:20px}
+.msi.msi .ri-firm-top a{font-size:13px;color:var(--text-muted);white-space:nowrap}
+.msi.msi .ri-pill{display:inline-block;font-size:12px;padding:3px 10px;border-radius:999px;background:rgba(255,92,26,.1);color:var(--cta-text,var(--cta))}
+.msi.msi .ri-detail .ri-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4) var(--s4);margin:var(--s5) 0}
+.msi.msi .ri-stat dt{font-size:12px;color:var(--text-muted);margin:0 0 4px}
+.msi.msi .ri-stat dd{margin:0;font-size:18px;line-height:1.4;color:var(--text)}
+.msi.msi .ri-stat small{display:block;font-size:12px;color:var(--text-muted);margin-top:2px}
+.msi.msi .ri-stat small a{color:inherit}
+.msi.msi .ri-firm-note{margin:0;padding:var(--s3) var(--s4);border-radius:10px;background:var(--bg);font-size:14px;color:var(--text-muted)}
+.msi.msi .ri-method{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);margin:0 0 var(--s4)}
+.msi.msi .ri-method p{margin:0;font-size:14px;color:var(--text-muted)}
+.msi.msi .ri-method b{display:block;color:var(--text);margin-bottom:4px}
+@media(max-width:720px){.msi.msi .ri-cmp-top{flex-direction:column;gap:2px}.msi.msi .ri-scale{display:none}.msi.msi .ri-detail .ri-stats{grid-template-columns:repeat(2,1fr)}.msi.msi .ri-method{grid-template-columns:1fr}.msi.msi .ri-bar{grid-template-columns:16px 104px 1fr 60px;gap:var(--s2);padding:10px 6px;font-size:13px}}
 </style><script data-ri-reading>
 /* Reading levels (2026-10-12). Builds a section navigator from section ids and an interactive comparison from the
    scoreboard table the Build Kit emits; no data lives here, so it works for any cycle with the same table shape. */
@@ -468,30 +491,48 @@ document.addEventListener("DOMContentLoaded",function(){
     links.forEach(function(x){var a=document.createElement("a");a.href="#"+x[0];a.textContent=x[1];nav.appendChild(a);});bar.parentNode.insertBefore(nav,bar.nextSibling);}
   var sec=document.getElementById("ri-rankings");var tb=sec&&sec.querySelector("table");if(!tb)return;
   var heads=[].map.call(tb.querySelectorAll("thead th"),function(th){return th.textContent.trim();});
-  var want={"Score":"Index score (0 to 100)","Followers":"Followers","Posts":"Posts in the window","Median likes":"Median likes per post","Med comm":"Median comments per post","Like/play":"Likes per play","Peak":"Peak plays ÷ followers (lower is better)"};
-  var rows=[].map.call(tb.querySelectorAll("tbody tr"),function(tr){var c=tr.children,a=c[0].querySelector("a");
-    return {name:a?a.textContent.trim():c[0].textContent.trim(),url:a?a.href:"",cells:[].map.call(c,function(td){return td;})};});
+  function col(n){return heads.indexOf(n);}
+  var tabs=[["Score","Overall score"],["Followers","Followers"],["Posts","Posts"],["Median likes","Median likes"],["Med comm","Median comments"],["Like/play","Likes / play"],["Peak","Peak / followers"]].filter(function(t){return col(t[0])>-1;});
+  function parts(td){return td?[].map.call(td.childNodes,function(n){return (n.textContent||"").replace(/\s+/g," ").trim();}).filter(function(t){return t&&t!=="open";}):[];}
+  function main(td){var p=parts(td);return p[0]||"";}
+  function sub(td){var p=parts(td);return p.slice(1).join(" · ");}
+  function num(t){var m=String(t).replace(/,/g,"").match(/-?\d+(\.\d+)?/);return m?parseFloat(m[0]):null;}
+  function shown(t){return /no video/i.test(t)?"No video":t;}
+  var rows=[].map.call(tb.querySelectorAll("tbody tr"),function(tr){var c=tr.children,a=c[0].querySelector("a"),tp=c[col("Top post")],ta=tp&&tp.querySelector("a");
+    return {name:a?a.textContent.trim():main(c[0]),url:a?a.href:"",post:ta?ta.href:"",note:tr.getAttribute("data-note")||"",cells:c};});
   if(!rows.length)return;
-  function num(td){var t=(td.firstChild&&td.firstChild.textContent)||td.textContent;var m=t.replace(/,/g,"").match(/-?\d+(\.\d+)?/);return m?parseFloat(m[0]):null;}
-  var metrics=heads.map(function(h,i){return {h:h,i:i};}).filter(function(m){return want[m.h];});
+  function cell(r,h){return r.cells[col(h)];}
   var box=document.createElement("div");box.className="ri-cmp";
-  box.innerHTML='<p class="ri-cmp-h">Compare the firms</p><div class="ri-metrics" role="group" aria-label="Measure"></div><ol class="ri-bars"></ol><p class="ri-note"></p><div class="ri-detail" aria-live="polite"></div>';
-  var mb=box.querySelector(".ri-metrics"),ol=box.querySelector(".ri-bars"),note=box.querySelector(".ri-note"),det=box.querySelector(".ri-detail");
-  var cur=metrics[0],sel=0;
+  box.innerHTML='<div class="ri-cmp-top"><p class="ri-cmp-h">Compare the firms</p><span class="ri-hint">Select a firm below to explore its results</span></div><div class="ri-metrics" role="group" aria-label="Comparison metric"></div><ol class="ri-bars"></ol><div class="ri-scale" aria-hidden="true"><span></span><span></span></div><p class="ri-note"></p><p class="ri-disc">The score reflects public Instagram engagement. It does not measure leads, customers or revenue.</p><div class="ri-detail" aria-live="polite"></div>';
+  var mb=box.querySelector(".ri-metrics"),ol=box.querySelector(".ri-bars"),note=box.querySelector(".ri-note"),det=box.querySelector(".ri-detail"),sc=box.querySelectorAll(".ri-scale span");
+  var cur=tabs[0],sel=0;
   function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML;}
-  function detail(){var r=rows[sel];var h='<h4>'+esc(r.name)+'</h4><dl>';
-    heads.forEach(function(hd,i){if(i===0)return;var td=r.cells[i];if(!td)return;h+='<div><dt>'+esc(want[hd]||hd)+'</dt><dd>'+esc((td.innerText||td.textContent).trim().split(/\s*\n+\s*/).join(" · "))+'</dd></div>';});
-    det.innerHTML=h+'</dl>'+(r.url?'<p class="ri-note"><a href="'+r.url+'" target="_blank" rel="noopener">Open '+esc(r.name)+' on Instagram</a></p>':'');}
-  function draw(){var vals=rows.map(function(r){return num(r.cells[cur.i]);});var max=Math.max.apply(null,vals.filter(function(v){return v!==null;}).concat([0]))||1;
+  function moveText(t){return t.split(/,\s*/).map(function(x,i){x=x.trim();if(/^[+-]?\d+$/.test(x))x=x.replace(/^-/,"−")+" points";return i?x.charAt(0).toUpperCase()+x.slice(1):x;}).join(" · ");}
+  function stat(l,v,s){return '<div class="ri-stat"><dt>'+esc(l)+'</dt><dd>'+v+(s?'<small>'+s+'</small>':'')+'</dd></div>';}
+  function detail(){var r=rows[sel],mv=sub(cell(r,"Score")),er=sub(cell(r,"Median likes"));
+    var h='<div class="ri-firm-top"><div><h3>'+esc(r.name)+'</h3>'+(mv?'<span class="ri-pill">'+esc(moveText(mv))+'</span>':'')+'</div>'+(r.url?'<a href="'+r.url+'" target="_blank" rel="noopener">View Instagram ↗</a>':'')+'</div><dl class="ri-stats">';
+    h+=stat("Index score",esc(main(cell(r,"Score")))+" / 100");
+    h+=stat("Followers",esc(main(cell(r,"Followers"))));
+    h+=stat("Posts",esc(main(cell(r,"Posts"))),esc(main(cell(r,"Mix"))));
+    h+=stat("Median likes",esc(main(cell(r,"Median likes"))),er?esc(er.replace(/ER$/,"engagement rate")):"");
+    h+=stat("Median comments",esc(main(cell(r,"Med comm"))));
+    h+=stat("Likes / play",esc(shown(main(cell(r,"Like/play")))));
+    h+=stat("Peak / followers",esc(shown(main(cell(r,"Peak")))),"lower is better");
+    if(col("Top post")>-1)h+=stat("Top post",esc(main(cell(r,"Top post")))+" likes",r.post?'<a href="'+r.post+'" target="_blank" rel="noopener">Open the post ↗</a>':"");
+    det.innerHTML=h+'</dl>'+(r.note?'<p class="ri-firm-note">'+esc(r.note)+'</p>':'');}
+  function draw(){var txt=rows.map(function(r){return main(cell(r,cur[0]));}),vals=txt.map(function(t){return /no video/i.test(t)?null:num(t);});
+    var max=cur[0]==="Score"?100:Math.max.apply(null,vals.filter(function(v){return v!==null;}).concat([0]))||1;
     ol.innerHTML="";rows.forEach(function(r,k){var li=document.createElement("li");var b=document.createElement("button");b.type="button";b.className="ri-bar";b.setAttribute("aria-pressed",k===sel?"true":"false");
-      var v=vals[k];b.innerHTML='<span>'+esc(r.name)+'</span><span class="ri-track"><span class="ri-fill"></span></span><span class="ri-val">'+esc(v===null?"n/a":r.cells[cur.i].firstChild?r.cells[cur.i].firstChild.textContent.trim()||r.cells[cur.i].textContent.trim():String(v))+'</span>';
+      var v=vals[k];b.setAttribute("aria-label",r.name+", "+cur[1]+": "+shown(txt[k]));
+      b.innerHTML='<span class="ri-rank">'+(k+1)+'</span><span>'+esc(r.name)+'</span><span class="ri-track"><span class="ri-fill"></span></span><span class="ri-val">'+esc(shown(txt[k]))+'</span>';
       b.querySelector(".ri-fill").style.width=(v===null?0:Math.max(2,v/max*100))+"%";
       b.addEventListener("click",function(){sel=k;draw();});li.appendChild(b);ol.appendChild(li);});
-    note.textContent=(cur.h==="Peak"?"Lower is better for this measure. ":"")+"HMM-built index of public engagement, not an official Instagram ranking or a measure of leads, customers or revenue.";
-    [].forEach.call(mb.children,function(x){x.setAttribute("aria-pressed",x.getAttribute("data-i")==cur.i?"true":"false");});detail();}
-  metrics.forEach(function(m){var b=document.createElement("button");b.type="button";b.setAttribute("data-i",m.i);b.textContent=m.h==="Score"?"Overall score":want[m.h].replace(/ \(.*\)/,"");
-    b.addEventListener("click",function(){cur=m;draw();});mb.appendChild(b);});
-  var tw=sec.querySelector(".tw");tw.parentNode.insertBefore(box,tw);draw();
+    sc[0].textContent="0";sc[1].textContent=cur[0]==="Score"?"100":(txt[vals.indexOf(max)]||String(max));
+    note.textContent=cur[0]==="Peak"?"Lower is better for this measure.":"";
+    [].forEach.call(mb.children,function(x){x.setAttribute("aria-pressed",x.getAttribute("data-h")===cur[0]?"true":"false");});detail();}
+  tabs.forEach(function(t){var b=document.createElement("button");b.type="button";b.setAttribute("data-h",t[0]);b.textContent=t[1];
+    b.addEventListener("click",function(){cur=t;draw();});mb.appendChild(b);});
+  var tw=sec.querySelector(".tw"),at=tw.closest("details")||tw;at.parentNode.insertBefore(box,at);draw();
 });
 </script><script data-bar-widths>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".msi [data-w]").forEach(function(el){var w=parseFloat(el.getAttribute("data-w"));if(!isNaN(w))el.style.width=Math.max(0,Math.min(100,w))+"%";});});</script>
 </head><body class="redesign-prototype">
@@ -551,12 +592,12 @@ document.addEventListener("DOMContentLoaded",function(){
 <p class="pnote m0"><em>These findings describe this sample, not business results or cause and effect.</em></p></div></section>
 <div class="metrics-note">Tap or hover over underlined metrics for a definition. Open the linked posts to see the evidence.</div>
 <section id="ri-rankings"><div class="sec-head"><h2>The scoreboard</h2>
-<p class="dek">Five accounts ranked by <b>Instagram Index Score</b>, with movement against the published cycle 004 scoreboard.
-Resonance uses engagement rate, Intent uses comment to like, and Distribution honesty uses peak plays divided by followers where <b>lower is better</b>.</p>
-<p class="pnote">This is an HMM-built index of public engagement, not an official Instagram ranking, and not a measure of leads, customers or revenue. With 54 comments across the category, most of them on two accounts, small differences can move ranks.</p></div>
+<p class="dek">Compare five firms by HMM Instagram Index Score, based on engagement during the last 30 days. Select a metric to compare the firms, then select a firm to see its details.</p></div>
+<details class="ri-adv"><summary>View all metrics</summary>
+<p class="pnote mb12">Full comparison for the same reporting window. R = reel, C = carousel, S = static.</p>
 <div class="tw"><table><thead><tr><th>Account</th><th class="r"><span class="tip d" tabindex="0" data-tip="A 0 to 100 blend of three pillars: Resonance at 45 percent, Intent at 30, and Distribution honesty at 25. Momentum and Consistency are not part of this three-pillar score.">Score</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="Deliberately greyed. Audience size predicts little on this page.">Followers</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="Company authored posts inside the 30 day window. Below 5 posts a firm is quarantined from pooled medians.">Posts</span></th>
 <th class="r"><span class="tip d" tabindex="0" data-tip="Format split: R for Reels, C for Carousels, S for Statics. Formats a firm did not publish are left out rather than shown as zero.">Mix</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="The middle post&#x27;s like count, with engagement rate beneath it. One viral outlier cannot drag a median the way it drags an average.">Median likes</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="Median comments per post. Far harder to buy than a like.">Med comm</span></th><th class="r"><span class="tip d dr" tabindex="0" data-tip="Likes as a percentage of plays on video, the median across the window. Plays are the denominator because Instagram reports views unreliably. An account with no video in the window shows no video, not zero.">Like/play</span></th>
-<th class="r"><span class="tip d dr" tabindex="0" data-tip="The biggest reel&#x27;s plays in the window divided by followers. Under 10x is normal organic range, 10 to 50x suggests a push, above 50x is the media buy band. An account with no video shows no video.">Peak</span></th><th class="r"><span class="tip d dr" tabindex="0" data-tip="BOOST and PUSH come from plays far beyond the follower base, LOW CADENCE from too few posts to measure. The flag reads reach on the firm’s own handle; verified ad library counts sit beneath it as a separate fact.">Flag</span></th><th class="r"><span class="tip d dr" tabindex="0" data-tip="The best performing post of the window by likes, linked to the live source.">Top post</span></th></tr></thead><tbody><tr>
+<th class="r"><span class="tip d dr" tabindex="0" data-tip="The biggest reel&#x27;s plays in the window divided by followers. Under 10x is normal organic range, 10 to 50x suggests a push, above 50x is the media buy band. An account with no video shows no video.">Peak</span></th><th class="r"><span class="tip d dr" tabindex="0" data-tip="BOOST and PUSH come from plays far beyond the follower base, LOW CADENCE from too few posts to measure. The flag reads reach on the firm’s own handle; verified ad library counts sit beneath it as a separate fact.">Flag</span></th><th class="r"><span class="tip d dr" tabindex="0" data-tip="The best performing post of the window by likes, linked to the live source.">Top post</span></th></tr></thead><tbody><tr data-note="No video was published in this window. Its score partly reflects how the current method treats an absence of video.">
 <td class="brandcell"><a href="https://www.instagram.com/pier4ltd/" target="_blank" rel="noopener">Pier 4</a>
 <span class="handle">@pier4ltd</span>
 <div><span class="chip BOUTIQUE">BOUTIQUE</span></div></td>
@@ -565,7 +606,7 @@ Resonance uses engagement rate, Intent uses comment to like, and Distribution ho
 <td class="r">5<div class="cell-sub">0.7246% ER</div></td>
 <td class="r">0</td><td class="r">no video</td><td class="r">no video</td>
 <td class="r"><span class="flag none">ORGANIC</span><div class="cell-sub">16 live Meta ads</div></td>
-<td class="r"><b>19</b><div class="cell-sub"><a href="https://www.instagram.com/p/Dd9B-u9EdaH/" target="_blank" rel="noopener">open</a></div></td></tr><tr>
+<td class="r"><b>19</b><div class="cell-sub"><a href="https://www.instagram.com/p/Dd9B-u9EdaH/" target="_blank" rel="noopener">open</a></div></td></tr><tr data-note="Its top reel was co-authored with the founder. The high plays to followers ratio does not establish paid distribution.">
 <td class="brandcell"><a href="https://www.instagram.com/mcgillivraycapital/" target="_blank" rel="noopener">McGillivray Capital</a>
 <span class="handle">@mcgillivraycapital</span>
 <div><span class="chip BOUTIQUE">BOUTIQUE</span></div></td>
@@ -574,7 +615,7 @@ Resonance uses engagement rate, Intent uses comment to like, and Distribution ho
 <td class="r">11<div class="cell-sub">1.7028% ER</div></td>
 <td class="r">1</td><td class="r">2.33%</td><td class="r">66.7x</td>
 <td class="r"><span class="flag heavy">BOOST 67x</span><div class="cell-sub">4 live Meta ads</div></td>
-<td class="r"><b>789</b><div class="cell-sub"><a href="https://www.instagram.com/p/DeJ8U40jH7J/" target="_blank" rel="noopener">open</a></div></td></tr><tr>
+<td class="r"><b>789</b><div class="cell-sub"><a href="https://www.instagram.com/p/DeJ8U40jH7J/" target="_blank" rel="noopener">open</a></div></td></tr><tr data-note="Skyline recorded no comments, despite having the second highest engagement rate on the board.">
 <td class="brandcell"><a href="https://www.instagram.com/skylinegroupofcompanies/" target="_blank" rel="noopener">Skyline</a>
 <span class="handle">@skylinegroupofcompanies</span>
 <div><span class="chip MID">MID</span></div></td>
@@ -583,7 +624,7 @@ Resonance uses engagement rate, Intent uses comment to like, and Distribution ho
 <td class="r">19<div class="cell-sub">0.8290% ER</div></td>
 <td class="r">0</td><td class="r">4.36%</td><td class="r">0.33x</td>
 <td class="r"><span class="flag none">ORGANIC</span><div class="cell-sub">16 live Meta ads</div></td>
-<td class="r"><b>63</b><div class="cell-sub"><a href="https://www.instagram.com/p/DePGaUAjZDQ/" target="_blank" rel="noopener">open</a></div></td></tr><tr>
+<td class="r"><b>63</b><div class="cell-sub"><a href="https://www.instagram.com/p/DePGaUAjZDQ/" target="_blank" rel="noopener">open</a></div></td></tr><tr data-note="Lankin received 27 of the sample&rsquo;s 54 comments. Its high comment to like ratio sits above the method&rsquo;s healthy band.">
 <td class="brandcell"><a href="https://www.instagram.com/lankin_investments/" target="_blank" rel="noopener">Lankin</a>
 <span class="handle">@lankin_investments</span>
 <div><span class="chip MID">MID</span></div></td>
@@ -592,7 +633,7 @@ Resonance uses engagement rate, Intent uses comment to like, and Distribution ho
 <td class="r">3.5<div class="cell-sub">0.0845% ER</div></td>
 <td class="r">3</td><td class="r">1.90%</td><td class="r">0.05x</td>
 <td class="r"><span class="flag none">ORGANIC</span><div class="cell-sub">11 live Meta ads</div></td>
-<td class="r"><b>20</b><div class="cell-sub"><a href="https://www.instagram.com/p/Ddubcjql_R7/" target="_blank" rel="noopener">open</a></div></td></tr><tr>
+<td class="r"><b>20</b><div class="cell-sub"><a href="https://www.instagram.com/p/Ddubcjql_R7/" target="_blank" rel="noopener">open</a></div></td></tr><tr data-note="Equiton has the largest follower count in this sample. Its top post received 25 likes, against a median of 11.5.">
 <td class="brandcell"><a href="https://www.instagram.com/equitoninc/" target="_blank" rel="noopener">Equiton</a>
 <span class="handle">@equitoninc</span>
 <div><span class="chip MID">MID</span></div></td>
@@ -602,23 +643,16 @@ Resonance uses engagement rate, Intent uses comment to like, and Distribution ho
 <td class="r">0</td><td class="r">2.77%</td><td class="r">0.05x</td>
 <td class="r"><span class="flag none">ORGANIC</span><div class="cell-sub">25+ live Meta ads</div></td>
 <td class="r"><b>25</b><div class="cell-sub"><a href="https://www.instagram.com/p/Dd97qTEBugi/" target="_blank" rel="noopener">open</a></div></td></tr></tbody></table></div>
-<div class="note crit"><span class="lbl">Why the number one account published no video</span>
-<p><b>Pier 4 moves to first with 72 on 15 posts and no reel in the window.</b> What we observed: its Distribution pillar
-compares peak plays with followers, and with no video in the window there is no reach to measure, so under the published method it
-sits at the honest end of that pillar. Its Intent score comes from 5 comments on 85 likes,
-a ratio of 5.88 percent. What it may suggest: the lead over McGillivray Capital rests on how an absence of video is scored as much as on what Pier 4 posted.
-What to test: whether the order holds next cycle if Pier 4 publishes a reel.</p>
-<p>The scoring method has not changed since cycle 003, and the same treatment applied to Lankin when it published no video in cycle 003.
-We are publishing the sensitivity rather than adjusting the method mid-series.</p></div>
-<div class="note crit"><span class="lbl">Read this before you read the rest of the ranks</span>
-<p><b>54 comments across 57 posts in thirty days</b>, and Intent is 30 percent of the score. 27 belong to Lankin,
-21 to McGillivray Capital (18 of them on one reel), 5 to Pier 4, 1 to Equiton.
-<b>Skyline recorded none</b> while posting the second highest engagement rate on the board.</p>
-<p>Lankin’s comments arrived at 1 to 4 per post on posts with a median of 3.5 likes, a comment to like ratio of
-47.4 percent. Above 5 percent the Intent band decays, so that volume lifts Lankin less than it seems. Public data does not show who
-the commenters are, so we report the pattern without characterising it. <b>Treat the ranks as a reading of a thin signal.</b></p>
-<p>Movement is read against the published cycle 004 scoreboard. That scoreboard listed the same scores as cycle 003 and its raw
-posts were not available to recalculate, so the movement column compares against published ranks rather than a verified recalculation.</p></div></section>
+</details>
+<details class="ri-adv"><summary>How the rankings work</summary>
+<div class="ri-method"><p><b>Resonance</b>Uses engagement rate to compare the response relative to the account&rsquo;s follower count.</p>
+<p><b>Intent</b>Uses the comment to like ratio. More comments do not always translate into a higher score.</p>
+<p><b>Distribution honesty</b>Uses peak plays divided by followers. Lower values score better under the published method.</p></div>
+<p class="dek"><b>Why the leader matters:</b> Pier 4 published no video in the window. Under the current method, the absence of measured video reach places it at the honest end of the Distribution pillar. Its lead partly reflects that scoring treatment.</p>
+<p class="dek"><b>A small comment sample:</b> 54 comments were recorded across 57 posts. Lankin received 27, McGillivray Capital 21, Pier 4 five, Equiton one and Skyline none. Small differences can move the rankings.</p>
+<p class="dek m0"><b>Movement since the previous edition:</b> Changes compare with the published cycle 004 scoreboard. Its raw posts were unavailable for recalculation, so the comparison uses published ranks. The scoring method has not changed since cycle 003.</p>
+</details>
+</section>
 <section><details class="ri-adv"><summary>What the top of the board is doing</summary>
 <div class="sec-head"><h2>What the top of the board is actually doing</h2>
 <p class="dek">Read from all 57 captions and the creative itself. Language and artifacts, not just counting.</p></div>
