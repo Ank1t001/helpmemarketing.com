@@ -20,7 +20,7 @@ def split_shell(source):
     finish = source.index(END, match.end())
     return source[:match.end()], source[match.end():finish], source[finish:]
 
-def render(csv_text, cycle, verified_date, next_date, as_of, published_at=None):
+def render(csv_text, cycle, verified_date, next_date, as_of, modified_at=None):
     shell = (BASE / 'site_shell.html').read_text(encoding='utf-8')
     prefix, _, suffix = split_shell(shell)
     body = (BASE / 'report_body.html').read_text(encoding='utf-8')
@@ -39,11 +39,19 @@ def render(csv_text, cycle, verified_date, next_date, as_of, published_at=None):
     body = body.replace('{{GATED_CSV}}', json.dumps(csv_text, ensure_ascii=True).replace('</', '<\\/'))
     if re.search(r'\{\{[A-Z_]+\}\}', body):
         raise ValueError('Unresolved report token')
-    if published_at:
-        prefix, count = re.subn(r'"dateModified":"[^"]*"', '"dateModified":"' + published_at + '"', prefix)
+    if modified_at:
+        check_timestamp(modified_at)
+        prefix, count = re.subn(r'"dateModified":"[^"]*"', '"dateModified":"' + modified_at + '"', prefix)
         if count != 1:
             raise ValueError('Expected one dateModified in the shell head')
     return prefix + '\n' + body + '\n' + suffix
+
+TIMESTAMP = re.compile(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$')
+
+def check_timestamp(value):
+    """dateModified must be a recorded ISO 8601 time with a zone, never a date alone or a midnight placeholder."""
+    if not TIMESTAMP.match(value) or 'T00:00:00' in value:
+        raise ValueError('modified_at must be a recorded ISO 8601 timestamp with a timezone: ' + value)
 
 MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
           'September', 'October', 'November', 'December']

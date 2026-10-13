@@ -154,7 +154,7 @@ scrapes, uploads, deployments or verification as complete.
 
 AUTHORSHIP, CITATION AND SNAPSHOTS (2026-10-13)
 Start from report_body.html (the live, approved body); do not run gen_body.py.
-Set ig_cycle.json published_at to the go-live date. Keep the byline, About the
+Set ig_cycle.json modified_at to the recorded production deployment time (ISO 8601 with timezone) once it exists, with modified_at_source. Keep the byline, About the
 researcher card, Cite this research card, How this research was produced and
 Edition history. Add the new edition's history row. After approval, publish
 output/edition-NNN.html as realestate-index/edition-NNN.html; never change an

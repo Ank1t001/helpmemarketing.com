@@ -17,5 +17,6 @@
   "prior_cycle": "004",
   "prior_verification": "history/cycle004-verification.json",
   "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv",
-  "published_at": "2026-10-13"
+  "modified_at": "2026-10-13T19:27:21+00:00",
+  "modified_at_source": "Vercel production deployment dpl_C8nDoa9BhHNrjhXVnudCZJkFXSUc (commit 7ec76de) ready time, the last content change to /realestate-index"
 }

@@ -174,7 +174,7 @@ def main():
         if p is None or row['brand']!=p[0] or int(row['likes'])!=p[2] or int(row['comments'])!=p[3]: raise ValueError('Postlog metric mismatch')
     next_date=date.fromisoformat(config['next_scheduled_refresh'])
     if next_date.day!=14 or next_date<=scraped: raise ValueError('Next scheduled refresh must be a future monthly 14th')
-    source=normalise(render(csv_text,config['cycle'],config['scraped_at'],next_date.isoformat(),args.as_of.isoformat(),config.get('published_at')))
+    source=normalise(render(csv_text,config['cycle'],config['scraped_at'],next_date.isoformat(),args.as_of.isoformat(),config.get('modified_at')))
     checks=validate(source,actual,rows,config)
     output=BASE/'output'; output.mkdir(exist_ok=True)
     name='HISTORICAL_QA_cycle003.html' if args.verify_baseline else 'Re Index Instagram v8.html'
@@ -182,7 +182,9 @@ def main():
     if not args.verify_baseline:
         snap=snapshot(source,config['cycle'],config['scraped_at'])
         if re.findall(r'<meta name="robots"[^>]*>',snap)!=['<meta name="robots" content="noindex, follow">']: raise ValueError('Snapshot must carry exactly one robots tag: noindex, follow')
-        if re.search(r'"date(?:Published|Modified)":"[^"]*T00:00:00',source): raise ValueError('Invented midnight timestamp in Article dates')
+        if '"datePublished"' in source: raise ValueError('datePublished must stay absent until first publication is substantiated')
+        if f'"dateModified":"{config["modified_at"]}"' not in source or f'"dateModified":"{config["modified_at"]}"' not in snap: raise ValueError('dateModified must equal the recorded modified_at')
+        if '"image":{"@type":"ImageObject","url":"https://helpmemarketing.com/assets/index/real-estate/og.jpg"' not in source: raise ValueError('Article image missing')
         (output/f"edition-{config['cycle']}.html").write_text(snap,encoding='utf-8')
     (output/'cycle_metrics.json').write_text(json.dumps(actual,indent=2))
     result={'cycle':config['cycle'],'scraped_at':config['scraped_at'],
