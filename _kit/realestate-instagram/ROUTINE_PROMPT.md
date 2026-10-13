@@ -1,0 +1,86 @@
+STEP 0, DATE GATE
+Check today's date in America/Toronto. If it is not the 14th of the month, reply only "Not the 14th; nothing to do." and stop immediately: no tools, no git, no connectors. Exception: if a routine-fire-payload block contains exactly the words FORCE RUN, ignore the date and continue.
+
+You are running the monthly refresh of The Real Estate Index, Instagram edition, for Ankit Kumar (HMM, helpmemarketing.com). Canonical URL: https://helpmemarketing.com/realestate-index (/instagram-reindex is a legacy permanent redirect only). This run collects data, builds the report and publishes a PREVIEW on the staging branch. It never touches main. Ankit approves in this session afterwards.
+
+REPOSITORY
+helpmemarketing.com (cloned). The page is realestate-index.html. Read CLAUDE.md first, especially "Index generator contract". The build kit is in _kit/realestate-instagram/ (excluded from deploys by .vercelignore). Read _kit/realestate-instagram/README.md and EDITORIAL_RULES.md first; EDITORIAL_RULES.md is the approved structure, wording, layout and metadata for this page and overrides anything older. If .vercelignore no longer lists /_kit/, stop and report.
+
+Do not access unrelated Notion projects. Read only "HMM Learnings & Notion" pages 1, 4 and 11 for current site rules. Do not write to Notion.
+
+ROSTER (unchanged since edition 003)
+Skyline: skylinegroupofcompanies, MID
+Equiton: equitoninc, MID (maisonriverain co-authored posts count for Equiton)
+Lankin: lankin_investments, MID
+Pier 4: pier4ltd, BOUTIQUE
+McGillivray Capital: mcgillivraycapital, BOUTIQUE
+Wealthsimple (wealthsimple) is REFERENCE only: never in medians, percentiles, scores or the scoreboard; CSV rows cohort=REFERENCE; drop posts whose owner is not wealthsimple.
+Marlin Spring stays off this board. Starlight, Centurion and Hazelview are not carried. Never say Hazelview has no Instagram account (@hazelviewproperties exists; it has no corporate account).
+@parvisinvest was reviewed on 2026-10-13 and left off: likes hidden on most posts, multi-issuer platform. Do not add it unless Ankit says so.
+
+DATES
+Scrape date = today (America/Toronto). Window = the 30 days ending today (start = today minus 30 days, both ends inclusive). 90-day lookback for IG_PEAK_90D. Next scheduled refresh = the 14th of next month. Edition (cycle in the kit files) = previous + 1, three digits (edition 005 was 2026-10-13).
+
+STEP 1, PREPARE STAGING (do this before any file changes)
+git fetch origin. If origin/staging exists and is NOT an ancestor of origin/main, someone has unmerged work on staging: stop and report, and do not touch staging. Otherwise: git checkout -B staging origin/main. All work in this run happens on this branch. Never run git merge between staging and main in either direction.
+
+STEP 2, PRIOR EDITION CHECK
+Before changing any input, run python3 build_v2.py --as-of <previous scraped_at> on the committed kit. It must pass, its five scores must match the live scoreboard, and output/"Re Index Instagram v8.html" must be byte-identical to the repo's realestate-index.html (proof that report_body.html is the live body). If either fails, stop and report: someone changed the page without updating the kit. Then copy the previous scoreboard CSV to history/ and set ig_cycle.json prior_cycle, prior_scoreboard and prior_verification.
+
+STEP 3, COLLECT (Apify connector)
+- apify/instagram-scraper on the six handles, resultsType posts, resultsLimit 120, onlyPostsNewerThan = 90 days ago. onlyPostsNewerThan does not exclude pinned posts: filter by timestamp in code too.
+- Read dataset items with the Apify MCP resource reader at http://api.apify.internal:3333/v2/datasets/{id}/items?clean=true&format=json&limit=120&offset=N&fields=shortCode,type,productType,caption,commentsCount,likesCount,timestamp,ownerUsername,inputUrl,videoPlayCount,videoViewCount,isPinned,paidPartnership,coauthorProducers,displayUrl . Large results are saved to disk; parse them from there. Page with offset.
+- Format: Image=Static, Sidecar=Carousel, Video=Reel. Plays = videoPlayCount. Likes ÷ plays, never likes ÷ views.
+- If an account hides like counts (likesCount -1), stop and report; never estimate.
+- apify/instagram-profile-scraper for follower counts of all six, plus the founder account behind any co-authored top post (edition 005: scott_mcgillivray).
+- Meta Ad Library: apify/facebook-ads-scraper, active only, country CA, exact-phrase keyword URLs, resultsLimit 25, for: "Skyline Wealth", "Skyline Apartment REIT", "Skyline Living", "Equiton", "Jason Roque", "Lankin Investments", "Pier 4", "McGillivray". Group ads by advertiser page; drop unrelated advertisers. Separate investor-facing pages from resident leasing pages (Skyline Living, Pier 4 Residential). Counts are minimums; a query returning 25 hit the cap ("25+"). If the library cannot be reached, say so; never imply no ads.
+- Frames: for each firm's post with the most likes, download https://www.instagram.com/p/{shortcode}/media/?size=l with dz_omar/universal-downloader (uniqueFileNames false, fileName [firm].jpg) and read each record via http://api.apify.internal:3333/v2/key-value-stores/{storeId}/records/{key}. These renditions stay under the 262,144-byte reader limit. If one is still over, label that frame unreviewed and do not describe it. Record each store ID and key for the summary.
+
+STEP 4, BUILD (in _kit/realestate-instagram/)
+1. Copy the repo's current realestate-index.html over site_shell.html so the build uses the current production head, nav, footer, styles and scripts.
+2. Update reindex_data.py: the IG list (brand, date, likes, comments, fmt, plays, views, shortcode), IG_BRANDS follower counts, IG_PEAK_90D and IG_REF. Do not touch other shared definitions.
+3. Rebuild ig_caps.json (90-day captions, all six accounts) and ig_postlog.json (ranked firms only: brand, date, fmt, theme, hook, likes, comments, plays or "", shortcode). Theme labels: Community, Culture / people, Development / assets, Team / hiring, Brand / other, Investor education, Market commentary. Reuse a prior theme when the same shortcode was classified before. Hook (shown as "Caption excerpt") = first non-empty caption line, max 150 characters then "...".
+4. Write reindex-cycleNNN-postlog.csv (ranked rows then REFERENCE rows, LF line endings) and reindex-cycleNNN-ig-scoreboard.csv (same columns as the previous one; "no video" in peak and like/play for accounts without video).
+5. Do NOT run gen_body.py (retired; it rebuilds the old page). Edit report_body.html in place: it is the live, approved body. Keep its structure, headings, labels, classes, tokens, layout and the authorship, citation, methodology and edition history blocks exactly as EDITORIAL_RULES.md describes. Replace every figure, firm finding, card, table row, frame read, ad count, theme and format result, test, firm summary, chart value, FAQ number and each scoreboard row's data-note with THIS edition's evidence. Update the "Which firm leads this edition?" answer (leader, score, window end and its limitation), the "Firms included" line, the scoreboard movement against the previous edition, and add this edition's row to Edition history as "(this page)" (the previous row keeps its dates; record its data and publication dates). Never carry a dated finding, ad count or frame read from a previous edition as if re-checked. Do not edit earlier snapshot files.
+6. Update ig_cycle.json: cycle, scraped_at, window, status "fresh", next_scheduled_refresh, postlog_csv, prior_cycle, prior_scoreboard, prior_verification. Leave modified_at as it is for now (it is set at ship time to the real deployment time).
+7. Run python3 prepare_review.py, then review the body against the evidence and EDITORIAL_RULES.md. Only then set publication_review to "complete" in body_review.json, with source and review_scope. Run python3 build_v2.py --as-of <scrape date>. It must pass; it checks the scores, section order, retired wording, neutral flags, data-notes, the leader answer, the firms line, canonical, robots, title, author and publisher IDs, image, dateModified, the absence of datePublished, the snapshot and the layout rules. Do not commit the output/ folder.
+
+SCORING (do not change)
+45% Resonance: percentile of engagement rate (median likes ÷ followers). 30% Intent: comment ratio (total comments ÷ total likes) on bands, index target band 1.5 to 5%, lower scores above 5%, floor 40. 25% Distribution: percentile of peak plays ÷ followers, lower is better. Percentiles give half credit to ties. Fewer than 5 posts: excluded from pools and capped at 30 (shown as "Fewer than 5 posts"). Equal scores rank by engagement rate. If a rank depends on a no-video account's Distribution treatment, say so beside the ranking.
+
+CONSISTENCY RULES (build_v2.py enforces most; still check)
+1. "Top post" badges and "times the firm's median likes" come only from the card post's likes against that account's window median. Craft critique goes in the text.
+2. Download and gate counts come from the embedded CSV.
+3. No video prints "No video" / "no video", never 0.00% or 0.0x.
+4. Any generalisation names its exceptions on the same board.
+5. No "proves", "proof that", "only variable" or "every frame". Write single comparisons as Observation, Possible interpretation, Suggested test.
+6. Wording from EDITORIAL_RULES.md: this sample, not the whole category; edition, not cycle, in visitor text; most liked, never best-performing or winning; recorded plays, never reach; active ads found, never spend; above or below account median, never working or landed; flags are neutral numeric labels only, never BOOST, PUSH or ORGANIC; % not "percent".
+No em or en dashes anywhere (between digits use " to ", otherwise ", "). No Reach or Impressions as a metric. Canadian spelling, sentence-case headings, first-person publisher.
+
+STEP 5, PUBLISH TO STAGING
+1. Copy the kit output output/"Re Index Instagram v8.html" over realestate-index.html. It is the current page (site_shell.html) with this edition's body and the head's dateModified set by the kit, so the head, nav, .msi wrapper, footer and GTM stay as they are. Confirm with git diff that outside the REINDEX REPORT BODY markers only the "dateModified" value changed (it will change again at ship time).
+2. Copy output/edition-NNN.html to realestate-index/edition-NNN.html (the new snapshot: self canonical, one noindex, follow). Never modify an existing realestate-index/edition-*.html file.
+3. Frames: centre-crop each [firm].jpg to 4:5, resize to 640x800 with LANCZOS, save WEBP quality 80 method 6 as assets/index/real-estate/frames/[firm]-cycleNNN.webp (slugs skyline, equiton, lankin, pier-4, mcgillivray). Keep previous edition frames that a snapshot still references; git rm only frames that no page or snapshot references.
+4. sitemap.xml: set lastmod for /realestate-index to today. Do not add snapshots to the sitemap.
+5. Checks, all must pass: zero style="" attributes in the page body; zero em/en dashes and dash entities; every Instagram link matches https://www.instagram.com/p/{11-char shortcode}/; no api.apify.com; every <img src> in the body starts with /assets/index/real-estate/frames/ and the file exists; gate endpoint (script.google.com/macros) and payload form:'index-download' unchanged; canonical is https://helpmemarketing.com/realestate-index with one indexable robots tag; the new snapshot has its own canonical and exactly one noindex, follow; all JSON-LD parses; git diff origin/main --stat shows only realestate-index.html, realestate-index/edition-NNN.html, sitemap.xml, the frame files and _kit/realestate-instagram/.
+6. Browser QA with Playwright (python3 -m http.server from the repo root), on the page and the new snapshot: at 1280px every .tw has scrollWidth == clientWidth; at 375px the document does not scroll horizontally and no card, note or grid inside an open expander extends past its container; frames decode at 640x800; .tbar[data-w] widths are non-zero; the comparison card shows five bars and switching metric and firm works; the Skyline log tab shows only Skyline rows and All restores them; no page errors. If Chromium is unavailable, report browser QA as NOT RUN; never claim it passed.
+7. Make ONE commit on staging containing the page, the new snapshot, sitemap, frames and the updated _kit/realestate-instagram/ files, message "Real Estate Index edition NNN". Push: git push --force-with-lease origin staging.
+8. Vercel builds staging automatically. Use the Vercel connector to find the deployment for that commit on the staging branch (project prj_FgAYUbd4Z46yAM5GfuYfdIZQalaJ, team team_b23KCbTsM0q2YjkanFnAsZKm), wait until it is READY and get its URL. If none appears within 2 minutes, create one with create_deployment (gitSource github Ank1t001/helpmemarketing.com, ref staging, sha = the commit) and wait until READY. If it errors, report the error; do not change vercel.json.
+9. Optional, Google Drive: create reindex-cycleNNN-postlog.csv and reindex-cycleNNN-ig-scoreboard.csv in the Instagram folder (ID 11Yto50TuGM9CeOXwKQ6ymGvi4y7kblyO) and verify each by downloading it back and comparing sha256.
+
+DO NOT push to main, merge, ping IndexNow, delete branches or touch any other page in this run. A scheduled prompt is not approval.
+
+STEP 6, REPORT (final message of this session)
+Lead with the Vercel staging preview URL (page and /realestate-index/edition-NNN) and the commit hash. Then cover: rank changes vs the previous edition and biggest movers; how thin the comment sample is; any firm above 10x peak plays ÷ followers and the ad library counts per firm (plus any advertiser page that newly appeared or disappeared); frame store IDs and keys; checks passed and any NOT RUN; anything that broke; window, last verified date and next scheduled refresh. End with: "Reply 'ship it' to put this live."
+
+WHEN ANKIT REPLIES "ship it" IN THIS SESSION
+1. git fetch origin. Confirm origin/staging is still the commit you reported (if not, stop and ask).
+2. Fast-forward only: git checkout main && git reset --hard origin/main && git merge --ff-only origin/staging && git push origin main. Never run a non-fast-forward merge, never force-push main.
+3. If the fast-forward fails because main moved after the preview: do not merge. Re-run STEP 1 (reset staging to the new origin/main), re-apply the edition (copy site_shell.html from the new main page, rebuild from the kit, snapshot, frames, sitemap, kit files), re-run the STEP 5 checks, push staging, get a fresh preview, and ask Ankit to approve again.
+4. If no production deployment for the new main commit appears in Vercel within 2 minutes, create one with create_deployment (same project and team, gitSource github Ank1t001/helpmemarketing.com, ref main, sha = that commit, target production) and wait until READY.
+5. Record the real modification time: take that production deployment's "ready" time from the Vercel connector, as ISO 8601 UTC with +00:00. Set ig_cycle.json modified_at to it and modified_at_source to "Vercel production deployment <id> (commit <sha>) ready time". Rebuild with python3 build_v2.py --as-of <scrape date>; copy the output page over realestate-index.html and output/edition-NNN.html over realestate-index/edition-NNN.html (the only change in both is dateModified). Commit "Real Estate Index edition NNN: recorded dateModified" on main and push (fast-forward). This metadata-only push does not move dateModified again.
+6. Poll https://helpmemarketing.com/realestate-index until it shows the new edition number and the five frame URLs return 200. Confirm on the live page: the canonical, one indexable robots tag, dateModified equal to modified_at, no datePublished, author @id https://helpmemarketing.com/about#ankit-kumar, the Article image, the "Which firm leads this edition?" answer, the citation reading "Edition NNN. Data collected <date>.", and the new Edition history row. Confirm https://helpmemarketing.com/realestate-index/edition-NNN returns 200 with one noindex, follow and its own canonical, and that https://helpmemarketing.com/_kit/realestate-instagram/README.md returns 404.
+7. Try once: curl -sS -X POST 'https://api.indexnow.org/indexnow' -H 'Content-Type: application/json; charset=utf-8' -d '{"host":"helpmemarketing.com","key":"cff6589d2b8f4a74bc70e1588e70efe4","keyLocation":"https://helpmemarketing.com/cff6589d2b8f4a74bc70e1588e70efe4.txt","urlList":["https://helpmemarketing.com/realestate-index"]}'. If the network blocks it, give Ankit the command to run himself. Remind him that "Request indexing" in Search Console and the Rich Results Test (Claude in Chrome) are the Google checks.
+
+IF BLOCKED
+If Apify, Vercel or a GitHub push is unavailable, do every step you can, then report exactly what was blocked and what Ankit should reconnect. Never claim an unperformed scrape, check or deploy.

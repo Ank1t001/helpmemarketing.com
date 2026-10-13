@@ -144,6 +144,14 @@ def validate(source, actual, rows, config):
     shell_css=(BASE/'site_shell.html').read_text()
     for marker in ('Expandables, one pattern','UX spacing pass 2','minmax(min(320px,100%),1fr)','.flag.neutral'):
         if marker not in shell_css or marker not in source: raise ValueError('Layout rules missing from the shell: '+marker)
+    # Search-facing answers and head (SEO, AEO, GEO), 2026-10-13.
+    leader=min(actual.items(),key=lambda p:p[1]['rank'])
+    if f'<b>Which firm leads this edition?</b> {leader[0]} leads with a score of {leader[1]["score"]}' not in body: raise ValueError('Leader answer must name '+leader[0]+' and score '+str(leader[1]['score']))
+    if 'Firms included: ' not in body: raise ValueError('Missing the firms included line')
+    ph=source.split('</head>')[0]
+    if '<link rel="canonical" href="https://helpmemarketing.com/realestate-index">' not in ph: raise ValueError('Canonical changed')
+    if len(re.findall(r'<meta name="robots"',ph))!=1 or 'noindex' in re.search(r'<meta name="robots" content="([^"]*)"',ph).group(1): raise ValueError('Current page must carry one indexable robots tag')
+    if ph.split('<title>')[1].split('</title>')[0]!=shell_css.split('<title>')[1].split('</title>')[0]: raise ValueError('Title differs from the shell')
     head=source.split('</head>')[0]
     if '"@id":"https://helpmemarketing.com/about#ankit-kumar"' not in head or '"@id":"https://helpmemarketing.com/#organization"' not in head: raise ValueError('Article author/publisher not linked')
     for blk in re.findall(r'<script type="application/ld\+json">(.*?)</script>',source,re.S): json.loads(blk)

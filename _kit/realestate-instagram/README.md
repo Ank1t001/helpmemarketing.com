@@ -109,9 +109,13 @@ python3 build_v2.py --as-of YYYY-MM-DD             # on the scrape date
 To repeat the baseline check, temporarily point the kit at `history/reindex_data_cycle003.py` and
 `history/ig_postlog_cycle003.json` and run `python3 build_v2.py --verify-baseline` with `ig_cycle.json` set to cycle 003.
 
+## Routine prompt
+
+`ROUTINE_PROMPT.md` is the current stored prompt of the monthly routine (staging preview, ship on approval, recorded dateModified, snapshot). Paste it into the routine's settings whenever it changes. `SCHEDULED_TASK.txt` is superseded.
+
 ## Rules and checks (2026-10-13)
 
-`EDITORIAL_RULES.md` holds the approved structure, wording, layout and metadata rules. `build_v2.py` now fails on section order, retired wording (BOOST, PUSH, ORGANIC, WORKING, landed, best-performing, winning, "percent", "cycle" in visible text, "Advanced research", loaded distribution wording, "whole category", "verbatim", "pooled median", "healthy band"), non-neutral flags, missing scoreboard `data-note`s, the missing metrics note, download heading, email label, live status region, current edition history row, post log expander, and missing layout rules in the shell. This repository copy is the source for refreshes; the Drive packages are older.
+`EDITORIAL_RULES.md` holds the approved structure, wording, layout and metadata rules. `build_v2.py` now fails on section order, retired wording (BOOST, PUSH, ORGANIC, WORKING, landed, best-performing, winning, "percent", "cycle" in visible text, "Advanced research", loaded distribution wording, "whole category", "verbatim", "pooled median", "healthy band"), non-neutral flags, missing scoreboard `data-note`s, the missing metrics note, download heading, email label, live status region, current edition history row, post log expander, and missing layout rules in the shell, and on the search-facing pieces: the leader answer (must name the rank 1 firm and score), the firms included line, canonical, one indexable robots tag and an unchanged title. This repository copy is the source for refreshes; the Drive packages are older.
 
 ## Authorship, citation and editions (2026-10-13)
 
