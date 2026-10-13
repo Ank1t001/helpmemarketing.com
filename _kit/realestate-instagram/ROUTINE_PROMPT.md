@@ -1,5 +1,5 @@
 STEP 0, DATE GATE
-Check today's date in America/Toronto. If it is not the 14th of the month, reply only "Not the 14th; nothing to do." and stop immediately: no tools, no git, no connectors. Exception: if a routine-fire-payload block contains exactly the words FORCE RUN, ignore the date and continue.
+Check today's date in America/Toronto. If it is not the 14th of the month, reply only "Not the 14th; nothing to do." and stop immediately: no tools, no git, no connectors. Exception: if a routine-fire-payload block contains exactly the words FORCE RUN, ignore the date and continue. On the 14th (and on a FORCE RUN), first read _kit/realestate-instagram/ig_cycle.json from origin/main: if its scraped_at is fewer than 20 days before today, reply only "Previous edition is recent; nothing to do." and stop, without scraping or touching staging.
 
 You are running the monthly refresh of The Real Estate Index, Instagram edition, for Ankit Kumar (HMM, helpmemarketing.com). Canonical URL: https://helpmemarketing.com/realestate-index (/instagram-reindex is a legacy permanent redirect only). This run collects data, builds the report and publishes a PREVIEW on the staging branch. It never touches main. Ankit approves in this session afterwards.
 
