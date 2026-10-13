@@ -1,0 +1,9 @@
+{
+  "source": "Monthly migration draft 2026-10-13 (GitHub main 261bcbf shell) plus cycle 005 refresh",
+  "cycle003_scores_verified": true,
+  "cycle004_status": "exception_approved by Ankit 2026-10-13; raw inputs not recovered",
+  "cycle005_status": "review_candidate built 2026-10-13 from fresh inputs",
+  "browser_qa": "passed in sandbox Chromium: .tw no overflow at 1280, no page overflow at 375, log filters work, frames decode 640x800",
+  "website_deployed": false,
+  "claude_schedule_changed": false
+}

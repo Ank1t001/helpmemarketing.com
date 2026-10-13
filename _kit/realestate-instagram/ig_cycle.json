@@ -1,0 +1,20 @@
+{
+  "cycle": "005",
+  "scraped_at": "2026-10-13",
+  "window": [
+    "2026-09-13",
+    "2026-10-13"
+  ],
+  "status": "fresh",
+  "schedule": {
+    "day": 14,
+    "time": "09:00",
+    "timezone": "America/New_York"
+  },
+  "next_scheduled_refresh": "2026-11-14",
+  "postlog_csv": "reindex-cycle005-postlog.csv",
+  "expected_scoreboard": "history/reindex-cycle003-ig-scoreboard.csv",
+  "prior_cycle": "004",
+  "prior_verification": "history/cycle004-verification.json",
+  "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv"
+}

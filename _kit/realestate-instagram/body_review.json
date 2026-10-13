@@ -1,0 +1,9 @@
+{
+  "cycle": "005",
+  "dataset_sha256": "b205080a0d99fa690de8bfacad2485328f2128df049795b01b680e979b2c30d4",
+  "body_sha256": "59686b440a72d00a98f3a3ad74ebe7a346ea8aa44a93bf35046bcbad63df0536",
+  "publication_review": "complete",
+  "note": "Verify all claims, frames, advertising and raw inputs before marking complete.",
+  "source": "Fresh Apify scrape 2026-10-13 (posts T48E9Efh1vFH6UDd9, profiles FKv4hasHTzLv5e3OR), Meta ad library via apify/facebook-ads-scraper (LSzuwA31KCmxyaCYK, oPGV81tjCBZpS4k5k, T4fsgUNKgyYbG2Ha3), five frames read",
+  "review_scope": "Claims checked against computed metrics, captions, frames and ad library rows; badges computed from likes vs account median; consistency rules 1 to 5 checked; cycle 004 baseline exception approved by Ankit 2026-10-13"
+}
