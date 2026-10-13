@@ -12,16 +12,15 @@ docs/HMM_Index_Build_Kit_Brief_2026-10.md, especially section 7.
 Do not access unrelated Notion projects or write Notion without Ankit's request.
 
 BUILD KIT
-Use the versioned Instagram monthly migration package in the shared
-Build Kit folder, not the old standalone builder files.
+Use the kit in the website repository on GitHub main:
+_kit/realestate-instagram (versioned with the live page). The Drive Build
+Kit folder's packages are older; do not use them as the source.
 Build Kit folder: 1Na03QhpmzChaVOGA5CSafQeL32qP6-_r
 Instagram output folder: 11Yto50TuGM9CeOXwKQ6ymGvi4y7kblyO
 Archive folder: 10a1tySIrKMyTQhXCJY18aDlNAptflZs5
 
-Download and extract the approved current package. Read updated/README.md.
-The initial 2026-10-13 package is a review draft with cycle 003 historical
-inputs. It is not a fresh October report. Verify package approval/status
-and the prior-cycle verification record before proceeding.
+Read _kit/realestate-instagram/README.md and EDITORIAL_RULES.md first.
+Verify the prior-cycle verification record before proceeding.
 
 Do not change other shared builders. Pull the latest realestate-index.html
 from GitHub for the persistent shell. The public URL does not establish
@@ -52,8 +51,9 @@ Use apify/instagram-profile-scraper for current follower counts.
 Rebuild each firm's IG_PEAK_90D from the actual 90-day pull.
 
 Check Meta Ad Library for each firm and known founder advertiser.
-Keep plays-based flags separate from verified advertising. ORGANIC does
-not mean no ads. If access is blocked, report unavailable verification.
+Keep plays-based flags separate from verified advertising. Flags are
+neutral numeric labels only (see EDITORIAL_RULES.md); never BOOST, PUSH
+or ORGANIC. If access is blocked, report unavailable verification.
 
 Inspect the top post frame for each firm. Use the downloader/key-value
 store method when available and report store ID/record key privately.
@@ -80,20 +80,21 @@ Use ig_cycle.json for Instagram metadata, not legacy dataset constants.
 Keep REFERENCE rows out of ig_postlog.json and ranked calculations.
 
 Keep scoring unchanged: 45% percentile engagement rate, 30% comment/like
-intent, 25% percentile of negative peak plays/followers. Intent is healthy
-at 1.5 to 5 percent, with decay above 5. Fewer than five posts excludes a
+intent, 25% percentile of negative peak plays/followers. The index target
+band for comments is 1.5 to 5%, with decay above 5. Fewer than five posts excludes a
 firm from eligible percentile pools and caps its score at 30.
 Like/play uses plays, not views. No video displays "no video", not zero.
 
 Refresh report_body.html with actual cycle findings, source links,
 creative observations, suggested tests, themes, formats, advanced
-research, methodology, post log and FAQs. Do not carry dated ad findings,
+research, methodology, post log and FAQs, following EDITORIAL_RULES.md
+(structure, wording, layout, metadata). Start from the live body. Do not carry dated ad findings,
 frame reads or narrative claims as though they were checked this cycle.
 Preserve research and methodology; advanced content stays expandable.
 
 Preserve ordered IDs:
 ri-overview, ri-rankings, ri-creative, ri-insights, ri-test,
-ri-advanced, ri-data.
+ri-download, ri-advanced, ri-editions, ri-data.
 Preserve exact scoreboard headings:
 Account, Score, Followers, Posts, Mix, Median likes, Med comm,
 Like/play, Peak, Flag, Top post.

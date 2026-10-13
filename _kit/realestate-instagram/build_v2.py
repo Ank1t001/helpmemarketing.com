@@ -118,6 +118,32 @@ def validate(source, actual, rows, config):
           'edition history':'id="ri-editions"','methodology':'<summary>How this research was produced</summary>'}
     for label,text in need.items():
         if text not in body: raise ValueError('Missing '+label)
+    # Founder-approved structure, wording and layout (2026-10-13). See EDITORIAL_RULES.md.
+    order=['ri-overview','ri-rankings','ri-creative','ri-insights','ri-test','ri-download','ri-advanced','ri-editions','ri-data']
+    pos=[body.find('id="'+x+'"') for x in order]
+    if -1 in pos or pos!=sorted(pos): raise ValueError('Section order must be '+', '.join(order))
+    text=re.sub(r'<script.*?</script>','',body,flags=re.S)
+    text=re.sub(r'<table id="postlog">.*?</table>','',text,flags=re.S)   # caption excerpts are quoted evidence
+    text=re.sub(r'<[^>]+>',' ',text)
+    banned={r'\bBOOST\b':'BOOST flag',r'\bPUSH\b':'PUSH flag',r'\bORGANIC\b':'ORGANIC flag',r'\bWORKING\b':'WORKING status',
+            r'\bLANDED\b|NOT LANDING':'landing status',r'best[- ]performing|\bwinning\b':'best-performing or winning',
+            r'\d percent\b':'"percent" (use %)',r'\bcycle\b':'"cycle" in visible text (use edition)',r'Advanced research':'old Research heading',
+            r'media buy|honest end|PAID PUSH|reach beyond the base':'loaded distribution wording',r'whole category':'"whole category"',
+            r'\bverbatim\b':'"verbatim"',r'Your takeaway':'old takeaway label',r'pooled median':'"pooled median"',r'thirty days':'"thirty days"',
+            r'\bhealthy band\b':'"healthy band" (use index target band)'}
+    for pat,label in banned.items():
+        m=re.search(pat,text)
+        if m: raise ValueError('Retired wording: '+label+' near "'+' '.join(text[max(0,m.start()-40):m.end()+20].split())+'"')
+    if re.search(r'class="flag (?!neutral)',body): raise ValueError('Flags must use the neutral style')
+    board_rows=re.search(r'<section id="ri-rankings">.*?<tbody>(.*?)</tbody>',body,re.S)
+    if not board_rows or board_rows.group(1).count('data-note="')!=board_rows.group(1).count('<tr'): raise ValueError('Every scoreboard row needs a data-note for the firm panel')
+    for label,needle in {'metrics note':'Tap or hover over underlined metrics for a definition.','download heading':'<h2>Download the dataset</h2>',
+                         'email label':'<label class="gate-label" for="gate-email">Email address</label>','status live region':'id="gate-msg" role="status" aria-live="polite"',
+                         'current edition history row':f'<b>{cyc}</b> (this page)','post log expander':'<summary>Open the post log</summary>'}.items():
+        if needle not in body: raise ValueError('Missing '+label)
+    shell_css=(BASE/'site_shell.html').read_text()
+    for marker in ('Expandables, one pattern','UX spacing pass 2','minmax(min(320px,100%),1fr)','.flag.neutral'):
+        if marker not in shell_css or marker not in source: raise ValueError('Layout rules missing from the shell: '+marker)
     head=source.split('</head>')[0]
     if '"@id":"https://helpmemarketing.com/about#ankit-kumar"' not in head or '"@id":"https://helpmemarketing.com/#organization"' not in head: raise ValueError('Article author/publisher not linked')
     for blk in re.findall(r'<script type="application/ld\+json">(.*?)</script>',source,re.S): json.loads(blk)
