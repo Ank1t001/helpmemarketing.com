@@ -40,7 +40,7 @@ def render(csv_text, cycle, verified_date, next_date, as_of, published_at=None):
     if re.search(r'\{\{[A-Z_]+\}\}', body):
         raise ValueError('Unresolved report token')
     if published_at:
-        prefix, count = re.subn(r'"dateModified":"[^"]*"', '"dateModified":"' + published_at + 'T00:00:00+00:00"', prefix)
+        prefix, count = re.subn(r'"dateModified":"[^"]*"', '"dateModified":"' + published_at + '"', prefix)
         if count != 1:
             raise ValueError('Expected one dateModified in the shell head')
     return prefix + '\n' + body + '\n' + suffix
@@ -58,7 +58,7 @@ def snapshot(page, cycle, verified_date):
     """Fixed copy of a published edition at /realestate-index/edition-NNN (noindex, self canonical)."""
     snap_url = f'{CANON}/edition-{cycle}'
     swaps = [
-        (f'<link rel="canonical" href="{CANON}">', f'<link rel="canonical" href="{snap_url}">\n<meta name="robots" content="noindex, follow">'),
+        (f'<link rel="canonical" href="{CANON}">', f'<link rel="canonical" href="{snap_url}">'),
         (f'<meta property="og:url" content="{CANON}">', f'<meta property="og:url" content="{snap_url}">'),
         (f'"url":"{CANON}","isAccessibleForFree"', f'"url":"{snap_url}","isAccessibleForFree"'),
         ('<div class="livebar">', f'<div class="note warn"><span class="lbl">Archived edition {cycle}</span><p>Data collected {long_date(verified_date)}. This snapshot does not change. <a href="/realestate-index">See the current edition</a>.</p></div>\n<div class="livebar">'),
@@ -66,6 +66,9 @@ def snapshot(page, cycle, verified_date):
         (f'This address always shows the latest edition. For a fixed version, cite the <a href="/realestate-index/edition-{cycle}">edition {cycle} snapshot</a>.',
          f'This is the fixed snapshot of edition {cycle}. The <a href="/realestate-index">current edition</a> lives at /realestate-index.'),
     ]
+    page, robots = re.subn(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex, follow">', page)
+    if robots != 1:
+        raise ValueError('Expected one robots meta tag in the page')
     for old, new in swaps:
         if page.count(old) != 1:
             raise ValueError('Snapshot anchor not found: ' + old[:60])

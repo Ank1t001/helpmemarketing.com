@@ -1,10 +1,10 @@
 {
   "cycle": "005",
   "dataset_sha256": "b205080a0d99fa690de8bfacad2485328f2128df049795b01b680e979b2c30d4",
-  "body_sha256": "593459c95e4704c01f2737dd6c8b8e9ab7f11914ab39f880733be433fef6436e",
+  "body_sha256": "53ba323bacf7c8c455b94fb5dee7096185ac3d71971e2c6dc5acea5d49f88d11",
   "publication_review": "complete",
   "note": "Verify all claims, frames, advertising and raw inputs before marking complete.",
   "source": "Fresh Apify scrape 2026-10-13 (posts T48E9Efh1vFH6UDd9, profiles FKv4hasHTzLv5e3OR), Meta ad library via apify/facebook-ads-scraper (LSzuwA31KCmxyaCYK, oPGV81tjCBZpS4k5k, T4fsgUNKgyYbG2Ha3), five frames read",
   "review_scope": "Claims checked against computed metrics, captions, frames and ad library rows; badges computed from likes vs account median; consistency rules 1 to 5 checked; cycle 004 baseline exception approved by Ankit 2026-10-13",
-  "body_note": "2026-10-13: body replaced with the live, founder-approved page body (shipped commits 05568b8 to e6501c1 plus the authorship and citation update), tokenised for edition and dates. Data unchanged."
+  "body_note": "2026-10-13: body replaced with the live, founder-approved page body (shipped commits 05568b8 to e6501c1 plus the authorship and citation update), tokenised for edition and dates. Data unchanged. 2026-10-13 later: edition 004 wording aligned to \"scoreboard dated 5 October 2026\"; edition 001 to 003 dates described as website-code dates (founder review)."
 }

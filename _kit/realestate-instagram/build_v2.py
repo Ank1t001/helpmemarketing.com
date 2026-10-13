@@ -180,7 +180,10 @@ def main():
     name='HISTORICAL_QA_cycle003.html' if args.verify_baseline else 'Re Index Instagram v8.html'
     (output/name).write_text(source,encoding='utf-8')
     if not args.verify_baseline:
-        (output/f"edition-{config['cycle']}.html").write_text(snapshot(source,config['cycle'],config['scraped_at']),encoding='utf-8')
+        snap=snapshot(source,config['cycle'],config['scraped_at'])
+        if re.findall(r'<meta name="robots"[^>]*>',snap)!=['<meta name="robots" content="noindex, follow">']: raise ValueError('Snapshot must carry exactly one robots tag: noindex, follow')
+        if re.search(r'"date(?:Published|Modified)":"[^"]*T00:00:00',source): raise ValueError('Invented midnight timestamp in Article dates')
+        (output/f"edition-{config['cycle']}.html").write_text(snap,encoding='utf-8')
     (output/'cycle_metrics.json').write_text(json.dumps(actual,indent=2))
     result={'cycle':config['cycle'],'scraped_at':config['scraped_at'],
             'status':'historical_qa_only' if args.verify_baseline else 'review_candidate',
