@@ -1,7 +1,7 @@
 # GTA MedSpa Index build kit (from edition 002)
 
 Canonical URL: https://helpmemarketing.com/gta-medspa-index
-Schedule: the 10th of each month, 09:15 America/Toronto, scheduled task "HMM - GTA MedSpa Index (Monthly)". Its stored prompt is versioned in `ROUTINE_PROMPT.md`; update both together.
+Schedule: the 15th of each month, 09:15 America/Toronto (first run 15 October 2026), scheduled task "HMM - GTA MedSpa Index (Monthly)". Its stored prompt is versioned in `ROUTINE_PROMPT.md`; update both together.
 Window: the 90 days ending the collection date, refreshed monthly (editions overlap by design).
 
 ## Files

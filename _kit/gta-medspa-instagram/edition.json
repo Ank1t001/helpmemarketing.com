@@ -9,11 +9,11 @@
   "window_days": 90,
   "status": "published",
   "schedule": {
-    "day": 10,
+    "day": 15,
     "time": "09:15",
     "timezone": "America/Toronto"
   },
-  "next_scheduled_refresh": "2026-11-10",
+  "next_scheduled_refresh": "2026-10-15",
   "roster": "roster.json",
   "roster_built_at": null,
   "roster_status": "missing: the edition 001 roster of 341 accounts was not saved; the next run rebuilds it",

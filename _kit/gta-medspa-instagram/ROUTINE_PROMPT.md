@@ -1,7 +1,7 @@
 STEP 0, DATE GATE
-Check today's date in America/Toronto. If it is not the 10th of the month, reply only "Not the 10th; nothing to do." and stop immediately: no tools, no git, no connectors. Exception: if a routine-fire-payload block contains exactly the words FORCE RUN, ignore the date and continue.
+Check today's date in America/Toronto. If it is not the 15th of the month, reply only "Not the 15th; nothing to do." and stop immediately: no tools, no git, no connectors. Exception: if a routine-fire-payload block contains exactly the words FORCE RUN, ignore the date and continue.
 
-On a scheduled 10th run (not a FORCE RUN), first read _kit/gta-medspa-instagram/edition.json from origin/main: if its scraped_at is fewer than 20 days before today, reply only "Previous edition is recent; nothing to do." and stop, without scraping or touching staging-gta.
+On a scheduled 15th run (not a FORCE RUN), first read _kit/gta-medspa-instagram/edition.json from origin/main: if its scraped_at is fewer than 20 days before today, reply only "Previous edition is recent; nothing to do." and stop, without scraping or touching staging-gta.
 
 You are running the monthly refresh of The GTA MedSpa Index, Instagram edition, for Ankit Kumar (HMM, helpmemarketing.com). Canonical URL: https://helpmemarketing.com/gta-medspa-index. This run collects data, builds the report and publishes a PREVIEW on the staging-gta branch. It never touches main. Ankit approves in this session afterwards. Nobody is watching the run: do not ask questions, make the safest reasonable choice and state it in the report.
 
@@ -11,7 +11,7 @@ helpmemarketing.com (cloned). The page is gta-medspa-index.html. Read CLAUDE.md 
 Do not access unrelated Notion projects. Read only "HMM Learnings & Notion" pages 1, 4 and 11 for current site rules. Do not write to Notion. Do not touch the Real Estate kit, its staging branch or any other page.
 
 DATES
-Scrape date = today (America/Toronto). Window = the 90 days ending today (start = today minus 90 days, both ends inclusive), by each post's timestamp. Next scheduled refresh = the 10th of next month. Edition = previous + 1, three digits (edition 001 is the 10 September 2026 data). Visitor text says "edition", never "cycle"; the gate's GATE_SOURCE keeps the form gta-medspa-cycle-NNN because the forms script reads it.
+Scrape date = today (America/Toronto). Window = the 90 days ending today (start = today minus 90 days, both ends inclusive), by each post's timestamp. Next scheduled refresh = the 15th of next month. Edition = previous + 1, three digits (edition 001 is the 10 September 2026 data). Visitor text says "edition", never "cycle"; the gate's GATE_SOURCE keeps the form gta-medspa-cycle-NNN because the forms script reads it.
 
 STEP 1, PREPARE STAGING (do this before any file changes)
 git fetch origin. If origin/staging-gta exists and is NOT an ancestor of origin/main, someone has unmerged work on it: stop and report, and do not touch it. Otherwise: git checkout -B staging-gta origin/main. All work in this run happens on this branch. Never merge between staging-gta and main in either direction.
