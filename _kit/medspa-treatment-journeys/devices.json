@@ -1,0 +1,89 @@
+{
+ "note": "Working families for collection only. Status 'unverified' until the family and manufacturer are confirmed from the manufacturer's own page; record that URL in source. Never treat devices or families as clinically interchangeable.",
+ "devices": [
+  {
+   "name": "Morpheus8",
+   "working_family": "RF microneedling",
+   "manufacturer": null,
+   "status": "unverified",
+   "source": null
+  },
+  {
+   "name": "Sylfirm X",
+   "working_family": "RF microneedling",
+   "manufacturer": null,
+   "status": "unverified",
+   "source": null
+  },
+  {
+   "name": "Secret RF",
+   "working_family": "RF microneedling",
+   "manufacturer": null,
+   "status": "unverified",
+   "source": null
+  },
+  {
+   "name": "Potenza",
+   "working_family": "RF microneedling",
+   "manufacturer": null,
+   "status": "unverified",
+   "source": null
+  },
+  {
+   "name": "Sofwave",
+   "working_family": "Non-surgical skin tightening",
+   "manufacturer": null,
+   "status": "unverified",
+   "source": null
+  },
+  {
+   "name": "Ultherapy",
+   "working_family": "Non-surgical skin tightening",
+   "manufacturer": null,
+   "status": "unverified",
+   "source": null
+  },
+  {
+   "name": "Thermage",
+   "working_family": "Non-surgical skin tightening",
+   "manufacturer": null,
+   "status": "unverified",
+   "source": null
+  },
+  {
+   "name": "XERF",
+   "working_family": "Non-surgical skin tightening",
+   "manufacturer": null,
+   "status": "unverified",
+   "source": null
+  },
+  {
+   "name": "CoolSculpting",
+   "working_family": "Non-surgical body contouring",
+   "manufacturer": null,
+   "status": "unverified",
+   "source": null
+  },
+  {
+   "name": "EMSCULPT",
+   "working_family": "Non-surgical body contouring",
+   "manufacturer": null,
+   "status": "unverified",
+   "source": null
+  },
+  {
+   "name": "Evolve",
+   "working_family": "Non-surgical body contouring",
+   "manufacturer": null,
+   "status": "unverified",
+   "source": null
+  },
+  {
+   "name": "BodyTite",
+   "working_family": "Minimally invasive (separate cohort)",
+   "manufacturer": null,
+   "status": "unverified",
+   "source": null
+  }
+ ]
+}

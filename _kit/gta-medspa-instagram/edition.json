@@ -23,8 +23,8 @@
   "dataset": {
     "@context": "https://schema.org",
     "@type": "Dataset",
-    "name": "GTA MedSpa Instagram performance, 90 days to September 2026",
-    "description": "Instagram performance data for 341 medical spa accounts across Toronto, Durham, Halton, Peel and York, of which 176 qualified for ranking on three or more reels in the window.",
+    "name": "GTA medspa Instagram activity, 90 days to September 2026",
+    "description": "Public Instagram activity (posts, recorded reel plays, likes and comments) for 341 medical spa accounts across Toronto, Durham, Halton, Peel and York, of which 176 qualified for ranking on three or more reels in the window. It does not include enquiries, consultations or revenue.",
     "url": "https://helpmemarketing.com/gta-medspa-index",
     "license": "https://helpmemarketing.com/terms",
     "creator": {
