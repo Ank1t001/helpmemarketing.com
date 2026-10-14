@@ -16,8 +16,8 @@
   "next_scheduled_refresh": "2026-10-16",
   "roster": "roster.json",
   "ads_checked_at": "2026-09-09",
-  "modified_at": "2026-10-14T14:24:25+00:00",
-  "modified_at_source": "Vercel production deployment dpl_2T4tcaNYuSghHsAqsvjWkgqSxCxv (commit a64642c) ready time, the last content change to /hair-loss-index",
+  "modified_at": "2026-10-14T21:21:26+00:00",
+  "modified_at_source": "Vercel production deployment dpl_Au4zefKkonQZTESQb8rR8TdjHpwT (commit ac1a314) ready time, the last content change to /hair-loss-index",
   "method": "edition 001: two collections (8 and 9 September), scores as first calculated, pillar scaling not kept. From edition 002: one collection, score.py.",
   "data_store": {
     "sheet": "1wVrhuPpavUQ9-D9B4BPiWJbAeg0MZ-1-V2Xv5NpsWpU",
