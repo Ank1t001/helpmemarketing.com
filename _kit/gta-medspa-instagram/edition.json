@@ -1,0 +1,63 @@
+{
+  "edition": "001",
+  "scraped_at": "2026-09-10",
+  "recollected_at": "2026-09-11",
+  "window": [
+    "2026-06-12",
+    "2026-09-10"
+  ],
+  "window_days": 90,
+  "status": "published",
+  "schedule": {
+    "day": 10,
+    "time": "09:15",
+    "timezone": "America/Toronto"
+  },
+  "next_scheduled_refresh": "2026-11-10",
+  "roster": "roster.json",
+  "roster_built_at": null,
+  "roster_status": "missing: the edition 001 roster of 341 accounts was not saved; the next run rebuilds it",
+  "modified_at": "2026-10-14T14:47:01+00:00",
+  "modified_at_source": "Vercel production deployment dpl_TmpmjVFjzE6zi3h2yQwhKVJziZ9b (commit a13ea2a) created time",
+  "method": "edition 001: two collections, scoring code not kept. From edition 002: one collection, score.py.",
+  "dataset": {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "GTA MedSpa Instagram performance, 90 days to September 2026",
+    "description": "Instagram performance data for 341 medical spa accounts across Toronto, Durham, Halton, Peel and York, of which 176 qualified for ranking on three or more reels in the window.",
+    "url": "https://helpmemarketing.com/gta-medspa-index",
+    "license": "https://helpmemarketing.com/terms",
+    "creator": {
+      "@type": "Organization",
+      "name": "Help Me Marketing"
+    },
+    "temporalCoverage": "2026-06-12/2026-09-10",
+    "spatialCoverage": {
+      "@type": "Place",
+      "name": "Greater Toronto Area, Ontario, Canada"
+    },
+    "variableMeasured": [
+      {
+        "@type": "PropertyValue",
+        "name": "Median plays per reel",
+        "value": 769,
+        "description": "Median across 176 qualified clinics"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Clinics in frame",
+        "value": 341
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Clinics ranked",
+        "value": 176
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Posts analysed",
+        "value": 2810
+      }
+    ]
+  }
+}

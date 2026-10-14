@@ -1,6 +1,6 @@
 # GTA MedSpa Index: editorial and layout rules (14 October 2026)
 
-No build kit exists yet (see ROUTINE_PLAN.md). `/gta-medspa-index` edition 001, as revised on 14 October 2026, is the approved body. A refresh keeps its structure and wording and replaces figures with the new collection's.
+The kit in this folder and ROUTINE_PROMPT.md run the monthly refresh (see README.md). `/gta-medspa-index` edition 001, as revised on 14 October 2026, is the approved body. A refresh keeps its structure and wording and replaces figures with the new collection's.
 
 ## Structure (in this order)
 1. Header: kicker "The HMM Index · Instagram"; H1 "The GTA MedSpa Index"; lede; byline "Last 90 days ending {date}" · "For clinic owners and marketing leads." · "Research and analysis by Ankit Kumar (link /about) · Founder, HMM (link /)". Date bar: "Last verified data" and "Next scheduled refresh" in long dates, ", not yet published" when overdue; no cycle number.

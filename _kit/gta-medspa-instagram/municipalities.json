@@ -1,0 +1,9 @@
+{
+ "note": "Search areas for discovery, one Google Maps search per municipality (and per former Toronto municipality). Region decides the regional benchmark.",
+ "Toronto": ["Old Toronto", "Etobicoke", "North York", "Scarborough", "York", "East York"],
+ "Peel": ["Mississauga", "Brampton", "Caledon"],
+ "York": ["Vaughan", "Markham", "Richmond Hill", "Newmarket", "Aurora", "King", "Whitchurch-Stouffville", "East Gwillimbury", "Georgina"],
+ "Durham": ["Pickering", "Ajax", "Whitby", "Oshawa", "Clarington", "Uxbridge", "Scugog", "Brock"],
+ "Halton": ["Oakville", "Burlington", "Milton", "Halton Hills"],
+ "queries": ["medical spa {m}, Ontario", "medspa {m}, Ontario"]
+}

@@ -1,0 +1,13 @@
+{
+ "note": "Caption keyword tagging, first match wins in this order. Edition 001's exact lists were not saved; these are the edition 002 lists. Lower-case regular expressions.",
+ "order": ["Offer, promo and booking", "Before-and-after and results", "Client story and testimonial", "Education and explainer", "Team and behind the scenes", "Treatment spotlight"],
+ "fallback": "Other and lifestyle",
+ "patterns": {
+  "Offer, promo and booking": ["\\$\\d", "\\bpromo", "\\bspecial\\b", "\\bsale\\b", "% off", "\\boff\\b.*\\btreatment", "limited time", "\\bbook (now|today|your)", "link in bio to book", "\\bgiveaway", "\\bdeal\\b", "\\boffer\\b"],
+  "Before-and-after and results": ["before (and|&) after", "before/after", "\\bb ?& ?a\\b", "\\bresults?\\b", "transformation", "\\bsession \\d"],
+  "Client story and testimonial": ["\\breview\\b", "testimonial", "\\bclient (story|says|said)", "5[ -]star", "\\bthank you .* for trusting"],
+  "Education and explainer": ["\\bhow (to|does|long)\\b", "\\bwhat is\\b", "\\bwhy\\b", "\\bmyth", "\\btips?\\b", "\\bfaq\\b", "did you know", "\\bexplained?\\b", "\\bvs\\.?\\b"],
+  "Team and behind the scenes": ["\\bmeet\\b", "\\bour team\\b", "behind the scenes", "\\bbts\\b", "\\bpov\\b", "\\bday in the life", "\\bwelcome\\b.*\\bteam", "\\bhiring\\b"],
+  "Treatment spotlight": ["botox", "dysport", "filler", "\\blips?\\b", "laser", "microneedling", "\\bprp\\b", "hydrafacial", "\\bpeel\\b", "skin ?booster", "morpheus", "\\bthread", "kybella", "sculptra", "coolsculpting", "emsculpt", "\\bfacial\\b", "\\bneuromodulator"]
+ }
+}

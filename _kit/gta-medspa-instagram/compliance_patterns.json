@@ -1,0 +1,9 @@
+{
+ "note": "Caption patterns checked against published Health Canada (Food and Drug Regulations C.01.044) and CPSO Advertising policy provisions. A match is a candidate only: every match is read in review and false positives are listed in editions/NNN/compliance_review.json before scores are final. This is not legal advice. Lower-case regular expressions.",
+ "drug": ["botox", "dysport", "xeomin", "daxxify", "jeuveau", "letybo", "nuceiva", "kybella", "belkyra", "ozempic", "wegovy", "mounjaro", "zepbound", "saxenda", "semaglutide", "tirzepatide", "tretinoin", "latisse", "\\bneurotoxin", "\\bbotulinum"],
+ "condition": ["wrinkle", "fine lines", "forehead lines", "frown lines", "crow'?s feet", "\\b11s?\\b", "\\bjaw ?(tension|clench)", "\\btmj\\b", "clench", "grind", "sweat", "hyperhidrosis", "migraine", "double chin", "submental", "weight loss", "lose weight", "\\bacne\\b", "gummy smile", "lip flip", "masseter", "neck bands", "bruxism"],
+ "before_after": ["before (and|&) after", "before/after", "\\bb ?& ?a\\b", "\\bbefore\\b.*\\bafter\\b", "swipe (to see|for) (the )?(before|after|results)"],
+ "disclaimer": ["results (may|can) vary", "individual results", "not guaranteed", "results are not guaranteed", "results vary"],
+ "superlative": ["\\bbest\\b", "\\b#1\\b", "number one", "guarantee", "\\bpermanent", "no downtime", "zero downtime", "painless", "100% safe", "risk[- ]free", "top[- ]rated"],
+ "testimonial": ["\\breview\\b", "testimonial", "5[ -]star", "five[- ]star", "\\bclient (says|said|loved)", "what our clients say"]
+}
