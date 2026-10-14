@@ -17,8 +17,8 @@
   "roster": "roster.json",
   "roster_built_at": null,
   "roster_status": "missing: the edition 001 roster of 341 accounts was not saved; the next run rebuilds it",
-  "modified_at": "2026-10-14T14:47:01+00:00",
-  "modified_at_source": "Vercel production deployment dpl_TmpmjVFjzE6zi3h2yQwhKVJziZ9b (commit a13ea2a) created time",
+  "modified_at": "2026-10-14T20:52:26+00:00",
+  "modified_at_source": "Vercel production deployment dpl_Bkdpxaeot9dyNGSJCdGrWJhP1eGD (commit c35b8d6) ready time, the last content change to /gta-medspa-index",
   "method": "edition 001: two collections, scoring code not kept. From edition 002: one collection, score.py.",
   "dataset": {
     "@context": "https://schema.org",
