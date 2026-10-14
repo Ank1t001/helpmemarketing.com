@@ -142,7 +142,7 @@ All content stays in the HTML (details are closed, not removed), so search engin
 | Navigator, interactive comparison, larger frames, toggle style | Live, persistent (head) |
 | Section order, ids, details wrappers, "What could be tested next" | Live for cycle 003 only; kit must emit from cycle 004 |
 | Carousel or per-post "why it stood out / what to test" creative cards | Not built; needs per-post baselines from the kit's data |
-| Same treatment on /hair-loss-index and /gta-medspa-index | Not done |
+| Same treatment on /hair-loss-index and /gta-medspa-index | Hair Loss done 2026-10-14 (by hand, see Design System note); GTA MedSpa not done |
 
 ## 8. Hair Loss Index (12 October 2026, founder review "HMM Hair Loss Index: UX & Content Review")
 
