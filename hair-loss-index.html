@@ -555,9 +555,9 @@ document.addEventListener("DOMContentLoaded",function(){
     return {name:a?a.textContent.trim():main(c[0]),url:a?a.href:"",post:ta?ta.href:"",note:tr.getAttribute("data-note")||"",cells:c};});
   if(!rows.length)return;
   function cell(r,h){return r.cells[col(h)];}
-  function rank(r){var m=sub(cell(r,"Score")).match(/^#(\d+)/);return m?m[1]:"–";}
+  function rank(r){var m=sub(cell(r,"Score")).match(/^#(\d+)/);return m?m[1]:"NR";}
   var box=document.createElement("div");box.className="ri-cmp";
-  box.innerHTML='<div class="ri-cmp-top"><p class="ri-cmp-h">Compare the brands</p><span class="ri-hint">Select a brand below to explore its results</span></div><div class="ri-metrics" role="group" aria-label="Comparison metric"></div><ol class="ri-bars"></ol><div class="ri-scale" aria-hidden="true"><span></span><span></span></div><p class="ri-note"></p><p class="ri-disc">The score reflects public Instagram activity. It does not measure consultations, bookings or revenue. Brands marked – have fewer than five posts and are not ranked.</p><div class="ri-detail" aria-live="polite"></div>';
+  box.innerHTML='<div class="ri-cmp-top"><p class="ri-cmp-h">Compare the brands</p><span class="ri-hint">Select a brand below to explore its results</span></div><div class="ri-metrics" role="group" aria-label="Comparison metric"></div><ol class="ri-bars"></ol><div class="ri-scale" aria-hidden="true"><span></span><span></span></div><p class="ri-note"></p><p class="ri-disc">The score reflects public Instagram activity. It does not measure consultations, bookings or revenue. Brands marked NR have fewer than five posts and are not ranked.</p><div class="ri-detail" aria-live="polite"></div>';
   var mb=box.querySelector(".ri-metrics"),ol=box.querySelector(".ri-bars"),note=box.querySelector(".ri-note"),det=box.querySelector(".ri-detail"),sc=box.querySelectorAll(".ri-scale span");
   var cur=tabs[0],sel=0;
   function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML;}
@@ -627,7 +627,7 @@ document.addEventListener("DOMContentLoaded",function(){
 <div class="wrap">
 <header><p class="kicker">The HMM Index &middot; Instagram</p><h1>The Hair Loss Index</h1><p class="lede">Compare what nine non-surgical hair loss brands in Northern Ontario and the Greater Toronto Area post on Instagram and the engagement each receives.</p>
 <div class="byline"><span><b>Last 90 days</b> ending 8 September 2026</span><span>For studio and clinic owners and marketing leads.</span><span>Research and analysis by <b><a href="/about">Ankit Kumar</a></b> &middot; Founder, <a href="/">HMM</a></span></div></header>
-<div class="livebar"><span>Last verified data <b>8 September 2026</b></span><span>Next scheduled refresh <b>8 October 2026</b>, not yet published</span></div>
+<div class="livebar"><span>Last verified data <b>8 September 2026</b></span><span>Next scheduled refresh <b>16 October 2026</b></span></div>
 <section id="ri-overview"><div class="sec-head"><h2>What stood out in the last 90 days</h2></div>
 <div class="tiles">
 <div class="tile"><div class="k">Posts analysed</div><div class="v">167</div></div>
@@ -1151,7 +1151,7 @@ document.querySelectorAll('.logtab').forEach(function(btn){
 <a href="https://www.instagram.com/helpmemarketing1/" target="_blank" rel="noopener">Instagram</a>
 <a href="https://www.linkedin.com/company/helpmemarketing/" target="_blank" rel="noopener">LinkedIn</a>
 <a href="https://www.facebook.com/helpmemarketing1" target="_blank" rel="noopener">Facebook</a></div>
-<p>Last verified data <b>8 September 2026</b> · edition <b>001</b> · Next scheduled refresh <b>8 October 2026</b>, not yet published</p>
+<p>Last verified data <b>8 September 2026</b> · edition <b>001</b> · Next scheduled refresh <b>16 October 2026</b></p>
 </div></footer></div>
 <!-- ===== HAIR LOSS INDEX REPORT BODY END ===== -->
 </div>

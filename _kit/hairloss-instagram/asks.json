@@ -1,0 +1,22 @@
+{
+ "note": "Caption patterns for the Conversion path pillar. score.py counts brand-authored posts whose caption carries a booking or enquiry ask, and a general engagement ask, then proposes a classification in work/conversion_proposed.json. The reviewed result goes in editions/NNN/conversion.json. Lower-case regular expressions.",
+ "booking": [
+  "\\bdm\\b.*\\b(book|appointment|consult|city|info)",
+  "\\bbook (now|today|your|a|an)\\b",
+  "link in bio to book",
+  "\\bcall (us|now|today)\\b",
+  "free (virtual )?consult",
+  "free (scalp|hair) (exam|assessment|analysis)",
+  "\\bschedule (your|a)\\b",
+  "\\bbook(ing)? link\\b",
+  "\\bto book\\b"
+ ],
+ "general": [
+  "\\bfollow (us|for|to)\\b",
+  "\\bcomment (below|\\w+ (for|to))",
+  "\\bshare (this|with)\\b",
+  "\\bsave (this|for)\\b",
+  "\\btag (a|someone)\\b",
+  "link in bio"
+ ]
+}

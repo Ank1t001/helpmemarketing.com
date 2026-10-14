@@ -1,12 +1,12 @@
 # Hair Loss Index: editorial and layout rules (14 October 2026)
 
-There is no build kit for this index yet. `/hair-loss-index` edition 001, as revised on 14 October 2026, is the approved body; edition 002 keeps its structure and wording and updates figures from the new collection. The Real Estate kit (`_kit/realestate-instagram`) is the model for building one: tokenised `report_body.html`, `site_shell.html`, a `build_v2.py` that validates these rules, and a snapshot per edition.
+The build kit is this folder (README.md); `report_body.html` is the live, approved body. Edition 002 keeps its structure and wording and updates figures from the new collection; `build.py` validates the rules below. The monthly routine (`ROUTINE_PROMPT.md`) runs on the 16th.
 
 ## Structure (in this order)
 1. Header: kicker "The HMM Index · Instagram"; H1 "The Hair Loss Index"; lede; byline "Last 90 days ending {date}" · "For studio and clinic owners and marketing leads." · "Research and analysis by Ankit Kumar (link /about) · Founder, HMM (link /)". Date bar: "Last verified data" and "Next scheduled refresh" in long dates, ", not yet published" when overdue; no cycle number.
 2. `#ri-overview` "What stood out in the last 90 days": three tiles, a "Brands included" line, one card with three titled findings that name the brands, the italic sample caveat.
 3. Metrics note: "Tap or hover over underlined metrics for a definition. Open the linked posts to see the evidence."
-4. `#ri-rankings` "The scoreboard": intro, "Which brand leads this edition?", the comparison card (head script), "View all metrics", "How the rankings work". Ranked brands first ("#N of M ranked"), then brands with fewer than five posts ("Not ranked"). Every row carries a `data-note`.
+4. `#ri-rankings` "The scoreboard": intro, "Which brand leads this edition?", the comparison card (head script), "View all metrics", "How the rankings work". Ranked brands first ("#N of M ranked"), then brands with fewer than five posts ("Not ranked", shown as NR in the comparison card). Every row carries a `data-note`.
 5. `#ri-journey` "From Instagram attention to a consultation": three tiles, then Stage 1, 2 and 3 in expanders. Stage 3 inspects the public path to booking; it never claims booking performance.
 6. `#ri-creative` "The top post from each brand": cards ordered by likes, "Top post" badge, likes and times the brand's median likes, one observation, "View post"; frame reads under "Read the analysis".
 7. "How to read the numbers": plays per follower (grey `bandbar neutral`), comments per post, comment to like ratio; reads under "Read this edition against the benchmarks".

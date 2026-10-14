@@ -1,0 +1,102 @@
+{
+ "note": "Caption keyword coding, first match wins in this order, one theme per post. Edition 001 was coded by hand and its lists were not saved; these lists follow its eight themes. Review work/theme_review.json and put corrections in editions/NNN/theme_overrides.json {shortcode: theme}. Lower-case regular expressions.",
+ "order": [
+  "Pop-up and tour announcement",
+  "Launch teaser",
+  "Promo, sale and hiring",
+  "Team and credentials",
+  "Client story and testimonial",
+  "Result reveal",
+  "Scalp and hair education",
+  "Skin and body, not hair"
+ ],
+ "fallback": "Other",
+ "patterns": {
+  "Pop-up and tour announcement": [
+   "pop-?up",
+   "\\btour\\b",
+   "\\bcoming to\\b",
+   "dm (the|your) city",
+   "\\bwe.?re (coming|in|back in)\\b"
+  ],
+  "Launch teaser": [
+   "coming soon",
+   "countdown",
+   "\\bdays? (to go|left|until)\\b",
+   "something (big|new) is coming",
+   "\\blaunch(ing)?\\b",
+   "stay tuned"
+  ],
+  "Promo, sale and hiring": [
+   "\\bsale\\b",
+   "% off",
+   "\\$\\d",
+   "\\bpromo",
+   "\\bdiscount",
+   "\\bhiring\\b",
+   "\\bjoin our team\\b",
+   "\\bcourse\\b",
+   "\\bgiveaway",
+   "limited time"
+  ],
+  "Team and credentials": [
+   "\\bmeet\\b",
+   "\\bour team\\b",
+   "\\bconference\\b",
+   "certif",
+   "trichologist",
+   "\\bspecialist",
+   "\\bcongress\\b",
+   "\\btraining\\b",
+   "\\bfounder\\b",
+   "award"
+  ],
+  "Client story and testimonial": [
+   "\\breview\\b",
+   "testimonial",
+   "\\bclient (story|says|said|shares)",
+   "5[ -]star",
+   "\\bthank you\\b.*\\bfor trusting",
+   "\\bher story\\b",
+   "\\bhis story\\b",
+   "\\bjourney\\b"
+  ],
+  "Result reveal": [
+   "before (and|&) after",
+   "before/after",
+   "\\bresults?\\b",
+   "transformation",
+   "\\breveal",
+   "\\bsession \\d",
+   "scar camouflage",
+   "\\bsmp\\b",
+   "\\bhealed\\b"
+  ],
+  "Scalp and hair education": [
+   "\\bfollic",
+   "\\bdht\\b",
+   "\\bshedding\\b",
+   "ludwig",
+   "alopecia",
+   "\\bscalp\\b",
+   "\\bthinning\\b",
+   "\\bmyth",
+   "did you know",
+   "\\bwhy\\b",
+   "\\bhow (to|does|long)\\b",
+   "\\bpostpartum\\b"
+  ],
+  "Skin and body, not hair": [
+   "botox",
+   "emsculpt",
+   "\\bspf\\b",
+   "\\bfiller",
+   "\\bfacial\\b",
+   "\\blaser\\b",
+   "\\bskin\\b",
+   "\\bbody contour",
+   "microneedling",
+   "\\bpeel\\b"
+  ]
+ }
+}

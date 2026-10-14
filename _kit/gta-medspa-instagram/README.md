@@ -3,6 +3,7 @@
 Canonical URL: https://helpmemarketing.com/gta-medspa-index
 Schedule: the 15th of each month, 09:15 America/Toronto (first run 15 October 2026), scheduled task "HMM - GTA MedSpa Index (Monthly)". Its stored prompt is versioned in `ROUTINE_PROMPT.md`; update both together.
 Window: the 90 days ending the collection date, refreshed monthly (editions overlap by design).
+Data store: Google Sheet "HMM GTA MedSpa Index data" (`1_Qi7e54I4WG9M7Uie8lzrBwtbOreykvtqn0qku59QG8`: Editions, Roster, and per edition "ENNN scoreboard", "ENNN ranking" and "ENNN post log") and the Drive folder "GTA MedSpa Index" (`15xJ1lYPJM4W-8O2b9gXU-I_V2lvZfAjt`, inside "HMM Indexes") for each edition's post log CSV.
 
 ## Files
 - `report_body.html`: the live, approved body with `{{TOKENS}}` (dates, edition, scoreboard rows, log tabs, post log, gated CSV). Editorial text is edited in place each edition.
@@ -13,6 +14,7 @@ Window: the 90 days ending the collection date, refreshed monthly (editions over
 - `score.py`: scores one collection (`work/posts.jsonl`, `work/profiles.json`) into `editions/NNN/metrics.json` and lists caption matches for review.
 - `render.py`: scoreboard rows, post log, log tabs and CSV into `editions/NNN/blocks.json`, using `editions/NNN/notes.json` (one data-note per top-25 clinic).
 - `build.py`: assembles `output/gta-medspa-index.html` and `output/edition-NNN.html` and validates them; `--check-live` also requires the page to equal the repo page byte for byte.
+- `export_sheet.py`: writes the edition's Sheet rows as tab-separated files in `work/sheet/` (top 25, the full ranking, post log in parts of 300 rows, the Editions row, the roster) for the routine to paste; `--postlog-only` backfills the edition 001 post log.
 - `editions/001/blocks.json`: the edition 001 generated blocks, extracted from the live page so the prior-edition check can run.
 - `work/`, `output/`: run files, never committed.
 
