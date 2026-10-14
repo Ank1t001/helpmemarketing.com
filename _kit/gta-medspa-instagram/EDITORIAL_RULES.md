@@ -20,6 +20,8 @@ Exact scoreboard headings (the head script reads them): #, Clinic, Area, Score, 
 - Comments are a public signal, never bookings. Regulatory text describes captions that match a pattern; it never says a clinic broke a rule.
 - No dashes for missing values: "no video" or a blank cell. No em or en dashes anywhere.
 - Name exceptions on the same board; when two collections disagree, say so beside the figure.
+- When eligibility or collections are disputed, label every rank provisional wherever it appears (tiles, scoreboard, comparison card note, creative heading, tiers, summaries, FAQ) and show the recorded score, unconfirmed eligibility and unresolved differences separately. A re-collection that agrees with the scoreboard never confirms a rank.
+- A format comparison names its sample, collection and eligible post counts, says how hidden likes were handled, and says it is an observed comparison, not evidence that changing format causes better results.
 - Never "leads", "leading clinics", "best" or "proven" for a clinic; "Leading" survives only as the top-10% tier name. Keep visibility, engagement, enquiries, booked consultations, attended consultations, treatment purchases and revenue distinct; this research measures only the first two.
 - The download section's review link carries `entry=research_gta_medspa` and `data-review-cta="research_gta_medspa"`.
 

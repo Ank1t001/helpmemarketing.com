@@ -6009,3 +6009,11 @@ body.redesign-prototype .mr-note a, body.redesign-prototype #research .section-d
   body.redesign-prototype .mr-steps td::before { content: attr(data-label); display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
   body.redesign-prototype .mr-table th, body.redesign-prototype .mr-table td { padding-left: 16px; padding-right: 16px; }
 }
+body.redesign-prototype .mr-dates { margin: 12px 0 0; font-size: 13px; color: var(--text-muted); }
+/* HMM Index hub dates (2026-10-14): refresh plan, latest published data, next scheduled collection (computed from the schedule rule in the page script). */
+body.redesign-prototype .ix-dates { margin: 16px 0 0; display: grid; gap: 8px; }
+body.redesign-prototype .ix-dates div { display: grid; grid-template-columns: 11em 1fr; gap: 8px; font-size: 14px; line-height: 1.45; }
+body.redesign-prototype .ix-dates dt { color: var(--text-tertiary); }
+body.redesign-prototype .ix-dates dd { margin: 0; color: var(--text-body); }
+body.redesign-prototype .ix-note { margin: 24px 0 0; max-width: 760px; font-size: 15px; line-height: 1.6; color: var(--text-body); }
+@media (max-width: 720px) { body.redesign-prototype .ix-dates div { grid-template-columns: 1fr; gap: 2px; } }
