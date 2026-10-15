@@ -21,3 +21,5 @@ The Real Estate routine (`_kit/realestate-instagram/ROUTINE_PROMPT.md`) works be
 
 ## Update 2026-10-15
 Edition 002 became a fixed 50-account observational study (`cohort_50.json`). The 596-account collection plan (`editions/002/batch_plan.json`) is superseded and must not continue. See `ROUTINE_PROMPT_50.md` and `editions/002/scope_decision.json`.
+
+URL and name (2026-10-15): the study is named Med Spa Index and lives at /medspa-index; /gta-medspa-index is a permanent redirect. Snapshots of editions 001 and 002 keep their /gta-medspa-index/edition-00N URLs; later snapshots use /medspa-index/edition-NNN.

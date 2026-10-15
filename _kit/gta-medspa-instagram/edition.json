@@ -7,7 +7,7 @@
   "2026-10-15"
  ],
  "window_days": 90,
- "status": "published",
+ "status": "release_candidate",
  "schedule": {
   "day": 15,
   "time": "09:15",
@@ -17,15 +17,15 @@
  "roster": "cohort_50.json",
  "roster_built_at": "2026-10-15",
  "roster_status": "fixed 50-account cohort (cohort_50.json); roster.json (600) and roster_eligible.json (872) are background research, not collected further",
- "modified_at": "2026-10-15T18:17:06.985000+00:00",
- "modified_at_source": "Vercel production deployment dpl_BrNnsxcKRUJnbXhF5tHZxRDUGDJ2 (commit 5733dbf) ready time",
+ "modified_at": null,
+ "modified_at_source": null,
  "method": "edition 001: two collections, scoring code not kept. Edition 002: one collection of a fixed 50-account cohort, observed-data description only, built by build_50.py; score.py and build.py do not apply.",
  "dataset": {
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "GTA medspa Instagram activity, 50-account sample, 90 days to October 2026",
   "description": "Public Instagram posts, recorded reel plays, likes and comments for a region-proportional random sample of 50 medical spa accounts in Toronto, Peel, York, Durham and Halton; 36 had posts observed between 17 July and 15 October 2026. It does not include enquiries, consultations or revenue and is not a census of GTA clinics.",
-  "url": "https://helpmemarketing.com/gta-medspa-index",
+  "url": "https://helpmemarketing.com/medspa-index",
   "license": "https://helpmemarketing.com/terms",
   "creator": {
    "@type": "Organization",
@@ -69,5 +69,22 @@
  "run_cap_guard": {
   "aggregate_cap_usd": 5.0,
   "applies_to": "sum of maxTotalChargeUsd across the post-collection runs of one edition; profile checks are capped separately (0.5)"
- }
+ },
+ "page": {
+  "name": "Med Spa Index",
+  "primary_url": "/medspa-index",
+  "redirect_from": "/gta-medspa-index (permanent)",
+  "snapshots": {
+   "001": "/gta-medspa-index/edition-001",
+   "002": "/gta-medspa-index/edition-002",
+   "later": "/medspa-index/edition-NNN"
+  }
+ },
+ "modified_history": [
+  {
+   "modified_at": "2026-10-15T18:17:06.985000+00:00",
+   "source": "Vercel production deployment dpl_BrNnsxcKRUJnbXhF5tHZxRDUGDJ2 (commit 5733dbf) ready time",
+   "note": "edition 002 as first published at /gta-medspa-index"
+  }
+ ]
 }

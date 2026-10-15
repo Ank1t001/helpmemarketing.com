@@ -293,9 +293,10 @@ class Draft50(unittest.TestCase):
 class ReleaseFiles(unittest.TestCase):
     def test_live_page_snapshot_and_links(self):
         root = KIT.parent.parent
-        live = (root / "gta-medspa-index.html").read_text()
+        live = (root / "medspa-index.html").read_text()
+        self.assertFalse((root / "gta-medspa-index.html").exists())  # the old page file is gone; the redirect serves the old URL
         snap = (root / "gta-medspa-index/edition-002.html").read_text()
-        for h, canon, robots in ((live, "https://helpmemarketing.com/gta-medspa-index", "index, follow"),
+        for h, canon, robots in ((live, "https://helpmemarketing.com/medspa-index", "index, follow"),
                                  (snap, "https://helpmemarketing.com/gta-medspa-index/edition-002", "noindex, follow")):
             self.assertNotRegex(h, "[\\u2014\\u2013]")
             self.assertEqual(h.count('name="robots"'), 1)
@@ -310,12 +311,15 @@ class ReleaseFiles(unittest.TestCase):
                 if j.get("@type") == "Article":  # recorded from the production deployment at publication, never guessed
                     want = json.loads((KIT / "edition.json").read_text()).get("modified_at")
                     self.assertEqual(j.get("dateModified"), want)
-            self.assertIn("benchmark-50-og.jpg", h)
-        for f in ("benchmark-50-og.jpg", "benchmark-50-hero.webp", "benchmark-50-hero-704.webp"):
+            self.assertIn("medspa-index-og.jpg" if h is live else "benchmark-50-og.jpg", h)  # the published snapshot keeps its own artwork
+        for f in ("medspa-index-og.jpg", "medspa-index-hero.webp", "medspa-index-hero-704.webp", "benchmark-50-og.jpg", "benchmark-50-hero.webp"):
             self.assertTrue((root / "assets/index/gta-medspa" / f).exists(), f)
         sm = (root / "sitemap.xml").read_text()
-        self.assertIn("/gta-medspa-index</loc>", sm)
-        self.assertNotIn("edition-002", sm)
+        self.assertIn("/medspa-index</loc>", sm)
+        self.assertNotIn("/gta-medspa-index", sm)
+        self.assertNotIn("edition-00", sm)
+        self.assertIn("<h1>Med Spa Index</h1>", live)
+        self.assertIn("<title>Med Spa Index | HelpMeMarketing</title>", live)
         self.assertTrue((root / "gta-medspa-index/edition-001.html").exists())
         ed = json.loads((KIT / "edition.json").read_text())
         self.assertEqual((ed["edition"], ed["scoring"]), ("002", "not applicable"))
@@ -327,7 +331,7 @@ class BuildGuards(unittest.TestCase):
     def setUp(self):
         self.t = Path(tempfile.mkdtemp())
         root = KIT.parent.parent
-        for rel in ("_kit/gta-medspa-instagram", "gta-medspa-index", "gta-medspa-index.html", "medspa-marketing-research.html"):
+        for rel in ("_kit/gta-medspa-instagram", "gta-medspa-index", "medspa-index.html", "medspa-marketing-research.html"):
             src, dst = root / rel, self.t / rel
             dst.parent.mkdir(parents=True, exist_ok=True)
             if src.is_dir():
@@ -353,7 +357,7 @@ class BuildGuards(unittest.TestCase):
         extra = ["--modified-at", ed["modified_at"], "--modified-source", ed["modified_at_source"]] if ed.get("modified_at") else []
         p = self.build("--edition", "002", *extra)
         self.assertEqual(p.returncode, 0, p.stderr)
-        for rel in ("gta-medspa-index.html", "gta-medspa-index/edition-002.html"):
+        for rel in ("medspa-index.html", "gta-medspa-index/edition-002.html"):  # the published snapshot is kept, never rewritten
             self.assertEqual((self.t / rel).read_text(), (KIT.parent.parent / rel).read_text(), rel)
 
     def test_stale_values_are_refused(self):
@@ -383,11 +387,11 @@ class BuildGuards(unittest.TestCase):
         self.assertNotEqual(self.build("--modified-at", "2026-10-14T14:30:00+00:00", "--modified-source", "x").returncode, 0)  # before collection
         p = self.build("--modified-at", iso, "--modified-source", "deployment dpl_x (commit abc)")
         self.assertEqual(p.returncode, 0, p.stderr)
-        for rel in ("gta-medspa-index.html", "gta-medspa-index/edition-002.html"):
-            h = (self.t / rel).read_text()
-            self.assertIn('"dateModified":"' + iso + '"', h)
-            self.assertIn("<span>Updated <b>16 October 2026</b></span>", h)
-            self.assertIn("<b>15 October 2026</b>", h)  # the collection date stays separate
+        h = (self.t / "medspa-index.html").read_text()
+        self.assertIn('"dateModified":"' + iso + '"', h)
+        self.assertIn("<span>Updated <b>16 October 2026</b></span>", h)
+        self.assertIn("<b>15 October 2026</b>", h)  # the collection date stays separate
+        self.assertNotIn("Updated <b>16 October", (self.t / "gta-medspa-index/edition-002.html").read_text())  # snapshot untouched
         hub = (self.t / "medspa-marketing-research.html").read_text()
         self.assertIn('"dateModified":"' + iso + '"', hub)
         self.assertIn("Published 14 October 2026 &middot; Updated 16 October 2026", hub)
@@ -395,6 +399,25 @@ class BuildGuards(unittest.TestCase):
         ed = json.loads((self.k / "edition.json").read_text())
         self.assertEqual(ed["modified_at"], iso)
         self.assertNotEqual(json.loads((KIT / "edition.json").read_text()).get("modified_at"), iso)  # real file untouched
+
+
+class UrlMigration(unittest.TestCase):
+    def test_redirect_is_exact_and_links_follow(self):
+        root = KIT.parent.parent
+        v = json.loads((root / "vercel.json").read_text())
+        old = [r for r in v["redirects"] if "gta-medspa" in r["source"]]
+        self.assertEqual(old, [{"source": "/gta-medspa-index", "destination": "/medspa-index", "permanent": True}])  # exact path only
+        self.assertFalse([r for r in v["redirects"] + v["rewrites"] if r["source"].startswith("/(") and "gta-medspa" in r.get("destination", "")])
+        self.assertTrue((root / "gta-medspa-index/edition-001.html").exists() and (root / "gta-medspa-index/edition-002.html").exists())
+        for rel in ("medspa-marketing-research.html", "hmm-index.html", "work.html", "ai-tools.html", "medspa-index.html"):
+            h = (root / rel).read_text()
+            bad = [u for u in re.findall(r'href="(/gta-medspa-index[^"]*)"', h) if not re.match(r"/gta-medspa-index/edition-00[12]$", u)]
+            self.assertEqual(bad, [], rel)  # only the preserved snapshot URLs may keep the old path
+        hub = (root / "medspa-marketing-research.html").read_text()
+        self.assertIn('href="/medspa-index"', hub)
+        self.assertIn("/gta-medspa-index/edition-001", hub)
+        self.assertIn("research_gta_medspa", (root / "medspa-index.html").read_text())  # entry value and review CTA id keep their names
+        self.assertIn("research_(hub|gta_medspa", (root / "contact.html").read_text())  # contact.html allowlist regex
 
 
 if __name__ == "__main__":

@@ -5,7 +5,7 @@ The edition number, observation window and input files come from edition.json, n
 Stale-value guards (see validate below) stop a build whose edition, window, cohort, counts, run ledger or inputs
 do not agree. Reads the cohort (cohort_50.json), the edition's accounts state and post records, and
 reconciles the counts (fails if they differ from the saved evidence), computes observed-data descriptive figures with
-metric-specific denominators, and writes editions/002/draft/gta-medspa-index-50-draft.html using the live page shell
+metric-specific denominators, and writes editions/002/draft/medspa-index-draft.html using the live page shell
 (head, nav, footer chrome) with a new body. No ranking, score or leaderboard: coverage comparability is not established.
 """
 import argparse, gzip, html, json, re, statistics as st
@@ -30,6 +30,8 @@ def long_date(iso, year=True):
     return f"{d.day} {_MONTHS[d.month - 1]}" + (f" {d.year}" if year else "")
 
 
+PAGE_PATH = "/medspa-index"  # primary URL since 2026-10-15; /gta-medspa-index 301-redirects here
+SNAP_PATH = f"/gta-medspa-index/edition-{ENO}" if ENO == "002" else f"{PAGE_PATH}/edition-{ENO}"  # edition 001 and 002 snapshots keep their original URLs
 CDATE = long_date(CFG["scraped_at"])
 WSTART, WEND = long_date(W0, False), long_date(W1)
 WTXT = f"{WSTART} to {WEND}"
@@ -190,9 +192,9 @@ resv = sum(v for k, v in orig.items() if k != "original_sample")
 multi_n = sum(reg_cls["Multi-region"].values())
 
 
-COMPARE_DEFAULT = f'''<section id="ri-compare"><div class="sec-head"><h2>Why this edition is not compared with edition 001</h2></div>
+COMPARE_DEFAULT = f'''<section id="ri-compare"><h3>Why this edition is not compared with edition 001</h3>
 <div class="note"><p class="m0"><a href="/gta-medspa-index/edition-001">Edition 001</a> (10 September 2026) covered 341 accounts with a public profile, 176 of them ranked, from two collections whose full roster was not kept. Edition {ENO} uses a different, smaller and differently drawn set of accounts. Any difference between the two editions reflects who was included and how posts were collected, not a change in clinic performance, so I show no movement between them. Edition 001 is unchanged at its own address, with its corrections.</p></div></section>'''
-HISTORY_DEFAULT = f'''<tr><td><b>{ENO}</b> (this page)</td><td class="wrap-cell">Observation window {WTXT}; data collected {CDATE}. <a href="/gta-medspa-index/edition-{ENO}">Snapshot</a></td><td class="wrap-cell">A selected 50-account sample with coverage groups and no ranking. The edition 001 roster was not kept, so the two editions are not compared.</td></tr>
+HISTORY_DEFAULT = f'''<tr><td><b>{ENO}</b> (this page)</td><td class="wrap-cell">Observation window {WTXT}; data collected {CDATE}. <a href="{SNAP_PATH}">Snapshot</a></td><td class="wrap-cell">A selected 50-account sample with coverage groups and no ranking. The edition 001 roster was not kept, so the two editions are not compared.</td></tr>
 <tr><td><b>001</b></td><td class="wrap-cell">Data collected 10 September 2026 and re-collected for the top 25 on 11 September 2026. <a href="/gta-medspa-index/edition-001">Snapshot</a></td><td class="wrap-cell">First edition: 176 ranked clinics of 341 with a public account. Revised 14 October 2026 for wording, layout and corrections, which stay recorded in the snapshot.</td></tr>'''
 if ENO == "002":
     COMPARE, HISTORY_ROWS = COMPARE_DEFAULT, HISTORY_DEFAULT
@@ -205,10 +207,13 @@ def body(draft):
     banner = ('<div class="note warn"><span class="lbl">Draft for review, not published</span>\n'
               '<p class="m0">This is a local draft built from saved records. It has not been through the publication review.</p></div>\n') if draft else ""
     return f'''<div class="wrap">
-<header><p class="kicker">The GTA MedSpa Index &middot; The HMM Index</p><h1>50-account GTA medspa Instagram benchmark</h1><p class="lede">I looked at the Instagram video activity of 50 medspa accounts in the Greater Toronto Area over the 90 days from {WTXT}. The 50 are a region-proportional random sample of accounts I found through Google Maps searches, so this is a benchmark of a sample: not every GTA clinic, and not a ranking of clinics.</p>
+<header><p class="kicker">The HMM Index &middot; Instagram</p><h1>Med Spa Index</h1><p class="lede">Instagram video activity at 50 selected med spas in the Greater Toronto Area (Toronto, Peel, York, Durham and Halton), observed over the 90 days from {WTXT}.</p>
 <div class="byline"><span><b>Observation window</b> {WTXT}</span><span>For clinic owners and marketing leads.</span><span>Research and analysis by <b><a href="/about">Ankit Kumar</a></b> &middot; Founder, <a href="/">HMM</a></span></div>
 <div class="livebar"><span>Data collected <b>{CDATE}</b></span><span>Edition <b>{ENO}</b></span>{UPDATED}</div></header>
-{banner}<section id="ri-overview"><div class="sec-head"><h2>What this edition covers</h2></div>
+{banner}<section id="ri-why"><div class="sec-head"><h2>What I investigated and why it matters</h2></div>
+<p class="dek">I wanted to describe how med spas in the Greater Toronto Area use Instagram video: whether they posted, what they posted and what the public play and comment counts record. I looked at 50 accounts in Toronto, Peel, York, Durham and Halton, drawn at random, in proportion to region, from med spas I found through Google Maps searches, over the 90 days from {WTXT}. This is a benchmark of a sample: not every GTA clinic, and not a ranking of clinics.</p>
+<p class="dek">It matters to clinic owners because Instagram video is one place to spend limited marketing time, and a measured description of local activity can serve as a reference point when you look at your own record. The figures do not show enquiries, bookings or revenue, and they do not show what works. How the accounts were chosen, how completely they could be observed and where the study stops are set out in the last section.</p></section>
+<section id="ri-overview"><div class="sec-head"><h2>What I observed</h2></div>
 <div class="tiles">
 <div class="tile"><div class="k">Accounts selected</div><div class="v">50</div></div>
 <div class="tile"><div class="k">With posts observed in the window</div><div class="v">{cls["B"]}</div></div>
@@ -226,7 +231,7 @@ def body(draft):
 <h3>Recorded plays per reel were spread across a wide range</h3>
 <p class="dek">{len(eligible3)} of the {cls["B"]} accounts had three or more own reels with recorded plays. Their recorded plays per reel had a median of {fmt_num(stats["median_of_account_median_plays"])} when each account&rsquo;s median is taken first (lowest account median {fmt_num(stats["range_account_median_plays"][0])}, highest {fmt_num(stats["range_account_median_plays"][1])}), and {fmt_num(stats["pooled_median_plays"])} across all {n_all3} of those reels pooled. Those {n_all3} reels drew {stats["pooled_comments_per_1000_plays"]} public comments per 1,000 recorded plays in total. <b>Denominator:</b> {len(eligible3)} accounts and {n_all3} own reels, out of {len(own_reels)} own reels on the {cls["B"]} accounts. Pooled figures weigh accounts with more reels more heavily. They describe this sample and imply no cause and no ordering of accounts.</p>
 <p class="pnote m0"><em>These findings describe this sample, not bookings, patients, revenue or cause and effect. Likes were hidden on {likes_hidden} of the {tot_brand} own posts, so no like-based comparison is made.</em></p></div></section>
-<section id="ri-coverage"><div class="sec-head"><h2>Which accounts could be analysed</h2>
+<section id="ri-coverage"><div class="sec-head"><h2>Supporting figures: which accounts could be analysed</h2>
 <p class="dek">Each account is placed in one group, and the groups are never merged. A restricted or unconfirmed account is not an inactive one.</p></div>
 <div class="tw"><table><thead><tr><th>Area</th><th class="r">Selected</th><th class="r">Posts observed</th><th class="r">No recent posts</th><th class="r">Restricted</th><th class="r">Unconfirmed</th></tr></thead><tbody>
 {reg_trs}
@@ -236,8 +241,20 @@ def body(draft):
 <div class="card"><h4>No recent posts ({cls["A"]})</h4><p class="dek m0">The profile could be read and its newest posts, or its post count of zero, show nothing since {WSTART}. This rests on the latest posts a profile page shows (up to 12), so it is evidence of no recent posts, not a count of zero from a full feed.</p></div>
 <div class="card"><h4>Restricted ({cls["C"]})</h4><p class="dek m0">Instagram restricts the profile (an age gate), so the public tools could not read its posts. Selected, shown, not analysed, not counted as inactive.</p></div>
 <div class="card"><h4>Unconfirmed ({cls["E"]})</h4><p class="dek m0">The profile was reachable but showed no post count or latest posts, and the post collection returned nothing. Whether it posted is not established.</p></div>
-</div></section>
-<section id="ri-frame"><div class="sec-head"><h2>How the 50 accounts were chosen</h2></div>
+</div>
+<section><details class="ri-adv"><summary>The 50 accounts</summary>
+<p class="pnote">Listed by area and then name, not by any result. Observed posts are all collected feed posts in the window (collaboration posts included); observed own reels are reels the account published itself.</p>
+{acct_table}
+</details></section>
+</section>
+<section id="ri-interpretation"><div class="sec-head"><h2>What this could mean for a clinic</h2></div>
+<div class="note mt0"><span class="lbl">Interpretation, not a measured finding</span>
+<p>The figures above describe 50 selected accounts. They can serve as a rough reference point for your own account: for example, how many posts appeared on a feed in the window (the median was {fmt_num(stats["observed_posts_per_account"]["median"])} among the {cls["B"]} accounts that posted) and how recorded reel plays were spread. They do not show that posting more, or using more reels, leads to more plays, enquiries or bookings, and the accounts in the sample are not a ranking or a standard to match. Accounts that are restricted, unconfirmed or showed no recent posts are shown separately and say nothing about how those clinics perform.</p></div></section>
+<section id="ri-help"><div class="sec-head"><h2>If you want your own account read this way</h2></div>
+<div class="card"><p class="dek m0">This benchmark does not tell you how your clinic compares. If you would like your own Instagram video activity read against the same measures, <a href="/contact?intent=review&amp;entry=research_gta_medspa#contact-form" data-review-cta="research_gta_medspa">ask for a free marketing review</a>.</p></div></section>
+<section id="ri-method"><div class="sec-head"><h2>Selection method, coverage and limitations</h2>
+<p class="dek">The study covers med spas in Toronto, Peel, York, Durham and Halton, observed from {WTXT}. Fifty accounts were selected as follows.</p></div>
+<section id="ri-frame"><h3>How the 50 accounts were chosen</h3>
 <ol>
 <li>Google Maps searches for medical spas across Toronto, Peel, York, Durham and Halton (60 searches, each capped at 60 places) returned 2,842 unique business listings.</li>
 <li>Listings that were not aesthetics clinics, or were outside the five regions, were removed. Listings with an official Instagram link on the clinic&rsquo;s website or Google listing were grouped by account, so a shared account counts once. That left 872 eligible accounts.</li>
@@ -247,8 +264,16 @@ def body(draft):
 <p><b>Not every selected account passed a public-access test.</b> The profile check that decided who stayed in the pool treated Instagram&rsquo;s &ldquo;Restricted profile&rdquo; status as public. Twelve restricted accounts therefore stayed in the pool of 596, and one of them was drawn into the 50. It is kept in the sample, shown as restricted and left out of every calculation. I have not replaced it.</p>
 <p><b>Accounts needed a public profile at selection time and an official link.</b> Clinics with no Instagram link on their listing (647 listings) or an unverified link (49) are outside the frame. {resv} of the 50 are reserve substitutes, drawn in a fixed order from the same region, for original draws whose profile was not found or was private; four such places in the larger pool were left unfilled.</p>
 <p class="m0"><b>So the 50 are a sample of a sample.</b> Google Maps discovery from capped searches does not find every GTA clinic. The results describe these accounts, not the market.</p></div></section>
+<section id="ri-limits"><h3>Limitations in brief</h3>
+<ul>
+<li>The 50 are a sample of a sample: Google Maps discovery from capped searches does not find every GTA clinic.</li>
+<li>Posts are observed, not counted from a verified full feed: the collection tool filtered by date, so complete paging of every window cannot be shown.</li>
+<li>&ldquo;No recent posts&rdquo; rests on the latest posts a profile page shows, not on a full feed.</li>
+<li>Restricted and unconfirmed accounts are shown as such and are not analysed or counted as inactive.</li>
+<li>Comments are a public signal, never bookings, and recorded plays are not reach.</li>
+<li>There is no ranking or score, and this edition is not compared with edition 001.</li></ul></section>
 {COMPARE}
-<section id="ri-advanced"><div class="sec-head"><h2>Research and methodology</h2></div>
+<section id="ri-advanced"><h3>Methodology, citation and edition history</h3>
 <section><details class="ri-adv"><summary>How the figures are defined</summary>
 <ul>
 <li><b>Posts observed on the feed ({n(len(inw))}).</b> Every post returned for the 50 accounts and dated inside the window, {WTXT}, both days included. It is the {tot_brand} posts the accounts published plus {len(collab)} collaboration posts.</li>
@@ -262,28 +287,23 @@ def body(draft):
 <p>Posts were collected on {CDATE} from each account&rsquo;s public Instagram feed with the Apify Instagram scraper, in five runs of ten accounts, with a limit of 200 posts per account and a start date of {WSTART_LONG}. The tool returned {n(len(rows))} posts for the 50 accounts. {len(outw)} were older pinned posts dated before the window and are excluded; {n(len(inw))} fall inside the window. No account reached the 200-post limit (the highest had {counts[-1]}), and no run reached its spending cap.</p>
 <p><b>What the records cannot prove.</b> The date filter drops older posts before they can be inspected, so I cannot show that every account&rsquo;s window was paged to its start. Restricted-page errors came back for some runs without an account name, so a partial restriction cannot be ruled out for any account. These counts are observed posts, not a census of everything published.</p>
 <p><b>Reconciliation.</b> 50 selected = {cls["B"]} with observed posts + {cls["A"]} with profile evidence of no recent posts + {cls["C"]} restricted + {cls["E"]} unconfirmed. {n(len(rows))} posts returned = {n(len(inw))} in the window + {len(outw)} outside it. Every post belongs to a selected account.</p></details></section>
-<section><details class="ri-adv"><summary>The 50 accounts</summary>
-<p class="pnote">Listed by area and then name, not by any result. Observed posts are all collected feed posts in the window (collaboration posts included); observed own reels are reels the account published itself.</p>
-{acct_table}
-</details></section>
 <div class="grid2">
 <div class="card"><h4>About the researcher</h4>
 <p class="dek">Ankit Kumar is the founder of Help Me Marketing. His work covers performance marketing, conversion tracking and competitive research. Through The HMM Index, he analyses marketing activity and explains the patterns, limitations and practical questions behind the numbers.</p>
 <p class="dek m0"><a href="/about">About Ankit</a> &middot; <a href="/work">Explore HMM&rsquo;s work</a></p></div>
 <div class="card" id="ri-cite"><h4>Cite this research</h4>
-<p class="dek">Ankit Kumar, Help Me Marketing. <i>50-account GTA medspa Instagram benchmark</i> (The GTA MedSpa Index). Edition {ENO}. Data collected {CDATE}. <a href="https://helpmemarketing.com/gta-medspa-index">https://helpmemarketing.com/gta-medspa-index</a></p>
-<p class="dek m0">For a fixed version, cite the <a href="/gta-medspa-index/edition-{ENO}">edition {ENO} snapshot</a>. The earlier edition is at its <a href="/gta-medspa-index/edition-001">edition 001 snapshot</a>. <a href="#ri-editions">Edition history</a></p></div></div>
+<p class="dek">Ankit Kumar, Help Me Marketing. <i>Med Spa Index</i> (The HMM Index). Edition {ENO}. Data collected {CDATE}. <a href="https://helpmemarketing.com{PAGE_PATH}">https://helpmemarketing.com{PAGE_PATH}</a></p>
+<p class="dek m0">For a fixed version, cite the <a href="{SNAP_PATH}">edition {ENO} snapshot</a>. The earlier edition is at its <a href="/gta-medspa-index/edition-001">edition 001 snapshot</a>. <a href="#ri-editions">Edition history</a></p></div></div>
 <section id="ri-editions"><details class="ri-adv"><summary>Edition history</summary>
 <div class="tw"><table><thead><tr><th>Edition</th><th>Dates</th><th>What changed</th></tr></thead><tbody>
 {HISTORY_ROWS}
 </tbody></table></div>
 <p class="pnote">This address always shows the latest edition. Snapshots keep each edition at a fixed address.</p></details></section></section>
-<section id="ri-help"><div class="sec-head"><h2>If you want your own account read this way</h2></div>
-<div class="card"><p class="dek m0">This benchmark does not tell you how your clinic compares. If you would like your own Instagram video activity read against the same measures, <a href="/contact?intent=review&amp;entry=research_gta_medspa#contact-form" data-review-cta="research_gta_medspa">ask for a free marketing review</a>.</p></div></section>
+</section>
 <footer>
-<div class="about"><p><b>About this index.</b> The GTA MedSpa Index is part of <b>The HMM Index</b> by Help Me Marketing. Edition {ENO} reports public Instagram activity from a 50-account sample of medical spas in Toronto, Peel, York, Durham and Halton, with its sampling frame and limits on this page.</p></div>
+<div class="about"><p><b>About this index.</b> The Med Spa Index is part of <b>The HMM Index</b> by Help Me Marketing. Edition {ENO} reports public Instagram activity from a 50-account sample of med spas in the Greater Toronto Area (Toronto, Peel, York, Durham and Halton), with its sampling frame and limits on this page.</p></div>
 <div class="byline-block">
-<p><b>The GTA MedSpa Index</b> &middot; an instance of <b>The HMM Index</b> by HMM &middot; built and reviewed by <b>Ankit Kumar</b>, Founder, HMM &middot; <a href="https://www.instagram.com/helpmemarketing1/" target="_blank" rel="noopener">@helpmemarketing1</a> &middot; <a href="#ri-advanced">methodology</a></p>
+<p><b>Med Spa Index</b> &middot; an instance of <b>The HMM Index</b> by HMM &middot; built and reviewed by <b>Ankit Kumar</b>, Founder, HMM &middot; <a href="https://www.instagram.com/helpmemarketing1/" target="_blank" rel="noopener">@helpmemarketing1</a> &middot; <a href="#ri-advanced">methodology</a></p>
 <div class="socials"><a href="https://www.instagram.com/helpmemarketing1/" target="_blank" rel="noopener">Instagram</a>
 <a href="https://www.linkedin.com/company/helpmemarketing/" target="_blank" rel="noopener">LinkedIn</a>
 <a href="https://www.facebook.com/helpmemarketing1" target="_blank" rel="noopener">Facebook</a></div>
@@ -295,12 +315,12 @@ def body(draft):
 
 # ---- shell -----------------------------------------------------------------------------------------
 BASE = "https://helpmemarketing.com"
-OG = BASE + "/assets/index/gta-medspa/benchmark-50-og.jpg"
-H1 = "50-account GTA medspa Instagram benchmark"
-TITLE = "50-Account GTA Medspa Instagram Benchmark"
-DESC = "A benchmark of Instagram video activity across 50 medspa accounts in the Greater Toronto Area, with coverage, sampling and limits shown. By Ankit Kumar."
-SNAP_TITLE = f"GTA Medspa Benchmark Edition {ENO}"
-SNAP_DESC = f"Fixed snapshot of edition {ENO}: a selected 50-account study of Instagram video activity at GTA medspas, with data collected on {CDATE}."
+OG = BASE + "/assets/index/gta-medspa/medspa-index-og.jpg"
+H1 = "Med Spa Index"
+TITLE = "Med Spa Index"
+DESC = "A 50-account observational study of how Greater Toronto Area med spas use Instagram video, with sampling, coverage and limits shown. By Ankit Kumar."
+SNAP_TITLE = f"Med Spa Index Edition {ENO}"
+SNAP_DESC = f"Fixed snapshot of edition {ENO} of the Med Spa Index: a selected 50-account study of Instagram video at GTA med spas, collected {CDATE}."
 for t, d in ((TITLE, DESC), (SNAP_TITLE, SNAP_DESC)):
     assert 30 <= len(t + " | HelpMeMarketing") <= 60 and 70 <= len(d) <= 158, (t, len(t) + 18, len(d))
 
@@ -308,7 +328,7 @@ raw = open(HERE / "site_shell.html").read()
 raw = re.sub(r"<script data-ri-reading>.*?</script>\n?", "", raw, flags=re.S)
 raw = re.sub(r"<script data-bar-widths>.*?</script>\n?", "", raw, flags=re.S)
 assert "data-ri-reading" not in raw and "data-bar-widths" not in raw
-raw = raw.replace("/assets/index/gta-medspa/hero.webp", "/assets/index/gta-medspa/benchmark-50-hero.webp")
+raw = raw.replace("/assets/index/gta-medspa/hero.webp", "/assets/index/gta-medspa/medspa-index-hero.webp")
 raw = raw.replace(BASE + "/assets/index/gta-medspa/og.jpg", OG)
 
 
@@ -323,7 +343,7 @@ def make(mode):
     s = raw
     snap = mode == "snapshot"
     t, d = (SNAP_TITLE, SNAP_DESC) if snap else (TITLE, DESC)
-    url = BASE + (f"/gta-medspa-index/edition-{ENO}" if snap else "/gta-medspa-index")
+    url = BASE + (SNAP_PATH if snap else PAGE_PATH)
     s = re.sub(r"<title>.*?</title>", f"<title>{t} | HelpMeMarketing</title>", s, 1)
     s = sub1(r'(<meta name="description" content=")[^"]*', d, s)
     s = sub1(r'(<meta property="og:title" content=")[^"]*', t, s)
@@ -332,7 +352,7 @@ def make(mode):
     s = sub1(r'(<meta name="twitter:description" content=")[^"]*', d, s)
     s = sub1(r'(<meta property="og:url" content=")[^"]*', url, s)
     s = sub1(r'(<link rel="canonical" href=")[^"]*', url, s)
-    s = sub1(r'(<meta property="og:image:alt" content=")[^"]*', "HMM research graphic: 50-account GTA medspa Instagram benchmark", s)
+    s = sub1(r'(<meta property="og:image:alt" content=")[^"]*', "HMM research graphic: Med Spa Index, a selected 50-account study of GTA med spas on Instagram", s)
     robots = {"draft": "noindex, nofollow", "snapshot": "noindex, follow"}.get(mode)
     if robots:
         s = re.sub(r'<meta name="robots" content="[^"]*">', f'<meta name="robots" content="{robots}">', s, 1)
@@ -350,7 +370,7 @@ def make(mode):
             items = [{"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
                      {"@type": "ListItem", "position": 2, "name": "Medspa Marketing Research", "item": BASE + "/medspa-marketing-research"}]
             if snap:
-                items += [{"@type": "ListItem", "position": 3, "name": "The GTA MedSpa Index", "item": BASE + "/gta-medspa-index"},
+                items += [{"@type": "ListItem", "position": 3, "name": "Med Spa Index", "item": BASE + PAGE_PATH},
                           {"@type": "ListItem", "position": 4, "name": f"Edition {ENO}", "item": url}]
             else:
                 items += [{"@type": "ListItem", "position": 3, "name": H1, "item": url}]
@@ -381,11 +401,17 @@ def make(mode):
 
 
 if args.target == "draft":
-    (ED / "draft" / "gta-medspa-index-50-draft.html").write_text(make("draft"))
+    (ED / "draft" / "medspa-index-draft.html").write_text(make("draft"))
     print("draft written")
 else:
-    (REPO / "gta-medspa-index.html").write_text(make("live"))
-    (REPO / "gta-medspa-index" / f"edition-{ENO}.html").write_text(make("snapshot"))
+    (REPO / "medspa-index.html").write_text(make("live"))
+    snapf = REPO / SNAP_PATH.lstrip("/")
+    snapf = snapf.with_name(snapf.name + ".html")
+    if snapf.exists():  # a published snapshot is never rewritten
+        print(f"snapshot kept as published: {snapf.relative_to(REPO)}")
+    else:
+        snapf.parent.mkdir(parents=True, exist_ok=True)
+        snapf.write_text(make("snapshot"))
     # local Sheet export files (not written to Sheets)
     sd = ED / "sheet"
     sd.mkdir(exist_ok=True)

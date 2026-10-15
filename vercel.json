@@ -247,6 +247,11 @@
       "source": "/schedule-a-call",
       "destination": "/contact",
       "permanent": true
+    },
+    {
+      "source": "/gta-medspa-index",
+      "destination": "/medspa-index",
+      "permanent": true
     }
   ],
   "headers": [

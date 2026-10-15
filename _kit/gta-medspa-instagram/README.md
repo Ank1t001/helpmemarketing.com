@@ -1,6 +1,6 @@
-# GTA MedSpa Index build kit (from edition 002)
+# Med Spa Index (GTA) build kit (from edition 002; formerly the GTA MedSpa Index)
 
-Canonical URL: https://helpmemarketing.com/gta-medspa-index
+Canonical URL: https://helpmemarketing.com/medspa-index (since 2026-10-15; `/gta-medspa-index` permanently redirects to it, and the edition 001 and 002 snapshots stay at `/gta-medspa-index/edition-00N`; new snapshots go to `/medspa-index/edition-NNN`)
 Schedule: the 15th of each month, 09:15 America/Toronto (first run 15 October 2026), scheduled task "HMM - GTA MedSpa Index (Monthly)". Its stored prompt is versioned in `ROUTINE_PROMPT.md`; update both together.
 Window: the 90 days ending the collection date, refreshed monthly (editions overlap by design).
 Data store: Google Sheet "HMM GTA MedSpa Index data" (`1_Qi7e54I4WG9M7Uie8lzrBwtbOreykvtqn0qku59QG8`: Editions, Roster, and per edition "ENNN scoreboard", "ENNN ranking" and "ENNN post log") and the Drive folder "GTA MedSpa Index" (`15xJ1lYPJM4W-8O2b9gXU-I_V2lvZfAjt`, inside "HMM Indexes") for each edition's post log CSV.
@@ -22,7 +22,7 @@ Data store: Google Sheet "HMM GTA MedSpa Index data" (`1_Qi7e54I4WG9M7Uie8lzrBwt
 ```
 python3 build.py --edition 001 --as-of 2026-10-14 --check-live
 ```
-Must print PASS. Any edit to /gta-medspa-index made outside the routine must be mirrored here in the same commit (body into `report_body.html` with its tokens, head or style into `site_shell.html`), or the next run stops at its prior-edition check.
+Must print PASS. Any edit to the page made outside the routine must be mirrored here in the same commit (body into `report_body.html` with its tokens, head or style into `site_shell.html`), or the next run stops at its prior-edition check.
 
 ## Edition 001 caveats
 Edition 001 used two collections and its scoring code was not kept; some ranking-collection post counts look capped at 10. Edition 002 is the first single-pass, coded edition, so it shows no movement column; movement starts at edition 003.
