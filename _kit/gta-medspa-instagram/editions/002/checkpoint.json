@@ -83,12 +83,16 @@
     "editions/002/sheet/E002_accounts.tsv": "795d453b0e2410859bca62bbb2b5184b47622d3e7c5ecb69b12bae7b77401bf9",
     "editions/002/sheet/E002_postlog.tsv": "c838f87a496e9ab3014a039d0e75c7754f4800ede47ebbff9676bd0299b1edea",
     "editions/002/sheet/editions_row.tsv": "0f393219f74da6a5fdebd786d21f178bd2d967036942a1d71b3fafd6b2cd0997",
-    "edition.json": "1a050b73c7b8b4ec15a0f4d73f3fd2656df2804a09b2d3469ff4a0abc5253f46",
-    "cohort_50.json": "b1157994f858f3bbd63108b752d20871159beb04235695ca123c1df41971b435"
+    "edition.json": "5e5518b8a6b5d4888b74a1b2fb68b7538b8b9bf2d7c678bed691ff65776c9888",
+    "cohort_50.json": "b1157994f858f3bbd63108b752d20871159beb04235695ca123c1df41971b435",
+    "build_50.py": "170a68125bebd79cae79a22f1d19e71ecc64e1753d2b572c2313d2a7f1e82e59",
+    "editions/002/run_ledger.json": "18bf551b0f5c226e9ffac1dde0e9999471153fc2f4d7440b7c7c75993e48074c",
+    "editions/002/release/preflight_pages.json": "9bb28f33058ddfadb27640bece91325575eb851b15586f2cf8cd8e20105b9556"
    },
    "meta": {
     "local_build": "done",
     "renders": "desktop_mobile_done",
+    "preflight": "done",
     "deploy_and_external_checks": "pending"
    }
   }

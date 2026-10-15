@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Local draft of the 50-account GTA medspa Instagram benchmark (edition 002) from saved records only.
+"""Builds the 50-account GTA medspa Instagram benchmark (draft, or live page plus snapshot) from saved records only.
 
-Reads editions/002/scope_50_accounts.json, source_posts_pilot.jsonl.gz, cohort_frozen.json and roster_eligible.json,
+The edition number, observation window and input files come from edition.json, never from constants in this file.
+Stale-value guards (see validate below) stop a build whose edition, window, cohort, counts, run ledger or inputs
+do not agree. Reads the cohort (cohort_50.json), the edition's accounts state and post records, and
 reconciles the counts (fails if they differ from the saved evidence), computes observed-data descriptive figures with
 metric-specific denominators, and writes editions/002/draft/gta-medspa-index-50-draft.html using the live page shell
 (head, nav, footer chrome) with a new body. No ranking, score or leaderboard: coverage comparability is not established.
@@ -12,8 +14,27 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 REPO = HERE.parent.parent
-ED = HERE / "editions" / "002"
-W0, W1 = "2026-07-17", "2026-10-15"
+import datetime as dt
+from zoneinfo import ZoneInfo
+
+CFG = json.load(open(HERE / "edition.json"))
+ENO = CFG["edition"]
+ED = HERE / "editions" / ENO
+W0, W1 = CFG["window"]
+CAP_USD = float(CFG.get("run_cap_guard", {}).get("aggregate_cap_usd", 5.0))
+_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+
+def long_date(iso, year=True):
+    d = dt.date.fromisoformat(iso[:10])
+    return f"{d.day} {_MONTHS[d.month - 1]}" + (f" {d.year}" if year else "")
+
+
+CDATE = long_date(CFG["scraped_at"])
+WSTART, WEND = long_date(W0, False), long_date(W1)
+WTXT = f"{WSTART} to {WEND}"
+WSTART_LONG = long_date(W0)
+MONTH_YEAR = f"{_MONTHS[int(W1[5:7]) - 1]} {W1[:4]}"
 REG = ["Toronto", "Peel", "York", "Durham", "Halton", "Multi-region"]
 E = html.escape
 
@@ -32,21 +53,39 @@ def fmt_num(x):
 
 
 # ---- load and reconcile --------------------------------------------------------------------------
-scope = json.load(open(ED / "scope_50_accounts.json"))
-cohort = {c["handle"]: c for c in json.load(open(ED / "cohort_frozen.json")).get("accounts", [])} \
-    if isinstance(json.load(open(ED / "cohort_frozen.json")), dict) and "accounts" in json.load(open(ED / "cohort_frozen.json")) else {}
-roster = {c["handle"]: c for c in json.load(open(ED / "roster_eligible.json"))["clinics"]}
+INP = CFG["inputs"]
+for _k, _p in INP.items():  # every input must belong to this edition's folder: no reuse of another edition's data
+    assert _p.startswith(f"editions/{ENO}/"), f"input {_k} ({_p}) is not under editions/{ENO}/"
+scope = json.load(open(HERE / INP["accounts_state"]))
+assert scope.get("edition") == ENO, f"accounts state is for edition {scope.get('edition')}, edition.json says {ENO}"
+cohort50 = json.load(open(HERE / "cohort_50.json"))
+roster = {c["handle"]: c for c in cohort50["accounts"]}
 acc = {a["handle"]: a for a in scope["accounts"]}
-rows = [json.loads(l) for l in gzip.open(ED / "source_posts_pilot.jsonl.gz", "rt") if l.strip()]
+rows = [json.loads(l) for l in gzip.open(HERE / INP["posts"], "rt") if l.strip()]
+ledger = json.load(open(HERE / INP["run_ledger"]))
+assert set(acc) == set(roster) and len(roster) == 50, "accounts state must be exactly the fixed 50-account cohort"
+# window and date guards
+_d0, _d1 = dt.date.fromisoformat(W0), dt.date.fromisoformat(W1)
+assert W1 == CFG["scraped_at"], "window must end on the collection date"
+assert (_d1 - _d0).days == CFG.get("window_days", 90), "window must be window_days long"
+assert all(r["timestamp"][:10] <= W1 for r in rows), "a post is dated after the window end: stale or wrong input"
+assert any(W0 <= r["timestamp"][:10] <= W1 for r in rows), "no post inside the window: stale input"
+# aggregate run-cap guard ($5 across the post runs of one edition)
+_caps = sum(float(r["cap_usd"]) for r in ledger["runs"])
+assert _caps <= CAP_USD + 1e-9, f"sum of launched run caps {_caps} exceeds the {CAP_USD} guard"
+assert not any(r.get("hit_cap") for r in ledger["runs"]), "a run reached its cap: its accounts must be classed E before a build"
+assert all(set(r["accounts"]) <= set(roster) for r in ledger["runs"]), "a run covers accounts outside the cohort"
+if ENO != "002":  # edition 002 text compares nothing; later editions need founder-approved sections
+    for _f in ("comparison_section.html", "history_rows.html"):
+        assert (ED / _f).exists(), f"edition {ENO} needs {ED / _f} (founder-approved comparison and history text)"
 
 assert len(acc) == 50, "50 selected accounts"
 cls = Counter(a["cls"] for a in acc.values())
-assert dict(cls) == {"A": 12, "B": 36, "C": 1, "E": 1}, cls
-assert all(h in roster and roster[h]["selected"] or h in roster for h in acc), "every account is in the roster"
+assert sum(cls.values()) == 50 and set(cls) <= set("ABCDE"), cls
 assert all((r["handle"] or "").lower() in acc for r in rows), "every row belongs to a selected account"
 inw = [r for r in rows if W0 <= r["timestamp"][:10] <= W1]
 outw = [r for r in rows if not (W0 <= r["timestamp"][:10] <= W1)]
-assert (len(rows), len(inw), len(outw)) == (824, 783, 41), (len(rows), len(inw), len(outw))
+assert len(inw) + len(outw) == len(rows)
 assert all(r.get("pinned") for r in outw), "rows outside the window are older pinned posts"
 per = Counter(r["handle"].lower() for r in inw)
 assert {h for h, a in acc.items() if a["cls"] == "B"} == set(per), "class B equals accounts with in-window rows"
@@ -72,7 +111,7 @@ withreel = sum(1 for h in per if reels_by.get(h))
 reg_cls = defaultdict(Counter)
 for h, a in acc.items():
     reg_cls[a["region"]][a["cls"]] += 1
-assert {r: sum(c.values()) for r, c in reg_cls.items()} == {"York": 14, "Toronto": 13, "Peel": 7, "Halton": 7, "Durham": 6, "Multi-region": 3}
+assert sum(sum(c.values()) for c in reg_cls.values()) == 50
 orig = Counter(a["origin"] for a in acc.values())
 types = Counter(a["account_type"] for a in acc.values())
 
@@ -84,6 +123,7 @@ own_reels = [r for r in brand if r["type"] == "Video"]
 missing_plays = sum(1 for r in own_reels if r.get("plays") is None)
 missing_comments = sum(1 for r in own_reels if r.get("comments") is None or r["comments"] < 0)
 likes_hidden = len(brand) - likes_vis
+likes_hidden_all = sum(1 for r in inw if r.get("likes") in (None, -1))
 stats = {
     "selected": 50, "classes": dict(cls), "rows_returned": len(rows), "rows_in_window": len(inw), "rows_outside_window": len(outw),
     "brand_authored_in_window": len(brand), "other_owner_in_window": other, "formats_brand": dict(fm),
@@ -126,20 +166,48 @@ pct = lambda x, d: f"{x / d * 100:.0f}%"
 # ---- body ------------------------------------------------------------------------------------------
 ap = argparse.ArgumentParser()
 ap.add_argument("--target", choices=["draft", "release"], default="draft")
+ap.add_argument("--edition", help="must equal edition.json edition (guards against building with stale values)")
+ap.add_argument("--modified-at", help="ISO 8601 time with offset, the production deployment ready time; records dateModified and the visible Updated date")
+ap.add_argument("--modified-source", help="where --modified-at came from (deployment id and commit)")
 args = ap.parse_args()
+if args.edition is not None and args.edition != ENO:
+    raise SystemExit(f"stale edition: --edition {args.edition} but edition.json says {ENO}; update edition.json first")
+MOD, UPDATED = None, ""
+if args.modified_at:
+    assert args.target == "release" and args.modified_source, "--modified-at needs --target release and --modified-source"
+    _m = dt.datetime.fromisoformat(args.modified_at)
+    assert _m.tzinfo is not None, "--modified-at needs a UTC offset"
+    assert _m.date() >= dt.date.fromisoformat(CFG["scraped_at"]), "dateModified cannot precede the collection date"
+    MOD = args.modified_at
+    UPDATED = f'<span>Updated <b>{long_date(_m.astimezone(ZoneInfo("America/Toronto")).date().isoformat())}</b></span>'
+# the edition record must agree with the data (stale counts stop the build)
+_exp = {"selected": 50, "posts_observed": cls["B"], "profile_evidence_no_recent_posts": cls["A"], "restricted": cls["C"],
+        "unconfirmed": cls["E"], "feed_posts_in_window": len(inw), "own_posts": len(brand), "collaboration_posts": len(collab)}
+assert CFG["counts"] == _exp, f"edition.json counts {CFG['counts']} do not match the data {_exp}"
 
 n_all3 = len(all3)
 resv = sum(v for k, v in orig.items() if k != "original_sample")
 multi_n = sum(reg_cls["Multi-region"].values())
 
 
+COMPARE_DEFAULT = f'''<section id="ri-compare"><div class="sec-head"><h2>Why this edition is not compared with edition 001</h2></div>
+<div class="note"><p class="m0"><a href="/gta-medspa-index/edition-001">Edition 001</a> (10 September 2026) covered 341 accounts with a public profile, 176 of them ranked, from two collections whose full roster was not kept. Edition {ENO} uses a different, smaller and differently drawn set of accounts. Any difference between the two editions reflects who was included and how posts were collected, not a change in clinic performance, so I show no movement between them. Edition 001 is unchanged at its own address, with its corrections.</p></div></section>'''
+HISTORY_DEFAULT = f'''<tr><td><b>{ENO}</b> (this page)</td><td class="wrap-cell">Observation window {WTXT}; data collected {CDATE}. <a href="/gta-medspa-index/edition-{ENO}">Snapshot</a></td><td class="wrap-cell">A selected 50-account sample with coverage groups and no ranking. The edition 001 roster was not kept, so the two editions are not compared.</td></tr>
+<tr><td><b>001</b></td><td class="wrap-cell">Data collected 10 September 2026 and re-collected for the top 25 on 11 September 2026. <a href="/gta-medspa-index/edition-001">Snapshot</a></td><td class="wrap-cell">First edition: 176 ranked clinics of 341 with a public account. Revised 14 October 2026 for wording, layout and corrections, which stay recorded in the snapshot.</td></tr>'''
+if ENO == "002":
+    COMPARE, HISTORY_ROWS = COMPARE_DEFAULT, HISTORY_DEFAULT
+else:
+    COMPARE = (ED / "comparison_section.html").read_text()
+    HISTORY_ROWS = (ED / "history_rows.html").read_text()
+
+
 def body(draft):
     banner = ('<div class="note warn"><span class="lbl">Draft for review, not published</span>\n'
               '<p class="m0">This is a local draft built from saved records. It has not been through the publication review.</p></div>\n') if draft else ""
     return f'''<div class="wrap">
-<header><p class="kicker">The GTA MedSpa Index &middot; The HMM Index</p><h1>50-account GTA medspa Instagram benchmark</h1><p class="lede">I looked at the Instagram video activity of 50 medspa accounts in the Greater Toronto Area over the 90 days from 17 July to 15 October 2026. The 50 are a region-proportional random sample of accounts I found through Google Maps searches, so this is a benchmark of a sample: not every GTA clinic, and not a ranking of clinics.</p>
-<div class="byline"><span><b>Observation window</b> 17 July to 15 October 2026</span><span>For clinic owners and marketing leads.</span><span>Research and analysis by <b><a href="/about">Ankit Kumar</a></b> &middot; Founder, <a href="/">HMM</a></span></div>
-<div class="livebar"><span>Data collected <b>15 October 2026</b></span><span>Edition <b>002</b></span></div></header>
+<header><p class="kicker">The GTA MedSpa Index &middot; The HMM Index</p><h1>50-account GTA medspa Instagram benchmark</h1><p class="lede">I looked at the Instagram video activity of 50 medspa accounts in the Greater Toronto Area over the 90 days from {WTXT}. The 50 are a region-proportional random sample of accounts I found through Google Maps searches, so this is a benchmark of a sample: not every GTA clinic, and not a ranking of clinics.</p>
+<div class="byline"><span><b>Observation window</b> {WTXT}</span><span>For clinic owners and marketing leads.</span><span>Research and analysis by <b><a href="/about">Ankit Kumar</a></b> &middot; Founder, <a href="/">HMM</a></span></div>
+<div class="livebar"><span>Data collected <b>{CDATE}</b></span><span>Edition <b>{ENO}</b></span>{UPDATED}</div></header>
 {banner}<section id="ri-overview"><div class="sec-head"><h2>What this edition covers</h2></div>
 <div class="tiles">
 <div class="tile"><div class="k">Accounts selected</div><div class="v">50</div></div>
@@ -165,7 +233,7 @@ def body(draft):
 </tbody></table></div>
 <div class="grid2">
 <div class="card"><h4>Posts observed ({cls["B"]})</h4><p class="dek m0">One or more posts inside the window were collected from the feed.</p></div>
-<div class="card"><h4>No recent posts ({cls["A"]})</h4><p class="dek m0">The profile could be read and its newest posts, or its post count of zero, show nothing since 17 July. This rests on the latest posts a profile page shows (up to 12), so it is evidence of no recent posts, not a count of zero from a full feed.</p></div>
+<div class="card"><h4>No recent posts ({cls["A"]})</h4><p class="dek m0">The profile could be read and its newest posts, or its post count of zero, show nothing since {WSTART}. This rests on the latest posts a profile page shows (up to 12), so it is evidence of no recent posts, not a count of zero from a full feed.</p></div>
 <div class="card"><h4>Restricted ({cls["C"]})</h4><p class="dek m0">Instagram restricts the profile (an age gate), so the public tools could not read its posts. Selected, shown, not analysed, not counted as inactive.</p></div>
 <div class="card"><h4>Unconfirmed ({cls["E"]})</h4><p class="dek m0">The profile was reachable but showed no post count or latest posts, and the post collection returned nothing. Whether it posted is not established.</p></div>
 </div></section>
@@ -179,20 +247,19 @@ def body(draft):
 <p><b>Not every selected account passed a public-access test.</b> The profile check that decided who stayed in the pool treated Instagram&rsquo;s &ldquo;Restricted profile&rdquo; status as public. Twelve restricted accounts therefore stayed in the pool of 596, and one of them was drawn into the 50. It is kept in the sample, shown as restricted and left out of every calculation. I have not replaced it.</p>
 <p><b>Accounts needed a public profile at selection time and an official link.</b> Clinics with no Instagram link on their listing (647 listings) or an unverified link (49) are outside the frame. {resv} of the 50 are reserve substitutes, drawn in a fixed order from the same region, for original draws whose profile was not found or was private; four such places in the larger pool were left unfilled.</p>
 <p class="m0"><b>So the 50 are a sample of a sample.</b> Google Maps discovery from capped searches does not find every GTA clinic. The results describe these accounts, not the market.</p></div></section>
-<section id="ri-compare"><div class="sec-head"><h2>Why this edition is not compared with edition 001</h2></div>
-<div class="note"><p class="m0"><a href="/gta-medspa-index/edition-001">Edition 001</a> (10 September 2026) covered 341 accounts with a public profile, 176 of them ranked, from two collections whose full roster was not kept. Edition 002 uses a different, smaller and differently drawn set of accounts. Any difference between the two editions reflects who was included and how posts were collected, not a change in clinic performance, so I show no movement between them. Edition 001 is unchanged at its own address, with its corrections.</p></div></section>
+{COMPARE}
 <section id="ri-advanced"><div class="sec-head"><h2>Research and methodology</h2></div>
 <section><details class="ri-adv"><summary>How the figures are defined</summary>
 <ul>
-<li><b>Posts observed on the feed ({n(len(inw))}).</b> Every post returned for the 50 accounts and dated inside the window, 17 July to 15 October 2026, both days included. It is the {tot_brand} posts the accounts published plus {len(collab)} collaboration posts.</li>
+<li><b>Posts observed on the feed ({n(len(inw))}).</b> Every post returned for the 50 accounts and dated inside the window, {WTXT}, both days included. It is the {tot_brand} posts the accounts published plus {len(collab)} collaboration posts.</li>
 <li><b>Collaboration posts ({len(collab)}).</b> Instagram collaboration posts appear on each collaborator&rsquo;s feed but record one account as the owner. In all {len(collab)}, the selected account is listed as a co-author and another account is recorded as owner ({collab_owners} different owners, appearing on the feeds of {collab_accounts} of the 50 accounts; {collab_video} are videos). They are real posts on the account&rsquo;s feed, not unrelated content. They count in observed posts per account. They are left out of the format shares and the reel and comment figures, because the play and comment counts belong to the post owner and would otherwise be counted under more than one account.</li>
 <li><b>Own posts ({tot_brand}).</b> Posts where the selected account is the recorded owner. {sum(1 for r in brand if r.get("coauthors"))} of them also list co-authors; they stay in as own posts.</li>
 <li><b>Median {fmt_num(stats["observed_posts_per_account"]["median"])} observed posts per account.</b> Taken over the {cls["B"]} accounts with posts observed, using all {n(len(inw))} posts on their feeds, collaboration posts included. The {cls["A"]} accounts with no recent posts, the restricted account and the unconfirmed account are not in this median.</li>
 <li><b>Format shares.</b> The {tot_brand} own posts only. A reel is a video post, a carousel is a multi-image post and a static post is a single image.</li>
 <li><b>Reel plays and comments.</b> The {len(own_reels)} own reels on the {cls["B"]} accounts, limited to the {len(eligible3)} accounts with three or more of them ({n_all3} reels). Recorded plays are the video play counts Instagram showed when the post was collected. All {len(own_reels)} own reels had a recorded play count and a comment count, so none was dropped for missing data. Comments per 1,000 plays is the total comments divided by the total plays across those {n_all3} reels, times 1,000.</li>
-<li><b>Likes.</b> Hidden on {likes_hidden} of the {tot_brand} own posts, so likes are not used in any comparison. Missing values are never filled in or treated as zero.</li></ul></details></section>
+<li><b>Likes.</b> Hidden on {likes_hidden} of the {tot_brand} own posts ({likes_hidden_all} of all {n(len(inw))} feed posts, which adds {likes_hidden_all - likes_hidden} of the {len(collab)} collaboration posts), so likes are not used in any comparison. Missing values are never filled in or treated as zero.</li></ul></details></section>
 <section><details class="ri-adv"><summary>How the posts were collected and counted</summary>
-<p>Posts were collected on 15 October 2026 from each account&rsquo;s public Instagram feed with the Apify Instagram scraper, in five runs of ten accounts, with a limit of 200 posts per account and a start date of 17 July 2026. The tool returned {n(len(rows))} posts for the 50 accounts. {len(outw)} were older pinned posts dated before the window and are excluded; {n(len(inw))} fall inside the window. No account reached the 200-post limit (the highest had {counts[-1]}), and no run reached its spending cap.</p>
+<p>Posts were collected on {CDATE} from each account&rsquo;s public Instagram feed with the Apify Instagram scraper, in five runs of ten accounts, with a limit of 200 posts per account and a start date of {WSTART_LONG}. The tool returned {n(len(rows))} posts for the 50 accounts. {len(outw)} were older pinned posts dated before the window and are excluded; {n(len(inw))} fall inside the window. No account reached the 200-post limit (the highest had {counts[-1]}), and no run reached its spending cap.</p>
 <p><b>What the records cannot prove.</b> The date filter drops older posts before they can be inspected, so I cannot show that every account&rsquo;s window was paged to its start. Restricted-page errors came back for some runs without an account name, so a partial restriction cannot be ruled out for any account. These counts are observed posts, not a census of everything published.</p>
 <p><b>Reconciliation.</b> 50 selected = {cls["B"]} with observed posts + {cls["A"]} with profile evidence of no recent posts + {cls["C"]} restricted + {cls["E"]} unconfirmed. {n(len(rows))} posts returned = {n(len(inw))} in the window + {len(outw)} outside it. Every post belongs to a selected account.</p></details></section>
 <section><details class="ri-adv"><summary>The 50 accounts</summary>
@@ -204,24 +271,23 @@ def body(draft):
 <p class="dek">Ankit Kumar is the founder of Help Me Marketing. His work covers performance marketing, conversion tracking and competitive research. Through The HMM Index, he analyses marketing activity and explains the patterns, limitations and practical questions behind the numbers.</p>
 <p class="dek m0"><a href="/about">About Ankit</a> &middot; <a href="/work">Explore HMM&rsquo;s work</a></p></div>
 <div class="card" id="ri-cite"><h4>Cite this research</h4>
-<p class="dek">Ankit Kumar, Help Me Marketing. <i>50-account GTA medspa Instagram benchmark</i> (The GTA MedSpa Index). Edition 002. Data collected 15 October 2026. <a href="https://helpmemarketing.com/gta-medspa-index">https://helpmemarketing.com/gta-medspa-index</a></p>
-<p class="dek m0">For a fixed version, cite the <a href="/gta-medspa-index/edition-002">edition 002 snapshot</a>. The earlier edition is at its <a href="/gta-medspa-index/edition-001">edition 001 snapshot</a>. <a href="#ri-editions">Edition history</a></p></div></div>
+<p class="dek">Ankit Kumar, Help Me Marketing. <i>50-account GTA medspa Instagram benchmark</i> (The GTA MedSpa Index). Edition {ENO}. Data collected {CDATE}. <a href="https://helpmemarketing.com/gta-medspa-index">https://helpmemarketing.com/gta-medspa-index</a></p>
+<p class="dek m0">For a fixed version, cite the <a href="/gta-medspa-index/edition-{ENO}">edition {ENO} snapshot</a>. The earlier edition is at its <a href="/gta-medspa-index/edition-001">edition 001 snapshot</a>. <a href="#ri-editions">Edition history</a></p></div></div>
 <section id="ri-editions"><details class="ri-adv"><summary>Edition history</summary>
 <div class="tw"><table><thead><tr><th>Edition</th><th>Dates</th><th>What changed</th></tr></thead><tbody>
-<tr><td><b>002</b> (this page)</td><td class="wrap-cell">Observation window 17 July to 15 October 2026; data collected 15 October 2026. <a href="/gta-medspa-index/edition-002">Snapshot</a></td><td class="wrap-cell">A selected 50-account sample with coverage groups and no ranking. The edition 001 roster was not kept, so the two editions are not compared.</td></tr>
-<tr><td><b>001</b></td><td class="wrap-cell">Data collected 10 September 2026 and re-collected for the top 25 on 11 September 2026. <a href="/gta-medspa-index/edition-001">Snapshot</a></td><td class="wrap-cell">First edition: 176 ranked clinics of 341 with a public account. Revised 14 October 2026 for wording, layout and corrections, which stay recorded in the snapshot.</td></tr>
+{HISTORY_ROWS}
 </tbody></table></div>
 <p class="pnote">This address always shows the latest edition. Snapshots keep each edition at a fixed address.</p></details></section></section>
 <section id="ri-help"><div class="sec-head"><h2>If you want your own account read this way</h2></div>
 <div class="card"><p class="dek m0">This benchmark does not tell you how your clinic compares. If you would like your own Instagram video activity read against the same measures, <a href="/contact?intent=review&amp;entry=research_gta_medspa#contact-form" data-review-cta="research_gta_medspa">ask for a free marketing review</a>.</p></div></section>
 <footer>
-<div class="about"><p><b>About this index.</b> The GTA MedSpa Index is part of <b>The HMM Index</b> by Help Me Marketing. Edition 002 reports public Instagram activity from a 50-account sample of medical spas in Toronto, Peel, York, Durham and Halton, with its sampling frame and limits on this page.</p></div>
+<div class="about"><p><b>About this index.</b> The GTA MedSpa Index is part of <b>The HMM Index</b> by Help Me Marketing. Edition {ENO} reports public Instagram activity from a 50-account sample of medical spas in Toronto, Peel, York, Durham and Halton, with its sampling frame and limits on this page.</p></div>
 <div class="byline-block">
 <p><b>The GTA MedSpa Index</b> &middot; an instance of <b>The HMM Index</b> by HMM &middot; built and reviewed by <b>Ankit Kumar</b>, Founder, HMM &middot; <a href="https://www.instagram.com/helpmemarketing1/" target="_blank" rel="noopener">@helpmemarketing1</a> &middot; <a href="#ri-advanced">methodology</a></p>
 <div class="socials"><a href="https://www.instagram.com/helpmemarketing1/" target="_blank" rel="noopener">Instagram</a>
 <a href="https://www.linkedin.com/company/helpmemarketing/" target="_blank" rel="noopener">LinkedIn</a>
 <a href="https://www.facebook.com/helpmemarketing1" target="_blank" rel="noopener">Facebook</a></div>
-<p>Data collected <b>15 October 2026</b> &middot; edition <b>002</b></p>
+<p>Data collected <b>{CDATE}</b> &middot; edition <b>{ENO}</b></p>
 <p>Clinic names are used to report publicly available data and imply no relationship with Help Me Marketing.</p>
 </div></footer></div>
 '''
@@ -233,8 +299,8 @@ OG = BASE + "/assets/index/gta-medspa/benchmark-50-og.jpg"
 H1 = "50-account GTA medspa Instagram benchmark"
 TITLE = "50-Account GTA Medspa Instagram Benchmark"
 DESC = "A benchmark of Instagram video activity across 50 medspa accounts in the Greater Toronto Area, with coverage, sampling and limits shown. By Ankit Kumar."
-SNAP_TITLE = "GTA Medspa Benchmark Edition 002"
-SNAP_DESC = "Fixed snapshot of edition 002: a selected 50-account study of Instagram video activity at GTA medspas, with data collected on 15 October 2026."
+SNAP_TITLE = f"GTA Medspa Benchmark Edition {ENO}"
+SNAP_DESC = f"Fixed snapshot of edition {ENO}: a selected 50-account study of Instagram video activity at GTA medspas, with data collected on {CDATE}."
 for t, d in ((TITLE, DESC), (SNAP_TITLE, SNAP_DESC)):
     assert 30 <= len(t + " | HelpMeMarketing") <= 60 and 70 <= len(d) <= 158, (t, len(t) + 18, len(d))
 
@@ -257,7 +323,7 @@ def make(mode):
     s = raw
     snap = mode == "snapshot"
     t, d = (SNAP_TITLE, SNAP_DESC) if snap else (TITLE, DESC)
-    url = BASE + ("/gta-medspa-index/edition-002" if snap else "/gta-medspa-index")
+    url = BASE + (f"/gta-medspa-index/edition-{ENO}" if snap else "/gta-medspa-index")
     s = re.sub(r"<title>.*?</title>", f"<title>{t} | HelpMeMarketing</title>", s, 1)
     s = sub1(r'(<meta name="description" content=")[^"]*', d, s)
     s = sub1(r'(<meta property="og:title" content=")[^"]*', t, s)
@@ -271,7 +337,7 @@ def make(mode):
     if robots:
         s = re.sub(r'<meta name="robots" content="[^"]*">', f'<meta name="robots" content="{robots}">', s, 1)
     if snap:
-        s = s.replace("</head>", "<!-- Snapshot of edition 002 as first published. Research content in this snapshot is never rewritten; record any later metadata fix in this comment and add a visible dated note for any visible correction. -->\n</head>", 1) \
+        s = s.replace("</head>", f"<!-- Snapshot of edition {ENO} as first published. Research content in this snapshot is never rewritten; record any later metadata fix in this comment and add a visible dated note for any visible correction. -->\n</head>", 1) \
             if "<!-- Snapshot of edition" not in s else s
     s = s.replace('<meta property="article:published_time" content="2026-09-10">\n', "")
 
@@ -285,20 +351,23 @@ def make(mode):
                      {"@type": "ListItem", "position": 2, "name": "Medspa Marketing Research", "item": BASE + "/medspa-marketing-research"}]
             if snap:
                 items += [{"@type": "ListItem", "position": 3, "name": "The GTA MedSpa Index", "item": BASE + "/gta-medspa-index"},
-                          {"@type": "ListItem", "position": 4, "name": "Edition 002", "item": url}]
+                          {"@type": "ListItem", "position": 4, "name": f"Edition {ENO}", "item": url}]
             else:
                 items += [{"@type": "ListItem", "position": 3, "name": H1, "item": url}]
             j["itemListElement"] = items
         if ty == "Article":
             j["headline"], j["description"], j["url"] = H1, d, url
             j["image"] = {"@type": "ImageObject", "url": OG, "width": 1200, "height": 630}
-            j.pop("dateModified", None)  # recorded from the production deployment at publication, never guessed
+            if MOD:
+                j["dateModified"] = MOD  # the production deployment ready time, passed in at publication
+            else:
+                j.pop("dateModified", None)  # never guessed
             if snap:
                 j.pop("isPartOf", None)
         if ty == "Dataset":
             j["name"] = "GTA medspa Instagram activity, 50-account sample, 90 days to October 2026"
             j["description"] = (f"Public Instagram posts, recorded reel plays, likes and comments for a region-proportional random sample of 50 medical spa accounts in Toronto, Peel, York, Durham and Halton; "
-                                f"{cls['B']} had posts observed between 17 July and 15 October 2026. It does not include enquiries, consultations or revenue and is not a census of GTA clinics.")
+                                f"{cls['B']} had posts observed between {WSTART} and {WEND}. It does not include enquiries, consultations or revenue and is not a census of GTA clinics.")
             j["temporalCoverage"] = f"{W0}/{W1}"
             j["url"] = url
             j["variableMeasured"] = ["Observed posts", "Recorded reel plays", "Comments", "Likes where visible"]
@@ -316,7 +385,7 @@ if args.target == "draft":
     print("draft written")
 else:
     (REPO / "gta-medspa-index.html").write_text(make("live"))
-    (REPO / "gta-medspa-index" / "edition-002.html").write_text(make("snapshot"))
+    (REPO / "gta-medspa-index" / f"edition-{ENO}.html").write_text(make("snapshot"))
     # local Sheet export files (not written to Sheets)
     sd = ED / "sheet"
     sd.mkdir(exist_ok=True)
@@ -328,15 +397,26 @@ else:
         a_ = acc[h]
         acc_rows.append([h, roster[h]["name"], a_["region"], a_["account_type"], a_["origin"], a_["cls"], meaning[a_["cls"]],
                          per.get(h, "") if a_["cls"] == "B" else "", ownc.get(h, "") if a_["cls"] == "B" else "", len(reels_by.get(h, [])) if a_["cls"] == "B" else ""])
-    (sd / "E002_accounts.tsv").write_text(tab(acc_rows))
+    (sd / f"E{ENO}_accounts.tsv").write_text(tab(acc_rows))
     log = [["handle", "owner", "own_post", "shortcode", "date", "format", "plays", "likes_visible", "comments", "pinned"]]
     for r in sorted(inw, key=lambda r: (r["handle"].lower(), r["timestamp"])):
         own = (r.get("owner") or "").lower() == r["handle"].lower()
         log.append([r["handle"], r["owner"], "yes" if own else "no (collaboration)", r["shortcode"], r["timestamp"][:10], FMT[r["type"]],
                     r["plays"] if r["plays"] is not None else "", "yes" if r.get("likes") not in (None, -1) else "no", r["comments"], "yes" if r.get("pinned") else "no"])
-    (sd / "E002_postlog.tsv").write_text(tab(log))
-    row = ["002", "2026-10-15", W0, W1, "candidate", 50, cls["B"] + cls["A"], cls["B"], cls["A"], cls["C"], cls["E"], len(inw), len(brand), len(collab), len(rows), len(outw),
+    (sd / f"E{ENO}_postlog.tsv").write_text(tab(log))
+    row = [ENO, CFG["scraped_at"], W0, W1, "candidate", 50, cls["B"] + cls["A"], cls["B"], cls["A"], cls["C"], cls["E"], len(inw), len(brand), len(collab), len(rows), len(outw),
            "selected 50-account observational study; no score or rank"]
     (sd / "editions_row.tsv").write_text(tab([row]))
+    if MOD:
+        import datetime
+        hub = REPO / "medspa-marketing-research.html"
+        h = hub.read_text()
+        h, k1 = re.subn(r'("dateModified":")[^"]*', lambda m: m.group(1) + MOD, h, 1)
+        tor = long_date(dt.datetime.fromisoformat(MOD).astimezone(ZoneInfo("America/Toronto")).date().isoformat())
+        h, k2 = re.subn(r"(Published \d+ \w+ \d{4} &middot; Updated )\d+ \w+ \d{4}", lambda m: m.group(1) + tor, h, 1)
+        assert k1 == 1 and k2 == 1, "research hub date markers not found"
+        hub.write_text(h)
+        CFG["modified_at"], CFG["modified_at_source"] = MOD, args.modified_source
+        json.dump(CFG, open(HERE / "edition.json", "w"), indent=1, ensure_ascii=False)
     print(f"release files written; sheet export: {len(acc_rows) - 1} accounts, {len(log) - 1} posts")
 print(json.dumps({k: stats[k] for k in ("classes", "rows_in_window", "brand_authored_in_window", "collaboration_posts", "collaboration_videos", "collaboration_on_accounts", "collaboration_owner_accounts", "own_reels", "own_reels_missing_plays", "own_reels_missing_comments", "own_posts_hidden_likes", "accounts_with_3plus_observed_reels", "reels_in_3plus_accounts")}))

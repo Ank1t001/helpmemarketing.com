@@ -319,5 +319,78 @@ class ReleaseFiles(unittest.TestCase):
         self.assertEqual((ed["edition"], ed["scoring"], ed["status"]), ("002", "not applicable", "release_candidate"))
 
 
+class BuildGuards(unittest.TestCase):
+    """build_50.py in a temporary copy of the repo: stale-value guards and publication dates. Real files are never touched."""
+    def setUp(self):
+        self.t = Path(tempfile.mkdtemp())
+        root = KIT.parent.parent
+        for rel in ("_kit/gta-medspa-instagram", "gta-medspa-index", "gta-medspa-index.html", "medspa-marketing-research.html"):
+            src, dst = root / rel, self.t / rel
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            if src.is_dir():
+                shutil.copytree(src, dst, ignore=shutil.ignore_patterns("work", "output", "__pycache__", "renders"))
+            else:
+                shutil.copy(src, dst)
+        self.k = self.t / "_kit/gta-medspa-instagram"
+
+    def tearDown(self):
+        shutil.rmtree(self.t)
+
+    def build(self, *a):
+        return run([str(self.k / "build_50.py"), "--target", "release", *a])
+
+    def edit(self, rel, fn):
+        f = self.k / rel
+        d = json.loads(f.read_text())
+        fn(d)
+        f.write_text(json.dumps(d))
+
+    def test_reproduces_committed_pages(self):
+        p = self.build("--edition", "002")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        for rel in ("gta-medspa-index.html", "gta-medspa-index/edition-002.html"):
+            self.assertEqual((self.t / rel).read_text(), (KIT.parent.parent / rel).read_text(), rel)
+
+    def test_stale_values_are_refused(self):
+        self.assertIn("stale edition", self.build("--edition", "003").stderr)
+        self.edit("edition.json", lambda d: d["counts"].update(posts_observed=35))
+        self.assertIn("do not match the data", self.build().stderr)
+        self.edit("edition.json", lambda d: d["counts"].update(posts_observed=36))
+        self.edit("edition.json", lambda d: d.update(window=["2026-07-18", "2026-10-15"]))
+        self.assertIn("window must be", self.build().stderr)
+        self.edit("edition.json", lambda d: d.update(window=["2026-07-17", "2026-10-15"]))
+        self.edit("editions/002/run_ledger.json", lambda d: d["runs"][0].update(cap_usd=1.5))
+        self.assertIn("exceeds the 5.0 guard", self.build().stderr)
+        self.edit("editions/002/run_ledger.json", lambda d: d["runs"][0].update(cap_usd=1.0, hit_cap=True))
+        self.assertIn("reached its cap", self.build().stderr)
+        self.edit("editions/002/run_ledger.json", lambda d: d["runs"][0].update(hit_cap=False))
+        self.edit("edition.json", lambda d: d["inputs"].update(posts="editions/001/x.jsonl.gz"))
+        self.assertIn("not under editions/002/", self.build().stderr)
+
+    def test_edition_without_approved_text_is_refused(self):
+        self.edit("edition.json", lambda d: d.update(edition="003"))
+        self.assertNotEqual(self.build().returncode, 0)
+
+    def test_dates_are_recorded_only_when_given(self):
+        iso = "2026-10-16T14:30:00+00:00"
+        self.assertNotEqual(self.build("--modified-at", iso).returncode, 0)  # needs a source
+        self.assertNotEqual(self.build("--modified-at", "2026-10-16T14:30:00", "--modified-source", "x").returncode, 0)  # needs an offset
+        self.assertNotEqual(self.build("--modified-at", "2026-10-14T14:30:00+00:00", "--modified-source", "x").returncode, 0)  # before collection
+        p = self.build("--modified-at", iso, "--modified-source", "deployment dpl_x (commit abc)")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        for rel in ("gta-medspa-index.html", "gta-medspa-index/edition-002.html"):
+            h = (self.t / rel).read_text()
+            self.assertIn('"dateModified":"' + iso + '"', h)
+            self.assertIn("<span>Updated <b>16 October 2026</b></span>", h)
+            self.assertIn("<b>15 October 2026</b>", h)  # the collection date stays separate
+        hub = (self.t / "medspa-marketing-research.html").read_text()
+        self.assertIn('"dateModified":"' + iso + '"', hub)
+        self.assertIn("Published 14 October 2026 &middot; Updated 16 October 2026", hub)
+        self.assertIn('"datePublished":"2026-10-14T23:46:05+00:00"', hub)
+        ed = json.loads((self.k / "edition.json").read_text())
+        self.assertEqual(ed["modified_at"], iso)
+        self.assertIsNone(json.loads((KIT / "edition.json").read_text())["modified_at"])  # real file untouched
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

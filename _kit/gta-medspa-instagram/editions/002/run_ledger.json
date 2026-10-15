@@ -1,0 +1,97 @@
+{
+ "edition": "002",
+ "aggregate_cap_usd": 5.0,
+ "note": "post-collection runs for the fixed 50-account cohort; the 596-account batches and profile runs are background research and are not in this ledger",
+ "runs": [
+  {
+   "run_id": "OLS33Ow3cRQwEy2Hw",
+   "dataset_id": "MqcSwPTUbO7z5cpSc",
+   "cap_usd": 1.0,
+   "hit_cap": false,
+   "accounts": [
+    "merakiskinclinic.ca",
+    "medermestheticslaser",
+    "ellaslaser",
+    "beautiquemedspa",
+    "always_young_beauty_clinic",
+    "richskin.ca",
+    "manasmedspa",
+    "dewbeaumedispa",
+    "thedermaloungeaurora",
+    "stephabellesclinique"
+   ]
+  },
+  {
+   "run_id": "g8o7x7BiUNQKg5Ash",
+   "dataset_id": "oyskEGnxlOBuyaXzu",
+   "cap_usd": 1.0,
+   "hit_cap": false,
+   "accounts": [
+    "novabeauty_inc",
+    "eb.medaesthetics",
+    "eluxeclinic",
+    "mellow_medical_aesthetic",
+    "skinfidelity_",
+    "aquamedicalspa",
+    "lovelylaserspa",
+    "flourish_medical_aesthetics",
+    "tlwc.canada",
+    "mississauga.gracemed"
+   ]
+  },
+  {
+   "run_id": "B2BtUDevkvqxVg9NO",
+   "dataset_id": "JuJfZSbBfhO2SkHm9",
+   "cap_usd": 1.0,
+   "hit_cap": false,
+   "accounts": [
+    "admireaesthetics.ca",
+    "redwoodmedispa",
+    "coralwellness.ca",
+    "lavender_laser_and_beauty",
+    "jadlaserskinsolutions",
+    "skintek_skincare",
+    "nurse.injector.megan",
+    "revellemedspa",
+    "revelbeautyclub.ca",
+    "lunae_cosmetic_clinic"
+   ]
+  },
+  {
+   "run_id": "QEdcSqx6f76ZlBBOM",
+   "dataset_id": "T16eePOcF6HQweHvz",
+   "cap_usd": 1.0,
+   "hit_cap": false,
+   "accounts": [
+    "animamedspa",
+    "definabeautyclinic",
+    "sovereignskin",
+    "aura_harbour_wellness",
+    "skonlaserclinic",
+    "gowith_theglowmedspa",
+    "assia.beautyclinic",
+    "luxeandlitbeauty",
+    "elanlaserspa",
+    "luna.medspa"
+   ]
+  },
+  {
+   "run_id": "DrWha9vGciJHRe8mP",
+   "dataset_id": "7j1dhFCoRIgiJaZNG",
+   "cap_usd": 1.0,
+   "hit_cap": false,
+   "accounts": [
+    "oakwood_health_network",
+    "theglowhausto",
+    "woodlandskinrenewal",
+    "whitbymedspa",
+    "loveyourfacenewcastle",
+    "laser.lash.clinic",
+    "precisionbeautycanada",
+    "reviveskinmedicalspa",
+    "allaboutmedicalesthetics",
+    "skinvitality"
+   ]
+  }
+ ]
+}

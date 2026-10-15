@@ -1,0 +1,321 @@
+{
+ "gta-medspa-index.html": {
+  "internal_links": 47,
+  "broken_links": [],
+  "external_links": 57,
+  "images": 11,
+  "missing_images": [],
+  "title": [
+   "50-Account GTA Medspa Instagram Benchmark | HelpMeMarketing",
+   59,
+   true,
+   true
+  ],
+  "description": [
+   152,
+   true,
+   true
+  ],
+  "og_twitter_agree": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "canonical": "https://helpmemarketing.com/gta-medspa-index",
+  "robots": [
+   "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+  ],
+  "noindex_in_file": [
+   false,
+   false,
+   false
+  ],
+  "ld_types": [
+   "BreadcrumbList",
+   "Article",
+   "Dataset"
+  ],
+  "ld_checks": {
+   "breadcrumb_last_is_page": true,
+   "article_headline_eq_h1": true,
+   "article_url_eq_canonical": true,
+   "article_image": true,
+   "no_dateModified": true,
+   "desc_eq_meta": true,
+   "dataset_window_in_visible": true,
+   "dataset_counts_in_visible": true
+  },
+  "ld_parse_ok": true,
+  "contact_links": [
+   [
+    "/contact?intent=review#contact-form",
+    null,
+    true
+   ],
+   [
+    "/contact?intent=review#contact-form",
+    null,
+    true
+   ],
+   [
+    "/contact?intent=review&entry=research_gta_medspa#contact-form",
+    "research_gta_medspa",
+    false
+   ],
+   [
+    "/contact?intent=review#contact-form",
+    null,
+    true
+   ],
+   [
+    "/contact",
+    null,
+    true
+   ]
+  ],
+  "review_cta_attrs": [
+   "research_gta_medspa"
+  ]
+ },
+ "gta-medspa-index/edition-002.html": {
+  "internal_links": 47,
+  "broken_links": [],
+  "external_links": 57,
+  "images": 11,
+  "missing_images": [],
+  "title": [
+   "GTA Medspa Benchmark Edition 002 | HelpMeMarketing",
+   50,
+   true,
+   true
+  ],
+  "description": [
+   142,
+   true,
+   true
+  ],
+  "og_twitter_agree": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "canonical": "https://helpmemarketing.com/gta-medspa-index/edition-002",
+  "robots": [
+   "noindex, follow"
+  ],
+  "noindex_in_file": [
+   true,
+   false,
+   false
+  ],
+  "ld_types": [
+   "BreadcrumbList",
+   "Article",
+   "Dataset"
+  ],
+  "ld_checks": {
+   "breadcrumb_last_is_page": true,
+   "article_headline_eq_h1": true,
+   "article_url_eq_canonical": true,
+   "article_image": true,
+   "no_dateModified": true,
+   "desc_eq_meta": true,
+   "dataset_window_in_visible": true,
+   "dataset_counts_in_visible": true
+  },
+  "ld_parse_ok": true,
+  "contact_links": [
+   [
+    "/contact?intent=review#contact-form",
+    null,
+    true
+   ],
+   [
+    "/contact?intent=review#contact-form",
+    null,
+    true
+   ],
+   [
+    "/contact?intent=review&entry=research_gta_medspa#contact-form",
+    "research_gta_medspa",
+    false
+   ],
+   [
+    "/contact?intent=review#contact-form",
+    null,
+    true
+   ],
+   [
+    "/contact",
+    null,
+    true
+   ]
+  ],
+  "review_cta_attrs": [
+   "research_gta_medspa"
+  ]
+ },
+ "medspa-marketing-research.html": {
+  "internal_links": 52,
+  "broken_links": [],
+  "external_links": 3,
+  "images": 10,
+  "missing_images": [],
+  "title": [
+   "Medspa Marketing Research & Benchmarks | HelpMeMarketing",
+   56,
+   true,
+   true
+  ],
+  "description": [
+   139,
+   true,
+   true
+  ],
+  "og_twitter_agree": [
+   true,
+   true,
+   true,
+   false
+  ],
+  "canonical": "https://helpmemarketing.com/medspa-marketing-research",
+  "robots": [
+   "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+  ],
+  "noindex_in_file": [
+   false,
+   false,
+   false
+  ],
+  "ld_types": [
+   "BreadcrumbList",
+   "CollectionPage"
+  ],
+  "ld_checks": {
+   "breadcrumb_last_is_page": true,
+   "hub_hasPart_name_visible": true
+  },
+  "ld_parse_ok": true,
+  "contact_links": [
+   [
+    "/contact?intent=review#contact-form",
+    null,
+    true
+   ],
+   [
+    "/contact?intent=review#contact-form",
+    null,
+    true
+   ],
+   [
+    "/contact?intent=review&entry=research_hub#contact-form",
+    "research_hub",
+    false
+   ],
+   [
+    "/contact?intent=review#contact-form",
+    null,
+    true
+   ],
+   [
+    "/contact",
+    null,
+    true
+   ]
+  ],
+  "review_cta_attrs": [
+   "research_hub"
+  ]
+ },
+ "hmm-index.html": {
+  "internal_links": 45,
+  "broken_links": [],
+  "external_links": 3,
+  "images": 13,
+  "missing_images": [],
+  "title": [
+   "The HMM Index: Instagram Benchmarks | HelpMeMarketing",
+   53,
+   true,
+   true
+  ],
+  "description": [
+   150,
+   true,
+   true
+  ],
+  "og_twitter_agree": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "canonical": "https://helpmemarketing.com/hmm-index",
+  "robots": [
+   "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+  ],
+  "noindex_in_file": [
+   false,
+   false,
+   false
+  ],
+  "ld_types": [
+   "BreadcrumbList",
+   "CollectionPage"
+  ],
+  "ld_checks": {
+   "breadcrumb_last_is_page": true,
+   "hub_hasPart_name_visible": false
+  },
+  "ld_parse_ok": true,
+  "contact_links": [
+   [
+    "/contact?intent=review#contact-form",
+    null,
+    true
+   ],
+   [
+    "/contact?intent=review#contact-form",
+    null,
+    true
+   ],
+   [
+    "/contact?intent=review#contact-form",
+    null,
+    true
+   ],
+   [
+    "/contact?intent=review#contact-form",
+    null,
+    true
+   ],
+   [
+    "/contact",
+    null,
+    true
+   ]
+  ],
+  "review_cta_attrs": []
+ },
+ "sitemap": {
+  "gta-medspa-index": true,
+  "medspa-marketing-research": true,
+  "hmm-index": true,
+  "gta-medspa-index/edition-001": false,
+  "gta-medspa-index/edition-002": false
+ },
+ "edition001_snapshot_unchanged_vs_main": true,
+ "hub_edition001_findings_kept": true,
+ "gta_links_to_snapshots": [
+  true,
+  true
+ ],
+ "allowed_entries_sample": [
+  "home_final",
+  "home_hero",
+  "home_journey",
+  "work_final"
+ ]
+}

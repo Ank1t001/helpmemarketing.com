@@ -60,5 +60,14 @@
   "feed_posts_in_window": 783,
   "own_posts": 725,
   "collaboration_posts": 58
+ },
+ "inputs": {
+  "accounts_state": "editions/002/scope_50_accounts.json",
+  "posts": "editions/002/source_posts_pilot.jsonl.gz",
+  "run_ledger": "editions/002/run_ledger.json"
+ },
+ "run_cap_guard": {
+  "aggregate_cap_usd": 5.0,
+  "applies_to": "sum of maxTotalChargeUsd across the post-collection runs of one edition; profile checks are capped separately (0.5)"
  }
 }
