@@ -2,7 +2,7 @@
  "edition": "002",
  "budget_usd": 30,
  "cap_per_batch_usd": 1.25,
- "sum_of_launched_caps_usd": 13.75,
+ "sum_of_launched_caps_usd": 20.0,
  "runs": [
   {
    "batch": 1,
@@ -116,6 +116,61 @@
   },
   {
    "batch": 11,
+   "run_id": "NDv3sVRwfXqMVApjw",
+   "dataset_id": "hykvehLbVbDsi7avg",
+   "accounts": 23,
+   "cap_usd": 1.25,
+   "status": "SUCCEEDED",
+   "items": 275,
+   "started": "2026-10-15T16:15:14Z",
+   "finished": "2026-10-15T16:15:59Z"
+  },
+  {
+   "batch": 12,
+   "run_id": "jOXCEa2JLP8KkhagU",
+   "dataset_id": "B9w56a2vyfDFwkjjc",
+   "accounts": 24,
+   "cap_usd": 1.25,
+   "status": "SUCCEEDED",
+   "items": 245,
+   "started": "2026-10-15T16:16:18Z",
+   "finished": "2026-10-15T16:17:03Z"
+  },
+  {
+   "batch": 13,
+   "run_id": "B73gyiKgIehfAQ49V",
+   "dataset_id": "OkaCRzs3e6hDdT4LC",
+   "accounts": 23,
+   "cap_usd": 1.25,
+   "status": "SUCCEEDED",
+   "items": 262,
+   "started": "2026-10-15T16:17:38Z",
+   "finished": "2026-10-15T16:18:12Z"
+  },
+  {
+   "batch": 14,
+   "run_id": "aAJ2DIDfIjMqeQJp3",
+   "dataset_id": "HCYLWggBB3Et2TJZb",
+   "accounts": 23,
+   "cap_usd": 1.25,
+   "status": "SUCCEEDED",
+   "items": 241,
+   "started": "2026-10-15T16:18:35Z",
+   "finished": "2026-10-15T16:19:05Z"
+  },
+  {
+   "batch": 15,
+   "run_id": "hnG2863N3YtkUKmAU",
+   "dataset_id": "cCY7HeCPmil9S6iKj",
+   "accounts": 23,
+   "cap_usd": 1.25,
+   "status": "SUCCEEDED",
+   "items": 311,
+   "started": "2026-10-15T16:20:38Z",
+   "finished": "2026-10-15T16:21:18Z"
+  },
+  {
+   "batch": 16,
    "run_id": null,
    "dataset_id": null,
    "accounts": 23,
