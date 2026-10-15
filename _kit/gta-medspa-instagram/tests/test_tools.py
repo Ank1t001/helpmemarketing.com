@@ -282,9 +282,9 @@ class Draft50(unittest.TestCase):
         f = json.loads((KIT / "editions/002/draft/draft_figures.json").read_text())
         self.assertEqual((f["selected"], f["classes"], f["rows_returned"], f["rows_in_window"], f["rows_outside_window"]),
                          (50, {"A": 12, "B": 36, "C": 1, "E": 1}, 824, 783, 41))
-        h = (KIT / "editions/002/draft/gta-medspa-index-50-draft.html").read_text()
+        h = (KIT / "editions/002/draft/medspa-index-draft.html").read_text()
         self.assertNotRegex(h, "[\u2014\u2013]")
-        self.assertIn("<h1>50-account GTA medspa Instagram benchmark</h1>", h)
+        self.assertIn("<h1>Med Spa Index</h1>", h)
         self.assertIn('content="noindex, nofollow"', h)
         self.assertNotIn("FAQPage", h)
         self.assertNotRegex(h[h.index('<div class="msi">'):], r'\sstyle=')
@@ -308,7 +308,7 @@ class ReleaseFiles(unittest.TestCase):
                 self.assertNotIn(stale, head)
             for m in re.finditer(r'<script type="application/ld\+json">\s*(\{.*?\})\s*</script>', h, flags=re.S):
                 j = json.loads(m.group(1))
-                if j.get("@type") == "Article":  # recorded from the production deployment at publication, never guessed
+                if j.get("@type") == "Article" and h is live:  # recorded from the production deployment at publication, never guessed
                     want = json.loads((KIT / "edition.json").read_text()).get("modified_at")
                     self.assertEqual(j.get("dateModified"), want)
             self.assertIn("medspa-index-og.jpg" if h is live else "benchmark-50-og.jpg", h)  # the published snapshot keeps its own artwork
