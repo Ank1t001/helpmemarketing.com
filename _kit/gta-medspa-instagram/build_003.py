@@ -13,7 +13,7 @@ H1, and if building twice gives a different page. Published snapshots are never 
 wrapper and footer come from the current medspa-index.html (the site's, not the kit's); only the title,
 descriptions, JSON-LD, robots tag and the edition 003 style and sort script block are regenerated.
 """
-import argparse, csv, datetime as dt, html, io, json, re, statistics as st
+import argparse, csv, datetime as dt, hashlib, html, io, json, re, statistics as st
 from collections import Counter
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -96,6 +96,12 @@ for p in win:
     assert p["shortcode"] in COD["posts"], f"post {p['shortcode']} has no content coding"
 assert set(COD["standout_visuals"]) == {M["accounts"][h]["standout"]["shortcode"] for h in readable}, \
     "standout visuals must be written for exactly the current standout posts (inspect the new post before describing it)"
+FR = json.load(open(ED / "frames.json"))["frames"]
+assert set(FR) == set(COD["standout_frames"]) == set(COD["standout_visuals"]), \
+    "every standout post needs a self-hosted cover frame (frames_003.py) and reviewed alt text (coding.json standout_frames)"
+for sc, f in FR.items():
+    fp = REPO / f["frame"].lstrip("/")
+    assert fp.exists() and hashlib.sha256(fp.read_bytes()).hexdigest() == f["frame_sha256"], f"{sc}: frame file missing or changed since frames.json"
 
 # ---- tokens --------------------------------------------------------------------------------------
 T = {"COLLECTED": long_date(CFG["collected_on"]), "WSTART": long_date(W0), "WEND": long_date(W1),
@@ -122,6 +128,8 @@ for h, al in ALIAS.items():
         if s.get(f) is not None:
             T[f"s.{al}.{f}"] = num(s[f])
     T[f"s.{al}.visual"] = COD["standout_visuals"][s["shortcode"]]
+    T[f"s.{al}.img"] = FR[s["shortcode"]]["frame"]
+    T[f"s.{al}.alt"] = COD["standout_frames"][s["shortcode"]]
     ct = Counter(COD["posts"][p["shortcode"]]["type"] for p in win if p["account"] == h and p["own_post"])
     tp = Counter(COD["posts"][p["shortcode"]]["topic"] for p in win if p["account"] == h and p["own_post"])
     for k, v in ct.items():
@@ -167,6 +175,7 @@ def before_window(h):
 
 lb = before_window("laserbodymd")
 T["x.las_prev"] = long_date(lb[0]["published_local"])
+T["x.las_gap_days"] = num((dt.date.fromisoformat(M["accounts"]["laserbodymd"]["standout"]["published_local"][:10]) - dt.date.fromisoformat(lb[0]["published_local"][:10])).days)
 T["x.las_feb_jun"] = num(sum(1 for p in posts if p["account"] == "laserbodymd" and "2026-02-01" <= p["published_local"][:10] <= "2026-06-30"))
 sb = before_window("spamedicamedspa")
 T["x.spa_prev"] = long_date(sb[0]["published_local"])

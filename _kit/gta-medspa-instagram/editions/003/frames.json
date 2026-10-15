@@ -1,0 +1,90 @@
+{
+ "edition": "003",
+ "note": "Cover frames of the standout posts, from the displayUrl in the saved post record; originals not kept (CDN links expire).",
+ "frames": {
+  "DdrZiJGjpcf": {
+   "account": "vitalitymdtoronto",
+   "post_url": "https://www.instagram.com/p/DdrZiJGjpcf/",
+   "source_field": "displayUrl",
+   "cdn_host": "instagram.flpa2-1.fna.fbcdn.net",
+   "downloaded_utc": "2026-10-15T19:20:38+00:00",
+   "original_px": [
+    640,
+    1136
+   ],
+   "crop_box": [
+    0,
+    168,
+    640,
+    968
+   ],
+   "upscaled": false,
+   "source_sha256": "9fd1cb37a90fbe7e6a1375bd1c71a91daabeedbb2778e251dfe570aac683d482",
+   "frame": "/assets/index/medspa/frames/vitalitymdtoronto-cycle003.webp",
+   "frame_sha256": "e8269a3daf528cd86c9358048f3de58a77a72d1b07a8a26c643da753a2d671aa"
+  },
+  "Dd9VXC_lM-f": {
+   "account": "signature_cosmetic_clinic",
+   "post_url": "https://www.instagram.com/p/Dd9VXC_lM-f/",
+   "source_field": "displayUrl",
+   "cdn_host": "scontent-man2-1.cdninstagram.com",
+   "downloaded_utc": "2026-10-15T19:20:39+00:00",
+   "original_px": [
+    836,
+    1044
+   ],
+   "crop_box": [
+    0,
+    0,
+    835,
+    1044
+   ],
+   "upscaled": false,
+   "source_sha256": "3e90abecef57c928c2eb4da27a1fbe4b90df00d81ac2a7304ac56c9baf7a1fd3",
+   "frame": "/assets/index/medspa/frames/signature_cosmetic_clinic-cycle003.webp",
+   "frame_sha256": "4c5134c960a1fc4370f3abcf0b62023947723cc6db80967f6192ec74d7a14a89"
+  },
+  "Dd-JdUkiSFx": {
+   "account": "laserbodymd",
+   "post_url": "https://www.instagram.com/p/Dd-JdUkiSFx/",
+   "source_field": "displayUrl",
+   "cdn_host": "scontent-muc2-1.cdninstagram.com",
+   "downloaded_utc": "2026-10-15T19:20:40+00:00",
+   "original_px": [
+    720,
+    1280
+   ],
+   "crop_box": [
+    0,
+    148,
+    720,
+    1048
+   ],
+   "upscaled": false,
+   "source_sha256": "c4377882e9d558f684ea22628f16c0e7967bded9885de20536056685b37492ee",
+   "frame": "/assets/index/medspa/frames/laserbodymd-cycle003.webp",
+   "frame_sha256": "bd4dcc740b3e2a373cb6ac9e20e9c8c5755cf436fbeb6928e91ee4aaed2640aa"
+  },
+  "DdXXUUkguBt": {
+   "account": "spamedicamedspa",
+   "post_url": "https://www.instagram.com/p/DdXXUUkguBt/",
+   "source_field": "displayUrl",
+   "cdn_host": "scontent-waw2-1.cdninstagram.com",
+   "downloaded_utc": "2026-10-15T19:20:40+00:00",
+   "original_px": [
+    338,
+    600
+   ],
+   "crop_box": [
+    0,
+    61,
+    338,
+    483
+   ],
+   "upscaled": true,
+   "source_sha256": "d3e49cb9e7e5ae8142528ffe2895f7aaa30a91bb91a1d3d452489443a4b3e4e8",
+   "frame": "/assets/index/medspa/frames/spamedicamedspa-cycle003.webp",
+   "frame_sha256": "50f0c25ddb80fa91f946473a1218cc2889b25e5ad69951696cdbe166c5af4881"
+  }
+ }
+}
