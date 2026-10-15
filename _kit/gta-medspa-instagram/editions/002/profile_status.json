@@ -1,0 +1,9792 @@
+{
+"edition": "002",
+"note": "states: 1 public; 2 official evidence (website link or listing contact data); 3 private/not found/unresolved; 4 replacement pending. Weak signals (name similarity, city in bio) are never official.",
+"counts": {
+"public, official evidence": 562,
+"replacement pending": 38
+},
+"accounts": {
+"1faceskinclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"221degreeslaserclinicandspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"30hazelton": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"_.labellamedspa_": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"_angelaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"_moonlight_beauty._": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Toronto",
+"replaced_by": "skinterra_medspa"
+},
+"_premium.aesthetics": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "unresolved, reserve failed check (no second round)",
+"reason": "profile not found",
+"region": "York",
+"reserve_tried": "elevenaestheticsspa"
+},
+"_theglamfactor": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"a_medical_spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"activateskin": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"admireaesthetics.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"aesthetics.fc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"aestheticscarelounge": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"agelessbeauty.brampton": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"aglsmedicalclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"aioniosmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing"
+],
+"region": "Toronto"
+},
+"alabasterwellness": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"allaboutmedicalesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"allurebodybar": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"allurelaserskinstudio": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"alora.medicalspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"aloraskinclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"alyssumcosmetic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"amethystaesthetics_ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"amoreskinandwellnesscenter": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"anaesthetics.inc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"anagenesismedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"annabellamedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"aquaclinic1": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"aquamedicalspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"aqueen_spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"artisanaestheticsca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"artofsanbeauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"assia.beautyclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"astramedicare": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"aura_harbour_wellness": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"auraglow.to": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"auralux.laser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"aurifylaser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"avadralaserstudio": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"avantcosmeticclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"avebelle_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"avenue.medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"avenue_skincare": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"avenueplastic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"avivacosmeticandlaserclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"ax_skin_vitality_med_spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"balancedbeautymedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"barbeautymedical": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"barebeautyclinics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"bbbelleza.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"beaudeeclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"beautidoor": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"beautitudetoronto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"beauty.avenue.aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"beauty_medi_spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"beauty_pulse_medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"beautyaesthetics.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"beautyandwellness.to": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"beautybarclinics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"beautyby_katia": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"beautybymeet": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"beautyfairyrichmondhill": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"beautyfoundationsclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"beautymed.spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"beautymed_richmondhill": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing"
+],
+"region": "York"
+},
+"beautyoclockmedicalspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"beautyoneclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"beautyshotmedicalclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"bellairlaserclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"bellalashandbeauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York"
+},
+"bellebeaute_medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"bfancylaserclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"bffskincare.inc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"biobeautemedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"blossomskinboutique": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"bluecosmeticclinic.ca": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "York",
+"replaced_by": "forouz_beauty"
+},
+"body.tuned.by": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"bodyblissaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"bodybritecanada": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"bodycontouringtoronto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"bodyrevive": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"bodysculptxclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"boutiquemedicalaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"boxxed_aesthetics_wellness": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"burlington.gracemed": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"burlingtonmedicalaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"calmwatersdayspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"canadamedlaser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"canadianbeautyboutique": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"canadiandermatology": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"canstrivemedspa": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Peel",
+"replaced_by": "eyes2envylashes"
+},
+"caramel_medspa": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Peel",
+"replaced_by": "agelesselegance_medspa"
+},
+"caseycandid": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"cataleyabeautyaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"chaimspromedaesthetics": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Durham",
+"replaced_by": "beautytox.med"
+},
+"charsbanquetofbeauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"chrysalis_beaute": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"clarityglow.medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"clarixio": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"classycosmeticclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"clinic.fakour": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"clinic360": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"confidenceinsession": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"coralwellness.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"coreceutical": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"cosmedicalrejuvenationclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"crystalderminc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"d2medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"damasskincare": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"deeperthanskin_canada": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"dermabarr": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"dermacapitallaserclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"dermacelaserclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"dermadollstudio": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"dermaesthetic.can": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Durham",
+"replaced_by": "sava.spa.bowmanville"
+},
+"dermalstudio.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"dermanev_": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"dermapuretorontomidtown": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"dermapuretorontoyorkville": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"dermasciencemedspa": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Durham",
+"replaced_by": "lagaviotaesthetics"
+},
+"dermatouch.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"dermavcos": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"dermazone_medical_spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"dermetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"dermis.co": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"dewbeaumedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"diamond_aesthetics_npjen": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"divamedspa7": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"divinespa.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"donyamedicalspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"dranjaleegupta": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"dripclub.iv": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"dripinluxemedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"driplabto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"driprefreshmobileivtherapy": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"drleonoraogbeide": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"drwest_aesthetic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"drwrinkleawayclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"dynastyaetheticskin": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Multi-region",
+"replaced_by": "eternal_glow_medical"
+},
+"eb.medaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"elanlaserspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"elegancy_beautybar": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"elham_aesthetic_art": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"elitecosmeticclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"elitemdaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"elitewellnessmedispa4u": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"ellabeauty_toronto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"ellaslaser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"eluxeclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"emeraldskinlab": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"enaliabeautybar": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"enrichedmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"eonmedicalspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"ertclinicvan": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"essence_laser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"estheroasisspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"estheticswithelle": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"eternalbeautynbeyond": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"europeanbeautybyolga": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"everbeautyclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"everglowskinstudio.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"evergreenbeautybar": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"everskinlasersalon": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"exsalonce_": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"face.by.vivaderm": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"faceharmony.beauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"faceinjectables": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"facesmedicalspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"facialplusca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"facilemedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"fantaziaaesthetics": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "York",
+"replaced_by": "eloquence_medical"
+},
+"fcpdermatology": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"femmelaserclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"fera.swanmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"fleur.aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"flourish_medical_aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"fmbeautybarr": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"foresthill.cc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"forever_holistix_medispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"foreverbeautymedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"formfaceandbody": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"freshfacedbeautyrx": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"freshtouch_medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"fusionmedcc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"fuzzwaxbar": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"gatesmedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"genesis_medi_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"genevamedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing"
+],
+"region": "Halton"
+},
+"georgina_np_led_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"georginarejuvenationcentre": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"glamazing_laserclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"glamdermmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"glammedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"glass.skin.med.spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"glolaserandskinstudio": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"glowingtouchbeautyclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"glowmedclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"glowonbeautybar": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"glowwithaliza": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"gmaskinclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"goldenpulselaser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"gowith_theglowmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"gskindesire": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"gtamedicalcenter": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"habitmedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"halftimephysique": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"haltonderm": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"havaskin.clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"havenmedspasocial": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"hazelaesthetics_": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"healthoneskinclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"heartlake_aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"heostoronto": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Multi-region",
+"replaced_by": "lvmedspa"
+},
+"hermosamedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"hermosastudio___": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Multi-region",
+"replaced_by": "lipdoctorbeforeandafter"
+},
+"hisandhermedspa": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Durham",
+"replaced_by": "lonewolfbeauty"
+},
+"holisticbeautyuxbridge": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"honneteclinique": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"hotboycutegirl.med": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"houseofbeautybyjd": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"huespa_toronto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing"
+],
+"region": "Toronto"
+},
+"idcosmeticclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"ideal_pampering_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"idealdreamclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"idluxurymedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"igbeauty_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"ilabeautymedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"imagebygracekartey": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "York",
+"replaced_by": "beautiquemedspa"
+},
+"infusederm": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "unresolved, reserve failed check (no second round)",
+"reason": "profile not found",
+"region": "Peel",
+"reserve_tried": "prickmedicalaesthetics"
+},
+"injectionlounge": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"instadermmd": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"ipzu_wellness_centre": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"itsthegoodskinstudio": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"jadlaserskinsolutions": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"janerunsclinics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"jaunaliemedical": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"jeunessecosmeticclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"jivaspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"joymedicalcosmetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"k_luminous_beauty": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Toronto",
+"replaced_by": "glamourmd"
+},
+"kaizen_medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"katifaceinc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"kereer.medi": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"kingswaydermatology": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"kokos_spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"ksthetics_injectables": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"la_deesse_clinic": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Peel",
+"replaced_by": "neshatac"
+},
+"labeautyboutiqueto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"lacasadecontour": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"ladyjmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"laeurekalaser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"lakesidemedicalaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"lalunamedical": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"lasair.medical": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"lase.away": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"laser.lash.clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"laser360ms": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"laserclinicnewmarket": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"laserclinicscanada": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"laserise_skincare": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"lasermed_canada": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"lasermedicalclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"laserskinec_inc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing"
+],
+"region": "Durham"
+},
+"lashesandlipstickca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"launiquelasercentre": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"lavender_laser_and_beauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"lavishmedclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"leaulaserandspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"lenaspastudio": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Halton",
+"replaced_by": "beautyslams"
+},
+"lepamperroom": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"lesliemedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"letsglowsalon": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"lexxsthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"liftclinictoronto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"lilymedispa_": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Peel",
+"replaced_by": "dermapureerinmills"
+},
+"linadiminno": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"lisadane_bellalisalaser": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "York",
+"replaced_by": "rejuvenmedspa"
+},
+"look_timeless": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"lovelylaserspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"loveyourfacenewcastle": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"luciemeclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"lumiderm.aesthetic.clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"luminamedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"lumineskinandlaser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"lumiskins": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"luna.medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"lunae_cosmetic_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"lura.aesthetic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"lux.beauty.skin": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "York",
+"replaced_by": "always_young_beauty_clinic"
+},
+"luxeaesthetics.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"luxeandlitbeauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"luxebeamclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"luxebeautyandwellnessspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"luxury_beauty_aestheticz": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"lyfemedica": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"magyskinhealth": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"manasmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"marketplacemedicalcentre": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"marmionmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"maryam.injectable.studio": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"maryvalemedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"mavivaspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"mc.cosmetic.injectables": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"mcbeautycosmeticclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"md_laser_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"mdainstitute": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing"
+],
+"region": "Peel"
+},
+"medcosmetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"medermestheticslaser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"medicalaserspa": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Toronto",
+"replaced_by": "animamedspa"
+},
+"medidermaspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"medilase_cosmetic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"medspaandlaser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"meitalstudios.beautycentre": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"melekmedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"meliora_medispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"mellow_medical_aesthetic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"melorinmedicalbeauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"memolbeautyclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"merakibeautyspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"merakiskinclinic.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"mernovmedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"merrionmedicalaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"mezzmerizeonpearl": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"mgaesthetics_": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"microbeautylabto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"midtownmedspatoronto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"mimibeautyclinics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"mindbodybeauty_aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"miraclebeauty.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"miraclemedaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"mississauga.gracemed": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"miyanbeautylab": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"mkcosmeticcliniccanada": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"mmedispa_": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"modern.beautybarxo": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"modernmedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"modernyoumedicalaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"moorebeautyinc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"morali_aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"muchinbeauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"mvsmedicalaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"my_skinclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"mybestclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"mysparituals": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"n.h.fclinics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"nakdclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"nc_beautyspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"ncbcmedlaser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"nelllaserclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"newagelaserandspa": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Halton",
+"replaced_by": "theglamhouseclinic"
+},
+"newdermamed": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"newmarket.laser.andskincare": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"newmclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"newskin_laserclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"nkm_injections": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"nomorewrinklesmedspas": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing"
+],
+"region": "Halton"
+},
+"northmedical": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"northyorkcosmeticclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"novabeauty_inc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"novelle.aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"novellomedicalaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"novo_skincare": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"nu.med": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing"
+],
+"region": "Toronto"
+},
+"nuageaesthetic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"nudabeautylab": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"nulookbeauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"nurse.ellen.aura": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"nurse.injector.megan": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"nurse.injectorlisa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"nurse_jacklyn": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"nurseamy.flawless": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"nursecheryl.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"nurseinjector.alisha": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"nursemandiaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"nursenatalie.medaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"nuyoumedspaa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"o.p.medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"oaklakemedspa": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "unresolved, reserve failed check (no second round)",
+"reason": "profile not found",
+"region": "Halton",
+"reserve_tried": "tuffordmedical"
+},
+"oakville.skin": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"oakvilleflawlesscosmeticclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"oakvillemedicalaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"oakwood_health_network": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"olenzabeautyloft": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"omorphi_aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"onyxoakville": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"opallomhealth": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Durham",
+"replaced_by": "bodylanguageoshawa"
+},
+"opalmedispamississauga": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"orameramedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"oreabeautyboutique": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"oxygenglow": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"par_aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"pariaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"parislaserclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"parklanemedaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"pearlonking": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"perfection_cosmetic_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"philosophy.of.beauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"pinkavenueskincare": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"plumpaestheticsmd": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"plumpitupp": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"posh_medical_spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"precisionbeautycanada": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"precisionestheticsinc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"premium.clinic.toronto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"prettypearlskin": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"pureradiance_aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"puretemedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"qestheticslaser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"radiance.skinclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"rarebeautylab": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"ravnoor_medical_aesthetic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"rayaesthetics.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"razi.laser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"re_juvenation": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"real_sweet_treatments": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"realityskincarecentre": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"rebodeemedicalaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"redwoodmedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"refine.medicalaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"refine_medicalaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"refinebeauty.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"reformelab": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"refresh_cosmetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"refreshdermaclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"refreshmd.spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"rejuuvmedi": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"rejuv.canada": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing"
+],
+"region": "Halton"
+},
+"rejuvamedispabrampton": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"rejuvenatebypeakhuman": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"rejuvenation.med.clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"rejuvenusclinic.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"renewalmedaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"renewedbeautyinc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"reveclinic.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"revelbeautyclub.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"revellemedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"revivalmedspa.oakville": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"reviveandrefinemedspagta": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"reviveskinmedicalspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"rewindskinco": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"richskin.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"riddhiskincarespa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"ridsbeautyspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"rnrc.aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"rnzmed": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"rohalaserspa": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Toronto",
+"replaced_by": "definabeautyclinic"
+},
+"rose.mc.toronto": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Toronto",
+"replaced_by": "dermalook_aesthetics"
+},
+"rose__skin__care": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"rosegoldaesthetics.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"royalglowmed": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"royalyorkspa": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Toronto",
+"replaced_by": "studiosvisavis"
+},
+"rozzacare.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"ruyasaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"sabislifestylend": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "private account",
+"region": "Halton",
+"replaced_by": "beautiflymedispa"
+},
+"sabrina_med_aesthetics": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "York",
+"replaced_by": "alluria_medspa"
+},
+"sadentrohealth": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"salemmedicalaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"sama_spa_inc": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "unresolved, reserve failed check (no second round)",
+"reason": "profile not found",
+"region": "Peel",
+"reserve_tried": "dermasecretclinic"
+},
+"samacosmeticclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"sammedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"sculpt.rx": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"sculpt_medispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"secretaestheticsmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"secretfacesclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"sensecare_medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"senzubeanclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"serene_cosmetic_clinic": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Multi-region",
+"replaced_by": "skinmedaesthetics_clinic"
+},
+"shadesofskin.beautybar": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"sherlaseclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"signature_cosmetic_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"silkaesthetic_ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"simedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"six26_medaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"skin.beautyandbeyond": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"skin28clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"skin6ix": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"skin6to": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"skin_beauty_oakville": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Halton",
+"replaced_by": "jadeclinics"
+},
+"skin_diva_studio": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"skin_trek": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"skinandsoulxm": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"skinatomylaserclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"skincarelasercentre": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"skincityco": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"skinfidelity_": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"skinfitz.co": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"skinlabspa": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "York",
+"replaced_by": "skineffectsinc"
+},
+"skinlandmedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"skinlicious.byhanin": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"skinnmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"skinnovationsbyera": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"skinprick.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"skinprovement": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"skinprowellness": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"skinretreat.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"skinsocietybar": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing"
+],
+"region": "Toronto"
+},
+"skinsooolushmedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"skinsoulmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"skinstudiotoronto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"skintek_skincare": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"skinvitality": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"skinxspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"skn.beautycentre": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"skonlaserclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"snatchedbyale": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"sobya_skincare": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"solskin.spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"soniacosmeticclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"soulalaserclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"sovereignskin": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"spascanada.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"spavaidosa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"spectrum_of_beauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"spicedsilk_medaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"springlaser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"ssknfirm": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"star_skincare_studio": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"stephabellesclinique": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"stillbeautyandmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"studionudetoronto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"subtle.enhancements": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"sugarbarebodybar": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"sugarmoonsalon": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"sumu.rehab.clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"sunandshade.medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"sundayaesthetics.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"sunshinemedispa.sauga": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"sweethairremoval_laser": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Durham",
+"replaced_by": "luxe_medspa.ca"
+},
+"syrinjainjectables": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"tailoredmedicalaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "York"
+},
+"tamedicalspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"terraskinclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"the_contourlab": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"thebeautyinitiative": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"thebeautyrezort": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"thebeautystandard.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"thebodyclinicskincare": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"theclinica": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Multi-region"
+},
+"thecosmetichausca": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Toronto",
+"replaced_by": "urbanbeauty.bar"
+},
+"thedermaloungeaurora": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"thedermclinic_official": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"thedripcoltd": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"thefacialplace": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"thefreezeclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"theglowhausto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing"
+],
+"region": "Durham"
+},
+"theglowzoneto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"thelasersuite14": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"themdbeautyclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"themdskinlab": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"thepurglow": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"thescenemedicalbeautybar": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"theskinclubstudio": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"theskinstudioinc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"timelesshealthtoronto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing"
+],
+"region": "Multi-region"
+},
+"timelesslifeclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"tlwc.canada": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"tma.clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"torontobeautyclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"torontobeautynurse": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"tri.genics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"trucare_cosmetic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"trudy_gorgestheticstudio": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"truemedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"tsskinclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"tt.aestheticmedicine": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Toronto",
+"replaced_by": "you_glow_aesthetics_spa"
+},
+"ttmspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"u_medispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"unchainedbeauty.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"unique.clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"upkeep_skin_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"vbeautystyle_": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"velmontmedicalclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"venice_cosmetic_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"venusmedicalspa_": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"victoriaparktoronto": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"victoriarose.aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"visage_by_kate_": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"vistoso_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"vitaluxemedclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"vivacitemedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"vividcosmeticclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"username matches clinic name"
+],
+"region": "York"
+},
+"vs_med_spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"weinject": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Toronto"
+},
+"wellnesscentre4u": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "failed, replaced",
+"reason": "profile not found",
+"region": "Toronto",
+"replaced_by": "letthemnotice"
+},
+"wellnesspath.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"whealthylifeclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"whitbymedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"woodbridgecosmeticlinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"woodlandskinrenewal": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Durham"
+},
+"xycosmeticclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"yasalaser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"yellowroselaser": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"ymgclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"york.wellness.aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"yorklasermedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"yorkrehabclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"youthfulderma": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Peel"
+},
+"zenwellnessclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "Halton"
+},
+"zinacosmeticcentre": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [
+"biography names clinic city",
+"profile name matches listing",
+"username matches clinic name"
+],
+"region": "York"
+},
+"skinterra_medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false,
+"replacement_for": "_moonlight_beauty._"
+},
+"glamourmd": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false,
+"replacement_for": "k_luminous_beauty"
+},
+"animamedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false,
+"replacement_for": "medicalaserspa"
+},
+"definabeautyclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false,
+"replacement_for": "rohalaserspa"
+},
+"dermalook_aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false,
+"replacement_for": "rose.mc.toronto"
+},
+"studiosvisavis": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false,
+"replacement_for": "royalyorkspa"
+},
+"urbanbeauty.bar": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false,
+"replacement_for": "thecosmetichausca"
+},
+"you_glow_aesthetics_spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false,
+"replacement_for": "tt.aestheticmedicine"
+},
+"letthemnotice": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false,
+"replacement_for": "wellnesscentre4u"
+},
+"forouz_beauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false,
+"replacement_for": "bluecosmeticclinic.ca"
+},
+"eloquence_medical": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false,
+"replacement_for": "fantaziaaesthetics"
+},
+"beautiquemedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false,
+"replacement_for": "imagebygracekartey"
+},
+"rejuvenmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false,
+"replacement_for": "lisadane_bellalisalaser"
+},
+"always_young_beauty_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false,
+"replacement_for": "lux.beauty.skin"
+},
+"alluria_medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false,
+"replacement_for": "sabrina_med_aesthetics"
+},
+"skineffectsinc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false,
+"replacement_for": "skinlabspa"
+},
+"eyes2envylashes": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Peel",
+"restricted": false,
+"replacement_for": "canstrivemedspa"
+},
+"agelesselegance_medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Peel",
+"restricted": false,
+"replacement_for": "caramel_medspa"
+},
+"neshatac": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Peel",
+"restricted": false,
+"replacement_for": "la_deesse_clinic"
+},
+"dermapureerinmills": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Peel",
+"restricted": false,
+"replacement_for": "lilymedispa_"
+},
+"beautytox.med": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Durham",
+"restricted": false,
+"replacement_for": "chaimspromedaesthetics"
+},
+"sava.spa.bowmanville": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Durham",
+"restricted": false,
+"replacement_for": "dermaesthetic.can"
+},
+"lagaviotaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Durham",
+"restricted": false,
+"replacement_for": "dermasciencemedspa"
+},
+"lonewolfbeauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Durham",
+"restricted": false,
+"replacement_for": "hisandhermedspa"
+},
+"bodylanguageoshawa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Durham",
+"restricted": false,
+"replacement_for": "opallomhealth"
+},
+"luxe_medspa.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Durham",
+"restricted": false,
+"replacement_for": "sweethairremoval_laser"
+},
+"eternal_glow_medical": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Multi-region",
+"restricted": false,
+"replacement_for": "dynastyaetheticskin"
+},
+"lvmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Multi-region",
+"restricted": false,
+"replacement_for": "heostoronto"
+},
+"lipdoctorbeforeandafter": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Multi-region",
+"restricted": false,
+"replacement_for": "hermosastudio___"
+},
+"skinmedaesthetics_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Multi-region",
+"restricted": false,
+"replacement_for": "serene_cosmetic_clinic"
+},
+"beautyslams": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Halton",
+"restricted": false,
+"replacement_for": "lenaspastudio"
+},
+"theglamhouseclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Halton",
+"restricted": false,
+"replacement_for": "newagelaserandspa"
+},
+"beautiflymedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Halton",
+"restricted": false,
+"replacement_for": "sabislifestylend"
+},
+"jadeclinics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Halton",
+"restricted": false,
+"replacement_for": "skin_beauty_oakville"
+}
+},
+"reserve_check": {
+"run": "6yZUGmFZDYnv8Jksq",
+"results": {
+"eyes2envylashes": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Peel",
+"restricted": false
+},
+"beautytox.med": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Durham",
+"restricted": false
+},
+"eloquence_medical": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false
+},
+"lipdoctorbeforeandafter": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Multi-region",
+"restricted": false
+},
+"skinmedaesthetics_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Multi-region",
+"restricted": false
+},
+"dermapureerinmills": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Peel",
+"restricted": false
+},
+"prickmedicalaesthetics": {
+"public": false,
+"official_evidence": true,
+"state": 3,
+"label": "restricted profile, unresolved (conservative)",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Peel",
+"restricted": true
+},
+"dermalook_aesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false
+},
+"tuffordmedical": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "private/not found/unresolved",
+"reason": "profile not found",
+"region": "Halton",
+"restricted": false
+},
+"letthemnotice": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false
+},
+"jadeclinics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Halton",
+"restricted": false
+},
+"animamedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false
+},
+"agelesselegance_medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Peel",
+"restricted": false
+},
+"definabeautyclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false
+},
+"lonewolfbeauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Durham",
+"restricted": false
+},
+"luxe_medspa.ca": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Durham",
+"restricted": false
+},
+"always_young_beauty_clinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false
+},
+"dermasecretclinic": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "private/not found/unresolved",
+"reason": "profile not found",
+"region": "Peel",
+"restricted": false
+},
+"studiosvisavis": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false
+},
+"theglamhouseclinic": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Halton",
+"restricted": false
+},
+"urbanbeauty.bar": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false
+},
+"rejuvenmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false
+},
+"beautiquemedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false
+},
+"skinterra_medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false
+},
+"eternal_glow_medical": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Multi-region",
+"restricted": false
+},
+"beautyslams": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Halton",
+"restricted": false
+},
+"forouz_beauty": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false
+},
+"alluria_medspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false
+},
+"skineffectsinc": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "York",
+"restricted": false
+},
+"you_glow_aesthetics_spa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false
+},
+"elevenaestheticsspa": {
+"public": false,
+"official_evidence": false,
+"state": 3,
+"label": "private/not found/unresolved",
+"reason": "profile not found",
+"region": "York",
+"restricted": false
+},
+"bodylanguageoshawa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Durham",
+"restricted": false
+},
+"sava.spa.bowmanville": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Durham",
+"restricted": false
+},
+"glamourmd": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Toronto",
+"restricted": false
+},
+"beautiflymedispa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Halton",
+"restricted": false
+},
+"lagaviotaesthetics": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Durham",
+"restricted": false
+},
+"neshatac": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Peel",
+"restricted": false
+},
+"lvmedspa": {
+"public": true,
+"official_evidence": true,
+"state": 2,
+"label": "public, official evidence",
+"official_basis": [
+"website link",
+"listing contact data"
+],
+"weak_signals": [],
+"region": "Multi-region",
+"restricted": false
+}
+},
+"substitutions": [
+{
+"region": "Toronto",
+"failed": "_moonlight_beauty._",
+"reserve": "skinterra_medspa"
+},
+{
+"region": "Toronto",
+"failed": "k_luminous_beauty",
+"reserve": "glamourmd"
+},
+{
+"region": "Toronto",
+"failed": "medicalaserspa",
+"reserve": "animamedspa"
+},
+{
+"region": "Toronto",
+"failed": "rohalaserspa",
+"reserve": "definabeautyclinic"
+},
+{
+"region": "Toronto",
+"failed": "rose.mc.toronto",
+"reserve": "dermalook_aesthetics"
+},
+{
+"region": "Toronto",
+"failed": "royalyorkspa",
+"reserve": "studiosvisavis"
+},
+{
+"region": "Toronto",
+"failed": "thecosmetichausca",
+"reserve": "urbanbeauty.bar"
+},
+{
+"region": "Toronto",
+"failed": "tt.aestheticmedicine",
+"reserve": "you_glow_aesthetics_spa"
+},
+{
+"region": "Toronto",
+"failed": "wellnesscentre4u",
+"reserve": "letthemnotice"
+},
+{
+"region": "York",
+"failed": "bluecosmeticclinic.ca",
+"reserve": "forouz_beauty"
+},
+{
+"region": "York",
+"failed": "fantaziaaesthetics",
+"reserve": "eloquence_medical"
+},
+{
+"region": "York",
+"failed": "imagebygracekartey",
+"reserve": "beautiquemedspa"
+},
+{
+"region": "York",
+"failed": "lisadane_bellalisalaser",
+"reserve": "rejuvenmedspa"
+},
+{
+"region": "York",
+"failed": "lux.beauty.skin",
+"reserve": "always_young_beauty_clinic"
+},
+{
+"region": "York",
+"failed": "sabrina_med_aesthetics",
+"reserve": "alluria_medspa"
+},
+{
+"region": "York",
+"failed": "skinlabspa",
+"reserve": "skineffectsinc"
+},
+{
+"region": "Peel",
+"failed": "canstrivemedspa",
+"reserve": "eyes2envylashes"
+},
+{
+"region": "Peel",
+"failed": "caramel_medspa",
+"reserve": "agelesselegance_medspa"
+},
+{
+"region": "Peel",
+"failed": "la_deesse_clinic",
+"reserve": "neshatac"
+},
+{
+"region": "Peel",
+"failed": "lilymedispa_",
+"reserve": "dermapureerinmills"
+},
+{
+"region": "Durham",
+"failed": "chaimspromedaesthetics",
+"reserve": "beautytox.med"
+},
+{
+"region": "Durham",
+"failed": "dermaesthetic.can",
+"reserve": "sava.spa.bowmanville"
+},
+{
+"region": "Durham",
+"failed": "dermasciencemedspa",
+"reserve": "lagaviotaesthetics"
+},
+{
+"region": "Durham",
+"failed": "hisandhermedspa",
+"reserve": "lonewolfbeauty"
+},
+{
+"region": "Durham",
+"failed": "opallomhealth",
+"reserve": "bodylanguageoshawa"
+},
+{
+"region": "Durham",
+"failed": "sweethairremoval_laser",
+"reserve": "luxe_medspa.ca"
+},
+{
+"region": "Multi-region",
+"failed": "dynastyaetheticskin",
+"reserve": "eternal_glow_medical"
+},
+{
+"region": "Multi-region",
+"failed": "heostoronto",
+"reserve": "lvmedspa"
+},
+{
+"region": "Multi-region",
+"failed": "hermosastudio___",
+"reserve": "lipdoctorbeforeandafter"
+},
+{
+"region": "Multi-region",
+"failed": "serene_cosmetic_clinic",
+"reserve": "skinmedaesthetics_clinic"
+},
+{
+"region": "Halton",
+"failed": "lenaspastudio",
+"reserve": "beautyslams"
+},
+{
+"region": "Halton",
+"failed": "newagelaserandspa",
+"reserve": "theglamhouseclinic"
+},
+{
+"region": "Halton",
+"failed": "sabislifestylend",
+"reserve": "beautiflymedispa"
+},
+{
+"region": "Halton",
+"failed": "skin_beauty_oakville",
+"reserve": "jadeclinics"
+}
+],
+"unresolved_slots": [
+{
+"region": "York",
+"failed": "_premium.aesthetics",
+"reserve_tried": "elevenaestheticsspa",
+"reserve_state": "private/not found/unresolved"
+},
+{
+"region": "Peel",
+"failed": "infusederm",
+"reserve_tried": "prickmedicalaesthetics",
+"reserve_state": "restricted profile, unresolved (conservative)"
+},
+{
+"region": "Peel",
+"failed": "sama_spa_inc",
+"reserve_tried": "dermasecretclinic",
+"reserve_state": "private/not found/unresolved"
+},
+{
+"region": "Halton",
+"failed": "oaklakemedspa",
+"reserve_tried": "tuffordmedical",
+"reserve_state": "private/not found/unresolved"
+}
+]
+},
+"counts_after_reserves": {
+"public, official evidence": 596,
+"failed, replaced": 34,
+"unresolved, reserve failed check (no second round)": 4
+},
+"counts_pending_replacement": 0
+}

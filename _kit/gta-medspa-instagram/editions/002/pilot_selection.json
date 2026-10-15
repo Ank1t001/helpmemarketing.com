@@ -1,0 +1,148 @@
+{
+"edition": "002",
+"seed_pattern": "pilot:20261015:{region}",
+"eligible_states": "1+2 (public, official evidence); selected 600 slots after reserve substitution",
+"eligible_counts": {
+"York": 163,
+"Peel": 85,
+"Toronto": 162,
+"Halton": 85,
+"Durham": 67,
+"Multi-region": 34
+},
+"allocation": {
+"York": 14,
+"Peel": 7,
+"Toronto": 13,
+"Halton": 7,
+"Durham": 6,
+"Multi-region": 3
+},
+"method": "largest remainder; sort alphabetically; random.Random(seed).shuffle; first n",
+"selected": {
+"York": [
+"merakiskinclinic.ca",
+"medermestheticslaser",
+"ellaslaser",
+"beautiquemedspa",
+"always_young_beauty_clinic",
+"richskin.ca",
+"manasmedspa",
+"dewbeaumedispa",
+"thedermaloungeaurora",
+"stephabellesclinique",
+"novabeauty_inc",
+"eb.medaesthetics",
+"eluxeclinic",
+"mellow_medical_aesthetic"
+],
+"Peel": [
+"skinfidelity_",
+"aquamedicalspa",
+"lovelylaserspa",
+"flourish_medical_aesthetics",
+"tlwc.canada",
+"mississauga.gracemed",
+"admireaesthetics.ca"
+],
+"Toronto": [
+"redwoodmedispa",
+"coralwellness.ca",
+"lavender_laser_and_beauty",
+"jadlaserskinsolutions",
+"skintek_skincare",
+"nurse.injector.megan",
+"revellemedspa",
+"revelbeautyclub.ca",
+"lunae_cosmetic_clinic",
+"animamedspa",
+"definabeautyclinic",
+"sovereignskin",
+"aura_harbour_wellness"
+],
+"Halton": [
+"skonlaserclinic",
+"gowith_theglowmedspa",
+"assia.beautyclinic",
+"luxeandlitbeauty",
+"elanlaserspa",
+"luna.medspa",
+"oakwood_health_network"
+],
+"Durham": [
+"theglowhausto",
+"woodlandskinrenewal",
+"whitbymedspa",
+"loveyourfacenewcastle",
+"laser.lash.clinic",
+"precisionbeautycanada"
+],
+"Multi-region": [
+"reviveskinmedicalspa",
+"allaboutmedicalesthetics",
+"skinvitality"
+]
+},
+"runs": [
+[
+"merakiskinclinic.ca",
+"medermestheticslaser",
+"ellaslaser",
+"beautiquemedspa",
+"always_young_beauty_clinic",
+"richskin.ca",
+"manasmedspa",
+"dewbeaumedispa",
+"thedermaloungeaurora",
+"stephabellesclinique"
+],
+[
+"novabeauty_inc",
+"eb.medaesthetics",
+"eluxeclinic",
+"mellow_medical_aesthetic",
+"skinfidelity_",
+"aquamedicalspa",
+"lovelylaserspa",
+"flourish_medical_aesthetics",
+"tlwc.canada",
+"mississauga.gracemed"
+],
+[
+"admireaesthetics.ca",
+"redwoodmedispa",
+"coralwellness.ca",
+"lavender_laser_and_beauty",
+"jadlaserskinsolutions",
+"skintek_skincare",
+"nurse.injector.megan",
+"revellemedspa",
+"revelbeautyclub.ca",
+"lunae_cosmetic_clinic"
+],
+[
+"animamedspa",
+"definabeautyclinic",
+"sovereignskin",
+"aura_harbour_wellness",
+"skonlaserclinic",
+"gowith_theglowmedspa",
+"assia.beautyclinic",
+"luxeandlitbeauty",
+"elanlaserspa",
+"luna.medspa"
+],
+[
+"oakwood_health_network",
+"theglowhausto",
+"woodlandskinrenewal",
+"whitbymedspa",
+"loveyourfacenewcastle",
+"laser.lash.clinic",
+"precisionbeautycanada",
+"reviveskinmedicalspa",
+"allaboutmedicalesthetics",
+"skinvitality"
+]
+]
+}

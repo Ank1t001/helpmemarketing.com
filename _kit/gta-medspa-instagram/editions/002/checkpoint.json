@@ -43,18 +43,10 @@
    },
    "meta": {
     "run": "Zoi0DpoQSneBRv56E",
-    "items": "600"
-   }
-  },
-  "profiles_verified": {
-   "files": {
-    "editions/002/profiles_verified.json": "f13db9317bd07a3e1545032df57b379a1e1bb0a914a74c0a5ecaead5d2bdb6ac"
-   },
-   "meta": {
-    "verified": "562",
-    "failed": "38",
-    "replacements_pending_profile_check": "38"
+    "items": "600",
+    "profiles_verified_note": "2026-10-15: profiles_verified stage record removed, replacements unresolved (562 verified, 38 failed, 38 reserves pending profile check)"
    }
   }
- }
+ },
+ "pilot_note": "2026-10-15: pilot only (50 accounts, 5 runs, 824 rows in work/posts_pilot.jsonl, not committed). posts_collected NOT done; profiles_verified pending (4 unresolved slots); rest of cohort (546 accounts) not launched."
 }

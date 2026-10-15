@@ -1,0 +1,10 @@
+{
+ "edition": "002",
+ "written_before_launch": "2026-10-15",
+ "actor": "apify/instagram-scraper",
+ "pricing": "PAY_PER_EVENT; one event \"Result\" (each result written to the dataset); BRONZE 0.0023 USD, FREE 0.0027; account tier BRONZE per fetch-actor-details",
+ "only_posts_newer_than": "Input doc says \"Limit how far back to scrape\" and \"Pinned posts may still appear even with this filter set\". Billing is per result written to the dataset, so filtered-out posts are not billed if dropped before write. Whether older posts are fetched internally before being dropped is UNCONFIRMED (docs do not say).",
+ "max_total_charge": "Supported: platform docs (docs.apify.com pay-per-event) say users \"won't be billed beyond the limit\" and the actor receives ACTOR_MAX_TOTAL_CHARGE_USD. Enforcement by the platform is documented; it will be verified against the first run's charged total before the next run starts. Not tested to the limit beforehand.",
+ "partial_results": "Items pushed to the dataset before the cap stay and are billed; no mid-account resume. A run that hits its cap marks all accounts in that run incomplete unless per-account rule (oldest post before window start, or fewer than 200 results) says complete.",
+ "budget": "5 runs x 10 accounts, maxTotalChargeUsd 1.0 each (max 5.0 total), sequential; resultsLimit 200, resultsType posts, onlyPostsNewerThan 2026-07-17, directUrls profile URLs. Worst case uncapped 50x200x0.0023 = 23 USD."
+}
