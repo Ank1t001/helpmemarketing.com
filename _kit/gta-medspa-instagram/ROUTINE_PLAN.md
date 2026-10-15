@@ -17,3 +17,7 @@ The Real Estate routine (`_kit/realestate-instagram/ROUTINE_PROMPT.md`) works be
 - Run day (the Real Estate routine runs on the 14th).
 - Monthly spend ceiling for Apify (roughly 341 accounts of posts each run, plus frames; check the current per-result price in the Apify console).
 - Whether the cadence finding stays on the page until a single-pass collection confirms it.
+
+
+## Update 2026-10-15
+Edition 002 became a fixed 50-account observational study (`cohort_50.json`). The 596-account collection plan (`editions/002/batch_plan.json`) is superseded and must not continue. See `ROUTINE_PROMPT_50.md` and `editions/002/scope_decision.json`.

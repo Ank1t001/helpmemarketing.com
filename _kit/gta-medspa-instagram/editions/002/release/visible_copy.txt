@@ -1,0 +1,169 @@
+The GTA MedSpa Index · The HMM Index
+50-account GTA medspa Instagram benchmark
+I looked at the Instagram video activity of 50 medspa accounts in the Greater Toronto Area over the 90 days from 17 July to 15 October 2026. The 50 are a region-proportional random sample of accounts I found through Google Maps searches, so this is a benchmark of a sample: not every GTA clinic, and not a ranking of clinics.
+Observation window 17 July to 15 October 2026For clinic owners and marketing leads.Research and analysis by Ankit Kumar · Founder, HMM
+Data collected 15 October 2026Edition 002
+What this edition covers
+Accounts selected
+50
+With posts observed in the window
+36
+Profile evidence of no recent posts
+12
+Restricted or unconfirmed
+2
+Posts observed on their feeds in the window
+783
+Coverage. Selected 50. Posting activity is analysed for 48 of the 50: 36 had posts in the window and 12 showed no posts in it on their profile pages. 1 account is restricted by Instagram and 1 could not be confirmed. Those two are shown as such, are not counted as inactive and are left out of every calculation. Post-level figures below use the 36 accounts with observed posts.
+What this edition measures
+Measured: the posts, recorded reel plays, comments and likes visible on each account’s public Instagram feed. Not measured: enquiries, booked or attended consultations, treatments sold or revenue. Comments are a public signal, never bookings. There is no score and no leaderboard in this edition: how completely each account’s posts were collected is not comparable across accounts, so ordering clinics would overstate what the data can support.
+Reels were the largest share of observed posts, but the picture is incomplete
+Among the 725 observed posts that the 36 posting accounts published themselves, 433 (60%) were reels, 210 (29%) static images and 82 (11%) carousels. 31 of the 36 accounts had at least one own reel. Denominator: 725 own posts from 36 accounts. Collaboration posts are not in this count (see the definitions below). These shares describe the posts that were collected, not every post these accounts published, and not clinics in general.
+Observed posts per account varied widely
+Across the 36 posting accounts, the number of posts observed on the feed in the window had a median of 20 (middle half 9.5 to 27.2, lowest 1, highest 70). Denominator: all 783 in-window posts returned on those 36 feeds, which are the 725 own posts plus 58 collaboration posts. It is a count of collected posts, not a verified posting frequency: the collection tool filtered by date, so complete paging of every account’s window cannot be shown from the records.
+Recorded plays per reel were spread across a wide range
+26 of the 36 accounts had three or more own reels with recorded plays. Their recorded plays per reel had a median of 507 when each account’s median is taken first (lowest account median 50, highest 11,472), and 550 across all 427 of those reels pooled. Those 427 reels drew 1.3 public comments per 1,000 recorded plays in total. Denominator: 26 accounts and 427 own reels, out of 433 own reels on the 36 accounts. Pooled figures weigh accounts with more reels more heavily. They describe this sample and imply no cause and no ordering of accounts.
+These findings describe this sample, not bookings, patients, revenue or cause and effect. Likes were hidden on 66 of the 725 own posts, so no like-based comparison is made.
+Which accounts could be analysed
+Each account is placed in one group, and the groups are never merged. A restricted or unconfirmed account is not an inactive one.
+Area | Selected | Posts observed | No recent posts | Restricted | Unconfirmed
+Toronto | 13 | 8 | 5 | 0 | 0
+Peel | 7 | 6 | 0 | 0 | 1
+York | 14 | 11 | 3 | 0 | 0
+Durham | 6 | 4 | 2 | 0 | 0
+Halton | 7 | 5 | 2 | 0 | 0
+Multi-region | 3 | 2 | 0 | 1 | 0
+All regions | 50 | 36 | 12 | 1 | 1
+Posts observed (36)
+One or more posts inside the window were collected from the feed.
+No recent posts (12)
+The profile could be read and its newest posts, or its post count of zero, show nothing since 17 July. This rests on the latest posts a profile page shows (up to 12), so it is evidence of no recent posts, not a count of zero from a full feed.
+Restricted (1)
+Instagram restricts the profile (an age gate), so the public tools could not read its posts. Selected, shown, not analysed, not counted as inactive.
+Unconfirmed (1)
+The profile was reachable but showed no post count or latest posts, and the post collection returned nothing. Whether it posted is not established.
+How the 50 accounts were chosen
+Google Maps searches for medical spas across Toronto, Peel, York, Durham and Halton (60 searches, each capped at 60 places) returned 2,842 unique business listings.
+Listings that were not aesthetics clinics, or were outside the five regions, were removed. Listings with an official Instagram link on the clinic’s website or Google listing were grouped by account, so a shared account counts once. That left 872 eligible accounts.
+A region-proportional random sample of 600 was drawn, with Toronto, Peel, York, Durham, Halton and accounts that span regions as separate groups. A profile check left 596 accounts.
+From those 596, 50 were drawn the same way (fixed seed, region-proportional, shuffled by account name), before any post was read: Toronto 13, Peel 7, York 14, Durham 6, Halton 7 and 3 spanning more than one region. Nothing was chosen on followers, engagement, results or whether collection worked. Of the 50, 47 are single-location accounts, 2 are multi-location groups and 1 is a chain.
+Selection effects and one error in the public-access check
+Not every selected account passed a public-access test. The profile check that decided who stayed in the pool treated Instagram’s “Restricted profile” status as public. Twelve restricted accounts therefore stayed in the pool of 596, and one of them was drawn into the 50. It is kept in the sample, shown as restricted and left out of every calculation. I have not replaced it.
+Accounts needed a public profile at selection time and an official link. Clinics with no Instagram link on their listing (647 listings) or an unverified link (49) are outside the frame. 4 of the 50 are reserve substitutes, drawn in a fixed order from the same region, for original draws whose profile was not found or was private; four such places in the larger pool were left unfilled.
+So the 50 are a sample of a sample. Google Maps discovery from capped searches does not find every GTA clinic. The results describe these accounts, not the market.
+Why this edition is not compared with edition 001
+Edition 001 (10 September 2026) covered 341 accounts with a public profile, 176 of them ranked, from two collections whose full roster was not kept. Edition 002 uses a different, smaller and differently drawn set of accounts. Any difference between the two editions reflects who was included and how posts were collected, not a change in clinic performance, so I show no movement between them. Edition 001 is unchanged at its own address, with its corrections.
+Research and methodology
+How the figures are defined
+Posts observed on the feed (783). Every post returned for the 50 accounts and dated inside the window, 17 July to 15 October 2026, both days included. It is the 725 posts the accounts published plus 58 collaboration posts.
+Collaboration posts (58). Instagram collaboration posts appear on each collaborator’s feed but record one account as the owner. In all 58, the selected account is listed as a co-author and another account is recorded as owner (15 different owners, appearing on the feeds of 9 of the 50 accounts; 39 are videos). They are real posts on the account’s feed, not unrelated content. They count in observed posts per account. They are left out of the format shares and the reel and comment figures, because the play and comment counts belong to the post owner and would otherwise be counted under more than one account.
+Own posts (725). Posts where the selected account is the recorded owner. 74 of them also list co-authors; they stay in as own posts.
+Median 20 observed posts per account. Taken over the 36 accounts with posts observed, using all 783 posts on their feeds, collaboration posts included. The 12 accounts with no recent posts, the restricted account and the unconfirmed account are not in this median.
+Format shares. The 725 own posts only. A reel is a video post, a carousel is a multi-image post and a static post is a single image.
+Reel plays and comments. The 433 own reels on the 36 accounts, limited to the 26 accounts with three or more of them (427 reels). Recorded plays are the video play counts Instagram showed when the post was collected. All 433 own reels had a recorded play count and a comment count, so none was dropped for missing data. Comments per 1,000 plays is the total comments divided by the total plays across those 427 reels, times 1,000.
+Likes. Hidden on 66 of the 725 own posts, so likes are not used in any comparison. Missing values are never filled in or treated as zero.
+How the posts were collected and counted
+Posts were collected on 15 October 2026 from each account’s public Instagram feed with the Apify Instagram scraper, in five runs of ten accounts, with a limit of 200 posts per account and a start date of 17 July 2026. The tool returned 824 posts for the 50 accounts. 41 were older pinned posts dated before the window and are excluded; 783 fall inside the window. No account reached the 200-post limit (the highest had 70), and no run reached its spending cap.
+What the records cannot prove. The date filter drops older posts before they can be inspected, so I cannot show that every account’s window was paged to its start. Restricted-page errors came back for some runs without an account name, so a partial restriction cannot be ruled out for any account. These counts are observed posts, not a census of everything published.
+Reconciliation. 50 selected = 36 with observed posts + 12 with profile evidence of no recent posts + 1 restricted + 1 unconfirmed. 824 posts returned = 783 in the window + 41 outside it. Every post belongs to a selected account.
+The 50 accounts
+Listed by area and then name, not by any result. Observed posts are all collected feed posts in the window (collaboration posts included); observed own reels are reels the account published itself.
+Account | Area | Type | Coverage status | Observed posts in window | Observed own reels
+Anima Med Spa@animamedspa | Toronto | single-location | Posts observed | 49 | 24
+Aura Harbour Wellness Clinic@aura_harbour_wellness | Toronto | single-location | Posts observed | 15 | 9
+Coral Wellness@coralwellness.ca | Toronto | single-location | Posts observed | 10 | 8
+Defina Beauty Clinic@definabeautyclinic | Toronto | single-location | Posts observed | 2 | 0
+JAD Laser Skin Solutions@jadlaserskinsolutions | Toronto | single-location | No recent posts (profile evidence) | 0 (see evidence) | 0
+Lavender Laser & Skin Clinic@lavender_laser_and_beauty | Toronto | single-location | No recent posts (profile evidence) | 0 (see evidence) | 0
+Lunae Cosmetic Clinic@lunae_cosmetic_clinic | Toronto | single-location | No recent posts (profile evidence) | 0 (see evidence) | 0
+Meg's Injectables by Nurse Megan@nurse.injector.megan | Toronto | single-location | Posts observed | 21 | 8
+Redwood Medi Spa & Laser Clinic@redwoodmedispa | Toronto | single-location | Posts observed | 19 | 9
+Revel Beauty Club@revelbeautyclub.ca | Toronto | single-location | Posts observed | 20 | 1
+Revelle Med Spa@revellemedspa | Toronto | single-location | No recent posts (profile evidence) | 0 (see evidence) | 0
+Skintek Rejuvenation Facial Clinic@skintek_skincare | Toronto | single-location | No recent posts (profile evidence) | 0 (see evidence) | 0
+Sovereign Skin@sovereignskin | Toronto | single-location | Posts observed | 15 | 6
+Admire Aesthetics@admireaesthetics.ca | Peel | single-location | Posts observed | 70 | 61
+Aqua Medical Spa Mississauga@aquamedicalspa | Peel | single-location | Posts observed | 21 | 9
+Flourish Medical Aesthetics & IV Therapy Spa@flourish_medical_aesthetics | Peel | single-location | Posts observed | 43 | 30
+GraceMed Mississauga x McLean@mississauga.gracemed | Peel | single-location | Could not be confirmed, not analysed | not analysed | not analysed
+Lovely's Laser and Spa@lovelylaserspa | Peel | single-location | Posts observed | 1 | 1
+SKINFIDELITY@skinfidelity_ | Peel | single-location | Posts observed | 8 | 4
+TLWC | Tira Lounge Salon & Med Spa@tlwc.canada | Peel | single-location | Posts observed | 22 | 7
+Always Young Beauty Clinic@always_young_beauty_clinic | York | single-location | Posts observed | 27 | 25
+Beautique Med Spa@beautiquemedspa | York | single-location | Posts observed | 28 | 0
+DEW BEAU MED SPA@dewbeaumedispa | York | single-location | No recent posts (profile evidence) | 0 (see evidence) | 0
+EB Medical Aesthetics@eb.medaesthetics | York | single-location | Posts observed | 43 | 29
+Ellas Laser Skin Clinic@ellaslaser | York | single-location | Posts observed | 8 | 5
+Eluxe Skin Clinic@eluxeclinic | York | single-location | Posts observed | 20 | 18
+Mana's Med Spa@manasmedspa | York | single-location | No recent posts (profile evidence) | 0 (see evidence) | 0
+Mederm Esthetics & Laser Clinic@medermestheticslaser | York | single-location | Posts observed | 14 | 12
+Mellow Aesthetic@mellow_medical_aesthetic | York | single-location | Posts observed | 18 | 11
+Meraki Skin Clinic@merakiskinclinic.ca | York | single-location | No recent posts (profile evidence) | 0 (see evidence) | 0
+Nova Beauty@novabeauty_inc | York | single-location | Posts observed | 2 | 1
+Rich Skin Aesthetics@richskin.ca | York | single-location | Posts observed | 37 | 10
+Stephabelle's Clinique@stephabellesclinique | York | single-location | Posts observed | 20 | 0
+The Derma Lounge@thedermaloungeaurora | York | single-location | Posts observed | 23 | 10
+Injectables by Nurse J@theglowhausto | Durham | single-location | Posts observed | 4 | 0
+Laser and Lash Clinic@laser.lash.clinic | Durham | single-location | Posts observed | 2 | 2
+Love Your Face Medical Aesthetics@loveyourfacenewcastle | Durham | single-location | No recent posts (profile evidence) | 0 (see evidence) | 0
+Precision Beauty Canada@precisionbeautycanada | Durham | single-location | Posts observed | 21 | 16
+Whitby Medspa@whitbymedspa | Durham | single-location | No recent posts (profile evidence) | 0 (see evidence) | 0
+Woodland Skin Renewal@woodlandskinrenewal | Durham | single-location | Posts observed | 20 | 5
+Assia Beauty Clinic@assia.beautyclinic | Halton | single-location | Posts observed | 1 | 1
+Elan Laser Aesthetics@elanlaserspa | Halton | single-location | No recent posts (profile evidence) | 0 (see evidence) | 0
+Go With The Glow by Dr Somia Khurram@gowith_theglowmedspa | Halton | single-location | Posts observed | 56 | 54
+Luna Med Spa Ltd@luna.medspa | Halton | single-location | Posts observed | 4 | 0
+Luxe and Lit Medical Aesthetics@luxeandlitbeauty | Halton | single-location | Posts observed | 39 | 12
+Skön Laser Clinic@skonlaserclinic | Halton | single-location | Posts observed | 23 | 11
+Vytalis Health Network | Men’s Regenerative Health Clinic@oakwood_health_network | Halton | single-location | No recent posts (profile evidence) | 0 (see evidence) | 0
+All About Medical Esthetics@allaboutmedicalesthetics | Multi-region | multi-location group | Posts observed | 26 | 19
+Reviveskin Medical Spa@reviveskinmedicalspa | Multi-region | multi-location group | Posts observed | 31 | 15
+Skin Vitality Medical Clinic Ajax@skinvitality | Multi-region | chain (4 or more branches) | Restricted by Instagram, not analysed | not analysed | not analysed
+About the researcher
+Ankit Kumar is the founder of Help Me Marketing. His work covers performance marketing, conversion tracking and competitive research. Through The HMM Index, he analyses marketing activity and explains the patterns, limitations and practical questions behind the numbers.
+About Ankit · Explore HMM’s work
+Cite this research
+Ankit Kumar, Help Me Marketing. 50-account GTA medspa Instagram benchmark (The GTA MedSpa Index). Edition 002. Data collected 15 October 2026. https://helpmemarketing.com/gta-medspa-index
+For a fixed version, cite the edition 002 snapshot. The earlier edition is at its edition 001 snapshot. Edition history
+Edition history
+Edition | Dates | What changed
+002 (this page) | Observation window 17 July to 15 October 2026; data collected 15 October 2026. Snapshot | A selected 50-account sample with coverage groups and no ranking. The edition 001 roster was not kept, so the two editions are not compared.
+001 | Data collected 10 September 2026 and re-collected for the top 25 on 11 September 2026. Snapshot | First edition: 176 ranked clinics of 341 with a public account. Revised 14 October 2026 for wording, layout and corrections, which stay recorded in the snapshot.
+This address always shows the latest edition. Snapshots keep each edition at a fixed address.
+If you want your own account read this way
+This benchmark does not tell you how your clinic compares. If you would like your own Instagram video activity read against the same measures, ask for a free marketing review.
+About this index. The GTA MedSpa Index is part of The HMM Index by Help Me Marketing. Edition 002 reports public Instagram activity from a 50-account sample of medical spas in Toronto, Peel, York, Durham and Halton, with its sampling frame and limits on this page.
+The GTA MedSpa Index · an instance of The HMM Index by HMM · built and reviewed by Ankit Kumar, Founder, HMM · @helpmemarketing1 · methodology
+Instagram
+LinkedIn
+Facebook
+Data collected 15 October 2026 · edition 002
+Clinic names are used to report publicly available data and imply no relationship with Help Me Marketing.
+        Free marketing review
+        Ready to grow the right way?
+        Get my free marketing review
+        Halton Hills, Ontario, Canada · Hello@helpmemarketing.com
+          Industries
+            DTC
+            SaaS
+            Healthcare
+            Finance
+          Company
+            Services
+            Work
+            Portfolio
+            AI Tools
+            Blog
+            About
+            Contact
+          Free tools
+            AI Marketing Audit
+            Growth OS
+            The HMM Index
+        Meta Partner
+        Google Partner
+          Privacy
+          Terms
+          Privacy choices
+          Light mode
+          © 2026 HelpMeMarketing

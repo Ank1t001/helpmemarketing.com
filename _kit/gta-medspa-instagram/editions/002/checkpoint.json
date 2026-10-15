@@ -46,6 +46,51 @@
     "items": "600",
     "profiles_verified_note": "2026-10-15: profiles_verified stage record removed, replacements unresolved (562 verified, 38 failed, 38 reserves pending profile check)"
    }
+  },
+  "profiles_verified": {
+   "files": {
+    "editions/002/profile_status.json": "5b5892d188b7dfbfeb860425f3361eaa18592d9ef3a0c5ab4e440b101d33d4f6",
+    "editions/002/scope_50_accounts.json": "a7128a48581f67f77d3cc9f2b92e5ec8687f3ea383a1d745bead0da2b69073a7"
+   },
+   "meta": {
+    "scope": "fixed_50_account_cohort",
+    "profiles_checked": "50",
+    "note": "596_plan_superseded_no_further_replacements"
+   }
+  },
+  "posts_collected": {
+   "files": {
+    "editions/002/source_posts_pilot.jsonl.gz": "01131e3b1d39737feb5b4df5b56bf7d8d59ff5a3257e6251d7414dc4cf4e8774",
+    "editions/002/artifacts_manifest.json": "45321f123634b1efba7dc70431b3138a88c9cf2be80229e4fd9be481914e76e7"
+   },
+   "meta": {
+    "scope": "50_accounts",
+    "rows": "824",
+    "in_window": "783",
+    "note": "other_546_not_collected_by_decision"
+   }
+  },
+  "scored": {
+   "files": {},
+   "meta": {
+    "applicable": "no",
+    "reason": "no_score_or_rank_in_50_account_study"
+   }
+  },
+  "built": {
+   "files": {
+    "editions/002/draft/draft_figures.json": "9f8092bc81656ce28e660087b83f3e68607ba3673358184a7c0fd3648a99cda8",
+    "editions/002/sheet/E002_accounts.tsv": "795d453b0e2410859bca62bbb2b5184b47622d3e7c5ecb69b12bae7b77401bf9",
+    "editions/002/sheet/E002_postlog.tsv": "c838f87a496e9ab3014a039d0e75c7754f4800ede47ebbff9676bd0299b1edea",
+    "editions/002/sheet/editions_row.tsv": "0f393219f74da6a5fdebd786d21f178bd2d967036942a1d71b3fafd6b2cd0997",
+    "edition.json": "1a050b73c7b8b4ec15a0f4d73f3fd2656df2804a09b2d3469ff4a0abc5253f46",
+    "cohort_50.json": "b1157994f858f3bbd63108b752d20871159beb04235695ca123c1df41971b435"
+   },
+   "meta": {
+    "local_build": "done",
+    "renders": "desktop_mobile_done",
+    "deploy_and_external_checks": "pending"
+   }
   }
  },
  "pilot_note": "2026-10-15: pilot only (50 accounts, 5 runs, 824 rows in work/posts_pilot.jsonl, not committed). posts_collected NOT done; profiles_verified pending (4 unresolved slots); rest of cohort (546 accounts) not launched.",

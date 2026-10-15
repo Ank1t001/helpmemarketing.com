@@ -1,0 +1,51 @@
+handle	name	region	account_type	origin	class	class_meaning	observed_feed_posts	observed_own_posts	observed_own_reels
+animamedspa	Anima Med Spa	Toronto	single-location	reserve_substitute	B	posts observed	49	46	24
+aura_harbour_wellness	Aura Harbour Wellness Clinic	Toronto	single-location	original_sample	B	posts observed	15	15	9
+coralwellness.ca	Coral Wellness	Toronto	single-location	original_sample	B	posts observed	10	10	8
+definabeautyclinic	Defina Beauty Clinic	Toronto	single-location	reserve_substitute	B	posts observed	2	2	0
+jadlaserskinsolutions	JAD Laser Skin Solutions	Toronto	single-location	original_sample	A	profile evidence of no recent posts			
+lavender_laser_and_beauty	Lavender Laser & Skin Clinic	Toronto	single-location	original_sample	A	profile evidence of no recent posts			
+lunae_cosmetic_clinic	Lunae Cosmetic Clinic	Toronto	single-location	original_sample	A	profile evidence of no recent posts			
+nurse.injector.megan	Meg's Injectables by Nurse Megan	Toronto	single-location	original_sample	B	posts observed	21	21	8
+redwoodmedispa	Redwood Medi Spa & Laser Clinic	Toronto	single-location	original_sample	B	posts observed	19	19	9
+revelbeautyclub.ca	Revel Beauty Club	Toronto	single-location	original_sample	B	posts observed	20	4	1
+revellemedspa	Revelle Med Spa	Toronto	single-location	original_sample	A	profile evidence of no recent posts			
+skintek_skincare	Skintek Rejuvenation Facial Clinic	Toronto	single-location	original_sample	A	profile evidence of no recent posts			
+sovereignskin	Sovereign Skin	Toronto	single-location	original_sample	B	posts observed	15	15	6
+admireaesthetics.ca	Admire Aesthetics	Peel	single-location	original_sample	B	posts observed	70	70	61
+aquamedicalspa	Aqua Medical Spa Mississauga	Peel	single-location	original_sample	B	posts observed	21	21	9
+flourish_medical_aesthetics	Flourish Medical Aesthetics & IV Therapy Spa	Peel	single-location	original_sample	B	posts observed	43	43	30
+lovelylaserspa	Lovely's Laser and Spa	Peel	single-location	original_sample	B	posts observed	1	1	1
+mississauga.gracemed	GraceMed Mississauga x McLean	Peel	single-location	original_sample	E	unconfirmed, not analysed			
+skinfidelity_	SKINFIDELITY	Peel	single-location	original_sample	B	posts observed	8	7	4
+tlwc.canada	TLWC | Tira Lounge Salon & Med Spa	Peel	single-location	original_sample	B	posts observed	22	21	7
+always_young_beauty_clinic	Always Young Beauty Clinic	York	single-location	reserve_substitute	B	posts observed	27	27	25
+beautiquemedspa	Beautique Med Spa	York	single-location	reserve_substitute	B	posts observed	28		0
+dewbeaumedispa	DEW BEAU MED SPA	York	single-location	original_sample	A	profile evidence of no recent posts			
+eb.medaesthetics	EB Medical Aesthetics	York	single-location	original_sample	B	posts observed	43	43	29
+ellaslaser	Ellas Laser Skin Clinic	York	single-location	original_sample	B	posts observed	8	8	5
+eluxeclinic	Eluxe Skin Clinic	York	single-location	original_sample	B	posts observed	20	19	18
+manasmedspa	Mana's Med Spa	York	single-location	original_sample	A	profile evidence of no recent posts			
+medermestheticslaser	Mederm Esthetics & Laser Clinic	York	single-location	original_sample	B	posts observed	14	14	12
+mellow_medical_aesthetic	Mellow Aesthetic	York	single-location	original_sample	B	posts observed	18	17	11
+merakiskinclinic.ca	Meraki Skin Clinic	York	single-location	original_sample	A	profile evidence of no recent posts			
+novabeauty_inc	Nova Beauty	York	single-location	original_sample	B	posts observed	2	2	1
+richskin.ca	Rich Skin Aesthetics	York	single-location	original_sample	B	posts observed	37	31	10
+stephabellesclinique	Stephabelle's Clinique	York	single-location	original_sample	B	posts observed	20	20	0
+thedermaloungeaurora	The Derma Lounge	York	single-location	original_sample	B	posts observed	23	23	10
+laser.lash.clinic	Laser and Lash Clinic	Durham	single-location	original_sample	B	posts observed	2	2	2
+loveyourfacenewcastle	Love Your Face Medical Aesthetics	Durham	single-location	original_sample	A	profile evidence of no recent posts			
+precisionbeautycanada	Precision Beauty Canada	Durham	single-location	original_sample	B	posts observed	21	21	16
+theglowhausto	Injectables by Nurse J	Durham	single-location	original_sample	B	posts observed	4	4	0
+whitbymedspa	Whitby Medspa	Durham	single-location	original_sample	A	profile evidence of no recent posts			
+woodlandskinrenewal	Woodland Skin Renewal	Durham	single-location	original_sample	B	posts observed	20	20	5
+assia.beautyclinic	Assia Beauty Clinic	Halton	single-location	original_sample	B	posts observed	1	1	1
+elanlaserspa	Elan Laser Aesthetics	Halton	single-location	original_sample	A	profile evidence of no recent posts			
+gowith_theglowmedspa	Go With The Glow by Dr Somia Khurram	Halton	single-location	original_sample	B	posts observed	56	56	54
+luna.medspa	Luna Med Spa Ltd	Halton	single-location	original_sample	B	posts observed	4	4	0
+luxeandlitbeauty	Luxe and Lit Medical Aesthetics	Halton	single-location	original_sample	B	posts observed	39	38	12
+oakwood_health_network	Vytalis Health Network | Men’s Regenerative Health Clinic	Halton	single-location	original_sample	A	profile evidence of no recent posts			
+skonlaserclinic	Skön Laser Clinic	Halton	single-location	original_sample	B	posts observed	23	23	11
+allaboutmedicalesthetics	All About Medical Esthetics	Multi-region	multi-location group	original_sample	B	posts observed	26	26	19
+reviveskinmedicalspa	Reviveskin Medical Spa	Multi-region	multi-location group	original_sample	B	posts observed	31	31	15
+skinvitality	Skin Vitality Medical Clinic Ajax	Multi-region	chain (4 or more branches)	original_sample	C	restricted, not analysed			

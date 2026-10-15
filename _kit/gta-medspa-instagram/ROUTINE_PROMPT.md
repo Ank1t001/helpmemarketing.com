@@ -1,3 +1,5 @@
+NOTE (2026-10-15): superseded for edition 002 onward by ROUTINE_PROMPT_50.md (fixed 50-account cohort, no rediscovery, replacements or expansion). Its STEP 3 and STEP 4, the 596-account plan and the scoring steps no longer apply. The stored scheduled task is unchanged and must be updated before its next fire.
+
 STEP 0, DATE GATE
 Check today's date in America/Toronto. If it is not the 15th of the month, reply only "Not the 15th; nothing to do." and stop immediately: no tools, no git, no connectors. Exception: if a routine-fire-payload block contains exactly the words FORCE RUN, ignore the date and continue.
 

@@ -1,67 +1,64 @@
 {
-  "edition": "001",
-  "scraped_at": "2026-09-10",
-  "recollected_at": "2026-09-11",
-  "window": [
-    "2026-06-12",
-    "2026-09-10"
-  ],
-  "window_days": 90,
-  "status": "published",
-  "schedule": {
-    "day": 15,
-    "time": "09:15",
-    "timezone": "America/Toronto"
+ "edition": "002",
+ "scraped_at": "2026-10-15",
+ "recollected_at": null,
+ "window": [
+  "2026-07-17",
+  "2026-10-15"
+ ],
+ "window_days": 90,
+ "status": "release_candidate",
+ "schedule": {
+  "day": 15,
+  "time": "09:15",
+  "timezone": "America/Toronto"
+ },
+ "next_scheduled_refresh": null,
+ "roster": "cohort_50.json",
+ "roster_built_at": "2026-10-15",
+ "roster_status": "fixed 50-account cohort (cohort_50.json); roster.json (600) and roster_eligible.json (872) are background research, not collected further",
+ "modified_at": null,
+ "modified_at_source": null,
+ "method": "edition 001: two collections, scoring code not kept. Edition 002: one collection of a fixed 50-account cohort, observed-data description only, built by build_50.py; score.py and build.py do not apply.",
+ "dataset": {
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "GTA medspa Instagram activity, 50-account sample, 90 days to October 2026",
+  "description": "Public Instagram posts, recorded reel plays, likes and comments for a region-proportional random sample of 50 medical spa accounts in Toronto, Peel, York, Durham and Halton; 36 had posts observed between 17 July and 15 October 2026. It does not include enquiries, consultations or revenue and is not a census of GTA clinics.",
+  "url": "https://helpmemarketing.com/gta-medspa-index",
+  "license": "https://helpmemarketing.com/terms",
+  "creator": {
+   "@type": "Organization",
+   "name": "Help Me Marketing"
   },
-  "next_scheduled_refresh": "2026-10-15",
-  "roster": "roster.json",
-  "roster_built_at": null,
-  "roster_status": "missing: the edition 001 roster of 341 accounts was not saved; the next run rebuilds it",
-  "modified_at": "2026-10-14T23:59:02+00:00",
-  "modified_at_source": "Vercel production deployment dpl_CZSx7j8tWMQuDs1JtbmFW9YiPMsu (commit 555bf5e) ready time, the last content change to /gta-medspa-index",
-  "method": "edition 001: two collections, scoring code not kept. From edition 002: one collection, score.py.",
-  "dataset": {
-    "@context": "https://schema.org",
-    "@type": "Dataset",
-    "name": "GTA medspa Instagram activity, 90 days to September 2026",
-    "description": "Public Instagram activity (posts, recorded reel plays, likes and comments) for 341 medical spa accounts across Toronto, Durham, Halton, Peel and York, of which 176 qualified for ranking on three or more reels in the window. It does not include enquiries, consultations or revenue.",
-    "url": "https://helpmemarketing.com/gta-medspa-index",
-    "license": "https://helpmemarketing.com/terms",
-    "creator": {
-      "@type": "Organization",
-      "name": "Help Me Marketing"
-    },
-    "temporalCoverage": "2026-06-12/2026-09-10",
-    "spatialCoverage": {
-      "@type": "Place",
-      "name": "Greater Toronto Area, Ontario, Canada"
-    },
-    "variableMeasured": [
-      {
-        "@type": "PropertyValue",
-        "name": "Median plays per reel",
-        "value": 769,
-        "description": "Median across 176 qualified clinics"
-      },
-      {
-        "@type": "PropertyValue",
-        "name": "Clinics in frame",
-        "value": 341
-      },
-      {
-        "@type": "PropertyValue",
-        "name": "Clinics ranked",
-        "value": 176
-      },
-      {
-        "@type": "PropertyValue",
-        "name": "Posts analysed",
-        "value": 2810
-      }
-    ]
+  "temporalCoverage": "2026-07-17/2026-10-15",
+  "spatialCoverage": {
+   "@type": "Place",
+   "name": "Greater Toronto Area, Ontario, Canada"
   },
-  "data_store": {
-    "sheet": "1_Qi7e54I4WG9M7Uie8lzrBwtbOreykvtqn0qku59QG8",
-    "folder": "15xJ1lYPJM4W-8O2b9gXU-I_V2lvZfAjt"
-  }
+  "variableMeasured": [
+   "Observed posts",
+   "Recorded reel plays",
+   "Comments",
+   "Likes where visible"
+  ]
+ },
+ "data_store": {
+  "sheet": "1_Qi7e54I4WG9M7Uie8lzrBwtbOreykvtqn0qku59QG8",
+  "folder": "15xJ1lYPJM4W-8O2b9gXU-I_V2lvZfAjt"
+ },
+ "scope": "selected 50-account observational study; no score, rank or leaderboard",
+ "scoring": "not applicable",
+ "next_scheduled_refresh_note": "not set: the stored scheduled task still carries the superseded 596-account prompt and must be updated to ROUTINE_PROMPT_50.md before its next fire",
+ "published_at": null,
+ "counts": {
+  "selected": 50,
+  "posts_observed": 36,
+  "profile_evidence_no_recent_posts": 12,
+  "restricted": 1,
+  "unconfirmed": 1,
+  "feed_posts_in_window": 783,
+  "own_posts": 725,
+  "collaboration_posts": 58
+ }
 }

@@ -1,5 +1,5 @@
 """Offline tests for the roster builder and the Apify helpers. No network beyond a local mock server; no paid calls."""
-import gzip, json, os, shutil, subprocess, sys, tempfile, threading, unittest
+import gzip, json, os, re, shutil, subprocess, sys, tempfile, threading, unittest
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
@@ -288,6 +288,35 @@ class Draft50(unittest.TestCase):
         self.assertIn('content="noindex, nofollow"', h)
         self.assertNotIn("FAQPage", h)
         self.assertNotRegex(h[h.index('<div class="msi">'):], r'\sstyle=')
+
+
+class ReleaseFiles(unittest.TestCase):
+    def test_live_page_snapshot_and_links(self):
+        root = KIT.parent.parent
+        live = (root / "gta-medspa-index.html").read_text()
+        snap = (root / "gta-medspa-index/edition-002.html").read_text()
+        for h, canon, robots in ((live, "https://helpmemarketing.com/gta-medspa-index", "index, follow"),
+                                 (snap, "https://helpmemarketing.com/gta-medspa-index/edition-002", "noindex, follow")):
+            self.assertNotRegex(h, "[\\u2014\\u2013]")
+            self.assertEqual(h.count('name="robots"'), 1)
+            self.assertIn(f'name="robots" content="{robots}', h)
+            self.assertIn(f'rel="canonical" href="{canon}"', h)
+            self.assertNotIn("FAQPage", h)
+            head = h[: h.index('<div class="msi">')]
+            for stale in ("176", "ranked", "data-ri-reading", "benchmark-50-og.jpg\"" if False else "gta-medspa/og.jpg"):
+                self.assertNotIn(stale, head)
+            for m in re.finditer(r'<script type="application/ld\+json">\s*(\{.*?\})\s*</script>', h, flags=re.S):
+                j = json.loads(m.group(1))
+                self.assertNotIn("dateModified", j)  # recorded from the production deployment at publication
+            self.assertIn("benchmark-50-og.jpg", h)
+        for f in ("benchmark-50-og.jpg", "benchmark-50-hero.webp", "benchmark-50-hero-704.webp"):
+            self.assertTrue((root / "assets/index/gta-medspa" / f).exists(), f)
+        sm = (root / "sitemap.xml").read_text()
+        self.assertIn("/gta-medspa-index</loc>", sm)
+        self.assertNotIn("edition-002", sm)
+        self.assertTrue((root / "gta-medspa-index/edition-001.html").exists())
+        ed = json.loads((KIT / "edition.json").read_text())
+        self.assertEqual((ed["edition"], ed["scoring"], ed["status"]), ("002", "not applicable", "release_candidate"))
 
 
 if __name__ == "__main__":
