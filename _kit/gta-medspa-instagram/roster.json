@@ -1,0 +1,7893 @@
+{
+ "built_at": "2026-10-15",
+ "source": "9eUmdtGUOD6YBu17u",
+ "sampled_from": 872,
+ "clinics": [
+  {
+   "handle": "idealdreamclinic",
+   "name": "Ideal Dream - Laser Clinic Toronto",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJKRIRkuQsK4gRTcDxmXDEkQ8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "marmionmedspa",
+   "name": "Marmion MedSpa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJGcE0LFEyK4gRQ_MZkTFv61A"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "maryvalemedspa",
+   "name": "Maryvale Med Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJD3Ayx3bT1IkRTxVVibFbcxs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "philosophy.of.beauty",
+   "name": "Philosophy of Beauty",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ3RsPQnouK4gR43hFwJ5xFpY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "jivaspa",
+   "name": "Jiva Spa Toronto",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJNSi6mJY0K4gRGWxBm4KHrsA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "plumpitupp",
+   "name": "Plumpitupp Inc.",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJUwCKJF03K4gRR5BOB5H8Mk8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "magyskinhealth",
+   "name": "Magy Skin & Health Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJhU0K1ynL1IkRn_Sy4LnL0WA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nudabeautylab",
+   "name": "Nuda Beauty Lab",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJSa3h_jLR1IkRm85Mz7dw7pA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lavender_laser_and_beauty",
+   "name": "Lavender Laser & Skin Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ117nZI4tK4gRNlJ5C1hWqCs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "avadralaserstudio",
+   "name": "Avadra Laser Studio",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ6ajmXzEzK4gRAHTH45PDwAg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ilabeautymedspa",
+   "name": "ILA Beauty Med Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJlxPFVhMzK4gR4HYXFsQXBk4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "canadiandermatology",
+   "name": "Canadian Dermatology Centre",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJRZwJ-sfN1IkRzvyUSGw05Yw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "everbeautyclinic",
+   "name": "Ever Beauty Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ-1E_B6LT1IkRwYu6lYtwcuo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinandsoulxm",
+   "name": "Skin and Soul",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJh_MHWZbb1IkR6hQFC0hPdtA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "tri.genics",
+   "name": "Trigenics Medical Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJAQDUhi4zK4gRwy-8F80DU3Y"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermapuretorontoyorkville",
+   "name": "Dermapure Toronto Yorkville (Formerly Glow Medi Spa)",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ01QJeK80K4gR6zDMX9y3_JU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "perfection_cosmetic_clinic",
+   "name": "Perfection Cosmetic Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJKzAOH4AtK4gRti8bE72UBxc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "themdskinlab",
+   "name": "MD Skin Lab",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJWYkGk_8tK4gR32Zd24-Cj14"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mimibeautyclinics",
+   "name": "Mimi Beauty Clinics",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ2-2_t9_N1IkRM-ND13ZArL8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "studionudetoronto",
+   "name": "Studio Nude Skin & Body",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ48JRMYk1K4gRXVny3ZQNwJA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "meitalstudios.beautycentre",
+   "name": "Meital Studios Beauty",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJWX_h9jwzK4gRWvhPWBoI7Uk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "k_luminous_beauty",
+   "name": "Luminous Beauty MedSpa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJsev0kVbT1IkRdj0nJMD7K1I"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "melorinmedicalbeauty",
+   "name": "Melorin Med Spa & Skin clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZVJhvrzT1IkRoYHNrC1htiw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "prettypearlskin",
+   "name": "Pretty Pearl Skin Inc.",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJMXupLEcxK4gR0opcrwqbzak"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "bodyblissaesthetics",
+   "name": "BODY BLISS",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJWVi4gbnL1IkRwmBdJComMN8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "femmelaserclinic",
+   "name": "Femme Laser Clinic Scarborough",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJXZIDQR_X1IkRhx74Szdb14E"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "the_contourlab",
+   "name": "The Contour Lab",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJv07aGMTL1IkRwB8SwxhJeLo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "coralwellness.ca",
+   "name": "Coral Wellness",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJE01NmrczK4gROKgekoA60bM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "redwoodmedispa",
+   "name": "Redwood Medi Spa & Laser Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ6yYb6ooyK4gR2gkt6jdRx5Q"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "honneteclinique",
+   "name": "Honnête Clinique",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJi-SXce8tK4gR8rdjoYU1Q-E"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "tt.aestheticmedicine",
+   "name": "TT Centre for Aesthetic Medicine",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJdQOgcoo7K4gRZgXKxdVWfSg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "spascanada.ca",
+   "name": "Spas Canada.com",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJTaS_5tfS1IkRXcZ3WCHOwuA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "katifaceinc",
+   "name": "Kati Face Medical Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJCyFg9jw1K4gRWTmMIBkf2CQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lumineskinandlaser",
+   "name": "Lumine Skin and Laser",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJRwmVLMXX1IkRTyivM6KBmo0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "novelle.aesthetics",
+   "name": "Novelle Medical Aesthetics",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJyyyF-LYHzkwRwtwh307RU04"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinprick.ca",
+   "name": "Skin Prick",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJeXCP-y0J9UURPnVaugMn-4I"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "refreshmd.spa",
+   "name": "Refresh MD Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJC1xQOvrS1IkRspEG52mRozg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nurse.injector.megan",
+   "name": "Meg's Injectables by Nurse Megan",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJj0rCek7L1IkROpehn7FAZIA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "avebelle_clinic",
+   "name": "Avebelle Cosmetic Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJV3R2ND8zK4gRqpQgHwlH1kk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "injectionlounge",
+   "name": "Injection Lounge",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ_ee85YAVvU8RjcpVg_YUuCE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lalunamedical",
+   "name": "La Luna Medical",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJP0X3DdM3K4gR00SYYJEtnsQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "havaskin.clinic",
+   "name": "Haväskin Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJBcaU2vTR1IkRPDs-hz1pId8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beauty.avenue.aesthetics",
+   "name": "Beauty Avenue Aesthetics",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJv9k164ZJK4gR1ct5lNxRXA4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sundayaesthetics.ca",
+   "name": "Sunday Aesthetics",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJHaEKqFk1K4gRYDIr4M00pv0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "luciemeclinic",
+   "name": "Lucie Me Medical Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ_SkPX4w1K4gRUAXjAgj7JeE",
+    "ChIJu8DrqbbT1IkRb7fBQzpydSU"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "facialplusca",
+   "name": "facial+",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJsXVCRnEzK4gR2ZWHWYrzxi0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mvsmedicalaesthetics",
+   "name": "MVS Medical Aesthetics & Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJWYsXvE83K4gRauUYookPDHQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "par_aesthetics",
+   "name": "Par Aesthetics",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJic5D1unN1IkRnwnf6ZF6f1w"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "miraclebeauty.ca",
+   "name": "Miracle Beauty Cosmetic Boutique",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJL6hSRNnX1IkRGSO3WFq4MUk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "igbeauty_clinic",
+   "name": "IGBeauty",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ15iEh9TM1IkRh38LYvtEz4w"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rose.mc.toronto",
+   "name": "Rose Medical Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ3yBjYlMtK4gRv3uaQHvtqCA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rejuvenation.med.clinic",
+   "name": "Med Spa Toronto - Rejuvenation Med Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ6yFc1zk1K4gR_O4fcRS1bTc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lura.aesthetic",
+   "name": "Lura Aesthetic & Beauty Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJdU0GkjPN1IkRy98YaSOffp8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nu.med",
+   "name": "NU Med Clinic and MediSpa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJPwLxB-XQ1IkRz_H7AcA7nRw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "pearlonking",
+   "name": "Pearl on King",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZxddxynL1IkR0KkYMq1OTS8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermapuretorontomidtown",
+   "name": "Dermapure Toronto Midtown",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ_2y9-VkzK4gRoCFU9ZyRuqo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "30hazelton",
+   "name": "30 Hazelton Med Spa Toronto",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJSY8_K-Q1K4gRu24RAX_X6uA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "wellnesscentre4u",
+   "name": "Wellness Centre 4 You",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJcRq048ktK4gRl0Br8Ec7Mq4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dripclub.iv",
+   "name": "DRIP CLUB INC.",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJOZisr6wCAwERmvcNHeP6cvs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "precisionestheticsinc",
+   "name": "Precision Esthetics Inc",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJq5-Gp6TO1IkREKWdGvZi7ZM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "auraglow.to",
+   "name": "Aura Glow Aesthetics",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJN5B61zYtK4gRzCk7bhBVZfQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "u_medispa",
+   "name": "U MediSpa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJxVbBLdvT1IkR6NwVHP3xC-g"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "barbeautymedical",
+   "name": "Bar Beauty",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJnc8KQCg1K4gRLMHLMKc242g"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "weinject",
+   "name": "weinject",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJJVKsMyA3K4gR0OlSgdUiUUs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "estheroasisspa",
+   "name": "Esther Oasis med Spa and Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJvyont2MtK4gRtu69J4Gxedg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "olenzabeautyloft",
+   "name": "Olenza Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJx6Sq7nJGK4gRujo5UdHy258"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "silkaesthetic_ca",
+   "name": "Silk Aesthetic Skin Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJBdxOi1nR1IkRm5gaW6OaCuw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "facilemedspa",
+   "name": "Facile Med Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJAQDUnd40K4gRHq-bSYXCNsU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "bbbelleza.ca",
+   "name": "BB Belleza Caviar Beauty Boutique",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJHWqcJ3DT1IkRDsRbwgmIrx4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "aura_harbour_wellness",
+   "name": "Aura Harbour Wellness Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJa-68OiY1K4gROkBbf8rVs_g"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "europeanbeautybyolga",
+   "name": "European Beauty - Facial treatments",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJaX-P0lozK4gRzMZoHnuNSV8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "kingswaydermatology",
+   "name": "Kingsway Dermatology & Cosmetic Centre",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJKZ84_q43K4gRgTbzToOzgWM",
+    "ChIJgXn8U643K4gRcaavqyo1EI0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "laser360ms",
+   "name": "Laser 360 Med Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJa-fJJcUtK4gRnxi96Fo7TwM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "bodybritecanada",
+   "name": "BodyBrite Markham",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJf2M2Cn7X1IkR3Wnw39CK-Gk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sovereignskin",
+   "name": "Sovereign Skin",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJzQ_IbDk1K4gRyNsyhvMUOaY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "driprefreshmobileivtherapy",
+   "name": "Drip Refresh Mobile IV Therapy - Toronto",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJR9T6s7I1K4gRwEA1JzkLRFY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "victoriaparktoronto",
+   "name": "Victoria Park Medispa - Toronto Bay",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJvzmvVT41K4gRbVTfCUpJ0TA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "truemedispa",
+   "name": "True Medispa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJLfXS9_MyK4gRClaNpBu9BoQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "thecosmetichausca",
+   "name": "The Cosmetic Haus",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJq4mqw9HN1IkR8alt9OQzO60"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "foreverbeautymedspa",
+   "name": "Forever Beauty Med Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJb0Tqf5U5K4gRepZTPH7-P0c"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "aioniosmedspa",
+   "name": "Era Ageless",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJDybGHnE1K4gRSqaogPMm7Qk",
+    "ChIJMU375G7N1IkRlQc54dVHGJg",
+    "ChIJh_L-6UstK4gRuTTWQHVagqc"
+   ],
+   "account_type": "multi-location group",
+   "branches": 3
+  },
+  {
+   "handle": "formfaceandbody",
+   "name": "FORM Face + Body Toronto Plastic Surgery, Med Spa & Hair Transplant",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ9b8KdrY0K4gRjfRVEJgpsCo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rayaesthetics.ca",
+   "name": "Ray Aesthetics",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJLyaePgAzK4gRKiPWGmFkXkQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "fcpdermatology",
+   "name": "FCP Dermatology",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJw-F8B6U1K4gReeJqdlf7mYM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beautyoneclinic",
+   "name": "Beauty One Medical Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJS27fzLDL1IkRSVnEkPIVW5E"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skintek_skincare",
+   "name": "Skintek Rejuvenation Facial Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJVQ1H1AkzK4gR1Nxw4RH8sWE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rejuvenusclinic.ca",
+   "name": "Rejuvenus Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJCUtmkTwzK4gRJekrCHwSId4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "aloraskinclinic",
+   "name": "Alora Skin Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ3STuAarT1IkR9nChFdV_gpE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "thescenemedicalbeautybar",
+   "name": "The Scene Medical Beauty Bar",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJzWzjvabL1IkRJuxj-F8il9g"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ssknfirm",
+   "name": "SSKNFIRM Medical Aesthetics Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJK0aN-i83K4gRX3uDi7oJ4_w"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "thebeautyinitiative",
+   "name": "THE BEAUTY INITIATIVE",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJYaxBwSfb1IkRloyFlM0mqc4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "puretemedspa",
+   "name": "Pureté Medical Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJn-u4iKlJK4gR3_si2yxYWdg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beautyby_katia",
+   "name": "Beauty By Katia",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJMyM8K3jVKogR4csCxtaAQI0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "labeautyboutiqueto",
+   "name": "La Beauty Boutique | Medical Spa & Skincare Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJwan_IegyK4gRdIyXFzXnjHA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "royalyorkspa",
+   "name": "Royal York Spa - Holistic Med Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJV0eSp1Y2K4gRTy-Tyluk9nM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ncbcmedlaser",
+   "name": "NCBC Med-Laser",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJtcQZZADS1IkRdprR5buo6dM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "cosmedicalrejuvenationclinic",
+   "name": "Cosmedical Rejuvenation Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJD8sAqJcyK4gRYK4mbTMNPzg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "clarixio",
+   "name": "Clarixio Medical Aesthetics",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJa5JmUjMtK4gRyaljWXlwhP4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "morali_aesthetics",
+   "name": "Morali Medical Aesthetics",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJezYSjUGbLIgRHAS4sD0VPLs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mcbeautycosmeticclinic",
+   "name": "MC Beauty Cosmetic Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJG_X6L_EyK4gRxFnAmLrZa-M"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermacelaserclinic",
+   "name": "Dermace Laser & Skin Clinic Toronto",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJlYWT5u7N1IkRlEGwI94dvtE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "essence_laser",
+   "name": "Essence Laser and Skin care",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZbY0NEwtK4gRm43ek2gj10E"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "barebeautyclinics",
+   "name": "Bare Beauty Clinic Top Medical Spa Etobicoke",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJv2cZL7E5K4gRHzGi891HHWg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinretreat.ca",
+   "name": "Skin Retreat",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJBQ0SAAhIK4gRRdedH4nJW6o"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "pinkavenueskincare",
+   "name": "Pink Avenue Skin Care",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJVwP_Ybs0K4gR4Q3sFd-x_Xw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "bodyrevive",
+   "name": "Body Revive",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ67Pg4rfS1IkRF9UdZd8KFTA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "glamazing_laserclinic",
+   "name": "Glamazing Laser Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJg4XXmh3N1IkR3VU_H-R1ofs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "divamedspa7",
+   "name": "Diva Med Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJU9VKftkzK4gRikQ1miDGRdU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "medspaandlaser",
+   "name": "Med Spa & Laser",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJUQRhJEl4NW0Rg9xBpF-RWCE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinsocietybar",
+   "name": "Body MedSculpt",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJUcwr0wozK4gRu7AQ2b63e1s",
+    "ChIJazrYkZszK4gRDsA9wmHTFVo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "newskin_laserclinic",
+   "name": "New Skin Laser Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJvYsRM6rO1IkRhRzocSXf5TI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "torontobeautyclinic",
+   "name": "Toronto Beauty Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJDfFR5cc1K4gRqq-44R-iWiA",
+    "ChIJlzsMLQ4yK4gRld_JJDPskGw"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "glowwithaliza",
+   "name": "Glow With Aliza",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ65Z96L5sfAURMqSt3oWS92c"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "anagenesismedispa",
+   "name": "Anagenesis Beauty Clinic & Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJTRUUj2NJK4gR89Xk211Rg74"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "six26_medaesthetics",
+   "name": "Six26 Med Aesthetics",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJDQpo0HotK4gRIALnVFEilNw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rose__skin__care",
+   "name": "Rose Skin Care Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ5fmZU47T1IkR76WmoVShG70"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "syrinjainjectables",
+   "name": "Syrinja Injectables",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQzAeHCk3K4gR5EQ93QFptlU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "jadlaserskinsolutions",
+   "name": "JAD Laser Skin Solutions",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJgy4MGVzR1IkRkffVNcj4ztI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "northyorkcosmeticclinic",
+   "name": "North York Cosmetic Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJi0eCqoQtK4gRilJAQ4cCUhE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "bellairlaserclinic",
+   "name": "Bellair Laser Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ_Qzzj680K4gRfD8SzcpL7L8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beaudeeclinic",
+   "name": "Beaudee Clinic by Nurse Delena | Botox • Dermal Fillers • Skin Tightening",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJecE6nXYVK4gRfr6Pio7fQs0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinstudiotoronto",
+   "name": "Skin Studio",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJIzToUW83K4gR21w8Jz9C27M"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "luxeaesthetics.ca",
+   "name": "Luxe Aesthetics Clinic | Injectables and Anti-aging Toronto",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJFUUZf883K4gRLgEHFJIeQ58"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "huespa_toronto",
+   "name": "Hue Spa & Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ27-QchEtK4gRfpMBifLrJZo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "pariaesthetics",
+   "name": "Pari Aesthetics",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJwbn2FNZJK4gRIQjV5MkVVEc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermanev_",
+   "name": "Dermanev Med Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJbWIFMhU1K4gR9p5isb_lxqg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mybestclinic",
+   "name": "MyBest Clinic, King St, Toronto",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJs7iqT940K4gR7eh70KkIu_I",
+    "ChIJs7iqT940K4gRoLsLrHQh_PQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "halftimephysique",
+   "name": "Half Time Physique | Body Contouring Training | Body Sculpting Certification",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJa1HIQjPT1IkRr0fromOUjfY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "liftclinictoronto",
+   "name": "Lift Clinic Toronto",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJITqNO2M1K4gRLEIRfy_Lc6E"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skin6to",
+   "name": "Skin6: Toronto Medical Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJo1LiJKU1K4gRyGq3pHXBbgo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "thebeautystandard.ca",
+   "name": "The Beauty Standard",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJU0JDxDRJK4gRH9uXryRhlfE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "royalglowmed",
+   "name": "Royal Glow by Meditism",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJqaflSZAabQgRxbgRSeUeKTs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "clinic360",
+   "name": "Clinic 360",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJCa81nhHN1IkRHzkCSrLPA8k"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "thelasersuite14",
+   "name": "The Laser Suite",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZYFsfD_L1IkR2of6uPzRWpE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "thefreezeclinic",
+   "name": "The Freeze Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJa-J-GITM1IkRmEsTqYL3N2U"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "_moonlight_beauty._",
+   "name": "Moonlight Beauty",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJIXu5tRHT1IkRjJ_wT5giT_8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lunae_cosmetic_clinic",
+   "name": "Lunae Cosmetic Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ9YExw1DN1IkRKJiT8-8cMbk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rejuvenatebypeakhuman",
+   "name": "Rejuvenate by Peak Human",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ996mHHHP1IkRgKUYKNNQzDI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "newdermamed",
+   "name": "NewDermaMed Cosmetic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJi4aUj2MtK4gRnLelZM1OcyE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "medicalaserspa",
+   "name": "Medica Laser Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJRQ5mxDwzK4gRhNSQVeYaqpo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rohalaserspa",
+   "name": "Roha Laser Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJXYi7ZoE6K4gRnP1oy4cVL9U"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "bodycontouringtoronto",
+   "name": "Body Contouring Clinic of Toronto",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJvZxYF7A0K4gRkQpR2Kbgvlw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "revellemedspa",
+   "name": "Revelle Med Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJhT-Pmp4ABEIRmlEqwtCa_oc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "healthoneskinclinic",
+   "name": "HealthOne Harbourfront Skin Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJTbOp3jnL1IkRU3eDIyq8qkI",
+    "ChIJwflItgk1K4gRytjXZpp_sII"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "midtownmedspatoronto",
+   "name": "Midtown Med Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ65U8FzEzK4gRAcEItrmB3Cw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "microbeautylabto",
+   "name": "Micro Beauty Lab",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJEdabrAU3K4gRLNQmizDYxPs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "anaesthetics.inc",
+   "name": "ANAesthetics",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJLbL74cc1K4gRCsL7EkOAUWs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nelllaserclinic",
+   "name": "Nell Laser & Cosmetic Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJH-0u_JMtK4gROD8TwwKD9K0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "a_medical_spa",
+   "name": "A Medical Spa Inc. 一间瑿美 医美诊所",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ5YAp3Zg1K4gRsE5IEMakAu4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "avenue_skincare",
+   "name": "Avenue Skin Care",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJIQKYiq80K4gRlJcZ9JiVCZg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rewindskinco",
+   "name": "Rewind Skin",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJXYzuQL_N1IkR1WYwEdjGGGk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermabarr",
+   "name": "DERMA BAR",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJqQybxfjL1IkRkcN32zY67VU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "torontobeautynurse",
+   "name": "Toronto Beauty Nurse",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJPSxeRnY1K4gRd5GUVeFisdQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "emeraldskinlab",
+   "name": "Emerald Skin Lab",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ8ahFKSEtK4gR0O48JuBtAkg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lumiderm.aesthetic.clinic",
+   "name": "Lumiderm Aesthetic Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ71F7VFbR1IkR5jVYqulKjHw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "theglowzoneto",
+   "name": "Glow Zone Beauty Studio",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJJx5ZsTY3K4gRXDA7buDwiKs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "avivacosmeticandlaserclinic",
+   "name": "Aviva Cosmetic and Laser Clinic",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJq7Kq0fAyK4gR-21ks3Oa_KA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ksthetics_injectables",
+   "name": "Ksthetics Injectables",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJIaSRRw_f1IkRK98ObG_7Ze4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "revelbeautyclub.ca",
+   "name": "Revel Beauty Club",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJgVZKBVQ3K4gRROEDm70SdfM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "elham_aesthetic_art",
+   "name": "Elham Aesthetic Art",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJy1Egx-QtK4gRjOGNM6KkN1Q"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "artofsanbeauty",
+   "name": "Art of San Beauty",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJUX_avgLN1IkR0aR2eDVsBgs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "vbeautystyle_",
+   "name": "VBeauty Medical Spa",
+   "area": "Toronto",
+   "region": "Toronto",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJVQ_meOU1K4gR92VzphKSzWM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ertclinicvan",
+   "name": "ERT Cosmetic Clinic",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJDxBxxCZHK4gRQiRpzDtT1x4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "luminamedispa",
+   "name": "Lumina Medi Spa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJnxah1g3TIA8R1TW_QC4fpHQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "themdbeautyclinic",
+   "name": "MD Beauty Clinic",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJHeEIpt5HK4gRRNiE31nV1sA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "flourish_medical_aesthetics",
+   "name": "Flourish Medical Aesthetics & IV Therapy Spa",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJI6KHuMVDK4gRc4jbhpTOf4A"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "astramedicare",
+   "name": "Astra Medicare Medical Aesthetics",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJG3yxYr4VK4gRlpjIR-ikddg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "estheticswithelle",
+   "name": "Elle Esthetics Medspa",
+   "area": "Caledon",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJn4_HBskhK4gRKXjwqMEyMJ0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "my_skinclinic",
+   "name": "My Skin Clinic",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJHZeWXtZBK4gROgsIn5EVfrk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "glamdermmedspa",
+   "name": "Glamderm Medi Spa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJwwQ0i5tHK4gR1j46oyASiN8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beautidoor",
+   "name": "BeautiDoor Clinic & Luxury Med Spa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJmYleuEJBK4gRbinTLKcOGrc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinatomylaserclinic",
+   "name": "Skinatomy Laser Clinic - Mississauga",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQ9eqdLxBK4gRwDn23Ip-SPc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "theskinclubstudio",
+   "name": "The Skin Club Studio",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJc1QlBy0XK4gRufUuVfebzLg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "luxebeautyandwellnessspa",
+   "name": "Luxe Beauty and Wellness Spa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ9zE8x6hHK4gRJ1i_rbjs5Cs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "canstrivemedspa",
+   "name": "CanStrive MedSpa & Wellness Clinic",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJkx_NrgNBK4gRTVAs7Zh_Slo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "damasskincare",
+   "name": "Damas SkinCare and Laser",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJn3gMi7JHK4gRQebT0YWIMx8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skincarelasercentre",
+   "name": "Skin Care Laser Centre - Medical Spa | Tatto Removal | Laser Hair Removal Service",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJrwCbHaRpK4gRVXXmQC2wGMY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "221degreeslaserclinicandspa",
+   "name": "221° Laser Clinic & Spa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJyXaOphEAWkARuzdJbRnW55Y"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "clarityglow.medspa",
+   "name": "Clarity Glow Med Spa - Female only",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ7XS3pagXK4gRQUBGQr_hId0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ideal_pampering_clinic",
+   "name": "Ideal Pampering Clinic",
+   "area": "Caledon",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ7Tp-Oy0RK4gRqIDSglEEKBg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lilymedispa_",
+   "name": "Lily Laser And Medi Spa Inc.",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ99OylRETK4gRvT_1jY1ltJg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "aquaclinic1",
+   "name": "Aqua Clinic",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJkTHvf0s5K4gR88aqdkqUM8U"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "orameramedspa",
+   "name": "Oramera Med Spa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJGYgxsQc9K4gRd7wRNfgdEcE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinsooolushmedispa",
+   "name": "Skinsooolush Medi Spa",
+   "area": "Caledon",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJmeJKTxgkK4gROsI5ymJVN8w"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "thebeautyrezort",
+   "name": "The Beauty Rezort Medi Spa | Mississauga",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJx4GfiGM5K4gRNbhGiPBEHqQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinfidelity_",
+   "name": "SKINFIDELITY",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJOef_D1JHK4gRapkyneC-rw0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beautybymeet",
+   "name": "Beauty By Meet - Salon, Spa & Laser | Bridal Makeup & Hair | Beauty Academy",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJi3n_7s4_K4gREs2yGXLK2LI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "idluxurymedspa",
+   "name": "ID Luxury Med Spa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJw-L3fG1EK4gRjnWBm7H5C2Y"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lacasadecontour",
+   "name": "La Casa de Contour",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ5XfmTD5HK4gRwReKMzy3qvI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "kaizen_medspa",
+   "name": "Kaizen Laser Clinic and Medspa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJHxZj_thBK4gR_jUoEJEbgdE",
+    "ChIJpz3K6Z1HK4gRIQnGRnvDcxo"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "real_sweet_treatments",
+   "name": "RealSweet Treatments & Esthetics",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJqTOfJSTvnm0R1MHu-5i4LoY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sunshinemedispa.sauga",
+   "name": "Sunshine Cosmetic Clinic & Medi Spa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJE-_xhptHK4gR3fM7_yKlNnM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mississauga.gracemed",
+   "name": "GraceMed Mississauga x McLean",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJw0h6gSZHK4gRPNu9JHvPNys"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lavishmedclinic",
+   "name": "Lavish Med Clinic",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQ3qo6pg9K4gRPs6uw4e67l4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "caramel_medspa",
+   "name": "Caramel medspa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ_fv4-XpBK4gRdB2L1HURSkk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "biobeautemedspa",
+   "name": "Bio Beaute Med Spa | Beauty, Skin & Wellness Clinic",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJzyy8GLBHK4gRBa_kLHVj8Kc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nurse.ellen.aura",
+   "name": "Aura Cosmetic Injectables",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJkVwBsBBHK4gR-nEGYC2sl2U"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "aquamedicalspa",
+   "name": "Aqua Medical Spa Mississauga",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJv1HdOO44K4gRqC9JTL9Yig0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "leaulaserandspa",
+   "name": "L'eau Laser & Med Spa",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJf9XYMIAVK4gRDXiAcHP2H80"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sama_spa_inc",
+   "name": "Sama Spa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQSA-jEFHK4gR1YcyRs1VYLk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "riddhiskincarespa",
+   "name": "Riddhi Skin Care Spa & Academy",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJzdZyLB87K4gRt_ZY7XsKDYo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "youthfulderma",
+   "name": "Youthful Derma",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ__-jbVNCK4gR_Bd40VQnevE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lase.away",
+   "name": "Lase Away",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJxVUe5pgRK4gRMq5hDx-3U0U"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "admireaesthetics.ca",
+   "name": "Admire Aesthetics",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJrcyfvUkVK4gRIFV3As-13nc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "spicedsilk_medaesthetics",
+   "name": "Spiced Silk Medical Aesthetics",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJeWrBHRYVK4gRfesR01e2JwA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "caseycandid",
+   "name": "Casey Candid Aesthetics",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJo5kKkWkpd4URRWQG15lU5LI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "agelessbeauty.brampton",
+   "name": "AgelessBeauty Laser & Skin Spa",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJL2meplY9K4gRQk3Iih3N0q8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "divinespa.ca",
+   "name": "Divine Spa",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJT2zGAT4VK4gRZFlJR-Dsds0",
+    "ChIJT7pQnuAXK4gRpdlCKSz8N88"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "lovelylaserspa",
+   "name": "Lovely's Laser and Spa",
+   "area": "Caledon",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJA25d_G4VK4gRi7kcNSvukgc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rejuvamedispabrampton",
+   "name": "Rejuva Medi Spa",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJpzm0zTkXK4gRZhgvkFygKQI",
+    "ChIJz8Qm4JhrK4gRAh95SSAGS5A"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "launiquelasercentre",
+   "name": "La Unique Laser Centre",
+   "area": "Multi-location",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJRRonNopEK4gRfSQPInB_Pb4",
+    "ChIJYYCAPy0UK4gRhRxx5IYIlnk",
+    "ChIJcRu1cxM9K4gRPQ3Y6Rji76o"
+   ],
+   "account_type": "multi-location group",
+   "branches": 3
+  },
+  {
+   "handle": "renewedbeautyinc",
+   "name": "Renewed Beauty By Brenda Inc",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJpd9ugpIfK4gRpQ9JF-lYSZA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "o.p.medspa",
+   "name": "O.P. Med Spa- Electrolysis & Laser Treatments in Mississauga",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJg50t5ORBK4gR97RtJdEK_zg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "charsbanquetofbeauty",
+   "name": "Char's Banquet of Beauty",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJI5fmktVrK4gRIDlaQpifj5k"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "infusederm",
+   "name": "Infuse Med Spa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ12uL8K00K4gRPNa8HIZ9RTA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sculpt.rx",
+   "name": "Sculpt.Rx Medical Aesthetics",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJof1TNqJrK4gR1rweck9gLAc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "parislaserclinic",
+   "name": "Paris Laser Clinic",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ7eM5qLsXK4gREppUv_XfLrk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "instadermmd",
+   "name": "InstaDerm MD Clinic",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJxf5AaGdrK4gR5MDGF1sNX90"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ridsbeautyspa",
+   "name": "Rids Beauty Spa",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJIa6f8uVvK4gRjx6zlEBCDuE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "aurifylaser",
+   "name": "Aurify Med Spa",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJBVqkRZ8VK4gRP2uAqMFfc0Q"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "radiance.skinclinic",
+   "name": "Radiance Skin Care & Medical Laser Clinic",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJP4GGIUM8K4gRoHTJNGK8yjo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "aqueen_spa",
+   "name": "AQueen Spa",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJw_dQMbcao40RYf-HaE6v8GQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "calmwatersdayspa",
+   "name": "Calm Waters Day Spa and Laser Clinic",
+   "area": "Caledon",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJOXbiBmAfK4gR2LDP4fbpSEE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "reviveandrefinemedspagta",
+   "name": "Revive and Refine Med Spa GTA",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ21Cre3kxK4gRI_bWZW8oyaY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "glowonbeautybar",
+   "name": "GlowOn Beauty Bar",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJFwKlLrsVK4gRJlM-y6gvG1k"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermalstudio.ca",
+   "name": "Dermal Studio",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJv4Pg1cldK4gRsi9BySljaoU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "facesmedicalspa",
+   "name": "Faces Medical Spa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJORT1V2k_K4gRk1tEy6C9H-4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "plumpaestheticsmd",
+   "name": "PLUMP Aesthetics MD",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJferk-q9HK4gRhmQ4kMAaQSY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "diamond_aesthetics_npjen",
+   "name": "Diamond Medical and Aesthetics",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJkaJ9CNFDK4gRlQBevmxJbLQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "la_deesse_clinic",
+   "name": "La Déesse Cosmetic Clinic 微整形医美诊所 - Mississauga",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ4w89fOVHK4gRzWc2Shf7r3g"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ravnoor_medical_aesthetic",
+   "name": "Ravnoor Medical Aesthetic",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ87NYkQsVK4gRQzV8Pv7qDHU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "laeurekalaser",
+   "name": "LA Eureka Laser Hair Removal & Skin Care",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJjyG8_4g9K4gRCDXM6IwK6bk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lexxsthetics",
+   "name": "Lexxsthetics",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJlZXGJIHTvioRYsyPGK2Mevk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "opalmedispamississauga",
+   "name": "Opal Medispa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJNSY99qhrK4gRIh3GzrZdqDA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rnzmed",
+   "name": "RNZ Medical Aesthetics",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ3Uo98hNrK4gRH88RysVxvLk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "forever_holistix_medispa",
+   "name": "Forever Holistix Medi Spa",
+   "area": "Caledon",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJJ8g8bgUjK4gRbCbn8bZ6Zh0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "houseofbeautybyjd",
+   "name": "House of Beauty by JD",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJwV59M3cVK4gR0cKYqFHTX30"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "tlwc.canada",
+   "name": "TLWC | Tira Lounge Salon & Med Spa",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJpeYpfpBrK4gRsbdsR-uo3h4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "miraclemedaesthetics",
+   "name": "Miracle Medical & Aesthetic Clinic",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ7186LJUnK4gRpToX3sYuHZ0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermacapitallaserclinic",
+   "name": "Derma Capital Laser Clinic",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJnZvk05gXK4gRZiyy-lOTwUY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "chrysalis_beaute",
+   "name": "Chrysalis Beauté: Crystal Simm, RPN",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJc9H9b43r5WERqyvMg20UVbE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dranjaleegupta",
+   "name": "Dr. Anjalee Gupta Aesthetic Medicine Clinic",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQ2kqCnc9K4gRUP017pZyAdo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "itsthegoodskinstudio",
+   "name": "The Good Skin Studio",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJD9ncOMQ9K4gRlIupWWMeWZw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "fleur.aesthetics",
+   "name": "Fleur Aesthetics",
+   "area": "Brampton",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ579SMm3gwIQRjNa3IP1444o"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "blossomskinboutique",
+   "name": "Blossom Skin Boutique",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ4-hXMjdEK4gREehA7tnu-IQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "yellowroselaser",
+   "name": "Yellow Rose Spa and Laser Clinic",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJE1PaNVxqK4gRI_sS4uY8O-0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "thebodyclinicskincare",
+   "name": "The Body Clinic | Spa Skincare",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJWctBIyJEK4gR_-XTet3gFv0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nc_beautyspa",
+   "name": "NC Beauty Spa | Skin Care & Laser Treatment",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJOY4CwCRDK4gRhfXYe900zFo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mdainstitute",
+   "name": "MDA Medical Aesthetics Anti Aging Clinic - Botox Injections",
+   "area": "Mississauga",
+   "region": "Peel",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJuRZm2gU4K4gRDCMYU7qbqaI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lux.beauty.skin",
+   "name": "Lux Beauty Skin",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJcTfvOwErK4gRIPHZKj8Njpc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "unchainedbeauty.ca",
+   "name": "Unchained Beauty Medical Spa",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJs60ak9kf1YkRyIkdPgnuHy4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "glowingtouchbeautyclinic",
+   "name": "Glowing Touch Beauty",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJUezvdQbVKogR7sSgLd6mK6I"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mgaesthetics_",
+   "name": "MG AESTHETICS",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ7bPxI1EnK4gRGre4YmuM3gI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "memolbeautyclinic",
+   "name": "Memol Beauty Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJz_X-WpwrK4gRoeQ-B6yuFfE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beautyoclockmedicalspa",
+   "name": "Beauty O'Clock Medical Spa Inc",
+   "area": "Multi-location",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ1eGRvRglK4gRoEWV1USDGZg",
+    "ChIJAd_GmlUrK4gRfydlFChO1to",
+    "ChIJKe2HcinTKogRuLrrsKbn5Zo"
+   ],
+   "account_type": "multi-location group",
+   "branches": 3
+  },
+  {
+   "handle": "woodbridgecosmeticlinic",
+   "name": "Woodbridge Cosmetic Clinic",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJbfXwN3svK4gRwCURU7p02sQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "thedermaloungeaurora",
+   "name": "The Derma Lounge",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJr3JMkOPTKogRtXlOdtVpEDw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "genesis_medi_clinic",
+   "name": "Genesis Medi Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJT6vrK_ArK4gRhdjI8TGGRDQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ellabeauty_toronto",
+   "name": "ella cosmetic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ94RPzB4rK4gRGp8v2lxwQ80"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beautyaesthetics.ca",
+   "name": "Beauty Aesthetics",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ9TgK7VsvK4gR3lQW-NGrKIs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "vividcosmeticclinic",
+   "name": "Vivid Cosmetic Clinic",
+   "area": "Multi-location",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJEZ6ipC7XKogRr_9JgrVUHTU",
+    "ChIJEcjMs8PLKogRojLpfJaBTkY"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "ipzu_wellness_centre",
+   "name": "iPZU SPA - ipzu wellness centre",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJCUXVdInV1IkRQy2Xh-lnIKc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "glammedispa",
+   "name": "Glam Medi Spa",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJg7mUW8PvS2MR6LQAkVQzkj0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "yorkrehabclinic",
+   "name": "York Rehab Clinic Physiotherapy",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ74usopIrK4gRCzSY16gNKps"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "parklanemedaesthetics",
+   "name": "Park Lane Medical Aesthetics",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJUTX68mMvK4gRE0csKTEvFb8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "laserclinicnewmarket",
+   "name": "Laser Clinic Newmarket Inc.",
+   "area": "Newmarket",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJyWwELznSKogR9th5myXnQJM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sensecare_medspa",
+   "name": "Sensecare Medspa",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ4eeKdbEvK4gRqRNJPBZlBLc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "boxxed_aesthetics_wellness",
+   "name": "Boxxed Aesthetics & Wellness",
+   "area": "Whitchurch-Stouffville",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQ-8Pqn0p1YkRfn5mIQMrtZ4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "clinic.fakour",
+   "name": "Fakour Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJISQdZAYrK4gRPeZ_5_63ZFE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mmedispa_",
+   "name": "M Medi Spa 美蒂芳华",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJJ0hmk1rU1IkRFpBsBR5d46A"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "1faceskinclinic",
+   "name": "1FACE SKIN CLINIC",
+   "area": "Whitchurch-Stouffville",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQ2af6msp1YkRGolaegNIyIg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "merakiskinclinic.ca",
+   "name": "Meraki Skin Clinic",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJv2U_VxDV1IkRDsq9H0C7IwU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "imagebygracekartey",
+   "name": "IMAGE SKIN + CO.",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJKSBrOTkrK4gRoxzOs1qpjIE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "body.tuned.by",
+   "name": "Body Tuned By",
+   "area": "Whitchurch-Stouffville",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJAQAAdC0p1YkRMItZG-oxfvQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beautyfairyrichmondhill",
+   "name": "Beauty Fairy Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ743t_-XVKogRxoP_QZzYfFQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "eternalbeautynbeyond",
+   "name": "Eternal Beauty n Beyond",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJy43NeavVKogRP1_q_cimmTw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "snatchedbyale",
+   "name": "Snatched by Ale Body Sculpting Boutique - Fat Freezing Specialist",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJwYc9PK_X1IkRdYFchjOUUKk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "premium.clinic.toronto",
+   "name": "Premium clinic",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJo_BVuofT1IkRJ9GygV0Jqyk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "amethystaesthetics_ca",
+   "name": "Amethyst Aesthetics Skin & Hair Care Clinic",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJCy4eboDV1IkRVEYnhfgHHes"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beautyandwellness.to",
+   "name": "Beauty & Wellness Clinic",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJv4YBAQMtK4gROL4_i6PnpPk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "maryam.injectable.studio",
+   "name": "Maryam Injectables Studio",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ7xnOuoAp1YkRHQv9ijgolio"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "coreceutical",
+   "name": "CORE Ceutical Clinic",
+   "area": "Newmarket",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZTjHstXVKogR_2pMiPsVuqo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "classycosmeticclinic",
+   "name": "Classy Cosmetic Clinic",
+   "area": "Multi-location",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJEQSDfLvRKogRNx-dnmqE5hs",
+    "ChIJZ-1zCqwtK4gRyQG5x_D6t6A"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "stephabellesclinique",
+   "name": "Stephabelle's Clinique",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJDeyG0CIvK4gRD--xOHdYr8Y"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "melekmedispa",
+   "name": "Melek MediSpa",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJDeZRKhInK4gRrg4_cKHQC04"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "avantcosmeticclinic",
+   "name": "Avant Cosmetic Clinic",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJhxC9heTV1IkRGB3Kk7TlKZY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "georgina_np_led_clinic",
+   "name": "Georgina Nurse Practitioner-Led Clinic",
+   "area": "Georgina",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJU_yDmShN1YkRmiJCsSA7SCk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lasair.medical",
+   "name": "Lasair Medical Vaughan",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJD4_EkzcvK4gRKADdWEmKdSs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "faceinjectables",
+   "name": "Face Injectables Medical Spa Vaughan",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ2whCG-ZDK4gRjGhmknZmGLs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skin28clinic",
+   "name": "Skin 28 Clinic",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJWe43QBg1K4gRgCQhCq_zzEI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "fantaziaaesthetics",
+   "name": "Fantazia Aesthetics",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJb4flDU8qK4gRV2T-5gkf2wg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lisadane_bellalisalaser",
+   "name": "Bella Lisa Laser",
+   "area": "Newmarket",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJGW8fY6TTKogRGyrlr3tb_1s"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "balancedbeautymedspa",
+   "name": "Balanced Beauty Med Spa",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJJ4RzvfIvK4gRTT55wDiLeGo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "activateskin",
+   "name": "Activate Beauty",
+   "area": "East Gwillimbury",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJidbSXHk1K4gRznQc1-PTFa4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "linadiminno",
+   "name": "Lina Diminno Med Spa",
+   "area": "King",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ34jEOHfWKogRVssNb21BuQ4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "yasalaser",
+   "name": "Yasa Laser",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQVMwH0A1K4gR3Gdm0xszDrA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "faceharmony.beauty",
+   "name": "Face harmony",
+   "area": "Newmarket",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJlw1Gxn7RKogR_taYPZCarXA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ttmspa",
+   "name": "TTMSPA - Markham Medical Spa",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJW_FzXOTW1IkR-Mn-j5mYPEU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "razi.laser",
+   "name": "Razi Laser And Cosmetic Center",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJU1hDbk0qK4gRdK29JQ5u_vo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mernovmedispa",
+   "name": "Mernov Medi Spa",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ2eJSu97V1IkRPWAB4o8DIGQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "elitewellnessmedispa4u",
+   "name": "Elite Wellness MediSpa",
+   "area": "Whitchurch-Stouffville",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJJSod1oIp1YkR4zzqdFDAAME"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "newmarket.laser.andskincare",
+   "name": "Newmarket Laser, Aesthetic and Skincare Clinic",
+   "area": "Newmarket",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ5bCyVh7BTyIRldVeO-7TPyk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "senzubeanclinic",
+   "name": "Senzu Bean Clinic",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJA0R6Yz7V1IkRHBt-EOlT2cg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "goldenpulselaser",
+   "name": "Golden Pulse",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJm7jIjZgrK4gRegK0HxspJG8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ellaslaser",
+   "name": "Ellas Laser Skin Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ8-V1riotK4gRbaiLkjmTiPA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "donyamedicalspa",
+   "name": "Donya Medical Spa",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJP_t_LrQrK4gRyn1kuizDQEQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "jeunessecosmeticclinic",
+   "name": "Jeunesse Cosmetic Clinic",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJhfLLndgoK4gRvykmCUT56Ss"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "richskin.ca",
+   "name": "Rich Skin Aesthetics",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJvbNjGbMp1YkRm9XoxIsoGGM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "_theglamfactor",
+   "name": "THE GLAM FACTOR",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJkQsM6pAvK4gRoFHawk0EYn8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "hazelaesthetics_",
+   "name": "Hazel Aesthetics",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ2a3AdjbsUSMRApSUIWPGOFQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "glowmedclinic",
+   "name": "Glow Med Clinic",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZUA4uqQqK4gR_GTl9ffIKcU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nuyoumedspaa",
+   "name": "NuYou Laser & Wellness Spa",
+   "area": "King",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJCSQEpssgK4gRh9l5NJzWXwc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "elitemdaesthetics",
+   "name": "EliteMD Aesthetics",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJEzh5aSGKW2kRXZs5C_qTYO0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beautitudetoronto",
+   "name": "BEAUTITUDE Medical Aesthetics",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ49IVYgjU1IkRHkcaf_0n5tY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "visage_by_kate_",
+   "name": "Visage by Kate",
+   "area": "King",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ3bWTH04hK4gRsEMpXjvOxOw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sabrina_med_aesthetics",
+   "name": "Sabrina Medical Aesthetics",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJWRBHWrsvK4gRF-U4ea37eF0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "enaliabeautybar",
+   "name": "Enalia Beauty Bar",
+   "area": "King",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJI_KLkd0MAGIRvKUq24B644w"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "venice_cosmetic_clinic",
+   "name": "Venice Cosmetic Clinic | Botox & Dysport • Fillers • PRP Hair • Vampire Facial • Hydrafacial • IV • Mesotherapy • Exosome",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJWdR5B6kvK4gRdX3_j-zwcE0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beautyshotmedicalclinic",
+   "name": "Beauty Shot Medical Clinic",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJafEU8NYpK4gR7lHHyMgH1Z4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "terraskinclinic",
+   "name": "Terra Skin Clinic",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJUQY9ENbX1IkR1Tl1mesIIJk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "tailoredmedicalaesthetics",
+   "name": "Tailored Medical Aesthetics",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJSaofzs3TKogRoiJXLgJJIkw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "alora.medicalspa",
+   "name": "Alora Medical Spa",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJIc_dqRXVKogRjpRkbNqTZu8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "drwrinkleawayclinic",
+   "name": "Dr Wrinkle Away Stouffville Ballantrae Cosmetic Clinic | Filler | Botox | Acne | Laser",
+   "area": "Whitchurch-Stouffville",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ0YvE2Awt1YkRlx82sePNWl4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "elitecosmeticclinic",
+   "name": "Elite Cosmetic Clinic",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQ2I6T_cpK4gRRyGvlgS-szU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ymgclinic",
+   "name": "YMG Aesthetic Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ-Z4jWz7VKogR1q3nU2q91dY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "medilase_cosmetic",
+   "name": "Medi Lase Cosmetic Center Inc",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJL8rRfOYsK4gRu8Nck-pg4HU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "driplabto",
+   "name": "The Drip Lab",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJIQaNy98vK4gRdxFO3b927qA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinprowellness",
+   "name": "Skin Pro Wellness Clinic | Facial & Skin Care Richmond Hill",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJEUoq2xUrK4gRnZ7y--yYxdw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "novabeauty_inc",
+   "name": "Nova Beauty",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ51i-9McvK4gR55FNC1vkGmA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lashesandlipstickca",
+   "name": "Lashes & Lipstick Med Spa & Beauty Bar",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJSzxPcQIq1YkRrb8s9HBUIqQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "medermestheticslaser",
+   "name": "Mederm Esthetics & Laser Clinic",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJTaInoHkvK4gR3U15KIdy6_k"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "hotboycutegirl.med",
+   "name": "Hotboy & Cutegirl Medical Aesthetics",
+   "area": "Newmarket",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJKVpa2rzRKogRdYmV7NUPkw0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "georginarejuvenationcentre",
+   "name": "Georgina Rejuvenation Centre",
+   "area": "Georgina",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ8_rmbM3LKogR1dKlM5meTZk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "eluxeclinic",
+   "name": "Eluxe Skin Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ2dUvDc_VKogRwzt2rwY1ZoA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sherlaseclinic",
+   "name": "Sherlase Clinic And Spa",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ8bDC5SDW1IkR8MfzD7OwxE8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "oxygenglow",
+   "name": "Oxygen Glow Spa",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJvcmlt0spK4gRBkpaPTjXlUI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lesliemedspa",
+   "name": "Leslie Med Spa",
+   "area": "Newmarket",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJE0PSNJrNKogRhuHhK3CI0no"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rarebeautylab",
+   "name": "Rare Beauty Lab - Med Spa",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJjUpKq0wnK4gR6ljZ2B1FeFE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "miyanbeautylab",
+   "name": "Miyan Beauty & Wellness",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJh8VnI1XV1IkROTqqeOgRbm4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "velmontmedicalclinic",
+   "name": "Velmont Medical Clinic",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJC8PCCaHTKogRGptNmXX3Be4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rosegoldaesthetics.ca",
+   "name": "Rose Gold Aesthetics",
+   "area": "Whitchurch-Stouffville",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJwY2YSAkv1YkRg5K-kTnTk3A"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sumu.rehab.clinic",
+   "name": "Sumu Wellness Clinic 苏木康复诊所 (RMT, Physio, Chiro, Acupu, Osteo, Naturo)",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ_ZqbD_rVKogRp5CNdMHzOXA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "fmbeautybarr",
+   "name": "F.M beauty bar",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJj0l67AR5I0gR3Sdt5576y8s"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "confidenceinsession",
+   "name": "Confidence in Session",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ8a0olbQvK4gR6B0oBjzxN6Y"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "timelesslifeclinic",
+   "name": "Timeless Life Clinic",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ8dFDcYTV1IkR8QuKavCaewM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "york.wellness.aesthetics",
+   "name": "York Wellness Aesthetics",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ5TkB82ArK4gRR2Uz2_XYG8g"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "unique.clinic",
+   "name": "Unique Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJNcEx0PsrK4gR8bl3dh-Qkv0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "samacosmeticclinic",
+   "name": "Sama Cosmetic Clinic",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJr-HCJ8jTKogR25lDdnHYNgw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinnmedspa",
+   "name": "Skinn Med Spa",
+   "area": "Georgina",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJa46_gjUdT08R-LA4k06Y4So"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermatouch.ca",
+   "name": "Dermatouch - Botox Fillers, Micro Needling, PRP",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJpwjTZmXVKogRCmeg2UOz_J0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mkcosmeticcliniccanada",
+   "name": "MK Cosmetic Clinic Vaughan",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ-yUI7cbotKkRNV63I-739j0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "vs_med_spa",
+   "name": "VS MedSpa | Full body laser hair removal Deal",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJrQJps1wtK4gR0iCI97s9eIw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "tma.clinic",
+   "name": "Toronto Medical Aesthetics",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJz8prIwrW1IkRLXeikmLKafA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "jaunaliemedical",
+   "name": "Jaunalie Medical and Aesthetics Inc",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJj4bkkn0vK4gRxZd3_Ptl5cM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "luxebeamclinic",
+   "name": "LuxeBeam Laser Clinic",
+   "area": "Whitchurch-Stouffville",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ4dqirdYp1YkR5fdzEZzLxiI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "bellebeaute_medspa",
+   "name": "BelleBeauté MedSpa",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJT0Ntjg2XhqYRzFfaBUk1fU0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "upkeep_skin_clinic",
+   "name": "Upkeep Skin Clinic",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQ-OFURrV1IkRQWjOUNPnGgM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "meliora_medispa",
+   "name": "Meliora Medi Spa",
+   "area": "East Gwillimbury",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ30_7uPPNKogR8U4RzzT8KVQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nurseinjector.alisha",
+   "name": "Nurse Injector Alisha",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJmZ09r-fT1IkRvqMDqIdMY_U"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "zinacosmeticcentre",
+   "name": "Zina Cosmetic Centre",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJV1RXKRpDK4gR_p5nOdCWk50"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "cataleyabeautyaesthetics",
+   "name": "Cataleya Beauty Aesthetics",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJSQJlyr0VK4gRctsuMAEmooc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "realityskincarecentre",
+   "name": "Reality Skincare Centre",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJs9ZMgYArK4gRMMFZ9kqy46M"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "n.h.fclinics",
+   "name": "N.H.F Clinics",
+   "area": "Newmarket",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJtRG3HTjTKogRYFTeTCB4kTc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lumiskins",
+   "name": "Lumiskins - Skin Care Centre",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJD_H1SJAvK4gRBhTAwx6u13Y"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "qestheticslaser",
+   "name": "Q Esthetics Laser Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJqZ86HbYtK4gR1HrgdEF18Nk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "havenmedspasocial",
+   "name": "Haven Med Spa",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJwynNTEE7K4gRi03zilxQeQc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "shadesofskin.beautybar",
+   "name": "Shades of Skin Beauty Bar - Vaughan Medical Aesthetics Spa",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJiWp5frIlK4gRG-eqiVcLWZQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "trucare_cosmetic",
+   "name": "Trucare Cosmetic Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJBzA36kbVKogRGZUCmrYJePE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "pureradiance_aesthetics",
+   "name": "Pure Radiance Aesthetics and Laser",
+   "area": "King",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJudezacXXKogRVClxaD3Xp7c"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "laserise_skincare",
+   "name": "Laserise Skin Care",
+   "area": "East Gwillimbury",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJaYWXLfzNKogRv4A9ahNhRgk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dewbeaumedispa",
+   "name": "DEW BEAU MED SPA",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZ8NdJ_osK4gRAfgxLB2K9Aw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "xycosmeticclinic",
+   "name": "X+Y Cosmetic Clinic",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJdZAsLSHV1IkRvX3imXwEbM4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "evergreenbeautybar",
+   "name": "Evergreen Medical Spa",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ7RkD9aUqK4gRGtAg-bToTU8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skn.beautycentre",
+   "name": "SKN Beauty Centre - Vaughan",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJC_GWT08vK4gR77KMmqxX30s"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "look_timeless",
+   "name": "Look Timeless Medical Aesthetics",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJy58zGyfX1IkR6xRNr0lwZCw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sculpt_medispa",
+   "name": "Sculpt Medispa",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJKeidgEHV1IkR7wlZ7QCfgdc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "spectrum_of_beauty",
+   "name": "Spectrum Of Beauty Permanent Makeup & Skin Care Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJG4uJLlsrK4gRMFUrrVRNYcc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "kereer.medi",
+   "name": "Kereer Medical Aesthetic Clinic 多伦多科俪尔医美抗衰诊所",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ-w6_7MnV1IkRqHC5erRZbjY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "everglowskinstudio.ca",
+   "name": "Ever Glow Skin Studio Organic Spa",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZdNqWYLV1IkR2xZwyCDvO88"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skin_trek",
+   "name": "Skin Trek | Sculptra Ultherapy PRP",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJuY3cp4ctK4gRooctbuJNv6M"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "manasmedspa",
+   "name": "Mana's Med Spa",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJCUDZitfVKogR3857qr-yMzU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "auralux.laser",
+   "name": "AuraLux Clinic",
+   "area": "Whitchurch-Stouffville",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJuc-mAm0p1YkRxyOvS5dszzs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "yorklasermedspa",
+   "name": "York Laser and MedSpa",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJPVhSewrSKogRYGKyD9UHlS8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mellow_medical_aesthetic",
+   "name": "Mellow Aesthetic",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ5wAu2_8pK4gR4ZdNEaxC0rg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "muchinbeauty",
+   "name": "Muchin Beauty Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJW7b7laQrK4gR3aEubpd-Ciw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rozzacare.ca",
+   "name": "ROZA CARE LTD.",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ340d-YnNKogRduCxIo9IFb0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "_premium.aesthetics",
+   "name": "Premium Medical Aesthetics",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJkV53Qc-c9WgRc-hd72IE7uY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "everskinlasersalon",
+   "name": "Everskin Salon",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJHZ-77HErK4gRz5rKFcchHDg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "bfancylaserclinic",
+   "name": "BFancy Laser Clinic",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJFZYHbXd-jCUR5BnY7_u3Amo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "habitmedispa",
+   "name": "Habit Medi Spa",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJR5tcphovK4gR_mc9Dayk5q4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lepamperroom",
+   "name": "Le Pamper Room",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ9d0ywFwrK4gRqyID_3A_i80"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "fera.swanmedspa",
+   "name": "Swan Medical Spa",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ4RSUhWMqK4gRJax3iFvAcRM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "glolaserandskinstudio",
+   "name": "GLO Laser & Skin Studio",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJO6bk1Fo7K4gR3sTtylTOfuk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "eb.medaesthetics",
+   "name": "EB Medical Aesthetics",
+   "area": "King",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJDa8By6fVKogR8WpWXv480qo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ax_skin_vitality_med_spa",
+   "name": "AX Skin Vitality Med Spa",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ1WRI-3wvK4gRO5L0ixXsDhg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinprovement",
+   "name": "Skinprovement Medi Spa & Laser Clinic",
+   "area": "Multi-location",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJWWsTJ2ElK4gRK3LnBIiGr3Y",
+    "ChIJZ98-lmXfKogRn91UK8SIXRI"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "newmclinic",
+   "name": "NewM Clinic - Skin Lesions Removal and IV Therapy Services",
+   "area": "Newmarket",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJq6raDQnSKogRRg5LZeGH_9U"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "allurebodybar",
+   "name": "Allure Body Bar Newmarket - Waxing & Laser Specialist",
+   "area": "Newmarket",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQ3hcn_DRKogRXVjSDCf1hCE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sugarbarebodybar",
+   "name": "Sugar Bare Body Bar",
+   "area": "Newmarket",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ77qC0B_OKogR-gSj6bAqsf4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beautymed_richmondhill",
+   "name": "Beauty Med Cosmetic Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJC6817XsrK4gRVkw05OS3j9A"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "enrichedmedspa",
+   "name": "Enriched Med Spa",
+   "area": "Multi-location",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJq4-3GAEyK4gRPjnqls3OX3I",
+    "ChIJuTKpKYLPKogRfplYv9fDu6w"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "theskinstudioinc",
+   "name": "The Skin Studio Inc.",
+   "area": "King",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJF8av25PXKogRHzuMKTZOmdw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nakdclinic",
+   "name": "NAKD Cosmetic Clinic",
+   "area": "Vaughan",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJRw7TILoL8mwR3YGUxvOvBLI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "idcosmeticclinic",
+   "name": "ID Cosmetic Clinic (ID医美诊所)",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ1WkBbBDT1IkR2HnEpsuYl4M"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "springlaser",
+   "name": "Spring Laser & Skin Care",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJxa3OQW4qK4gRgAu3INRzFCU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nursemandiaesthetics",
+   "name": "Nurse Mandi Aesthetics",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJPRt9LexdBykRs7dF05izcL8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "bluecosmeticclinic.ca",
+   "name": "Blue Medi",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZaSqaFQrK4gRfIl8hxGWJhc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "bellalashandbeauty",
+   "name": "Meagan's Botox and Filler",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJD8zeAbvV1IkRW1hvjrH1rGs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermavcos",
+   "name": "Derma V+ Cosmetic Clinic",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQbisqcHV1IkR9OZ1MD_xLJw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "gmaskinclinic",
+   "name": "The Grand Medical Aesthetic Clinic - Skin Rejuvenation and Injectables Clinic",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJiWd8mszV1IkRqg3JYfvJttU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "gtamedicalcenter",
+   "name": "GTA Medical Clinic and non surgical cosmetic Treatments",
+   "area": "Markham",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJVVUVC2XT1IkRFzQAIMAMLG4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinlabspa",
+   "name": "SkinLabSpa (Woman Only)",
+   "area": "Aurora",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJc1cqxy7TKogR0gJHMMNnlHc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lasermedicalclinic",
+   "name": "LMC - Laser Medical Clinic",
+   "area": "Richmond Hill",
+   "region": "York",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJq7Ts8l0qK4gR2VwRLhIcFr0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mysparituals",
+   "name": "My Spa Rituals and Esthetics",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQZOJk6Hf1IkR4LEXg5jNm50"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "_angelaesthetics",
+   "name": "Angel Aesthetics & Spa",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJf9yxhdDf1IkRa2-ZsymwH3A"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nkm_injections",
+   "name": "NKM Injections",
+   "area": "Oshawa",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ9VlbRuYd1YkRlxYEgkW6-Cs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "victoriarose.aesthetics",
+   "name": "Victoria Rose Aesthetics",
+   "area": "Pickering",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJEc4K0oXZ1IkR6KgGiSFkmS0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lakesidemedicalaesthetics",
+   "name": "Lakeside Medical Aesthetics",
+   "area": "Scugog",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJe8BOUr8V1YkRBk0NS4CkvsU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "vitaluxemedclinic",
+   "name": "Vitaluxe Medi Spa & Clinic Inc",
+   "area": "Pickering",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJRTERXZDf1IkRyEGe6MqhOg0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "thefacialplace",
+   "name": "The Facial Place",
+   "area": "Pickering",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJG_YjBf7e1IkRjjS47T0VuTk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "gskindesire",
+   "name": "G Skin Desire Med Spa",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ2VEIY_nX1IkRFAI35xorsvQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "thedermclinic_official",
+   "name": "The Derm Clinic",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJeXXEmRHf1IkR0XHL52UNuY4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nulookbeauty",
+   "name": "NuLook Beauty & Medi Spa",
+   "area": "Pickering",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJDUtFvUjZ1IkRez6cuEtuZq4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "opallomhealth",
+   "name": "Opallom Health Medical Aesthetics and Weight Loss Clinic",
+   "area": "Oshawa",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJgxuLBpwb1YkRGe5Ndcm5qWc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "kokos_spa",
+   "name": "Koko’s Beauty Spa",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ222Yy-oh1YkR1H6Lt6rL12w"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "bffskincare.inc",
+   "name": "BFF Skincare Services",
+   "area": "Whitby",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJmSEHTD8f1YkRwNVv1kq_8ig"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "holisticbeautyuxbridge",
+   "name": "Holistic Beauty Uxbridge",
+   "area": "Uxbridge",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJTXEuSdA71YkRlZ0xxxpf2Ds"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "elegancy_beautybar",
+   "name": "Elegancy Beauty Bar",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJMd1HHeDf1IkRuVRO3StcR9I"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nursenatalie.medaesthetics",
+   "name": "Nurse Natalie Medical Aesthetics",
+   "area": "Uxbridge",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJNQkSeVg51YkRBki-VQGuGSI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beauty_pulse_medspa",
+   "name": "Beauty Pulse Medspa",
+   "area": "Whitby",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJhas1d_of1YkR93qV-CYbTZc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "omorphi_aesthetics",
+   "name": "Omorphi Aesthetics",
+   "area": "Whitby",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ8SW2BLoF1YkR6fOPjVcG3Ac"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "laserskinec_inc",
+   "name": "Laser and Skin Esthetics of Canada Inc.",
+   "area": "Oshawa",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJhe1R5lId1YkR8C5fWa7aVkY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rnrc.aesthetics",
+   "name": "RNRC Aesthetics",
+   "area": "Whitby",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJhSasKZwd1YkRrRvvHRlyccU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "deeperthanskin_canada",
+   "name": "Deeper than Skin",
+   "area": "Pickering",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJY1CRD6ff1IkR9liHbL_HN6o"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "fuzzwaxbar",
+   "name": "Fuzz Wax Bar Ajax",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJb43zx8Eh1YkRiwKUnPGRc7c"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nuageaesthetic",
+   "name": "Nu Age Aesthetic",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJl-UW824F4w8Rz47FfHsbiCI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "freshtouch_medspa",
+   "name": "Fresh Touch Med Spa",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJmQunrive1IkRL2EfSOrpTLQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "aesthetics.fc",
+   "name": "Aesthetics FC",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJCyOqQO0f1YkR_B_pAUbbPo4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "salemmedicalaesthetics",
+   "name": "SM Aesthetics",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJfeiascXh1IkRX-Eae8gnMyo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "gatesmedispa",
+   "name": "Gates MediSpa",
+   "area": "Pickering",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ-WBxrzvZ1IkRJr1lWYH_UAs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "moorebeautyinc",
+   "name": "Moore Beauty",
+   "area": "Pickering",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJp3iu1dXTKogRhTzL0StsQRc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "artisanaestheticsca",
+   "name": "Artisan Aesthetics",
+   "area": "Multi-location",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ5wHLiTO0cqARPQX6NW7WMFQ",
+    "ChIJ7_22d1Qf1YkRVdsHp3q_1is"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "refine.medicalaesthetics",
+   "name": "Refine Medical Aesthetics",
+   "area": "Clarington",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJM3FYUWsB1YkRjXNl9FSfmTs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nurseamy.flawless",
+   "name": "Flawless By Amy",
+   "area": "Clarington",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ90G1hY4H1YkRWo8tOxP7RIc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beauty_medi_spa",
+   "name": "Beauty Medi-Spa",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJkcdN7v0c1YkRnH8pgo0OWVU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "vivacitemedspa",
+   "name": "Vivacité Laser + MediSpa Bowmanville",
+   "area": "Clarington",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJnS0LmcwA1YkRxnxpFl3mIqw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "beautyfoundationsclinic",
+   "name": "Beauty Foundations Clinic",
+   "area": "Whitby",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJK3hOdEod1YkRjdcqySB9kp4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "medidermaspa",
+   "name": "MediDerma Medical Spa",
+   "area": "Oshawa",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZZzW8Zkb1YkRdIbrlLgUbCI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skin_diva_studio",
+   "name": "Skin Diva Esthetic Studio",
+   "area": "Clarington",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJm-LcAqED1YkR4-5XFJmXrrw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "loveyourfacenewcastle",
+   "name": "Love Your Face Medical Aesthetics",
+   "area": "Clarington",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJhdaAiaep1YkRRfr4_1-3otw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "whitbymedspa",
+   "name": "Whitby Medspa",
+   "area": "Whitby",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJcbH158Yd1YkROzTI1gZoCX8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nurse.injectorlisa",
+   "name": "Nurse Injector Lisa",
+   "area": "Clarington",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJVdwNiDsf1YkR_IfPhdwHiHA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "merakibeautyspa",
+   "name": "Meraki Hair and Medi Spa By Shagufta",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJr0sEGcYh1YkRNRjBfbUBDl0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "wellnesspath.ca",
+   "name": "Wellness Path Clinic & Spa",
+   "area": "Clarington",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJq5di3cwA1YkRieIQnSPreaU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "letsglowsalon",
+   "name": "Let’s Glow Salon",
+   "area": "Scugog",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJjy4KMpwc1YkRGuoTkbHR9Zs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "novo_skincare",
+   "name": "Novo Skincare",
+   "area": "Clarington",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJr_RZf0E5K4gRGcay4cfVs0g"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "laser.lash.clinic",
+   "name": "Laser and Lash Clinic",
+   "area": "Oshawa",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ-TPooMzfxgoRAyhqYsBb4zc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mavivaspa",
+   "name": "Maviva Spa And Massage Therapy",
+   "area": "Pickering",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJp7340lrZ1IkRAnpIJTDzVhE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "secretaestheticsmedspa",
+   "name": "Secret Aesthetics",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJlbah8EV406AR-0RT_QZpw-s"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "medcosmetics",
+   "name": "Med Cosmetics Clinic Oshawa by Honey Sohi",
+   "area": "Oshawa",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ4YrQibYD1YkRqfF3gAKLDic"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "modernmedispa",
+   "name": "Modern Medi Spa",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJA1lcwB_f1IkRTe51-4xEja4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermaesthetic.can",
+   "name": "DermAesthetic",
+   "area": "Oshawa",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZWtb11vHJkERM-DDxtUt-Lo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "avenueplastic",
+   "name": "Avenue Plastic Surgery",
+   "area": "Whitby",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ83d_lxsd1YkRUYWKSVffM9E"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "star_skincare_studio",
+   "name": "Star Skin Care & laser Studio",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJCQXcx47h1IkRo459NR39Ysk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "alabasterwellness",
+   "name": "Alabaster Wellness Clinic",
+   "area": "Pickering",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJf4Xpgdnf1IkR1KyyQz4tHjs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "hisandhermedspa",
+   "name": "His & Her Med Spa inc",
+   "area": "Whitby",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJY5oaUkIf1YkRLJh9ix53_wY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "renewalmedaesthetics",
+   "name": "Renewal Med Aesthetics",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJpwTwsn7g1IkR2lnH36kIZu0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "joymedicalcosmetics",
+   "name": "Joy Medical Cosmetics",
+   "area": "Clarington",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJG7kjMiP4zy0RahqCQJOqzxE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "theglowhausto",
+   "name": "Injectables by Nurse J",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ4X6UILjf1IkRTtlC4K8axPI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "modern.beautybarxo",
+   "name": "Modern Beauty Bar",
+   "area": "Pickering",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJW7hhjKnf1IkRuSqTimA28As"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "stillbeautyandmedspa",
+   "name": "Still Beauty & Med Spa Inc.",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQZOJk6Hf1IkR9R2UU_37yqM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "avenue.medspa",
+   "name": "Avenue Med Spa & Laser Clinic",
+   "area": "Whitby",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJCVkpC_0c1YkRbgrW2-MRm1I"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "precisionbeautycanada",
+   "name": "Precision Beauty Canada",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJXf6OcInb1IkR4ddHoLOeINs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sweethairremoval_laser",
+   "name": "Sweet Hair Removal & Laser Clinic",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJh2g3xyAg1YkRgQckXY0zcYs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermasciencemedspa",
+   "name": "DermaScience Medical Spa",
+   "area": "Whitby",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ-9Az50Mf1YkRoGnsWqeVXQg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rebodeemedicalaesthetics",
+   "name": "Rebodee Medical Aesthetics Inc",
+   "area": "Oshawa",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJCb7OGcYb1YkRHAkUrsVLc9c"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mindbodybeauty_aesthetics",
+   "name": "MindBodyBeauty Aesthetics",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJPe6z_P7R1IkRIcgVnuXeZDc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "woodlandskinrenewal",
+   "name": "Woodland Skin Renewal",
+   "area": "Pickering",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ1_zu93GwIw8RYyb-mV1kGzw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinxspa",
+   "name": "SKINX SPA",
+   "area": "Ajax",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJY66Dsgvf1IkRNlABhAsCSxI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "chaimspromedaesthetics",
+   "name": "ChaimsPro Medical Aesthetics - Pickering",
+   "area": "Pickering",
+   "region": "Durham",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJD5MsEwDZ1IkRB9pri-K3syQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "tsskinclinic",
+   "name": "TS Skin Clinic & Wellness",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJFwTkJnBeK4gRPFzbWtJHf6M"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "soulalaserclinic",
+   "name": "Soula Laser Clinic",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJL-dOmRllK4gRSjKc0XF0vCE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mezzmerizeonpearl",
+   "name": "Mezzmerize Medical Aesthetics Inc.",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJw6lvli-eLIgRyRutrGmHezk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "burlingtonmedicalaesthetics",
+   "name": "Burlington Medical Aesthetics",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZSH1nN5hK4gRpNMIC-XQRu4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "vistoso_clinic",
+   "name": "Vistoso Med Spa",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ29vVenkvK4gRlwU_OiOmAqo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sabislifestylend",
+   "name": "Sabis LifeStyle",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJq6refkBvK4gRfaqjQwJ8eHU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "drleonoraogbeide",
+   "name": "Illustria Medical Aesthetics - by Dr. Leonora Ogbeide MD",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJwQyYBIJvK4gRCh_1p90Ba9M"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "venusmedicalspa_",
+   "name": "Venus Medical Spa - Oakville",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJneG_FvVcK4gRZMi-V-PWtpw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skonlaserclinic",
+   "name": "Skön Laser Clinic",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJoVJaiJhvK4gRoWVPW-phcSU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skin_beauty_oakville",
+   "name": "Skin Beauty Bar/ Laser Hair Removal / Oakville",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJNQIUFqZfK4gRa6YKPjFD6Wc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "burlington.gracemed",
+   "name": "GraceMed Downtown Burlington",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJw-iUHCWeLIgRu_mYGLjYVY4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "exsalonce_",
+   "name": "Exsalonce Laser & Esthetics",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJJ6FkMehcK4gRJHOF34bWI8w"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skin6ix",
+   "name": "Skin6ix",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ7XeyJQhlK4gRl9Su9jb27xU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "refresh_cosmetics",
+   "name": "Refresh Cosmetics",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJXwHP-0-fLIgRW3FKQAunNiY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "whealthylifeclinic",
+   "name": "Whealthy life",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ0Xo0PX5hK4gR2WmFlWnWeMY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sadentrohealth",
+   "name": "Sadentro Health Studio",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJO9zjH-hhK4gR_y3kFu95COI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "_.labellamedspa_",
+   "name": "La Bella Med Spa",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJX1lEj8mbLIgRu4JQ0jb5q1I"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "drwest_aesthetic",
+   "name": "Dr West Aesthetic Medicine",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJh6N9L--FLIgRVsi_pAENE_s"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nurse_jacklyn",
+   "name": "Nurse Jacklyn | Botox, Filler, Laser Treatments & Skin Care",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJX5xwlsNXoKoRLA6ouAebM5I"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sobya_skincare",
+   "name": "Sobya's Skincare",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJi7N-3u9vK4gRy1mEZSyBDYg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "luxury_beauty_aestheticz",
+   "name": "Luxury Beauty By Cleo R",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJkd23ugJdK4gRovy-S6rH5NE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "revivalmedspa.oakville",
+   "name": "Revival Med Spa",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJv2y5TGBdK4gRYhhjBNnAnws"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "thepurglow",
+   "name": "the pür glow Medical Spa",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJpxQdvStnK4gR974wTLBeDPs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "aglsmedicalclinic",
+   "name": "AGLS Medical Clinic",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJNf5z8RBhK4gRdBetzrQrCls"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "refreshdermaclinic",
+   "name": "Refresh DermaClinic",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ31TuZ8hdK4gRjJXkEjXEL7o"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "elanlaserspa",
+   "name": "Elan Laser Aesthetics",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJq4n0P5FjK4gR_JpYvCZ1bSg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "secretfacesclinic",
+   "name": "Secret Faces",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJaSK0znFeK4gRzb4BeBfPoLs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "boutiquemedicalaesthetics",
+   "name": "Boutique Medical Aesthetics",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJqfKkveVdK4gRpyMej78Xmyg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "oakvillemedicalaesthetics",
+   "name": "Oakville Medical Aesthetics",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJA8mhZ_pcK4gR8uRCbhP1gXM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "refine_medicalaesthetics",
+   "name": "Refine Studio Medical Aesthetics",
+   "area": "Halton Hills",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQbQ7XZhzK4gRXLJYQloGlpo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "assia.beautyclinic",
+   "name": "Assia Beauty Clinic",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ6Q0XEYFdK4gRRdrZU7rX_kU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "haltonderm",
+   "name": "Halton Dermatology & Skin Surgery",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJSYycSoRhK4gR2WueTPRwx70"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "amoreskinandwellnesscenter",
+   "name": "Amore Skin And Wellness Center",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJcbvZWzNdK4gRV3xoKFJAiJg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skin.beautyandbeyond",
+   "name": "Skin Beauty and Beyond",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJH4gKOLpdK4gRSAOpZyNEf4s"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinlandmedispa",
+   "name": "SkinLand MediSpa",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJUyYsntifLIgRv_D-AljQAkM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "aestheticscarelounge",
+   "name": "Aesthetics Care Lounge",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJQZ-EyLNhK4gRFsycrjO6LqA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "trudy_gorgestheticstudio",
+   "name": "Gorgesthetic Studio LTD",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJWzUv36xhK4gRUC4uQ_yxQbI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "oakville.skin",
+   "name": "Oakville Skin and Dermatology at ICLS",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJtVUD8rJcK4gR6k-pwW9EB-8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermetics",
+   "name": "Dermetics Cosmetic Dermatology",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJpejH2rZhK4gRvyI2OIT2AdU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "d2medspa",
+   "name": "D2 MedSpa",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJD_Zfts-FLIgRyzYvdmFPPyg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "luxeandlitbeauty",
+   "name": "Luxe and Lit Medical Aesthetics",
+   "area": "Halton Hills",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJX8n8Ex1tK4gRcmNf7ma-Ihw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinnovationsbyera",
+   "name": "SKINNOVATIONS BY ERA",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJKfVrQPphK4gReTeO-o6thdE"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "newagelaserandspa",
+   "name": "New Age Laser Clinic",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJc0IMdvVcK4gRVHBb5aUV0Fk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skincityco",
+   "name": "Skin City",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJOVwYnXZhK4gRXNbjNu3ynPw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinsoulmedspa",
+   "name": "Skin Soul Medspa",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ2wF2oVNdK4gRondK-MJbbNM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nursecheryl.ca",
+   "name": "Nurse Cheryl - iRenew Medical Aesthetics",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJpSBvB9FvK4gRS5ObFRqUJWw"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "rejuv.canada",
+   "name": "Rejuvenation Dermatology Clinic Oakville",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ2dzIdF9DK4gRsrBQtP43d0I"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "oakvilleflawlesscosmeticclinic",
+   "name": "Oakville Flawless Cosmetic Medical Spa | Botox•Filler•Laser•Sofwave",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJvfHT0xRnK4gRMhp-Rf9aPaY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "nomorewrinklesmedspas",
+   "name": "Spa Luxe Med Spa",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJd2O7VtVhK4gRy2nFHW3yVdQ",
+    "ChIJffIgjiFhK4gRJlwUC9rSBK4"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "oreabeautyboutique",
+   "name": "OREA Beauty Boutique",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJU_CXG7lhK4gRb6dglshiYW4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermadollstudio",
+   "name": "Derma Doll Studio",
+   "area": "Halton Hills",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJHRWSbtm56yARIrbDrA4xBBo"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermazone_medical_spa",
+   "name": "DermaZone Medical Spa",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJKfsMaJ1dK4gRqEkugkPaikU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "skinlicious.byhanin",
+   "name": "Skinlicious by hanin",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJRfRt5p5vK4gRjWOF95o8vuY"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "allurelaserskinstudio",
+   "name": "Allure Laser & Skin Studio",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ5Y9N0cdCK4gRZdw0JXlSsps"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ladyjmedspa",
+   "name": "LADY J MEDSPA",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJuzkmvNhvK4gRSKPiVgbbyho"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "marketplacemedicalcentre",
+   "name": "Marketplace Medical Centre & MedSpa",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJYSHAlo5lK4gRz6C2dcgFZrM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "oakwood_health_network",
+   "name": "Vytalis Health Network | Men’s Regenerative Health Clinic",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJix9Eo-VdK4gRoqV0KklgPXA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lyfemedica",
+   "name": "LyfeMedica Wellness",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJVYQQ9MBdK4gRGu6llq7sbZQ"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "thedripcoltd",
+   "name": "The Drip Co. Ltd",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJI6_wAQ9dK4gRimtAVstOZH8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "re_juvenation",
+   "name": "Re-juvenation Cosmedical Injectables & Laser",
+   "area": "Halton Hills",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJGWKFlyoXK4gRYlvazxeRB48"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "onyxoakville",
+   "name": "Onyx Skin & Wellness",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJyYW-a4ldK4gRkH-bYU0T0qk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "lenaspastudio",
+   "name": "Le.Spa Studio, Health and Wellness",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJWXV8cEFdK4gRdtG_GgZ6TY8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "gowith_theglowmedspa",
+   "name": "Go With The Glow by Dr Somia Khurram",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJLTQBIgBvK4gRPegVIY14KE0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "bodysculptxclinic",
+   "name": "Body Sculpt Clinic",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJoz8ayxhdK4gRXMEetItmvJc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "oaklakemedspa",
+   "name": "Oak Lake Medical Centre and Medical Spa",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJgTyAhzhdK4gRyLTDZUGTP-0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "md_laser_clinic",
+   "name": "MD Laser Clinic",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJmaquI0idLIgR-s4lN-ojn30"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "zenwellnessclinic",
+   "name": "Zen Wellness Clinic",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJH2OVnoNvK4gRN-cif3nSbJk"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "luna.medspa",
+   "name": "Luna Med Spa Ltd",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ5xV8AsdhK4gReSFOWFRBCXI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "foresthill.cc",
+   "name": "Forest Hill Cosmetic Clinic - Oakville | Skin Care Clinic",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJLT6WWRVdK4gRxbexfSg0Vu4"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "novellomedicalaesthetics",
+   "name": "Novello Beauty Medical Aesthetics & Wellness",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJfTcwZgRhK4gRIc6Zr0ZwqU0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sunandshade.medspa",
+   "name": "Sun & Shade Med Spa - Laser & Skin Clinic Oakville",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJfVtH2p5nK4gRqi0IMOkfAdI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "glass.skin.med.spa",
+   "name": "Glass Skin Med Spa",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJl6RumoNlK4gRIOUkUQ7iXNg"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "mc.cosmetic.injectables",
+   "name": "MC Cosmetic Injectables",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJV_Z_RB5vK4gR6_bzfnbyqt0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "spavaidosa",
+   "name": "Spa Vaidosa & Skin Care Centre",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJzYnNw9ydLIgRdBM4nb1eZf8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "annabellamedspa",
+   "name": "Anna Bella Med Spa",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJBZREXUmbLIgR6CAJomIghjA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "freshfacedbeautyrx",
+   "name": "Fresh Faced Rx",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ1ZRXmvtvK4gRN3I50dxQrdA"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "merrionmedicalaesthetics",
+   "name": "Merrion Medical Aesthetics",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJL4VeGaBDK4gRlReyt30jk8Q"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "dermis.co",
+   "name": "Dermis &Co",
+   "area": "Milton",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJD7eoRGRpK4gRGnOUGOAzBhI"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "refinebeauty.ca",
+   "name": "Refine Beauty",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJtXqwPsc3K4gRN4TeJT6oms8"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "modernyoumedicalaesthetics",
+   "name": "Modern You Medical Aesthetics",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJk93lhOCfLIgRREhQ9ZTsMEs"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "face.by.vivaderm",
+   "name": "Vivaderm Medical Aesthetics",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ_YLz9p1dK4gRQ5bvaB1WRmc"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "crystalderminc",
+   "name": "Crystal Derm",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJBfIjZYFBK4gRCPWO8ENAock"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "simedispa",
+   "name": "Si MediSpa",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJCfYFc4RdK4gR0D_HgMK99hU"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "sugarmoonsalon",
+   "name": "Sugarmoon - #1 Body Sugaring Burlington",
+   "area": "Burlington",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJabJsQpifLIgRRPZPOtwYTQ0"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "genevamedspa",
+   "name": "Dolce Vita Medical Spa",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ99gSWRhdK4gRLs3VlqiSy8U"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "ruyasaesthetics",
+   "name": "Ruya Aurèlle Medical Aesthetics",
+   "area": "Oakville",
+   "region": "Halton",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ1wqLC_VdK4gRJ5nNQccGYiM"
+   ],
+   "account_type": "single-location",
+   "branches": 1
+  },
+  {
+   "handle": "theclinica",
+   "name": "THE CLINICA",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZ2L0HWYtK4gRXN2nLNzKuDA",
+    "ChIJ_-qiswMrK4gR4R-TWWFd5YM",
+    "ChIJo-4uTc8zK4gRylv9AeyFWmU"
+   ],
+   "account_type": "multi-location group",
+   "branches": 3
+  },
+  {
+   "handle": "sammedspa",
+   "name": "Sam Medspa",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJOeYBnNHT1IkR0g9lSQnbK7s",
+    "ChIJPapDy3VBK4gRIRVjS-FYtmc"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "dynastyaetheticskin",
+   "name": "Dynasty Aesthetics",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJAcuCxhApK4gRVLq_uEZj23I",
+    "ChIJxS-Wv6rf1IkRN1Etxh-FRlo"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "skinfitz.co",
+   "name": "SKINFITZ",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ0-ek0khrK4gRqE_Xs1u8y2I",
+    "ChIJyfEbI1f7Km8RM77031TpSzk"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "laserclinicscanada",
+   "name": "Laser Clinics Canada",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJT1TKUws5K4gRBFlgU6LYo-k",
+    "ChIJaX7YWisrK4gRG4V618y7qMs",
+    "ChIJbzQByyfR1IkRB_SRSL_Kd5s",
+    "ChIJd5UiaDTX1IkRddpjVWxFij0"
+   ],
+   "account_type": "chain (4 or more branches)",
+   "branches": 4
+  },
+  {
+   "handle": "reviveskinmedicalspa",
+   "name": "Reviveskin Medical Spa",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ6UhnKTVvK4gRUM8OQsZ-FE0",
+    "ChIJX15HWbJBK4gRtQFXm5wKj-I"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "signature_cosmetic_clinic",
+   "name": "Signature Cosmetic Clinic FMP",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ75fDO_jU1IkRGk51n1A4YQY",
+    "ChIJYZdpcOvV1IkRrDDKs-iC1nM",
+    "ChIJsbiiEN0rK4gRo8KI59ZJ4Vs",
+    "ChIJz324Ph4zK4gRh7dD1fpb9ow"
+   ],
+   "account_type": "chain (4 or more branches)",
+   "branches": 4
+  },
+  {
+   "handle": "hermosamedspa",
+   "name": "Hermosa Med Spa",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJecBKCm4tK4gRChmHWmW5BLM",
+    "ChIJgW9eVo4rK4gRUXGGYqCmqSc"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "solskin.spa",
+   "name": "SOL Skin Esthetics Spa",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ3wRaWapBK4gR-YhCwVrQxHM",
+    "ChIJ7zKuQkyfLIgRqhOefX8nh7I",
+    "ChIJL4FeHZDPKogRUohJGxpvnfg",
+    "ChIJ_1S_IworK4gRNrk_lX0EBtQ",
+    "ChIJkW2r4NNHK4gRPuyKQtcKsNM",
+    "ChIJl19QvCQvK4gRkvw8utOCjn8",
+    "ChIJryGgjv1hK4gRTHHayZNb-V4",
+    "ChIJtQ9pYhbV1IkRELopcVgmF78",
+    "ChIJtxivgdZHK4gRjvxRkw8Oxvc"
+   ],
+   "account_type": "chain (4 or more branches)",
+   "branches": 9
+  },
+  {
+   "handle": "heostoronto",
+   "name": "HEOS Markham",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ09dhHL7V1IkR3CG76hinJL8",
+    "ChIJzXZ5f2HT1IkRq-QEY-6OD8I"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "heartlake_aesthetics",
+   "name": "Heart Lake Aesthetics",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ44yQXmkXK4gRggYGMI9A6b8",
+    "ChIJF0xA9XZDK4gR9KnCMD_Envk"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "beautybarclinics",
+   "name": "Beauty Bar Medical Clinic",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJBZZfAK40K4gR5x7GCaUa_1g",
+    "ChIJPcFMYqc1K4gRnStlot50yvY",
+    "ChIJpQ8Ykv4sK4gRAV2JWKO3YMw"
+   ],
+   "account_type": "multi-location group",
+   "branches": 3
+  },
+  {
+   "handle": "canadianbeautyboutique",
+   "name": "Canadian Beauty Boutique",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJRcWi0vsZ1YkR6I4uflB8n-A",
+    "ChIJY0SIcFQ2K4gRweM4rwG-CJI"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "dripinluxemedspa",
+   "name": "Drip In Luxe Medical Spa",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJE97jlJId1YkR3wYvECrUKtw",
+    "ChIJXcE2aRRFK4gRQYZxTaH5Bms"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "posh_medical_spa",
+   "name": "POSH Medical Spa",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ64EuOYhhK4gRB68ufknsUqU",
+    "ChIJm4CVyoZDK4gRfn1NZDru168",
+    "ChIJm_rqBEzL1IkRxnJy0sG4ulc"
+   ],
+   "account_type": "multi-location group",
+   "branches": 3
+  },
+  {
+   "handle": "reformelab",
+   "name": "Reforme Lab",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJH8DvfK5BK4gRJIxq1D_7xpE",
+    "ChIJraZWfmLL1IkRjFHywkT6cG4"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "tamedicalspa",
+   "name": "Therapeutic Aesthetics of Toronto",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJjat8lKY0K4gR1_H3mK0OjWA",
+    "ChIJsbduhLWfLIgRZ9uJA7bJ8mQ"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "timelesshealthtoronto",
+   "name": "Lumèr",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ06tEX6pHK4gRJeFK2nhvKKY",
+    "ChIJC5wdB7M0K4gRbx1aHLPdiGY"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "subtle.enhancements",
+   "name": "Subtle Enhancements",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ1fBRw-YZ1YkRozHJXEg8Ze0",
+    "ChIJFRJCtt01K4gRB6caE3tmmSA"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "janerunsclinics",
+   "name": "Del Rose Clinic",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ7350zONjVYoRBmYEgxCzPGI",
+    "ChIJIcXYPQ5JK4gRkg4e9eyCEOA",
+    "ChIJYXj1aGAd1YkReXY67JP623Y"
+   ],
+   "account_type": "multi-location group",
+   "branches": 3
+  },
+  {
+   "handle": "fusionmedcc",
+   "name": "Fusionmed Cosmetic FMCC (DT)",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJIcql8sY1K4gRNGUJD8aBDbw",
+    "ChIJdSAwl-Mp1YkRhhalOA9U-8o",
+    "ChIJz2NW918tK4gRiw9OHrRK29g"
+   ],
+   "account_type": "multi-location group",
+   "branches": 3
+  },
+  {
+   "handle": "allaboutmedicalesthetics",
+   "name": "All About Medical Esthetics",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJZ1kwjvc3K4gRAAvO_V2VaUQ",
+    "ChIJwe94x7DTKogRb_XtBhCz0O0"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "reveclinic.ca",
+   "name": "RÊVE CLINIC",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ2_kvgVs3K4gR9LzPgTW_6l4",
+    "ChIJTSsx-DVDK4gRMsuR9pxiHFg"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "eonmedicalspa",
+   "name": "Eon Medical Spa",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJIzrKapI0K4gRYTOyeWaZmqw",
+    "ChIJaRRaToMvK4gRv1xwEHPj3Mg"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "lasermed_canada",
+   "name": "LaserMed",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJt5jgYOAhK4gRHjGrh4afBIk",
+    "ChIJt_VjYTvXKogRsaqL_BCd1bM"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "northmedical",
+   "name": "North Medical Spa",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJAQDQUBXL1IkR4H7IhpG2AA4",
+    "ChIJBQlzE9FdK4gRXEE3ymrt6uw"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "serene_cosmetic_clinic",
+   "name": "Serene Cosmetic Clinic",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJGXyJ0XXV1IkRP0uAylVQaao",
+    "ChIJURuio0otK4gRyZXf9n7MeD0"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "skinvitality",
+   "name": "Skin Vitality Medical Clinic Ajax",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJLzJQq5wrK4gRsVl_ss1_Eu0",
+    "ChIJU5meCrhvK4gRWMPY-QiORe4",
+    "ChIJaTR2qmId1YkRBtUOf_zBEXI",
+    "ChIJh5nbOcdcK4gRPc46WDosphI",
+    "ChIJhw-qwOzf1IkRDQ4BE6gMsrQ",
+    "ChIJtde65K40K4gRFOx15AnXdrA",
+    "ChIJu2yvrRJGK4gRE5MXlT5yCag",
+    "ChIJxdQnYrphK4gRjajyvwQEidc"
+   ],
+   "account_type": "chain (4 or more branches)",
+   "branches": 8
+  },
+  {
+   "handle": "hermosastudio___",
+   "name": "Hermosa Studio King City",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJP_WCzbRBK4gRsMADGPxI7WY",
+    "ChIJf2ZZawzXKogRTgKgECVVF0I"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "beautymed.spa",
+   "name": "Beauty Med Spa",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ0TVtzRcVK4gRFpFfGSHKYP4",
+    "ChIJtyhuKg43K4gRlqBh_1m_Zxw"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "alyssumcosmetic",
+   "name": "Alyssum Cosmetic",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJG-YF5ODT1IkRH8TubzAb9Xk",
+    "ChIJm6gASgZBK4gRmXpOUeu4x1c"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "soniacosmeticclinic",
+   "name": "Sonia Cosmetic Clinic",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJUSuQs1stK4gRkQIxczUrX4k",
+    "ChIJtQAUowsrK4gRq3k5chhb6lY"
+   ],
+   "account_type": "multi-location group",
+   "branches": 2
+  },
+  {
+   "handle": "rejuuvmedi",
+   "name": "Rejuuv Medi Spa",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJiTvDCY41K4gRm-MVr1gvMgg",
+    "ChIJjZEXbo_V1IkRYoYXWwMYoDE",
+    "ChIJr3yYWjLU1IkR4Ideizm4X4I",
+    "ChIJsyn91-MtK4gRKjIq0NKrolk"
+   ],
+   "account_type": "chain (4 or more branches)",
+   "branches": 4
+  },
+  {
+   "handle": "canadamedlaser",
+   "name": "Canada MedLaser Whitby",
+   "area": "Multi-location",
+   "region": "Multi-region",
+   "include": true,
+   "exclude_reason": null,
+   "place_ids": [
+    "ChIJ-2ugBiNFK4gRtfDx0BpmdSo",
+    "ChIJ6fUJ11If1YkRGKg0_WGz45A",
+    "ChIJD1bAH9s0K4gRVgP84mm4EkE",
+    "ChIJNzCSiB5hK4gRWWws0-GGBoE",
+    "ChIJgUgdRzNDK4gRxplkUZ4bgd8",
+    "ChIJiyZhG60vK4gRtVSvQNUV0Vw",
+    "ChIJo7E1LCg3K4gRI1ptLjY4kK4",
+    "ChIJuc2L353R1IkRF8_t_HzFabY",
+    "ChIJzRVu4ujRKogRCph1zg8B_WY"
+   ],
+   "account_type": "chain (4 or more branches)",
+   "branches": 9
+  }
+ ]
+}

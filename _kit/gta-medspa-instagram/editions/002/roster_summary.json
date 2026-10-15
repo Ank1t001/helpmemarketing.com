@@ -1,0 +1,103 @@
+{
+ "listings": 2842,
+ "business_excluded": 905,
+ "geography_excluded": 239,
+ "gta_aesthetics_listings": 1698,
+ "unresolved_listings": 647,
+ "accounts_unverified": 45,
+ "unverified_listings": 49,
+ "branch_accounts_dropped": 2,
+ "unique_accounts": 872,
+ "account_types": {
+  "single-location": 801,
+  "multi-location group": 62,
+  "chain (4 or more branches)": 9
+ },
+ "regions": {
+  "Toronto": 236,
+  "Peel": 126,
+  "York": 238,
+  "Durham": 97,
+  "Halton": 125,
+  "Multi-region": 50
+ },
+ "selected": 600,
+ "exclusion_reasons": [
+  [
+   "not an aesthetics clinic (category and name)",
+   426
+  ],
+  [
+   "outside GTA or location unverified",
+   239
+  ],
+  [
+   "not an aesthetics clinic (massage)",
+   188
+  ],
+  [
+   "day spa or salon listing",
+   87
+  ],
+  [
+   "not an aesthetics clinic (nail salon)",
+   59
+  ],
+  [
+   "account unverified (kept apart, not ranked): handle does not match the clinic name or website; verify before use",
+   45
+  ],
+  [
+   "not an aesthetics clinic (day spa)",
+   44
+  ],
+  [
+   "not an aesthetics clinic (physiotherapy)",
+   23
+  ],
+  [
+   "not an aesthetics clinic (hair salon)",
+   21
+  ],
+  [
+   "not an aesthetics clinic (chiropractic)",
+   16
+  ],
+  [
+   "not an aesthetics clinic (hotel)",
+   9
+  ],
+  [
+   "general medical listing without aesthetics signal",
+   9
+  ],
+  [
+   "not an aesthetics clinic (make-up artist)",
+   6
+  ],
+  [
+   "not an aesthetics clinic (acupuncture)",
+   5
+  ],
+  [
+   "permanently closed",
+   4
+  ],
+  [
+   "not an aesthetics clinic (dental)",
+   4
+  ],
+  [
+   "not an aesthetics clinic (pharmacy)",
+   3
+  ],
+  [
+   "branch account of a group account",
+   2
+  ],
+  [
+   "not an aesthetics clinic (gym)",
+   1
+  ]
+ ]
+}
