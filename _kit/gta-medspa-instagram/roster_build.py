@@ -231,10 +231,13 @@ def main():
     ap.add_argument("--seed", type=int, required=True)
     ap.add_argument("--built-at", required=True)
     ap.add_argument("--run-id", required=True)
+    ap.add_argument("--root", default=str(HERE), help="kit folder holding work/ and editions/ (tests use a temp copy)")
+    ap.add_argument("--full", action="store_true", help="print the whole summary instead of the compact form")
     a = ap.parse_args()
-    ed = HERE / "editions" / a.edition
+    root = Path(a.root)
+    ed = root / "editions" / a.edition
     ed.mkdir(parents=True, exist_ok=True)
-    listings = json.load(open(HERE / "work" / "listings.json"))
+    listings = json.load(open(root / "work" / "listings.json"))
     ids = [r["placeId"] for r in listings]
     assert len(ids) == len(set(ids)), "placeId must be unique"
 
@@ -403,7 +406,7 @@ def main():
                "clinics": [{k: c[k] for k in ("handle", "name", "area", "region", "include", "exclude_reason",
                                               "place_ids", "account_type", "branches")}
                            for c in selected]},
-              open(HERE / "roster.json", "w"), indent=1, ensure_ascii=False)
+              open(root / "roster.json", "w"), indent=1, ensure_ascii=False)
     json.dump(unresolved, open(ed / "roster_unresolved.json", "w"), indent=1, ensure_ascii=False)
     json.dump(unverified, open(ed / "roster_unverified.json", "w"), indent=1, ensure_ascii=False)
     json.dump(excl, open(ed / "exclusions.json", "w"), indent=1, ensure_ascii=False)
@@ -419,7 +422,15 @@ def main():
         "exclusion_reasons": reason_counts.most_common(),
     }
     json.dump(summary, open(ed / "roster_summary.json", "w"), indent=1)
-    print(json.dumps(summary, indent=1))
+    if a.full:
+        print(json.dumps(summary, indent=1))
+    else:  # compact: counts and paths only; full detail stays in roster_summary.json and exclusions.json
+        top = "; ".join(f"{k} {v}" for k, v in summary["exclusion_reasons"][:4])
+        print(f"listings {summary['listings']} | gta aesthetics listings {summary['gta_aesthetics_listings']} | "
+              f"unique accounts {summary['unique_accounts']} {summary['account_types']} | regions {summary['regions']}")
+        print(f"unresolved listings {summary['unresolved_listings']} | unverified listings {summary['unverified_listings']} | "
+              f"selected {summary['selected']} (cap {a.cap}, seed {a.seed}) | top reasons: {top}")
+        print(f"files: {ed}/roster_summary.json, roster_eligible.json, exclusions.json, sampling.json")
 
 
 if __name__ == "__main__":

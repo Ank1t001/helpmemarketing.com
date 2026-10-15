@@ -1,0 +1,12 @@
+{"stages": [
+ {"label": "T1 A repo and instruction reading", "from": "2026-10-15T00:00:00Z"},
+ {"label": "T1 B1 discovery launch and first poll", "from": "2026-10-15T13:17:20Z"},
+ {"label": "T1 B2 discovery polling", "from": "2026-10-15T13:18:00Z"},
+ {"label": "T1 C dataset read, filtering, notification", "from": "2026-10-15T13:37:00Z"},
+ {"label": "T2 D1 status check and dataset re-read", "from": "2026-10-15T14:29:28Z"},
+ {"label": "T2 D2 roster script write, run, inspect", "from": "2026-10-15T14:31:00Z"},
+ {"label": "T2 D3 sampling, pricing, profile launch", "from": "2026-10-15T14:33:40Z"},
+ {"label": "T3 token diagnosis", "from": "2026-10-15T14:35:07Z"},
+ {"label": "T4 commit and push (hook)", "from": "2026-10-15T14:36:35Z"},
+ {"label": "T5 optimisation patch (to date)", "from": "2026-10-15T14:38:10Z"}
+]}

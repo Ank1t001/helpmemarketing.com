@@ -1,0 +1,6962 @@
+{
+ "edition": "002",
+ "replacements_pending_profile_check": [
+  {
+   "region": "Durham",
+   "handle": "beautytox.med",
+   "rank_in_stratum": 68
+  },
+  {
+   "region": "Durham",
+   "handle": "sava.spa.bowmanville",
+   "rank_in_stratum": 69
+  },
+  {
+   "region": "Durham",
+   "handle": "lagaviotaesthetics",
+   "rank_in_stratum": 70
+  },
+  {
+   "region": "Durham",
+   "handle": "lonewolfbeauty",
+   "rank_in_stratum": 71
+  },
+  {
+   "region": "Durham",
+   "handle": "bodylanguageoshawa",
+   "rank_in_stratum": 72
+  },
+  {
+   "region": "Durham",
+   "handle": "luxe_medspa.ca",
+   "rank_in_stratum": 73
+  },
+  {
+   "region": "Halton",
+   "handle": "beautyslams",
+   "rank_in_stratum": 87
+  },
+  {
+   "region": "Halton",
+   "handle": "theglamhouseclinic",
+   "rank_in_stratum": 88
+  },
+  {
+   "region": "Halton",
+   "handle": "tuffordmedical",
+   "rank_in_stratum": 89
+  },
+  {
+   "region": "Halton",
+   "handle": "beautiflymedispa",
+   "rank_in_stratum": 90
+  },
+  {
+   "region": "Halton",
+   "handle": "jadeclinics",
+   "rank_in_stratum": 91
+  },
+  {
+   "region": "Multi-region",
+   "handle": "eternal_glow_medical",
+   "rank_in_stratum": 35
+  },
+  {
+   "region": "Multi-region",
+   "handle": "lvmedspa",
+   "rank_in_stratum": 36
+  },
+  {
+   "region": "Multi-region",
+   "handle": "lipdoctorbeforeandafter",
+   "rank_in_stratum": 37
+  },
+  {
+   "region": "Multi-region",
+   "handle": "skinmedaesthetics_clinic",
+   "rank_in_stratum": 38
+  },
+  {
+   "region": "Peel",
+   "handle": "eyes2envylashes",
+   "rank_in_stratum": 88
+  },
+  {
+   "region": "Peel",
+   "handle": "agelesselegance_medspa",
+   "rank_in_stratum": 89
+  },
+  {
+   "region": "Peel",
+   "handle": "prickmedicalaesthetics",
+   "rank_in_stratum": 90
+  },
+  {
+   "region": "Peel",
+   "handle": "neshatac",
+   "rank_in_stratum": 91
+  },
+  {
+   "region": "Peel",
+   "handle": "dermapureerinmills",
+   "rank_in_stratum": 92
+  },
+  {
+   "region": "Peel",
+   "handle": "dermasecretclinic",
+   "rank_in_stratum": 93
+  },
+  {
+   "region": "Toronto",
+   "handle": "skinterra_medspa",
+   "rank_in_stratum": 163
+  },
+  {
+   "region": "Toronto",
+   "handle": "glamourmd",
+   "rank_in_stratum": 164
+  },
+  {
+   "region": "Toronto",
+   "handle": "animamedspa",
+   "rank_in_stratum": 165
+  },
+  {
+   "region": "Toronto",
+   "handle": "definabeautyclinic",
+   "rank_in_stratum": 166
+  },
+  {
+   "region": "Toronto",
+   "handle": "dermalook_aesthetics",
+   "rank_in_stratum": 167
+  },
+  {
+   "region": "Toronto",
+   "handle": "studiosvisavis",
+   "rank_in_stratum": 168
+  },
+  {
+   "region": "Toronto",
+   "handle": "urbanbeauty.bar",
+   "rank_in_stratum": 169
+  },
+  {
+   "region": "Toronto",
+   "handle": "you_glow_aesthetics_spa",
+   "rank_in_stratum": 170
+  },
+  {
+   "region": "Toronto",
+   "handle": "letthemnotice",
+   "rank_in_stratum": 171
+  },
+  {
+   "region": "York",
+   "handle": "elevenaestheticsspa",
+   "rank_in_stratum": 165
+  },
+  {
+   "region": "York",
+   "handle": "forouz_beauty",
+   "rank_in_stratum": 166
+  },
+  {
+   "region": "York",
+   "handle": "eloquence_medical",
+   "rank_in_stratum": 167
+  },
+  {
+   "region": "York",
+   "handle": "beautiquemedspa",
+   "rank_in_stratum": 168
+  },
+  {
+   "region": "York",
+   "handle": "rejuvenmedspa",
+   "rank_in_stratum": 169
+  },
+  {
+   "region": "York",
+   "handle": "always_young_beauty_clinic",
+   "rank_in_stratum": 170
+  },
+  {
+   "region": "York",
+   "handle": "alluria_medspa",
+   "rank_in_stratum": 171
+  },
+  {
+   "region": "York",
+   "handle": "skineffectsinc",
+   "rank_in_stratum": 172
+  }
+ ],
+ "checked": 600,
+ "counts": {
+  "verified": 562,
+  "failed": 38
+ },
+ "accounts": {
+  "1faceskinclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 50206,
+   "posts_count": 771,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "221degreeslaserclinicandspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 491,
+   "posts_count": 453,
+   "category": "None",
+   "restricted": false
+  },
+  "30hazelton": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 11094,
+   "posts_count": 309,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "_.labellamedspa_": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 6463,
+   "posts_count": 682,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "_angelaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 869,
+   "posts_count": 422,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "_moonlight_beauty._": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "_premium.aesthetics": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "_theglamfactor": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2379,
+   "posts_count": 806,
+   "category": null,
+   "restricted": false
+  },
+  "a_medical_spa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 319,
+   "posts_count": 178,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "activateskin": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 10446,
+   "posts_count": 598,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "admireaesthetics.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 5256,
+   "posts_count": 286,
+   "category": "None",
+   "restricted": false
+  },
+  "aesthetics.fc": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1022,
+   "posts_count": 146,
+   "category": "Digital creator",
+   "restricted": false
+  },
+  "aestheticscarelounge": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 322,
+   "posts_count": 124,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "agelessbeauty.brampton": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 372,
+   "posts_count": 230,
+   "category": "Laser Hair Removal Service",
+   "restricted": false
+  },
+  "aglsmedicalclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 6374,
+   "posts_count": 470,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "aioniosmedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "website link"
+   ],
+   "followers": 7611,
+   "posts_count": 562,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "alabasterwellness": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 1084,
+   "posts_count": 832,
+   "category": "Publishers",
+   "restricted": false
+  },
+  "allaboutmedicalesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 411,
+   "posts_count": 420,
+   "category": "None",
+   "restricted": false
+  },
+  "allurebodybar": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 4590,
+   "posts_count": 2241,
+   "category": "Spa",
+   "restricted": false
+  },
+  "allurelaserskinstudio": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4293,
+   "posts_count": 1457,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "alora.medicalspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2558,
+   "posts_count": 155,
+   "category": "None",
+   "restricted": false
+  },
+  "aloraskinclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 503,
+   "posts_count": 81,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "alyssumcosmetic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5278,
+   "posts_count": 1514,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "amethystaesthetics_ca": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 358,
+   "posts_count": 337,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "amoreskinandwellnesscenter": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4469,
+   "posts_count": 321,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "anaesthetics.inc": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 124,
+   "posts_count": 41,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "anagenesismedispa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1159,
+   "posts_count": 194,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "annabellamedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 252,
+   "posts_count": 160,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "aquaclinic1": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1327,
+   "posts_count": 219,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "aquamedicalspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1631,
+   "posts_count": 467,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "aqueen_spa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1940,
+   "posts_count": 783,
+   "category": "None",
+   "restricted": false
+  },
+  "artisanaestheticsca": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 7277,
+   "posts_count": 1692,
+   "category": "None",
+   "restricted": false
+  },
+  "artofsanbeauty": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2971,
+   "posts_count": 461,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "assia.beautyclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 7567,
+   "posts_count": 462,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "astramedicare": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 61270,
+   "posts_count": 2563,
+   "category": null,
+   "restricted": false
+  },
+  "aura_harbour_wellness": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 32,
+   "posts_count": 24,
+   "category": null,
+   "restricted": false
+  },
+  "auraglow.to": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1419,
+   "posts_count": 119,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "auralux.laser": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 5,
+   "posts_count": 3,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "aurifylaser": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 952,
+   "posts_count": 3,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "avadralaserstudio": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 968,
+   "posts_count": 365,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "avantcosmeticclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 346,
+   "posts_count": 147,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "avebelle_clinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 14617,
+   "posts_count": 1693,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "avenue.medspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1314,
+   "posts_count": 565,
+   "category": null,
+   "restricted": false
+  },
+  "avenue_skincare": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1350,
+   "posts_count": 232,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "avenueplastic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 801,
+   "posts_count": 15,
+   "category": "Plastic Surgeon",
+   "restricted": false
+  },
+  "avivacosmeticandlaserclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 632,
+   "posts_count": 217,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "ax_skin_vitality_med_spa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2295,
+   "posts_count": 196,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "balancedbeautymedspa": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 1774,
+   "posts_count": 112,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "barbeautymedical": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2212,
+   "posts_count": 450,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "barebeautyclinics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 7477,
+   "posts_count": 969,
+   "category": "None",
+   "restricted": false
+  },
+  "bbbelleza.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1265,
+   "posts_count": 208,
+   "category": null,
+   "restricted": false
+  },
+  "beaudeeclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 39,
+   "posts_count": 23,
+   "category": "None",
+   "restricted": false
+  },
+  "beautidoor": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 4159,
+   "posts_count": 491,
+   "category": "None",
+   "restricted": false
+  },
+  "beautitudetoronto": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 696,
+   "posts_count": 739,
+   "category": "None",
+   "restricted": false
+  },
+  "beauty.avenue.aesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 407,
+   "posts_count": 65,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "beauty_medi_spa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 941,
+   "posts_count": 986,
+   "category": "Alternative & Holistic Health Service",
+   "restricted": false
+  },
+  "beauty_pulse_medspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1176,
+   "posts_count": 374,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "beautyaesthetics.ca": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4693,
+   "posts_count": 223,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "beautyandwellness.to": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 557,
+   "posts_count": 84,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "beautybarclinics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 218537,
+   "posts_count": 4409,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "beautyby_katia": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2352,
+   "posts_count": 379,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "beautybymeet": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 146717,
+   "posts_count": 1205,
+   "category": null,
+   "restricted": false
+  },
+  "beautyfairyrichmondhill": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 808,
+   "posts_count": 197,
+   "category": "Laser Hair Removal Service",
+   "restricted": false
+  },
+  "beautyfoundationsclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 7611,
+   "posts_count": 2014,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "beautymed.spa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 953,
+   "posts_count": 177,
+   "category": "None",
+   "restricted": false
+  },
+  "beautymed_richmondhill": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "website link"
+   ],
+   "followers": 6446,
+   "posts_count": 597,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "beautyoclockmedicalspa": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 1188,
+   "posts_count": 472,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "beautyoneclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 3281,
+   "posts_count": 319,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "beautyshotmedicalclinic": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1944,
+   "posts_count": 115,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "bellairlaserclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 49557,
+   "posts_count": 191,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "bellalashandbeauty": {
+   "status": "verified",
+   "evidence": [
+    "website link"
+   ],
+   "followers": 2153,
+   "posts_count": 549,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "bellebeaute_medspa": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2148,
+   "posts_count": 385,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "bfancylaserclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1013,
+   "posts_count": 528,
+   "category": "Laser Hair Removal Service",
+   "restricted": false
+  },
+  "bffskincare.inc": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 745,
+   "posts_count": 83,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "biobeautemedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 7877,
+   "posts_count": 164,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "blossomskinboutique": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4411,
+   "posts_count": 1291,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "bluecosmeticclinic.ca": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "body.tuned.by": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1882,
+   "posts_count": 1807,
+   "category": null,
+   "restricted": false
+  },
+  "bodyblissaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 13903,
+   "posts_count": 224,
+   "category": null,
+   "restricted": false
+  },
+  "bodybritecanada": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5221,
+   "posts_count": 246,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "bodycontouringtoronto": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5025,
+   "posts_count": 96,
+   "category": "None",
+   "restricted": false
+  },
+  "bodyrevive": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 9638,
+   "posts_count": 270,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "bodysculptxclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 11271,
+   "posts_count": 60,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "boutiquemedicalaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2428,
+   "posts_count": 1154,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "boxxed_aesthetics_wellness": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 184,
+   "posts_count": 19,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "burlington.gracemed": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 391,
+   "posts_count": 257,
+   "category": "None",
+   "restricted": false
+  },
+  "burlingtonmedicalaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 24445,
+   "posts_count": 696,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "calmwatersdayspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1215,
+   "posts_count": 591,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "canadamedlaser": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 27543,
+   "posts_count": 1235,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "canadianbeautyboutique": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 17311,
+   "posts_count": 850,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "canadiandermatology": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 7875,
+   "posts_count": 152,
+   "category": "Dermatologist",
+   "restricted": false
+  },
+  "canstrivemedspa": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "caramel_medspa": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "caseycandid": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1092,
+   "posts_count": 189,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "cataleyabeautyaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 120,
+   "posts_count": 84,
+   "category": null,
+   "restricted": false
+  },
+  "chaimspromedaesthetics": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "charsbanquetofbeauty": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 90,
+   "posts_count": 36,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "chrysalis_beaute": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 651,
+   "posts_count": 178,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "clarityglow.medspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 308,
+   "posts_count": 273,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "clarixio": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1122,
+   "posts_count": 132,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "classycosmeticclinic": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2867,
+   "posts_count": 442,
+   "category": "Artist",
+   "restricted": false
+  },
+  "clinic.fakour": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3061,
+   "posts_count": 706,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "clinic360": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 14520,
+   "posts_count": 2300,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "confidenceinsession": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 883,
+   "posts_count": 80,
+   "category": null,
+   "restricted": false
+  },
+  "coralwellness.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 842,
+   "posts_count": 170,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "coreceutical": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 42276,
+   "posts_count": 314,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "cosmedicalrejuvenationclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3772,
+   "posts_count": 744,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "crystalderminc": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5301,
+   "posts_count": 116,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "d2medspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4377,
+   "posts_count": 473,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "damasskincare": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 843,
+   "posts_count": 809,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "deeperthanskin_canada": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 3044,
+   "posts_count": 116,
+   "category": null,
+   "restricted": false
+  },
+  "dermabarr": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 29895,
+   "posts_count": 1811,
+   "category": "None",
+   "restricted": false
+  },
+  "dermacapitallaserclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 41,
+   "posts_count": 41,
+   "category": "None",
+   "restricted": false
+  },
+  "dermacelaserclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 8915,
+   "posts_count": 1510,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "dermadollstudio": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 795,
+   "posts_count": 340,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "dermaesthetic.can": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "dermalstudio.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 801,
+   "posts_count": 218,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "dermanev_": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 163,
+   "posts_count": 16,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "dermapuretorontomidtown": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3557,
+   "posts_count": 677,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "dermapuretorontoyorkville": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3474,
+   "posts_count": 937,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "dermasciencemedspa": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "dermatouch.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 173,
+   "posts_count": 60,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "dermavcos": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 537,
+   "posts_count": 330,
+   "category": "None",
+   "restricted": false
+  },
+  "dermazone_medical_spa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 893,
+   "posts_count": 538,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "dermetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 11214,
+   "posts_count": 1254,
+   "category": "None",
+   "restricted": false
+  },
+  "dermis.co": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 487,
+   "posts_count": 71,
+   "category": "Laser Hair Removal Service",
+   "restricted": false
+  },
+  "dewbeaumedispa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1432,
+   "posts_count": 56,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "diamond_aesthetics_npjen": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 322,
+   "posts_count": 359,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "divamedspa7": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 629,
+   "posts_count": 66,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "divinespa.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4930,
+   "posts_count": 1760,
+   "category": null,
+   "restricted": false
+  },
+  "donyamedicalspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3175,
+   "posts_count": 271,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "dranjaleegupta": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1092,
+   "posts_count": 138,
+   "category": "Doctor",
+   "restricted": false
+  },
+  "dripclub.iv": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 7327,
+   "posts_count": 40,
+   "category": "None",
+   "restricted": false
+  },
+  "dripinluxemedspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1125,
+   "posts_count": 126,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "driplabto": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 11,
+   "posts_count": 3,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "driprefreshmobileivtherapy": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 26,
+   "posts_count": 0,
+   "category": null,
+   "restricted": false
+  },
+  "drleonoraogbeide": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1245,
+   "posts_count": 66,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "drwest_aesthetic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 4214,
+   "posts_count": 536,
+   "category": null,
+   "restricted": false
+  },
+  "drwrinkleawayclinic": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 237,
+   "posts_count": 114,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "dynastyaetheticskin": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "eb.medaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 2260,
+   "posts_count": 1196,
+   "category": null,
+   "restricted": false
+  },
+  "elanlaserspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2020,
+   "posts_count": 370,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "elegancy_beautybar": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 4705,
+   "posts_count": 696,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "elham_aesthetic_art": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1991,
+   "posts_count": 212,
+   "category": null,
+   "restricted": false
+  },
+  "elitecosmeticclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 11275,
+   "posts_count": 1637,
+   "category": "None",
+   "restricted": false
+  },
+  "elitemdaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 1264,
+   "posts_count": 486,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "elitewellnessmedispa4u": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 302,
+   "posts_count": 563,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "ellabeauty_toronto": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 9269,
+   "posts_count": 1711,
+   "category": "None",
+   "restricted": false
+  },
+  "ellaslaser": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2556,
+   "posts_count": 626,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "eluxeclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 21991,
+   "posts_count": 195,
+   "category": "None",
+   "restricted": false
+  },
+  "emeraldskinlab": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 592,
+   "posts_count": 132,
+   "category": "None",
+   "restricted": false
+  },
+  "enaliabeautybar": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1761,
+   "posts_count": 803,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "enrichedmedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 10987,
+   "posts_count": 940,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "eonmedicalspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 7796,
+   "posts_count": 778,
+   "category": "Personal Goods & General Merchandise Stores",
+   "restricted": false
+  },
+  "ertclinicvan": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2405,
+   "posts_count": 789,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "essence_laser": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1923,
+   "posts_count": 227,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "estheroasisspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 552,
+   "posts_count": 315,
+   "category": "Massage Service",
+   "restricted": false
+  },
+  "estheticswithelle": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3533,
+   "posts_count": 568,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "eternalbeautynbeyond": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 327,
+   "posts_count": 135,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "europeanbeautybyolga": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 326,
+   "posts_count": 223,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "everbeautyclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3236,
+   "posts_count": 1312,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "everglowskinstudio.ca": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3350,
+   "posts_count": 139,
+   "category": "None",
+   "restricted": false
+  },
+  "evergreenbeautybar": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 271,
+   "posts_count": 185,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "everskinlasersalon": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": true
+  },
+  "exsalonce_": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 900,
+   "posts_count": 25,
+   "category": "Laser Hair Removal Service",
+   "restricted": false
+  },
+  "face.by.vivaderm": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 269,
+   "posts_count": 80,
+   "category": "Personal Goods & General Merchandise Stores",
+   "restricted": false
+  },
+  "faceharmony.beauty": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 360,
+   "posts_count": 71,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "faceinjectables": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 7819,
+   "posts_count": 932,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "facesmedicalspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 235,
+   "posts_count": 94,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "facialplusca": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 363,
+   "posts_count": 67,
+   "category": "None",
+   "restricted": false
+  },
+  "facilemedspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3828,
+   "posts_count": 152,
+   "category": null,
+   "restricted": false
+  },
+  "fantaziaaesthetics": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "fcpdermatology": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5727,
+   "posts_count": 1016,
+   "category": "Dermatologist",
+   "restricted": false
+  },
+  "femmelaserclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5084,
+   "posts_count": 631,
+   "category": "Beauty Salon",
+   "restricted": false
+  },
+  "fera.swanmedspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 538,
+   "posts_count": 60,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "fleur.aesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1067,
+   "posts_count": 148,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "flourish_medical_aesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 368,
+   "posts_count": 295,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "fmbeautybarr": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1120,
+   "posts_count": 161,
+   "category": "None",
+   "restricted": false
+  },
+  "foresthill.cc": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 8425,
+   "posts_count": 249,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "forever_holistix_medispa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 345,
+   "posts_count": 74,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "foreverbeautymedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 337,
+   "posts_count": 7,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "formfaceandbody": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": true
+  },
+  "freshfacedbeautyrx": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2706,
+   "posts_count": 361,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "freshtouch_medspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 708,
+   "posts_count": 346,
+   "category": null,
+   "restricted": false
+  },
+  "fusionmedcc": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3200,
+   "posts_count": 515,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "fuzzwaxbar": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 8180,
+   "posts_count": 1457,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "gatesmedispa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": true
+  },
+  "genesis_medi_clinic": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 652,
+   "posts_count": 475,
+   "category": "None",
+   "restricted": false
+  },
+  "genevamedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "website link"
+   ],
+   "followers": 8062,
+   "posts_count": 703,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "georgina_np_led_clinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 591,
+   "posts_count": 344,
+   "category": "Family Medicine Practice",
+   "restricted": false
+  },
+  "georginarejuvenationcentre": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1534,
+   "posts_count": 269,
+   "category": "None",
+   "restricted": false
+  },
+  "glamazing_laserclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": true
+  },
+  "glamdermmedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4541,
+   "posts_count": 477,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "glammedispa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 263,
+   "posts_count": 19,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "glass.skin.med.spa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1471,
+   "posts_count": 229,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "glolaserandskinstudio": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2894,
+   "posts_count": 2069,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "glowingtouchbeautyclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 806,
+   "posts_count": 82,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "glowmedclinic": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 4929,
+   "posts_count": 767,
+   "category": "Product/service",
+   "restricted": false
+  },
+  "glowonbeautybar": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 3117,
+   "posts_count": 133,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "glowwithaliza": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 703,
+   "posts_count": 393,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "gmaskinclinic": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 18163,
+   "posts_count": 459,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "goldenpulselaser": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2240,
+   "posts_count": 549,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "gowith_theglowmedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 785,
+   "posts_count": 194,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "gskindesire": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2711,
+   "posts_count": 505,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "gtamedicalcenter": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 562,
+   "posts_count": 159,
+   "category": null,
+   "restricted": false
+  },
+  "habitmedispa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 577,
+   "posts_count": 223,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "halftimephysique": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 15678,
+   "posts_count": 1192,
+   "category": "None",
+   "restricted": false
+  },
+  "haltonderm": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 232,
+   "posts_count": 7,
+   "category": "None",
+   "restricted": false
+  },
+  "havaskin.clinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 359,
+   "posts_count": 87,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "havenmedspasocial": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 246,
+   "posts_count": 49,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "hazelaesthetics_": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2420,
+   "posts_count": 531,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "healthoneskinclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2724,
+   "posts_count": 1149,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "heartlake_aesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 528,
+   "posts_count": 264,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "heostoronto": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "hermosamedspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 411,
+   "posts_count": 100,
+   "category": "None",
+   "restricted": false
+  },
+  "hermosastudio___": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "hisandhermedspa": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "holisticbeautyuxbridge": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1099,
+   "posts_count": 16,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "honneteclinique": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 427,
+   "posts_count": 97,
+   "category": "None",
+   "restricted": false
+  },
+  "hotboycutegirl.med": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 24,
+   "posts_count": 11,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "houseofbeautybyjd": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 8686,
+   "posts_count": 228,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "huespa_toronto": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "website link"
+   ],
+   "followers": 644,
+   "posts_count": 85,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "idcosmeticclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 10018,
+   "posts_count": 1433,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "ideal_pampering_clinic": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 270,
+   "posts_count": 78,
+   "category": "Spa",
+   "restricted": false
+  },
+  "idealdreamclinic": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5138,
+   "posts_count": 276,
+   "category": "None",
+   "restricted": false
+  },
+  "idluxurymedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 151,
+   "posts_count": 294,
+   "category": "None",
+   "restricted": false
+  },
+  "igbeauty_clinic": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 4394,
+   "posts_count": 460,
+   "category": "Laser Hair Removal Service",
+   "restricted": false
+  },
+  "ilabeautymedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1302,
+   "posts_count": 372,
+   "category": "None",
+   "restricted": false
+  },
+  "imagebygracekartey": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "infusederm": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "injectionlounge": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 9842,
+   "posts_count": 387,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "instadermmd": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 839,
+   "posts_count": 177,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "ipzu_wellness_centre": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 200,
+   "posts_count": 70,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "itsthegoodskinstudio": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 805,
+   "posts_count": 110,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "jadlaserskinsolutions": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 17,
+   "posts_count": 28,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "janerunsclinics": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 22547,
+   "posts_count": 647,
+   "category": "Product/service",
+   "restricted": false
+  },
+  "jaunaliemedical": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1186,
+   "posts_count": 195,
+   "category": "None",
+   "restricted": false
+  },
+  "jeunessecosmeticclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 9038,
+   "posts_count": 127,
+   "category": "Product/service",
+   "restricted": false
+  },
+  "jivaspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1121,
+   "posts_count": 61,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "joymedicalcosmetics": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2304,
+   "posts_count": 352,
+   "category": "None",
+   "restricted": false
+  },
+  "k_luminous_beauty": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "kaizen_medspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 599,
+   "posts_count": 259,
+   "category": "None",
+   "restricted": false
+  },
+  "katifaceinc": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2251,
+   "posts_count": 287,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "kereer.medi": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 410,
+   "posts_count": 51,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "kingswaydermatology": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 8590,
+   "posts_count": 1187,
+   "category": null,
+   "restricted": false
+  },
+  "kokos_spa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1178,
+   "posts_count": 103,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "ksthetics_injectables": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 594,
+   "posts_count": 147,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "la_deesse_clinic": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "labeautyboutiqueto": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3719,
+   "posts_count": 862,
+   "category": "None",
+   "restricted": false
+  },
+  "lacasadecontour": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": false
+  },
+  "ladyjmedspa": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 315,
+   "posts_count": 134,
+   "category": null,
+   "restricted": false
+  },
+  "laeurekalaser": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 318,
+   "posts_count": 68,
+   "category": "None",
+   "restricted": false
+  },
+  "lakesidemedicalaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 561,
+   "posts_count": 139,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "lalunamedical": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1934,
+   "posts_count": 78,
+   "category": "None",
+   "restricted": false
+  },
+  "lasair.medical": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4010,
+   "posts_count": 1226,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "lase.away": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1980,
+   "posts_count": 217,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "laser.lash.clinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 3459,
+   "posts_count": 84,
+   "category": "None",
+   "restricted": false
+  },
+  "laser360ms": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 417,
+   "posts_count": 190,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "laserclinicnewmarket": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 701,
+   "posts_count": 809,
+   "category": "Lifestyle Services",
+   "restricted": false
+  },
+  "laserclinicscanada": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 6372,
+   "posts_count": 870,
+   "category": "None",
+   "restricted": false
+  },
+  "laserise_skincare": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 190,
+   "posts_count": 104,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "lasermed_canada": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1725,
+   "posts_count": 567,
+   "category": "None",
+   "restricted": false
+  },
+  "lasermedicalclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 13086,
+   "posts_count": 1300,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "laserskinec_inc": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing"
+   ],
+   "followers": 1383,
+   "posts_count": 178,
+   "category": "None",
+   "restricted": false
+  },
+  "lashesandlipstickca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 4949,
+   "posts_count": 1660,
+   "category": null,
+   "restricted": false
+  },
+  "launiquelasercentre": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 3511,
+   "posts_count": 1293,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "lavender_laser_and_beauty": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 558,
+   "posts_count": 91,
+   "category": null,
+   "restricted": false
+  },
+  "lavishmedclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 215,
+   "posts_count": 255,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "leaulaserandspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4482,
+   "posts_count": 348,
+   "category": null,
+   "restricted": false
+  },
+  "lenaspastudio": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "lepamperroom": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5426,
+   "posts_count": 762,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "lesliemedspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 225,
+   "posts_count": 11,
+   "category": "Lifestyle Services",
+   "restricted": false
+  },
+  "letsglowsalon": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1690,
+   "posts_count": 645,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "lexxsthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 3772,
+   "posts_count": 779,
+   "category": null,
+   "restricted": false
+  },
+  "liftclinictoronto": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5150,
+   "posts_count": 1352,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "lilymedispa_": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "linadiminno": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 261,
+   "posts_count": 85,
+   "category": "Lifestyle Services",
+   "restricted": false
+  },
+  "lisadane_bellalisalaser": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "look_timeless": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2096,
+   "posts_count": 1049,
+   "category": null,
+   "restricted": false
+  },
+  "lovelylaserspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 566,
+   "posts_count": 23,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "loveyourfacenewcastle": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 274,
+   "posts_count": 58,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "luciemeclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3015,
+   "posts_count": 211,
+   "category": "Lifestyle Services",
+   "restricted": false
+  },
+  "lumiderm.aesthetic.clinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 52,
+   "posts_count": 19,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "luminamedispa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 421,
+   "posts_count": 17,
+   "category": "None",
+   "restricted": false
+  },
+  "lumineskinandlaser": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 6,
+   "posts_count": 0,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "lumiskins": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4941,
+   "posts_count": 1799,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "luna.medspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1301,
+   "posts_count": 21,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "lunae_cosmetic_clinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1439,
+   "posts_count": 287,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "lura.aesthetic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 137,
+   "posts_count": 51,
+   "category": "None",
+   "restricted": false
+  },
+  "lux.beauty.skin": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "luxeaesthetics.ca": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1135,
+   "posts_count": 209,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "luxeandlitbeauty": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2326,
+   "posts_count": 1609,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "luxebeamclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 670,
+   "posts_count": 68,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "luxebeautyandwellnessspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 10795,
+   "posts_count": 1120,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "luxury_beauty_aestheticz": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 838,
+   "posts_count": 233,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "lyfemedica": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2046,
+   "posts_count": 230,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "magyskinhealth": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1429,
+   "posts_count": 103,
+   "category": "None",
+   "restricted": false
+  },
+  "manasmedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1387,
+   "posts_count": 269,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "marketplacemedicalcentre": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 642,
+   "posts_count": 94,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "marmionmedspa": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3938,
+   "posts_count": 872,
+   "category": null,
+   "restricted": false
+  },
+  "maryam.injectable.studio": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 7731,
+   "posts_count": 296,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "maryvalemedspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 114,
+   "posts_count": 48,
+   "category": "None",
+   "restricted": false
+  },
+  "mavivaspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 260,
+   "posts_count": 66,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "mc.cosmetic.injectables": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 231,
+   "posts_count": 99,
+   "category": null,
+   "restricted": false
+  },
+  "mcbeautycosmeticclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 6756,
+   "posts_count": 645,
+   "category": "None",
+   "restricted": false
+  },
+  "md_laser_clinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": true
+  },
+  "mdainstitute": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "website link"
+   ],
+   "followers": 3863,
+   "posts_count": 1076,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "medcosmetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2089,
+   "posts_count": 271,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "medermestheticslaser": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4063,
+   "posts_count": 852,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "medicalaserspa": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "medidermaspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4312,
+   "posts_count": 1511,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "medilase_cosmetic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2844,
+   "posts_count": 672,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "medspaandlaser": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1278,
+   "posts_count": 295,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "meitalstudios.beautycentre": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 8794,
+   "posts_count": 343,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "melekmedispa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 11188,
+   "posts_count": 360,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "meliora_medispa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2700,
+   "posts_count": 147,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "mellow_medical_aesthetic": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 2062,
+   "posts_count": 552,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "melorinmedicalbeauty": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3959,
+   "posts_count": 9,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "memolbeautyclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 315,
+   "posts_count": 89,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "merakibeautyspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1245,
+   "posts_count": 723,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "merakiskinclinic.ca": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 1781,
+   "posts_count": 82,
+   "category": "None",
+   "restricted": false
+  },
+  "mernovmedispa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3043,
+   "posts_count": 250,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "merrionmedicalaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 8217,
+   "posts_count": 58,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "mezzmerizeonpearl": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 4262,
+   "posts_count": 341,
+   "category": "None",
+   "restricted": false
+  },
+  "mgaesthetics_": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": true
+  },
+  "microbeautylabto": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 269,
+   "posts_count": 62,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "midtownmedspatoronto": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1417,
+   "posts_count": 191,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "mimibeautyclinics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": true
+  },
+  "mindbodybeauty_aesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 272,
+   "posts_count": 246,
+   "category": "Day Spa",
+   "restricted": false
+  },
+  "miraclebeauty.ca": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 12978,
+   "posts_count": 3719,
+   "category": "None",
+   "restricted": false
+  },
+  "miraclemedaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 8013,
+   "posts_count": 1876,
+   "category": "Medical & health",
+   "restricted": false
+  },
+  "mississauga.gracemed": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": false
+  },
+  "miyanbeautylab": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 10902,
+   "posts_count": 6,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "mkcosmeticcliniccanada": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 496,
+   "posts_count": 59,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "mmedispa_": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4218,
+   "posts_count": 364,
+   "category": "None",
+   "restricted": false
+  },
+  "modern.beautybarxo": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 653,
+   "posts_count": 216,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "modernmedispa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2207,
+   "posts_count": 1728,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "modernyoumedicalaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5751,
+   "posts_count": 1222,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "moorebeautyinc": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3231,
+   "posts_count": 162,
+   "category": null,
+   "restricted": false
+  },
+  "morali_aesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1140,
+   "posts_count": 233,
+   "category": null,
+   "restricted": false
+  },
+  "muchinbeauty": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3855,
+   "posts_count": 382,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "mvsmedicalaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 422,
+   "posts_count": 79,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "my_skinclinic": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 6653,
+   "posts_count": 610,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "mybestclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 7236,
+   "posts_count": 770,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "mysparituals": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 234,
+   "posts_count": 106,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "n.h.fclinics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1229,
+   "posts_count": 98,
+   "category": "None",
+   "restricted": false
+  },
+  "nakdclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 3596,
+   "posts_count": 1024,
+   "category": "None",
+   "restricted": false
+  },
+  "nc_beautyspa": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 4619,
+   "posts_count": 843,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "ncbcmedlaser": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 404,
+   "posts_count": 131,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "nelllaserclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 399,
+   "posts_count": 307,
+   "category": "Reel creator",
+   "restricted": false
+  },
+  "newagelaserandspa": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "newdermamed": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 14985,
+   "posts_count": 699,
+   "category": "None",
+   "restricted": false
+  },
+  "newmarket.laser.andskincare": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 380,
+   "posts_count": 154,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "newmclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 10170,
+   "posts_count": 469,
+   "category": "Medical Center",
+   "restricted": false
+  },
+  "newskin_laserclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2934,
+   "posts_count": 156,
+   "category": "None",
+   "restricted": false
+  },
+  "nkm_injections": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 1797,
+   "posts_count": 634,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "nomorewrinklesmedspas": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "website link"
+   ],
+   "followers": 864,
+   "posts_count": 505,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "northmedical": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 14801,
+   "posts_count": 2992,
+   "category": "Product/service",
+   "restricted": false
+  },
+  "northyorkcosmeticclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2040,
+   "posts_count": 481,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "novabeauty_inc": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 856,
+   "posts_count": 142,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "novelle.aesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1748,
+   "posts_count": 211,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "novellomedicalaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 4851,
+   "posts_count": 186,
+   "category": null,
+   "restricted": false
+  },
+  "novo_skincare": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 375,
+   "posts_count": 1002,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "nu.med": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing"
+   ],
+   "followers": 4314,
+   "posts_count": 245,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "nuageaesthetic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 234,
+   "posts_count": 38,
+   "category": "None",
+   "restricted": false
+  },
+  "nudabeautylab": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 185,
+   "posts_count": 4,
+   "category": "Waxing Service",
+   "restricted": false
+  },
+  "nulookbeauty": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 212,
+   "posts_count": 63,
+   "category": null,
+   "restricted": false
+  },
+  "nurse.ellen.aura": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 1696,
+   "posts_count": 329,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "nurse.injector.megan": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 469,
+   "posts_count": 103,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "nurse.injectorlisa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2400,
+   "posts_count": 1126,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "nurse_jacklyn": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2795,
+   "posts_count": 290,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "nurseamy.flawless": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": true
+  },
+  "nursecheryl.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1694,
+   "posts_count": 72,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "nurseinjector.alisha": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 8404,
+   "posts_count": 752,
+   "category": "None",
+   "restricted": false
+  },
+  "nursemandiaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 278,
+   "posts_count": 95,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "nursenatalie.medaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 561,
+   "posts_count": 182,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "nuyoumedspaa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1389,
+   "posts_count": 288,
+   "category": "None",
+   "restricted": false
+  },
+  "o.p.medspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 148,
+   "posts_count": 78,
+   "category": "None",
+   "restricted": false
+  },
+  "oaklakemedspa": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "oakville.skin": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1719,
+   "posts_count": 119,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "oakvilleflawlesscosmeticclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1189,
+   "posts_count": 945,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "oakvillemedicalaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 653,
+   "posts_count": 159,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "oakwood_health_network": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 65,
+   "posts_count": 156,
+   "category": "Medical & health",
+   "restricted": false
+  },
+  "olenzabeautyloft": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1432,
+   "posts_count": 262,
+   "category": "Beauty Salon",
+   "restricted": false
+  },
+  "omorphi_aesthetics": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 3914,
+   "posts_count": 768,
+   "category": "None",
+   "restricted": false
+  },
+  "onyxoakville": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 542,
+   "posts_count": 65,
+   "category": "None",
+   "restricted": false
+  },
+  "opallomhealth": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "opalmedispamississauga": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 125,
+   "posts_count": 50,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "orameramedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 202,
+   "posts_count": 6,
+   "category": null,
+   "restricted": false
+  },
+  "oreabeautyboutique": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 9619,
+   "posts_count": 92,
+   "category": "None",
+   "restricted": false
+  },
+  "oxygenglow": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1297,
+   "posts_count": 72,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "par_aesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 12135,
+   "posts_count": 561,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "pariaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1380,
+   "posts_count": 305,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "parislaserclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4190,
+   "posts_count": 983,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "parklanemedaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 1006,
+   "posts_count": 313,
+   "category": null,
+   "restricted": false
+  },
+  "pearlonking": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1225,
+   "posts_count": 561,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "perfection_cosmetic_clinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 11030,
+   "posts_count": 406,
+   "category": "None",
+   "restricted": false
+  },
+  "philosophy.of.beauty": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 10953,
+   "posts_count": 1883,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "pinkavenueskincare": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 794,
+   "posts_count": 267,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "plumpaestheticsmd": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 12726,
+   "posts_count": 1625,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "plumpitupp": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 10626,
+   "posts_count": 1079,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "posh_medical_spa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2455,
+   "posts_count": 399,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "precisionbeautycanada": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4870,
+   "posts_count": 172,
+   "category": "None",
+   "restricted": false
+  },
+  "precisionestheticsinc": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 568,
+   "posts_count": 2470,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "premium.clinic.toronto": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4685,
+   "posts_count": 146,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "prettypearlskin": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 119,
+   "posts_count": 0,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "pureradiance_aesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1671,
+   "posts_count": 290,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "puretemedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1662,
+   "posts_count": 108,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "qestheticslaser": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 5211,
+   "posts_count": 240,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "radiance.skinclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 580,
+   "posts_count": 89,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "rarebeautylab": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2587,
+   "posts_count": 158,
+   "category": null,
+   "restricted": false
+  },
+  "ravnoor_medical_aesthetic": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1963,
+   "posts_count": 270,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "rayaesthetics.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 6790,
+   "posts_count": 78,
+   "category": "None",
+   "restricted": false
+  },
+  "razi.laser": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": true
+  },
+  "re_juvenation": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 4996,
+   "posts_count": 1023,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "real_sweet_treatments": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1052,
+   "posts_count": 1228,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "realityskincarecentre": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 910,
+   "posts_count": 223,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "rebodeemedicalaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 816,
+   "posts_count": 16,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "redwoodmedispa": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 4821,
+   "posts_count": 1120,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "refine.medicalaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 3934,
+   "posts_count": 392,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "refine_medicalaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 818,
+   "posts_count": 171,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "refinebeauty.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3500,
+   "posts_count": 864,
+   "category": "None",
+   "restricted": false
+  },
+  "reformelab": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 8037,
+   "posts_count": 936,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "refresh_cosmetics": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 1965,
+   "posts_count": 417,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "refreshdermaclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 619,
+   "posts_count": 79,
+   "category": null,
+   "restricted": false
+  },
+  "refreshmd.spa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 623,
+   "posts_count": 683,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "rejuuvmedi": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 13755,
+   "posts_count": 1373,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "rejuv.canada": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing"
+   ],
+   "followers": 15163,
+   "posts_count": 1741,
+   "category": "Dermatologist",
+   "restricted": false
+  },
+  "rejuvamedispabrampton": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 6045,
+   "posts_count": 381,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "rejuvenatebypeakhuman": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 278,
+   "posts_count": 228,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "rejuvenation.med.clinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 15024,
+   "posts_count": 378,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "rejuvenusclinic.ca": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5147,
+   "posts_count": 1128,
+   "category": "None",
+   "restricted": false
+  },
+  "renewalmedaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 282,
+   "posts_count": 125,
+   "category": "None",
+   "restricted": false
+  },
+  "renewedbeautyinc": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 851,
+   "posts_count": 381,
+   "category": "Professional Services",
+   "restricted": false
+  },
+  "reveclinic.ca": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 170,
+   "posts_count": 15,
+   "category": null,
+   "restricted": false
+  },
+  "revelbeautyclub.ca": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 3947,
+   "posts_count": 1121,
+   "category": null,
+   "restricted": false
+  },
+  "revellemedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 42,
+   "posts_count": 0,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "revivalmedspa.oakville": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 844,
+   "posts_count": 20,
+   "category": "None",
+   "restricted": false
+  },
+  "reviveandrefinemedspagta": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 3791,
+   "posts_count": 61,
+   "category": "None",
+   "restricted": false
+  },
+  "reviveskinmedicalspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2635,
+   "posts_count": 504,
+   "category": "None",
+   "restricted": false
+  },
+  "rewindskinco": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4195,
+   "posts_count": 926,
+   "category": "None",
+   "restricted": false
+  },
+  "richskin.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 3832,
+   "posts_count": 1751,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "riddhiskincarespa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 50468,
+   "posts_count": 2374,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "ridsbeautyspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 278,
+   "posts_count": 231,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "rnrc.aesthetics": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 3023,
+   "posts_count": 1255,
+   "category": "None",
+   "restricted": false
+  },
+  "rnzmed": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 14,
+   "posts_count": 1,
+   "category": "None",
+   "restricted": false
+  },
+  "rohalaserspa": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "rose.mc.toronto": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "rose__skin__care": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2454,
+   "posts_count": 374,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "rosegoldaesthetics.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 773,
+   "posts_count": 202,
+   "category": null,
+   "restricted": false
+  },
+  "royalglowmed": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2290,
+   "posts_count": 219,
+   "category": "Medical & health",
+   "restricted": false
+  },
+  "royalyorkspa": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "rozzacare.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1816,
+   "posts_count": 286,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "ruyasaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 320,
+   "posts_count": 35,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "sabislifestylend": {
+   "status": "failed",
+   "reason": "private account"
+  },
+  "sabrina_med_aesthetics": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "sadentrohealth": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 84,
+   "posts_count": 63,
+   "category": "Medical & health",
+   "restricted": false
+  },
+  "salemmedicalaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 237,
+   "posts_count": 22,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "sama_spa_inc": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "samacosmeticclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 14198,
+   "posts_count": 642,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "sammedspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3026,
+   "posts_count": 230,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "sculpt.rx": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 875,
+   "posts_count": 88,
+   "category": "None",
+   "restricted": false
+  },
+  "sculpt_medispa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 6059,
+   "posts_count": 502,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "secretaestheticsmedspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2503,
+   "posts_count": 181,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "secretfacesclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2183,
+   "posts_count": 1613,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "sensecare_medspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 696,
+   "posts_count": 18,
+   "category": "None",
+   "restricted": false
+  },
+  "senzubeanclinic": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 4868,
+   "posts_count": 549,
+   "category": "None",
+   "restricted": false
+  },
+  "serene_cosmetic_clinic": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "shadesofskin.beautybar": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3037,
+   "posts_count": 397,
+   "category": "None",
+   "restricted": false
+  },
+  "sherlaseclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1451,
+   "posts_count": 780,
+   "category": "Medical & health",
+   "restricted": false
+  },
+  "signature_cosmetic_clinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 18914,
+   "posts_count": 1984,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "silkaesthetic_ca": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 9712,
+   "posts_count": 1457,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "simedispa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 697,
+   "posts_count": 674,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "six26_medaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 52,
+   "posts_count": 30,
+   "category": null,
+   "restricted": false
+  },
+  "skin.beautyandbeyond": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 12627,
+   "posts_count": 588,
+   "category": "None",
+   "restricted": false
+  },
+  "skin28clinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": true
+  },
+  "skin6ix": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2210,
+   "posts_count": 234,
+   "category": "None",
+   "restricted": false
+  },
+  "skin6to": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 5009,
+   "posts_count": 1112,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "skin_beauty_oakville": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "skin_diva_studio": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 313,
+   "posts_count": 359,
+   "category": "Lifestyle Services",
+   "restricted": false
+  },
+  "skin_trek": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 237,
+   "posts_count": 78,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "skinandsoulxm": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1106,
+   "posts_count": 608,
+   "category": null,
+   "restricted": false
+  },
+  "skinatomylaserclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 25348,
+   "posts_count": 1011,
+   "category": "Medical & health",
+   "restricted": false
+  },
+  "skincarelasercentre": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1048,
+   "posts_count": 365,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "skincityco": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2630,
+   "posts_count": 182,
+   "category": "None",
+   "restricted": false
+  },
+  "skinfidelity_": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5029,
+   "posts_count": 454,
+   "category": "None",
+   "restricted": false
+  },
+  "skinfitz.co": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 244,
+   "posts_count": 225,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "skinlabspa": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "skinlandmedispa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2733,
+   "posts_count": 503,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "skinlicious.byhanin": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1283,
+   "posts_count": 72,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "skinnmedspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 165,
+   "posts_count": 54,
+   "category": "None",
+   "restricted": false
+  },
+  "skinnovationsbyera": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1070,
+   "posts_count": 442,
+   "category": "Digital creator",
+   "restricted": false
+  },
+  "skinprick.ca": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1709,
+   "posts_count": 139,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "skinprovement": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 16870,
+   "posts_count": 3290,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "skinprowellness": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 153,
+   "posts_count": 54,
+   "category": "None",
+   "restricted": false
+  },
+  "skinretreat.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 18771,
+   "posts_count": 241,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "skinsocietybar": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing"
+   ],
+   "followers": 6046,
+   "posts_count": 374,
+   "category": "None",
+   "restricted": false
+  },
+  "skinsooolushmedispa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5278,
+   "posts_count": 230,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "skinsoulmedspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1740,
+   "posts_count": 554,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "skinstudiotoronto": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 929,
+   "posts_count": 323,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "skintek_skincare": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 219,
+   "posts_count": 182,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "skinvitality": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": true
+  },
+  "skinxspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 461,
+   "posts_count": 108,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "skn.beautycentre": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 13364,
+   "posts_count": 522,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "skonlaserclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1265,
+   "posts_count": 1296,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "snatchedbyale": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2619,
+   "posts_count": 546,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "sobya_skincare": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 11723,
+   "posts_count": 938,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "solskin.spa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 31514,
+   "posts_count": 40,
+   "category": null,
+   "restricted": false
+  },
+  "soniacosmeticclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 772,
+   "posts_count": 262,
+   "category": null,
+   "restricted": false
+  },
+  "soulalaserclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 727,
+   "posts_count": 85,
+   "category": null,
+   "restricted": false
+  },
+  "sovereignskin": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 4155,
+   "posts_count": 1449,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "spascanada.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 47,
+   "posts_count": 39,
+   "category": "Lifestyle Services",
+   "restricted": false
+  },
+  "spavaidosa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5259,
+   "posts_count": 382,
+   "category": "None",
+   "restricted": false
+  },
+  "spectrum_of_beauty": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 768,
+   "posts_count": 626,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "spicedsilk_medaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1109,
+   "posts_count": 219,
+   "category": null,
+   "restricted": false
+  },
+  "springlaser": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 198,
+   "posts_count": 97,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "ssknfirm": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 5875,
+   "posts_count": 325,
+   "category": null,
+   "restricted": false
+  },
+  "star_skincare_studio": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1468,
+   "posts_count": 484,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "stephabellesclinique": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 741,
+   "posts_count": 70,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "stillbeautyandmedspa": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 202,
+   "posts_count": 134,
+   "category": "None",
+   "restricted": false
+  },
+  "studionudetoronto": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 10508,
+   "posts_count": 1175,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "subtle.enhancements": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5588,
+   "posts_count": 1604,
+   "category": null,
+   "restricted": false
+  },
+  "sugarbarebodybar": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 7588,
+   "posts_count": 1509,
+   "category": "Hair Removal Service",
+   "restricted": false
+  },
+  "sugarmoonsalon": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 17025,
+   "posts_count": 2100,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "sumu.rehab.clinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 173,
+   "posts_count": 100,
+   "category": "Medical & health",
+   "restricted": false
+  },
+  "sunandshade.medspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 14325,
+   "posts_count": 272,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "sundayaesthetics.ca": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 326,
+   "posts_count": 39,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "sunshinemedispa.sauga": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 261,
+   "posts_count": 148,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "sweethairremoval_laser": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "syrinjainjectables": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 23409,
+   "posts_count": 94,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "tailoredmedicalaesthetics": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name"
+   ],
+   "followers": 747,
+   "posts_count": 122,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "tamedicalspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 10552,
+   "posts_count": 865,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "terraskinclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 269,
+   "posts_count": 146,
+   "category": "Doctor",
+   "restricted": false
+  },
+  "the_contourlab": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1262,
+   "posts_count": 69,
+   "category": "None",
+   "restricted": false
+  },
+  "thebeautyinitiative": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 12930,
+   "posts_count": 399,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "thebeautyrezort": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": true
+  },
+  "thebeautystandard.ca": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 5263,
+   "posts_count": 316,
+   "category": "None",
+   "restricted": false
+  },
+  "thebodyclinicskincare": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 51016,
+   "posts_count": 1200,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "theclinica": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 29256,
+   "posts_count": 1775,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "thecosmetichausca": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "thedermaloungeaurora": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 1206,
+   "posts_count": 1041,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "thedermclinic_official": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 265,
+   "posts_count": 73,
+   "category": "None",
+   "restricted": false
+  },
+  "thedripcoltd": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1468,
+   "posts_count": 62,
+   "category": "Wellness Center",
+   "restricted": false
+  },
+  "thefacialplace": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2180,
+   "posts_count": 1163,
+   "category": "None",
+   "restricted": false
+  },
+  "thefreezeclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 3598,
+   "posts_count": 1510,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "theglowhausto": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing"
+   ],
+   "followers": 611,
+   "posts_count": 43,
+   "category": null,
+   "restricted": false
+  },
+  "theglowzoneto": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 359,
+   "posts_count": 188,
+   "category": "None",
+   "restricted": false
+  },
+  "thelasersuite14": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 450,
+   "posts_count": 21,
+   "category": "None",
+   "restricted": false
+  },
+  "themdbeautyclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 5783,
+   "posts_count": 1184,
+   "category": "None",
+   "restricted": false
+  },
+  "themdskinlab": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 5175,
+   "posts_count": 1440,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "thepurglow": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 824,
+   "posts_count": 88,
+   "category": "None",
+   "restricted": false
+  },
+  "thescenemedicalbeautybar": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1412,
+   "posts_count": 408,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "theskinclubstudio": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1335,
+   "posts_count": 133,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "theskinstudioinc": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 3518,
+   "posts_count": 877,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "timelesshealthtoronto": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing"
+   ],
+   "followers": 7233,
+   "posts_count": 1586,
+   "category": "None",
+   "restricted": false
+  },
+  "timelesslifeclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 325,
+   "posts_count": 171,
+   "category": "Medical & health",
+   "restricted": false
+  },
+  "tlwc.canada": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 453,
+   "posts_count": 23,
+   "category": "Beauty Salon",
+   "restricted": false
+  },
+  "tma.clinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 21,
+   "posts_count": 0,
+   "category": null,
+   "restricted": false
+  },
+  "torontobeautyclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1912,
+   "posts_count": 1318,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "torontobeautynurse": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2998,
+   "posts_count": 371,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "tri.genics": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1453,
+   "posts_count": 30,
+   "category": "Medical School",
+   "restricted": false
+  },
+  "trucare_cosmetic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1201,
+   "posts_count": 141,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "trudy_gorgestheticstudio": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1127,
+   "posts_count": 313,
+   "category": "None",
+   "restricted": false
+  },
+  "truemedispa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1152,
+   "posts_count": 798,
+   "category": "Lifestyle Services",
+   "restricted": false
+  },
+  "tsskinclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 3728,
+   "posts_count": 1208,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "tt.aestheticmedicine": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "ttmspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 33170,
+   "posts_count": 1334,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "u_medispa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 690,
+   "posts_count": 74,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "unchainedbeauty.ca": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 29,
+   "posts_count": 22,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "unique.clinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 20471,
+   "posts_count": 242,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "upkeep_skin_clinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2030,
+   "posts_count": 1185,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "vbeautystyle_": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 10760,
+   "posts_count": 730,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "velmontmedicalclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 13606,
+   "posts_count": 217,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "venice_cosmetic_clinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 129,
+   "posts_count": 26,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "venusmedicalspa_": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1150,
+   "posts_count": 304,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "victoriaparktoronto": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2092,
+   "posts_count": 118,
+   "category": "None",
+   "restricted": false
+  },
+  "victoriarose.aesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 31130,
+   "posts_count": 1082,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "visage_by_kate_": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1406,
+   "posts_count": 190,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "vistoso_clinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2880,
+   "posts_count": 257,
+   "category": "Beauty, cosmetic & personal care",
+   "restricted": false
+  },
+  "vitaluxemedclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 6373,
+   "posts_count": 94,
+   "category": "None",
+   "restricted": false
+  },
+  "vivacitemedspa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2029,
+   "posts_count": 2005,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "vividcosmeticclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "username matches clinic name"
+   ],
+   "followers": 3018,
+   "posts_count": 654,
+   "category": null,
+   "restricted": false
+  },
+  "vs_med_spa": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 1658,
+   "posts_count": 1107,
+   "category": "Lifestyle Services",
+   "restricted": false
+  },
+  "weinject": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 7776,
+   "posts_count": 631,
+   "category": "Entrepreneur",
+   "restricted": false
+  },
+  "wellnesscentre4u": {
+   "status": "failed",
+   "reason": "profile not found"
+  },
+  "wellnesspath.ca": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1245,
+   "posts_count": 850,
+   "category": "Wellness Center",
+   "restricted": false
+  },
+  "whealthylifeclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 187,
+   "posts_count": 28,
+   "category": null,
+   "restricted": false
+  },
+  "whitbymedspa": {
+   "status": "verified",
+   "evidence": [
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2165,
+   "posts_count": 214,
+   "category": "Skin Care Service",
+   "restricted": false
+  },
+  "woodbridgecosmeticlinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": null,
+   "posts_count": null,
+   "category": null,
+   "restricted": false
+  },
+  "woodlandskinrenewal": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 80,
+   "posts_count": 28,
+   "category": null,
+   "restricted": false
+  },
+  "xycosmeticclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 2745,
+   "posts_count": 217,
+   "category": "Medical Spa",
+   "restricted": false
+  },
+  "yasalaser": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 594,
+   "posts_count": 140,
+   "category": null,
+   "restricted": false
+  },
+  "yellowroselaser": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 416,
+   "posts_count": 156,
+   "category": "None",
+   "restricted": false
+  },
+  "ymgclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 5049,
+   "posts_count": 562,
+   "category": "None",
+   "restricted": false
+  },
+  "york.wellness.aesthetics": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 100,
+   "posts_count": 26,
+   "category": null,
+   "restricted": false
+  },
+  "yorklasermedspa": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 2490,
+   "posts_count": 741,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "yorkrehabclinic": {
+   "status": "verified",
+   "evidence": [
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1511,
+   "posts_count": 314,
+   "category": "None",
+   "restricted": false
+  },
+  "youthfulderma": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 1205,
+   "posts_count": 364,
+   "category": "Health/beauty",
+   "restricted": false
+  },
+  "zenwellnessclinic": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name"
+   ],
+   "followers": 834,
+   "posts_count": 54,
+   "category": "None",
+   "restricted": false
+  },
+  "zinacosmeticcentre": {
+   "status": "verified",
+   "evidence": [
+    "biography names clinic city",
+    "profile name matches listing",
+    "username matches clinic name",
+    "website link"
+   ],
+   "followers": 42391,
+   "posts_count": 833,
+   "category": "Medical Spa",
+   "restricted": false
+  }
+ }
+}

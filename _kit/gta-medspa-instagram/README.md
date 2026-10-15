@@ -26,3 +26,12 @@ Must print PASS. Any edit to /gta-medspa-index made outside the routine must be 
 
 ## Edition 001 caveats
 Edition 001 used two collections and its scoring code was not kept; some ranking-collection post counts look capped at 10. Edition 002 is the first single-pass, coded edition, so it shows no movement column; movement starts at edition 003.
+
+## Run helpers (added 2026-10-15)
+- `roster_build.py`: validates a Google Maps discovery crawl into the roster (`--root` for tests, compact output, `--full` for the whole summary). Eligibility, geography, account and sampling logic are unchanged from edition 002 and covered by tests that reproduce the committed roster from the saved discovery data.
+- `tools/apify_tool.py`: compact Apify helper. `watch` (needs `APIFY_TOKEN` in the environment, never printed) polls with backoff and prints one line per state change; `status --raw FILE` summarises a saved connector reply; `fetch` downloads a dataset in resumable pages and verifies the count; `build-input` writes actor inputs from the saved handle list so the list never passes through the model; `start` reads its input from a file and sends `maxTotalChargeUsd`. Sessions with only the Apify connector have no token and cannot poll from a shell: use `status` and long waits, not one model call per minute.
+- `tools/checkpoint.py`: `editions/NNN/checkpoint.json` records each stage with file hashes. `check` prints done, stale or pending per stage and the next stage; a resumed run skips done stages.
+- `tools/verify_profiles.py`: checks collected profiles against the clinic listings and proposes replacements from the reserve order.
+- `tools/usage_report.py`: reconciles token usage by stage from a session transcript.
+- `tests/test_tools.py`: `python3 -m unittest tests.test_tools` (offline, mock server, no paid calls).
+- `INSTRUCTION_LOADING_PROPOSAL.md`: a proposal only; nothing in it is applied.

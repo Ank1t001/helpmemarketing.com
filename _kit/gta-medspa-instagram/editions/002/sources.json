@@ -1,0 +1,33 @@
+{
+ "edition": "002",
+ "collections": [
+  {
+   "stage": "discovery",
+   "actor": "compass/crawler-google-places",
+   "run_id": "9eUmdtGUOD6YBu17u",
+   "dataset_id": "hM1gda12hTum3eC8N",
+   "startedAt": "2026-10-15T13:17:33.286Z",
+   "finishedAt": "2026-10-15T13:54:59.287Z",
+   "status": "SUCCEEDED",
+   "items": 2842,
+   "compute_units": 2.4953688888888887,
+   "usd": null,
+   "usd_note": "not recorded: pricing not fetched and no billing record in this session"
+  },
+  {
+   "stage": "profiles",
+   "actor": "apify/instagram-profile-scraper",
+   "run_id": "Zoi0DpoQSneBRv56E",
+   "dataset_id": "5vrqwBWwjGbgWWXto",
+   "startedAt": "2026-10-15T14:34:41.330Z",
+   "finishedAt": "2026-10-15T14:36:06.910Z",
+   "status": "SUCCEEDED",
+   "items": 600,
+   "succeeded": 600,
+   "compute_units": 0.09486,
+   "usd": null,
+   "usd_estimate": 1.38,
+   "usd_note": "estimate: 600 profiles at the BRONZE price of 0.0023 per profile; actual charge not returned by the connector; run cap was 3 USD"
+  }
+ ]
+}

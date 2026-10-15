@@ -1,0 +1,92 @@
+{
+ "totals": {
+  "calls": 76,
+  "cache_read": 13785536,
+  "cache_created": 269461,
+  "output": 82986,
+  "input": 154,
+  "thinking": 23021
+ },
+ "stages": {
+  "T1 A repo and instruction reading": {
+   "calls": 5,
+   "cache_read": 393176,
+   "cache_created": 72110,
+   "output": 1244,
+   "input": 10,
+   "thinking": 292
+  },
+  "T1 B1 discovery launch and first poll": {
+   "calls": 2,
+   "cache_read": 201531,
+   "cache_created": 2633,
+   "output": 1225,
+   "input": 4,
+   "thinking": 0
+  },
+  "T1 B2 discovery polling": {
+   "calls": 22,
+   "cache_read": 2585618,
+   "cache_created": 35598,
+   "output": 2557,
+   "input": 44,
+   "thinking": 234
+  },
+  "T1 C dataset read, filtering, notification": {
+   "calls": 8,
+   "cache_read": 1181209,
+   "cache_created": 16347,
+   "output": 5378,
+   "input": 16,
+   "thinking": 904
+  },
+  "T2 D1 status check and dataset re-read": {
+   "calls": 4,
+   "cache_read": 673555,
+   "cache_created": 37392,
+   "output": 4107,
+   "input": 8,
+   "thinking": 469
+  },
+  "T2 D2 roster script write, run, inspect": {
+   "calls": 8,
+   "cache_read": 1638441,
+   "cache_created": 33979,
+   "output": 21963,
+   "input": 16,
+   "thinking": 9046
+  },
+  "T2 D3 sampling, pricing, profile launch": {
+   "calls": 4,
+   "cache_read": 922296,
+   "cache_created": 18482,
+   "output": 8786,
+   "input": 8,
+   "thinking": 1058
+  },
+  "T3 token diagnosis": {
+   "calls": 6,
+   "cache_read": 1488947,
+   "cache_created": 11738,
+   "output": 8357,
+   "input": 12,
+   "thinking": 2704
+  },
+  "T4 commit and push (hook)": {
+   "calls": 3,
+   "cache_read": 777015,
+   "cache_created": 5055,
+   "output": 1641,
+   "input": 8,
+   "thinking": 648
+  },
+  "T5 optimisation patch (to date)": {
+   "calls": 14,
+   "cache_read": 3923748,
+   "cache_created": 36127,
+   "output": 27728,
+   "input": 28,
+   "thinking": 7666
+  }
+ }
+}
