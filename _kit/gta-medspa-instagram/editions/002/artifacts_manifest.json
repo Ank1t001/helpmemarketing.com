@@ -1,0 +1,49 @@
+{
+ "edition": "002",
+ "artifacts": [
+  {
+   "file": "source_posts_pilot.jsonl.gz",
+   "kind": "pilot post rows as saved from connector get-dataset-items replies (fields requested: shortCode,type,caption,commentsCount,likesCount,timestamp,ownerUsername,inputUrl,videoPlayCount,coauthorProducers,isPinned), plus a run field; NOT a byte-for-byte dataset export",
+   "rows": 824,
+   "sha256_uncompressed": "d3d9151e573fe7b4549bd588745ed19c3b4bc3caf648808fda3e13d5e6d26ed7",
+   "sha256_gz": "01131e3b1d39737feb5b4df5b56bf7d8d59ff5a3257e6251d7414dc4cf4e8774",
+   "source_runs": [
+    {
+     "run_id": "OLS33Ow3cRQwEy2Hw",
+     "dataset_id": "MqcSwPTUbO7z5cpSc",
+     "status": "SUCCEEDED",
+     "items": null
+    },
+    {
+     "run_id": "g8o7x7BiUNQKg5Ash",
+     "dataset_id": "oyskEGnxlOBuyaXzu",
+     "status": "SUCCEEDED",
+     "items": null
+    },
+    {
+     "run_id": "B2BtUDevkvqxVg9NO",
+     "dataset_id": "JuJfZSbBfhO2SkHm9",
+     "status": "SUCCEEDED",
+     "items": null
+    },
+    {
+     "run_id": "QEdcSqx6f76ZlBBOM",
+     "dataset_id": "T16eePOcF6HQweHvz",
+     "status": "SUCCEEDED",
+     "items": null
+    },
+    {
+     "run_id": "DrWha9vGciJHRe8mP",
+     "dataset_id": "7j1dhFCoRIgiJaZNG",
+     "status": "SUCCEEDED",
+     "items": null
+    }
+   ]
+  },
+  {
+   "file": "source_profiles_reserves.json.gz",
+   "kind": "REDUCED transcription of the 38-reserve profile run (username, ASCII-normalised fullName, followers, posts, category, externalUrl, private/error; biography omitted); not a raw export; raw dataset remains on Apify under the dataset id in sources.json"
+  }
+ ],
+ "storage": "committed to staging-gta (the kit's durable edition store); Drive upload of record files was not done because a connector call cannot read local files and re-emitting them through the model is impractical"
+}
