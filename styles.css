@@ -6009,6 +6009,24 @@ body.redesign-prototype .mr-note a, body.redesign-prototype #research .section-d
   body.redesign-prototype .mr-steps td::before { content: attr(data-label); display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
   body.redesign-prototype .mr-table th, body.redesign-prototype .mr-table td { padding-left: 16px; padding-right: 16px; }
 }
+/* Medspa hub spacing (2026-10-15): section intros capped at 760px like the notes; 24px card padding and gaps; the study card runs full width with its points beside the summary and sits 12px above its at-a-glance table; that table stacks label over value on phones. */
+body.redesign-prototype [data-screen-label="medspa-research"] .section-deck { max-width: 760px; }
+body.redesign-prototype .mr-grid-3, body.redesign-prototype .mr-qa { gap: 24px; }
+body.redesign-prototype .mr-grid-3 .ind2-card, body.redesign-prototype .mr-qa .ind2-card { padding: 24px; }
+body.redesign-prototype .mr-grid-3 .ind2-card > :first-child { margin-top: 0; }
+body.redesign-prototype .wk-tools-grid.mr-one { max-width: none; }
+body.redesign-prototype .mr-one .wk-tool-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 48px; align-content: start; }
+body.redesign-prototype .mr-one .wk-tool-pts { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; align-self: center; }
+body.redesign-prototype .mr-one + .mr-table-wrap { margin-top: 12px; }
+@media (max-width: 900px) {
+  body.redesign-prototype .mr-one .wk-tool-body { display: flex; }
+  body.redesign-prototype .mr-one .wk-tool-pts { margin-top: 16px; }
+}
+@media (max-width: 720px) {
+  body.redesign-prototype .mr-table:not(.mr-steps) tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  body.redesign-prototype .mr-table:not(.mr-steps) tr:last-child { border-bottom: 0; }
+  body.redesign-prototype .mr-table:not(.mr-steps) th[scope="row"], body.redesign-prototype .mr-table:not(.mr-steps) td { display: block; width: auto; padding: 2px 16px; border-bottom: 0; }
+}
 body.redesign-prototype .mr-dates { margin: 12px 0 0; font-size: 13px; color: var(--text-muted); }
 /* HMM Index hub dates (2026-10-14): refresh plan, latest published data, next scheduled collection (computed from the schedule rule in the page script). */
 body.redesign-prototype .ix-dates { margin: 16px 0 0; display: grid; gap: 8px; }

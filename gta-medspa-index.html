@@ -333,7 +333,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .msi.msi .frame .go{font-size:12.5px;font-weight:650;text-decoration:none;color:var(--text-muted);margin-top:auto}
 .msi.msi .frame .go:hover{color:var(--text);text-decoration:underline}
 /* ---------- bars + bands ---------- */
-.msi.msi .tbar{display:block;height:10px;background:rgba(255,255,255,.85);border-radius:0 var(--r1) var(--r1) 0;min-width:4px}
+.msi.msi .tbar{display:block;height:10px;background:rgba(var(--ink-rgb,255,255,255),.85);border-radius:0 var(--r1) var(--r1) 0;min-width:4px}
 .msi.msi .band{margin:0 0 var(--s5)}
 .msi.msi .bandbar{display:flex;height:30px;border-radius:var(--r1);overflow:hidden;margin:var(--s2) 0}
 .msi.msi .bandbar span{display:grid;place-items:center;font-size:12px;font-weight:650;color:#0E0E0E;padding:0 var(--s2);text-align:center}
@@ -411,7 +411,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .msi.msi .bar-label{font-size:13px;color:var(--text-muted);text-align:right;line-height:1.3}
 .msi.msi .bar-label small{font-size:12px;color:var(--text-tertiary)}
 .msi.msi .bar-track{background:var(--bg-elevated);border:1px solid var(--border);border-radius:0 var(--r1) var(--r1) 0;height:22px;overflow:hidden}
-.msi.msi .bar-fill{display:block;height:100%;background:rgba(255,255,255,.85);min-width:3px;border-radius:0 var(--r1) var(--r1) 0}
+.msi.msi .bar-fill{display:block;height:100%;background:rgba(var(--ink-rgb,255,255,255),.85);min-width:3px;border-radius:0 var(--r1) var(--r1) 0}
 .msi.msi .bar-val{font-size:13px;font-weight:650;color:var(--text);text-align:right;font-variant-numeric:tabular-nums}
 /* pattern flags in the table */
 .msi.msi .flag.comp{background:var(--good-bg);color:var(--mint);border-color:var(--mint)}
@@ -598,8 +598,8 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi details,.msi.msi details:last-of-type{border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated);padding:0 24px;margin:12px 0 0}
 .msi.msi section>details:first-of-type,.msi.msi .sec-head+details{margin-top:24px}
 .msi.msi section:has(>details:only-child){margin-bottom:12px}
-.msi.msi section:has(>details:only-child):has(+section:not(:has(>details:only-child))){margin-bottom:48px}
-.msi.msi #ri-advanced{margin-bottom:0}
+.msi.msi section:has(>details:only-child)+section:not(:has(>details:only-child)){margin-top:48px}
+.msi.msi #ri-advanced{margin-bottom:24px}
 .msi.msi section:has(>details:only-child)>details{margin-top:0}
 .msi.msi details>summary{margin:0 -24px;padding:18px 24px;font-size:17px;font-weight:650;line-height:1.4}
 .msi.msi details[open]>summary{margin-bottom:0;border-bottom:1px solid var(--border)}
@@ -613,7 +613,7 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 @media(max-width:720px){.msi.msi details,.msi.msi details:last-of-type{padding:0 16px}.msi.msi details>summary{margin:0 -16px;padding:16px;font-size:16px}.msi.msi details[open]{padding-bottom:16px}}
 .msi.msi .livebar{margin-bottom:24px}
 .msi.msi .ri-nav{margin:0 0 48px}
-@media(max-width:720px){.msi.msi .ri-nav,.msi.msi .metrics-note{margin-bottom:32px}.msi.msi section:has(>details:only-child):has(+section:not(:has(>details:only-child))){margin-bottom:32px}}
+@media(max-width:720px){.msi.msi .ri-nav,.msi.msi .metrics-note{margin-bottom:32px}.msi.msi section:has(>details:only-child)+section:not(:has(>details:only-child)){margin-top:32px}}
 .msi.msi .tile,.msi.msi .fmt,.msi.msi .band.card{padding:20px 24px}
 .msi.msi .livebar{padding:12px 24px}
 @media(max-width:720px){.msi.msi .tile,.msi.msi .fmt,.msi.msi .band.card,.msi.msi .card,.msi.msi .ri-cmp,.msi.msi .note,.msi.msi .metrics-note,.msi.msi .livebar{padding-left:16px;padding-right:16px}}
@@ -646,6 +646,11 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi #ri-rankings .ri-scale{padding-left:284px}
 @media(max-width:720px){.msi.msi #ri-rankings .ri-bar{grid-template-columns:22px 110px 1fr 60px}}
 .msi.msi figure+details,.msi.msi .read-grid+details,.msi.msi .note+details{margin-top:24px}
+/* GTA spacing and links (2026-10-15): bars use the ink colour so they show in light mode; research review and service links read as links; 24px between a note or table and the box that follows; the download button matches the email field. */
+.msi.msi a[data-research-service],.msi.msi .pnote a[data-review-cta]{color:var(--cta-text,var(--cta));font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.msi.msi .note+.card,.msi.msi .tw+.card{margin-top:24px}
+.msi.msi .gate-form{align-items:stretch}
+.msi.msi .gate-form .cta-btn{margin-top:0}
 </style><script data-ri-reading>
 /* Reading levels (2026-10-12, comparison card 2026-10-14). Builds a section navigator from section ids and an interactive
    comparison of the top 15 scoreboard rows for the chosen measure; no data lives here, so it works for any edition with the same table shape. */
