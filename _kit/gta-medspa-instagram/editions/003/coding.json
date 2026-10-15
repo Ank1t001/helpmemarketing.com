@@ -1,0 +1,152 @@
+{
+ "edition": "003",
+ "method": "one primary content type and one topic per post, assigned by AI-assisted reading of the caption and the cover frame; pending review by Ankit Kumar before publication",
+ "types": [
+  "treatment",
+  "offer or event",
+  "recognition",
+  "team and people",
+  "greeting",
+  "results or patient story",
+  "trend or third-party content",
+  "brand message",
+  "product"
+ ],
+ "posts": {
+  "Dd-JdUkiSFx": {
+   "type": "team and people",
+   "topic": "general"
+  },
+  "DdXFuzlBcJy": {
+   "type": "treatment",
+   "topic": "skin tightening"
+  },
+  "DdcWfmRAZbX": {
+   "type": "offer or event",
+   "topic": "skincare"
+  },
+  "DdkIfgxh1mE": {
+   "type": "results or patient story",
+   "topic": "injectables"
+  },
+  "DdmcMhfjQfY": {
+   "type": "results or patient story",
+   "topic": "acne scars"
+  },
+  "DdpArxkKrhf": {
+   "type": "treatment",
+   "topic": "pigmentation"
+  },
+  "Ddt2zFFFDg8": {
+   "type": "greeting",
+   "topic": "general"
+  },
+  "Dd2LRfygfdJ": {
+   "type": "offer or event",
+   "topic": "injectables"
+  },
+  "Dd4FlSTR1CD": {
+   "type": "trend or third-party content",
+   "topic": "fashion"
+  },
+  "Dd9VXC_lM-f": {
+   "type": "recognition",
+   "topic": "skin tightening"
+  },
+  "DeKYawMlZjK": {
+   "type": "treatment",
+   "topic": "skin tightening"
+  },
+  "DeUZ7_vlnek": {
+   "type": "product",
+   "topic": "skincare"
+  },
+  "DdXXUUkguBt": {
+   "type": "recognition",
+   "topic": "injectables"
+  },
+  "DeZg8qJl2yu": {
+   "type": "greeting",
+   "topic": "general"
+  },
+  "Deeq4ooFxdv": {
+   "type": "treatment",
+   "topic": "injectables"
+  },
+  "DdT7dl0gNbw": {
+   "type": "offer or event",
+   "topic": "menopause and hormones"
+  },
+  "DdWkRvYFZQk": {
+   "type": "treatment",
+   "topic": "mental wellness"
+  },
+  "DdZXafUCqjl": {
+   "type": "treatment",
+   "topic": "menopause and hormones"
+  },
+  "Ddb8L4ijdvQ": {
+   "type": "treatment",
+   "topic": "pelvic and sexual health"
+  },
+  "DdjXIMEgCWS": {
+   "type": "treatment",
+   "topic": "menopause and hormones"
+  },
+  "DdmaQL7DEPa": {
+   "type": "treatment",
+   "topic": "weight"
+  },
+  "DdomZv8ikGH": {
+   "type": "brand message",
+   "topic": "general"
+  },
+  "DdrZiJGjpcf": {
+   "type": "treatment",
+   "topic": "pelvic and sexual health"
+  },
+  "DduIpPuAAoK": {
+   "type": "treatment",
+   "topic": "menopause and hormones"
+  },
+  "Dd1gJUpCUve": {
+   "type": "treatment",
+   "topic": "menopause and hormones"
+  },
+  "Dd4QWCjgK8D": {
+   "type": "treatment",
+   "topic": "pelvic and sexual health"
+  },
+  "Dd61ykMiOfh": {
+   "type": "treatment",
+   "topic": "pelvic and sexual health"
+  },
+  "DeADWi1jHW7": {
+   "type": "treatment",
+   "topic": "menopause and hormones"
+  },
+  "DeKTM3oKXPW": {
+   "type": "treatment",
+   "topic": "pelvic and sexual health"
+  },
+  "DeSA3HeCFpt": {
+   "type": "brand message",
+   "topic": "menopause and hormones"
+  },
+  "DecpawFqtbs": {
+   "type": "team and people",
+   "topic": "general"
+  },
+  "Deezkq0qBVa": {
+   "type": "treatment",
+   "topic": "mental wellness"
+  }
+ },
+ "standout_visuals": {
+  "DdrZiJGjpcf": "The cover frame shows a woman seated on a Pilates reformer with the overlay text &ldquo;When you hit a tough pose and pee a little&rdquo;: a relatable, humorous opening for a pelvic floor topic.",
+  "Dd9VXC_lM-f": "The cover image shows a Solta Medical &ldquo;Diamond Status, 2025 Valued Partner Program&rdquo; trophy on the clinic&rsquo;s reception desk, with the clinic sign behind it.",
+  "Dd-JdUkiSFx": "The cover frame shows a smiling team member outdoors with the overlay &ldquo;The women behind Laserbody MD. October is Women&rsquo;s History Month.&rdquo;",
+  "DdXXUUkguBt": "The cover frame shows two team members in the clinic, one holding a Sculptra recognition plaque."
+ },
+ "visual_scope": "cover frame or first image only; videos and later carousel slides were not reviewed"
+}

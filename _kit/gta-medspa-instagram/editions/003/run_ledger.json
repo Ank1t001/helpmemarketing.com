@@ -1,0 +1,58 @@
+{
+ "edition": "003",
+ "runs": [
+  {
+   "stage": "profiles",
+   "actor": "apify/instagram-profile-scraper",
+   "run_id": "B7KD7NfYQvUM3k1KG",
+   "dataset_id": "rLVcNm6dvGTw2qXHs",
+   "started_at": "2026-10-15T18:44:46.296Z",
+   "finished_at": "2026-10-15T18:45:29.529Z",
+   "cap_usd": 0.25,
+   "accounts": [
+    "vitalitymdtoronto",
+    "signature_cosmetic_clinic",
+    "laserbodymd",
+    "skinvitality",
+    "spamedicamedspa"
+   ],
+   "items": 5,
+   "hit_cap": false,
+   "saved": "editions/003/raw/source_profiles.json.gz"
+  },
+  {
+   "stage": "posts",
+   "actor": "apify/instagram-scraper",
+   "run_id": "UsgvBCNA6ovq67BFa",
+   "dataset_id": "CXDHsZyhvSMRxmCQV",
+   "started_at": "2026-10-15T18:45:45.408Z",
+   "finished_at": "2026-10-15T18:46:39.670Z",
+   "cap_usd": 2.0,
+   "input": {
+    "resultsType": "posts",
+    "resultsLimit": 80,
+    "date_filter": null
+   },
+   "accounts": [
+    "vitalitymdtoronto",
+    "signature_cosmetic_clinic",
+    "laserbodymd",
+    "skinvitality",
+    "spamedicamedspa"
+   ],
+   "items": 321,
+   "hit_cap": false,
+   "saved": "editions/003/raw/source_posts.jsonl.gz"
+  },
+  {
+   "stage": "ad_library_attempt",
+   "actor": "apify/web-fetch",
+   "run_id": "UcgHwRRBvNDCsMT9q",
+   "status": "FAILED",
+   "cap_usd": 0,
+   "accounts": [],
+   "items": 0,
+   "hit_cap": false
+  }
+ ]
+}

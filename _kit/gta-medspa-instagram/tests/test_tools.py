@@ -296,20 +296,22 @@ class ReleaseFiles(unittest.TestCase):
         live = (root / "medspa-index.html").read_text()
         self.assertFalse((root / "gta-medspa-index.html").exists())  # the old page file is gone; the redirect serves the old URL
         snap = (root / "gta-medspa-index/edition-002.html").read_text()
-        for h, canon, robots in ((live, "https://helpmemarketing.com/medspa-index", "index, follow"),
+        e3 = json.loads((KIT / "editions/003/edition_003.json").read_text())
+        live_robots = "index, follow" if e3["status"] == "published" else "noindex, nofollow"  # edition 003 stays noindex until its release build
+        for h, canon, robots in ((live, "https://helpmemarketing.com/medspa-index", live_robots),
                                  (snap, "https://helpmemarketing.com/gta-medspa-index/edition-002", "noindex, follow")):
             self.assertNotRegex(h, "[\\u2014\\u2013]")
             self.assertEqual(h.count('name="robots"'), 1)
             self.assertIn(f'name="robots" content="{robots}', h)
             self.assertIn(f'rel="canonical" href="{canon}"', h)
-            self.assertNotIn("FAQPage", h)
+            self.assertEqual("FAQPage" in h, h is live)  # edition 003 carries a visible FAQ; the 002 snapshot has none
             head = h[: h.index('<div class="msi">')]
             for stale in ("176", "ranked", "data-ri-reading", "benchmark-50-og.jpg\"" if False else "gta-medspa/og.jpg"):
                 self.assertNotIn(stale, head)
             for m in re.finditer(r'<script type="application/ld\+json">\s*(\{.*?\})\s*</script>', h, flags=re.S):
                 j = json.loads(m.group(1))
                 if j.get("@type") == "Article" and h is live:  # recorded from the production deployment at publication, never guessed
-                    want = json.loads((KIT / "edition.json").read_text()).get("modified_at")
+                    want = e3.get("modified_at")
                     self.assertEqual(j.get("dateModified"), want)
             self.assertIn("medspa-index-og.jpg" if h is live else "benchmark-50-og.jpg", h)  # the published snapshot keeps its own artwork
         for f in ("medspa-index-og.jpg", "medspa-index-hero.webp", "medspa-index-hero-704.webp", "benchmark-50-og.jpg", "benchmark-50-hero.webp"):
@@ -319,7 +321,8 @@ class ReleaseFiles(unittest.TestCase):
         self.assertNotIn("/gta-medspa-index", sm)
         self.assertNotIn("edition-00", sm)
         self.assertIn("<h1>Med Spa Index</h1>", live)
-        self.assertIn("<title>Med Spa Index | HelpMeMarketing</title>", live)
+        self.assertIn("<title>Med Spa Index: Ontario Med Spa Instagram | HelpMeMarketing</title>", live)
+        self.assertIn("Edition <b>003</b>", live)
         self.assertTrue((root / "gta-medspa-index/edition-001.html").exists())
         ed = json.loads((KIT / "edition.json").read_text())
         self.assertEqual((ed["edition"], ed["scoring"]), ("002", "not applicable"))
@@ -357,8 +360,12 @@ class BuildGuards(unittest.TestCase):
         extra = ["--modified-at", ed["modified_at"], "--modified-source", ed["modified_at_source"]] if ed.get("modified_at") else []
         p = self.build("--edition", "002", *extra)
         self.assertEqual(p.returncode, 0, p.stderr)
-        for rel in ("medspa-index.html", "gta-medspa-index/edition-002.html"):  # the published snapshot is kept, never rewritten
+        for rel in ("medspa-index.html", "gta-medspa-index/edition-002.html"):  # edition 003 owns the live page; the 002 snapshot is never rewritten
             self.assertEqual((self.t / rel).read_text(), (KIT.parent.parent / rel).read_text(), rel)
+        # the edition 002 page build_50 now writes to its release folder equals the 002 page as last committed before edition 003
+        prev = subprocess.run(["git", "show", "932acb2:medspa-index.html"], capture_output=True, text=True, cwd=KIT).stdout
+        if prev:
+            self.assertEqual((self.k / "editions/002/release/medspa-index-002.html").read_text(), prev)
 
     def test_stale_values_are_refused(self):
         self.assertIn("stale edition", self.build("--edition", "003").stderr)
@@ -387,17 +394,17 @@ class BuildGuards(unittest.TestCase):
         self.assertNotEqual(self.build("--modified-at", "2026-10-14T14:30:00+00:00", "--modified-source", "x").returncode, 0)  # before collection
         p = self.build("--modified-at", iso, "--modified-source", "deployment dpl_x (commit abc)")
         self.assertEqual(p.returncode, 0, p.stderr)
-        h = (self.t / "medspa-index.html").read_text()
+        h = (self.k / "editions/002/release/medspa-index-002.html").read_text()
         self.assertIn('"dateModified":"' + iso + '"', h)
+        self.assertNotIn(iso, (self.t / "medspa-index.html").read_text())  # edition 003 owns the live page
         self.assertIn("<span>Updated <b>16 October 2026</b></span>", h)
         self.assertIn("<b>15 October 2026</b>", h)  # the collection date stays separate
         self.assertNotIn("Updated <b>16 October", (self.t / "gta-medspa-index/edition-002.html").read_text())  # snapshot untouched
         hub = (self.t / "medspa-marketing-research.html").read_text()
-        self.assertIn('"dateModified":"' + iso + '"', hub)
-        self.assertIn("Published 14 October 2026 &middot; Updated 16 October 2026", hub)
+        self.assertNotIn(iso, hub)  # the hub now follows edition 003's release, not build_50
         self.assertIn('"datePublished":"2026-10-14T23:46:05+00:00"', hub)
         ed = json.loads((self.k / "edition.json").read_text())
-        self.assertEqual(ed["modified_at"], iso)
+        self.assertNotEqual(ed.get("modified_at"), iso)  # edition 002 no longer owns the live page, so its record is not changed
         self.assertNotEqual(json.loads((KIT / "edition.json").read_text()).get("modified_at"), iso)  # real file untouched
 
 
@@ -418,6 +425,113 @@ class UrlMigration(unittest.TestCase):
         self.assertIn("/gta-medspa-index/edition-001", hub)
         self.assertIn("research_gta_medspa", (root / "medspa-index.html").read_text())  # entry value and review CTA id keep their names
         self.assertIn("research_(hub|gta_medspa", (root / "contact.html").read_text())  # contact.html allowlist regex
+
+
+class Edition003(unittest.TestCase):
+    """build_003.py (five-account edition) in a temporary copy of the repo. Real files are never touched."""
+    def setUp(self):
+        self.t = Path(tempfile.mkdtemp())
+        root = KIT.parent.parent
+        for rel in ("_kit/gta-medspa-instagram", "gta-medspa-index", "medspa-index.html", "medspa-marketing-research.html", "assets/index/medspa"):
+            src, dst = root / rel, self.t / rel
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            (shutil.copytree(src, dst, ignore=shutil.ignore_patterns("work", "output", "__pycache__", "renders", "screens")) if src.is_dir() else shutil.copy(src, dst))
+        self.k = self.t / "_kit/gta-medspa-instagram"
+        self.root = root
+
+    def tearDown(self):
+        shutil.rmtree(self.t)
+
+    def b(self, *a):
+        return run([str(self.k / "build_003.py"), *a])
+
+    def test_derive_and_draft_reproduce_committed_files(self):
+        p = run([str(self.k / "derive_003.py")])
+        self.assertEqual(p.returncode, 0, p.stderr)
+        for rel in ("editions/003/metrics.json", "editions/003/observations.json"):
+            self.assertEqual((self.k / rel).read_text(), (KIT / rel).read_text(), rel)
+        p = self.b()
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertIn("PASS draft", p.stdout)
+        for rel in ("medspa-index.html", "assets/index/medspa/medspa-index-edition-003-posts.csv", "assets/index/medspa/medspa-index-edition-003-accounts.csv"):
+            self.assertEqual((self.t / rel).read_text(), (self.root / rel).read_text(), rel)
+        self.assertFalse((self.t / "medspa-index/edition-003.html").exists())  # no snapshot before publication
+
+    def test_page_rules(self):
+        h = (self.root / "medspa-index.html").read_text()
+        body = h[h.index('<div class="msi">'):]
+        self.assertNotRegex(h, "[\u2014\u2013]")
+        self.assertEqual(h.count("<h1"), 1)
+        self.assertNotRegex(body, r"\sstyle=")
+        self.assertNotRegex(h, r'"@type":\s*"(Review|Rating|AggregateRating)"')
+        self.assertIn('href="/contact?intent=review&amp;entry=research_gta_medspa#contact-form" data-review-cta="research_gta_medspa"', h)
+        self.assertEqual(body.count("What this means for your clinic"), 7)  # findings, five accounts, patterns
+        for link in ("/realestate-index", "/about", "/work", "/services/branding-social", "/services/analytics-attribution"):
+            self.assertIn(f'href="{link}"', body)
+        self.assertNotIn("Published 1", re.search(r"<td><b>003</b>.*?</tr>", body, re.S).group(0))  # no publication date while unpublished
+        lds = [json.loads(m) for m in re.findall(r'<script type="application/ld\+json">\s*(\{.*?\})\s*</script>', h, re.S)]
+        types = [j["@type"] for j in lds]
+        self.assertEqual(types, ["BreadcrumbList", "Article", "Dataset", "FAQPage"])
+        art = lds[1]
+        self.assertEqual(art["headline"], "Med Spa Index")
+        self.assertEqual((art["author"]["@id"], art["publisher"]["@id"]), ("https://helpmemarketing.com/about#ankit-kumar", "https://helpmemarketing.com/#organization"))
+        self.assertNotIn("datePublished", art)
+        faq_vis = [re.sub(r"<[^>]+>", "", q) for q in re.findall(r'<details class="ri-adv faq"><summary>(.*?)</summary>', body)]
+        self.assertEqual([q["name"] for q in lds[3]["mainEntity"]], faq_vis)
+        for d in lds[2]["distribution"]:
+            self.assertTrue((self.root / d["contentUrl"].split(".com/")[1]).exists(), d["contentUrl"])
+
+    def test_figures_reconcile_with_metrics(self):
+        m = json.loads((KIT / "editions/003/metrics.json").read_text())["accounts"]
+        h = (self.root / "medspa-index.html").read_text()
+        rows = list(__import__("csv").DictReader(open(self.root / "assets/index/medspa/medspa-index-edition-003-posts.csv")))
+        for hd, a in m.items():
+            if not a["accessible"]:
+                self.assertEqual(sum(r["account"] == hd for r in rows), 0)
+                continue
+            self.assertEqual(sum(r["account"] == hd for r in rows), a["posts_in_window"])
+            self.assertIn(f'data-v="{a["followers"]}"', h)
+            self.assertIn(a["standout"]["url"], h)
+        readable = [a for a in m.values() if a["accessible"]]
+        lo, hi = min(a["posts_in_window"] for a in readable), max(a["posts_in_window"] for a in readable)
+        for rel in ("medspa-marketing-research.html", "hmm-index.html"):  # hand-written summaries elsewhere must match the data
+            self.assertIn(f"{lo} to {hi}", (self.root / rel).read_text(), rel)
+
+    def test_wrong_data_is_refused(self):
+        c = self.k / "editions/003/coding.json"
+        d = json.loads(c.read_text())
+        d["standout_visuals"]["Xnotreal"] = d["standout_visuals"].pop(next(iter(d["standout_visuals"])))
+        c.write_text(json.dumps(d))
+        self.assertIn("standout visuals", self.b().stderr)  # a changed standout needs a fresh visual inspection
+        shutil.copy(KIT / "editions/003/coding.json", c)
+        t = self.k / "editions/003/body_template.html"
+        t.write_text(t.read_text().replace("{{a.vit.followers}}", "{{a.vit.folowers}}", 1) + "{{a.vit.nope}}")
+        self.assertIn("has no value", self.b().stderr)
+        shutil.copy(KIT / "editions/003/body_template.html", t)
+        t.write_text(t.read_text().replace("What stood out</h2>", "What stood out \u2014</h2>", 1))
+        self.assertIn("dash", self.b().stderr)
+        shutil.copy(KIT / "editions/003/body_template.html", t)
+        e = self.k / "editions/003/edition_003.json"
+        d = json.loads(e.read_text()); d["window"] = ["2026-09-14", "2026-10-14"]; e.write_text(json.dumps(d))
+        self.assertNotEqual(self.b().returncode, 0)
+
+    def test_release_creates_snapshot_once(self):
+        self.assertNotEqual(self.b("--target", "release").returncode, 0)  # needs recorded dates
+        iso = "2026-10-20T15:00:00+00:00"
+        p = self.b("--target", "release", "--published-at", iso, "--modified-at", iso, "--modified-source", "deployment dpl_x (commit abc)")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        live, snap = (self.t / "medspa-index.html").read_text(), (self.t / "medspa-index/edition-003.html").read_text()
+        self.assertIn('content="index, follow', live)
+        self.assertIn('"dateModified":"' + iso + '"', live)
+        self.assertIn("Published 20 October 2026", live)
+        self.assertEqual(snap.count('name="robots"'), 1)
+        self.assertIn('<meta name="robots" content="noindex, follow">', snap)
+        self.assertIn('rel="canonical" href="https://helpmemarketing.com/medspa-index/edition-003"', snap)
+        self.assertIn("Published 14 October 2026 &middot; Updated 20 October 2026", (self.t / "medspa-marketing-research.html").read_text())
+        first = snap
+        p = self.b("--target", "release", "--published-at", iso, "--modified-at", "2026-10-25T15:00:00+00:00", "--modified-source", "y")
+        self.assertIn("snapshot kept as published", p.stdout)
+        self.assertEqual((self.t / "medspa-index/edition-003.html").read_text(), first)
 
 
 if __name__ == "__main__":

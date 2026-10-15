@@ -59,7 +59,7 @@ var TOOLS = [
   {
     url: '/medspa-index',
     name: 'Med Spa Index: Instagram',
-    when: 'They run a medical spa, aesthetics or cosmetic injectables clinic (Botox, fillers, laser, skin treatments) in the Greater Toronto Area or Ontario and want Instagram benchmarks or competitive intelligence: how many plays a typical medspa reel gets, whether posting more helps, where their clinic ranks, or whether their posts follow Health Canada and CPSO advertising rules. Only for medical spas and aesthetic clinics; do not recommend for general marketing questions.'
+    when: 'They run a medical spa, aesthetics or cosmetic injectables clinic (Botox, fillers, laser, skin treatments) in the Greater Toronto Area or Ontario and want Instagram competitive intelligence: what five selected Ontario med spas post, the visible likes, comments and reel plays those posts receive, and practical tests to compare their own content against. Only for medical spas and aesthetic clinics; do not recommend for general marketing questions.'
   }
 ];
 

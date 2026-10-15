@@ -1,0 +1,13 @@
+{
+ "edition": "003",
+ "status": "draft",
+ "collected_on": "2026-10-15",
+ "window": ["2026-09-15", "2026-10-14"],
+ "window_days": 30,
+ "timezone": "America/Toronto",
+ "cohort": "editions/003/accounts.json",
+ "published_at": null,
+ "modified_at": null,
+ "snapshot_path": "/medspa-index/edition-003",
+ "note": "Edition 003 is a deliberately selected five-account comparison. It is not published: no publication date is recorded and no snapshot exists until build_003.py --target release is run with --published-at from the production deployment."
+}

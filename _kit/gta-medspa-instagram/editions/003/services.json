@@ -1,0 +1,197 @@
+{
+ "edition": "003",
+ "checked_on": "2026-10-15",
+ "rule": "Confirmed only from the brand's own website; ordinary microneedling is not counted as RF, body contouring is not counted as weight loss, no medication is assumed, and a listed service says nothing about Instagram promotion.",
+ "services": {
+  "vitalitymdtoronto": {
+   "injectables": {
+    "status": "Confirmed",
+    "detail": "Botox and cosmetic injectables pages",
+    "source": "https://vitalitymd.com/medical-spa-menu-toronto/cosmetic-injectables-toronto/",
+    "checked": "2026-10-15"
+   },
+   "rf_microneedling": {
+    "status": "Confirmed",
+    "detail": "Scarlet RF (page describes microneedling with fractional radiofrequency)",
+    "source": "https://vitalitymd.com/scarlet-rf/",
+    "checked": "2026-10-15"
+   },
+   "body_contouring": {
+    "status": "Confirmed",
+    "detail": "Emsculpt Neo",
+    "source": "https://vitalitymd.com/emsculpt-neo-body-contouring-toronto/",
+    "checked": "2026-10-15"
+   },
+   "medical_weight_loss": {
+    "status": "Confirmed",
+    "detail": "Physician-led weight loss; the page names semaglutide (Ozempic) as a medication its physicians can prescribe",
+    "source": "https://vitalitymd.com/weight-loss-clinic-toronto/",
+    "checked": "2026-10-15"
+   },
+   "laser_hair_removal": {
+    "status": "Not confirmed",
+    "detail": "No service page found; it appears only as a concern option in the site's consultation form",
+    "source": "https://vitalitymd.com/",
+    "checked": "2026-10-15"
+   },
+   "iv_therapy": {
+    "status": "Confirmed",
+    "detail": "IV Therapy Lounge",
+    "source": "https://vitalitymd.com/iv-therapy-lounge-toronto/",
+    "checked": "2026-10-15"
+   }
+  },
+  "signature_cosmetic_clinic": {
+   "injectables": {
+    "status": "Confirmed",
+    "detail": "Botox, dermal fillers, Sculptra, Radiesse and others",
+    "source": "https://signaturemedispa.com/treatment/botox-toronto/",
+    "checked": "2026-10-15"
+   },
+   "rf_microneedling": {
+    "status": "Confirmed",
+    "detail": "Potenza RF Microneedling",
+    "source": "https://signaturemedispa.com/treatment/potenza-rf-microneedling/",
+    "checked": "2026-10-15"
+   },
+   "body_contouring": {
+    "status": "Confirmed",
+    "detail": "CoolSculpting, Emsculpt Neo, InMode BodyFX and SculpSure",
+    "source": "https://signaturemedispa.com/treatment/coolsculpting/",
+    "checked": "2026-10-15"
+   },
+   "medical_weight_loss": {
+    "status": "Confirmed",
+    "detail": "Weight loss program; the page names Mounjaro (tirzepatide)",
+    "source": "https://signaturemedispa.com/treatment/weight-loss-program/",
+    "checked": "2026-10-15"
+   },
+   "laser_hair_removal": {
+    "status": "Confirmed",
+    "detail": "Laser hair removal page",
+    "source": "https://signaturemedispa.com/treatment/laser-hair-removal/",
+    "checked": "2026-10-15"
+   },
+   "iv_therapy": {
+    "status": "Not confirmed",
+    "detail": "No IV therapy page in the site's treatment menu",
+    "source": "https://signaturemedispa.com/treatments/",
+    "checked": "2026-10-15"
+   }
+  },
+  "laserbodymd": {
+   "injectables": {
+    "status": "Confirmed",
+    "detail": "Botox and dermal fillers",
+    "source": "https://www.laserbodymd.ca/treatments/botox",
+    "checked": "2026-10-15"
+   },
+   "rf_microneedling": {
+    "status": "Confirmed",
+    "detail": "Morpheus8 (page describes microneedling with fractional radiofrequency); no Morpheus8 page is listed for the Scarborough location",
+    "source": "https://www.laserbodymd.ca/locations/mississauga/morpheus",
+    "checked": "2026-10-15"
+   },
+   "body_contouring": {
+    "status": "Confirmed",
+    "detail": "CoolSculpting and Emsculpt; no Emsculpt page is listed for the Scarborough location",
+    "source": "https://www.laserbodymd.ca/locations/mississauga/coolsculpting",
+    "checked": "2026-10-15"
+   },
+   "medical_weight_loss": {
+    "status": "Not confirmed",
+    "detail": "No weight loss service found on the website",
+    "source": "https://www.laserbodymd.ca/",
+    "checked": "2026-10-15"
+   },
+   "laser_hair_removal": {
+    "status": "Confirmed",
+    "detail": "Laser hair removal",
+    "source": "https://www.laserbodymd.ca/locations/mississauga/laser-hair-removal",
+    "checked": "2026-10-15"
+   },
+   "iv_therapy": {
+    "status": "Confirmed",
+    "detail": "IV + Mineral Therapy and NAD IV therapy pages",
+    "source": "https://www.laserbodymd.ca/treatments/iv-vitamin-therapy",
+    "checked": "2026-10-15"
+   }
+  },
+  "skinvitality": {
+   "injectables": {
+    "status": "Confirmed",
+    "detail": "Botox, Dysport, Juvederm, Teosyal and others",
+    "source": "https://www.skinvitality.ca/cosmetic-procedures/injection/botox/",
+    "checked": "2026-10-15"
+   },
+   "rf_microneedling": {
+    "status": "Confirmed",
+    "detail": "Morpheus8 (page titled RF Microneedling)",
+    "source": "https://www.skinvitality.ca/cosmetic-procedures/morpheus-8-skin-tightening/",
+    "checked": "2026-10-15"
+   },
+   "body_contouring": {
+    "status": "Confirmed",
+    "detail": "CoolSculpting and Emsculpt Neo",
+    "source": "https://www.skinvitality.ca/cosmetic-procedures/coolsculpting/",
+    "checked": "2026-10-15"
+   },
+   "medical_weight_loss": {
+    "status": "Not confirmed",
+    "detail": "An Ideal Protein weight loss program is listed; no medication is named",
+    "source": "https://www.skinvitality.ca/cosmetic-procedures/weight-loss-program/",
+    "checked": "2026-10-15"
+   },
+   "laser_hair_removal": {
+    "status": "Confirmed",
+    "detail": "Laser hair removal",
+    "source": "https://www.skinvitality.ca/cosmetic-procedures/laser-hair-removal/",
+    "checked": "2026-10-15"
+   },
+   "iv_therapy": {
+    "status": "Not confirmed",
+    "detail": "No IV therapy page found on the website",
+    "source": "https://www.skinvitality.ca/",
+    "checked": "2026-10-15"
+   }
+  },
+  "spamedicamedspa": {
+   "injectables": {
+    "status": "Confirmed",
+    "detail": "Botox, dermal fillers, Sculptra and lip augmentation",
+    "source": "https://www.spamedica.com/positive-aging/botox-injectable-toronto",
+    "checked": "2026-10-15"
+   },
+   "rf_microneedling": {
+    "status": "Confirmed",
+    "detail": "Morpheus8 (page describes microneedling with radiofrequency energy)",
+    "source": "https://www.spamedica.com/positive-aging/morpheus8-toronto",
+    "checked": "2026-10-15"
+   },
+   "body_contouring": {
+    "status": "Confirmed",
+    "detail": "CoolSculpting, Emsculpt and BodyFX",
+    "source": "https://www.spamedica.com/body-contouring/coolsculpting-zeltiq",
+    "checked": "2026-10-15"
+   },
+   "medical_weight_loss": {
+    "status": "Not confirmed",
+    "detail": "No weight loss service found in the site's treatment menu",
+    "source": "https://www.spamedica.com/treatments",
+    "checked": "2026-10-15"
+   },
+   "laser_hair_removal": {
+    "status": "Confirmed",
+    "detail": "Laser hair removal",
+    "source": "https://www.spamedica.com/laser-skin-treatment/laser-hair-removal",
+    "checked": "2026-10-15"
+   },
+   "iv_therapy": {
+    "status": "Not confirmed",
+    "detail": "No IV therapy page found in the site's treatment menu",
+    "source": "https://www.spamedica.com/treatments",
+    "checked": "2026-10-15"
+   }
+  }
+ }
+}

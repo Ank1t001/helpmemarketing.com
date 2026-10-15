@@ -404,7 +404,11 @@ if args.target == "draft":
     (ED / "draft" / "medspa-index-draft.html").write_text(make("draft"))
     print("draft written")
 else:
-    (REPO / "medspa-index.html").write_text(make("live"))
+    # Edition 003 (build_003.py) owns the live page since 2026-10-15: build_50 then writes its edition 002 page to the
+    # release folder for reproduction checks and never touches medspa-index.html or the research hub.
+    LATER = (HERE / "editions" / "003" / "edition_003.json").exists()
+    live_out = ED / "release" / "medspa-index-002.html" if LATER else REPO / "medspa-index.html"
+    live_out.write_text(make("live"))
     snapf = REPO / SNAP_PATH.lstrip("/")
     snapf = snapf.with_name(snapf.name + ".html")
     if snapf.exists():  # a published snapshot is never rewritten
@@ -433,7 +437,7 @@ else:
     row = [ENO, CFG["scraped_at"], W0, W1, "candidate", 50, cls["B"] + cls["A"], cls["B"], cls["A"], cls["C"], cls["E"], len(inw), len(brand), len(collab), len(rows), len(outw),
            "selected 50-account observational study; no score or rank"]
     (sd / "editions_row.tsv").write_text(tab([row]))
-    if MOD:
+    if MOD and not LATER:
         import datetime
         hub = REPO / "medspa-marketing-research.html"
         h = hub.read_text()

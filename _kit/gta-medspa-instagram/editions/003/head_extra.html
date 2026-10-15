@@ -1,0 +1,55 @@
+<style>
+/* Med Spa Index edition 003: sortable comparison table, clinic takeaways and account analysis blocks. Spec: Design System note "Med Spa Index five-account comparison" (2026-10-15). */
+.msi.msi .cell-sub{display:block;white-space:normal}
+.msi.msi .tw[tabindex]:focus-visible{outline:2px solid var(--cta);outline-offset:2px}
+.msi.msi .tw .cmp{min-width:860px}
+.msi.msi .tw .svc{min-width:900px}
+.msi.msi th.sortable{padding:0}
+.msi.msi th .sort{appearance:none;background:transparent;border:0;margin:0;display:flex;align-items:flex-end;gap:6px;width:100%;padding:12px 7px;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;text-align:left;cursor:pointer}
+.msi.msi th.r .sort{justify-content:flex-end;text-align:right}
+.msi.msi th .sort:focus-visible{outline:2px solid var(--cta);outline-offset:-2px}
+.msi.msi th .sort::after{content:"";flex:none;width:0;height:0;margin-bottom:4px;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;opacity:.3}
+.msi.msi th[aria-sort="descending"] .sort::after{opacity:1}
+.msi.msi th[aria-sort="ascending"] .sort::after{border-top:0;border-bottom:5px solid currentColor;opacity:1}
+.msi.msi .note.take{border-left-color:var(--cta);margin-top:var(--s4)}
+.msi.msi .note.take>.lbl{color:var(--cta-text,var(--cta))}
+.msi.msi .acct{margin-top:var(--s5)}
+.msi.msi .acct h3{margin-bottom:var(--s2)}
+.msi.msi .acct .dek b{color:var(--text)}
+.msi.msi .stand dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:var(--s3) 0;font-size:14px}
+.msi.msi .stand dt{color:var(--text-tertiary)}
+.msi.msi .stand dd{margin:0;color:var(--text);font-variant-numeric:tabular-nums}
+.msi.msi .tests li{margin-bottom:var(--s4)}
+</style>
+<script data-msi-sort>
+/* Sortable comparison table: header buttons sort by each cell's data-v (numbers numerically, text alphabetically); empty values always sort last. */
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table[data-sortable]').forEach(function (table) {
+    var heads = table.querySelectorAll('th.sortable');
+    var live = document.getElementById(table.getAttribute('data-status'));
+    heads.forEach(function (th, idx) {
+      var btn = th.querySelector('button.sort');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var col = Array.prototype.indexOf.call(th.parentNode.children, th);
+        var dir = th.getAttribute('aria-sort') === 'descending' ? 'ascending' : 'descending';
+        if (th.hasAttribute('data-text') && !th.hasAttribute('aria-sort')) dir = 'ascending';
+        heads.forEach(function (h) { h.removeAttribute('aria-sort'); });
+        th.setAttribute('aria-sort', dir);
+        var body = table.tBodies[0];
+        var rows = Array.prototype.slice.call(body.rows);
+        rows.sort(function (a, b) {
+          var x = a.cells[col].getAttribute('data-v'), y = b.cells[col].getAttribute('data-v');
+          var ex = x === null || x === '', ey = y === null || y === '';
+          if (ex || ey) return ex === ey ? 0 : (ex ? 1 : -1);
+          var nx = parseFloat(x), ny = parseFloat(y), r;
+          r = (!isNaN(nx) && !isNaN(ny)) ? nx - ny : x.localeCompare(y);
+          return dir === 'ascending' ? r : -r;
+        });
+        rows.forEach(function (r) { body.appendChild(r); });
+        if (live) live.textContent = 'Sorted by ' + btn.textContent.trim() + ', ' + dir + '. Accounts that could not be read stay at the bottom.';
+      });
+    });
+  });
+});
+</script>

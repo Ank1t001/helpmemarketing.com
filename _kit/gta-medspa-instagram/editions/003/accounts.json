@@ -1,0 +1,62 @@
+{
+ "edition": "003",
+ "cohort_rule": "fixed editorial selection by the founder (brief of 15 October 2026): five Ontario med spa brands chosen for comparison; not a ranking, not the best clinics, not market-wide",
+ "checked_on": "2026-10-15",
+ "accounts": [
+  {
+   "brand": "VitalityMD",
+   "handle": "vitalitymdtoronto",
+   "instagram_url": "https://www.instagram.com/vitalitymdtoronto/",
+   "official_website": "https://vitalitymd.com/",
+   "locations": "single location",
+   "coverage": "Toronto",
+   "verification_source": "https://vitalitymd.com/ (site header and footer link to instagram.com/vitalitymdtoronto)",
+   "verification_date": "2026-10-15",
+   "account_note": "Principal brand account. The website also links a practitioner account (@sharicaplan); it was not collected and is not mixed in."
+  },
+  {
+   "brand": "Signature Cosmetic Clinic",
+   "handle": "signature_cosmetic_clinic",
+   "instagram_url": "https://www.instagram.com/signature_cosmetic_clinic/",
+   "official_website": "https://signaturemedispa.com/",
+   "locations": "multi-location",
+   "coverage": "Toronto, Markham and Vaughan location pages on the website; the Instagram bio says 4 stores",
+   "verification_source": "https://signaturemedispa.com/ (footer links to instagram.com/signature_cosmetic_clinic)",
+   "verification_date": "2026-10-15",
+   "account_note": "Principal brand account. Practitioner and staff accounts named in its bio were not collected."
+  },
+  {
+   "brand": "Laserbody MD",
+   "handle": "laserbodymd",
+   "instagram_url": "https://www.instagram.com/laserbodymd/",
+   "official_website": "https://www.laserbodymd.ca/",
+   "locations": "multi-location",
+   "coverage": "8 location pages: Toronto, Brampton, Hamilton, Mississauga, Oakville, Pickering, Richmond Hill and Scarborough",
+   "verification_source": "https://www.laserbodymd.ca/ (links to instagram.com/laserbodymd)",
+   "verification_date": "2026-10-15",
+   "account_note": "Principal brand account."
+  },
+  {
+   "brand": "Skin Vitality",
+   "handle": "skinvitality",
+   "instagram_url": "https://www.instagram.com/skinvitality/",
+   "official_website": "https://www.skinvitality.ca/",
+   "locations": "multi-location",
+   "coverage": "14 clinics in Ontario per the website (Ajax, Barrie, Burlington, Hamilton, Kitchener, London, Mississauga, Milton, Oakville, Richmond Hill, St. Catharines, Stoney Creek, Toronto, Whitby)",
+   "verification_source": "https://www.skinvitality.ca/ (footer links to instagram.com/skinvitality)",
+   "verification_date": "2026-10-15",
+   "account_note": "Principal brand account. Instagram returned it as a restricted profile to the public collection tools, so its posts and follower count could not be read."
+  },
+  {
+   "brand": "SpaMedica",
+   "handle": "spamedicamedspa",
+   "instagram_url": "https://www.instagram.com/spamedicamedspa/",
+   "official_website": "https://www.spamedica.com/",
+   "locations": "single location",
+   "coverage": "Toronto (66 Avenue Road, Yorkville)",
+   "verification_source": "https://www.spamedica.com/ (footer links to instagram.com/spamedicamedspa)",
+   "verification_date": "2026-10-15",
+   "account_note": "Principal brand account. Its Instagram display name reads Yorkville Medspa; the bio names SpaMedica's parent group and lead physician."
+  }
+ ]
+}

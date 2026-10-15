@@ -1,0 +1,33 @@
+{
+ "edition": "003",
+ "checked_on": "2026-10-15",
+ "result": "not checked",
+ "reason": "The public Meta Ad Library page requires JavaScript: a plain fetch returned HTTP 403 and a rendered fetch (Apify web-fetch run UcgHwRRBvNDCsMT9q) failed after 182 seconds. No advertiser identity or active-ad status was recorded, and none is inferred.",
+ "checks": [
+  {
+   "brand": "VitalityMD",
+   "source": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=CA&q=VitalityMD&search_type=keyword_unordered",
+   "status": "not checked: page requires JavaScript"
+  },
+  {
+   "brand": "Signature Cosmetic Clinic",
+   "source": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=CA&q=Signature%20Cosmetic%20Clinic&search_type=keyword_unordered",
+   "status": "not checked: page requires JavaScript"
+  },
+  {
+   "brand": "Laserbody MD",
+   "source": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=CA&q=Laserbody%20MD&search_type=keyword_unordered",
+   "status": "not checked: page requires JavaScript"
+  },
+  {
+   "brand": "Skin Vitality",
+   "source": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=CA&q=Skin%20Vitality&search_type=keyword_unordered",
+   "status": "not checked: page requires JavaScript"
+  },
+  {
+   "brand": "SpaMedica",
+   "source": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=CA&q=SpaMedica&search_type=keyword_unordered",
+   "status": "not checked: page requires JavaScript"
+  }
+ ]
+}
