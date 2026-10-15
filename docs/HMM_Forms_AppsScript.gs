@@ -520,6 +520,14 @@ function testRouting() {
   Logger.log('Wrote ' + cases.length + ' TEST rows: Leads 3 (one a free review, Source should read contact form | free review | entry home_hero | source test), Audit 2, Index downloads 1, Growth OS downloads 1, Subscribers 1, Spam 1. Delete them when checked.');
 }
 
+// Logs the Source text each review link would produce. Writes no row, sends no email and skips Turnstile,
+// so it is safe to run on the production script at any time. An unknown entry must show no "entry" part.
+function testLeadSources() {
+  ['research_hub', 'research_gta_medspa', 'research_gta_medspa_help', 'home_hero', 'direct', 'not_a_real_entry'].forEach(function (entry) {
+    Logger.log(entry + ' -> ' + leadSource_('contact', { contact_intent: 'review', entry_point: entry }));
+  });
+}
+
 // Step 5. Sends the SEO bundle and a sample plan to your own address.
 function testEmails() {
   var me = Session.getActiveUser().getEmail();
