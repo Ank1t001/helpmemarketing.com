@@ -1,0 +1,29 @@
+{
+ "edition": "002",
+ "decided": "2026-10-15",
+ "decision_by": "founder",
+ "scope": "focused 50-account sample (the existing seeded pilot, if it qualifies); see scope_50_proposal.md",
+ "superseded": {
+  "batch_plan.json": "596-account collection plan stopped; file kept unchanged",
+  "HANDOFF2.md tasks": [
+   "Task 4 collect the remaining eligible accounts",
+   "Task 6 collection completion report by account class for the 596"
+  ],
+  "HANDOFF.md tasks": "collection tasks superseded (profile check and pilot were completed)",
+  "batch_ledger.json": "kept as the record of batches 1 to 16; batch 16 aborted by the usage limit; no further batches"
+ },
+ "preserved_not_in_analysis": {
+  "source_posts_batches.jsonl.gz": "6,019 rows for non-pilot accounts saved, preserved, NOT part of the 50-account analysis",
+  "cohort_frozen.json, coverage_status.json, discovery roster": "background research; the larger roster is not scraped further"
+ },
+ "no_data_deleted": true,
+ "paid_runs_launched_in_this_step": 0,
+ "pilot_verification": {
+  "reproduced_exactly": true,
+  "pool": "596-account frozen cohort (public profile and official evidence at selection time)",
+  "eligibility_fail": [
+   "skinvitality: profile age-gated (Restricted profile), public profile not established; class C, not replaced"
+  ],
+  "rule_gap": "profile check treated Restricted profile as public; 12 restricted accounts are in the 596"
+ }
+}

@@ -1,0 +1,1082 @@
+{
+ "edition": "002",
+ "scope": "50-account sample",
+ "rule": "seed pattern pilot:20261015:{region}; largest remainder; reproduced exactly 2026-10-15",
+ "selected": 50,
+ "class_counts": {
+  "A": 12,
+  "B": 36,
+  "E": 1,
+  "C": 1
+ },
+ "by_region": {
+  "York": {
+   "A": 3,
+   "B": 11
+  },
+  "Peel": {
+   "B": 6,
+   "E": 1
+  },
+  "Toronto": {
+   "B": 8,
+   "A": 5
+  },
+  "Halton": {
+   "B": 5,
+   "A": 2
+  },
+  "Durham": {
+   "B": 4,
+   "A": 2
+  },
+  "Multi-region": {
+   "B": 2,
+   "C": 1
+  }
+ },
+ "classes": {
+  "A": "genuine inactivity (collection succeeded, evidence of no in-window posts)",
+  "B": "in-window posts collected",
+  "C": "restricted or inaccessible",
+  "D": "failed collection",
+  "E": "uncertain or coverage not established"
+ },
+ "accounts": [
+  {
+   "handle": "merakiskinclinic.ca",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "A",
+   "in_window_rows": 0,
+   "rows": 1,
+   "evidence": "profile latestPosts newest non-pinned post 2026-05-08 predates 2026-07-17; post scraper returned only older pinned rows",
+   "run": "OLS33Ow3cRQwEy2Hw",
+   "dataset": "MqcSwPTUbO7z5cpSc",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJv2U_VxDV1IkRDsq9H0C7IwU"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "medermestheticslaser",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 14,
+   "rows": 17,
+   "evidence": "14 in-window rows, 17 rows total, under 200 cap, run SUCCEEDED",
+   "run": "OLS33Ow3cRQwEy2Hw",
+   "dataset": "MqcSwPTUbO7z5cpSc",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJTaInoHkvK4gR3U15KIdy6_k"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "ellaslaser",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 8,
+   "rows": 8,
+   "evidence": "8 in-window rows, 8 rows total, under 200 cap, run SUCCEEDED",
+   "run": "OLS33Ow3cRQwEy2Hw",
+   "dataset": "MqcSwPTUbO7z5cpSc",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJ8-V1riotK4gRbaiLkjmTiPA"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "beautiquemedspa",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "reserve_substitute",
+   "cls": "B",
+   "in_window_rows": 28,
+   "rows": 29,
+   "evidence": "28 in-window rows, 29 rows total, under 200 cap, run SUCCEEDED",
+   "run": "OLS33Ow3cRQwEy2Hw",
+   "dataset": "MqcSwPTUbO7z5cpSc",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJq6q20zolK4gRV8eq5NlD5Qs"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "always_young_beauty_clinic",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "reserve_substitute",
+   "cls": "B",
+   "in_window_rows": 27,
+   "rows": 27,
+   "evidence": "27 in-window rows, 27 rows total, under 200 cap, run SUCCEEDED",
+   "run": "OLS33Ow3cRQwEy2Hw",
+   "dataset": "MqcSwPTUbO7z5cpSc",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJkQCcV2krK4gRnggPWuig_mg"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "richskin.ca",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 37,
+   "rows": 39,
+   "evidence": "37 in-window rows, 39 rows total, under 200 cap, run SUCCEEDED",
+   "run": "OLS33Ow3cRQwEy2Hw",
+   "dataset": "MqcSwPTUbO7z5cpSc",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJvbNjGbMp1YkRm9XoxIsoGGM"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "manasmedspa",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "A",
+   "in_window_rows": 0,
+   "rows": 0,
+   "evidence": "profile latestPosts newest non-pinned post 2026-04-22 predates 2026-07-17; post scraper returned no_items",
+   "run": "OLS33Ow3cRQwEy2Hw",
+   "dataset": "MqcSwPTUbO7z5cpSc",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJCUDZitfVKogR3857qr-yMzU"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "dewbeaumedispa",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "A",
+   "in_window_rows": 0,
+   "rows": 3,
+   "evidence": "profile latestPosts newest non-pinned post 2026-04-17 predates 2026-07-17; post scraper returned only older pinned rows",
+   "run": "OLS33Ow3cRQwEy2Hw",
+   "dataset": "MqcSwPTUbO7z5cpSc",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJZ8NdJ_osK4gRAfgxLB2K9Aw"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "thedermaloungeaurora",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 23,
+   "rows": 24,
+   "evidence": "23 in-window rows, 24 rows total, under 200 cap, run SUCCEEDED",
+   "run": "OLS33Ow3cRQwEy2Hw",
+   "dataset": "MqcSwPTUbO7z5cpSc",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJr3JMkOPTKogRtXlOdtVpEDw"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "stephabellesclinique",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 20,
+   "rows": 22,
+   "evidence": "20 in-window rows, 22 rows total, under 200 cap, run SUCCEEDED",
+   "run": "OLS33Ow3cRQwEy2Hw",
+   "dataset": "MqcSwPTUbO7z5cpSc",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJDeyG0CIvK4gRD--xOHdYr8Y"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "novabeauty_inc",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 2,
+   "rows": 2,
+   "evidence": "2 in-window rows, 2 rows total, under 200 cap, run SUCCEEDED",
+   "run": "g8o7x7BiUNQKg5Ash",
+   "dataset": "oyskEGnxlOBuyaXzu",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJ51i-9McvK4gR55FNC1vkGmA"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "eb.medaesthetics",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 43,
+   "rows": 44,
+   "evidence": "43 in-window rows, 44 rows total, under 200 cap, run SUCCEEDED",
+   "run": "g8o7x7BiUNQKg5Ash",
+   "dataset": "oyskEGnxlOBuyaXzu",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJDa8By6fVKogR8WpWXv480qo"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "eluxeclinic",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 20,
+   "rows": 20,
+   "evidence": "20 in-window rows, 20 rows total, under 200 cap, run SUCCEEDED",
+   "run": "g8o7x7BiUNQKg5Ash",
+   "dataset": "oyskEGnxlOBuyaXzu",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJ2dUvDc_VKogRwzt2rwY1ZoA"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "mellow_medical_aesthetic",
+   "region": "York",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 18,
+   "rows": 18,
+   "evidence": "18 in-window rows, 18 rows total, under 200 cap, run SUCCEEDED",
+   "run": "g8o7x7BiUNQKg5Ash",
+   "dataset": "oyskEGnxlOBuyaXzu",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJ5wAu2_8pK4gR4ZdNEaxC0rg"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "skinfidelity_",
+   "region": "Peel",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 8,
+   "rows": 10,
+   "evidence": "8 in-window rows, 10 rows total, under 200 cap, run SUCCEEDED",
+   "run": "g8o7x7BiUNQKg5Ash",
+   "dataset": "oyskEGnxlOBuyaXzu",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJOef_D1JHK4gRapkyneC-rw0"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "aquamedicalspa",
+   "region": "Peel",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 21,
+   "rows": 24,
+   "evidence": "21 in-window rows, 24 rows total, under 200 cap, run SUCCEEDED",
+   "run": "g8o7x7BiUNQKg5Ash",
+   "dataset": "oyskEGnxlOBuyaXzu",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJv1HdOO44K4gRqC9JTL9Yig0"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "lovelylaserspa",
+   "region": "Peel",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 1,
+   "rows": 2,
+   "evidence": "1 in-window rows, 2 rows total, under 200 cap, run SUCCEEDED",
+   "run": "g8o7x7BiUNQKg5Ash",
+   "dataset": "oyskEGnxlOBuyaXzu",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJA25d_G4VK4gRi7kcNSvukgc"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "flourish_medical_aesthetics",
+   "region": "Peel",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 43,
+   "rows": 46,
+   "evidence": "43 in-window rows, 46 rows total, under 200 cap, run SUCCEEDED",
+   "run": "g8o7x7BiUNQKg5Ash",
+   "dataset": "oyskEGnxlOBuyaXzu",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJI6KHuMVDK4gRc4jbhpTOf4A"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "tlwc.canada",
+   "region": "Peel",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 22,
+   "rows": 22,
+   "evidence": "22 in-window rows, 22 rows total, under 200 cap, run SUCCEEDED",
+   "run": "g8o7x7BiUNQKg5Ash",
+   "dataset": "oyskEGnxlOBuyaXzu",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJpeYpfpBrK4gRsbdsR-uo3h4"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "mississauga.gracemed",
+   "region": "Peel",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "E",
+   "in_window_rows": 0,
+   "rows": 0,
+   "evidence": "public profile, postsCount absent and latestPosts empty, post scraper returned no_items; cannot tell no posts from hidden data",
+   "run": "g8o7x7BiUNQKg5Ash",
+   "dataset": "oyskEGnxlOBuyaXzu",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJw0h6gSZHK4gRPNu9JHvPNys"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "admireaesthetics.ca",
+   "region": "Peel",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 70,
+   "rows": 72,
+   "evidence": "70 in-window rows, 72 rows total, under 200 cap, run SUCCEEDED",
+   "run": "B2BtUDevkvqxVg9NO",
+   "dataset": "JuJfZSbBfhO2SkHm9",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJrcyfvUkVK4gRIFV3As-13nc"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "redwoodmedispa",
+   "region": "Toronto",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 19,
+   "rows": 22,
+   "evidence": "19 in-window rows, 22 rows total, under 200 cap, run SUCCEEDED",
+   "run": "B2BtUDevkvqxVg9NO",
+   "dataset": "JuJfZSbBfhO2SkHm9",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJ6yYb6ooyK4gR2gkt6jdRx5Q"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "coralwellness.ca",
+   "region": "Toronto",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 10,
+   "rows": 12,
+   "evidence": "10 in-window rows, 12 rows total, under 200 cap, run SUCCEEDED",
+   "run": "B2BtUDevkvqxVg9NO",
+   "dataset": "JuJfZSbBfhO2SkHm9",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJE01NmrczK4gROKgekoA60bM"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "lavender_laser_and_beauty",
+   "region": "Toronto",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "A",
+   "in_window_rows": 0,
+   "rows": 0,
+   "evidence": "profile latestPosts newest non-pinned post 2026-06-05 predates 2026-07-17; post scraper returned no_items",
+   "run": "B2BtUDevkvqxVg9NO",
+   "dataset": "JuJfZSbBfhO2SkHm9",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJ117nZI4tK4gRNlJ5C1hWqCs"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "jadlaserskinsolutions",
+   "region": "Toronto",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "A",
+   "in_window_rows": 0,
+   "rows": 0,
+   "evidence": "profile latestPosts newest non-pinned post 2025-03-29 predates 2026-07-17; post scraper returned no_items",
+   "run": "B2BtUDevkvqxVg9NO",
+   "dataset": "JuJfZSbBfhO2SkHm9",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJgy4MGVzR1IkRkffVNcj4ztI"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "skintek_skincare",
+   "region": "Toronto",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "A",
+   "in_window_rows": 0,
+   "rows": 0,
+   "evidence": "profile latestPosts newest non-pinned post 2025-12-02 predates 2026-07-17; post scraper returned no_items",
+   "run": "B2BtUDevkvqxVg9NO",
+   "dataset": "JuJfZSbBfhO2SkHm9",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJVQ1H1AkzK4gR1Nxw4RH8sWE"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "nurse.injector.megan",
+   "region": "Toronto",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 21,
+   "rows": 23,
+   "evidence": "21 in-window rows, 23 rows total, under 200 cap, run SUCCEEDED",
+   "run": "B2BtUDevkvqxVg9NO",
+   "dataset": "JuJfZSbBfhO2SkHm9",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJj0rCek7L1IkROpehn7FAZIA"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "revellemedspa",
+   "region": "Toronto",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "A",
+   "in_window_rows": 0,
+   "rows": 0,
+   "evidence": "profile postsCount 0 and post scraper returned no_items",
+   "run": "B2BtUDevkvqxVg9NO",
+   "dataset": "JuJfZSbBfhO2SkHm9",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJhT-Pmp4ABEIRmlEqwtCa_oc"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "revelbeautyclub.ca",
+   "region": "Toronto",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 20,
+   "rows": 20,
+   "evidence": "20 in-window rows, 20 rows total, under 200 cap, run SUCCEEDED",
+   "run": "B2BtUDevkvqxVg9NO",
+   "dataset": "JuJfZSbBfhO2SkHm9",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJgVZKBVQ3K4gRROEDm70SdfM"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "lunae_cosmetic_clinic",
+   "region": "Toronto",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "A",
+   "in_window_rows": 0,
+   "rows": 2,
+   "evidence": "profile latestPosts newest non-pinned post 2025-07-31 predates 2026-07-17; post scraper returned only older pinned rows",
+   "run": "B2BtUDevkvqxVg9NO",
+   "dataset": "JuJfZSbBfhO2SkHm9",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJ9YExw1DN1IkRKJiT8-8cMbk"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "animamedspa",
+   "region": "Toronto",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "reserve_substitute",
+   "cls": "B",
+   "in_window_rows": 49,
+   "rows": 49,
+   "evidence": "49 in-window rows, 49 rows total, under 200 cap, run SUCCEEDED",
+   "run": "QEdcSqx6f76ZlBBOM",
+   "dataset": "T16eePOcF6HQweHvz",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJryGZvq9JK4gRu5E7oEQ2KYs"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "definabeautyclinic",
+   "region": "Toronto",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "reserve_substitute",
+   "cls": "B",
+   "in_window_rows": 2,
+   "rows": 2,
+   "evidence": "2 in-window rows, 2 rows total, under 200 cap, run SUCCEEDED",
+   "run": "QEdcSqx6f76ZlBBOM",
+   "dataset": "T16eePOcF6HQweHvz",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJz1lxNc4xK4gRGNFS6nY73rE"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "sovereignskin",
+   "region": "Toronto",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 15,
+   "rows": 15,
+   "evidence": "15 in-window rows, 15 rows total, under 200 cap, run SUCCEEDED",
+   "run": "QEdcSqx6f76ZlBBOM",
+   "dataset": "T16eePOcF6HQweHvz",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJzQ_IbDk1K4gRyNsyhvMUOaY"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "aura_harbour_wellness",
+   "region": "Toronto",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 15,
+   "rows": 15,
+   "evidence": "15 in-window rows, 15 rows total, under 200 cap, run SUCCEEDED",
+   "run": "QEdcSqx6f76ZlBBOM",
+   "dataset": "T16eePOcF6HQweHvz",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJa-68OiY1K4gROkBbf8rVs_g"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "skonlaserclinic",
+   "region": "Halton",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 23,
+   "rows": 23,
+   "evidence": "23 in-window rows, 23 rows total, under 200 cap, run SUCCEEDED",
+   "run": "QEdcSqx6f76ZlBBOM",
+   "dataset": "T16eePOcF6HQweHvz",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJoVJaiJhvK4gRoWVPW-phcSU"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "gowith_theglowmedspa",
+   "region": "Halton",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 56,
+   "rows": 56,
+   "evidence": "56 in-window rows, 56 rows total, under 200 cap, run SUCCEEDED",
+   "run": "QEdcSqx6f76ZlBBOM",
+   "dataset": "T16eePOcF6HQweHvz",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJLTQBIgBvK4gRPegVIY14KE0"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "assia.beautyclinic",
+   "region": "Halton",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 1,
+   "rows": 4,
+   "evidence": "1 in-window rows, 4 rows total, under 200 cap, run SUCCEEDED",
+   "run": "QEdcSqx6f76ZlBBOM",
+   "dataset": "T16eePOcF6HQweHvz",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJ6Q0XEYFdK4gRRdrZU7rX_kU"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "luxeandlitbeauty",
+   "region": "Halton",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 39,
+   "rows": 39,
+   "evidence": "39 in-window rows, 39 rows total, under 200 cap, run SUCCEEDED",
+   "run": "QEdcSqx6f76ZlBBOM",
+   "dataset": "T16eePOcF6HQweHvz",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJX8n8Ex1tK4gRcmNf7ma-Ihw"
+   ],
+   "collab_rows_flag": true
+  },
+  {
+   "handle": "elanlaserspa",
+   "region": "Halton",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "A",
+   "in_window_rows": 0,
+   "rows": 0,
+   "evidence": "profile latestPosts newest non-pinned post 2024-08-23 predates 2026-07-17; post scraper returned no_items",
+   "run": "QEdcSqx6f76ZlBBOM",
+   "dataset": "T16eePOcF6HQweHvz",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJq4n0P5FjK4gR_JpYvCZ1bSg"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "luna.medspa",
+   "region": "Halton",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 4,
+   "rows": 4,
+   "evidence": "4 in-window rows, 4 rows total, under 200 cap, run SUCCEEDED",
+   "run": "QEdcSqx6f76ZlBBOM",
+   "dataset": "T16eePOcF6HQweHvz",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJ5xV8AsdhK4gReSFOWFRBCXI"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "oakwood_health_network",
+   "region": "Halton",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "A",
+   "in_window_rows": 0,
+   "rows": 0,
+   "evidence": "profile latestPosts newest non-pinned post 2025-03-07 predates 2026-07-17; post scraper returned no_items",
+   "run": "DrWha9vGciJHRe8mP",
+   "dataset": "7j1dhFCoRIgiJaZNG",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJix9Eo-VdK4gRoqV0KklgPXA"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "theglowhausto",
+   "region": "Durham",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 4,
+   "rows": 7,
+   "evidence": "4 in-window rows, 7 rows total, under 200 cap, run SUCCEEDED",
+   "run": "DrWha9vGciJHRe8mP",
+   "dataset": "7j1dhFCoRIgiJaZNG",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJ4X6UILjf1IkRTtlC4K8axPI"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "woodlandskinrenewal",
+   "region": "Durham",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 20,
+   "rows": 20,
+   "evidence": "20 in-window rows, 20 rows total, under 200 cap, run SUCCEEDED",
+   "run": "DrWha9vGciJHRe8mP",
+   "dataset": "7j1dhFCoRIgiJaZNG",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJ1_zu93GwIw8RYyb-mV1kGzw"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "whitbymedspa",
+   "region": "Durham",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "A",
+   "in_window_rows": 0,
+   "rows": 0,
+   "evidence": "profile latestPosts newest non-pinned post 2026-06-30 predates 2026-07-17; post scraper returned no_items",
+   "run": "DrWha9vGciJHRe8mP",
+   "dataset": "7j1dhFCoRIgiJaZNG",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJcbH158Yd1YkROzTI1gZoCX8"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "loveyourfacenewcastle",
+   "region": "Durham",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "A",
+   "in_window_rows": 0,
+   "rows": 0,
+   "evidence": "profile latestPosts newest non-pinned post 2023-07-02 predates 2026-07-17; post scraper returned no_items",
+   "run": "DrWha9vGciJHRe8mP",
+   "dataset": "7j1dhFCoRIgiJaZNG",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJhdaAiaep1YkRRfr4_1-3otw"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "laser.lash.clinic",
+   "region": "Durham",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 2,
+   "rows": 2,
+   "evidence": "2 in-window rows, 2 rows total, under 200 cap, run SUCCEEDED",
+   "run": "DrWha9vGciJHRe8mP",
+   "dataset": "7j1dhFCoRIgiJaZNG",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJ-TPooMzfxgoRAyhqYsBb4zc"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "precisionbeautycanada",
+   "region": "Durham",
+   "account_type": "single-location",
+   "branches": 1,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 21,
+   "rows": 21,
+   "evidence": "21 in-window rows, 21 rows total, under 200 cap, run SUCCEEDED",
+   "run": "DrWha9vGciJHRe8mP",
+   "dataset": "7j1dhFCoRIgiJaZNG",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJXf6OcInb1IkR4ddHoLOeINs"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "reviveskinmedicalspa",
+   "region": "Multi-region",
+   "account_type": "multi-location group",
+   "branches": 2,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 31,
+   "rows": 31,
+   "evidence": "31 in-window rows, 31 rows total, under 200 cap, run SUCCEEDED",
+   "run": "DrWha9vGciJHRe8mP",
+   "dataset": "7j1dhFCoRIgiJaZNG",
+   "official_basis": [
+    "website link",
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJ6UhnKTVvK4gRUM8OQsZ-FE0",
+    "ChIJX15HWbJBK4gRtQFXm5wKj-I"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "allaboutmedicalesthetics",
+   "region": "Multi-region",
+   "account_type": "multi-location group",
+   "branches": 2,
+   "origin": "original_sample",
+   "cls": "B",
+   "in_window_rows": 26,
+   "rows": 27,
+   "evidence": "26 in-window rows, 27 rows total, under 200 cap, run SUCCEEDED",
+   "run": "DrWha9vGciJHRe8mP",
+   "dataset": "7j1dhFCoRIgiJaZNG",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJZ1kwjvc3K4gRAAvO_V2VaUQ",
+    "ChIJwe94x7DTKogRb_XtBhCz0O0"
+   ],
+   "collab_rows_flag": false
+  },
+  {
+   "handle": "skinvitality",
+   "region": "Multi-region",
+   "account_type": "chain (4 or more branches)",
+   "branches": 8,
+   "origin": "original_sample",
+   "cls": "C",
+   "in_window_rows": 0,
+   "rows": 0,
+   "evidence": "profile and post scrapers both returned \"Restricted profile\" (age gate); never a zero-post clinic",
+   "run": "DrWha9vGciJHRe8mP",
+   "dataset": "7j1dhFCoRIgiJaZNG",
+   "official_basis": [
+    "listing contact data"
+   ],
+   "placeIds": [
+    "ChIJLzJQq5wrK4gRsVl_ss1_Eu0",
+    "ChIJU5meCrhvK4gRWMPY-QiORe4",
+    "ChIJaTR2qmId1YkRBtUOf_zBEXI",
+    "ChIJh5nbOcdcK4gRPc46WDosphI",
+    "ChIJhw-qwOzf1IkRDQ4BE6gMsrQ",
+    "ChIJtde65K40K4gRFOx15AnXdrA",
+    "ChIJu2yvrRJGK4gRE5MXlT5yCag",
+    "ChIJxdQnYrphK4gRjajyvwQEidc"
+   ],
+   "collab_rows_flag": false
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "edition": "002",
+ "gaps": [
+  {
+   "handle": "mississauga.gracemed",
+   "region": "Peel",
+   "cls": "E",
+   "close_by": "profile re-check (apify/instagram-profile-scraper, 1 profile); if postsCount is 0 reclassify A, if posts exist run the post scraper for this one account with onlyPostsNewerThan 2026-07-17",
+   "est_usd": "0.0023 to 0.03 (estimate, 1 profile result, then at most about 12 post rows)",
+   "possible": true
+  },
+  {
+   "handle": "skinvitality",
+   "region": "Multi-region",
+   "cls": "C",
+   "close_by": "none possible with the public scrapers (age-gated, Restricted profile); stays shown as restricted",
+   "est_usd": 0,
+   "possible": false
+  }
+ ],
+ "general_limits": [
+  "Class B: rows under the 200 limit show no cap was hit but cannot prove the window was fully paged; the scraper filters by date so the oldest returned post cannot show the boundary.",
+  "Class A: evidence is the profile scraper latestPosts array (up to 12 posts) read the same day; it cannot show posts hidden from the scraper.",
+  "5 restricted_page error items came back without an inputUrl across the 5 pilot runs and cannot be attributed to an account; every one of the 50 has its own outcome, but a partial restriction cannot be ruled out.",
+  "No billed Apify figures exist; all costs are estimates.",
+  "The Apify account hit its billing-cycle usage limit during batch 16; any paid collection needs the founder to raise or reset it first."
+ ]
+}

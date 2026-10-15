@@ -1,0 +1,95 @@
+{
+ "edition": "002",
+ "source": "free get-dataset-items read of profile dataset 5vrqwBWwjGbgWWXto (run Zoi0DpoQSneBRv56E, started 2026-10-15T14:34Z), latestPosts timestamps only; no paid run",
+ "window_start": "2026-07-17",
+ "note": "latestPosts holds up to 12 newest posts the profile scraper returned; pinned posts listed first. No account in this list has a non-pinned post on or after 2026-07-17 in that array. Evidence is limited to those 12 posts.",
+ "accounts": {
+  "merakiskinclinic.ca": {
+   "postsCount": 82,
+   "newest_non_pinned": "2026-05-08",
+   "pinned_dates": [
+    "2023-04-27"
+   ],
+   "n_latest": 12
+  },
+  "dewbeaumedispa": {
+   "postsCount": 56,
+   "newest_non_pinned": "2026-04-17",
+   "pinned_dates": [
+    "2026-04-07",
+    "2026-04-11",
+    "2026-04-12"
+   ],
+   "n_latest": 12
+  },
+  "manasmedspa": {
+   "postsCount": 269,
+   "newest_non_pinned": "2026-04-22",
+   "pinned_dates": [],
+   "n_latest": 12
+  },
+  "mississauga.gracemed": {
+   "postsCount": null,
+   "newest_non_pinned": null,
+   "pinned_dates": [],
+   "n_latest": 0
+  },
+  "lavender_laser_and_beauty": {
+   "postsCount": 91,
+   "newest_non_pinned": "2026-06-05",
+   "pinned_dates": [],
+   "n_latest": 12
+  },
+  "jadlaserskinsolutions": {
+   "postsCount": 28,
+   "newest_non_pinned": "2025-03-29",
+   "pinned_dates": [],
+   "n_latest": 12
+  },
+  "skintek_skincare": {
+   "postsCount": 182,
+   "newest_non_pinned": "2025-12-02",
+   "pinned_dates": [],
+   "n_latest": 12
+  },
+  "revellemedspa": {
+   "postsCount": 0,
+   "newest_non_pinned": null,
+   "pinned_dates": [],
+   "n_latest": 0
+  },
+  "lunae_cosmetic_clinic": {
+   "postsCount": 287,
+   "newest_non_pinned": "2025-07-31",
+   "pinned_dates": [
+    "2024-06-19",
+    "2023-06-13"
+   ],
+   "n_latest": 12
+  },
+  "elanlaserspa": {
+   "postsCount": 370,
+   "newest_non_pinned": "2024-08-23",
+   "pinned_dates": [],
+   "n_latest": 12
+  },
+  "oakwood_health_network": {
+   "postsCount": 156,
+   "newest_non_pinned": "2025-03-07",
+   "pinned_dates": [],
+   "n_latest": 12
+  },
+  "whitbymedspa": {
+   "postsCount": 214,
+   "newest_non_pinned": "2026-06-30",
+   "pinned_dates": [],
+   "n_latest": 12
+  },
+  "loveyourfacenewcastle": {
+   "postsCount": 58,
+   "newest_non_pinned": "2023-07-02",
+   "pinned_dates": [],
+   "n_latest": 12
+  }
+ }
+}

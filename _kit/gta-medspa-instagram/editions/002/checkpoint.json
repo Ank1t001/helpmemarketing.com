@@ -48,5 +48,6 @@
    }
   }
  },
- "pilot_note": "2026-10-15: pilot only (50 accounts, 5 runs, 824 rows in work/posts_pilot.jsonl, not committed). posts_collected NOT done; profiles_verified pending (4 unresolved slots); rest of cohort (546 accounts) not launched."
+ "pilot_note": "2026-10-15: pilot only (50 accounts, 5 runs, 824 rows in work/posts_pilot.jsonl, not committed). posts_collected NOT done; profiles_verified pending (4 unresolved slots); rest of cohort (546 accounts) not launched.",
+ "scope_note": "2026-10-15 founder decision: edition 002 is a focused 50-account sample (existing pilot). 596-account collection stopped (scope_decision.json). Pilot reproduced; 49 of 50 pass eligibility, skinvitality is restricted (class C). Classes A12 B36 C1 D0 E1. posts_collected, scored, built, preview_published, data_saved remain NOT done. See scope_50_proposal.md."
 }
