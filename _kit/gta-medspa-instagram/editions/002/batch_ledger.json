@@ -13,7 +13,10 @@
    "status": "SUCCEEDED",
    "items": 326,
    "started": "2026-10-15T15:59:46Z",
-   "finished": "2026-10-15T16:00:45Z"
+   "finished": "2026-10-15T16:00:45Z",
+   "items_read": 327,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 0.752
   },
   {
    "batch": 2,
@@ -24,7 +27,10 @@
    "status": "SUCCEEDED",
    "items": 374,
    "started": "2026-10-15T16:01:35Z",
-   "finished": "2026-10-15T16:02:36Z"
+   "finished": "2026-10-15T16:02:36Z",
+   "items_read": 376,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 0.865
   },
   {
    "batch": 3,
@@ -35,7 +41,10 @@
    "status": "SUCCEEDED",
    "items": 427,
    "started": "2026-10-15T16:03:04Z",
-   "finished": "2026-10-15T16:04:09Z"
+   "finished": "2026-10-15T16:04:09Z",
+   "items_read": 432,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 0.994
   },
   {
    "batch": 4,
@@ -46,7 +55,10 @@
    "status": "SUCCEEDED",
    "items": 482,
    "started": "2026-10-15T16:04:27Z",
-   "finished": "2026-10-15T16:05:23Z"
+   "finished": "2026-10-15T16:05:23Z",
+   "items_read": 487,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 1.12
   },
   {
    "batch": 5,
@@ -57,7 +69,10 @@
    "status": "SUCCEEDED",
    "items": 381,
    "started": "2026-10-15T16:05:48Z",
-   "finished": "2026-10-15T16:06:52Z"
+   "finished": "2026-10-15T16:06:52Z",
+   "items_read": 382,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 0.879
   },
   {
    "batch": 6,
@@ -65,10 +80,13 @@
    "dataset_id": "Jcz27cmn6g6oQ7QbX",
    "accounts": 23,
    "cap_usd": 1.25,
-   "status": "SUCCEEDED",
+   "status": "SUCCEEDED / CAP REACHED (543 results)",
    "items": 537,
    "started": "2026-10-15T16:07:14Z",
-   "finished": "2026-10-15T16:08:18Z"
+   "finished": "2026-10-15T16:08:18Z",
+   "items_read": 543,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 1.249
   },
   {
    "batch": 7,
@@ -79,7 +97,10 @@
    "status": "SUCCEEDED",
    "items": 493,
    "started": "2026-10-15T16:08:51Z",
-   "finished": "2026-10-15T16:10:20Z"
+   "finished": "2026-10-15T16:10:20Z",
+   "items_read": 493,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 1.134
   },
   {
    "batch": 8,
@@ -90,7 +111,10 @@
    "status": "SUCCEEDED",
    "items": 251,
    "started": "2026-10-15T16:10:48Z",
-   "finished": "2026-10-15T16:11:55Z"
+   "finished": "2026-10-15T16:11:55Z",
+   "items_read": 252,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 0.58
   },
   {
    "batch": 9,
@@ -98,10 +122,13 @@
    "dataset_id": "vLxQVF2QqfRSUMcg9",
    "accounts": 23,
    "cap_usd": 1.25,
-   "status": "SUCCEEDED",
+   "status": "SUCCEEDED / CAP REACHED (543 results)",
    "items": 535,
    "started": "2026-10-15T16:12:14Z",
-   "finished": "2026-10-15T16:13:07Z"
+   "finished": "2026-10-15T16:13:07Z",
+   "items_read": 543,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 1.249
   },
   {
    "batch": 10,
@@ -112,7 +139,10 @@
    "status": "SUCCEEDED",
    "items": 395,
    "started": "2026-10-15T16:13:46Z",
-   "finished": "2026-10-15T16:14:48Z"
+   "finished": "2026-10-15T16:14:48Z",
+   "items_read": 396,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 0.911
   },
   {
    "batch": 11,
@@ -123,7 +153,10 @@
    "status": "SUCCEEDED",
    "items": 275,
    "started": "2026-10-15T16:15:14Z",
-   "finished": "2026-10-15T16:15:59Z"
+   "finished": "2026-10-15T16:15:59Z",
+   "items_read": 276,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 0.635
   },
   {
    "batch": 12,
@@ -134,7 +167,10 @@
    "status": "SUCCEEDED",
    "items": 245,
    "started": "2026-10-15T16:16:18Z",
-   "finished": "2026-10-15T16:17:03Z"
+   "finished": "2026-10-15T16:17:03Z",
+   "items_read": 334,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 0.768
   },
   {
    "batch": 13,
@@ -145,7 +181,10 @@
    "status": "SUCCEEDED",
    "items": 262,
    "started": "2026-10-15T16:17:38Z",
-   "finished": "2026-10-15T16:18:12Z"
+   "finished": "2026-10-15T16:18:12Z",
+   "items_read": 327,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 0.752
   },
   {
    "batch": 14,
@@ -156,7 +195,10 @@
    "status": "SUCCEEDED",
    "items": 241,
    "started": "2026-10-15T16:18:35Z",
-   "finished": "2026-10-15T16:19:05Z"
+   "finished": "2026-10-15T16:19:05Z",
+   "items_read": 327,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 0.752
   },
   {
    "batch": 15,
@@ -167,18 +209,26 @@
    "status": "SUCCEEDED",
    "items": 311,
    "started": "2026-10-15T16:20:38Z",
-   "finished": "2026-10-15T16:21:18Z"
+   "finished": "2026-10-15T16:21:18Z",
+   "items_read": 327,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 0.752
   },
   {
    "batch": 16,
-   "run_id": null,
-   "dataset_id": null,
+   "run_id": "To2hBPozftNyyf5Gk",
+   "dataset_id": "eHQCQTjpEYvEn5aw7",
    "accounts": 23,
    "cap_usd": 1.25,
-   "status": "REGISTERED_BEFORE_LAUNCH",
-   "items": null,
-   "started": null,
-   "finished": null
+   "status": "ABORTED (account billing-cycle usage limit)",
+   "items": 125,
+   "started": "2026-10-15T16:21:38Z",
+   "finished": "2026-10-15T16:22:05Z",
+   "items_read": 245,
+   "note": "items = run-record count at launch reply (lags); items_read = rows + error items read from the dataset afterwards",
+   "est_usd_from_items_read": 0.564
   }
- ]
+ ],
+ "stopped": "Apify aborted batch 16: account reached its maximum usage for the billing cycle. No further runs launched; nothing retried.",
+ "estimated_usd_row_based": 13.96
 }

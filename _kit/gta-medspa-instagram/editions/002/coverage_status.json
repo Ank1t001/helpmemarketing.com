@@ -54,8 +54,8 @@
  },
  "counts": {
   "a": 275,
-  "pending": 185,
-  "e": 91,
+  "pending": 162,
+  "e": 114,
   "d": 5,
   "b": 28,
   "c": 12
@@ -136,10 +136,17 @@
    "region": "York",
    "profile_posts_count": 806,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 1,
+   "in_window": 0,
+   "outside_rows": 1,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "sub": "run_aborted_usage_limit"
   },
   "a_medical_spa": {
    "region": "Toronto",
@@ -160,10 +167,17 @@
    "region": "York",
    "profile_posts_count": 598,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 0,
+   "in_window": 0,
+   "outside_rows": 0,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "sub": "run_aborted_usage_limit"
   },
   "admireaesthetics.ca": {
    "region": "Peel",
@@ -394,10 +408,18 @@
    "region": "Halton",
    "profile_posts_count": 321,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 36,
+   "in_window": 36,
+   "outside_rows": 0,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "flag": "includes collaboration posts owned by another account",
+   "sub": "run_aborted_usage_limit"
   },
   "anaesthetics.inc": {
    "region": "Toronto",
@@ -620,10 +642,17 @@
    "region": "York",
    "profile_posts_count": 147,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 0,
+   "in_window": 0,
+   "outside_rows": 0,
+   "batch": 16,
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
   },
   "avebelle_clinic": {
    "region": "Toronto",
@@ -685,10 +714,18 @@
    "region": "Toronto",
    "profile_posts_count": 217,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 8,
+   "in_window": 8,
+   "outside_rows": 0,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "flag": "includes collaboration posts owned by another account",
+   "sub": "run_aborted_usage_limit"
   },
   "ax_skin_vitality_med_spa": {
    "region": "York",
@@ -1735,10 +1772,17 @@
    "region": "York",
    "profile_posts_count": 60,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 0,
+   "in_window": 0,
+   "outside_rows": 0,
+   "batch": 16,
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
   },
   "dermavcos": {
    "region": "York",
@@ -1938,10 +1982,17 @@
    "region": "Halton",
    "profile_posts_count": 536,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 24,
+   "in_window": 24,
+   "outside_rows": 0,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "sub": "run_aborted_usage_limit"
   },
   "drwrinkleawayclinic": {
    "region": "York",
@@ -2257,10 +2308,18 @@
    "region": "Toronto",
    "profile_posts_count": 1312,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 24,
+   "in_window": 24,
+   "outside_rows": 0,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "flag": "includes collaboration posts owned by another account",
+   "sub": "run_aborted_usage_limit"
   },
   "everglowskinstudio.ca": {
    "region": "York",
@@ -2750,10 +2809,18 @@
    "region": "York",
    "profile_posts_count": 2069,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 22,
+   "in_window": 20,
+   "outside_rows": 2,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "flag": "includes collaboration posts owned by another account",
+   "sub": "run_aborted_usage_limit"
   },
   "glowingtouchbeautyclinic": {
    "region": "York",
@@ -2829,10 +2896,17 @@
    "region": "York",
    "profile_posts_count": 549,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 3,
+   "in_window": 1,
+   "outside_rows": 2,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "sub": "run_aborted_usage_limit"
   },
   "gowith_theglowmedspa": {
    "region": "Halton",
@@ -3292,10 +3366,17 @@
    "region": "Toronto",
    "profile_posts_count": 61,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 0,
+   "in_window": 0,
+   "outside_rows": 0,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "sub": "run_aborted_usage_limit"
   },
   "joymedicalcosmetics": {
    "region": "Durham",
@@ -3325,10 +3406,18 @@
    "region": "Toronto",
    "profile_posts_count": 287,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 5,
+   "in_window": 4,
+   "outside_rows": 1,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "flag": "includes collaboration posts owned by another account",
+   "sub": "run_aborted_usage_limit"
   },
   "kereer.medi": {
    "region": "York",
@@ -3644,10 +3733,18 @@
    "region": "Peel",
    "profile_posts_count": 1293,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 10,
+   "in_window": 9,
+   "outside_rows": 1,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "flag": "includes collaboration posts owned by another account",
+   "sub": "run_aborted_usage_limit"
   },
   "lavender_laser_and_beauty": {
    "region": "Toronto",
@@ -4398,10 +4495,18 @@
    "region": "York",
    "profile_posts_count": 250,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 6,
+   "in_window": 6,
+   "outside_rows": 0,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "flag": "includes collaboration posts owned by another account",
+   "sub": "run_aborted_usage_limit"
   },
   "merrionmedicalaesthetics": {
    "region": "Halton",
@@ -5294,10 +5399,17 @@
    "region": "Halton",
    "profile_posts_count": 92,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 0,
+   "in_window": 0,
+   "outside_rows": 0,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "sub": "run_aborted_usage_limit"
   },
   "oxygenglow": {
    "region": "York",
@@ -5713,10 +5825,18 @@
    "region": "Halton",
    "profile_posts_count": 417,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 19,
+   "in_window": 19,
+   "outside_rows": 0,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "flag": "includes collaboration posts owned by another account",
+   "sub": "run_aborted_usage_limit"
   },
   "refreshdermaclinic": {
    "region": "Halton",
@@ -5772,10 +5892,17 @@
    "region": "Peel",
    "profile_posts_count": 381,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 17,
+   "in_window": 17,
+   "outside_rows": 0,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "sub": "run_aborted_usage_limit"
   },
   "rejuvenatebypeakhuman": {
    "region": "Toronto",
@@ -6080,10 +6207,17 @@
    "region": "Halton",
    "profile_posts_count": 35,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 0,
+   "in_window": 0,
+   "outside_rows": 0,
+   "batch": 16,
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
   },
   "sadentrohealth": {
    "region": "Halton",
@@ -6759,10 +6893,17 @@
    "region": "Halton",
    "profile_posts_count": 938,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 32,
+   "in_window": 31,
+   "outside_rows": 1,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "sub": "run_aborted_usage_limit"
   },
   "solskin.spa": {
    "region": "Multi-region",
@@ -6988,10 +7129,17 @@
    "region": "York",
    "profile_posts_count": 100,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 7,
+   "in_window": 4,
+   "outside_rows": 3,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "sub": "run_aborted_usage_limit"
   },
   "sunandshade.medspa": {
    "region": "Halton",
@@ -7053,10 +7201,18 @@
    "region": "York",
    "profile_posts_count": 122,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 5,
+   "in_window": 3,
+   "outside_rows": 2,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "flag": "includes collaboration posts owned by another account",
+   "sub": "run_aborted_usage_limit"
   },
   "tamedicalspa": {
    "region": "Multi-region",
@@ -7299,10 +7455,17 @@
    "region": "Toronto",
    "profile_posts_count": 1440,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 23,
+   "in_window": 23,
+   "outside_rows": 0,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "sub": "run_aborted_usage_limit"
   },
   "thepurglow": {
    "region": "Halton",
@@ -7616,10 +7779,17 @@
    "region": "Halton",
    "profile_posts_count": 304,
    "profile_error": null,
-   "collected": false,
+   "collected": true,
    "pilot": false,
-   "state": "pending",
-   "label": "to collect"
+   "state": "e",
+   "label": "coverage not established",
+   "run": "To2hBPozftNyyf5Gk",
+   "rows": 0,
+   "in_window": 0,
+   "outside_rows": 0,
+   "batch": 16,
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected",
+   "sub": "run_aborted_usage_limit"
   },
   "victoriaparktoronto": {
    "region": "Toronto",
@@ -8109,6 +8279,65 @@
    "error_items_attributed": 1,
    "unattributed_error_items": 0,
    "unattributed_types": {}
+  },
+  "16": {
+   "run": "To2hBPozftNyyf5Gk",
+   "dataset_items": 245,
+   "rows": 242,
+   "error_items_attributed": 3,
+   "unattributed_error_items": 0,
+   "unattributed_types": {},
+   "aborted": true
   }
- }
+ },
+ "summary_by_region": {
+  "York": {
+   "a": 76,
+   "e": 34,
+   "pending": 41,
+   "b": 7,
+   "d": 1,
+   "c": 4
+  },
+  "Peel": {
+   "pending": 31,
+   "a": 39,
+   "e": 11,
+   "b": 3,
+   "c": 1
+  },
+  "Toronto": {
+   "a": 76,
+   "e": 34,
+   "pending": 38,
+   "d": 1,
+   "b": 10,
+   "c": 3
+  },
+  "Halton": {
+   "a": 29,
+   "pending": 29,
+   "e": 22,
+   "b": 3,
+   "c": 1,
+   "d": 1
+  },
+  "Durham": {
+   "a": 37,
+   "e": 10,
+   "pending": 14,
+   "c": 2,
+   "b": 3,
+   "d": 1
+  },
+  "Multi-region": {
+   "a": 18,
+   "pending": 9,
+   "e": 3,
+   "b": 2,
+   "d": 1,
+   "c": 1
+  }
+ },
+ "stopped": "Apify usage limit reached at batch 16; batches 17-23 not launched"
 }

@@ -1,0 +1,1700 @@
+{
+ "edition": "002",
+ "note": "accounts whose coverage is not established or not collected: d failed, e not established (sub says why), pending not launched",
+ "counts": {
+  "pending:None": 162,
+  "e:run_aborted_usage_limit": 23,
+  "e:run_hit_cap": 46,
+  "e:probable_no_in_window_posts": 43,
+  "d:None": 5,
+  "e:profile_posts_count_missing": 2
+ },
+ "accounts": {
+  "221degreeslaserclinicandspa": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "_theglamfactor": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "activateskin": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "aestheticscarelounge": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "agelessbeauty.brampton": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "agelesselegance_medspa": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "aglsmedicalclinic": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "allurelaserskinstudio": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "alluria_medspa": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "aloraskinclinic": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "alyssumcosmetic": {
+   "region": "Multi-region",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "amethystaesthetics_ca": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "amoreskinandwellnesscenter": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "annabellamedspa": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "artofsanbeauty": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "auralux.laser": {
+   "region": "York",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "aurifylaser": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "avadralaserstudio": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "avantcosmeticclinic": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "avebelle_clinic": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "avenue_skincare": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "avenueplastic": {
+   "region": "Durham",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "avivacosmeticandlaserclinic": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "ax_skin_vitality_med_spa": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "barebeautyclinics": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "beautiflymedispa": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "beautitudetoronto": {
+   "region": "York",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "beautyaesthetics.ca": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "beautyandwellness.to": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "beautybarclinics": {
+   "region": "Multi-region",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "beautyby_katia": {
+   "region": "Toronto",
+   "state": "d",
+   "sub": null,
+   "basis": "no rows and no error item for this account"
+  },
+  "beautyfairyrichmondhill": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "beautymed.spa": {
+   "region": "Multi-region",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "beautymed_richmondhill": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "beautyoneclinic": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "beautytox.med": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "bellairlaserclinic": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "bellalashandbeauty": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "biobeautemedspa": {
+   "region": "Peel",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "blossomskinboutique": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "body.tuned.by": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "bodyblissaesthetics": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "bodybritecanada": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "bodylanguageoshawa": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "boutiquemedicalaesthetics": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "boxxed_aesthetics_wellness": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "burlington.gracemed": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "calmwatersdayspa": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "canadamedlaser": {
+   "region": "Multi-region",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "canadiandermatology": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "clarityglow.medspa": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "clinic360": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "confidenceinsession": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "coreceutical": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "cosmedicalrejuvenationclinic": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "crystalderminc": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "dermacapitallaserclinic": {
+   "region": "Peel",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "dermadollstudio": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "dermapureerinmills": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "dermapuretorontoyorkville": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "dermatouch.ca": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "dermazone_medical_spa": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "dermis.co": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "donyamedicalspa": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "dranjaleegupta": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "dripinluxemedspa": {
+   "region": "Multi-region",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "driplabto": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "drwest_aesthetic": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "elanlaserspa": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "post scraper returned no_items (\"Empty or private data\"), which looks the same for no in-window posts and for hidden data; profile was public with 370 posts at profile check"
+  },
+  "elham_aesthetic_art": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "elitemdaesthetics": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "elitewellnessmedispa4u": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "eloquence_medical": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "enrichedmedspa": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "ertclinicvan": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "essence_laser": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "estheroasisspa": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "estheticswithelle": {
+   "region": "Peel",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "eternalbeautynbeyond": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "europeanbeautybyolga": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "everbeautyclinic": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "evergreenbeautybar": {
+   "region": "York",
+   "state": "d",
+   "sub": null,
+   "basis": "no rows and no error item for this account"
+  },
+  "exsalonce_": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "eyes2envylashes": {
+   "region": "Peel",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "face.by.vivaderm": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "faceharmony.beauty": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "faceinjectables": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "facesmedicalspa": {
+   "region": "Peel",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "fcpdermatology": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "fleur.aesthetics": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "foreverbeautymedspa": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "freshfacedbeautyrx": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "genesis_medi_clinic": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "genevamedspa": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "glammedispa": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "glolaserandskinstudio": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "gmaskinclinic": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "goldenpulselaser": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "gskindesire": {
+   "region": "Durham",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "gtamedicalcenter": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "halftimephysique": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "hermosamedspa": {
+   "region": "Multi-region",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "holisticbeautyuxbridge": {
+   "region": "Durham",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "honneteclinique": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "hotboycutegirl.med": {
+   "region": "York",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "houseofbeautybyjd": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "ideal_pampering_clinic": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "idluxurymedspa": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "ilabeautymedspa": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "injectionlounge": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "ipzu_wellness_centre": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "jadeclinics": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "jadlaserskinsolutions": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "post scraper returned no_items (\"Empty or private data\"), which looks the same for no in-window posts and for hidden data; profile was public with 28 posts at profile check"
+  },
+  "janerunsclinics": {
+   "region": "Multi-region",
+   "state": "d",
+   "sub": null,
+   "basis": "no rows and no error item for this account"
+  },
+  "jeunessecosmeticclinic": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "jivaspa": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "kaizen_medspa": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "katifaceinc": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "kereer.medi": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "kingswaydermatology": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "lacasadecontour": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "ladyjmedspa": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "lakesidemedicalaesthetics": {
+   "region": "Durham",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "lasair.medical": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "laserclinicnewmarket": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "laserclinicscanada": {
+   "region": "Multi-region",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "laserise_skincare": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "lasermed_canada": {
+   "region": "Multi-region",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "lasermedicalclinic": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "lashesandlipstickca": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "launiquelasercentre": {
+   "region": "Peel",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "lavender_laser_and_beauty": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "post scraper returned no_items (\"Empty or private data\"), which looks the same for no in-window posts and for hidden data; profile was public with 91 posts at profile check"
+  },
+  "lavishmedclinic": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "leaulaserandspa": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "lepamperroom": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "lesliemedspa": {
+   "region": "York",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "letthemnotice": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "lexxsthetics": {
+   "region": "Peel",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "liftclinictoronto": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "linadiminno": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "lipdoctorbeforeandafter": {
+   "region": "Multi-region",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "loveyourfacenewcastle": {
+   "region": "Durham",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "post scraper returned no_items (\"Empty or private data\"), which looks the same for no in-window posts and for hidden data; profile was public with 58 posts at profile check"
+  },
+  "lumiderm.aesthetic.clinic": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "luminamedispa": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "luxe_medspa.ca": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "luxebeautyandwellnessspa": {
+   "region": "Peel",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "lyfemedica": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "manasmedspa": {
+   "region": "York",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "post scraper returned no_items (\"Empty or private data\"), which looks the same for no in-window posts and for hidden data; profile was public with 269 posts at profile check"
+  },
+  "marketplacemedicalcentre": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "maryvalemedspa": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "mavivaspa": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "medspaandlaser": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "meitalstudios.beautycentre": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "meliora_medispa": {
+   "region": "York",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "melorinmedicalbeauty": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "merakibeautyspa": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "mernovmedispa": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "merrionmedicalaesthetics": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "midtownmedspatoronto": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "mississauga.gracemed": {
+   "region": "Peel",
+   "state": "e",
+   "sub": "profile_posts_count_missing",
+   "basis": "post scraper returned no_items (\"Empty or private data\"), which looks the same for no in-window posts and for hidden data; profile was public with None posts at profile check"
+  },
+  "modernmedispa": {
+   "region": "Durham",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "modernyoumedicalaesthetics": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "mvsmedicalaesthetics": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "mybestclinic": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "mysparituals": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "newdermamed": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "newmarket.laser.andskincare": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "newmclinic": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "newskin_laserclinic": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "novelle.aesthetics": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "novellomedicalaesthetics": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "nudabeautylab": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "nurse.injectorlisa": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "nurse_jacklyn": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "nursecheryl.ca": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "nurseinjector.alisha": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "nursemandiaesthetics": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "nursenatalie.medaesthetics": {
+   "region": "Durham",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "o.p.medspa": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "oakvilleflawlesscosmeticclinic": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "oakvillemedicalaesthetics": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "oakwood_health_network": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "post scraper returned no_items (\"Empty or private data\"), which looks the same for no in-window posts and for hidden data; profile was public with 156 posts at profile check"
+  },
+  "olenzabeautyloft": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "omorphi_aesthetics": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "onyxoakville": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "oreabeautyboutique": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "pariaesthetics": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "parklanemedaesthetics": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "perfection_cosmetic_clinic": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "philosophy.of.beauty": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "pinkavenueskincare": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "plumpitupp": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "posh_medical_spa": {
+   "region": "Multi-region",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "premium.clinic.toronto": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "pureradiance_aesthetics": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "radiance.skinclinic": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "ravnoor_medical_aesthetic": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "re_juvenation": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "real_sweet_treatments": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "refine_medicalaesthetics": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "refresh_cosmetics": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "refreshdermaclinic": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "refreshmd.spa": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "rejuv.canada": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "rejuvamedispabrampton": {
+   "region": "Peel",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "rejuvenatebypeakhuman": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "rejuvenmedspa": {
+   "region": "York",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "rejuvenusclinic.ca": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "renewalmedaesthetics": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "renewedbeautyinc": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "reveclinic.ca": {
+   "region": "Multi-region",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "revivalmedspa.oakville": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "riddhiskincarespa": {
+   "region": "Peel",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "rnrc.aesthetics": {
+   "region": "Durham",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "rnzmed": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "royalglowmed": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "ruyasaesthetics": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "sadentrohealth": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "salemmedicalaesthetics": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "sculpt.rx": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "sculpt_medispa": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "secretfacesclinic": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "shadesofskin.beautybar": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "sherlaseclinic": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "silkaesthetic_ca": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "simedispa": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "skin.beautyandbeyond": {
+   "region": "Halton",
+   "state": "d",
+   "sub": null,
+   "basis": "no rows and no error item for this account"
+  },
+  "skin6ix": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "skinandsoulxm": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "skinatomylaserclinic": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "skincarelasercentre": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "skinretreat.ca": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "skinstudiotoronto": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "skintek_skincare": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "post scraper returned no_items (\"Empty or private data\"), which looks the same for no in-window posts and for hidden data; profile was public with 182 posts at profile check"
+  },
+  "skn.beautycentre": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "sobya_skincare": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "soniacosmeticclinic": {
+   "region": "Multi-region",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "soulalaserclinic": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "spascanada.ca": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "spavaidosa": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "spectrum_of_beauty": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "springlaser": {
+   "region": "York",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "ssknfirm": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "star_skincare_studio": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "stillbeautyandmedspa": {
+   "region": "Durham",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "studionudetoronto": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "studiosvisavis": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "sugarmoonsalon": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "sumu.rehab.clinic": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "sundayaesthetics.ca": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "sunshinemedispa.sauga": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "syrinjainjectables": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "tailoredmedicalaesthetics": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "terraskinclinic": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "thedermclinic_official": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "thedripcoltd": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "thefacialplace": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "themdbeautyclinic": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "themdskinlab": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "thepurglow": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "theskinclubstudio": {
+   "region": "Peel",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "torontobeautyclinic": {
+   "region": "Toronto",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "tri.genics": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "trucare_cosmetic": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "truemedispa": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "unchainedbeauty.ca": {
+   "region": "York",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "unique.clinic": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "upkeep_skin_clinic": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "urbanbeauty.bar": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "vbeautystyle_": {
+   "region": "Toronto",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "velmontmedicalclinic": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "venice_cosmetic_clinic": {
+   "region": "York",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "venusmedicalspa_": {
+   "region": "Halton",
+   "state": "e",
+   "sub": "run_aborted_usage_limit",
+   "basis": "run aborted (\"You've reached the maximum usage for your current billing cycle\"); partial rows kept in the file but the account is not treated as collected"
+  },
+  "vitaluxemedclinic": {
+   "region": "Durham",
+   "state": "d",
+   "sub": null,
+   "basis": "no rows and no error item for this account"
+  },
+  "vivacitemedspa": {
+   "region": "Durham",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "vividcosmeticclinic": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "whealthylifeclinic": {
+   "region": "Halton",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  },
+  "whitbymedspa": {
+   "region": "Durham",
+   "state": "e",
+   "sub": "probable_no_in_window_posts",
+   "basis": "post scraper returned no_items (\"Empty or private data\"), which looks the same for no in-window posts and for hidden data; profile was public with 214 posts at profile check"
+  },
+  "woodbridgecosmeticlinic": {
+   "region": "York",
+   "state": "e",
+   "sub": "profile_posts_count_missing",
+   "basis": "no_items (\"Empty or private data\") ambiguous; profile public with posts"
+  },
+  "yorkrehabclinic": {
+   "region": "York",
+   "state": "e",
+   "sub": "run_hit_cap",
+   "basis": "run returned 543 results, the most a 1.25 USD cap allows at 0.0023 each; the run stopped at its cap, so this account may be truncated"
+  },
+  "zinacosmeticcentre": {
+   "region": "York",
+   "state": "pending",
+   "sub": null,
+   "basis": "to collect"
+  }
+ }
+}
