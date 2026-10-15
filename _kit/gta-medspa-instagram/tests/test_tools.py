@@ -273,5 +273,22 @@ class UsageReport(unittest.TestCase):
             shutil.rmtree(t)
 
 
+class Draft50(unittest.TestCase):
+    def test_draft_reconciles_and_has_no_ranking(self):
+        if not (KIT / "editions/002/source_posts_pilot.jsonl.gz").exists():
+            self.skipTest("no saved pilot records")
+        p = run([str(KIT / "build_50.py")])
+        self.assertEqual(p.returncode, 0, p.stderr)
+        f = json.loads((KIT / "editions/002/draft/draft_figures.json").read_text())
+        self.assertEqual((f["selected"], f["classes"], f["rows_returned"], f["rows_in_window"], f["rows_outside_window"]),
+                         (50, {"A": 12, "B": 36, "C": 1, "E": 1}, 824, 783, 41))
+        h = (KIT / "editions/002/draft/gta-medspa-index-50-draft.html").read_text()
+        self.assertNotRegex(h, "[\u2014\u2013]")
+        self.assertIn("<h1>50-account GTA medspa Instagram benchmark</h1>", h)
+        self.assertIn('content="noindex, nofollow"', h)
+        self.assertNotIn("FAQPage", h)
+        self.assertNotRegex(h[h.index('<div class="msi">'):], r'\sstyle=')
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
