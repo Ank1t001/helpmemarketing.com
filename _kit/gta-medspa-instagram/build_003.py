@@ -301,7 +301,11 @@ crumb = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListE
     {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE}/"},
     {"@type": "ListItem", "position": 2, "name": "Medspa Marketing Research", "item": f"{SITE}/medspa-marketing-research"},
     {"@type": "ListItem", "position": 3, "name": "Med Spa Index", "item": f"{SITE}/medspa-index"}]}
-LD = "\n".join(f'<script type="application/ld+json">\n{json.dumps(x, ensure_ascii=False, separators=(",", ":"))}\n</script>' for x in (crumb, article, dataset, faqld))
+# the snapshot's breadcrumb ends at the snapshot itself, as on the edition 002 snapshot
+snap_crumb = {**crumb, "itemListElement": crumb["itemListElement"] + [
+    {"@type": "ListItem", "position": 4, "name": "Edition 003", "item": f"{SITE}/medspa-index/edition-003"}]}
+LDS = {m: "\n".join(f'<script type="application/ld+json">\n{json.dumps(x, ensure_ascii=False, separators=(",", ":"))}\n</script>' for x in (c, article, dataset, faqld))
+       for m, c in (("page", crumb), ("snapshot", snap_crumb))}
 EXTRA = (HERE / "editions" / "003" / "head_extra.html").read_text().strip()
 
 
@@ -328,7 +332,7 @@ def make(shell, mode):
     s = re.sub(r'<script type="application/ld\+json">.*?</script>\n?', "", s, flags=re.S)
     gtm = "<!-- End Google Tag Manager -->\n"
     assert s.count(gtm) == 1, "the head must carry one GTM loader end marker"
-    s = s.replace(gtm, gtm + LD + "\n", 1)
+    s = s.replace(gtm, gtm + LDS["snapshot" if mode == "snapshot" else "page"] + "\n", 1)
     assert s.count("application/ld+json") == 4, "JSON-LD blocks not placed"
     s = re.sub(r"\n<!-- MSI003 START -->.*?<!-- MSI003 END -->", "", s, flags=re.S)
     s = sub1(r"</style></head>", "</style>\n<!-- MSI003 START -->\n" + EXTRA + "\n<!-- MSI003 END --></head>", s)
