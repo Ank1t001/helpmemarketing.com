@@ -60,6 +60,7 @@ ap.add_argument("--target", choices=["draft", "release"], default="draft")
 ap.add_argument("--published-at", help="release only: ISO 8601 time of the production deployment that first publishes edition 003")
 ap.add_argument("--modified-at", help="release only: ISO 8601 time with offset for dateModified")
 ap.add_argument("--modified-source", help="release only: deployment id and commit behind --modified-at")
+ap.add_argument("--hub-modified-at", help="release only: dateModified for /medspa-marketing-research; defaults to the recorded hub_modified_at, else --modified-at. Change it only when the hub's own content changes")
 args = ap.parse_args()
 if args.target == "release":
     assert args.published_at and args.modified_at and args.modified_source, "release needs --published-at, --modified-at and --modified-source"
@@ -387,13 +388,14 @@ if args.target == "release":
     else:
         snap.parent.mkdir(exist_ok=True)
         snap.write_text(make(out, "snapshot"))
-    hub = REPO / "medspa-marketing-research.html"  # the hub card describes edition 003, so its dates follow this release
+    hub = REPO / "medspa-marketing-research.html"  # the hub card describes edition 003; its dates move only when its own content changes
+    hub_mod = args.hub_modified_at or CFG.get("hub_modified_at") or args.modified_at
     h = hub.read_text()
-    h, k1 = re.subn(r'("dateModified":")[^"]*', lambda m: m.group(1) + args.modified_at, h, 1)
-    tor = long_date(dt.datetime.fromisoformat(args.modified_at.replace("Z", "+00:00")).astimezone(TZ).date())
+    h, k1 = re.subn(r'("dateModified":")[^"]*', lambda m: m.group(1) + hub_mod, h, 1)
+    tor = long_date(dt.datetime.fromisoformat(hub_mod.replace("Z", "+00:00")).astimezone(TZ).date())
     h, k2 = re.subn(r"(Published \d+ \w+ \d{4} &middot; Updated )\d+ \w+ \d{4}", lambda m: m.group(1) + tor, h, 1)
     assert k1 == 1 and k2 == 1, "research hub date markers not found"
     hub.write_text(h)
-    CFG.update({"status": "published", "published_at": args.published_at, "modified_at": args.modified_at, "modified_at_source": args.modified_source})
+    CFG.update({"status": "published", "published_at": args.published_at, "modified_at": args.modified_at, "modified_at_source": args.modified_source, "hub_modified_at": hub_mod})
     json.dump(CFG, open(ED / "edition_003.json", "w"), indent=1)
 print(f"PASS {args.target}: medspa-index.html ({len(out):,} bytes), {len(used)} tokens, {len(faq)} FAQ, CSVs in assets/index/medspa/")

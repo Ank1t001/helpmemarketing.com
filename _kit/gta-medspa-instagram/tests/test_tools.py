@@ -542,6 +542,9 @@ class Edition003(unittest.TestCase):
 
     def test_release_creates_snapshot_once(self):
         self.assertNotEqual(self.b("--target", "release").returncode, 0)  # needs recorded dates
+        (self.t / "medspa-index/edition-003.html").unlink(missing_ok=True)  # simulate the first release in the copy
+        e = self.k / "editions/003/edition_003.json"
+        d = json.loads(e.read_text()); d.pop("hub_modified_at", None); e.write_text(json.dumps(d))
         iso = "2026-10-20T15:00:00+00:00"
         p = self.b("--target", "release", "--published-at", iso, "--modified-at", iso, "--modified-source", "deployment dpl_x (commit abc)")
         self.assertEqual(p.returncode, 0, p.stderr)
@@ -557,6 +560,10 @@ class Edition003(unittest.TestCase):
         p = self.b("--target", "release", "--published-at", iso, "--modified-at", "2026-10-25T15:00:00+00:00", "--modified-source", "y")
         self.assertIn("snapshot kept as published", p.stdout)
         self.assertEqual((self.t / "medspa-index/edition-003.html").read_text(), first)
+        self.assertIn('"dateModified":"2026-10-25T15:00:00+00:00"', (self.t / "medspa-index.html").read_text())
+        hub = (self.t / "medspa-marketing-research.html").read_text()  # a page-only change leaves the hub's dates alone
+        self.assertIn("Updated 20 October 2026", hub)
+        self.assertIn('"dateModified":"' + iso + '"', hub)
 
 
 if __name__ == "__main__":
