@@ -1,3 +1,5 @@
+NOTE (2026-10-15, later): from edition 004 the page follows the "Five-account editions" rules at the end of this file. The rules in between describe edition 001 and its snapshot.
+
 NOTE (2026-10-15): the page is now the Med Spa Index at /medspa-index (edition 002 onward is a fixed 50-account study with no ranking; see build_50.py and ROUTINE_PROMPT_50.md). The rules below describe edition 001 and its snapshot at /gta-medspa-index/edition-001.
 
 # GTA MedSpa Index: editorial and layout rules (14 October 2026, revised the same evening for the research hub brief)
@@ -29,3 +31,14 @@ Exact scoreboard headings (the head script reads them): #, Clinic, Area, Score, 
 
 ## Metadata and snapshots
 Article (not Report) with author and publisher `@id`, image `/assets/index/gta-medspa/og.jpg`, no `datePublished`, `dateModified` from the recorded production deployment of the last content change. The Dataset block carries edition figures and is updated with each edition. Snapshots at `/gta-medspa-index/edition-NNN` (self canonical, one `noindex, follow`, not in the sitemap, never rewritten).
+
+
+## Five-account editions (004 onward)
+Approved model: the edition 003 page as revised on 15 October 2026 (standout cover frames, evidence-based wording, the SpaMedica takeaway and the same-age rule for tests, the Skin Vitality 21+ clarification). Structure is fixed in `template_five.html`; only `narrative.json` and `coding.json` change each month.
+- Header: kicker "The HMM Index · Instagram", H1 "Med Spa Index", lede naming the five brands; byline with the reporting window; livebar with the collection date and edition.
+- Sections, in order: What stood out (three findings, each with a denominator, one takeaway), Account comparison (table, definitions, services, caption mentions, Ad Library summary), One standout post per account (cover frame cards, crop note, notes for unreadable accounts), Account by account (What it published; Interpretation or Observed gap; Limitation; One test; takeaway), Patterns across the five (each with its exception, one takeaway), What a clinic owner could test (the same-age rule, then three tests tied to findings), Methodology and evidence, FAQ, About the researcher, Cite this research, Corrections, Edition history, help section.
+- Wording: observation first, interpretation labelled as mine, never a cause, a clinic's reason or bookings; a posting gap is stated with its dates and "the reason is not known from public data"; a play is a view; comments are not bookings; boosting cannot be seen; with three or fewer posts a median describes very little. An account Instagram will not show to the logged-out tools is described only by the saved reply (for Skin Vitality, the 21+ viewing restriction) and never counted as zero or inactive.
+- Takeaways: two or three short sentences with one specific team question or one test with a named measure read at a stated age (for example saves seven days after posting).
+- Comparison with the previous edition: allowed from edition 004, through prev.* tokens, worded as an observation for the same five accounts, never a trend.
+- Voice: first person singular ("I"), never "we", "our" or "us"; Canadian spelling; no em or en dashes; no pricing.
+- Metadata: as edition 003 (Article without datePublished, dateModified from the recorded production deployment, Dataset with this edition's CSVs, FAQPage from the visible FAQ, breadcrumb ending at the snapshot on the snapshot).

@@ -1,0 +1,132 @@
+{
+ "edition": "004",
+ "findings": [
+  {
+   "title": "Posting frequency split the {{w.p.readable}} readable accounts into two groups",
+   "text": "{{a.vit.brand}} published {{a.vit.posts_in_window}} posts and {{a.sig.brand}} {{a.sig.posts_in_window}} in the window. {{a.spa.brand}} published {{a.spa.posts_in_window}} and {{a.las.brand}} {{a.las.posts_in_window}}, although {{a.las.brand}} has the largest following of the readable accounts ({{a.las.followers}}). <b>Denominator:</b> all {{p.posts_all}} posts on the {{w.p.readable}} readable feeds in the window."
+  },
+  {
+   "title": "More reels did not mean more plays per reel",
+   "text": "{{a.vit.brand}} published {{a.vit.reels}} reels with a median of {{a.vit.median_plays}} recorded plays each; {{a.sig.brand}} published {{a.sig.reels}} with a median of {{a.sig.median_plays}}, about {{r.sig.vit.median_plays}} times higher. <b>Denominator:</b> own reels with a recorded play count, {{a.vit.reels_with_plays}} and {{a.sig.reels_with_plays}}."
+  },
+  {
+   "title": "Recognition posts drew the most likes where likes could be compared",
+   "text": "At {{a.sig.brand}} and {{a.spa.brand}} the most-liked post marked an award from a treatment manufacturer ({{s.sig.likes}} and {{s.spa.likes}} likes). <b>Denominator:</b> {{a.sig.own_posts}} and {{a.spa.own_posts}} own posts; two accounts is too few to call this a pattern."
+  }
+ ],
+ "findings_takeaway": "Follower count and reel count describe an account&rsquo;s size and output; in this group, neither lined up with plays or likes per post.",
+ "accounts": {
+  "vit": {
+   "blocks": [
+    [
+     "What it published",
+     "{{a.vit.posts_in_window}} posts: {{a.vit.reels}} reels and {{a.vit.carousels}} carousels."
+    ],
+    [
+     "Interpretation",
+     "In this window the account&rsquo;s posts centred on women&rsquo;s health."
+    ],
+    [
+     "Limitation",
+     "Likes were hidden on {{a.vit.likes_hidden}} of {{a.vit.own_posts}} posts."
+    ],
+    [
+     "One test",
+     "Run the same topic as two reels with different openings and compare saves at seven days."
+    ]
+   ],
+   "takeaway": "Ask your team to count direct messages per post as well as comments."
+  },
+  "sig": {
+   "blocks": [
+    [
+     "What it published",
+     "{{a.sig.own_posts}} own posts and {{a.sig.collab_posts}} collaboration post."
+    ],
+    [
+     "Interpretation",
+     "Reels had the highest median likes at this account: {{a.sig.median_likes_reel}}."
+    ],
+    [
+     "Limitation",
+     "Paid boosting cannot be seen in public data."
+    ],
+    [
+     "One test",
+     "Publish the next result as a reel and compare plays at seven days."
+    ]
+   ],
+   "takeaway": "Test a second format before producing more of one."
+  },
+  "las": {
+   "blocks": [
+    [
+     "What it published",
+     "One post in the window."
+    ],
+    [
+     "Observed gap",
+     "Before this reel, the previous post was on {{a.las.before1}}, {{a.las.gap_days}} days earlier. The reason is not known from public data."
+    ],
+    [
+     "Limitation",
+     "One post supports no conclusion."
+    ],
+    [
+     "One test",
+     "Publish weekly for eight weeks and compare profile visits."
+    ]
+   ],
+   "takeaway": "Ask your team whether any recent gap was planned."
+  },
+  "spa": {
+   "blocks": [
+    [
+     "What it published",
+     "{{a.spa.posts_in_window}} posts. The two posts before the window were on {{a.spa.before1}} and {{a.spa.before2}}."
+    ],
+    [
+     "Interpretation",
+     "With {{a.spa.own_posts}} posts, these counts cannot show which topic resonated."
+    ],
+    [
+     "Limitation",
+     "The median rests on {{w.a.spa.own_posts}} posts."
+    ],
+    [
+     "One test",
+     "Turn one consultation concern into a carousel and compare saves at seven days."
+    ]
+   ],
+   "takeaway": "Measure saves seven days after posting against your last carousels at the same age."
+  }
+ },
+ "patterns": [
+  {
+   "title": "Public conversation was thin everywhere",
+   "text": "Median comments per own post were between {{p.min_median_comments}} and {{p.max_median_comments}}. The most-commented post had {{p.max_comments}} comments ({{p.max_comments_acct}})."
+  },
+  {
+   "title": "Treatment posts were the largest content type",
+   "text": "{{p.t.treatment}} of {{p.own_posts}} own posts centred on a named treatment."
+  }
+ ],
+ "patterns_takeaway": "A quiet comment section alone says little about how a post did.",
+ "tests": [
+  {
+   "title": "Steady schedule versus your recent pattern (finding 1)",
+   "compare": "eight weeks at a fixed number of posts per week against the eight weeks before.",
+   "measure": "profile visits and website link taps."
+  },
+  {
+   "title": "Two openings for the same treatment reel (finding 2)",
+   "compare": "two reels a week apart.",
+   "measure": "plays at seven days against your own reel median."
+  },
+  {
+   "title": "Recognition posts against treatment explainers (finding 3)",
+   "compare": "pair each recognition post with an explainer in the same week.",
+   "measure": "likes, saves and messages at seven days."
+  }
+ ]
+}

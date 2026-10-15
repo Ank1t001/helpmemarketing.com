@@ -1,0 +1,123 @@
+<!-- Med Spa Index, five-account editions from 004: fixed page structure. build_five.py fills {{tokens}} from the data and {{BLOCK:...}} from the data and editions/NNN/narrative.json. Edit structure here only with the founder's approval; the monthly reading goes in narrative.json. -->
+<div class="wrap">
+<header><p class="kicker">The HMM Index &middot; Instagram</p><h1>Med Spa Index</h1><p class="lede">What five selected Ontario med spas posted on Instagram, the public response those posts received, and what another clinic could learn from it. A side-by-side reading of {{a.vit.brand}}, {{a.sig.brand}}, {{a.las.brand}}, {{a.skv.brand}} and {{a.spa.brand}}.</p>
+<div class="byline"><span><b>Reporting window</b> {{WSTART}} to {{WEND}}</span><span>For Ontario clinic owners reviewing their marketing.</span><span>Research and analysis by <b><a href="/about">Ankit Kumar</a></b> &middot; Founder, <a href="/">HMM</a></span></div>
+<div class="livebar"><span>Data collected <b>{{COLLECTED}}</b></span><span>Edition <b>{{EDITION}}</b></span></div></header>
+<nav class="ri-nav" aria-label="On this page"><a href="#ri-findings">What stood out</a><a href="#ri-table">Comparison</a><a href="#ri-standouts">Standout posts</a><a href="#ri-accounts">Each account</a><a href="#ri-patterns">Patterns</a><a href="#ri-tests">Tests to run</a><a href="#ri-method">Method</a></nav>
+
+<section id="ri-findings"><div class="sec-head"><h2>What stood out</h2>
+<p class="dek">Three findings from {{p.posts_all}} posts published on the {{w.p.readable}} accounts that could be read, over the {{WINDOW_DAYS}} days from {{WSTART_SHORT}} to {{WEND}}.{{BLOCK:UNREADABLE_DEK}}</p></div>
+{{BLOCK:FINDINGS}}
+</section>
+
+<section id="ri-table"><div class="sec-head"><h2>Account comparison</h2>
+<p class="dek">Five named accounts, the same window, the same collection. Select a column heading to sort; accounts that could not be read always stay at the bottom. On a phone, scroll the table sideways.</p></div>
+<p id="cmp-status" class="sr-only" aria-live="polite"></p>
+<div class="tw" tabindex="0" role="region" aria-label="Account comparison table, scrolls sideways"><table class="cmp" data-sortable data-status="cmp-status"><caption class="sr-only">Instagram activity of five selected Ontario med spa accounts, {{WSTART}} to {{WEND}}</caption>
+<thead><tr><th class="sortable" scope="col" data-text><button type="button" class="sort">Account</button></th><th class="sortable" scope="col" data-text><button type="button" class="sort">Locations</button></th><th class="sortable r" scope="col"><button type="button" class="sort">Followers</button></th><th class="sortable r" scope="col"><button type="button" class="sort">Posts in window</button></th><th class="sortable r" scope="col"><button type="button" class="sort">Reels / carousels / static</button></th><th class="sortable r" scope="col"><button type="button" class="sort">Median likes</button></th><th class="sortable r" scope="col"><button type="button" class="sort">Median comments</button></th><th class="sortable r" scope="col"><button type="button" class="sort">Median reel plays</button></th><th scope="col">Coverage</th></tr></thead><tbody>
+{{BLOCK:TABLE_ROWS}}
+</tbody></table></div>
+<p class="pnote"><b>Definitions.</b> Followers were captured on {{CAPTURE}}. Posts in window are every post on the feed published between {{WSTART}} and {{WEND}} (Toronto time), collaboration posts included. Format mix, likes, comments and plays use only posts the account published itself. Median likes use posts where likes were visible; hidden likes are left out, never counted as zero. Median reel plays use own reels with a recorded play count. Sorting by format mix sorts by reels. There is no score and no rank, and with three or fewer posts a median describes very little.</p>
+<h3>Services listed on each brand&rsquo;s website</h3>
+<p class="dek">Secondary context, checked on the official websites on {{SERVICES_CHECKED}}. A listed service says nothing about whether it was promoted on Instagram, and one location&rsquo;s menu may not apply to every location. Each entry links to its source.</p>
+<div class="tw" tabindex="0" role="region" aria-label="Services table, scrolls sideways"><table class="svc"><thead><tr><th scope="col">Brand</th><th scope="col">Injectables</th><th scope="col">RF microneedling</th><th scope="col">Body contouring</th><th scope="col">Medical weight loss</th><th scope="col">Laser hair removal</th><th scope="col">IV therapy</th></tr></thead><tbody>
+{{BLOCK:SERVICE_ROWS}}
+</tbody></table></div>
+<p class="pnote">Across the {{p.own_posts}} own posts in the window, captions named injectables in {{m.injectables}}, RF microneedling devices in {{m.rf_microneedling}}, body contouring treatments in {{m.body_contouring}}, a weight loss medication in {{m.medical_weight_loss}}, laser hair removal in {{m.laser_hair_removal}} and IV therapy in {{m.iv_therapy}}. {{BLOCK:ADLIB_SUMMARY}}</p>
+</section>
+
+<section id="ri-standouts"><div class="sec-head"><h2>One standout post per account</h2>
+<p class="dek">The rule: the own post with the most visible likes in the window. Where likes were hidden on some posts, the own reel with the most recorded plays is shown instead, and the rule used is named. Each card shows the post&rsquo;s cover frame as Instagram returned it with the post record, saved and hosted here; the visual notes describe that cover frame only, which I reviewed. Videos and later carousel slides were not reviewed.</p></div>
+{{BLOCK:STANDOUTS}}
+</section>
+
+<section id="ri-accounts"><div class="sec-head"><h2>Account by account</h2>
+<p class="dek">For each account: what it published, my interpretation, a limitation or another explanation, and one test. Observations come from the posts; interpretations are mine and are labelled as such. None of these clinics is an HMM client.</p></div>
+{{BLOCK:ACCOUNTS}}
+</section>
+
+<section id="ri-patterns"><div class="sec-head"><h2>Patterns across the five</h2>
+<p class="dek">Only patterns the data supports, with their exceptions. None of them shows cause and effect.</p></div>
+{{BLOCK:PATTERNS}}
+</section>
+
+<section id="ri-tests"><div class="sec-head"><h2>What a clinic owner could test</h2>
+<p class="dek">Three proposed experiments, each tied to a finding above. These are suggestions to discuss with your team, not results.</p></div>
+<div class="card"><p class="pnote mb12"><b>Compare posts at the same age.</b> Likes, plays, saves and shares keep growing after a post goes out, so read each post&rsquo;s numbers at the same time after publication, for example seven days, in these tests and in the account tests above. Do not compare a one-day-old post with a month-old post; if the ages differ, record each post&rsquo;s age beside its numbers and name the difference when you compare.</p><ol class="tests">
+{{BLOCK:TESTS}}
+</ol>
+<p class="pnote m0">Want a second pair of eyes on your own account first? <a href="/contact?intent=review&amp;entry=research_gta_medspa#contact-form" data-review-cta="research_gta_medspa">Get my free marketing review</a>.</p></div>
+</section>
+
+<section id="ri-method"><div class="sec-head"><h2>Methodology and evidence</h2>
+<p class="dek">Everything behind the figures above, in expandable sections.</p></div>
+<section><details class="ri-adv"><summary>Why these five accounts</summary>
+<p>The five are an editorial selection of Ontario med spa brands with public Instagram accounts, chosen by HMM to compare a mix of single-location and multi-location clinics. They are not the five best clinics, not a random sample and not the market. Each account was confirmed through a link on the brand&rsquo;s own website, and the principal brand account was used, not practitioner accounts.</p>
+<div class="tw" tabindex="0" role="region" aria-label="Accounts and verification, scrolls sideways"><table><thead><tr><th scope="col">Brand</th><th scope="col">Instagram</th><th scope="col">Official website</th><th scope="col">Locations</th><th scope="col">Verification</th></tr></thead><tbody>
+{{BLOCK:ACCOUNT_ROWS}}
+</tbody></table></div></details></section>
+<section><details class="ri-adv"><summary>Window, collection and completeness</summary>
+<p><b>Window.</b> The most recent {{WINDOW_DAYS}} complete calendar days before collection, Toronto time: {{WSTART}} to {{WEND}}, both days included.</p>
+<p><b>Collection.</b> On {{COLLECTED}}, follower counts came from the Apify Instagram profile scraper and posts from the Apify Instagram scraper, all five accounts in the same run, with up to {{x.results_limit}} recent posts per account and no date filter. The post run returned {{x.records}} records. Run caps totalled {{x.caps}} USD; no run reached its cap.</p>
+<p><b>Completeness.</b> For each readable account, the oldest unpinned post returned was published before {{WSTART}}, so the window was covered back to its start. Older pinned posts were excluded by their publication date; a post pinned but published inside the window stays in.{{BLOCK:UNATTRIBUTED}}</p></details></section>
+<section><details class="ri-adv"><summary>Definitions and formulas</summary>
+<ul>
+<li><b>Own post.</b> A post where the cohort account is the recorded owner. A collaboration post owned by another account is counted in posts in window but not in format, likes, comments or plays, so no post is counted twice.{{BLOCK:SHARED}}</li>
+<li><b>Median visible likes.</b> The median of likes on own posts where Instagram showed the count. Hidden likes are excluded and shown as a coverage note (likes visible on N of M posts).</li>
+<li><b>Median comments.</b> The median of comment counts on own posts.</li>
+<li><b>Median reel plays.</b> The median of the recorded play count on own reels. A play is a view, not a unique person.</li>
+<li><b>Times the median.</b> A standout post&rsquo;s likes (or plays) divided by the account&rsquo;s median likes (or plays), rounded to one decimal.</li>
+<li><b>Not used.</b> No likes-per-follower rate, composite score, weighting or rank: with {{w.p.min_posts}} to {{w.p.max_posts}} posts per account, they would suggest more precision than the data has.</li>
+<li><b>Caption mentions.</b> A caption names a service category if it contains any of these words: {{m.words}}.</li>
+</ul></details></section>
+<section><details class="ri-adv"><summary>Collaborations, missing data and what is not measured</summary>
+<p><b>Collaborations.</b> {{BLOCK:COLLABS}}</p>
+<p><b>Missing data.</b> {{BLOCK:MISSING}}</p>
+<p><b>Not measured.</b> Website quality, search rankings, reviews, regulatory matters, ad spend, paid distribution, leads, consultations and revenue. Engagement is not bookings.</p></details></section>
+<section><details class="ri-adv"><summary>Meta Ad Library check</summary>
+<p>{{BLOCK:ADLIB_TEXT}}</p>
+<ul>
+{{BLOCK:ADLIB_ROWS}}
+</ul></details></section>
+<section><details class="ri-adv"><summary>Content coding, AI assistance and human review</summary>
+<p>Each post was given one content type (treatment, offer or event, recognition, team and people, greeting, results or patient story, trend or third-party content, brand message, product) and one topic, from its caption and cover image. The coding and first draft of this page were prepared with AI assistance (Claude, by Anthropic) and every figure is computed by code from the saved records. Before publication, Ankit Kumar reviews the coding, the standout posts and the wording.</p>
+<p><b>Dataset.</b> Download the posts (<a href="/assets/index/medspa/medspa-index-edition-{{EDITION}}-posts.csv">CSV</a>) and the account summary (<a href="/assets/index/medspa/medspa-index-edition-{{EDITION}}-accounts.csv">CSV</a>) behind this edition. Captions are not included; each row links to its post.</p></details></section>
+<section id="ri-faq"><h3>Questions readers ask</h3>
+<details class="ri-adv faq"><summary>Which med spas are in the Med Spa Index?</summary>
+<p>This edition compares five selected Ontario med spa brands: {{a.vit.brand}}, {{a.sig.brand}}, {{a.las.brand}}, {{a.skv.brand}} and {{a.spa.brand}}.{{BLOCK:UNREADABLE_FAQ}}</p></details>
+<details class="ri-adv faq"><summary>Does the Med Spa Index rank clinics?</summary>
+<p>No. It compares public Instagram activity on a few measures, each with its own coverage. There is no score, no rank and no claim about clinical quality.</p></details>
+<details class="ri-adv faq"><summary>Do likes, comments or reel plays show bookings?</summary>
+<p>No. They are public signals of attention. A play is a view, not a unique person, and none of these figures shows enquiries, consultations or revenue.</p></details>
+<details class="ri-adv faq"><summary>Can I compare this edition with earlier ones?</summary>
+<p>Only from edition 003 onward. Editions 003 and later re-collect the same five accounts with the same method over {{WINDOW_DAYS}} days, so they can be compared with care: post counts are small, and an account that cannot be read in one month leaves a gap, not a zero. Editions 001 and 002 studied different, larger sets of Greater Toronto Area accounts over 90-day windows, so differences from them are not changes in performance.</p></details>
+</section>
+<div class="grid2">
+<div class="card"><h4>About the researcher</h4>
+<p class="dek">Ankit Kumar is the founder of Help Me Marketing and works on performance marketing, conversion tracking and competitive research. He is a marketing researcher and practitioner, not a clinician, and none of these clinics is an HMM client. Through The HMM Index he analyses public marketing activity and explains its patterns and limits.</p>
+<p class="dek m0"><a href="/about">About Ankit</a> &middot; <a href="/work">Explore HMM&rsquo;s work</a> &middot; <a href="/realestate-index">Real Estate Index</a></p></div>
+<div class="card" id="ri-cite"><h4>Cite this research</h4>
+<p class="dek">Ankit Kumar, Help Me Marketing. <i>Med Spa Index</i> (The HMM Index). Edition {{EDITION}}. Window {{WSTART}} to {{WEND}}; data collected {{COLLECTED}}. <a href="https://helpmemarketing.com/medspa-index">https://helpmemarketing.com/medspa-index</a></p>
+<p class="dek m0">{{BLOCK:CITE_SNAPSHOT}} <a href="#ri-editions">Edition history</a></p></div></div>
+<section><details class="ri-adv"><summary>Corrections</summary>
+<p>If a figure, account or service entry is wrong, email <a href="mailto:Hello@helpmemarketing.com">Hello@helpmemarketing.com</a> with the link and the correction. Confirmed corrections are made on this page with a dated note; a published snapshot is never rewritten.</p>{{BLOCK:CORRECTIONS}}</details></section>
+<section id="ri-editions"><details class="ri-adv"><summary>Edition history</summary>
+<div class="tw" tabindex="0" role="region" aria-label="Edition history, scrolls sideways"><table><thead><tr><th scope="col">Edition</th><th scope="col">Dates</th><th scope="col">What it covered</th></tr></thead><tbody>
+{{BLOCK:HISTORY}}
+</tbody></table></div>
+<p class="pnote">This address shows the latest edition. Earlier editions keep their snapshots at fixed addresses.</p></details></section>
+</section>
+
+<section id="ri-help"><div class="sec-head"><h2>If you want your own account read this way</h2></div>
+<div class="card"><p class="dek m0">This comparison does not tell you how your clinic is doing. If you would like your own Instagram activity read against the same measures, <a href="/contact?intent=review&amp;entry=research_gta_medspa#contact-form" data-review-cta="research_gta_medspa">ask for a free marketing review</a>. Related services: <a href="/services/branding-social">Branding and social</a> and <a href="/services/analytics-attribution">Analytics and attribution</a>.</p></div></section>
+</div>
+<footer>
+<div class="about"><p><b>About this index.</b> The Med Spa Index is part of <b>The HMM Index</b> by Help Me Marketing. Edition {{EDITION}} compares the public Instagram activity of five selected Ontario med spa accounts from {{WSTART}} to {{WEND}}. It is not a ranking and does not measure bookings or revenue.</p></div>
+<div class="byline-block">
+<p><b>Med Spa Index</b> &middot; an instance of <b>The HMM Index</b> by HMM &middot; built and reviewed by <b>Ankit Kumar</b>, Founder, HMM &middot; <a href="https://www.instagram.com/helpmemarketing1/" target="_blank" rel="noopener">@helpmemarketing1</a></p>
+<div class="socials"><a href="https://www.instagram.com/helpmemarketing1/" target="_blank" rel="noopener">Instagram</a>
+<a href="https://www.linkedin.com/company/helpmemarketing/" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://www.facebook.com/helpmemarketing1" target="_blank" rel="noopener">Facebook</a></div>
+<p>Data collected <b>{{COLLECTED}}</b> &middot; edition <b>{{EDITION}}</b></p>
+<p>Clinic names are used to report publicly available data and imply no relationship with Help Me Marketing.</p>
+</div></footer>

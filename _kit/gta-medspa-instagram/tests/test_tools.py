@@ -566,5 +566,131 @@ class Edition003(unittest.TestCase):
         self.assertIn('"dateModified":"' + iso + '"', hub)
 
 
+class Five(unittest.TestCase):
+    """Generic five-account pipeline (derive_five, build_five, check_live, export_five) on a sample edition 004 made from
+    edition 003's saved records, in a temporary copy of the repo. Real files are never touched."""
+    def setUp(self):
+        self.t = Path(tempfile.mkdtemp())
+        root = KIT.parent.parent
+        for rel in ("_kit/gta-medspa-instagram", "medspa-index", "gta-medspa-index", "medspa-index.html", "medspa-marketing-research.html",
+                    "hmm-index.html", "sitemap.xml", "assets/index/medspa"):
+            src, dst = root / rel, self.t / rel
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            (shutil.copytree(src, dst, ignore=shutil.ignore_patterns("work", "output", "__pycache__", "renders", "screens")) if src.is_dir() else shutil.copy(src, dst))
+        self.k = self.t / "_kit/gta-medspa-instagram"
+        e3, e4 = self.k / "editions/003", self.k / "editions/004"
+        e4.mkdir()
+        shutil.copytree(e3 / "raw", e4 / "raw")
+        for f in ("run_ledger.json", "services.json", "adlibrary.json"):
+            shutil.copy(e3 / f, e4 / f)
+        coh = json.loads((self.k / "cohort_five.json").read_text())
+        acc = {"edition": "004", "accounts": [dict(a, verification_date="2026-10-15") for a in coh["accounts"]]}
+        for a in acc["accounts"]:
+            a.pop("alias")
+        (e4 / "accounts.json").write_text(json.dumps(acc))
+        (e4 / "edition.json").write_text(json.dumps({"edition": "004", "status": "draft", "collected_on": "2026-10-15",
+                                                      "window": ["2026-09-15", "2026-10-14"], "window_days": 30, "timezone": "America/Toronto"}))
+        c = json.loads((e3 / "coding.json").read_text())
+        c.update(edition="004", standout_titles={k: "A sample title" for k in c["standout_visuals"]}, frame_crop={k: 0.5 for k in c["standout_visuals"]},
+                 literal_numbers={"21": "age limit", "2025": "award year quoted from a cover"})
+        (e4 / "coding.json").write_text(json.dumps(c))
+        f = json.loads((e3 / "frames.json").read_text())
+        f["edition"] = "004"
+        (e4 / "frames.json").write_text(json.dumps(f))
+        shutil.copy(KIT / "tests/fixtures/narrative_sample.json", e4 / "narrative.json")
+        self.e4 = e4
+
+    def tearDown(self):
+        shutil.rmtree(self.t)
+
+    def k_run(self, *a):
+        return run([str(self.k / a[0]), *a[1:]], cwd=self.k)
+
+    def test_derive_five_reproduces_edition_003(self):
+        p = self.k_run("derive_five.py", "--edition", "003")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        for rel in ("metrics.json", "observations.json"):
+            self.assertEqual((self.k / "editions/003" / rel).read_text(), (KIT / "editions/003" / rel).read_text(), rel)
+
+    def test_sample_edition_draft_release_record_and_check(self):
+        self.assertEqual(self.k_run("derive_five.py", "--edition", "004").returncode, 0)
+        p = self.k_run("build_five.py", "--edition", "004")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        page = (self.t / "medspa-index.html").read_text()
+        self.assertIn('<meta name="robots" content="noindex, nofollow">', page)
+        self.assertIn("Edition <b>004</b>", page)
+        self.assertIn('<td><b>003</b></td><td class="wrap-cell">Published 15 October 2026.', page)
+        self.assertIn('href="/medspa-index/edition-003">Snapshot</a>', page)
+        self.assertIn("Clarification, 15 October 2026.</b> Edition 003.", page)
+        self.assertNotIn("{{", page)
+        self.assertNotRegex(page, "[\u2014\u2013]")
+        self.assertGreaterEqual(page.count("21+ viewing restriction"), 8)  # page, FAQ data, table, notes and method
+        t0 = "2026-11-15T15:00:00-05:00"
+        p = self.k_run("build_five.py", "--edition", "004", "--target", "release", "--published-at", t0, "--modified-at", t0, "--modified-source", "provisional: release commit time")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        snap = (self.t / "medspa-index/edition-004.html").read_text()
+        self.assertIn('<meta name="robots" content="noindex, follow">', snap)
+        self.assertEqual(json.loads(re.search(r'<script type="application/ld\+json">\s*(\{.*?\})\s*</script>', snap, re.S).group(1))["itemListElement"][-1]["item"],
+                         "https://helpmemarketing.com/medspa-index/edition-004")
+        hub = (self.t / "medspa-marketing-research.html").read_text()
+        self.assertIn("Edition 004 covers 15 September to 14 October 2026 and re-collects", hub)
+        self.assertIn('href="/medspa-index/edition-003">Edition 003 snapshot</a>', hub)
+        self.assertIn("Edition 004, collected 15 October 2026", (self.t / "hmm-index.html").read_text())
+        self.assertIn("<lastmod>2026-11-15", (self.t / "sitemap.xml").read_text())
+        t1 = "2026-11-15T20:10:00.000+00:00"
+        p = self.k_run("build_five.py", "--edition", "004", "--target", "release", "--published-at", t1, "--modified-at", t1, "--modified-source", "deployment dpl_x (commit abc)")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        for f in ("medspa-index.html", "medspa-index/edition-004.html", "medspa-marketing-research.html"):
+            self.assertIn(f'"dateModified":"{t1}"', (self.t / f).read_text(), f)
+        self.assertIn("Metadata fix", (self.t / "medspa-index/edition-004.html").read_text())
+        self.assertEqual(self.k_run("build_five.py", "--edition", "004", "--check-live").returncode, 0)
+        self.assertNotEqual(self.k_run("build_five.py", "--edition", "004").returncode, 0)  # no draft over a published edition
+        p = self.k_run("check_live.py")
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        self.assertIn("edition 004", p.stdout)
+        (self.t / "medspa-index.html").write_text((self.t / "medspa-index.html").read_text().replace("Patterns across the five", "Patterns"))
+        self.assertNotEqual(self.k_run("check_live.py").returncode, 0)  # a hand edit to the live page is caught
+        self.assertEqual(self.k_run("export_five.py", "--edition", "004", "--status", "Published", "--commit", "abc").returncode, 0)
+
+    def bad(self, change, expect):
+        self.assertEqual(self.k_run("derive_five.py", "--edition", "004").returncode, 0)
+        change()
+        p = self.k_run("build_five.py", "--edition", "004")
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn(expect, p.stderr)
+
+    def narr(self, f):
+        n = json.loads((self.e4 / "narrative.json").read_text())
+        f(n)
+        (self.e4 / "narrative.json").write_text(json.dumps(n))
+
+    def test_typed_figure_is_refused(self):
+        self.bad(lambda: self.narr(lambda n: n["findings"][0].update(text=n["findings"][0]["text"] + " It posted 17 times.")), "typed by hand")
+
+    def test_we_is_refused(self):
+        self.bad(lambda: self.narr(lambda n: n.update(patterns_takeaway="We think this matters.")), "first person singular")
+
+    def test_missing_account_reading_is_refused(self):
+        self.bad(lambda: self.narr(lambda n: n["accounts"].pop("spa")), "readable accounts")
+
+    def test_unknown_token_is_refused(self):
+        self.bad(lambda: self.narr(lambda n: n.update(findings_takeaway="{{a.skv.median_likes}} likes.")), "has no value")
+
+    def test_stale_standout_note_is_refused(self):
+        def f():
+            c = json.loads((self.e4 / "coding.json").read_text())
+            c["standout_titles"].popitem()
+            (self.e4 / "coding.json").write_text(json.dumps(c))
+        self.bad(f, "standout_titles")
+
+    def test_cohort_cannot_change(self):
+        a = json.loads((self.e4 / "accounts.json").read_text())
+        a["accounts"][4]["handle"] = "someotherclinic"
+        (self.e4 / "accounts.json").write_text(json.dumps(a))
+        p = self.k_run("derive_five.py", "--edition", "004")
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn("never replace or add accounts", p.stderr)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
