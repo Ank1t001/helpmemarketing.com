@@ -126,3 +126,24 @@ Record errors and warnings for each URL. Errors need a fix through the GTA kit (
 ## 6. Report back
 
 Script: version number before and after, the `testLeadSources` log, and the `/exec` reply. GTM: the published version number. Rows A1 to A5 and B1 to B5 as pass or fail with what was seen. Rich Results: detected items, errors and warnings per URL.
+
+## 7. Service-click capture on normal navigation (diagnosis, 15 October 2026)
+
+Lab runs (headless Chromium against production, GTM container version 10, consent granted `gcs=G101`):
+
+- **Emission:** every link pushes exactly one `research_service_click` with the right `research_page` and `service`. That is 7 on the hub and 5 on the GTA page. The listener and payload are identical on both pages apart from `research_page`.
+- **Trigger and tag:** the published trigger is "event equals `research_service_click`", with no page condition. Tag 28 is a GA4 event to `G-RDN6JRS6NH` with both parameters, and it fires on both pages.
+- **Dispatch:** GA4 holds events in a batch for about 5 seconds. With the page held open, the hit leaves after about 5,015 ms and gets a 204. With an ordinary click, the next page commits after about 130 to 300 ms on both pages. GA4's request is then aborted at unload and GA4 issues its own fallback request (`gaf=1`) during unload. The page cannot observe the result of that fallback, so on both pages ordinary navigation depends on GA4's unload fallback.
+- **What would not help:** neither `eventCallback` nor `transport_type: 'beacon'` changes the 5-second batch. The callback fires after about 15 ms, when the hit is queued, not sent. Delaying navigation until the callback would add a wait without changing delivery.
+- **Unresolved:** why hub departures were missed while GTA departures arrived. Nothing measured differs between the pages: markup, listeners, payload, trigger, consent, commit timing and back/forward cache are the same. No website or GTM change is made until a test shows a difference.
+
+Chrome check, 5 runs per page, alternating hub and GTA, with the same link (`performance-marketing`):
+
+1. Open a new tab with DevTools. In Network, tick "Preserve log" and set the filter to `collect`. Open the GA4 property, then Admin, DebugView, and use Tag Assistant so the session is in debug mode.
+2. Load the page. Wait 5 seconds, scroll once, then click the link with an ordinary left click and let it navigate.
+3. On the next page, record:
+   - the Tag Assistant entry for `research_service_click`;
+   - the `collect` rows that contain `en=research_service_click`, with the status of the first row and of the `gaf=1` row (204, 503, canceled or pending);
+   - whether DebugView shows the event within 60 seconds.
+4. Run it once more with the page held: Ctrl or Cmd click, then wait 6 seconds.
+5. Report the pattern. If the hub's `gaf=1` row is missing while the GTA's is present, the cause is on the page. If both rows are present and only the hub misses DebugView, it is on delivery or receipt.
