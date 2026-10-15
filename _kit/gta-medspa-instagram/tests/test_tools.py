@@ -432,12 +432,16 @@ class Edition003(unittest.TestCase):
     def setUp(self):
         self.t = Path(tempfile.mkdtemp())
         root = KIT.parent.parent
-        for rel in ("_kit/gta-medspa-instagram", "gta-medspa-index", "medspa-index.html", "medspa-marketing-research.html", "assets/index/medspa"):
+        for rel in ("_kit/gta-medspa-instagram", "gta-medspa-index", "medspa-index", "medspa-index.html", "medspa-marketing-research.html", "assets/index/medspa"):
             src, dst = root / rel, self.t / rel
+            if not src.exists():
+                continue
             dst.parent.mkdir(parents=True, exist_ok=True)
             (shutil.copytree(src, dst, ignore=shutil.ignore_patterns("work", "output", "__pycache__", "renders", "screens")) if src.is_dir() else shutil.copy(src, dst))
         self.k = self.t / "_kit/gta-medspa-instagram"
         self.root = root
+        self.cfg = json.loads((KIT / "editions/003/edition_003.json").read_text())
+        self.published = self.cfg["status"] == "published"
 
     def tearDown(self):
         shutil.rmtree(self.t)
@@ -450,12 +454,18 @@ class Edition003(unittest.TestCase):
         self.assertEqual(p.returncode, 0, p.stderr)
         for rel in ("editions/003/metrics.json", "editions/003/observations.json"):
             self.assertEqual((self.k / rel).read_text(), (KIT / rel).read_text(), rel)
-        p = self.b()
+        c = self.cfg  # once published, the page is reproduced from the recorded release values
+        p = self.b("--target", "release", "--published-at", c["published_at"], "--modified-at", c["modified_at"], "--modified-source", c["modified_at_source"]) if self.published else self.b()
         self.assertEqual(p.returncode, 0, p.stderr)
-        self.assertIn("PASS draft", p.stdout)
-        for rel in ("medspa-index.html", "assets/index/medspa/medspa-index-edition-003-posts.csv", "assets/index/medspa/medspa-index-edition-003-accounts.csv"):
+        self.assertIn("PASS release" if self.published else "PASS draft", p.stdout)
+        for rel in ("medspa-index.html", "medspa-marketing-research.html", "assets/index/medspa/medspa-index-edition-003-posts.csv", "assets/index/medspa/medspa-index-edition-003-accounts.csv"):
             self.assertEqual((self.t / rel).read_text(), (self.root / rel).read_text(), rel)
-        self.assertFalse((self.t / "medspa-index/edition-003.html").exists())  # no snapshot before publication
+        snap = self.t / "medspa-index/edition-003.html"
+        if self.published:  # the snapshot is kept as published, never rewritten
+            self.assertIn("snapshot kept as published", p.stdout)
+            self.assertEqual(snap.read_text(), (self.root / "medspa-index/edition-003.html").read_text())
+        else:
+            self.assertFalse(snap.exists())  # no snapshot before publication
 
     def test_page_rules(self):
         h = (self.root / "medspa-index.html").read_text()
@@ -468,7 +478,14 @@ class Edition003(unittest.TestCase):
         self.assertEqual(body.count("What this means for your clinic"), 7)  # findings, five accounts, patterns
         for link in ("/realestate-index", "/about", "/work", "/services/branding-social", "/services/analytics-attribution"):
             self.assertIn(f'href="{link}"', body)
-        self.assertNotIn("Published 1", re.search(r"<td><b>003</b>.*?</tr>", body, re.S).group(0))  # no publication date while unpublished
+        hist = re.search(r"<td><b>003</b>.*?</tr>", body, re.S).group(0)
+        if self.published:
+            self.assertIn('<meta name="robots" content="index, follow', h)
+            self.assertIn('Published 15 October 2026. ', hist)
+            self.assertIn('href="/medspa-index/edition-003"', hist)
+        else:
+            self.assertIn('<meta name="robots" content="noindex, nofollow">', h)
+            self.assertNotIn("Published 1", hist)  # no publication date while unpublished
         lds = [json.loads(m) for m in re.findall(r'<script type="application/ld\+json">\s*(\{.*?\})\s*</script>', h, re.S)]
         types = [j["@type"] for j in lds]
         self.assertEqual(types, ["BreadcrumbList", "Article", "Dataset", "FAQPage"])
@@ -476,6 +493,14 @@ class Edition003(unittest.TestCase):
         self.assertEqual(art["headline"], "Med Spa Index")
         self.assertEqual((art["author"]["@id"], art["publisher"]["@id"]), ("https://helpmemarketing.com/about#ankit-kumar", "https://helpmemarketing.com/#organization"))
         self.assertNotIn("datePublished", art)
+        self.assertEqual(art.get("dateModified"), self.cfg["modified_at"] if self.published else None)
+        if self.published:
+            s = (self.root / "medspa-index/edition-003.html").read_text()
+            self.assertEqual(s.count('<meta name="robots"'), 1)
+            self.assertIn('<meta name="robots" content="noindex, follow">', s)
+            self.assertIn('<link rel="canonical" href="https://helpmemarketing.com/medspa-index/edition-003">', s)
+            crumb = json.loads(re.search(r'<script type="application/ld\+json">\s*(\{.*?\})\s*</script>', s, re.S).group(1))
+            self.assertEqual(crumb["itemListElement"][-1]["item"], "https://helpmemarketing.com/medspa-index/edition-003")
         faq_vis = [re.sub(r"<[^>]+>", "", q) for q in re.findall(r'<details class="ri-adv faq"><summary>(.*?)</summary>', body)]
         self.assertEqual([q["name"] for q in lds[3]["mainEntity"]], faq_vis)
         for d in lds[2]["distribution"]:
