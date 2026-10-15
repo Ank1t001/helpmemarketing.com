@@ -7,7 +7,7 @@
   "2026-10-15"
  ],
  "window_days": 90,
- "status": "release_candidate",
+ "status": "published",
  "schedule": {
   "day": 15,
   "time": "09:15",
@@ -17,8 +17,8 @@
  "roster": "cohort_50.json",
  "roster_built_at": "2026-10-15",
  "roster_status": "fixed 50-account cohort (cohort_50.json); roster.json (600) and roster_eligible.json (872) are background research, not collected further",
- "modified_at": null,
- "modified_at_source": null,
+ "modified_at": "2026-10-15T18:17:06.985000+00:00",
+ "modified_at_source": "Vercel production deployment dpl_BrNnsxcKRUJnbXhF5tHZxRDUGDJ2 (commit 5733dbf) ready time",
  "method": "edition 001: two collections, scoring code not kept. Edition 002: one collection of a fixed 50-account cohort, observed-data description only, built by build_50.py; score.py and build.py do not apply.",
  "dataset": {
   "@context": "https://schema.org",
@@ -50,7 +50,7 @@
  "scope": "selected 50-account observational study; no score, rank or leaderboard",
  "scoring": "not applicable",
  "next_scheduled_refresh_note": "not set: the stored scheduled task still carries the superseded 596-account prompt and must be updated to ROUTINE_PROMPT_50.md before its next fire",
- "published_at": null,
+ "published_at": "2026-10-15T18:17:06.985000+00:00",
  "counts": {
   "selected": 50,
   "posts_observed": 36,

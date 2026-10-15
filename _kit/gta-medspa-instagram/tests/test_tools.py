@@ -307,7 +307,9 @@ class ReleaseFiles(unittest.TestCase):
                 self.assertNotIn(stale, head)
             for m in re.finditer(r'<script type="application/ld\+json">\s*(\{.*?\})\s*</script>', h, flags=re.S):
                 j = json.loads(m.group(1))
-                self.assertNotIn("dateModified", j)  # recorded from the production deployment at publication
+                if j.get("@type") == "Article":  # recorded from the production deployment at publication, never guessed
+                    want = json.loads((KIT / "edition.json").read_text()).get("modified_at")
+                    self.assertEqual(j.get("dateModified"), want)
             self.assertIn("benchmark-50-og.jpg", h)
         for f in ("benchmark-50-og.jpg", "benchmark-50-hero.webp", "benchmark-50-hero-704.webp"):
             self.assertTrue((root / "assets/index/gta-medspa" / f).exists(), f)
@@ -316,7 +318,8 @@ class ReleaseFiles(unittest.TestCase):
         self.assertNotIn("edition-002", sm)
         self.assertTrue((root / "gta-medspa-index/edition-001.html").exists())
         ed = json.loads((KIT / "edition.json").read_text())
-        self.assertEqual((ed["edition"], ed["scoring"], ed["status"]), ("002", "not applicable", "release_candidate"))
+        self.assertEqual((ed["edition"], ed["scoring"]), ("002", "not applicable"))
+        self.assertIn(ed["status"], ("release_candidate", "published"))
 
 
 class BuildGuards(unittest.TestCase):
@@ -346,7 +349,9 @@ class BuildGuards(unittest.TestCase):
         f.write_text(json.dumps(d))
 
     def test_reproduces_committed_pages(self):
-        p = self.build("--edition", "002")
+        ed = json.loads((self.k / "edition.json").read_text())
+        extra = ["--modified-at", ed["modified_at"], "--modified-source", ed["modified_at_source"]] if ed.get("modified_at") else []
+        p = self.build("--edition", "002", *extra)
         self.assertEqual(p.returncode, 0, p.stderr)
         for rel in ("gta-medspa-index.html", "gta-medspa-index/edition-002.html"):
             self.assertEqual((self.t / rel).read_text(), (KIT.parent.parent / rel).read_text(), rel)
@@ -389,7 +394,7 @@ class BuildGuards(unittest.TestCase):
         self.assertIn('"datePublished":"2026-10-14T23:46:05+00:00"', hub)
         ed = json.loads((self.k / "edition.json").read_text())
         self.assertEqual(ed["modified_at"], iso)
-        self.assertIsNone(json.loads((KIT / "edition.json").read_text())["modified_at"])  # real file untouched
+        self.assertNotEqual(json.loads((KIT / "edition.json").read_text()).get("modified_at"), iso)  # real file untouched
 
 
 if __name__ == "__main__":
