@@ -5,7 +5,7 @@
 <nav class="ri-nav" aria-label="On this page"><a href="#ri-findings">What stood out</a><a href="#ri-table">Comparison</a><a href="#ri-standouts">Standout posts</a><a href="#ri-accounts">Each account</a><a href="#ri-patterns">Patterns</a><a href="#ri-tests">Tests to run</a><a href="#ri-method">Method</a></nav>
 
 <section id="ri-findings"><div class="sec-head"><h2>What stood out</h2>
-<p class="dek">Three findings from {{p.posts_all}} posts published on the four accounts that could be read, over the {{WINDOW_DAYS}} days from {{WSTART_SHORT}} to {{WEND}}. {{a.skv.brand}}&rsquo;s account was restricted and could not be read; it is shown, not analysed, and not treated as inactive.</p></div>
+<p class="dek">Three findings from {{p.posts_all}} posts published on the four accounts that could be read, over the {{WINDOW_DAYS}} days from {{WSTART_SHORT}} to {{WEND}}. When the logged-out collection tools requested {{a.skv.brand}}&rsquo;s profile, Instagram returned a 21+ viewing restriction, so it could not be read; it is shown, not analysed, and not treated as inactive.</p></div>
 <div class="card"><h3>1. Posting frequency split the four readable accounts into two groups</h3>
 <p class="dek">{{a.vit.brand}} published {{a.vit.posts_in_window}} posts and {{a.sig.brand}} {{a.sig.posts_in_window}} ({{a.sig.own_posts}} of its own plus {{a.sig.collab_posts}} collaboration post) in the window. {{a.spa.brand}} published {{a.spa.posts_in_window}} and {{a.las.brand}} {{a.las.posts_in_window}}, although {{a.las.brand}} has the largest following of the four readable accounts ({{a.las.followers}}). <b>Denominator:</b> all {{p.posts_all}} posts on the four readable feeds in the window; coverage reached the window start for all four.</p>
 <h3>2. More reels did not mean more plays per reel</h3>
@@ -69,7 +69,7 @@
 <a class="go" href="{{s.spa.url}}" target="_blank" rel="noopener">View the post on Instagram</a></div></div>
 </div>
 <p class="pnote">Frames are cropped to the same 4:5 shape, so the edges of taller covers are trimmed. {{a.spa.brand}}&rsquo;s cover was returned at a smaller size and is enlarged here, so it looks softer than the post.</p>
-<div class="note warn"><span class="lbl">{{a.skv.brand}}: no standout post</span><p>Instagram returned <a href="{{a.skv.ig}}" target="_blank" rel="noopener">{{a.skv.handle}}</a> as a restricted profile to the public collection tools, so no post, like, play or follower count could be read. Missing data is not zero: the account may have posted often in the window.</p></div>
+<div class="note warn"><span class="lbl">{{a.skv.brand}}: no standout post</span><p>Instagram returned a 21+ viewing restriction when the logged-out collection tools requested <a href="{{a.skv.ig}}" target="_blank" rel="noopener">{{a.skv.handle}}</a>, so no post, like, play or follower count could be read. Missing data is not zero, and nothing is inferred about how often the account posted.</p></div>
 </section>
 
 <section id="ri-accounts"><div class="sec-head"><h2>Account by account</h2>
@@ -97,10 +97,10 @@
 <div class="note take"><span class="lbl">What this means for your clinic</span><p>Post dates are visible to anyone who opens your profile. Ask your team whether any gap in the last six months was planned, and what the most recent posts on your grid show today.</p></div></div>
 
 <div class="card acct"><h3>{{a.skv.brand}} (<a href="{{a.skv.ig}}" target="_blank" rel="noopener">{{a.skv.handle}}</a>)</h3>
-<p class="dek"><b>What could be read.</b> Only the profile header: the account exists and is linked from the brand&rsquo;s website, which lists 14 Ontario clinics. Instagram returned it as a restricted profile, so posts, likes, plays and followers could not be collected by the public tools I used.</p>
-<p class="dek"><b>Interpretation.</b> None about its content. Instagram can restrict a profile by age, for example for regulated topics; whether that applies here, and whether it is deliberate, is not known.</p>
+<p class="dek"><b>What could be read.</b> Only the profile header: the account exists and is linked from the brand&rsquo;s website, which lists 14 Ontario clinics. Instagram returned a 21+ viewing restriction when the logged-out collection tools I used requested the profile (its reply: &ldquo;You must be 21 years old or over to see this profile&rdquo;), so posts, likes, plays and followers could not be collected.</p>
+<p class="dek"><b>Interpretation.</b> None about its content or how often it posts. The reason for the restriction is not known from public data.</p>
 <p class="dek m0"><b>Limitation.</b> The account was not replaced and is not counted as inactive. A future edition can include it only if its posts become readable to the same tools.</p>
-<div class="note take"><span class="lbl">What this means for your clinic</span><p>A hypothesis to check, not a finding: some account restrictions can hide posts from people who are not logged in or are outside a set age range. Ask your team whether your account has any age or region restriction turned on, and whether that was a deliberate choice.</p></div></div>
+<div class="note take"><span class="lbl">What this means for your clinic</span><p>Instagram returned a 21+ viewing restriction when our logged-out tools requested Skin Vitality&rsquo;s profile. Ask your team whether your clinic&rsquo;s viewing restrictions are intentional and appropriate for its services.</p></div></div>
 
 <div class="card acct"><h3>{{a.spa.brand}} (<a href="{{a.spa.ig}}" target="_blank" rel="noopener">{{a.spa.handle}}</a>)</h3>
 <p class="dek"><b>What it published.</b> {{a.spa.posts_in_window}} posts: the Galderma recognition reel, a Thanksgiving image and a carousel on not looking &ldquo;done&rdquo;. The two posts before the window were on {{x.spa_prev}} and {{x.spa_prev2}}.</p>
@@ -140,7 +140,7 @@
 <section><details class="ri-adv"><summary>Window, collection and completeness</summary>
 <p><b>Window.</b> The most recent {{WINDOW_DAYS}} complete calendar days before collection, Toronto time: {{WSTART}} to {{WEND}}, both days included.</p>
 <p><b>Collection.</b> On {{COLLECTED}}, follower counts came from the Apify Instagram profile scraper and posts from the Apify Instagram scraper, all five accounts in the same run, with up to 80 recent posts per account and no date filter. The post run returned {{x.records}} records. Run caps totalled {{x.caps}} USD; neither run reached its cap.</p>
-<p><b>Completeness.</b> For each readable account, the oldest unpinned post returned was published before {{WSTART}}, so the window was covered back to its start. Older pinned posts were excluded by their publication date; a post pinned but published inside the window stays in. {{x.unattributed}} records were errors without a post (the restricted profile and one restricted page not linked to any cohort account) and were set aside.</p></details></section>
+<p><b>Completeness.</b> For each readable account, the oldest unpinned post returned was published before {{WSTART}}, so the window was covered back to its start. Older pinned posts were excluded by their publication date; a post pinned but published inside the window stays in. {{x.unattributed}} records were errors without a post (the Skin Vitality profile, returned with a 21+ viewing restriction, and one restricted page not linked to any cohort account) and were set aside.</p></details></section>
 <section><details class="ri-adv"><summary>Definitions and formulas</summary>
 <ul>
 <li><b>Own post.</b> A post where the cohort account is the recorded owner. A collaboration post owned by another account is counted in posts in window but not in format, likes, comments or plays, so no post is counted twice. No post was shared between two cohort accounts.</li>
@@ -153,7 +153,7 @@
 </ul></details></section>
 <section><details class="ri-adv"><summary>Collaborations, missing data and what is not measured</summary>
 <p><b>Collaborations.</b> {{p.collab_posts}} collaboration post appeared on a readable feed in the window ({{a.sig.brand}}, owned by {{x.sig_collab_owner}}). No standout post was co-authored; two standout captions tag a manufacturer account; whether that tag brought views or likes from the manufacturer&rsquo;s followers is not shown by public counts.</p>
-<p><b>Missing data.</b> Hidden likes ({{p.likes_hidden}} own posts) and the restricted account are recorded as missing, never as zero.</p>
+<p><b>Missing data.</b> Hidden likes ({{p.likes_hidden}} own posts) and the account behind the 21+ viewing restriction are recorded as missing, never as zero.</p>
 <p><b>Not measured.</b> Website quality, search rankings, reviews, regulatory matters, ad spend, paid distribution, leads, consultations and revenue. Engagement is not bookings.</p></details></section>
 <section><details class="ri-adv"><summary>Meta Ad Library check</summary>
 <p>I tried to record each brand&rsquo;s active ads as limited context. The public Ad Library page needs JavaScript: a plain fetch was refused and a rendered fetch failed, so no advertiser identity or active ad status was recorded, and nothing about advertising is inferred.</p>
@@ -165,7 +165,7 @@
 <p><b>Dataset.</b> Download the posts (<a href="/assets/index/medspa/medspa-index-edition-003-posts.csv">CSV</a>) and the account summary (<a href="/assets/index/medspa/medspa-index-edition-003-accounts.csv">CSV</a>) behind this edition. Captions are not included; each row links to its post.</p></details></section>
 <section id="ri-faq"><h3>Questions readers ask</h3>
 <details class="ri-adv faq"><summary>Which med spas are in the Med Spa Index?</summary>
-<p>This edition compares five selected Ontario med spa brands: VitalityMD, Signature Cosmetic Clinic, Laserbody MD, Skin Vitality and SpaMedica. Skin Vitality&rsquo;s Instagram account was restricted and could not be read.</p></details>
+<p>This edition compares five selected Ontario med spa brands: VitalityMD, Signature Cosmetic Clinic, Laserbody MD, Skin Vitality and SpaMedica. Instagram returned a 21+ viewing restriction for Skin Vitality&rsquo;s profile to the logged-out collection tools, so it could not be read.</p></details>
 <details class="ri-adv faq"><summary>Does the Med Spa Index rank clinics?</summary>
 <p>No. It compares public Instagram activity on a few measures, each with its own coverage. There is no score, no rank and no claim about clinical quality.</p></details>
 <details class="ri-adv faq"><summary>Do likes, comments or reel plays show bookings?</summary>
@@ -181,7 +181,8 @@
 <p class="dek">Ankit Kumar, Help Me Marketing. <i>Med Spa Index</i> (The HMM Index). Edition 003. Window {{WSTART}} to {{WEND}}; data collected {{COLLECTED}}. <a href="https://helpmemarketing.com/medspa-index">https://helpmemarketing.com/medspa-index</a></p>
 <p class="dek m0">{{BLOCK:CITE_SNAPSHOT}} <a href="#ri-editions">Edition history</a></p></div></div>
 <section><details class="ri-adv"><summary>Corrections</summary>
-<p>If a figure, account or service entry is wrong, email <a href="mailto:Hello@helpmemarketing.com">Hello@helpmemarketing.com</a> with the link and the correction. Confirmed corrections are made on this page with a dated note; a published snapshot is never rewritten.</p></details></section>
+<p>If a figure, account or service entry is wrong, email <a href="mailto:Hello@helpmemarketing.com">Hello@helpmemarketing.com</a> with the link and the correction. Confirmed corrections are made on this page with a dated note; a published snapshot is never rewritten.</p>
+<p class="m0"><b>Clarification, 15 October 2026.</b> The Skin Vitality wording now names the restriction Instagram returned to the logged-out collection tools: viewing limited to people aged 21 and over, as recorded in the saved collection response of 15 October 2026. It replaces &ldquo;restricted profile&rdquo; and an earlier hypothesis about age settings. No figure or collection date changed, and the <a href="/medspa-index/edition-003">edition 003 snapshot</a> keeps the original wording.</p></details></section>
 <section id="ri-editions"><details class="ri-adv"><summary>Edition history</summary>
 <div class="tw" tabindex="0" role="region" aria-label="Edition history, scrolls sideways"><table><thead><tr><th scope="col">Edition</th><th scope="col">Dates</th><th scope="col">What it covered</th></tr></thead><tbody>
 <tr><td><b>003</b> (this page)</td><td class="wrap-cell">{{BLOCK:HISTORY_003}}</td><td class="wrap-cell">A deliberately selected comparison of five named Ontario med spa accounts over {{WINDOW_DAYS}} days. Not comparable with earlier editions.</td></tr>

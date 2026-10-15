@@ -200,7 +200,7 @@ for h, al in ALIAS.items():
     name = f'<td class="brandcell" data-v="{E(a["brand"])}"><a href="{a["instagram_url"]}" target="_blank" rel="noopener">{E(a["brand"])}</a><span class="handle">@{h}</span></td>'
     loc = f'<td data-v="{E(a["locations"])}">{E(a["locations"].capitalize())}</td>'
     if not m["accessible"]:
-        rows.append(f"<tr>{name}{loc}" + "".join(cell(None) for _ in range(6)) + '<td class="wrap-cell" data-v="z">Restricted profile: not readable</td></tr>')
+        rows.append(f"<tr>{name}{loc}" + "".join(cell(None) for _ in range(6)) + '<td class="wrap-cell" data-v="z">21+ viewing restriction: not readable</td></tr>')
         continue
     posts_txt = num(m["posts_in_window"]) + (f'<span class="cell-sub">{num(m["own_posts"])} own, {num(m["collab_posts"])} collaboration</span>' if m["collab_posts"] else "")
     mix = f'{num(m["reels"])} / {num(m["carousels"])} / {num(m["statics"])}'
@@ -350,6 +350,8 @@ mode = "live" if args.target == "release" else "draft"
 out = make(shell, mode)
 assert make(out, mode) == out, "the build is not idempotent"
 assert out.count("<h1") == 1
+if mode == "draft" and CFG.get("status") == "published":  # a draft build would turn the live page into a noindex draft
+    raise SystemExit("edition 003 is published: rebuild with --target release and the published_at, modified_at and modified_at_source recorded in editions/003/edition_003.json")
 PAGE.write_text(out)
 
 # ---- dataset CSVs (the actual current dataset behind the page) -------------------------------------
