@@ -2,8 +2,31 @@
  "edition": "001",
  "status": "draft",
  "timezone": "America/Toronto",
- "window_rule": "the last 30 complete calendar days in America/Toronto before the social collection date; computed by build.py from social.json collection_started_utc, or from the website collection time while social collection has not run",
+ "window": {
+  "start": "2026-09-16",
+  "end": "2026-10-15",
+  "timezone": "America/Toronto",
+  "days": 30,
+  "fixed_on": "2026-10-16",
+  "note": "Fixed for edition 001 (founder brief, 16 October 2026). The 30 complete days before the first collection date. A later rebuild or a later evidence pass must not move it; build.py uses these dates and checks that every collected post falls inside them and every collection happened after the end date."
+ },
+ "window_rule": "Fixed window recorded above. For later editions the rule is the last 30 complete calendar days in America/Toronto before the first collection date, written into edition.json when collection starts and never recomputed.",
  "snapshot_path": "/dental-index/edition-001",
+ "evidence_batches": [
+  {
+   "batch": "website-20261016",
+   "where": "raw/pages, raw/text, raw/fetch_log.jsonl",
+   "what": "Official clinic websites fetched by tools/fetch.py, 18:14 to 18:19 UTC on 16 October 2026"
+  },
+  {
+   "batch": "browser-20261016",
+   "where": "raw/browser-20261016",
+   "what": "Logged-out headless Chromium pass in the Claude Code cloud container, 18:50 to 19:13 UTC on 16 October 2026: blocked clinic sites, Meta Ad Library, Google Ads Transparency Center, Instagram profiles and posts, preview QA. Not the founder's Chrome."
+  }
+ ],
+ "reviewed_limitations": [],
+ "reviewed_limitations_note": "Founder-approved entries only, as {\"clinic\": alias, \"gap\": \"instagram_coverage\", \"approved_by\": name, \"date\": ISO}. An entry clears that one coverage gap in the release report; it never clears a core evidence gap.",
+ "forms_script_research_dental_deployed": false,
  "release_requirements": [
   "all five clinic websites reviewed live and identities confirmed (no clinic left as a lead only)",
   "Instagram posts collected for the window for every verified handle, or each gap recorded as a reviewed limitation",

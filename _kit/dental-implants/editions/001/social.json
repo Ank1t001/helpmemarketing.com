@@ -1,36 +1,336 @@
 {
  "edition": "001",
  "platform": "Instagram",
- "status": "not_collected",
- "collection_started_utc": null,
- "reason": "No authorised collection method for this study. Paid collection (Apify) is not authorised for the dental study, and a single logged-out request to https://www.instagram.com/studiobdental/ at 2026-10-16T18:19:18Z returned HTTP 429. No login, cookies or workaround were used.",
+ "schema": 2,
+ "status": "partial_sample",
+ "batch": "browser-20261016",
+ "collection_started_utc": "2026-10-16T19:10:39.683Z",
+ "method": "Logged-out headless Chromium: one load of each verified profile, then one load of each grid item dated inside the window. No login, cookies or paid collection. Not the founder's Chrome.",
+ "reason": "Partial sample. The two readable profiles showed a logged-out grid of 12 items that spans the window, but completeness was not confirmed against a logged-in view or a collector; @gajjardentistry was refused (HTTP 429); Dundas East Dental and Bond Street Dental have no verified handle. A first logged-out request on 2026-10-16T18:19:18Z had also been refused (HTTP 429).",
+ "public_reason": "Instagram evidence in this draft is an incomplete sample: nine posts observed on two accounts in a logged-out browser. The third account refused the request, and two clinics have no verified account yet. These are observed posts, not a complete record of what the accounts published, so no frequency or totals for the window are given.",
  "handles": {
   "studiob": {
    "handle": "studiobdental",
    "status": "verified_link",
-   "source_obs": "sb-ig"
+   "source_obs": "sb-ig",
+   "profile_checked_utc": "2026-10-16T19:10:39.683Z",
+   "profile_http": 200,
+   "note": "Display name on the profile is Charles Botbol; the bio links studiobdental.ca. The account is the one the clinic website links."
   },
   "nysc": {
    "handle": "northyork.smilecentre",
    "status": "verified_link",
-   "source_obs": "ny-ig"
+   "source_obs": "ny-ig",
+   "profile_checked_utc": "2026-10-16T19:10:52.424Z",
+   "profile_http": 200,
+   "note": "Bio names @mysmilecentre as head office and links smile-by-design.ca."
   },
   "gajjar": {
    "handle": "gajjardentistry",
    "status": "verified_link",
-   "source_obs": "gj-ig"
+   "source_obs": "gj-ig",
+   "profile_checked_utc": "2026-10-16T19:11:04.955Z",
+   "profile_http": 429
   },
   "dundas": {
    "handle": null,
    "status": "not_verified",
-   "reason": "Official website blocked automated access; handle not confirmed."
+   "reason": "Official website showed a \"VPN or Proxy Detected\" panel; no handle may be assumed."
   },
   "bond": {
    "handle": null,
    "status": "not_verified",
-   "reason": "Official website blocked automated access; handle not confirmed."
+   "reason": "Official website showed a Cloudflare security check; no handle may be assumed."
   }
  },
- "posts": [],
- "public_reason": "Instagram posts have not been collected for this draft. A logged-out request to Instagram on 16 October 2026 was refused, and I do not log in or work around access limits."
+ "coverage": {
+  "studiob": {
+   "status": "probable_not_confirmed",
+   "grid_items_visible": 12,
+   "posts_read": 4,
+   "basis": "The logged-out grid showed three items first that are older than the window (likely pinned), then items running from about 12 August to 30 September 2026 by dates estimated from post identifiers. The four items estimated inside the window were opened and their dates read from the post pages. No item estimated at 1 to 15 October appeared."
+  },
+  "nysc": {
+   "status": "probable_not_confirmed",
+   "grid_items_visible": 12,
+   "posts_read": 5,
+   "basis": "The logged-out grid ran from about 14 August to 1 October 2026 by dates estimated from post identifiers. The five items estimated inside the window were opened and their dates read from the post pages. No item estimated at 2 to 15 October appeared."
+  },
+  "gajjar": {
+   "status": "blocked",
+   "grid_items_visible": null,
+   "posts_read": 0,
+   "basis": "Profile request refused: HTTP 429 and a login redirect at 19:11 UTC on 16 October 2026; not retried."
+  },
+  "dundas": {
+   "status": "handle_not_verified",
+   "grid_items_visible": null,
+   "posts_read": 0,
+   "basis": "No verified handle."
+  },
+  "bond": {
+   "status": "handle_not_verified",
+   "grid_items_visible": null,
+   "posts_read": 0,
+   "basis": "No verified handle."
+  }
+ },
+ "posts": [
+  {
+   "shortcode": "DdbhpOgIMJE",
+   "url": "https://www.instagram.com/northyork.smilecentre/p/DdbhpOgIMJE/",
+   "clinic": "nysc",
+   "owner": "northyork.smilecentre",
+   "collaboration": "none_shown",
+   "format": "image_or_carousel",
+   "published_utc": "2026-09-18T13:18:51.000Z",
+   "published_basis": "the post page's <time datetime> value",
+   "observed_utc": "2026-10-16T19:13:24.409Z",
+   "caption_first_line": "Clear aligners only work when you wear them consistently. 🦷",
+   "topic": "Invisalign wear time",
+   "treatment": "invisalign",
+   "implant_relevance": "no",
+   "cta": "None in the caption",
+   "cover": "partly visible behind the sign-up prompt: \"MYTH OR FACT\" Invisalign card",
+   "analysis_basis": "caption and visible cover only; videos not watched",
+   "metrics": {
+    "likes": 2,
+    "comments": 0,
+    "plays": null,
+    "plays_status": "missing: not shown to a logged-out visitor",
+    "basis": "public counts at observation; post ages differ"
+   },
+   "ai_content_label": false,
+   "video_watched": false,
+   "screenshot": "raw/browser-20261016/shots/ig/DdbhpOgIMJE.png"
+  },
+  {
+   "shortcode": "DdrBZDBHDHg",
+   "url": "https://www.instagram.com/northyork.smilecentre/p/DdrBZDBHDHg/",
+   "clinic": "nysc",
+   "owner": "northyork.smilecentre",
+   "collaboration": "none_shown",
+   "format": "image_or_carousel",
+   "published_utc": "2026-09-24T13:44:52.000Z",
+   "published_basis": "the post page's <time datetime> value",
+   "observed_utc": "2026-10-16T19:13:13.764Z",
+   "caption_first_line": "Thinking about All-on-X dental implants? 🦷",
+   "topic": "All-on-X live webinar on 30 September with Dr. Rob Eisen",
+   "treatment": "implant_full_arch",
+   "implant_relevance": "yes",
+   "cta": "Register for the webinar",
+   "cover": "partly visible behind the sign-up prompt: \"UPCOMING LIVE WEBINAR\", \"ALL-ON-X DENTAL IMPLANTS\"",
+   "why": "An invitation to a live All-on-X webinar with Dr. Rob Eisen on 30 September at 8:00 PM Eastern Time, for people with multiple missing or failing teeth.",
+   "analysis_basis": "caption and visible cover only; videos not watched",
+   "metrics": {
+    "likes": 8,
+    "comments": 0,
+    "plays": null,
+    "plays_status": "missing: not shown to a logged-out visitor",
+    "basis": "public counts at observation; post ages differ"
+   },
+   "ai_content_label": false,
+   "video_watched": false,
+   "screenshot": "raw/browser-20261016/shots/ig/DdrBZDBHDHg.png"
+  },
+  {
+   "shortcode": "DdtiGIPlrNt",
+   "url": "https://www.instagram.com/northyork.smilecentre/reel/DdtiGIPlrNt/",
+   "clinic": "nysc",
+   "owner": "northyork.smilecentre",
+   "collaboration": "none_shown",
+   "format": "reel",
+   "published_utc": "2026-09-25T13:10:04.000Z",
+   "published_basis": "the post page's <time datetime> value",
+   "observed_utc": "2026-10-16T19:13:03.101Z",
+   "caption_first_line": "Can you get All-on-X if you already wear dentures? 🦷",
+   "topic": "All-on-X question: dentures and bone levels",
+   "treatment": "implant_full_arch",
+   "implant_relevance": "yes",
+   "cta": "Register for a free webinar",
+   "cover": "not visible, because the video did not load in the logged-out view",
+   "why": "An All-on-X question reel: the caption says people who already wear dentures may still be candidates and explains why bone levels matter, then invites registration for a free webinar.",
+   "analysis_basis": "caption and visible cover only; videos not watched",
+   "metrics": {
+    "likes": 6,
+    "comments": 0,
+    "plays": null,
+    "plays_status": "missing: not shown to a logged-out visitor",
+    "basis": "public counts at observation; post ages differ"
+   },
+   "ai_content_label": false,
+   "video_watched": false,
+   "screenshot": "raw/browser-20261016/shots/ig/DdtiGIPlrNt.png"
+  },
+  {
+   "shortcode": "Dd6dymzkcvJ",
+   "url": "https://www.instagram.com/northyork.smilecentre/p/Dd6dymzkcvJ/",
+   "clinic": "nysc",
+   "owner": "northyork.smilecentre",
+   "collaboration": "none_shown",
+   "format": "image_or_carousel",
+   "published_utc": "2026-09-30T13:41:40.000Z",
+   "published_basis": "the post page's <time datetime> value",
+   "observed_utc": "2026-10-16T19:12:52.364Z",
+   "caption_first_line": "Dental emergencies can happen when you least expect them. 🦷",
+   "topic": "Emergency dentistry",
+   "treatment": "emergency",
+   "implant_relevance": "no",
+   "cta": "Contact the clinic for an emergency appointment",
+   "cover": "partly visible behind the sign-up prompt: a person holding their jaw, emergency headline",
+   "analysis_basis": "caption and visible cover only; videos not watched",
+   "metrics": {
+    "likes": 3,
+    "comments": 0,
+    "plays": null,
+    "plays_status": "missing: not shown to a logged-out visitor",
+    "basis": "public counts at observation; post ages differ"
+   },
+   "ai_content_label": false,
+   "video_watched": false,
+   "screenshot": "raw/browser-20261016/shots/ig/Dd6dymzkcvJ.png"
+  },
+  {
+   "shortcode": "Dd9BwhfFG0x",
+   "url": "https://www.instagram.com/northyork.smilecentre/reel/Dd9BwhfFG0x/",
+   "clinic": "nysc",
+   "owner": "northyork.smilecentre",
+   "collaboration": "none_shown",
+   "format": "reel",
+   "published_utc": "2026-10-01T13:35:36.000Z",
+   "published_basis": "the post page's <time datetime> value",
+   "observed_utc": "2026-10-16T19:12:41.253Z",
+   "caption_first_line": "A smile that means so much. 🦷✨",
+   "topic": "Implant patient testimonial with Dr. Eisen",
+   "treatment": "implant",
+   "implant_relevance": "yes",
+   "cta": "Contact the clinic to book a consultation",
+   "cover": "not visible, because the video did not load in the logged-out view",
+   "why": "A patient testimonial reel in which, by the caption, a patient describes receiving implants from Dr. Eisen; the caption adds that outcomes vary and that a consultation decides which options suit a patient.",
+   "analysis_basis": "caption and visible cover only; videos not watched",
+   "metrics": {
+    "likes": 7,
+    "comments": 1,
+    "plays": null,
+    "plays_status": "missing: not shown to a logged-out visitor",
+    "basis": "public counts at observation; post ages differ"
+   },
+   "ai_content_label": false,
+   "video_watched": false,
+   "screenshot": "raw/browser-20261016/shots/ig/Dd9BwhfFG0x.png"
+  },
+  {
+   "shortcode": "DdrKB7AhD3b",
+   "url": "https://www.instagram.com/studiobdental/reel/DdrKB7AhD3b/",
+   "clinic": "studiob",
+   "owner": "studiobdental",
+   "collaboration": "none_shown",
+   "format": "reel",
+   "published_utc": "2026-09-24T15:00:20.000Z",
+   "published_basis": "the post page's <time datetime> value",
+   "observed_utc": "2026-10-16T19:12:30.573Z",
+   "caption_first_line": "The process ➡️ the transformation ✨🦷",
+   "topic": "Process and transformation; hashtags include implant surgery and porcelain veneers",
+   "treatment": "unclear",
+   "implant_relevance": "unclear",
+   "cta": "Bio link to book a complimentary consultation",
+   "cover": "not visible, because the video did not load in the logged-out view",
+   "analysis_basis": "caption and visible cover only; videos not watched",
+   "metrics": {
+    "likes": 13,
+    "comments": 2,
+    "plays": null,
+    "plays_status": "missing: not shown to a logged-out visitor",
+    "basis": "public counts at observation; post ages differ"
+   },
+   "ai_content_label": true,
+   "video_watched": false,
+   "screenshot": "raw/browser-20261016/shots/ig/DdrKB7AhD3b.png"
+  },
+  {
+   "shortcode": "DdsKsuVM8b4",
+   "url": "https://www.instagram.com/studiobdental/p/DdsKsuVM8b4/",
+   "clinic": "studiob",
+   "owner": "studiobdental",
+   "collaboration": "none_shown",
+   "format": "image_or_carousel",
+   "published_utc": "2026-09-25T00:27:39.000Z",
+   "published_basis": "the post page's <time datetime> value",
+   "observed_utc": "2026-10-16T19:12:19.602Z",
+   "caption_first_line": "⭐️⭐️⭐️⭐️⭐️",
+   "topic": "Patient testimonial; hashtags name zirconia implants",
+   "treatment": "implant",
+   "implant_relevance": "yes",
+   "cta": "Direct message to book a complimentary consultation",
+   "cover": "partly visible behind the sign-up prompt: a branded quote card headed \"REAL PATIENT. REAL RESULTS.\"",
+   "why": "The one post in the Studio B Dental sample whose caption is about implants: a patient testimonial tagged with zirconia implant hashtags, ending with a direct message prompt for a complimentary consultation.",
+   "analysis_basis": "caption and visible cover only; videos not watched",
+   "metrics": {
+    "likes": 9,
+    "comments": 3,
+    "plays": null,
+    "plays_status": "missing: not shown to a logged-out visitor",
+    "basis": "public counts at observation; post ages differ"
+   },
+   "ai_content_label": true,
+   "video_watched": false,
+   "screenshot": "raw/browser-20261016/shots/ig/DdsKsuVM8b4.png"
+  },
+  {
+   "shortcode": "Dd3yAGBBrsW",
+   "url": "https://www.instagram.com/studiobdental/reel/Dd3yAGBBrsW/",
+   "clinic": "studiob",
+   "owner": "studiobdental",
+   "collaboration": "none_shown",
+   "format": "reel",
+   "published_utc": "2026-09-29T12:42:33.000Z",
+   "published_basis": "the post page's <time datetime> value",
+   "observed_utc": "2026-10-16T19:12:08.275Z",
+   "caption_first_line": "POV: Dr. B says, “We’re filming content today.” 🎥",
+   "topic": "Behind the scenes at the clinic",
+   "treatment": "clinic_culture",
+   "implant_relevance": "no",
+   "cta": "None in the caption",
+   "cover": "not visible, because the video did not load in the logged-out view",
+   "analysis_basis": "caption and visible cover only; videos not watched",
+   "metrics": {
+    "likes": 16,
+    "comments": 1,
+    "plays": null,
+    "plays_status": "missing: not shown to a logged-out visitor",
+    "basis": "public counts at observation; post ages differ"
+   },
+   "ai_content_label": false,
+   "video_watched": false,
+   "screenshot": "raw/browser-20261016/shots/ig/Dd3yAGBBrsW.png"
+  },
+  {
+   "shortcode": "Dd6yzieDLQG",
+   "url": "https://www.instagram.com/studiobdental/p/Dd6yzieDLQG/",
+   "clinic": "studiob",
+   "owner": "studiobdental",
+   "collaboration": "none_shown",
+   "format": "image_or_carousel",
+   "published_utc": "2026-09-30T18:30:07.000Z",
+   "published_basis": "the post page's <time datetime> value",
+   "observed_utc": "2026-10-16T19:11:56.832Z",
+   "caption_first_line": "Rock 🪨 always beats scissors ✂️ —- cosmetic dentist edition.",
+   "topic": "Cosmetic dentist trend post",
+   "treatment": "veneers",
+   "implant_relevance": "no",
+   "cta": "None in the caption",
+   "cover": "partly visible behind Instagram's sign-up prompt: Studio B Dental branding and veneer text",
+   "analysis_basis": "caption and visible cover only; videos not watched",
+   "metrics": {
+    "likes": 13,
+    "comments": 3,
+    "plays": null,
+    "plays_status": "missing: not shown to a logged-out visitor",
+    "basis": "public counts at observation; post ages differ"
+   },
+   "ai_content_label": true,
+   "video_watched": false,
+   "screenshot": "raw/browser-20261016/shots/ig/Dd6yzieDLQG.png"
+  }
+ ]
 }

@@ -1,0 +1,1877 @@
+{
+ "schema": "hmm-dental-index-evidence/1",
+ "edition": "001",
+ "prepared_utc": "2026-10-16T19:16:20+00:00",
+ "research_window": {
+  "start": "2026-09-16",
+  "end": "2026-10-15",
+  "inclusive": true,
+  "timezone": "America/Toronto",
+  "note": "Fixed. Not moved forward."
+ },
+ "collector": {
+  "tool": "Headless Chromium (Playwright) in the Claude Code cloud container, through the container's outbound proxy",
+  "not": "Not the founder's Chrome; no logged-in session; no cookies exported; no paid collection; no form submitted; no challenge bypassed",
+  "one_attempt_rule": "Each URL loaded once; a refusal was recorded and not retried"
+ },
+ "status_vocabulary": {
+  "ads": [
+   "relevant_ads_observed",
+   "no_matching_ads_found",
+   "advertiser_uncertain",
+   "access_blocked",
+   "not_checked"
+  ],
+  "ads_definition": "relevant_ads_observed = ads whose advertiser or creative can be tied to the clinic under study (implant relevance and window are separate fields)",
+  "missing": "A hidden or unavailable metric is null with status missing, never zero"
+ },
+ "clinics": {
+  "studiob": {
+   "name": "Studio B Dental",
+   "domain": "studiobdental.ca",
+   "website_status": "reviewed 2026-10-16 18:14 to 18:19 UTC (prior run, kit fetch log)",
+   "address": [
+    {
+     "observation_id": "sb-addr",
+     "kind": "observed",
+     "excerpt": "27 Rean Dr #2, North York, ON M2K 0A6",
+     "source_url": "https://studiobdental.ca/",
+     "fetched_utc": "2026-10-16T18:14:31+00:00"
+    }
+   ],
+   "phone": {
+    "value": null,
+    "status": "missing",
+    "note": "Not recorded in edition 001 observations; not re-fetched in this task"
+   },
+   "implant_and_full_arch_urls": [
+    "https://studiobdental.ca/full-mouth-restoration/",
+    "https://studiobdental.ca/toronto-dental-implants/",
+    "https://studiobdental.ca/zirconia-dental-implants/"
+   ],
+   "consultation_offer_and_fee": [
+    {
+     "observation_id": "sb-consult-options",
+     "kind": "observed",
+     "excerpt": "Option 3: Virtual or In-office Complimentary Screening | 2nd Opinion - 30 minutes",
+     "source_url": "https://studiobdental.ca/dental-implants-toronto/",
+     "fetched_utc": "2026-10-16T18:15:30+00:00"
+    },
+    {
+     "observation_id": "sb-consult-credit",
+     "kind": "observed",
+     "excerpt": "Investment: $100 CREDITED towards YOUR FUTURE TREATMENT",
+     "source_url": "https://studiobdental.ca/dental-implants-toronto/",
+     "fetched_utc": "2026-10-16T18:15:30+00:00"
+    },
+    {
+     "observation_id": "sb-arch-screen",
+     "kind": "observed",
+     "excerpt": "Please Set up a Free Screening & Estimate with Dr. B",
+     "source_url": "https://studiobdental.ca/full-mouth-restoration/",
+     "fetched_utc": "2026-10-16T18:19:27+00:00"
+    }
+   ],
+   "cost": [
+    {
+     "observation_id": "sb-arch-fee",
+     "kind": "observed",
+     "excerpt": "FEE: from $17,900",
+     "source_url": "https://studiobdental.ca/full-mouth-restoration/",
+     "fetched_utc": "2026-10-16T18:19:27+00:00"
+    },
+    {
+     "observation_id": "sb-arch-phases",
+     "kind": "observed",
+     "excerpt": "PHASE 2: FINAL BRIDGE 4-12 MONTHS LATER",
+     "source_url": "https://studiobdental.ca/full-mouth-restoration/",
+     "fetched_utc": "2026-10-16T18:19:27+00:00"
+    },
+    {
+     "observation_id": "sb-single-range",
+     "kind": "observed",
+     "excerpt": "can range between $1,500 to $3,000 for a starting price",
+     "source_url": "https://studiobdental.ca/toronto-dental-implants/",
+     "fetched_utc": "2026-10-16T18:15:31+00:00"
+    },
+    {
+     "observation_id": "sb-full-range",
+     "kind": "observed",
+     "excerpt": "The typical costs for a full set of implants can range from $25,000 to $35,000.",
+     "source_url": "https://studiobdental.ca/toronto-dental-implants/",
+     "fetched_utc": "2026-10-16T18:15:31+00:00"
+    }
+   ],
+   "financing": [
+    {
+     "observation_id": "sb-finance",
+     "kind": "observed",
+     "excerpt": "Option 4: Low Interest Financing",
+     "source_url": "https://studiobdental.ca/financing/",
+     "fetched_utc": "2026-10-16T18:15:32+00:00"
+    }
+   ],
+   "enquiry_route_and_fields": [
+    {
+     "observation_id": "sb-form",
+     "kind": "observed",
+     "excerpt": "Full Face Smile pic Upload",
+     "source_url": "https://studiobdental.ca/",
+     "fetched_utc": "2026-10-16T18:14:31+00:00"
+    }
+   ],
+   "what_happens_next": [
+    {
+     "observation_id": "sb-next",
+     "kind": "claim",
+     "excerpt": "one of our experienced Studio B Dental team members will contact you shortly!",
+     "source_url": "https://studiobdental.ca/dental-implants-toronto/",
+     "fetched_utc": "2026-10-16T18:15:30+00:00"
+    }
+   ],
+   "instagram_link": [
+    {
+     "observation_id": "sb-ig",
+     "kind": "observed",
+     "excerpt": "https://www.instagram.com/studiobdental/",
+     "source_url": "https://studiobdental.ca/",
+     "fetched_utc": "2026-10-16T18:14:31+00:00"
+    }
+   ],
+   "cost_breakdown": {
+    "scope": "single, per arch and full mouth figures published on different pages (see cost refs)",
+    "materials": [
+     {
+      "observation_id": "sb-zirconia",
+      "kind": "observed",
+      "excerpt": "CeraRoot dental implants are 100% metal-free",
+      "source_url": "https://studiobdental.ca/zirconia-dental-implants/",
+      "fetched_utc": "2026-10-16T18:19:16+00:00"
+     }
+    ],
+    "temporary_vs_final": [
+     {
+      "observation_id": "sb-arch-phases",
+      "kind": "observed",
+      "excerpt": "PHASE 2: FINAL BRIDGE 4-12 MONTHS LATER",
+      "source_url": "https://studiobdental.ca/full-mouth-restoration/",
+      "fetched_utc": "2026-10-16T18:19:27+00:00"
+     }
+    ],
+    "inclusions_exclusions_conditions": {
+     "value": null,
+     "status": "missing",
+     "note": "Not separately recorded beyond the cost excerpts"
+    }
+   },
+   "new_evidence_this_task": [
+    "Meta ad 26002231369395543 states \"$17,990 PER ARCH\" with \"Final bridge (4–6 months later): $8,900\"; the website observation sb-arch-fee reads \"FEE: from $17,900\". Recorded as observed in two sources; not reconciled."
+   ]
+  },
+  "nysc": {
+   "name": "North York Smile Centre",
+   "domain": "smile-by-design.ca",
+   "website_status": "reviewed (prior run, kit fetch log)",
+   "identity": [
+    {
+     "observation_id": "ny-identity",
+     "kind": "observed",
+     "excerpt": "5 Park Home Ave #130, North York, ON M2N 6L4",
+     "source_url": "https://www.smile-by-design.ca/",
+     "fetched_utc": "2026-10-16T18:14:32+00:00"
+    }
+   ],
+   "phone": {
+    "value": null,
+    "status": "missing",
+    "note": "Not recorded in edition 001 observations"
+   },
+   "implant_and_full_arch_urls": [
+    "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+    "https://www.smile-by-design.ca/procedures/dental-implants/"
+   ],
+   "consultation_offer_and_fee": [
+    {
+     "observation_id": "ny-free",
+     "kind": "observed",
+     "excerpt": "REQUEST A FREE CONSULTATION",
+     "source_url": "https://www.smile-by-design.ca/",
+     "fetched_utc": "2026-10-16T18:14:32+00:00"
+    },
+    {
+     "observation_id": "ny-noobligation",
+     "kind": "observed",
+     "excerpt": "offers a no-obligation consultation",
+     "source_url": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "fetched_utc": "2026-10-16T18:15:34+00:00"
+    }
+   ],
+   "cost": [
+    {
+     "observation_id": "ny-single-range",
+     "kind": "observed",
+     "excerpt": "a single dental implant (including placement and crown) may range between $3,000 and $6,000",
+     "source_url": "https://www.smile-by-design.ca/procedures/dental-implants/",
+     "fetched_utc": "2026-10-16T18:15:33+00:00"
+    },
+    {
+     "observation_id": "ny-tiers",
+     "kind": "observed",
+     "excerpt": "Three Treatment Options and Transparent Pricing",
+     "source_url": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "fetched_utc": "2026-10-16T18:15:34+00:00"
+    },
+    {
+     "observation_id": "ny-tier-essential",
+     "kind": "observed",
+     "excerpt": "From $19,995",
+     "source_url": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "fetched_utc": "2026-10-16T18:15:34+00:00"
+    }
+   ],
+   "financing": [
+    {
+     "observation_id": "ny-tier-monthly",
+     "kind": "observed",
+     "excerpt": "From $400 / month*",
+     "source_url": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "fetched_utc": "2026-10-16T18:15:34+00:00"
+    },
+    {
+     "observation_id": "ny-finance",
+     "kind": "observed",
+     "excerpt": "Beautifi will pay us directly.",
+     "source_url": "https://www.smile-by-design.ca/financing/",
+     "fetched_utc": "2026-10-16T18:15:36+00:00"
+    }
+   ],
+   "enquiry_route_and_fields": [
+    {
+     "observation_id": "ny-form",
+     "kind": "observed",
+     "excerpt": "Preferred Date:",
+     "source_url": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "fetched_utc": "2026-10-16T18:15:34+00:00"
+    },
+    {
+     "observation_id": "nyx-req",
+     "kind": "observed",
+     "excerpt": "Book an appointment",
+     "source_url": "https://www.smile-by-design.ca/",
+     "fetched_utc": "2026-10-16T18:14:32+00:00"
+    }
+   ],
+   "what_happens_next": [
+    {
+     "observation_id": "ny-next",
+     "kind": "claim",
+     "excerpt": "Our team will confirm your request and schedule your appointment at a time that works for you.",
+     "source_url": "https://www.smile-by-design.ca/",
+     "fetched_utc": "2026-10-16T18:14:32+00:00"
+    }
+   ],
+   "instagram_link": [
+    {
+     "observation_id": "ny-ig",
+     "kind": "observed",
+     "excerpt": "https://www.instagram.com/northyork.smilecentre/",
+     "source_url": "https://www.smile-by-design.ca/",
+     "fetched_utc": "2026-10-16T18:14:32+00:00"
+    }
+   ],
+   "new_evidence_this_task": [
+    "Instagram bio of @northyork.smilecentre reads \"Head office @mysmilecentre\" (profile load 2026-10-16T19:10:52Z).",
+    "Instagram posts name Dr. Rob Eisen; the website names Dr. Rob Eisen and Dr. Jerry Jesin (kit raw text 1086bc682868)."
+   ]
+  },
+  "gajjar": {
+   "name": "Dr. Neil J. Gajjar Associates & Specialists",
+   "domain": "drgajjar.com",
+   "website_status": "reviewed (prior run, kit fetch log)",
+   "address": [
+    {
+     "observation_id": "gj-addr",
+     "kind": "observed",
+     "excerpt": "735 Twain Ave #16,",
+     "source_url": "https://www.drgajjar.com/",
+     "fetched_utc": "2026-10-16T18:14:33+00:00"
+    }
+   ],
+   "phone": {
+    "value": null,
+    "status": "missing",
+    "note": "Not recorded in observations. A Google ad creative (Optio Publishing Inc., last shown 31 May 2026) shows \"Call (905) 564-2021\"; that is ad evidence, not a website observation"
+   },
+   "implant_and_full_arch_urls": [
+    "https://www.drgajjar.com/dental-implants-all-on-x/"
+   ],
+   "consultation_offer_and_fee": [
+    {
+     "observation_id": "gj-consult",
+     "kind": "observed",
+     "excerpt": "schedule a consultation",
+     "source_url": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "fetched_utc": "2026-10-16T18:15:38+00:00"
+    }
+   ],
+   "cost": [
+    {
+     "observation_id": "gj-noprice",
+     "kind": "absence",
+     "excerpt": "",
+     "source_url": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "fetched_utc": "2026-10-16T18:15:38+00:00"
+    }
+   ],
+   "financing": {
+    "value": null,
+    "status": "missing"
+   },
+   "enquiry_route_and_fields": [
+    {
+     "observation_id": "gj-form",
+     "kind": "observed",
+     "excerpt": "Are you a new patient? * (required)",
+     "source_url": "https://www.drgajjar.com/appointment-request/",
+     "fetched_utc": "2026-10-16T18:15:38+00:00"
+    }
+   ],
+   "what_happens_next": [
+    {
+     "observation_id": "gj-nonext",
+     "kind": "absence",
+     "excerpt": "",
+     "source_url": "https://www.drgajjar.com/appointment-request/",
+     "fetched_utc": "2026-10-16T18:15:38+00:00"
+    }
+   ],
+   "instagram_link": [
+    {
+     "observation_id": "gj-ig",
+     "kind": "observed",
+     "excerpt": "https://www.instagram.com/gajjardentistry/",
+     "source_url": "https://www.drgajjar.com/",
+     "fetched_utc": "2026-10-16T18:14:33+00:00"
+    }
+   ]
+  },
+  "dundas": {
+   "name": "Dundas East Dental",
+   "domain": "dundaseastdental.com",
+   "website_status": "blocked",
+   "browser_check": {
+    "requested_url": "https://dundaseastdental.com/",
+    "checked_utc": "2026-10-16T18:54:17.399Z",
+    "checked_toronto": "2026-10-16 14:54 EDT",
+    "http_status": 200,
+    "server": "nginx",
+    "title": "Dental Implants Toronto | At Dundas East Dental",
+    "visible_text": "VPN or Proxy Detected\n\nPlease disable your VPN or Proxy to browse this website.\n\nReload Page",
+    "html_sha256": "8fd4f82e3dda3fb6d8482c7621d1165e8312535e54d2f8d5b0add13a6069a9f6",
+    "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/dundas-home.png",
+    "outcome": "Access blocked: the page loaded (HTTP 200) but displayed only a \"VPN or Proxy Detected. Please disable your VPN or Proxy to browse this website.\" panel. Not bypassed. Content behind the panel was not read or used; the saved HTML body was deleted, only its hash kept."
+   },
+   "prior_block": "HTTP 403 to urllib at 2026-10-16T18:14:33Z (dundas) / Cloudflare 403 at 18:14:34Z (bond), see kit fetch_log.jsonl",
+   "address": {
+    "value": null,
+    "status": "missing"
+   },
+   "phone": {
+    "value": null,
+    "status": "missing"
+   },
+   "implant_url": {
+    "value": null,
+    "status": "missing"
+   },
+   "full_arch_url": {
+    "value": null,
+    "status": "missing"
+   },
+   "consultation_offer_and_fee": {
+    "value": null,
+    "status": "missing"
+   },
+   "cost": {
+    "value": null,
+    "status": "missing"
+   },
+   "financing": {
+    "value": null,
+    "status": "missing"
+   },
+   "enquiry_route_and_fields": {
+    "value": null,
+    "status": "missing"
+   },
+   "what_happens_next": {
+    "value": null,
+    "status": "missing"
+   },
+   "instagram_link": {
+    "value": null,
+    "status": "missing"
+   },
+   "leads_not_used": "Cached copy in leads.json (Dr. Ammar Taimish, all-inclusive full-arch prices) remains unverified."
+  },
+  "bond": {
+   "name": "Bond Street Dental",
+   "domain": "dentalimplantsclinic.ca",
+   "website_status": "blocked",
+   "browser_check": {
+    "requested_url": "https://www.dentalimplantsclinic.ca/",
+    "checked_utc": "2026-10-16T18:54:32.147Z",
+    "checked_toronto": "2026-10-16 14:54 EDT",
+    "http_status": 403,
+    "server": "cloudflare",
+    "title": "Just a moment...",
+    "visible_text": "www.dentalimplantsclinic.ca\nPerforming security verification\n\nThis website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.\n\nRay ID: a4b945ceacd7c707\nPerformance and Security by Cloudflare\nPrivacy",
+    "html_sha256": "0fe00f5710f993bbb8e5cecd94bf5c06c177734aa0f8d504a0081bd2a6645520",
+    "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-home.png",
+    "outcome": "Access blocked: Cloudflare \"Performing security verification\" challenge (HTTP 403). Not passed or bypassed."
+   },
+   "prior_block": "HTTP 403 to urllib at 2026-10-16T18:14:33Z (dundas) / Cloudflare 403 at 18:14:34Z (bond), see kit fetch_log.jsonl",
+   "address": {
+    "value": null,
+    "status": "missing"
+   },
+   "phone": {
+    "value": null,
+    "status": "missing"
+   },
+   "implant_url": {
+    "value": null,
+    "status": "missing"
+   },
+   "full_arch_url": {
+    "value": null,
+    "status": "missing"
+   },
+   "consultation_offer_and_fee": {
+    "value": null,
+    "status": "missing"
+   },
+   "cost": {
+    "value": null,
+    "status": "missing"
+   },
+   "financing": {
+    "value": null,
+    "status": "missing"
+   },
+   "enquiry_route_and_fields": {
+    "value": null,
+    "status": "missing"
+   },
+   "what_happens_next": {
+    "value": null,
+    "status": "missing"
+   },
+   "instagram_link": {
+    "value": null,
+    "status": "missing"
+   },
+   "identifies_bond_street_dental": {
+    "from_website": "not_verified (site blocked)",
+    "third_party_corroboration": [
+     "Google Ads Transparency, domain dentalimplantsclinic.ca, Canada, 16 Sep to 15 Oct 2026: 26 ads, advertiser \"Passion Dental Group Inc\" (Verified). Creatives show location assets \"Bond Street Dental - Toronto\" and \"Bond Street Dental\", display name \"Dental Implants Clinic\" with \"Bond Street\", and one ad text \"113 Bond St\" (creative CR02067580969778413569)."
+    ],
+    "conclusion": "Ad records link the domain to a listing named Bond Street Dental and to Passion Dental Group Inc. The website itself was not read, so the identity is corroborated, not verified. Do not treat the address 113 Bond St as a website observation."
+   }
+  }
+ },
+ "social_identities": {
+  "studiob": {
+   "handle": "studiobdental",
+   "status": "verified_link",
+   "basis": [
+    "official website links the handle (obs sb-ig)",
+    "profile bio links www.studiobdental.ca/virtual-consult (profile load 2026-10-16T19:10:39Z)"
+   ],
+   "profile_name": "Charles Botbol",
+   "note": "Display name is the dentist's name; the account is the one the clinic website links, with the clinic URL in its bio. Followers shown 88.7K (logged-out header, 2026-10-16).",
+   "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig-studiobdental.png"
+  },
+  "nysc": {
+   "handle": "northyork.smilecentre",
+   "status": "verified_link",
+   "basis": [
+    "official website links the handle (obs ny-ig)",
+    "bio links www.smile-by-design.ca"
+   ],
+   "profile_name": "North York Smile Centre",
+   "note": "Bio: \"Head office @mysmilecentre\". @mysmilecentre not opened. Followers shown 271.",
+   "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig-northyork.smilecentre.png"
+  },
+  "gajjar": {
+   "handle": "gajjardentistry",
+   "status": "verified_link",
+   "basis": [
+    "official website links the handle (obs gj-ig)"
+   ],
+   "profile_check": {
+    "checked_utc": "2026-10-16T19:11:04.955Z",
+    "http_status": 429,
+    "final_url": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fgajjardentistry%2F&is_from_rle",
+    "outcome": "Refused (HTTP 429, redirected to login). Not retried."
+   }
+  },
+  "dundas": {
+   "handle": null,
+   "status": "not_verified",
+   "reason": "Official website blocked; no handle may be assumed. Meta Ad Library exact-phrase \"Dundas East Dental\" found no ads, so no page identity from Meta either."
+  },
+  "bond": {
+   "handle": null,
+   "status": "not_verified",
+   "reason": "Official website blocked; no handle may be assumed. Meta Ad Library exact-phrase \"Bond Street Dental\" found no ads."
+  }
+ },
+ "facebook_ad_pages_observed": {
+  "studiob": "\"studiobdental\" (ad text names Studio B Dental and Dr. Charles Botbol; the website names Dr. Charles Botbol)",
+  "nysc": "\"North York Smile Centre\"; also \"My Smile Centre\" (head-office brand named in the NYSC Instagram bio; its ad names Dr. Jerry Jesin, whom the NYSC website names)",
+  "gajjar": "\"Dr. Neil J. Gajjar, Associates & Specialists\" and \"Dr. Neil J. Gajjar, DDS - RCDSO Council Candidate\""
+ },
+ "instagram": {
+  "window": "2026-09-16 to 2026-10-15 Toronto",
+  "posts": [
+   {
+    "url": "https://www.instagram.com/northyork.smilecentre/p/DdbhpOgIMJE/",
+    "shortcode": "DdbhpOgIMJE",
+    "owner": "northyork.smilecentre",
+    "collaboration": "none shown on the logged-out post page",
+    "format": "post (photo or carousel; not distinguished logged out)",
+    "published_utc": "2026-09-18T13:18:51.000Z",
+    "published_toronto": "2026-09-18 09:18 EDT",
+    "og_description_date": "September 18, 2026",
+    "caption_first_line": "Clear aligners only work when you wear them consistently. 🦷",
+    "topic": "Invisalign wear time",
+    "implant_relevance": "no",
+    "cta": "none in caption",
+    "likes": 2,
+    "comments": 0,
+    "plays": {
+     "value": null,
+     "status": "missing",
+     "note": "not shown logged out"
+    },
+    "ai_content_label": false,
+    "video_watched": false,
+    "checked_utc": "2026-10-16T19:13:24.409Z",
+    "evidence": {
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdbhpOgIMJE.png",
+     "source": "og:description and <time datetime> of the post page"
+    }
+   },
+   {
+    "url": "https://www.instagram.com/northyork.smilecentre/p/DdrBZDBHDHg/",
+    "shortcode": "DdrBZDBHDHg",
+    "owner": "northyork.smilecentre",
+    "collaboration": "none shown on the logged-out post page",
+    "format": "post (photo or carousel; not distinguished logged out)",
+    "published_utc": "2026-09-24T13:44:52.000Z",
+    "published_toronto": "2026-09-24 09:44 EDT",
+    "og_description_date": "September 24, 2026",
+    "caption_first_line": "Thinking about All-on-X dental implants? 🦷",
+    "topic": "All-on-X live webinar, 30 September, Dr. Rob Eisen",
+    "implant_relevance": "yes (full arch)",
+    "cta": "register for webinar (webinar.mysmilecentre.ca)",
+    "likes": 8,
+    "comments": 0,
+    "plays": {
+     "value": null,
+     "status": "missing",
+     "note": "not shown logged out"
+    },
+    "ai_content_label": false,
+    "video_watched": false,
+    "checked_utc": "2026-10-16T19:13:13.764Z",
+    "evidence": {
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdrBZDBHDHg.png",
+     "source": "og:description and <time datetime> of the post page"
+    }
+   },
+   {
+    "url": "https://www.instagram.com/northyork.smilecentre/reel/DdtiGIPlrNt/",
+    "shortcode": "DdtiGIPlrNt",
+    "owner": "northyork.smilecentre",
+    "collaboration": "none shown on the logged-out post page",
+    "format": "reel",
+    "published_utc": "2026-09-25T13:10:04.000Z",
+    "published_toronto": "2026-09-25 09:10 EDT",
+    "og_description_date": "September 25, 2026",
+    "caption_first_line": "Can you get All-on-X if you already wear dentures? 🦷",
+    "topic": "All-on-X FAQ: dentures, bone levels",
+    "implant_relevance": "yes (full arch)",
+    "cta": "register for free webinar (webinar.mysmilecentre.ca)",
+    "likes": 6,
+    "comments": 0,
+    "plays": {
+     "value": null,
+     "status": "missing",
+     "note": "not shown logged out"
+    },
+    "ai_content_label": false,
+    "video_watched": false,
+    "checked_utc": "2026-10-16T19:13:03.101Z",
+    "evidence": {
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdtiGIPlrNt.png",
+     "source": "og:description and <time datetime> of the post page"
+    }
+   },
+   {
+    "url": "https://www.instagram.com/northyork.smilecentre/p/Dd6dymzkcvJ/",
+    "shortcode": "Dd6dymzkcvJ",
+    "owner": "northyork.smilecentre",
+    "collaboration": "none shown on the logged-out post page",
+    "format": "post (photo or carousel; not distinguished logged out)",
+    "published_utc": "2026-09-30T13:41:40.000Z",
+    "published_toronto": "2026-09-30 09:41 EDT",
+    "og_description_date": "September 30, 2026",
+    "caption_first_line": "Dental emergencies can happen when you least expect them. 🦷",
+    "topic": "emergency dentistry",
+    "implant_relevance": "no",
+    "cta": "contact to book an emergency appointment",
+    "likes": 3,
+    "comments": 0,
+    "plays": {
+     "value": null,
+     "status": "missing",
+     "note": "not shown logged out"
+    },
+    "ai_content_label": false,
+    "video_watched": false,
+    "checked_utc": "2026-10-16T19:12:52.364Z",
+    "evidence": {
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/Dd6dymzkcvJ.png",
+     "source": "og:description and <time datetime> of the post page"
+    }
+   },
+   {
+    "url": "https://www.instagram.com/northyork.smilecentre/reel/Dd9BwhfFG0x/",
+    "shortcode": "Dd9BwhfFG0x",
+    "owner": "northyork.smilecentre",
+    "collaboration": "none shown on the logged-out post page",
+    "format": "reel",
+    "published_utc": "2026-10-01T13:35:36.000Z",
+    "published_toronto": "2026-10-01 09:35 EDT",
+    "og_description_date": "October 1, 2026",
+    "caption_first_line": "A smile that means so much. 🦷✨",
+    "topic": "implant patient testimonial with Dr. Eisen",
+    "implant_relevance": "yes",
+    "cta": "contact Smile Centre to book a consultation",
+    "likes": 7,
+    "comments": 1,
+    "plays": {
+     "value": null,
+     "status": "missing",
+     "note": "not shown logged out"
+    },
+    "ai_content_label": false,
+    "video_watched": false,
+    "checked_utc": "2026-10-16T19:12:41.253Z",
+    "evidence": {
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/Dd9BwhfFG0x.png",
+     "source": "og:description and <time datetime> of the post page"
+    }
+   },
+   {
+    "url": "https://www.instagram.com/studiobdental/reel/DdrKB7AhD3b/",
+    "shortcode": "DdrKB7AhD3b",
+    "owner": "studiobdental",
+    "collaboration": "none shown on the logged-out post page",
+    "format": "reel",
+    "published_utc": "2026-09-24T15:00:20.000Z",
+    "published_toronto": "2026-09-24 11:00 EDT",
+    "og_description_date": "September 24, 2026",
+    "caption_first_line": "The process ➡️ the transformation ✨🦷",
+    "topic": "process and transformation; hashtags #porcelainveneers #implantsurgery",
+    "implant_relevance": "unclear (hashtag only; video not watched)",
+    "cta": "link in bio to book complimentary consultation",
+    "likes": 13,
+    "comments": 2,
+    "plays": {
+     "value": null,
+     "status": "missing",
+     "note": "not shown logged out"
+    },
+    "ai_content_label": true,
+    "video_watched": false,
+    "checked_utc": "2026-10-16T19:12:30.573Z",
+    "evidence": {
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdrKB7AhD3b.png",
+     "source": "og:description and <time datetime> of the post page"
+    }
+   },
+   {
+    "url": "https://www.instagram.com/studiobdental/p/DdsKsuVM8b4/",
+    "shortcode": "DdsKsuVM8b4",
+    "owner": "studiobdental",
+    "collaboration": "none shown on the logged-out post page",
+    "format": "post (photo or carousel; not distinguished logged out)",
+    "published_utc": "2026-09-25T00:27:39.000Z",
+    "published_toronto": "2026-09-24 20:27 EDT",
+    "og_description_date": "September 24, 2026",
+    "caption_first_line": "⭐️⭐️⭐️⭐️⭐️",
+    "topic": "patient testimonial; hashtags #dentalimplant #zirconiaimplant #ceraroot",
+    "implant_relevance": "yes (caption hashtags name zirconia implants)",
+    "cta": "DM to book complimentary consultation",
+    "likes": 9,
+    "comments": 3,
+    "plays": {
+     "value": null,
+     "status": "missing",
+     "note": "not shown logged out"
+    },
+    "ai_content_label": true,
+    "video_watched": false,
+    "checked_utc": "2026-10-16T19:12:19.602Z",
+    "evidence": {
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdsKsuVM8b4.png",
+     "source": "og:description and <time datetime> of the post page"
+    }
+   },
+   {
+    "url": "https://www.instagram.com/studiobdental/reel/Dd3yAGBBrsW/",
+    "shortcode": "Dd3yAGBBrsW",
+    "owner": "studiobdental",
+    "collaboration": "none shown on the logged-out post page",
+    "format": "reel",
+    "published_utc": "2026-09-29T12:42:33.000Z",
+    "published_toronto": "2026-09-29 08:42 EDT",
+    "og_description_date": "September 29, 2026",
+    "caption_first_line": "POV: Dr. B says, “We’re filming content today.” 🎥",
+    "topic": "behind the scenes, clinic culture",
+    "implant_relevance": "no",
+    "cta": "none in caption",
+    "likes": 16,
+    "comments": 1,
+    "plays": {
+     "value": null,
+     "status": "missing",
+     "note": "not shown logged out"
+    },
+    "ai_content_label": false,
+    "video_watched": false,
+    "checked_utc": "2026-10-16T19:12:08.275Z",
+    "evidence": {
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/Dd3yAGBBrsW.png",
+     "source": "og:description and <time datetime> of the post page"
+    }
+   },
+   {
+    "url": "https://www.instagram.com/studiobdental/p/Dd6yzieDLQG/",
+    "shortcode": "Dd6yzieDLQG",
+    "owner": "studiobdental",
+    "collaboration": "none shown on the logged-out post page",
+    "format": "post (photo or carousel; not distinguished logged out)",
+    "published_utc": "2026-09-30T18:30:07.000Z",
+    "published_toronto": "2026-09-30 14:30 EDT",
+    "og_description_date": "September 29, 2026",
+    "caption_first_line": "Rock 🪨 always beats scissors ✂️ —- cosmetic dentist edition.",
+    "topic": "cosmetic / veneers humour",
+    "implant_relevance": "no",
+    "cta": "none in caption",
+    "likes": 13,
+    "comments": 3,
+    "plays": {
+     "value": null,
+     "status": "missing",
+     "note": "not shown logged out"
+    },
+    "ai_content_label": true,
+    "video_watched": false,
+    "checked_utc": "2026-10-16T19:11:56.832Z",
+    "evidence": {
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/Dd6yzieDLQG.png",
+     "source": "og:description and <time datetime> of the post page"
+    }
+   }
+  ],
+  "coverage": {
+   "studiobdental": {
+    "grid_items_visible_logged_out": 12,
+    "in_window_posts_read": 4,
+    "pinned_or_out_of_order_at_top": [
+     "DXWwI1lFE0N (about 20 Apr 2026)",
+     "DYnndUkhcR- (about 21 May 2026)",
+     "C7X32NgJEE0 (about 24 May 2024)"
+    ],
+    "oldest_grid_item": "Db77RV4hiNr, about 12 Aug 2026",
+    "newest_non_pinned": "Dd6yzieDLQG, 30 Sep 2026",
+    "assessment": "The visible grid runs from before the window start to 30 September, so it appears to contain every post in the window. No post between 1 and 15 October appeared. Not confirmed against a logged-in view; call it probable, not complete. Stories, deleted or archived posts and collaborator-owned posts on other accounts are not covered."
+   },
+   "northyork.smilecentre": {
+    "grid_items_visible_logged_out": 12,
+    "in_window_posts_read": 5,
+    "oldest_grid_item": "DcBkbRzIAf1, about 14 Aug 2026",
+    "newest": "Dd9BwhfFG0x, 1 Oct 2026",
+    "assessment": "Same as above: probable, not complete. No post between 2 and 15 October appeared."
+   },
+   "gajjardentistry": {
+    "in_window_posts_read": 0,
+    "assessment": "Not collected: profile request refused (HTTP 429, login redirect) at 2026-10-16T19:11:04Z; not retried."
+   },
+   "dundas": {
+    "assessment": "Not collected: no verified handle."
+   },
+   "bond": {
+    "assessment": "Not collected: no verified handle."
+   }
+  },
+  "grid_dates_note": "Grid dates were estimated from shortcodes only to decide which posts to open; every recorded date comes from the post page itself. For Dd6yzieDLQG the post time is 2026-09-30T18:30:07Z while og:description says September 29; the <time> value is used.",
+  "grid_items": [
+   {
+    "handle": "studiobdental",
+    "grid_pos": 1,
+    "url": "https://www.instagram.com/studiobdental/p/DXWwI1lFE0N/",
+    "shortcode": "DXWwI1lFE0N",
+    "format_from_url": "post (photo or carousel, not distinguished)",
+    "derived_toronto": "2026-04-20 09:40",
+    "derived_in_window": false
+   },
+   {
+    "handle": "studiobdental",
+    "grid_pos": 2,
+    "url": "https://www.instagram.com/studiobdental/p/DYnndUkhcR-/",
+    "shortcode": "DYnndUkhcR-",
+    "format_from_url": "post (photo or carousel, not distinguished)",
+    "derived_toronto": "2026-05-21 19:23",
+    "derived_in_window": false
+   },
+   {
+    "handle": "studiobdental",
+    "grid_pos": 3,
+    "url": "https://www.instagram.com/studiobdental/reel/C7X32NgJEE0/",
+    "shortcode": "C7X32NgJEE0",
+    "format_from_url": "reel",
+    "derived_toronto": "2024-05-24 21:28",
+    "derived_in_window": false
+   },
+   {
+    "handle": "studiobdental",
+    "grid_pos": 4,
+    "url": "https://www.instagram.com/studiobdental/p/Dd6yzieDLQG/",
+    "shortcode": "Dd6yzieDLQG",
+    "format_from_url": "post (photo or carousel, not distinguished)",
+    "derived_toronto": "2026-09-30 12:45",
+    "derived_in_window": true
+   },
+   {
+    "handle": "studiobdental",
+    "grid_pos": 5,
+    "url": "https://www.instagram.com/studiobdental/reel/Dd3yAGBBrsW/",
+    "shortcode": "Dd3yAGBBrsW",
+    "format_from_url": "reel",
+    "derived_toronto": "2026-09-29 08:40",
+    "derived_in_window": true
+   },
+   {
+    "handle": "studiobdental",
+    "grid_pos": 6,
+    "url": "https://www.instagram.com/studiobdental/p/DdsKsuVM8b4/",
+    "shortcode": "DdsKsuVM8b4",
+    "format_from_url": "post (photo or carousel, not distinguished)",
+    "derived_toronto": "2026-09-24 20:25",
+    "derived_in_window": true
+   },
+   {
+    "handle": "studiobdental",
+    "grid_pos": 7,
+    "url": "https://www.instagram.com/studiobdental/reel/DdrKB7AhD3b/",
+    "shortcode": "DdrKB7AhD3b",
+    "format_from_url": "reel",
+    "derived_toronto": "2026-09-24 11:00",
+    "derived_in_window": true
+   },
+   {
+    "handle": "studiobdental",
+    "grid_pos": 8,
+    "url": "https://www.instagram.com/studiobdental/reel/DdHaFMXh-M7/",
+    "shortcode": "DdHaFMXh-M7",
+    "format_from_url": "reel",
+    "derived_toronto": "2026-09-10 13:47",
+    "derived_in_window": false
+   },
+   {
+    "handle": "studiobdental",
+    "grid_pos": 9,
+    "url": "https://www.instagram.com/studiobdental/reel/Dcbd5RNRx3W/",
+    "shortcode": "Dcbd5RNRx3W",
+    "format_from_url": "reel",
+    "derived_toronto": "2026-08-24 12:14",
+    "derived_in_window": false
+   },
+   {
+    "handle": "studiobdental",
+    "grid_pos": 10,
+    "url": "https://www.instagram.com/studiobdental/reel/DcKLrPqBPbt/",
+    "shortcode": "DcKLrPqBPbt",
+    "format_from_url": "reel",
+    "derived_toronto": "2026-08-17 19:08",
+    "derived_in_window": false
+   },
+   {
+    "handle": "studiobdental",
+    "grid_pos": 11,
+    "url": "https://www.instagram.com/studiobdental/reel/Db-8jpXhv21/",
+    "shortcode": "Db-8jpXhv21",
+    "format_from_url": "reel",
+    "derived_toronto": "2026-08-13 10:24",
+    "derived_in_window": false
+   },
+   {
+    "handle": "studiobdental",
+    "grid_pos": 12,
+    "url": "https://www.instagram.com/studiobdental/reel/Db77RV4hiNr/",
+    "shortcode": "Db77RV4hiNr",
+    "format_from_url": "reel",
+    "derived_toronto": "2026-08-12 06:15",
+    "derived_in_window": false
+   },
+   {
+    "handle": "northyork.smilecentre",
+    "grid_pos": 1,
+    "url": "https://www.instagram.com/northyork.smilecentre/reel/Dd9BwhfFG0x/",
+    "shortcode": "Dd9BwhfFG0x",
+    "format_from_url": "reel",
+    "derived_toronto": "2026-10-01 09:34",
+    "derived_in_window": true
+   },
+   {
+    "handle": "northyork.smilecentre",
+    "grid_pos": 2,
+    "url": "https://www.instagram.com/northyork.smilecentre/p/Dd6dymzkcvJ/",
+    "shortcode": "Dd6dymzkcvJ",
+    "format_from_url": "post (photo or carousel, not distinguished)",
+    "derived_toronto": "2026-09-30 09:41",
+    "derived_in_window": true
+   },
+   {
+    "handle": "northyork.smilecentre",
+    "grid_pos": 3,
+    "url": "https://www.instagram.com/northyork.smilecentre/reel/DdtiGIPlrNt/",
+    "shortcode": "DdtiGIPlrNt",
+    "format_from_url": "reel",
+    "derived_toronto": "2026-09-25 09:08",
+    "derived_in_window": true
+   },
+   {
+    "handle": "northyork.smilecentre",
+    "grid_pos": 4,
+    "url": "https://www.instagram.com/northyork.smilecentre/p/DdrBZDBHDHg/",
+    "shortcode": "DdrBZDBHDHg",
+    "format_from_url": "post (photo or carousel, not distinguished)",
+    "derived_toronto": "2026-09-24 09:44",
+    "derived_in_window": true
+   },
+   {
+    "handle": "northyork.smilecentre",
+    "grid_pos": 5,
+    "url": "https://www.instagram.com/northyork.smilecentre/p/DdbhpOgIMJE/",
+    "shortcode": "DdbhpOgIMJE",
+    "format_from_url": "post (photo or carousel, not distinguished)",
+    "derived_toronto": "2026-09-18 09:18",
+    "derived_in_window": true
+   },
+   {
+    "handle": "northyork.smilecentre",
+    "grid_pos": 6,
+    "url": "https://www.instagram.com/northyork.smilecentre/p/DdJf7blG-Hf/",
+    "shortcode": "DdJf7blG-Hf",
+    "format_from_url": "post (photo or carousel, not distinguished)",
+    "derived_toronto": "2026-09-11 09:17",
+    "derived_in_window": false
+   },
+   {
+    "handle": "northyork.smilecentre",
+    "grid_pos": 7,
+    "url": "https://www.instagram.com/northyork.smilecentre/p/DdBxFdoHJb6/",
+    "shortcode": "DdBxFdoHJb6",
+    "format_from_url": "post (photo or carousel, not distinguished)",
+    "derived_toronto": "2026-09-08 09:13",
+    "derived_in_window": false
+   },
+   {
+    "handle": "northyork.smilecentre",
+    "grid_pos": 8,
+    "url": "https://www.instagram.com/northyork.smilecentre/p/Dc_Mh-zILl-/",
+    "shortcode": "Dc_Mh-zILl-",
+    "format_from_url": "post (photo or carousel, not distinguished)",
+    "derived_toronto": "2026-09-07 09:15",
+    "derived_in_window": false
+   },
+   {
+    "handle": "northyork.smilecentre",
+    "grid_pos": 9,
+    "url": "https://www.instagram.com/northyork.smilecentre/p/DcgXeGXoDUo/",
+    "shortcode": "DcgXeGXoDUo",
+    "format_from_url": "post (photo or carousel, not distinguished)",
+    "derived_toronto": "2026-08-26 09:54",
+    "derived_in_window": false
+   },
+   {
+    "handle": "northyork.smilecentre",
+    "grid_pos": 10,
+    "url": "https://www.instagram.com/northyork.smilecentre/p/DcTfl-2m-ym/",
+    "shortcode": "DcTfl-2m-ym",
+    "format_from_url": "post (photo or carousel, not distinguished)",
+    "derived_toronto": "2026-08-21 09:55",
+    "derived_in_window": false
+   },
+   {
+    "handle": "northyork.smilecentre",
+    "grid_pos": 11,
+    "url": "https://www.instagram.com/northyork.smilecentre/reel/DcQ2AWgDhWx/",
+    "shortcode": "DcQ2AWgDhWx",
+    "format_from_url": "reel",
+    "derived_toronto": "2026-08-20 09:13",
+    "derived_in_window": false
+   },
+   {
+    "handle": "northyork.smilecentre",
+    "grid_pos": 12,
+    "url": "https://www.instagram.com/northyork.smilecentre/p/DcBkbRzIAf1/",
+    "shortcode": "DcBkbRzIAf1",
+    "format_from_url": "post (photo or carousel, not distinguished)",
+    "derived_toronto": "2026-08-14 10:51",
+    "derived_in_window": false
+   }
+  ]
+ },
+ "ads": {
+  "studiob": {
+   "meta": {
+    "status": "relevant_ads_observed",
+    "searches": [
+     {
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Studio%20B%20Dental&search_type=keyword_exact_phrase",
+      "checked_utc": "2026-10-16T18:55:01.412Z",
+      "result_line": "~2 results",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-studiob.png"
+     },
+     {
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=Studio%20B%20Dental",
+      "checked_utc": "2026-10-16T18:55:30.602Z",
+      "result_line": "~2 results",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-studiob-2.png"
+     }
+    ],
+    "note": "Searched twice (second load added scrolling and a full-page screenshot); identical results.",
+    "advertiser": "Facebook page \"studiobdental\"",
+    "ads": [
+     {
+      "library_id": "1569086177506365",
+      "library_url": "https://www.facebook.com/ads/library/?id=1569086177506365",
+      "status_at_check": "Active",
+      "dates": "Started running on Feb 26, 2026",
+      "advertiser_page": "studiobdental",
+      "variants": null,
+      "display_domain": [
+       "INSTAGRAM.COM"
+      ],
+      "first_line": "Transform your smile with Studio B Dental’s exclusive promotion ✨"
+     },
+     {
+      "library_id": "26002231369395543",
+      "library_url": "https://www.facebook.com/ads/library/?id=26002231369395543",
+      "status_at_check": "Active",
+      "dates": "Started running on Jan 21, 2026",
+      "advertiser_page": "studiobdental",
+      "variants": null,
+      "display_domain": [],
+      "first_line": "Struggling with missing or failing teeth? We can restore your full smile — and your confidence.✨"
+     }
+    ],
+    "implant_ads": [
+     {
+      "library_id": "26002231369395543",
+      "in_window": "active at check, started 21 Jan 2026, so running during the window unless paused (the library shows no pause history)",
+      "offer_text": "All-on-X package: tooth extractions, 4+ implants, non-removable temporary bridge same day, \"$17,990 PER ARCH\"; \"Final bridge (4–6 months later): $8,900\"; Beautifi financing; free in-office and virtual consultations, free panoramic X-ray, full records appointment \"$450 in value - FREE\"",
+      "destination": "Send Message (Messenger) and bio link; no website URL shown"
+     }
+    ],
+    "other_ads": [
+     "1569086177506365: veneers promotion, started 26 Feb 2026, active, display domain INSTAGRAM.COM"
+    ]
+   },
+   "google": {
+    "status": "no_matching_ads_found",
+    "search": "domain studiobdental.ca, region Canada",
+    "any_time": {
+     "url": "https://adstransparency.google.com/?region=CA&domain=studiobdental.ca",
+     "checked_utc": "2026-10-16T18:58:19.928Z",
+     "ads": 0,
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-studiob.png"
+    },
+    "window": {
+     "url": "https://adstransparency.google.com/?region=CA&domain=studiobdental.ca&start-date=2026-09-16&end-date=2026-10-15",
+     "checked_utc": "2026-10-16T19:04:44.810Z",
+     "date_label": "Custom Sep 16 – Oct 15, 2026",
+     "ads": 0,
+     "advertisers": [],
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-studiob-window.png",
+     "timezone_note": "Ads Transparency dates are Pacific Time; the window filter is 16 Sep to 15 Oct PT, 3 hours behind Toronto at each end"
+    },
+    "note": "0 ads for the domain at any time. Not proof that the clinic never advertises on Google."
+   }
+  },
+  "nysc": {
+   "meta": {
+    "status": "relevant_ads_observed",
+    "searches": [
+     {
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=North%20York%20Smile%20Centre",
+      "checked_utc": "2026-10-16T18:55:46.803Z",
+      "result_line": "~12 results",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-nysc.png"
+     },
+     {
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=Smile%20By%20Design",
+      "checked_utc": "2026-10-16T18:56:03.052Z",
+      "result_line": "No ads match your search criteria",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-nysc-sbd.png"
+     }
+    ],
+    "advertiser": "Facebook page \"North York Smile Centre\"",
+    "ads": [
+     {
+      "library_id": "2023758354972864",
+      "library_url": "https://www.facebook.com/ads/library/?id=2023758354972864",
+      "status_at_check": "Active",
+      "dates": "Started running on Sep 15, 2026",
+      "advertiser_page": "North York Smile Centre",
+      "variants": "2 ads use this creative and text",
+      "display_domain": [],
+      "first_line": "Hey North York 👋 Thinking About Invisalign?"
+     },
+     {
+      "library_id": "2192204594975485",
+      "library_url": "https://www.facebook.com/ads/library/?id=2192204594975485",
+      "status_at_check": "Active",
+      "dates": "Started running on Sep 29, 2026",
+      "advertiser_page": "North York Smile Centre",
+      "variants": null,
+      "display_domain": [
+       "NORTHYORKSMILECENTRE.FREESMILECONSULT.CLINIC"
+      ],
+      "first_line": "Hey North York 👋 Thinking About Invisalign?"
+     },
+     {
+      "library_id": "4315299038726791",
+      "library_url": "https://www.facebook.com/ads/library/?id=4315299038726791",
+      "status_at_check": "Active",
+      "dates": "Started running on Apr 8, 2026",
+      "advertiser_page": "My Smile Centre",
+      "variants": null,
+      "display_domain": [],
+      "first_line": "Hello GTA Residents!"
+     },
+     {
+      "library_id": "1089709797174359",
+      "library_url": "https://www.facebook.com/ads/library/?id=1089709797174359",
+      "status_at_check": "Active",
+      "dates": "Started running on Sep 29, 2026",
+      "advertiser_page": "North York Smile Centre",
+      "variants": "2 ads use this creative and text",
+      "display_domain": [],
+      "first_line": "Hey North York 👋 Thinking About Invisalign?"
+     },
+     {
+      "library_id": "1151702920869512",
+      "library_url": "https://www.facebook.com/ads/library/?id=1151702920869512",
+      "status_at_check": "Active",
+      "dates": "Started running on Oct 5, 2026",
+      "advertiser_page": "North York Smile Centre",
+      "variants": null,
+      "display_domain": [
+       "NORTHYORKSMILECENTRE.FREESMILECONSULT.CLINIC"
+      ],
+      "first_line": "Hey North York 👋 Thinking About Invisalign?"
+     },
+     {
+      "library_id": "28406200442344726",
+      "library_url": "https://www.facebook.com/ads/library/?id=28406200442344726",
+      "status_at_check": "Active",
+      "dates": "Started running on Sep 18, 2026",
+      "advertiser_page": "North York Smile Centre",
+      "variants": "2 ads use this creative and text",
+      "display_domain": [],
+      "first_line": "Hey North York 👋 Thinking About Invisalign?"
+     },
+     {
+      "library_id": "1085671074238286",
+      "library_url": "https://www.facebook.com/ads/library/?id=1085671074238286",
+      "status_at_check": "Active",
+      "dates": "Started running on Sep 29, 2026",
+      "advertiser_page": "North York Smile Centre",
+      "variants": null,
+      "display_domain": [
+       "NORTHYORKSMILECENTRE.FREESMILECONSULT.CLINIC"
+      ],
+      "first_line": "Hey North York 👋 Thinking About Invisalign?"
+     }
+    ],
+    "implant_ads": [],
+    "note": "All six \"North York Smile Centre\" ads are one Invisalign offer ($2,000 off plus free scan, X-ray, exam and extras), started 15 Sep to 5 Oct 2026, destination display NORTHYORKSMILECENTRE.FREESMILECONSULT.CLINIC. No implant ad found in these searches. \"Smile By Design\" exact phrase: no ads.",
+    "advertiser_uncertain_items": [
+     {
+      "library_id": "4315299038726791",
+      "page": "My Smile Centre",
+      "why": "Veneers ad naming Dr. Jerry Jesin \"at Smile Centre\", started 8 Apr 2026. The NYSC Instagram bio names @mysmilecentre as head office and the NYSC site names Dr. Jesin, but the ad does not name the North York location."
+     }
+    ]
+   },
+   "google": {
+    "status": "relevant_ads_observed",
+    "search": "domain smile-by-design.ca, region Canada",
+    "any_time": {
+     "url": "https://adstransparency.google.com/?region=CA&domain=smile-by-design.ca",
+     "checked_utc": "2026-10-16T18:58:36.999Z",
+     "ads": 3,
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-nysc.png"
+    },
+    "window": {
+     "url": "https://adstransparency.google.com/?region=CA&domain=smile-by-design.ca&start-date=2026-09-16&end-date=2026-10-15",
+     "checked_utc": "2026-10-16T19:04:58.890Z",
+     "date_label": "Custom Sep 16 – Oct 15, 2026",
+     "ads": 0,
+     "advertisers": [],
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-nysc-window.png",
+     "timezone_note": "Ads Transparency dates are Pacific Time; the window filter is 16 Sep to 15 Oct PT, 3 hours behind Toronto at each end"
+    },
+    "advertiser": "OneCore Media Corp. (Verified); the website credits OneCore Media (obs ny-credit)",
+    "creatives": [
+     {
+      "creative_url": "https://adstransparency.google.com/advertiser/AR15736586312267857921/creative/CR00314598623490867201?region=CA",
+      "checked_utc": "2026-10-16T19:00:12.364Z",
+      "last_shown": "Nov 19, 2025",
+      "format": "Text",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-nysc-cr1.png",
+      "display": "My Smile Centre, promo.mysmilecentre.ca",
+      "headline": "Dental Implant Cost - Toronto Dental Implant Clinic",
+      "implant": "yes"
+     },
+     {
+      "creative_url": "https://adstransparency.google.com/advertiser/AR15736586312267857921/creative/CR06173431441167220737?region=CA",
+      "checked_utc": "2026-10-16T19:00:22.545Z",
+      "last_shown": "Nov 26, 2025",
+      "format": "Text",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-nysc-cr2.png",
+      "display": "My Smile Centre, promo.smile-by-design.ca/allon4",
+      "headline": "Toronto All on Four Dentistry - All On Four Centre Clinic",
+      "implant": "yes"
+     },
+     {
+      "creative_url": "https://adstransparency.google.com/advertiser/AR15736586312267857921/creative/CR16746864668710010881?region=CA",
+      "checked_utc": "2026-10-16T19:00:32.174Z",
+      "last_shown": "Nov 26, 2025",
+      "format": "Text",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-nysc-cr3.png",
+      "display": "My Smile Centre, promo.smile-by-design.ca",
+      "headline": "Same-Day Dental Implants - Chipped, cracked, broken teeth",
+      "implant": "yes"
+     }
+    ],
+    "in_window": "No. 3 ads at any time, all last shown in November 2025; 0 ads in the window."
+   }
+  },
+  "gajjar": {
+   "meta": {
+    "status": "relevant_ads_observed",
+    "searches": [
+     {
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=Dr.%20Neil%20J.%20Gajjar",
+      "checked_utc": "2026-10-16T18:56:18.891Z",
+      "result_line": "~6 results",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-gajjar-dr.png"
+     },
+     {
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=Gajjar%20Dentistry",
+      "checked_utc": "2026-10-16T18:56:36.454Z",
+      "result_line": "No ads match your search criteria",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-gajjar.png"
+     }
+    ],
+    "advertiser": "Facebook page \"Dr. Neil J. Gajjar, Associates & Specialists\"",
+    "ads": [
+     {
+      "library_id": "2950094802022907",
+      "library_url": "https://www.facebook.com/ads/library/?id=2950094802022907",
+      "status_at_check": "Active",
+      "dates": "Started running on Oct 12, 2026",
+      "advertiser_page": "Dr. Neil J. Gajjar, Associates & Specialists",
+      "variants": "2 ads use this creative and text",
+      "display_domain": [
+       "DRGAJJAR.COM",
+       "DRGAJJAR.COM"
+      ],
+      "first_line": "Let Dr. Gajjar and his team provide you and your family with dental care in Mississauga."
+     },
+     {
+      "library_id": "512522885103391",
+      "library_url": "https://www.facebook.com/ads/library/?id=512522885103391",
+      "status_at_check": "Inactive",
+      "dates": "Nov 26, 2024 - Dec 12, 2024",
+      "advertiser_page": null,
+      "variants": null,
+      "display_domain": [
+       "ZC1.MAILLIST-MANAGE.CA"
+      ],
+      "first_line": "Nov 26, 2024 - Dec 12, 2024"
+     },
+     {
+      "library_id": "1911245073618549",
+      "library_url": "https://www.facebook.com/ads/library/?id=1911245073618549",
+      "status_at_check": "Active",
+      "dates": "Started running on Oct 12, 2026",
+      "advertiser_page": "Dr. Neil J. Gajjar, Associates & Specialists",
+      "variants": "2 ads use this creative and text",
+      "display_domain": [
+       "DRGAJJAR.COM",
+       "DRGAJJAR.COM"
+      ],
+      "first_line": "Let Dr. Gajjar and his team provide you and your family with dental care in Mississauga."
+     }
+    ],
+    "implant_ads": [],
+    "note": "Two active ads started 12 Oct 2026 (inside the window): \"Let Dr. Gajjar and his team provide you and your family with dental care in Mississauga\", destination DRGAJJAR.COM. General dentistry, not implants. Also one inactive 2024 RCDSO council election ad, outside the window and not marketing; its spend and audience figures are deliberately not recorded. \"Gajjar Dentistry\": no ads."
+   },
+   "google": {
+    "status": "relevant_ads_observed",
+    "search": "domain drgajjar.com, region Canada",
+    "any_time": {
+     "url": "https://adstransparency.google.com/?region=CA&domain=drgajjar.com",
+     "checked_utc": "2026-10-16T18:58:54.209Z",
+     "ads": 15,
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-gajjar.png"
+    },
+    "window": {
+     "url": "https://adstransparency.google.com/?region=CA&domain=drgajjar.com&start-date=2026-09-16&end-date=2026-10-15",
+     "checked_utc": "2026-10-16T19:05:12.635Z",
+     "date_label": "Custom Sep 16 – Oct 15, 2026",
+     "ads": 0,
+     "advertisers": [],
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-gajjar-window.png",
+     "timezone_note": "Ads Transparency dates are Pacific Time; the window filter is 16 Sep to 15 Oct PT, 3 hours behind Toronto at each end"
+    },
+    "advertiser": "Optio Publishing Inc. (Verified); creatives display \"Dr. Neil J. Gajjar\" and point to www.drgajjar.com and /cdcp",
+    "creatives": [
+     {
+      "creative_url": "https://adstransparency.google.com/advertiser/AR14748382541538918401/creative/CR03138597181762568193?region=CA",
+      "checked_utc": "2026-10-16T19:00:41.712Z",
+      "last_shown": "May 31, 2026",
+      "format": "Video",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-gajjar-cr1.png"
+     },
+     {
+      "creative_url": "https://adstransparency.google.com/advertiser/AR14748382541538918401/creative/CR06703264757194948609?region=CA",
+      "checked_utc": "2026-10-16T19:00:51.617Z",
+      "last_shown": "May 31, 2026",
+      "format": "Text",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-gajjar-cr2.png"
+     },
+     {
+      "creative_url": "https://adstransparency.google.com/advertiser/AR14748382541538918401/creative/CR14217978132299776001?region=CA",
+      "checked_utc": "2026-10-16T19:01:01.305Z",
+      "last_shown": "May 31, 2026",
+      "format": "Text",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-gajjar-cr3.png"
+     },
+     {
+      "creative_url": "https://adstransparency.google.com/advertiser/AR14748382541538918401/creative/CR15437093234785910785?region=CA",
+      "checked_utc": "2026-10-16T19:01:11.058Z",
+      "last_shown": "May 31, 2026",
+      "format": "Video",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-gajjar-cr4.png"
+     }
+    ],
+    "in_window": "No. 15 ads at any time; the 4 opened were last shown 31 May 2026; 0 ads in the window. Topics seen: Mississauga family dentists, CDCP accepted. No implant creative seen in the 4 opened (11 not opened)."
+   }
+  },
+  "dundas": {
+   "meta": {
+    "status": "no_matching_ads_found",
+    "searches": [
+     {
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=Dundas%20East%20Dental",
+      "checked_utc": "2026-10-16T18:56:52.288Z",
+      "result_line": "No ads match your search criteria",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-dundas.png"
+     }
+    ],
+    "note": "Exact phrase \"Dundas East Dental\", Canada, all ads, all statuses. Not proof of no advertising."
+   },
+   "google": {
+    "status": "no_matching_ads_found",
+    "search": "domain dundaseastdental.com, region Canada",
+    "any_time": {
+     "url": "https://adstransparency.google.com/?region=CA&domain=dundaseastdental.com",
+     "checked_utc": "2026-10-16T18:59:11.176Z",
+     "ads": 0,
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-dundas.png"
+    },
+    "window": {
+     "url": "https://adstransparency.google.com/?region=CA&domain=dundaseastdental.com&start-date=2026-09-16&end-date=2026-10-15",
+     "checked_utc": "2026-10-16T19:05:26.207Z",
+     "date_label": "Custom Sep 16 – Oct 15, 2026",
+     "ads": 0,
+     "advertisers": [],
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-dundas-window.png",
+     "timezone_note": "Ads Transparency dates are Pacific Time; the window filter is 16 Sep to 15 Oct PT, 3 hours behind Toronto at each end"
+    },
+    "note": "0 ads at any time for the domain."
+   }
+  },
+  "bond": {
+   "meta": {
+    "status": "no_matching_ads_found",
+    "searches": [
+     {
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=Bond%20Street%20Dental",
+      "checked_utc": "2026-10-16T18:57:08.101Z",
+      "result_line": "No ads match your search criteria",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-bond.png"
+     }
+    ],
+    "note": "Exact phrase \"Bond Street Dental\". The Google display name \"Dental Implants Clinic\" and the advertiser \"Passion Dental Group\" were not searched on Meta."
+   },
+   "google": {
+    "status": "advertiser_uncertain",
+    "search": "domain dentalimplantsclinic.ca, region Canada",
+    "any_time": {
+     "url": "https://adstransparency.google.com/?region=CA&domain=dentalimplantsclinic.ca",
+     "checked_utc": "2026-10-16T18:59:28.237Z",
+     "ads": 31,
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-bond.png"
+    },
+    "window": {
+     "url": "https://adstransparency.google.com/?region=CA&domain=dentalimplantsclinic.ca&start-date=2026-09-16&end-date=2026-10-15",
+     "checked_utc": "2026-10-16T19:05:39.885Z",
+     "date_label": "Custom Sep 16 – Oct 15, 2026",
+     "ads": 26,
+     "advertisers": [
+      "Passion Dental Group Inc"
+     ],
+     "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-bond-window.png",
+     "timezone_note": "Ads Transparency dates are Pacific Time; the window filter is 16 Sep to 15 Oct PT, 3 hours behind Toronto at each end"
+    },
+    "advertiser": "Passion Dental Group Inc (Verified)",
+    "why_uncertain": "The ads point to the domain under study and show \"Bond Street Dental\" location assets, but the website could not be read, so the clinic identity behind the domain is unverified. Becomes relevant_ads_observed once the site confirms Bond Street Dental.",
+    "any_time_count": 31,
+    "window_count": 26,
+    "all_window_creatives_opened": true,
+    "list_source": "https://adstransparency.google.com/?region=CA&domain=dentalimplantsclinic.ca&start-date=2026-09-16&end-date=2026-10-15",
+    "creatives": [
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR02067580969778413569?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:06:36.121Z",
+      "last_shown": "Oct 16, 2026",
+      "format": "Text",
+      "variations": null,
+      "headline_or_asset": "Advanced Dental Implants (location ad, dentalimplantsclinic.ca, Toronto)",
+      "implant": "yes",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr01.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR16106927460867637249?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:06:43.736Z",
+      "last_shown": "Oct 16, 2026",
+      "format": "Text",
+      "variations": null,
+      "headline_or_asset": "Dental Implants Clinic - Voted best dentist in Toronto; sitelinks \"All On 4 Dental Implants\", \"Quality Dental Implants\"",
+      "implant": "yes",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr02.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR07943027236351770625?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:06:51.601Z",
+      "last_shown": "Oct 16, 2026",
+      "format": "Text",
+      "variations": "1 of 2 variations",
+      "headline_or_asset": "Location asset: Bond Street Dental - Toronto, 4.5 (1,071)",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr03.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR09222049530524991489?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:06:59.548Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": "1 of 3 variations",
+      "headline_or_asset": "Open 7 Days a Week - Evening & Weekend...; Bond Street",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr04.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR13456985845290500097?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:07:07.254Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": "1 of 2 variations",
+      "headline_or_asset": "Do root canals hurt, and what happens during the procedure?",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr05.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR09964105530064502785?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:07:14.778Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": "1 of 4 variations",
+      "headline_or_asset": "Dental Clinic Toronto; \"$99 dental cleaning, exam & digital X-Rays deal\"",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr06.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR02892392957523001345?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:07:22.701Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": "1 of 2 variations",
+      "headline_or_asset": "Map ad: Bond Street Dental; Emergency Dentist Toronto | Same-Day Urgent",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr07.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR07816295413010399233?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:07:30.237Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": "1 of 4 variations",
+      "headline_or_asset": "Toronto Dental Clinic - Bon...; Bond Street",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr08.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR11093117604569546753?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:07:38.035Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": "1 of 3 variations",
+      "headline_or_asset": "Best Periodontist in Toronto - Cosmetic Dental Services",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr09.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR07973175381328920577?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:07:49.864Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": null,
+      "headline_or_asset": "Complete Oral Health Plans - Book Your Appointment Today",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr10.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR17837435153828282369?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:07:57.675Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": null,
+      "headline_or_asset": "Need A Dentist Today?",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr11.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR17251510269289431041?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:08:05.610Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": "1 of 5 variations",
+      "headline_or_asset": "Image carousel, no readable headline",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr12.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR12198295513979682817?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:08:13.396Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": null,
+      "headline_or_asset": "Get cosmetic dentistry - Same-Day Appointment Available; text mentions \"Bentway\"",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr13.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR08934869291057020929?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:08:21.084Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": "1 of 5 variations",
+      "headline_or_asset": "Family Dentist Toronto - Appointments Within 20 Minutes (extractions, wisdom teeth)",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr14.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR10630403254304899073?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:08:29.307Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": null,
+      "headline_or_asset": "Same-Day Root Canal Visit - Affordable Root Canal",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr15.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR03812698612471693313?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:08:36.861Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": "1 of 2 variations",
+      "headline_or_asset": "Dental Implant At $1,599 - Affordable Implants at $1,599",
+      "implant": "yes",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr16.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR14812388858603241473?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:08:44.643Z",
+      "last_shown": "Oct 15, 2026",
+      "format": "Text",
+      "variations": "1 of 5 variations",
+      "headline_or_asset": "Dental Care When Needed - Affordable Dental Services; Bond Street",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr17.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR07164746812622897153?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:08:52.563Z",
+      "last_shown": "Oct 13, 2026",
+      "format": "Text",
+      "variations": null,
+      "headline_or_asset": "Stress Free Dental Visits",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr18.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR07156081750462955521?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:09:00.231Z",
+      "last_shown": "Oct 13, 2026",
+      "format": "Text",
+      "variations": null,
+      "headline_or_asset": "Sedation Dentistry Toronto",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr19.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR01764620814306508801?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:09:08.093Z",
+      "last_shown": "Oct 13, 2026",
+      "format": "Text",
+      "variations": "1 of 3 variations",
+      "headline_or_asset": "Dentist appointment today - Dentist Toronto; \"available 7 days a week, 365 days a year\"",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr20.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR00015307332162420737?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:09:15.731Z",
+      "last_shown": "Oct 13, 2026",
+      "format": "Text",
+      "variations": null,
+      "headline_or_asset": "Call Us Today to Schedule",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr21.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR06741742888163475457?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:09:23.357Z",
+      "last_shown": "Oct 13, 2026",
+      "format": "Text",
+      "variations": "1 of 2 variations",
+      "headline_or_asset": "Zoom Whitening for $349 - Same-Day Whitening (teeth_whitening page)",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr22.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR02869722256118906881?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:09:31.184Z",
+      "last_shown": "Oct 13, 2026",
+      "format": "Text",
+      "variations": "1 of 2 variations",
+      "headline_or_asset": "Location asset: Bond Street Dental 4.5 (1.1K)",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr23.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR16294167384770478081?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:09:38.784Z",
+      "last_shown": "Oct 13, 2026",
+      "format": "Text",
+      "variations": "1 of 2 variations",
+      "headline_or_asset": "Bond Street Dental; \"We're the dentist near you available 7 days a week, 365 days a year\"",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr24.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR13434744769465024513?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:09:46.423Z",
+      "last_shown": "Sep 17, 2026",
+      "format": "Text",
+      "variations": null,
+      "headline_or_asset": "Image ad: Bond Street Dental",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr25.png"
+     },
+     {
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR08144756558845181953?region=CA&start-date=2026-09-16&end-date=2026-10-15",
+      "checked_utc": "2026-10-16T19:09:54.352Z",
+      "last_shown": "Sep 17, 2026",
+      "format": "Text",
+      "variations": "1 of 3 variations",
+      "headline_or_asset": "Gentle Dental Care - Vote...; \"Flexible scheduling\"",
+      "implant": "no",
+      "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr26.png"
+     }
+    ],
+    "implant_creatives": "3 of 26: Advanced Dental Implants; Dental Implants Clinic with All On 4 sitelink; Dental Implant At $1,599. The $1,599 headline has no conditions visible in the creative. The cached lead said \"$1,799 surgical phase only\"; neither figure is verified on the website.",
+    "limit": "Only the first variation of each creative was read (several show \"1 of N variations\")."
+   }
+  }
+ },
+ "ads_summary": [
+  {
+   "clinic": "studiob",
+   "platform": "meta",
+   "status": "relevant_ads_observed"
+  },
+  {
+   "clinic": "studiob",
+   "platform": "google",
+   "status": "no_matching_ads_found"
+  },
+  {
+   "clinic": "nysc",
+   "platform": "meta",
+   "status": "relevant_ads_observed"
+  },
+  {
+   "clinic": "nysc",
+   "platform": "google",
+   "status": "relevant_ads_observed"
+  },
+  {
+   "clinic": "gajjar",
+   "platform": "meta",
+   "status": "relevant_ads_observed"
+  },
+  {
+   "clinic": "gajjar",
+   "platform": "google",
+   "status": "relevant_ads_observed"
+  },
+  {
+   "clinic": "dundas",
+   "platform": "meta",
+   "status": "no_matching_ads_found"
+  },
+  {
+   "clinic": "dundas",
+   "platform": "google",
+   "status": "no_matching_ads_found"
+  },
+  {
+   "clinic": "bond",
+   "platform": "meta",
+   "status": "no_matching_ads_found"
+  },
+  {
+   "clinic": "bond",
+   "platform": "google",
+   "status": "advertiser_uncertain"
+  }
+ ],
+ "preview_verification": {
+  "url": "https://helpmemarketing-3kwy4etrg-ankit-kumars-projects-a328efd6.vercel.app/dental-index (share link, deployment dpl_AZXWnTSM1LXB9pXuR46UDEiBsEEy, commit 766f800)",
+  "checked_utc": [
+   "2026-10-16T18:50:17.663Z",
+   "2026-10-16T18:50:53.204Z"
+  ],
+  "viewports": [
+   "1280x900 desktop",
+   "390x844 mobile (touch)"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "passed": [
+   "HTTP 200 all four runs; one H1; robots \"noindex, nofollow\"; canonical https://helpmemarketing.com/dental-index",
+   "No horizontal overflow at 1280 or 390; no style attributes; no images without alt",
+   "All 9 in-page anchors resolve and land the target at the top of the viewport (rechecked after smooth scroll settled)",
+   "Mobile menu opens (aria-expanded true), lists 6 links, closes on Escape",
+   "Comparison: table on desktop, five cards on mobile",
+   "45 source links; CSV link returns 200 (39 lines = header + 38 rows); /dental-index.html 308 to /dental-index; kit README 404; sitemap has no dental entry",
+   "Exactly 3 tests (#dx-test-1..3); 12 \"What this means for your clinic\" takeaways, 2 labelled pending (Dundas, Bond)",
+   "Keyboard: 70 Tab stops on desktop, each with a visible outline; all 6 summaries open on Enter and close on a second Enter",
+   "Light theme: 449 text elements checked, 0 below WCAG AA",
+   "Both CTAs link to /contact?intent=review&entry=research_dental#contact-form; clicking lands on /contact in review mode and pushes contact_view with entry_point research_dental and contact_intent review; form not submitted",
+   "Contact form fields all labelled (checkbox wrapped in its label; honeypot labelled off-screen)"
+  ],
+  "observed_problems": [
+   {
+    "severity": "fix before release",
+    "where": "Dark theme, hero button \"See the five clinics\" (a.btn.btn-primary, href #dx-compare)",
+    "what": "Text rgb(153,153,153) on Signal Orange rgb(255,92,26), contrast 1.08:1 (needs 4.5:1). The rule \".msi.msi a { color: var(--text-muted) }\" overrides \"body.redesign-prototype .btn-primary { color: var(--bg) }\". Light theme is unaffected (14,14,14 on orange).",
+    "screenshot": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dark-hero.png",
+    "scope_note": "The rule is shared Index CSS; other Index pages with a .btn-primary inside .msi were not checked."
+   }
+  ],
+  "design_preferences": [
+   "Source links in the comparison show raw URL paths as link text (accessible, but long on phones). Preference only."
+  ],
+  "not_checked": [
+   "Real phones and Safari; screen readers; reduced-motion; the founder's Chrome"
+  ],
+  "screenshots": [
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-cta-contact.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dark-hero.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-accounts.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-answer.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-compare.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-examples.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-findings.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-help.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-method.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-patterns.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-tests.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-light-hero.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-top.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-cta-contact.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-accounts.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-answer.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-compare.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-examples.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-findings.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-help.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-method.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-patterns.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-tests.png",
+   "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-top.png"
+  ]
+ },
+ "unresolved_gaps": [
+  "Dundas East Dental website: blocked to this container (\"VPN or Proxy Detected\"). Needs a normal browser on an ordinary connection: name, address, phone, implant and full-arch URLs, consultation, cost, financing, form fields, next step, Instagram link.",
+  "Bond Street Dental website: Cloudflare challenge. Same fields, plus confirmation on the site itself that dentalimplantsclinic.ca is Bond Street Dental, and the conditions behind any implant price ($1,599 in Google ads; $1,799 surgical phase in the cached lead).",
+  "Instagram handles for Dundas and Bond: unverified until their websites are read.",
+  "@gajjardentistry posts: refused (HTTP 429). Needs a manual read or an authorised collector.",
+  "Instagram coverage for Studio B and NYSC is probable, not complete (logged-out grid of 12; plays missing; videos not watched; collaborator-owned posts on other accounts not searched).",
+  "Studio B price conflict: Meta ad \"$17,990 PER ARCH\" plus \"$8,900\" final bridge vs website \"from $17,900\". Recorded, not reconciled.",
+  "Gajjar Google: 11 of 15 any-time creatives not opened (none were in the window).",
+  "Bond Meta: not searched under \"Dental Implants Clinic\" or \"Passion Dental Group\".",
+  "Phones for Studio B, NYSC and Gajjar are not recorded in the website observations.",
+  "Dark-theme hero button contrast defect on the preview.",
+  "Release blockers unchanged: Apps Script redeploy with research_dental, founder review."
+ ],
+ "files": {
+  "load_log": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/load_log.jsonl",
+  "meta_parsed": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/meta_parsed.json",
+  "google_creatives": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/google_creatives.jsonl",
+  "google_window": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/google_window.jsonl",
+  "bond_google_creatives": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/bond_google_creatives.json",
+  "ig_posts": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/ig_posts.jsonl",
+  "ig_grid": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/ig_grid.json",
+  "preview_results": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/preview_results.json",
+  "page_text": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/"
+ }
+}

@@ -1,0 +1,3723 @@
+{
+ "started_utc": "2026-10-16T18:50:17.663Z",
+ "runs": [
+  {
+   "device": "desktop",
+   "theme": "light",
+   "checked_utc": "2026-10-16T18:50:18.468Z",
+   "status": 200,
+   "url": "https://helpmemarketing-3kwy4etrg-ankit-kumars-projects-a328efd6.vercel.app/dental-index",
+   "dom": {
+    "anchors": [
+     {
+      "href": "#dx-compare",
+      "text": "See the five clinics",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-tests",
+      "text": "Explore the three tests",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-findings",
+      "text": "What stood out",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-compare",
+      "text": "Comparison",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-examples",
+      "text": "Content examples",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-accounts",
+      "text": "Each clinic",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-patterns",
+      "text": "Patterns",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-tests",
+      "text": "Tests to run",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-method",
+      "text": "Method",
+      "target_exists": true
+     }
+    ],
+    "navLinks": [
+     "/",
+     "/services",
+     "/work",
+     "/ai-tools",
+     "/blog",
+     "/about",
+     "/contact?intent=review#contact-form",
+     "/services",
+     "/work",
+     "/ai-tools",
+     "/blog",
+     "/about",
+     "/contact?intent=review#contact-form"
+    ],
+    "srcLinks": [
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://studiobdental.ca/dental-implants-toronto/",
+      "aria": null,
+      "text": "studiobdental.ca/dental-implants-toronto"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/",
+      "aria": null,
+      "text": "smile-by-design.ca home page"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://studiobdental.ca/",
+      "aria": null,
+      "text": "studiobdental.ca home page"
+     },
+     {
+      "href": "https://studiobdental.ca/dental-implants-toronto/",
+      "aria": null,
+      "text": "studiobdental.ca/dental-implants-toronto"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/",
+      "aria": null,
+      "text": "smile-by-design.ca home page"
+     },
+     {
+      "href": "https://www.drgajjar.com/appointment-request/",
+      "aria": null,
+      "text": "drgajjar.com/appointment-request"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/dental-implants-toronto/",
+      "aria": null,
+      "text": "studiobdental.ca/dental-implants-toronto"
+     },
+     {
+      "href": "https://studiobdental.ca/",
+      "aria": null,
+      "text": "studiobdental.ca home page"
+     },
+     {
+      "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/need-to-know-dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/zirconia-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/zirconia-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/financing/",
+      "aria": null,
+      "text": "smile-by-design.ca/financing"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/",
+      "aria": null,
+      "text": "smile-by-design.ca home page"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://www.drgajjar.com/appointment-request/",
+      "aria": null,
+      "text": "drgajjar.com/appointment-request"
+     },
+     {
+      "href": "https://www.drgajjar.com/smile-gallery/",
+      "aria": null,
+      "text": "drgajjar.com/smile-gallery"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/contact-us/",
+      "aria": null,
+      "text": "studiobdental.ca/contact-us"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/need-to-know-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/financing/",
+      "aria": null,
+      "text": "smile-by-design.ca/financing"
+     },
+     {
+      "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/need-to-know-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     }
+    ],
+    "csv": [
+     "/assets/index/dental/dental-index-edition-001-observations.csv"
+    ],
+    "tests": 3,
+    "takeaways": [
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicCost is one of the first questions an implant patient has, and two of these clinics answer it before asking for contact details. Ask your team what a visitor to your imp"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicA patient deciding whether to enquire is also judging what the first visit will cost in time and money. Ask your team to write down what your implant consultation includ"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicBetween the form and the first call, an implant enquiry can go cold, and a generic form tells your team little about the case before they call. Ask your team how long re"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicWhen cost appears on more than one page, every figure needs to describe the same thing. Ask your team to list each implant price or range on your site and check that eac"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicTiered pricing turns one large number into a choice between levels. If you publish full-arch fees, test showing levels by material and measure which consultations go ahe"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicCredentials answer who will treat the patient, but not what it will cost or what happens next. Ask your team which questions implant callers ask most, and whether your i"
+     },
+     {
+      "pending": true,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     },
+     {
+      "pending": true,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicSomeone searching for full-arch treatment and someone missing one tooth need different first answers. Ask your team where each implant ad, post and email link points, an"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicPatients weighing a large treatment want to know both who will do it and what will happen. As a hypothesis to test, swap the first section of your implant page between a"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicClaims carry more weight when a patient can see where they come from. Ask your team which claims on your implant pages you could document if a patient asked for the sour"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicAn answer is most useful when the next step sits right after it. Ask your team whether each of your implant answers ends with the matching next step, such as a cost page"
+     }
+    ],
+    "placeholders": [
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "@studiobdentalPosts not collected"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "@northyork.smilecentrePosts not collected"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "@gajjardentistryPosts not collected"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not verifiedHandle not confirmed"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not verifiedHandle not confirmed"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Studio B DentalExample pending: posts from @studiobdental have not been collected."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "North York Smile CentreExample pending: posts from @northyork.smilecentre have not been collected."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Dr. Neil J. Gajjar Associates & SpecialistsExample pending: posts from @gajjardentistry have not been collected."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Dundas East DentalExample pending: the Instagram account has not been verified yet."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Bond Street DentalExample pending: the Instagram account has not been verified yet."
+     },
+     {
+      "cls": "note take dx-pending",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     },
+     {
+      "cls": "note take dx-pending",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     }
+    ],
+    "cmpVisible": "table",
+    "cmpCards": 1,
+    "cmpRows": [
+     [
+      "Studio B DentalNorth York (Toronto)",
+      "Full-arch, same-day branded offer for failing teeth or dentures; separate single",
+      "Yes: full-arch starting fee, a single-implant range and a full-set range, on dif",
+      "Five listed options with length and fee, including a complimentary screeningSour",
+      "Lead dentist; image galleries; clinic-stated success rate and warrantySource",
+      "Virtual consult form with optional smile photos; page says the team will contact",
+      "@studiobdentalPosts not collected",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "North York Smile CentreNorth York (Toronto)",
+      "Full-arch page opening with patient situations; single-tooth implants on a separ",
+      "Yes: single-implant range with inclusions; three full-arch levels per arch with ",
+      "Free, no-obligation consultationSource",
+      "Planning technology and a step-by-step journey; clinic-stated experience; genera",
+      "Appointment request with preferred date and time; three-step explanation of what",
+      "@northyork.smilecentrePosts not collected",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "Dr. Neil J. Gajjar Associates & SpecialistsMississauga",
+      "Single and full-arch implants on one page, framed around missing teethSource",
+      "Not published on the implant page reviewedSource",
+      "Call to schedule a consultation; contents and fee not statedSource",
+      "Clinician credentials, including a prosthodontist; a smile gallery (implant case",
+      "Appointment request with date, time and patient status; next step not explainedS",
+      "@gajjardentistryPosts not collected",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "Dundas East DentalToronto (to be confirmed)",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not verifiedHandle not confirmed",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "Bond Street DentalToronto (to be confirmed)",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not verifiedHandle not confirmed",
+      "Not checked",
+      "Not checked"
+     ]
+    ],
+    "details": [
+     {
+      "summary": "Why these five clinics",
+      "open": false
+     },
+     {
+      "summary": "Dates, identity and pages reviewed",
+      "open": false
+     },
+     {
+      "summary": "Instagram collection and implant content",
+      "open": false
+     },
+     {
+      "summary": "Advertising checks",
+      "open": false
+     },
+     {
+      "summary": "What is not measured, and how to read the evidence",
+      "open": false
+     },
+     {
+      "summary": "Corrections",
+      "open": false
+     }
+    ],
+    "cta": [
+     {
+      "href": "/contact?intent=review&entry=research_dental#contact-form",
+      "entry": "research_dental",
+      "text": "ask for a free marketing review"
+     },
+     {
+      "href": "/contact?intent=review&entry=research_dental#contact-form",
+      "entry": "research_dental",
+      "text": "Review my implant enquiry journey"
+     }
+    ],
+    "robots": [
+     "noindex, nofollow"
+    ],
+    "canonical": "https://helpmemarketing.com/dental-index",
+    "h1": [
+     "Dental Implant Marketing Index"
+    ],
+    "overflowX": false,
+    "inline": [],
+    "formsOnPage": 0,
+    "imgsNoAlt": 0,
+    "docW": 1280,
+    "winW": 1280
+   },
+   "contrast": {
+    "checked": 449,
+    "fails": [],
+    "fail_count": 0
+   },
+   "tab_stops": [
+    {
+     "tag": "A",
+     "text": "",
+     "href": "/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Services",
+     "href": "/services",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Work",
+     "href": "/work",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "AI Tools",
+     "href": "/ai-tools",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Blog",
+     "href": "/blog",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "About",
+     "href": "/about",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Get my free marketing reviewFree review",
+     "href": "/contact?intent=review#contact-form",
+     "outline": "solid 0px",
+     "boxShadow": true
+    },
+    {
+     "tag": "A",
+     "text": "Ankit Kumar",
+     "href": "/about",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "HMM",
+     "href": "/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "See the five clinics",
+     "href": "#dx-compare",
+     "outline": "solid 0px",
+     "boxShadow": true
+    },
+    {
+     "tag": "A",
+     "text": "Explore the three tests",
+     "href": "#dx-tests",
+     "outline": "solid 0px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "What stood out",
+     "href": "#dx-findings",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Comparison",
+     "href": "#dx-compare",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Content examples",
+     "href": "#dx-examples",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Each clinic",
+     "href": "#dx-accounts",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Patterns",
+     "href": "#dx-patterns",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Tests to run",
+     "href": "#dx-tests",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Method",
+     "href": "#dx-method",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca/procedures/all-on-x-dental-impl",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca/procedures/dental-implants",
+     "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/full-mouth-restoration",
+     "href": "https://studiobdental.ca/full-mouth-restoration/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/toronto-dental-implants",
+     "href": "https://studiobdental.ca/toronto-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "drgajjar.com/dental-implants-all-on-x",
+     "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/dental-implants-toronto",
+     "href": "https://studiobdental.ca/dental-implants-toronto/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/full-mouth-restoration",
+     "href": "https://studiobdental.ca/full-mouth-restoration/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca home page",
+     "href": "https://www.smile-by-design.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca/procedures/all-on-x-dental-impl",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "drgajjar.com/dental-implants-all-on-x",
+     "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca home page",
+     "href": "https://studiobdental.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/dental-implants-toronto",
+     "href": "https://studiobdental.ca/dental-implants-toronto/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca/procedures/all-on-x-dental-impl",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca home page",
+     "href": "https://www.smile-by-design.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "drgajjar.com/appointment-request",
+     "href": "https://www.drgajjar.com/appointment-request/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "DIV",
+     "text": "Five-clinic comparison table",
+     "href": null,
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Studio B Dental",
+     "href": "https://studiobdental.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Studio B Dental, Implant positioning (o",
+     "href": "https://studiobdental.ca/full-mouth-restoration/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Studio B Dental, Published cost informa",
+     "href": "https://studiobdental.ca/full-mouth-restoration/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Studio B Dental, Consultation offer (op",
+     "href": "https://studiobdental.ca/dental-implants-toronto/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Studio B Dental, Type of proof (opens t",
+     "href": "https://studiobdental.ca/full-mouth-restoration/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Studio B Dental, Enquiry route and next",
+     "href": "https://studiobdental.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@studiobdental",
+     "href": "https://www.instagram.com/studiobdental/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "North York Smile Centre",
+     "href": "https://www.smile-by-design.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for North York Smile Centre, Implant positi",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for North York Smile Centre, Published cost",
+     "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for North York Smile Centre, Consultation o",
+     "href": "https://www.smile-by-design.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for North York Smile Centre, Type of proof ",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for North York Smile Centre, Enquiry route ",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@northyork.smilecentre",
+     "href": "https://www.instagram.com/northyork.smilecentre/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Dr. Neil J. Gajjar Associates & Specialists",
+     "href": "https://www.drgajjar.com/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Dr. Neil J. Gajjar Associates & Special",
+     "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Dr. Neil J. Gajjar Associates & Special",
+     "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Dr. Neil J. Gajjar Associates & Special",
+     "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Dr. Neil J. Gajjar Associates & Special",
+     "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Dr. Neil J. Gajjar Associates & Special",
+     "href": "https://www.drgajjar.com/appointment-request/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@gajjardentistry",
+     "href": "https://www.instagram.com/gajjardentistry/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Dundas East Dental",
+     "href": "https://dundaseastdental.com/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Bond Street Dental",
+     "href": "https://www.dentalimplantsclinic.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "the 38 website observations used on this page (CSV",
+     "href": "/assets/index/dental/dental-index-edition-001-observations.csv",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@studiobdental",
+     "href": "https://www.instagram.com/studiobdental/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@northyork.smilecentre",
+     "href": "https://www.instagram.com/northyork.smilecentre/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@gajjardentistry",
+     "href": "https://www.instagram.com/gajjardentistry/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@studiobdental",
+     "href": "https://www.instagram.com/studiobdental/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/full-mouth-restoration",
+     "href": "https://studiobdental.ca/full-mouth-restoration/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/toronto-dental-implants",
+     "href": "https://studiobdental.ca/toronto-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/dental-implants-toronto",
+     "href": "https://studiobdental.ca/dental-implants-toronto/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca home page",
+     "href": "https://studiobdental.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/need-to-know-dental-implants",
+     "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/zirconia-dental-implants",
+     "href": "https://studiobdental.ca/zirconia-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@northyork.smilecentre",
+     "href": "https://www.instagram.com/northyork.smilecentre/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca/procedures/all-on-x-dental-impl",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    }
+   ],
+   "tab_no_visible_focus": [],
+   "summary_keyboard": [
+    {
+     "text": "Why these five clinics",
+     "before": false,
+     "after_enter": true,
+     "after_second_enter": false
+    },
+    {
+     "text": "Dates, identity and pages reviewed",
+     "before": false,
+     "after_enter": true,
+     "after_second_enter": false
+    },
+    {
+     "text": "Instagram collection and implant content",
+     "before": false,
+     "after_enter": true,
+     "after_second_enter": false
+    },
+    {
+     "text": "Advertising checks",
+     "before": false,
+     "after_enter": true,
+     "after_second_enter": false
+    },
+    {
+     "text": "What is not measured, and how to read the evidence",
+     "before": false,
+     "after_enter": true,
+     "after_second_enter": false
+    },
+    {
+     "text": "Corrections",
+     "before": false,
+     "after_enter": true,
+     "after_second_enter": false
+    }
+   ],
+   "anchor_scroll": [
+    {
+     "id": "dx-compare",
+     "top_after_click": 125,
+     "hash": "#dx-compare"
+    },
+    {
+     "id": "dx-tests",
+     "top_after_click": 709,
+     "hash": "#dx-tests"
+    },
+    {
+     "id": "dx-method",
+     "top_after_click": 6392,
+     "hash": "#dx-method"
+    }
+   ],
+   "cta_click": {
+    "landed": "https://helpmemarketing-3kwy4etrg-ankit-kumars-projects-a328efd6.vercel.app/contact?intent=review&entry=research_dental#contact-form",
+    "status": 200
+   },
+   "cta_contact": {
+    "intentClass": true,
+    "dl": [
+     {
+      "event": "hmm_consent_update"
+     },
+     {
+      "event": "gtm.js"
+     },
+     {
+      "event": "gtm.dom"
+     },
+     {
+      "event": "contact_view",
+      "entry_point": "research_dental",
+      "contact_intent": "review"
+     },
+     {
+      "event": "gtm.load"
+     }
+    ],
+    "formExists": true,
+    "labels": [
+     {
+      "name": "name",
+      "label": "Name"
+     },
+     {
+      "name": "email",
+      "label": "Email"
+     },
+     {
+      "name": "phone",
+      "label": "Phone Optional"
+     },
+     {
+      "name": "website",
+      "label": "Website"
+     },
+     {
+      "name": "",
+      "label": null
+     },
+     {
+      "name": "",
+      "label": "What do you need help with?"
+     },
+     {
+      "name": "biggest_challenge",
+      "label": "Anything I should know?What would you like me to focus on? O"
+     }
+    ]
+   }
+  },
+  {
+   "device": "desktop",
+   "theme": "dark",
+   "checked_utc": "2026-10-16T18:50:32.864Z",
+   "status": 200,
+   "url": "https://helpmemarketing-3kwy4etrg-ankit-kumars-projects-a328efd6.vercel.app/dental-index",
+   "dom": {
+    "anchors": [
+     {
+      "href": "#dx-compare",
+      "text": "See the five clinics",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-tests",
+      "text": "Explore the three tests",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-findings",
+      "text": "What stood out",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-compare",
+      "text": "Comparison",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-examples",
+      "text": "Content examples",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-accounts",
+      "text": "Each clinic",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-patterns",
+      "text": "Patterns",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-tests",
+      "text": "Tests to run",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-method",
+      "text": "Method",
+      "target_exists": true
+     }
+    ],
+    "navLinks": [
+     "/",
+     "/services",
+     "/work",
+     "/ai-tools",
+     "/blog",
+     "/about",
+     "/contact?intent=review#contact-form",
+     "/services",
+     "/work",
+     "/ai-tools",
+     "/blog",
+     "/about",
+     "/contact?intent=review#contact-form"
+    ],
+    "srcLinks": [
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://studiobdental.ca/dental-implants-toronto/",
+      "aria": null,
+      "text": "studiobdental.ca/dental-implants-toronto"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/",
+      "aria": null,
+      "text": "smile-by-design.ca home page"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://studiobdental.ca/",
+      "aria": null,
+      "text": "studiobdental.ca home page"
+     },
+     {
+      "href": "https://studiobdental.ca/dental-implants-toronto/",
+      "aria": null,
+      "text": "studiobdental.ca/dental-implants-toronto"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/",
+      "aria": null,
+      "text": "smile-by-design.ca home page"
+     },
+     {
+      "href": "https://www.drgajjar.com/appointment-request/",
+      "aria": null,
+      "text": "drgajjar.com/appointment-request"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/dental-implants-toronto/",
+      "aria": null,
+      "text": "studiobdental.ca/dental-implants-toronto"
+     },
+     {
+      "href": "https://studiobdental.ca/",
+      "aria": null,
+      "text": "studiobdental.ca home page"
+     },
+     {
+      "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/need-to-know-dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/zirconia-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/zirconia-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/financing/",
+      "aria": null,
+      "text": "smile-by-design.ca/financing"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/",
+      "aria": null,
+      "text": "smile-by-design.ca home page"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://www.drgajjar.com/appointment-request/",
+      "aria": null,
+      "text": "drgajjar.com/appointment-request"
+     },
+     {
+      "href": "https://www.drgajjar.com/smile-gallery/",
+      "aria": null,
+      "text": "drgajjar.com/smile-gallery"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/contact-us/",
+      "aria": null,
+      "text": "studiobdental.ca/contact-us"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/need-to-know-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/financing/",
+      "aria": null,
+      "text": "smile-by-design.ca/financing"
+     },
+     {
+      "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/need-to-know-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     }
+    ],
+    "csv": [
+     "/assets/index/dental/dental-index-edition-001-observations.csv"
+    ],
+    "tests": 3,
+    "takeaways": [
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicCost is one of the first questions an implant patient has, and two of these clinics answer it before asking for contact details. Ask your team what a visitor to your imp"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicA patient deciding whether to enquire is also judging what the first visit will cost in time and money. Ask your team to write down what your implant consultation includ"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicBetween the form and the first call, an implant enquiry can go cold, and a generic form tells your team little about the case before they call. Ask your team how long re"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicWhen cost appears on more than one page, every figure needs to describe the same thing. Ask your team to list each implant price or range on your site and check that eac"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicTiered pricing turns one large number into a choice between levels. If you publish full-arch fees, test showing levels by material and measure which consultations go ahe"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicCredentials answer who will treat the patient, but not what it will cost or what happens next. Ask your team which questions implant callers ask most, and whether your i"
+     },
+     {
+      "pending": true,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     },
+     {
+      "pending": true,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicSomeone searching for full-arch treatment and someone missing one tooth need different first answers. Ask your team where each implant ad, post and email link points, an"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicPatients weighing a large treatment want to know both who will do it and what will happen. As a hypothesis to test, swap the first section of your implant page between a"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicClaims carry more weight when a patient can see where they come from. Ask your team which claims on your implant pages you could document if a patient asked for the sour"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicAn answer is most useful when the next step sits right after it. Ask your team whether each of your implant answers ends with the matching next step, such as a cost page"
+     }
+    ],
+    "placeholders": [
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "@studiobdentalPosts not collected"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "@northyork.smilecentrePosts not collected"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "@gajjardentistryPosts not collected"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not verifiedHandle not confirmed"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not verifiedHandle not confirmed"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Studio B DentalExample pending: posts from @studiobdental have not been collected."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "North York Smile CentreExample pending: posts from @northyork.smilecentre have not been collected."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Dr. Neil J. Gajjar Associates & SpecialistsExample pending: posts from @gajjardentistry have not been collected."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Dundas East DentalExample pending: the Instagram account has not been verified yet."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Bond Street DentalExample pending: the Instagram account has not been verified yet."
+     },
+     {
+      "cls": "note take dx-pending",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     },
+     {
+      "cls": "note take dx-pending",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     }
+    ],
+    "cmpVisible": "table",
+    "cmpCards": 1,
+    "cmpRows": [
+     [
+      "Studio B DentalNorth York (Toronto)",
+      "Full-arch, same-day branded offer for failing teeth or dentures; separate single",
+      "Yes: full-arch starting fee, a single-implant range and a full-set range, on dif",
+      "Five listed options with length and fee, including a complimentary screeningSour",
+      "Lead dentist; image galleries; clinic-stated success rate and warrantySource",
+      "Virtual consult form with optional smile photos; page says the team will contact",
+      "@studiobdentalPosts not collected",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "North York Smile CentreNorth York (Toronto)",
+      "Full-arch page opening with patient situations; single-tooth implants on a separ",
+      "Yes: single-implant range with inclusions; three full-arch levels per arch with ",
+      "Free, no-obligation consultationSource",
+      "Planning technology and a step-by-step journey; clinic-stated experience; genera",
+      "Appointment request with preferred date and time; three-step explanation of what",
+      "@northyork.smilecentrePosts not collected",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "Dr. Neil J. Gajjar Associates & SpecialistsMississauga",
+      "Single and full-arch implants on one page, framed around missing teethSource",
+      "Not published on the implant page reviewedSource",
+      "Call to schedule a consultation; contents and fee not statedSource",
+      "Clinician credentials, including a prosthodontist; a smile gallery (implant case",
+      "Appointment request with date, time and patient status; next step not explainedS",
+      "@gajjardentistryPosts not collected",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "Dundas East DentalToronto (to be confirmed)",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not verifiedHandle not confirmed",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "Bond Street DentalToronto (to be confirmed)",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not verifiedHandle not confirmed",
+      "Not checked",
+      "Not checked"
+     ]
+    ],
+    "details": [
+     {
+      "summary": "Why these five clinics",
+      "open": false
+     },
+     {
+      "summary": "Dates, identity and pages reviewed",
+      "open": false
+     },
+     {
+      "summary": "Instagram collection and implant content",
+      "open": false
+     },
+     {
+      "summary": "Advertising checks",
+      "open": false
+     },
+     {
+      "summary": "What is not measured, and how to read the evidence",
+      "open": false
+     },
+     {
+      "summary": "Corrections",
+      "open": false
+     }
+    ],
+    "cta": [
+     {
+      "href": "/contact?intent=review&entry=research_dental#contact-form",
+      "entry": "research_dental",
+      "text": "ask for a free marketing review"
+     },
+     {
+      "href": "/contact?intent=review&entry=research_dental#contact-form",
+      "entry": "research_dental",
+      "text": "Review my implant enquiry journey"
+     }
+    ],
+    "robots": [
+     "noindex, nofollow"
+    ],
+    "canonical": "https://helpmemarketing.com/dental-index",
+    "h1": [
+     "Dental Implant Marketing Index"
+    ],
+    "overflowX": false,
+    "inline": [],
+    "formsOnPage": 0,
+    "imgsNoAlt": 0,
+    "docW": 1280,
+    "winW": 1280
+   },
+   "contrast": {
+    "checked": 449,
+    "fails": [
+     {
+      "text": "See the five clinics",
+      "tag": "A",
+      "cls": "btn btn-primary",
+      "ratio": 1.08,
+      "need": 4.5,
+      "size": 15
+     }
+    ],
+    "fail_count": 1
+   },
+   "tab_stops": [
+    {
+     "tag": "A",
+     "text": "",
+     "href": "/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Services",
+     "href": "/services",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Work",
+     "href": "/work",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "AI Tools",
+     "href": "/ai-tools",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Blog",
+     "href": "/blog",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "About",
+     "href": "/about",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Get my free marketing reviewFree review",
+     "href": "/contact?intent=review#contact-form",
+     "outline": "solid 0px",
+     "boxShadow": true
+    },
+    {
+     "tag": "A",
+     "text": "Ankit Kumar",
+     "href": "/about",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "HMM",
+     "href": "/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "See the five clinics",
+     "href": "#dx-compare",
+     "outline": "solid 0px",
+     "boxShadow": true
+    },
+    {
+     "tag": "A",
+     "text": "Explore the three tests",
+     "href": "#dx-tests",
+     "outline": "solid 0px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "What stood out",
+     "href": "#dx-findings",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Comparison",
+     "href": "#dx-compare",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Content examples",
+     "href": "#dx-examples",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Each clinic",
+     "href": "#dx-accounts",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Patterns",
+     "href": "#dx-patterns",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Tests to run",
+     "href": "#dx-tests",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Method",
+     "href": "#dx-method",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca/procedures/all-on-x-dental-impl",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca/procedures/dental-implants",
+     "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/full-mouth-restoration",
+     "href": "https://studiobdental.ca/full-mouth-restoration/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/toronto-dental-implants",
+     "href": "https://studiobdental.ca/toronto-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "drgajjar.com/dental-implants-all-on-x",
+     "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/dental-implants-toronto",
+     "href": "https://studiobdental.ca/dental-implants-toronto/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/full-mouth-restoration",
+     "href": "https://studiobdental.ca/full-mouth-restoration/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca home page",
+     "href": "https://www.smile-by-design.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca/procedures/all-on-x-dental-impl",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "drgajjar.com/dental-implants-all-on-x",
+     "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca home page",
+     "href": "https://studiobdental.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/dental-implants-toronto",
+     "href": "https://studiobdental.ca/dental-implants-toronto/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca/procedures/all-on-x-dental-impl",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca home page",
+     "href": "https://www.smile-by-design.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "drgajjar.com/appointment-request",
+     "href": "https://www.drgajjar.com/appointment-request/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "DIV",
+     "text": "Five-clinic comparison table",
+     "href": null,
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Studio B Dental",
+     "href": "https://studiobdental.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Studio B Dental, Implant positioning (o",
+     "href": "https://studiobdental.ca/full-mouth-restoration/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Studio B Dental, Published cost informa",
+     "href": "https://studiobdental.ca/full-mouth-restoration/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Studio B Dental, Consultation offer (op",
+     "href": "https://studiobdental.ca/dental-implants-toronto/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Studio B Dental, Type of proof (opens t",
+     "href": "https://studiobdental.ca/full-mouth-restoration/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Studio B Dental, Enquiry route and next",
+     "href": "https://studiobdental.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@studiobdental",
+     "href": "https://www.instagram.com/studiobdental/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "North York Smile Centre",
+     "href": "https://www.smile-by-design.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for North York Smile Centre, Implant positi",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for North York Smile Centre, Published cost",
+     "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for North York Smile Centre, Consultation o",
+     "href": "https://www.smile-by-design.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for North York Smile Centre, Type of proof ",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for North York Smile Centre, Enquiry route ",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@northyork.smilecentre",
+     "href": "https://www.instagram.com/northyork.smilecentre/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Dr. Neil J. Gajjar Associates & Specialists",
+     "href": "https://www.drgajjar.com/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Dr. Neil J. Gajjar Associates & Special",
+     "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Dr. Neil J. Gajjar Associates & Special",
+     "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Dr. Neil J. Gajjar Associates & Special",
+     "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Dr. Neil J. Gajjar Associates & Special",
+     "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Source for Dr. Neil J. Gajjar Associates & Special",
+     "href": "https://www.drgajjar.com/appointment-request/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@gajjardentistry",
+     "href": "https://www.instagram.com/gajjardentistry/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Dundas East Dental",
+     "href": "https://dundaseastdental.com/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "Bond Street Dental",
+     "href": "https://www.dentalimplantsclinic.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "the 38 website observations used on this page (CSV",
+     "href": "/assets/index/dental/dental-index-edition-001-observations.csv",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@studiobdental",
+     "href": "https://www.instagram.com/studiobdental/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@northyork.smilecentre",
+     "href": "https://www.instagram.com/northyork.smilecentre/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@gajjardentistry",
+     "href": "https://www.instagram.com/gajjardentistry/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@studiobdental",
+     "href": "https://www.instagram.com/studiobdental/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/full-mouth-restoration",
+     "href": "https://studiobdental.ca/full-mouth-restoration/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/toronto-dental-implants",
+     "href": "https://studiobdental.ca/toronto-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/dental-implants-toronto",
+     "href": "https://studiobdental.ca/dental-implants-toronto/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca home page",
+     "href": "https://studiobdental.ca/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/need-to-know-dental-implants",
+     "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "studiobdental.ca/zirconia-dental-implants",
+     "href": "https://studiobdental.ca/zirconia-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "@northyork.smilecentre",
+     "href": "https://www.instagram.com/northyork.smilecentre/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    },
+    {
+     "tag": "A",
+     "text": "smile-by-design.ca/procedures/all-on-x-dental-impl",
+     "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+     "outline": "solid 2px",
+     "boxShadow": false
+    }
+   ],
+   "tab_no_visible_focus": [],
+   "summary_keyboard": [
+    {
+     "text": "Why these five clinics",
+     "before": false,
+     "after_enter": true,
+     "after_second_enter": false
+    },
+    {
+     "text": "Dates, identity and pages reviewed",
+     "before": false,
+     "after_enter": true,
+     "after_second_enter": false
+    },
+    {
+     "text": "Instagram collection and implant content",
+     "before": false,
+     "after_enter": true,
+     "after_second_enter": false
+    },
+    {
+     "text": "Advertising checks",
+     "before": false,
+     "after_enter": true,
+     "after_second_enter": false
+    },
+    {
+     "text": "What is not measured, and how to read the evidence",
+     "before": false,
+     "after_enter": true,
+     "after_second_enter": false
+    },
+    {
+     "text": "Corrections",
+     "before": false,
+     "after_enter": true,
+     "after_second_enter": false
+    }
+   ],
+   "anchor_scroll": [
+    {
+     "id": "dx-compare",
+     "top_after_click": 125,
+     "hash": "#dx-compare"
+    },
+    {
+     "id": "dx-tests",
+     "top_after_click": 552,
+     "hash": "#dx-tests"
+    },
+    {
+     "id": "dx-method",
+     "top_after_click": 87,
+     "hash": "#dx-method"
+    }
+   ]
+  },
+  {
+   "device": "mobile",
+   "theme": "light",
+   "checked_utc": "2026-10-16T18:50:41.782Z",
+   "status": 200,
+   "url": "https://helpmemarketing-3kwy4etrg-ankit-kumars-projects-a328efd6.vercel.app/dental-index",
+   "dom": {
+    "anchors": [
+     {
+      "href": "#dx-compare",
+      "text": "See the five clinics",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-tests",
+      "text": "Explore the three tests",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-findings",
+      "text": "What stood out",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-compare",
+      "text": "Comparison",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-examples",
+      "text": "Content examples",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-accounts",
+      "text": "Each clinic",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-patterns",
+      "text": "Patterns",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-tests",
+      "text": "Tests to run",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-method",
+      "text": "Method",
+      "target_exists": true
+     }
+    ],
+    "navLinks": [
+     "/",
+     "/services",
+     "/work",
+     "/ai-tools",
+     "/blog",
+     "/about",
+     "/contact?intent=review#contact-form",
+     "/services",
+     "/work",
+     "/ai-tools",
+     "/blog",
+     "/about",
+     "/contact?intent=review#contact-form"
+    ],
+    "srcLinks": [
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://studiobdental.ca/dental-implants-toronto/",
+      "aria": null,
+      "text": "studiobdental.ca/dental-implants-toronto"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/",
+      "aria": null,
+      "text": "smile-by-design.ca home page"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://studiobdental.ca/",
+      "aria": null,
+      "text": "studiobdental.ca home page"
+     },
+     {
+      "href": "https://studiobdental.ca/dental-implants-toronto/",
+      "aria": null,
+      "text": "studiobdental.ca/dental-implants-toronto"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/",
+      "aria": null,
+      "text": "smile-by-design.ca home page"
+     },
+     {
+      "href": "https://www.drgajjar.com/appointment-request/",
+      "aria": null,
+      "text": "drgajjar.com/appointment-request"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/dental-implants-toronto/",
+      "aria": null,
+      "text": "studiobdental.ca/dental-implants-toronto"
+     },
+     {
+      "href": "https://studiobdental.ca/",
+      "aria": null,
+      "text": "studiobdental.ca home page"
+     },
+     {
+      "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/need-to-know-dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/zirconia-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/zirconia-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/financing/",
+      "aria": null,
+      "text": "smile-by-design.ca/financing"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/",
+      "aria": null,
+      "text": "smile-by-design.ca home page"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://www.drgajjar.com/appointment-request/",
+      "aria": null,
+      "text": "drgajjar.com/appointment-request"
+     },
+     {
+      "href": "https://www.drgajjar.com/smile-gallery/",
+      "aria": null,
+      "text": "drgajjar.com/smile-gallery"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/contact-us/",
+      "aria": null,
+      "text": "studiobdental.ca/contact-us"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/need-to-know-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/financing/",
+      "aria": null,
+      "text": "smile-by-design.ca/financing"
+     },
+     {
+      "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/need-to-know-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     }
+    ],
+    "csv": [
+     "/assets/index/dental/dental-index-edition-001-observations.csv"
+    ],
+    "tests": 3,
+    "takeaways": [
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicCost is one of the first questions an implant patient has, and two of these clinics answer it before asking for contact details. Ask your team what a visitor to your imp"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicA patient deciding whether to enquire is also judging what the first visit will cost in time and money. Ask your team to write down what your implant consultation includ"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicBetween the form and the first call, an implant enquiry can go cold, and a generic form tells your team little about the case before they call. Ask your team how long re"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicWhen cost appears on more than one page, every figure needs to describe the same thing. Ask your team to list each implant price or range on your site and check that eac"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicTiered pricing turns one large number into a choice between levels. If you publish full-arch fees, test showing levels by material and measure which consultations go ahe"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicCredentials answer who will treat the patient, but not what it will cost or what happens next. Ask your team which questions implant callers ask most, and whether your i"
+     },
+     {
+      "pending": true,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     },
+     {
+      "pending": true,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicSomeone searching for full-arch treatment and someone missing one tooth need different first answers. Ask your team where each implant ad, post and email link points, an"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicPatients weighing a large treatment want to know both who will do it and what will happen. As a hypothesis to test, swap the first section of your implant page between a"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicClaims carry more weight when a patient can see where they come from. Ask your team which claims on your implant pages you could document if a patient asked for the sour"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicAn answer is most useful when the next step sits right after it. Ask your team whether each of your implant answers ends with the matching next step, such as a cost page"
+     }
+    ],
+    "placeholders": [
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "@studiobdentalPosts not collected"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "@northyork.smilecentrePosts not collected"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "@gajjardentistryPosts not collected"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not verifiedHandle not confirmed"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not verifiedHandle not confirmed"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Studio B DentalExample pending: posts from @studiobdental have not been collected."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "North York Smile CentreExample pending: posts from @northyork.smilecentre have not been collected."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Dr. Neil J. Gajjar Associates & SpecialistsExample pending: posts from @gajjardentistry have not been collected."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Dundas East DentalExample pending: the Instagram account has not been verified yet."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Bond Street DentalExample pending: the Instagram account has not been verified yet."
+     },
+     {
+      "cls": "note take dx-pending",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     },
+     {
+      "cls": "note take dx-pending",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     }
+    ],
+    "cmpVisible": "block",
+    "cmpCards": 1,
+    "cmpRows": [
+     [
+      "Studio B DentalNorth York (Toronto)",
+      "Full-arch, same-day branded offer for failing teeth or dentures; separate single",
+      "Yes: full-arch starting fee, a single-implant range and a full-set range, on dif",
+      "Five listed options with length and fee, including a complimentary screeningSour",
+      "Lead dentist; image galleries; clinic-stated success rate and warrantySource",
+      "Virtual consult form with optional smile photos; page says the team will contact",
+      "@studiobdentalPosts not collected",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "North York Smile CentreNorth York (Toronto)",
+      "Full-arch page opening with patient situations; single-tooth implants on a separ",
+      "Yes: single-implant range with inclusions; three full-arch levels per arch with ",
+      "Free, no-obligation consultationSource",
+      "Planning technology and a step-by-step journey; clinic-stated experience; genera",
+      "Appointment request with preferred date and time; three-step explanation of what",
+      "@northyork.smilecentrePosts not collected",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "Dr. Neil J. Gajjar Associates & SpecialistsMississauga",
+      "Single and full-arch implants on one page, framed around missing teethSource",
+      "Not published on the implant page reviewedSource",
+      "Call to schedule a consultation; contents and fee not statedSource",
+      "Clinician credentials, including a prosthodontist; a smile gallery (implant case",
+      "Appointment request with date, time and patient status; next step not explainedS",
+      "@gajjardentistryPosts not collected",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "Dundas East DentalToronto (to be confirmed)",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not verifiedHandle not confirmed",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "Bond Street DentalToronto (to be confirmed)",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not verifiedHandle not confirmed",
+      "Not checked",
+      "Not checked"
+     ]
+    ],
+    "details": [
+     {
+      "summary": "Why these five clinics",
+      "open": false
+     },
+     {
+      "summary": "Dates, identity and pages reviewed",
+      "open": false
+     },
+     {
+      "summary": "Instagram collection and implant content",
+      "open": false
+     },
+     {
+      "summary": "Advertising checks",
+      "open": false
+     },
+     {
+      "summary": "What is not measured, and how to read the evidence",
+      "open": false
+     },
+     {
+      "summary": "Corrections",
+      "open": false
+     }
+    ],
+    "cta": [
+     {
+      "href": "/contact?intent=review&entry=research_dental#contact-form",
+      "entry": "research_dental",
+      "text": "ask for a free marketing review"
+     },
+     {
+      "href": "/contact?intent=review&entry=research_dental#contact-form",
+      "entry": "research_dental",
+      "text": "Review my implant enquiry journey"
+     }
+    ],
+    "robots": [
+     "noindex, nofollow"
+    ],
+    "canonical": "https://helpmemarketing.com/dental-index",
+    "h1": [
+     "Dental Implant Marketing Index"
+    ],
+    "overflowX": false,
+    "inline": [],
+    "formsOnPage": 0,
+    "imgsNoAlt": 0,
+    "docW": 390,
+    "winW": 390
+   },
+   "contrast": {
+    "checked": 449,
+    "fails": [],
+    "fail_count": 0
+   },
+   "menu": {
+    "exists": 1,
+    "expanded": "true",
+    "links": [
+     "/services",
+     "/work",
+     "/ai-tools",
+     "/blog",
+     "/about",
+     "/contact?intent=review#contact-form"
+    ],
+    "after_escape": "false"
+   },
+   "cta_click": {
+    "landed": "https://helpmemarketing-3kwy4etrg-ankit-kumars-projects-a328efd6.vercel.app/contact?intent=review&entry=research_dental#contact-form",
+    "status": 200
+   },
+   "cta_contact": {
+    "intentClass": true,
+    "dl": [
+     {
+      "event": "hmm_consent_update"
+     },
+     {
+      "event": "gtm.js"
+     },
+     {
+      "event": "contact_view",
+      "entry_point": "research_dental",
+      "contact_intent": "review"
+     },
+     {
+      "event": "gtm.dom"
+     },
+     {
+      "event": "gtm.load"
+     }
+    ],
+    "formExists": true,
+    "labels": [
+     {
+      "name": "name",
+      "label": "Name"
+     },
+     {
+      "name": "email",
+      "label": "Email"
+     },
+     {
+      "name": "phone",
+      "label": "Phone Optional"
+     },
+     {
+      "name": "website",
+      "label": "Website"
+     },
+     {
+      "name": "",
+      "label": null
+     },
+     {
+      "name": "",
+      "label": "What do you need help with?"
+     },
+     {
+      "name": "biggest_challenge",
+      "label": "Anything I should know?What would you like me to focus on? O"
+     }
+    ]
+   }
+  },
+  {
+   "device": "mobile",
+   "theme": "dark",
+   "checked_utc": "2026-10-16T18:50:49.078Z",
+   "status": 200,
+   "url": "https://helpmemarketing-3kwy4etrg-ankit-kumars-projects-a328efd6.vercel.app/dental-index",
+   "dom": {
+    "anchors": [
+     {
+      "href": "#dx-compare",
+      "text": "See the five clinics",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-tests",
+      "text": "Explore the three tests",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-findings",
+      "text": "What stood out",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-compare",
+      "text": "Comparison",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-examples",
+      "text": "Content examples",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-accounts",
+      "text": "Each clinic",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-patterns",
+      "text": "Patterns",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-tests",
+      "text": "Tests to run",
+      "target_exists": true
+     },
+     {
+      "href": "#dx-method",
+      "text": "Method",
+      "target_exists": true
+     }
+    ],
+    "navLinks": [
+     "/",
+     "/services",
+     "/work",
+     "/ai-tools",
+     "/blog",
+     "/about",
+     "/contact?intent=review#contact-form",
+     "/services",
+     "/work",
+     "/ai-tools",
+     "/blog",
+     "/about",
+     "/contact?intent=review#contact-form"
+    ],
+    "srcLinks": [
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://studiobdental.ca/dental-implants-toronto/",
+      "aria": null,
+      "text": "studiobdental.ca/dental-implants-toronto"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/",
+      "aria": null,
+      "text": "smile-by-design.ca home page"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://studiobdental.ca/",
+      "aria": null,
+      "text": "studiobdental.ca home page"
+     },
+     {
+      "href": "https://studiobdental.ca/dental-implants-toronto/",
+      "aria": null,
+      "text": "studiobdental.ca/dental-implants-toronto"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/",
+      "aria": null,
+      "text": "smile-by-design.ca home page"
+     },
+     {
+      "href": "https://www.drgajjar.com/appointment-request/",
+      "aria": null,
+      "text": "drgajjar.com/appointment-request"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/dental-implants-toronto/",
+      "aria": null,
+      "text": "studiobdental.ca/dental-implants-toronto"
+     },
+     {
+      "href": "https://studiobdental.ca/",
+      "aria": null,
+      "text": "studiobdental.ca home page"
+     },
+     {
+      "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/need-to-know-dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/zirconia-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/zirconia-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/financing/",
+      "aria": null,
+      "text": "smile-by-design.ca/financing"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/",
+      "aria": null,
+      "text": "smile-by-design.ca home page"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://www.drgajjar.com/appointment-request/",
+      "aria": null,
+      "text": "drgajjar.com/appointment-request"
+     },
+     {
+      "href": "https://www.drgajjar.com/smile-gallery/",
+      "aria": null,
+      "text": "drgajjar.com/smile-gallery"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://studiobdental.ca/full-mouth-restoration/",
+      "aria": null,
+      "text": "studiobdental.ca/full-mouth-restoration"
+     },
+     {
+      "href": "https://studiobdental.ca/contact-us/",
+      "aria": null,
+      "text": "studiobdental.ca/contact-us"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/all-on-x-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/toronto-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/toronto-dental-implants"
+     },
+     {
+      "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/need-to-know-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/financing/",
+      "aria": null,
+      "text": "smile-by-design.ca/financing"
+     },
+     {
+      "href": "https://studiobdental.ca/need-to-know-dental-implants/",
+      "aria": null,
+      "text": "studiobdental.ca/need-to-know-dental-implants"
+     },
+     {
+      "href": "https://www.smile-by-design.ca/procedures/dental-implants/",
+      "aria": null,
+      "text": "smile-by-design.ca/procedures/dental-implants"
+     },
+     {
+      "href": "https://www.drgajjar.com/dental-implants-all-on-x/",
+      "aria": null,
+      "text": "drgajjar.com/dental-implants-all-on-x"
+     }
+    ],
+    "csv": [
+     "/assets/index/dental/dental-index-edition-001-observations.csv"
+    ],
+    "tests": 3,
+    "takeaways": [
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicCost is one of the first questions an implant patient has, and two of these clinics answer it before asking for contact details. Ask your team what a visitor to your imp"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicA patient deciding whether to enquire is also judging what the first visit will cost in time and money. Ask your team to write down what your implant consultation includ"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicBetween the form and the first call, an implant enquiry can go cold, and a generic form tells your team little about the case before they call. Ask your team how long re"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicWhen cost appears on more than one page, every figure needs to describe the same thing. Ask your team to list each implant price or range on your site and check that eac"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicTiered pricing turns one large number into a choice between levels. If you publish full-arch fees, test showing levels by material and measure which consultations go ahe"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicCredentials answer who will treat the patient, but not what it will cost or what happens next. Ask your team which questions implant callers ask most, and whether your i"
+     },
+     {
+      "pending": true,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     },
+     {
+      "pending": true,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicSomeone searching for full-arch treatment and someone missing one tooth need different first answers. Ask your team where each implant ad, post and email link points, an"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicPatients weighing a large treatment want to know both who will do it and what will happen. As a hypothesis to test, swap the first section of your implant page between a"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicClaims carry more weight when a patient can see where they come from. Ask your team which claims on your implant pages you could document if a patient asked for the sour"
+     },
+     {
+      "pending": false,
+      "lbl": "What this means for your clinic",
+      "text": "What this means for your clinicAn answer is most useful when the next step sits right after it. Ask your team whether each of your implant answers ends with the matching next step, such as a cost page"
+     }
+    ],
+    "placeholders": [
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "@studiobdentalPosts not collected"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "@northyork.smilecentrePosts not collected"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "@gajjardentistryPosts not collected"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite refused automated access; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not verifiedHandle not confirmed"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not confirmedWebsite returned a challenge page; browser check pending"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not verifiedHandle not confirmed"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "wrap-cell dx-miss",
+      "text": "Not checked"
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Studio B DentalExample pending: posts from @studiobdental have not been collected."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "North York Smile CentreExample pending: posts from @northyork.smilecentre have not been collected."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Dr. Neil J. Gajjar Associates & SpecialistsExample pending: posts from @gajjardentistry have not been collected."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Dundas East DentalExample pending: the Instagram account has not been verified yet."
+     },
+     {
+      "cls": "card dx-ph",
+      "text": "Bond Street DentalExample pending: the Instagram account has not been verified yet."
+     },
+     {
+      "cls": "note take dx-pending",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     },
+     {
+      "cls": "note take dx-pending",
+      "text": "What this means for your clinicNot written yet. A takeaway will be added only after this clinic’s pages have been reviewed."
+     }
+    ],
+    "cmpVisible": "block",
+    "cmpCards": 1,
+    "cmpRows": [
+     [
+      "Studio B DentalNorth York (Toronto)",
+      "Full-arch, same-day branded offer for failing teeth or dentures; separate single",
+      "Yes: full-arch starting fee, a single-implant range and a full-set range, on dif",
+      "Five listed options with length and fee, including a complimentary screeningSour",
+      "Lead dentist; image galleries; clinic-stated success rate and warrantySource",
+      "Virtual consult form with optional smile photos; page says the team will contact",
+      "@studiobdentalPosts not collected",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "North York Smile CentreNorth York (Toronto)",
+      "Full-arch page opening with patient situations; single-tooth implants on a separ",
+      "Yes: single-implant range with inclusions; three full-arch levels per arch with ",
+      "Free, no-obligation consultationSource",
+      "Planning technology and a step-by-step journey; clinic-stated experience; genera",
+      "Appointment request with preferred date and time; three-step explanation of what",
+      "@northyork.smilecentrePosts not collected",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "Dr. Neil J. Gajjar Associates & SpecialistsMississauga",
+      "Single and full-arch implants on one page, framed around missing teethSource",
+      "Not published on the implant page reviewedSource",
+      "Call to schedule a consultation; contents and fee not statedSource",
+      "Clinician credentials, including a prosthodontist; a smile gallery (implant case",
+      "Appointment request with date, time and patient status; next step not explainedS",
+      "@gajjardentistryPosts not collected",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "Dundas East DentalToronto (to be confirmed)",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not confirmedWebsite refused automated access; browser check pending",
+      "Not verifiedHandle not confirmed",
+      "Not checked",
+      "Not checked"
+     ],
+     [
+      "Bond Street DentalToronto (to be confirmed)",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not confirmedWebsite returned a challenge page; browser check pending",
+      "Not verifiedHandle not confirmed",
+      "Not checked",
+      "Not checked"
+     ]
+    ],
+    "details": [
+     {
+      "summary": "Why these five clinics",
+      "open": false
+     },
+     {
+      "summary": "Dates, identity and pages reviewed",
+      "open": false
+     },
+     {
+      "summary": "Instagram collection and implant content",
+      "open": false
+     },
+     {
+      "summary": "Advertising checks",
+      "open": false
+     },
+     {
+      "summary": "What is not measured, and how to read the evidence",
+      "open": false
+     },
+     {
+      "summary": "Corrections",
+      "open": false
+     }
+    ],
+    "cta": [
+     {
+      "href": "/contact?intent=review&entry=research_dental#contact-form",
+      "entry": "research_dental",
+      "text": "ask for a free marketing review"
+     },
+     {
+      "href": "/contact?intent=review&entry=research_dental#contact-form",
+      "entry": "research_dental",
+      "text": "Review my implant enquiry journey"
+     }
+    ],
+    "robots": [
+     "noindex, nofollow"
+    ],
+    "canonical": "https://helpmemarketing.com/dental-index",
+    "h1": [
+     "Dental Implant Marketing Index"
+    ],
+    "overflowX": false,
+    "inline": [],
+    "formsOnPage": 0,
+    "imgsNoAlt": 0,
+    "docW": 390,
+    "winW": 390
+   },
+   "contrast": {
+    "checked": 449,
+    "fails": [
+     {
+      "text": "See the five clinics",
+      "tag": "A",
+      "cls": "btn btn-primary",
+      "ratio": 1.08,
+      "need": 4.5,
+      "size": 15
+     }
+    ],
+    "fail_count": 1
+   },
+   "menu": {
+    "exists": 1,
+    "expanded": "true",
+    "links": [
+     "/services",
+     "/work",
+     "/ai-tools",
+     "/blog",
+     "/about",
+     "/contact?intent=review#contact-form"
+    ],
+    "after_escape": "false"
+   }
+  }
+ ],
+ "http": {
+  "/assets/index/dental/dental-index-edition-001-observations.csv": {
+   "status": 200,
+   "location": null,
+   "bytes": 15607,
+   "lines": 39
+  },
+  "/dental-index.html": {
+   "status": 308,
+   "location": "/dental-index",
+   "bytes": 0,
+   "lines": null
+  },
+  "/_kit/dental-implants/README.md": {
+   "status": 404,
+   "location": null,
+   "bytes": 0,
+   "lines": null
+  },
+  "/sitemap.xml": {
+   "status": 200,
+   "location": null,
+   "bytes": 5796,
+   "lines": 203,
+   "mentions_dental": false
+  }
+ },
+ "finished_utc": "2026-10-16T18:50:53.204Z"
+}

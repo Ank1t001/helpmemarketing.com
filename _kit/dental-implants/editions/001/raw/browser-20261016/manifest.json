@@ -1,0 +1,1090 @@
+[
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/out/dental_evidence_001_2026-10-16.json",
+  "repo_path": "evidence/dental_evidence_001_2026-10-16.json",
+  "bytes": 85593,
+  "sha256_original": "ccd7dd382a55373d01924473087f94e347ab172646bcadba6fb11f808a8e624b",
+  "sha256_stored": "ccd7dd382a55373d01924473087f94e347ab172646bcadba6fb11f808a8e624b",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/out/dental_evidence_001_2026-10-16.md",
+  "repo_path": "evidence/dental_evidence_001_2026-10-16.md",
+  "bytes": 4648,
+  "sha256_original": "af8df27970325007e66cd1cb8e552f6d496d8863f2c059af62a4fe761f06c1c1",
+  "sha256_stored": "af8df27970325007e66cd1cb8e552f6d496d8863f2c059af62a4fe761f06c1c1",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/load_log.jsonl",
+  "repo_path": "logs/load_log.jsonl",
+  "bytes": 34925,
+  "sha256_original": "dbd5bdded22e9054102a354cecaa1af571a9ebb115f34ab7c11c604a98107dba",
+  "sha256_stored": "dbd5bdded22e9054102a354cecaa1af571a9ebb115f34ab7c11c604a98107dba",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/meta_parsed.json",
+  "repo_path": "logs/meta_parsed.json",
+  "bytes": 18320,
+  "sha256_original": "022666a953ff922de282f43a0bbca4206a6333ae7f7281b5d7deb45c8625e5c0",
+  "sha256_stored": "022666a953ff922de282f43a0bbca4206a6333ae7f7281b5d7deb45c8625e5c0",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/google_creatives.jsonl",
+  "repo_path": "logs/google_creatives.jsonl",
+  "bytes": 29728,
+  "sha256_original": "4a91b885f258abf5160addf2fbbaf44e692d7e7edbde65f1239320b817a0e286",
+  "sha256_stored": "4a91b885f258abf5160addf2fbbaf44e692d7e7edbde65f1239320b817a0e286",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/google_window.jsonl",
+  "repo_path": "logs/google_window.jsonl",
+  "bytes": 2686,
+  "sha256_original": "0f6df52304a19554a720fe4d5b052e9d63789d3a98ee62688b300cd382a276b5",
+  "sha256_stored": "0f6df52304a19554a720fe4d5b052e9d63789d3a98ee62688b300cd382a276b5",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/google_window_try1.jsonl",
+  "repo_path": "logs/google_window_try1.jsonl",
+  "bytes": 2910,
+  "sha256_original": "8e8dbc1664d60299147c238eef8a53cea85c94f4d6e938779745cf2c591a4b19",
+  "sha256_stored": "8e8dbc1664d60299147c238eef8a53cea85c94f4d6e938779745cf2c591a4b19",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/bond_google_creatives.json",
+  "repo_path": "logs/bond_google_creatives.json",
+  "bytes": 9697,
+  "sha256_original": "fcc8fd1abcb3ecb00efd6d2b158cad8ca6e30d7fb54b0ed56b03961c23afb858",
+  "sha256_stored": "fcc8fd1abcb3ecb00efd6d2b158cad8ca6e30d7fb54b0ed56b03961c23afb858",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/bond_google_links.json",
+  "repo_path": "logs/bond_google_links.json",
+  "bytes": 4317,
+  "sha256_original": "f3f8d215b6306da6ba52c207370c9b008cd3bbb15d2bcf9865a3a3bff432b7b4",
+  "sha256_stored": "f3f8d215b6306da6ba52c207370c9b008cd3bbb15d2bcf9865a3a3bff432b7b4",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/ig_grid.json",
+  "repo_path": "logs/ig_grid.json",
+  "bytes": 6707,
+  "sha256_original": "8faea0593af97e6e621f4b62dd95653a223364bb36531cb2d1d2c87fedcefd1c",
+  "sha256_stored": "8faea0593af97e6e621f4b62dd95653a223364bb36531cb2d1d2c87fedcefd1c",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/ig_posts.jsonl",
+  "repo_path": "logs/ig_posts.jsonl",
+  "bytes": 35755,
+  "sha256_original": "a5fbb38f41480060e0763afa50e50068c2f0ea659d30e9bb64e0570fdd61121b",
+  "sha256_stored": "a5fbb38f41480060e0763afa50e50068c2f0ea659d30e9bb64e0570fdd61121b",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/preview_results.json",
+  "repo_path": "logs/preview_results.json",
+  "bytes": 112728,
+  "sha256_original": "bfc1fe3fb6f2a2f470714699c9b2bc98e858d65eda82e497340d67095cc38a71",
+  "sha256_stored": "bfc1fe3fb6f2a2f470714699c9b2bc98e858d65eda82e497340d67095cc38a71",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/bond-home.txt",
+  "repo_path": "pages/bond-home.txt",
+  "bytes": 275,
+  "sha256_original": "688bb555043dd984662b40c61d657cc109cea852087cd2edce43269ecbffd45f",
+  "sha256_stored": "688bb555043dd984662b40c61d657cc109cea852087cd2edce43269ecbffd45f",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/dundas-home.txt",
+  "repo_path": "pages/dundas-home.txt",
+  "bytes": 92,
+  "sha256_original": "e24111fcde706a2d929682daaa9510a5c50f532d21d44928f66876124cf94df4",
+  "sha256_stored": "e24111fcde706a2d929682daaa9510a5c50f532d21d44928f66876124cf94df4",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/google-bond.txt",
+  "repo_path": "pages/google-bond.txt",
+  "bytes": 1476,
+  "sha256_original": "31151004d11e2f5f3f20bac8163ce3fe6dd818ce0bef9e415eb4f1ab16792fb5",
+  "sha256_stored": "31151004d11e2f5f3f20bac8163ce3fe6dd818ce0bef9e415eb4f1ab16792fb5",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/google-dundas.txt",
+  "repo_path": "pages/google-dundas.txt",
+  "bytes": 1458,
+  "sha256_original": "e1a13c991faab54424ad2b6e6d9b94b75afbce603a00507a8ad289cb2f526ffa",
+  "sha256_stored": "e1a13c991faab54424ad2b6e6d9b94b75afbce603a00507a8ad289cb2f526ffa",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/google-gajjar.txt",
+  "repo_path": "pages/google-gajjar.txt",
+  "bytes": 1471,
+  "sha256_original": "dc99543f133223fc2cded697b913819181bff94d8697450f953436b3628ef0e1",
+  "sha256_stored": "dc99543f133223fc2cded697b913819181bff94d8697450f953436b3628ef0e1",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/google-nysc.txt",
+  "repo_path": "pages/google-nysc.txt",
+  "bytes": 1409,
+  "sha256_original": "0aa47d8b1d7eb061fce8472797c59d4ac5e74bd450dd8ced0fe98987d7ba8320",
+  "sha256_stored": "0aa47d8b1d7eb061fce8472797c59d4ac5e74bd450dd8ced0fe98987d7ba8320",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/google-studiob.txt",
+  "repo_path": "pages/google-studiob.txt",
+  "bytes": 1454,
+  "sha256_original": "53fe5681eb0c80fe7d8f9c4ddf3ffe6f71042019baf21fa0d2c404d4b463ff1b",
+  "sha256_stored": "53fe5681eb0c80fe7d8f9c4ddf3ffe6f71042019baf21fa0d2c404d4b463ff1b",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/ig-gajjardentistry.txt",
+  "repo_path": "pages/ig-gajjardentistry.txt",
+  "bytes": 0,
+  "sha256_original": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sha256_stored": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/ig-northyork.smilecentre.txt",
+  "repo_path": "pages/ig-northyork.smilecentre.txt",
+  "bytes": 1370,
+  "sha256_original": "f44a808cd2b16a81b57e39401e5123d99669f1e38f294577514d71454cf82b2d",
+  "sha256_stored": "f44a808cd2b16a81b57e39401e5123d99669f1e38f294577514d71454cf82b2d",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/ig-studiobdental.txt",
+  "repo_path": "pages/ig-studiobdental.txt",
+  "bytes": 1462,
+  "sha256_original": "0854b24e23da603c0c2ac96df0cd064125a3598624438f3f496f7d3bbcdbafaf",
+  "sha256_stored": "0854b24e23da603c0c2ac96df0cd064125a3598624438f3f496f7d3bbcdbafaf",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/meta-bond.txt",
+  "repo_path": "pages/meta-bond.txt",
+  "bytes": 582,
+  "sha256_original": "ab8ad87c56df7ca75f30eac96b47df0cf49ab25329dd947eaa2f9c4bb6a43f82",
+  "sha256_stored": "ab8ad87c56df7ca75f30eac96b47df0cf49ab25329dd947eaa2f9c4bb6a43f82",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/meta-dundas.txt",
+  "repo_path": "pages/meta-dundas.txt",
+  "bytes": 582,
+  "sha256_original": "ab8ad87c56df7ca75f30eac96b47df0cf49ab25329dd947eaa2f9c4bb6a43f82",
+  "sha256_stored": "ab8ad87c56df7ca75f30eac96b47df0cf49ab25329dd947eaa2f9c4bb6a43f82",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/meta-gajjar-dr.txt",
+  "repo_path": "pages/meta-gajjar-dr.txt",
+  "bytes": 2144,
+  "sha256_original": "487e54a02a720758b84e15b87e279d8556117b5d80523f371a0b7a205f09af7b",
+  "sha256_stored": "487e54a02a720758b84e15b87e279d8556117b5d80523f371a0b7a205f09af7b",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/meta-gajjar.txt",
+  "repo_path": "pages/meta-gajjar.txt",
+  "bytes": 582,
+  "sha256_original": "ab8ad87c56df7ca75f30eac96b47df0cf49ab25329dd947eaa2f9c4bb6a43f82",
+  "sha256_stored": "ab8ad87c56df7ca75f30eac96b47df0cf49ab25329dd947eaa2f9c4bb6a43f82",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/meta-nysc-sbd.txt",
+  "repo_path": "pages/meta-nysc-sbd.txt",
+  "bytes": 582,
+  "sha256_original": "ab8ad87c56df7ca75f30eac96b47df0cf49ab25329dd947eaa2f9c4bb6a43f82",
+  "sha256_stored": "ab8ad87c56df7ca75f30eac96b47df0cf49ab25329dd947eaa2f9c4bb6a43f82",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/meta-nysc.txt",
+  "repo_path": "pages/meta-nysc.txt",
+  "bytes": 9003,
+  "sha256_original": "444cdfcbe6203dd21c3b4626a49d73d4009384cc39a3f007ce9b7148a07662ab",
+  "sha256_stored": "444cdfcbe6203dd21c3b4626a49d73d4009384cc39a3f007ce9b7148a07662ab",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/meta-studiob-2.txt",
+  "repo_path": "pages/meta-studiob-2.txt",
+  "bytes": 3684,
+  "sha256_original": "e33b3f010a17969a45ad74136e9703c7cf800b06246ab69e52070f4763c8fe77",
+  "sha256_stored": "e33b3f010a17969a45ad74136e9703c7cf800b06246ab69e52070f4763c8fe77",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pages/meta-studiob.txt",
+  "repo_path": "pages/meta-studiob.txt",
+  "bytes": 3684,
+  "sha256_original": "e33b3f010a17969a45ad74136e9703c7cf800b06246ab69e52070f4763c8fe77",
+  "sha256_stored": "e33b3f010a17969a45ad74136e9703c7cf800b06246ab69e52070f4763c8fe77",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/load.mjs",
+  "repo_path": "collector/load.mjs",
+  "bytes": 1880,
+  "sha256_original": "9bcc727037c546aea7fdd3d1428cf218f419b62388087b651dc69e0cab9d4f4a",
+  "sha256_stored": "9bcc727037c546aea7fdd3d1428cf218f419b62388087b651dc69e0cab9d4f4a",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/parse_meta.py",
+  "repo_path": "collector/parse_meta.py",
+  "bytes": 1475,
+  "sha256_original": "b927a408c93c52a27a9f288fb833ec364cc9bc7da9b16e18a32357dcc04e2dac",
+  "sha256_stored": "b927a408c93c52a27a9f288fb833ec364cc9bc7da9b16e18a32357dcc04e2dac",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/gcr.mjs",
+  "repo_path": "collector/gcr.mjs",
+  "bytes": 1464,
+  "sha256_original": "b50d99084a43ebc415767fa100e5faaa18ea5d212c7920540aa78a6e0aaaf7c4",
+  "sha256_stored": "b50d99084a43ebc415767fa100e5faaa18ea5d212c7920540aa78a6e0aaaf7c4",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/gdate.mjs",
+  "repo_path": "collector/gdate.mjs",
+  "bytes": 730,
+  "sha256_original": "b9b6cc7413cbf2227a6dfd60fc6c5bc9777267f1db0de7de6cb1a83067455a8b",
+  "sha256_stored": "b9b6cc7413cbf2227a6dfd60fc6c5bc9777267f1db0de7de6cb1a83067455a8b",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/gdate2.mjs",
+  "repo_path": "collector/gdate2.mjs",
+  "bytes": 863,
+  "sha256_original": "eea0f4db7c827eba4eff6419d436b3b513cd01f45be112d952783fa5f8e5f324",
+  "sha256_stored": "eea0f4db7c827eba4eff6419d436b3b513cd01f45be112d952783fa5f8e5f324",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/gwin.mjs",
+  "repo_path": "collector/gwin.mjs",
+  "bytes": 1481,
+  "sha256_original": "9045370b68f551843f91f313180e02c8bf0137e5e2f9e19ab7a703590ad416dd",
+  "sha256_stored": "9045370b68f551843f91f313180e02c8bf0137e5e2f9e19ab7a703590ad416dd",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/gbond.mjs",
+  "repo_path": "collector/gbond.mjs",
+  "bytes": 1873,
+  "sha256_original": "8058cfe20d415ec3c7c9a67f86e5b0e6624c2f6dd9178986008bf1b2a3887d14",
+  "sha256_stored": "8058cfe20d415ec3c7c9a67f86e5b0e6624c2f6dd9178986008bf1b2a3887d14",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/igpost.mjs",
+  "repo_path": "collector/igpost.mjs",
+  "bytes": 1604,
+  "sha256_original": "c3e14f267fe968d4f6690af37335b504e0f23f5cd9bb7a1afa4958e9d3866e71",
+  "sha256_stored": "c3e14f267fe968d4f6690af37335b504e0f23f5cd9bb7a1afa4958e9d3866e71",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pv.mjs",
+  "repo_path": "collector/pv.mjs",
+  "bytes": 10379,
+  "sha256_original": "170ce02e68f6ed3e86d94ba372feafb66fd5a7ffb8b1409cd202176476d67747",
+  "sha256_stored": "6e0ef5728ef7be21eb5a20324c270bfaa59188f1fc707561097655aa089637a1",
+  "redacted": true
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pv2.mjs",
+  "repo_path": "collector/pv2.mjs",
+  "bytes": 2288,
+  "sha256_original": "1eb298789704270351cc1e56645a6a9da8b1200a114e125b42412b8333b4947f",
+  "sha256_stored": "05fb03979795fab3f56e7131617983cbfcad7fec24bfb65e932c21f1d62a86c8",
+  "redacted": true
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/pv3.mjs",
+  "repo_path": "collector/pv3.mjs",
+  "bytes": 1122,
+  "sha256_original": "cc6ad82467c6453ee15ba977ffb7365c530a1927d47f9705c3fda78685f2c334",
+  "sha256_stored": "06e94745b78827af10dacfcae02a5ba4e1df22105c1f71d9d9d6bf73dd6a7aa0",
+  "redacted": true
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/assemble.py",
+  "repo_path": "collector/assemble.py",
+  "bytes": 27549,
+  "sha256_original": "ce132dce1f33bfa5ab4ad0ad841c8f786e15a0ffd8b1f862237bb2f2cf32b3a9",
+  "sha256_stored": "ce132dce1f33bfa5ab4ad0ad841c8f786e15a0ffd8b1f862237bb2f2cf32b3a9",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr01.png",
+  "repo_path": "shots/bond-google/cr01.png",
+  "bytes": 43432,
+  "sha256_original": "e022ff0ed067ae777913e44808399afa380be79af721acb88ff68f0006f25379",
+  "sha256_stored": "e022ff0ed067ae777913e44808399afa380be79af721acb88ff68f0006f25379",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr02.png",
+  "repo_path": "shots/bond-google/cr02.png",
+  "bytes": 71339,
+  "sha256_original": "41802a1ad0e4e6aa4e651637d0789ed36c9a24a9b4067e526bd25086920a3fee",
+  "sha256_stored": "41802a1ad0e4e6aa4e651637d0789ed36c9a24a9b4067e526bd25086920a3fee",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr03.png",
+  "repo_path": "shots/bond-google/cr03.png",
+  "bytes": 64071,
+  "sha256_original": "d0293eed87032216c97b228827000d946156140d1fc8e103fb55c74f4c9870fa",
+  "sha256_stored": "d0293eed87032216c97b228827000d946156140d1fc8e103fb55c74f4c9870fa",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr04.png",
+  "repo_path": "shots/bond-google/cr04.png",
+  "bytes": 68624,
+  "sha256_original": "2d99e0d7f97885e4de14dd3e02dec81ce8a310501801f954d4363a80e97ad076",
+  "sha256_stored": "2d99e0d7f97885e4de14dd3e02dec81ce8a310501801f954d4363a80e97ad076",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr05.png",
+  "repo_path": "shots/bond-google/cr05.png",
+  "bytes": 58779,
+  "sha256_original": "dfc6de5426e9adfafcfcd8732efeb39d45396e5ec49d172ce32aaa3a7d085588",
+  "sha256_stored": "dfc6de5426e9adfafcfcd8732efeb39d45396e5ec49d172ce32aaa3a7d085588",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr06.png",
+  "repo_path": "shots/bond-google/cr06.png",
+  "bytes": 77045,
+  "sha256_original": "acba24ba3cf222a21a46e3b21b90e1842cc2ca2325a94bf5614e0aa94cc35897",
+  "sha256_stored": "acba24ba3cf222a21a46e3b21b90e1842cc2ca2325a94bf5614e0aa94cc35897",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr07.png",
+  "repo_path": "shots/bond-google/cr07.png",
+  "bytes": 98462,
+  "sha256_original": "1a3d5079266bf89ec1b8886f4e16c195a94f1418787e673db3c347f3fe007979",
+  "sha256_stored": "1a3d5079266bf89ec1b8886f4e16c195a94f1418787e673db3c347f3fe007979",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr08.png",
+  "repo_path": "shots/bond-google/cr08.png",
+  "bytes": 68903,
+  "sha256_original": "4721706ee0eb2b072a15959cc7f2bee970ca0f1f8a2b9c8e9b052ab40c338975",
+  "sha256_stored": "4721706ee0eb2b072a15959cc7f2bee970ca0f1f8a2b9c8e9b052ab40c338975",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr09.png",
+  "repo_path": "shots/bond-google/cr09.png",
+  "bytes": 73112,
+  "sha256_original": "728c582e4a30fb162835e8e91982524a3f26f2f7db10bf9ebf177c94d78e9fcb",
+  "sha256_stored": "728c582e4a30fb162835e8e91982524a3f26f2f7db10bf9ebf177c94d78e9fcb",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr10.png",
+  "repo_path": "shots/bond-google/cr10.png",
+  "bytes": 50365,
+  "sha256_original": "f9c781cb513b48c8757d82bc5e48acddf53d1ea08e73c26480c9debcaa46d4b4",
+  "sha256_stored": "f9c781cb513b48c8757d82bc5e48acddf53d1ea08e73c26480c9debcaa46d4b4",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr11.png",
+  "repo_path": "shots/bond-google/cr11.png",
+  "bytes": 43259,
+  "sha256_original": "40dfd081010f89dee93cc61163e6476fa50d4f446a0ca90b7104148df3159edc",
+  "sha256_stored": "40dfd081010f89dee93cc61163e6476fa50d4f446a0ca90b7104148df3159edc",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr12.png",
+  "repo_path": "shots/bond-google/cr12.png",
+  "bytes": 161684,
+  "sha256_original": "a3c5ff4ed3923e01c24c3f07bac01858eb7c98711e7cada8bbaabd7105149e0a",
+  "sha256_stored": "a3c5ff4ed3923e01c24c3f07bac01858eb7c98711e7cada8bbaabd7105149e0a",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr13.png",
+  "repo_path": "shots/bond-google/cr13.png",
+  "bytes": 57622,
+  "sha256_original": "52daf63f9599dd1ac4806c3d7bf4a765dc67fea4f394f14ad055c9ef51c8ff18",
+  "sha256_stored": "52daf63f9599dd1ac4806c3d7bf4a765dc67fea4f394f14ad055c9ef51c8ff18",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr14.png",
+  "repo_path": "shots/bond-google/cr14.png",
+  "bytes": 83732,
+  "sha256_original": "37036a15034c9f5f1083d17efdd3731bf8575455ebe01e9ac0d7972746db9c46",
+  "sha256_stored": "37036a15034c9f5f1083d17efdd3731bf8575455ebe01e9ac0d7972746db9c46",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr15.png",
+  "repo_path": "shots/bond-google/cr15.png",
+  "bytes": 80593,
+  "sha256_original": "b265e48183950e1e2fbfcbd17d26fcc388ca36ffeaf904d264050dfda0494c02",
+  "sha256_stored": "b265e48183950e1e2fbfcbd17d26fcc388ca36ffeaf904d264050dfda0494c02",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr16.png",
+  "repo_path": "shots/bond-google/cr16.png",
+  "bytes": 106846,
+  "sha256_original": "e831c9e3a571a6772d942330e28715f17f42ea1dd8a15908540ba8eee4a93c99",
+  "sha256_stored": "e831c9e3a571a6772d942330e28715f17f42ea1dd8a15908540ba8eee4a93c99",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr17.png",
+  "repo_path": "shots/bond-google/cr17.png",
+  "bytes": 66854,
+  "sha256_original": "8458ff6b18e570bbf3e4b86e13593bb8bebf9f6963814b83897e2751e2a737f3",
+  "sha256_stored": "8458ff6b18e570bbf3e4b86e13593bb8bebf9f6963814b83897e2751e2a737f3",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr18.png",
+  "repo_path": "shots/bond-google/cr18.png",
+  "bytes": 43338,
+  "sha256_original": "b4381dc2860177083c1126499abe86911c19d559e319481680de1cbbb6f82a94",
+  "sha256_stored": "b4381dc2860177083c1126499abe86911c19d559e319481680de1cbbb6f82a94",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr19.png",
+  "repo_path": "shots/bond-google/cr19.png",
+  "bytes": 43524,
+  "sha256_original": "441f3fe3d446123d705cb0f0014dc7cc0d1e7565b712b82c89e66bfcbdb6f0e7",
+  "sha256_stored": "441f3fe3d446123d705cb0f0014dc7cc0d1e7565b712b82c89e66bfcbdb6f0e7",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr20.png",
+  "repo_path": "shots/bond-google/cr20.png",
+  "bytes": 76975,
+  "sha256_original": "430540479519477d55505929efe2827cc6441bbd24fe644227ffe57789fb1608",
+  "sha256_stored": "430540479519477d55505929efe2827cc6441bbd24fe644227ffe57789fb1608",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr21.png",
+  "repo_path": "shots/bond-google/cr21.png",
+  "bytes": 43905,
+  "sha256_original": "1f2e37f6fd1bd023578b511edc065df5047973f128c541d6d0b882aee7067bdd",
+  "sha256_stored": "1f2e37f6fd1bd023578b511edc065df5047973f128c541d6d0b882aee7067bdd",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr22.png",
+  "repo_path": "shots/bond-google/cr22.png",
+  "bytes": 69439,
+  "sha256_original": "6b29386116a1fa67ae26cd70a72ed397406a0d6d0b86d157b7a279c495876280",
+  "sha256_stored": "6b29386116a1fa67ae26cd70a72ed397406a0d6d0b86d157b7a279c495876280",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr23.png",
+  "repo_path": "shots/bond-google/cr23.png",
+  "bytes": 50540,
+  "sha256_original": "ebcef31f28adadc6f204b1ca02f5535f6eea52566dd253b56100320aa46ec661",
+  "sha256_stored": "ebcef31f28adadc6f204b1ca02f5535f6eea52566dd253b56100320aa46ec661",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr24.png",
+  "repo_path": "shots/bond-google/cr24.png",
+  "bytes": 51199,
+  "sha256_original": "d2c963dd741c7be1984f92f09c74b003dfd80f1292f6fa8623236f6020d2a4a7",
+  "sha256_stored": "d2c963dd741c7be1984f92f09c74b003dfd80f1292f6fa8623236f6020d2a4a7",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr25.png",
+  "repo_path": "shots/bond-google/cr25.png",
+  "bytes": 121095,
+  "sha256_original": "2381041eac24c782074dae411b083fa2d6cc612044a15bb5961ba2f6335d5dc8",
+  "sha256_stored": "2381041eac24c782074dae411b083fa2d6cc612044a15bb5961ba2f6335d5dc8",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-google/cr26.png",
+  "repo_path": "shots/bond-google/cr26.png",
+  "bytes": 71843,
+  "sha256_original": "d5a75723a217b2260e470089f896b8b04b108b948d592d3f3f9ae5dacc37d459",
+  "sha256_stored": "d5a75723a217b2260e470089f896b8b04b108b948d592d3f3f9ae5dacc37d459",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/bond-home.png",
+  "repo_path": "shots/bond-home.png",
+  "bytes": 42012,
+  "sha256_original": "da55a048522dafdb8ede1082ba2c6eebfcf9ec4597a7ee42a347f916d871de6d",
+  "sha256_stored": "da55a048522dafdb8ede1082ba2c6eebfcf9ec4597a7ee42a347f916d871de6d",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/dundas-home.png",
+  "repo_path": "shots/dundas-home.png",
+  "bytes": 19414,
+  "sha256_original": "6a647cb9b6f2beb5883a6451953d2635ae02a869464ac5a6a1c73f14914366b8",
+  "sha256_stored": "6a647cb9b6f2beb5883a6451953d2635ae02a869464ac5a6a1c73f14914366b8",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-bond-cr1.png",
+  "repo_path": "shots/google-bond-cr1.png",
+  "bytes": 145956,
+  "sha256_original": "0d0a9f969060cfe3669caf8bdb9f9026e5aca4f26788d3ca00469a93906379d8",
+  "sha256_stored": "0d0a9f969060cfe3669caf8bdb9f9026e5aca4f26788d3ca00469a93906379d8",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-bond-cr2.png",
+  "repo_path": "shots/google-bond-cr2.png",
+  "bytes": 87539,
+  "sha256_original": "6a3667c043b3858f62fcf4befd1dee6a65f19290384b99922b1edf537e8d49ba",
+  "sha256_stored": "6a3667c043b3858f62fcf4befd1dee6a65f19290384b99922b1edf537e8d49ba",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-bond-cr3.png",
+  "repo_path": "shots/google-bond-cr3.png",
+  "bytes": 93962,
+  "sha256_original": "2b8394229d36dc1fd786fcc1d0d95c4306ffe3e8bebdf1baa4a97af98ed591aa",
+  "sha256_stored": "2b8394229d36dc1fd786fcc1d0d95c4306ffe3e8bebdf1baa4a97af98ed591aa",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-bond-cr4.png",
+  "repo_path": "shots/google-bond-cr4.png",
+  "bytes": 94189,
+  "sha256_original": "8e7bde3cd94c02a09ca74f0cb6636e9e8f475f542445880cbc4f13ed84ebf314",
+  "sha256_stored": "8e7bde3cd94c02a09ca74f0cb6636e9e8f475f542445880cbc4f13ed84ebf314",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-bond-window.png",
+  "repo_path": "shots/google-bond-window.png",
+  "bytes": 243887,
+  "sha256_original": "349558fc2576c251a09c94b0fb9acd8669ab029917b5c6c69a57010bb41474df",
+  "sha256_stored": "349558fc2576c251a09c94b0fb9acd8669ab029917b5c6c69a57010bb41474df",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-bond.png",
+  "repo_path": "shots/google-bond.png",
+  "bytes": 262062,
+  "sha256_original": "8c92237f5d6bf7142bd08f995425112a900f2f919c7959a57f011a86960de82b",
+  "sha256_stored": "8c92237f5d6bf7142bd08f995425112a900f2f919c7959a57f011a86960de82b",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-dundas-window.png",
+  "repo_path": "shots/google-dundas-window.png",
+  "bytes": 161147,
+  "sha256_original": "b058ecbf96d1a10a1cf84d8104f43d4e12d866b27fae0a3839602b8fd5da5282",
+  "sha256_stored": "b058ecbf96d1a10a1cf84d8104f43d4e12d866b27fae0a3839602b8fd5da5282",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-dundas.png",
+  "repo_path": "shots/google-dundas.png",
+  "bytes": 158433,
+  "sha256_original": "9ef2671bea16d7b2b117dd60f33cd044fc4a217aae2603f10d9a0a6e4b2db867",
+  "sha256_stored": "9ef2671bea16d7b2b117dd60f33cd044fc4a217aae2603f10d9a0a6e4b2db867",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-gajjar-cr1.png",
+  "repo_path": "shots/google-gajjar-cr1.png",
+  "bytes": 53415,
+  "sha256_original": "5556e788915718ee331d8cd5b9bb6a7ba1f1d2f97df62e0b926ce815b9ffaebb",
+  "sha256_stored": "5556e788915718ee331d8cd5b9bb6a7ba1f1d2f97df62e0b926ce815b9ffaebb",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-gajjar-cr2.png",
+  "repo_path": "shots/google-gajjar-cr2.png",
+  "bytes": 74350,
+  "sha256_original": "81181cf4729f121d1c9559437a345e16c41edcb1568343a58b05729d23951d69",
+  "sha256_stored": "81181cf4729f121d1c9559437a345e16c41edcb1568343a58b05729d23951d69",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-gajjar-cr3.png",
+  "repo_path": "shots/google-gajjar-cr3.png",
+  "bytes": 74655,
+  "sha256_original": "a294c52f27621ad61e0cab8b56791e128b61e766ab0f5df38bfda8a6d6207086",
+  "sha256_stored": "a294c52f27621ad61e0cab8b56791e128b61e766ab0f5df38bfda8a6d6207086",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-gajjar-cr4.png",
+  "repo_path": "shots/google-gajjar-cr4.png",
+  "bytes": 53415,
+  "sha256_original": "5556e788915718ee331d8cd5b9bb6a7ba1f1d2f97df62e0b926ce815b9ffaebb",
+  "sha256_stored": "5556e788915718ee331d8cd5b9bb6a7ba1f1d2f97df62e0b926ce815b9ffaebb",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-gajjar-datefilter.png",
+  "repo_path": "shots/google-gajjar-datefilter.png",
+  "bytes": 118010,
+  "sha256_original": "609cd890853ca2032f2c6e0714c9f63ad1d1959ccc85f941c6fd4fbb4b743b95",
+  "sha256_stored": "609cd890853ca2032f2c6e0714c9f63ad1d1959ccc85f941c6fd4fbb4b743b95",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-gajjar-window.png",
+  "repo_path": "shots/google-gajjar-window.png",
+  "bytes": 159883,
+  "sha256_original": "9d60a358d164f9f4cadf0c71bb6ee0a228c0414cd9a2b43e4d509af6bbd1aeb8",
+  "sha256_stored": "9d60a358d164f9f4cadf0c71bb6ee0a228c0414cd9a2b43e4d509af6bbd1aeb8",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-gajjar.png",
+  "repo_path": "shots/google-gajjar.png",
+  "bytes": 205512,
+  "sha256_original": "62df1762f0ed7e80e7da4f1d49747dd2583daf62ebb34c67517320efe4e574d8",
+  "sha256_stored": "62df1762f0ed7e80e7da4f1d49747dd2583daf62ebb34c67517320efe4e574d8",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-nysc-cr1.png",
+  "repo_path": "shots/google-nysc-cr1.png",
+  "bytes": 100969,
+  "sha256_original": "4b3bde4ef6d83e34913fa5fcec65c3b222efcf187706e24a378ae97153b6a29e",
+  "sha256_stored": "4b3bde4ef6d83e34913fa5fcec65c3b222efcf187706e24a378ae97153b6a29e",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-nysc-cr2.png",
+  "repo_path": "shots/google-nysc-cr2.png",
+  "bytes": 95423,
+  "sha256_original": "a1fa1d818a588a0f8fd73d48420f57ae04cf98239d4f05023a211a1f0de480fe",
+  "sha256_stored": "a1fa1d818a588a0f8fd73d48420f57ae04cf98239d4f05023a211a1f0de480fe",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-nysc-cr3.png",
+  "repo_path": "shots/google-nysc-cr3.png",
+  "bytes": 87133,
+  "sha256_original": "18fa9ae3074cea5947643617e1c2bf1309af9d1da3b93a839348c4de56c97a26",
+  "sha256_stored": "18fa9ae3074cea5947643617e1c2bf1309af9d1da3b93a839348c4de56c97a26",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-nysc-window.png",
+  "repo_path": "shots/google-nysc-window.png",
+  "bytes": 162782,
+  "sha256_original": "a6d038afd878f12fc96bcba1d9168d710afe966a94b7b3e3601ae0b61a46e0cb",
+  "sha256_stored": "a6d038afd878f12fc96bcba1d9168d710afe966a94b7b3e3601ae0b61a46e0cb",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-nysc.png",
+  "repo_path": "shots/google-nysc.png",
+  "bytes": 199599,
+  "sha256_original": "554730eb907f6e6418fca9891d4cf04207467767c6839e01420deb24abbff62e",
+  "sha256_stored": "554730eb907f6e6418fca9891d4cf04207467767c6839e01420deb24abbff62e",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-studiob-window.png",
+  "repo_path": "shots/google-studiob-window.png",
+  "bytes": 161366,
+  "sha256_original": "f7d62ecfe53f266db45cf725fd9ae0a2e05788e56b0ffbe31583c67800b8ed3b",
+  "sha256_stored": "f7d62ecfe53f266db45cf725fd9ae0a2e05788e56b0ffbe31583c67800b8ed3b",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/google-studiob.png",
+  "repo_path": "shots/google-studiob.png",
+  "bytes": 158568,
+  "sha256_original": "8a7f57cf46c2c7954f9dd46885d66de62281d7add2f3a0a5d71f8d8239bf34a1",
+  "sha256_stored": "8a7f57cf46c2c7954f9dd46885d66de62281d7add2f3a0a5d71f8d8239bf34a1",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/Dd3yAGBBrsW.png",
+  "repo_path": "shots/ig/Dd3yAGBBrsW.png",
+  "bytes": 210170,
+  "sha256_original": "3ccd7233cdaf249e27594383c79128c8b7b3d92ebde9c77066df6a1cf5044eb9",
+  "sha256_stored": "3ccd7233cdaf249e27594383c79128c8b7b3d92ebde9c77066df6a1cf5044eb9",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/Dd6dymzkcvJ.png",
+  "repo_path": "shots/ig/Dd6dymzkcvJ.png",
+  "bytes": 267758,
+  "sha256_original": "87549be3dd044aa5dedcdc030de211bbdb48eaa370eaa99712c6525d847bb276",
+  "sha256_stored": "87549be3dd044aa5dedcdc030de211bbdb48eaa370eaa99712c6525d847bb276",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/Dd6yzieDLQG.png",
+  "repo_path": "shots/ig/Dd6yzieDLQG.png",
+  "bytes": 341844,
+  "sha256_original": "79322299082c84e27be2b0ec0ae7b9aae779b0fad77370fca7e8e3fb0368f508",
+  "sha256_stored": "79322299082c84e27be2b0ec0ae7b9aae779b0fad77370fca7e8e3fb0368f508",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/Dd9BwhfFG0x.png",
+  "repo_path": "shots/ig/Dd9BwhfFG0x.png",
+  "bytes": 192697,
+  "sha256_original": "c43a322904e2bb2d13309a643e8e30184624450b9e2f5018f37a172db1a24f81",
+  "sha256_stored": "c43a322904e2bb2d13309a643e8e30184624450b9e2f5018f37a172db1a24f81",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdbhpOgIMJE.png",
+  "repo_path": "shots/ig/DdbhpOgIMJE.png",
+  "bytes": 215862,
+  "sha256_original": "e9e30bf31981106dd9e6b5702ae73a00f72534e9e7edeea4733fca8144d43831",
+  "sha256_stored": "e9e30bf31981106dd9e6b5702ae73a00f72534e9e7edeea4733fca8144d43831",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdrBZDBHDHg.png",
+  "repo_path": "shots/ig/DdrBZDBHDHg.png",
+  "bytes": 254509,
+  "sha256_original": "f0aa37be828bfd2c03260fa5ff6dff5005a4f45586271ff5704039f3a46e6da0",
+  "sha256_stored": "f0aa37be828bfd2c03260fa5ff6dff5005a4f45586271ff5704039f3a46e6da0",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdrKB7AhD3b.png",
+  "repo_path": "shots/ig/DdrKB7AhD3b.png",
+  "bytes": 209432,
+  "sha256_original": "d098499b64170bef0cee1627b0a251c59e8f2dcaa9e819733d20f418093b6a75",
+  "sha256_stored": "d098499b64170bef0cee1627b0a251c59e8f2dcaa9e819733d20f418093b6a75",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdsKsuVM8b4.png",
+  "repo_path": "shots/ig/DdsKsuVM8b4.png",
+  "bytes": 325897,
+  "sha256_original": "0f0ebfe9ab3e174e772574efbdc6788d2baee7aed0d3f4583568e5d7b7db1809",
+  "sha256_stored": "0f0ebfe9ab3e174e772574efbdc6788d2baee7aed0d3f4583568e5d7b7db1809",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdtiGIPlrNt.png",
+  "repo_path": "shots/ig/DdtiGIPlrNt.png",
+  "bytes": 173885,
+  "sha256_original": "13111884824e055a6f567ad871707979c368847d1446b5185cda9441cd4d47bf",
+  "sha256_stored": "13111884824e055a6f567ad871707979c368847d1446b5185cda9441cd4d47bf",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig-gajjardentistry.png",
+  "repo_path": "shots/ig-gajjardentistry.png",
+  "bytes": 5288,
+  "sha256_original": "17c4fbd26452eb87b9cdb080aa5340c4924b8c9d1e30c11a9739b087087da8ec",
+  "sha256_stored": "17c4fbd26452eb87b9cdb080aa5340c4924b8c9d1e30c11a9739b087087da8ec",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig-northyork.smilecentre.png",
+  "repo_path": "shots/ig-northyork.smilecentre.png",
+  "bytes": 204950,
+  "sha256_original": "d6d2e55e14947fef6d082126f5fbf29cdd76485dc7de6f3f545a39b25328955c",
+  "sha256_stored": "d6d2e55e14947fef6d082126f5fbf29cdd76485dc7de6f3f545a39b25328955c",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig-studiobdental.png",
+  "repo_path": "shots/ig-studiobdental.png",
+  "bytes": 238355,
+  "sha256_original": "48ffe3f5f1dcba7eda79140a4daec67e9a1f7c412f06f6b03c114e9c3e11ba96",
+  "sha256_stored": "48ffe3f5f1dcba7eda79140a4daec67e9a1f7c412f06f6b03c114e9c3e11ba96",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-bond.png",
+  "repo_path": "shots/meta-bond.png",
+  "bytes": 71879,
+  "sha256_original": "e400023ed8063d25764bb4d2dfa380ce62c1c2c3dd3983bb020391e4c01066cd",
+  "sha256_stored": "e400023ed8063d25764bb4d2dfa380ce62c1c2c3dd3983bb020391e4c01066cd",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-dundas.png",
+  "repo_path": "shots/meta-dundas.png",
+  "bytes": 71779,
+  "sha256_original": "b6fe292ad56e52ac91668eb41de82e98c970e99132766bf959ec0741c548979c",
+  "sha256_stored": "b6fe292ad56e52ac91668eb41de82e98c970e99132766bf959ec0741c548979c",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-gajjar-dr.png",
+  "repo_path": "shots/meta-gajjar-dr.png",
+  "bytes": 245464,
+  "sha256_original": "997880c07bc1ede89acc91878d8aaec6620c7085fe589d71a518cdb8332a98f2",
+  "sha256_stored": "997880c07bc1ede89acc91878d8aaec6620c7085fe589d71a518cdb8332a98f2",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-gajjar.png",
+  "repo_path": "shots/meta-gajjar.png",
+  "bytes": 71688,
+  "sha256_original": "9495f3e82781f1f791b49772a1d6e220aec6c4ef2b40aabda96c25241240d866",
+  "sha256_stored": "9495f3e82781f1f791b49772a1d6e220aec6c4ef2b40aabda96c25241240d866",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-nysc-sbd.png",
+  "repo_path": "shots/meta-nysc-sbd.png",
+  "bytes": 71678,
+  "sha256_original": "9635bda770ec328010bf0e5c0f1e175436bb20a49e341f13c1b4e1a9d39d0b9b",
+  "sha256_stored": "9635bda770ec328010bf0e5c0f1e175436bb20a49e341f13c1b4e1a9d39d0b9b",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-nysc.png",
+  "repo_path": "shots/meta-nysc.png",
+  "bytes": 509284,
+  "sha256_original": "1b63eb5fc74d90989f51c40731a3237fb87a263d17ee1dc3e14214a73509049c",
+  "sha256_stored": "1b63eb5fc74d90989f51c40731a3237fb87a263d17ee1dc3e14214a73509049c",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-studiob-2.png",
+  "repo_path": "shots/meta-studiob-2.png",
+  "bytes": 99383,
+  "sha256_original": "6f1cd1b4c358780043a5a4ae047653853b4a4bc16870233b1227032dfce966f7",
+  "sha256_stored": "6f1cd1b4c358780043a5a4ae047653853b4a4bc16870233b1227032dfce966f7",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/meta-studiob.png",
+  "repo_path": "shots/meta-studiob.png",
+  "bytes": 95916,
+  "sha256_original": "2850606f77cc588ba55864d39b02cf23550de7ea73335dac5e76cfb74f39fd25",
+  "sha256_stored": "2850606f77cc588ba55864d39b02cf23550de7ea73335dac5e76cfb74f39fd25",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-cta-contact.png",
+  "repo_path": null,
+  "bytes": 191083,
+  "sha256_original": "566aa63c8f9ffbc63a0a788a34fd8419b1f4c5d613b6471f52ac33b6faa9cadc",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dark-hero.png",
+  "repo_path": "shots/preview-desktop-dark-hero.png",
+  "bytes": 72570,
+  "sha256_original": "7c5b699471578d1007893e7414d94eb670f9b025cca3381de0ef693e4ff8f131",
+  "sha256_stored": "7c5b699471578d1007893e7414d94eb670f9b025cca3381de0ef693e4ff8f131",
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-accounts.png",
+  "repo_path": null,
+  "bytes": 471183,
+  "sha256_original": "a0d4749f5bdf75665e133c150e5949413061d6d20d1b83a4681c927d23f5470a",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-answer.png",
+  "repo_path": null,
+  "bytes": 41552,
+  "sha256_original": "23af8a85593db66ee01474e8b09c71f1625d56abeca2312a160c6544d822497e",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-compare.png",
+  "repo_path": null,
+  "bytes": 227599,
+  "sha256_original": "b05f8a0dc3b641574298a1015d51a857173387060b9c1c88a1355566234d327f",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-examples.png",
+  "repo_path": null,
+  "bytes": 105746,
+  "sha256_original": "4dc204e492378c9497dd426abb0a727373e5cde22003d863ed1a11f93aab1e19",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-findings.png",
+  "repo_path": null,
+  "bytes": 312926,
+  "sha256_original": "11154369f8a6ca3b61d64801be5fb4971ed323493c0d2aad3175cf89159d0d20",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-help.png",
+  "repo_path": null,
+  "bytes": 46756,
+  "sha256_original": "6566e5cfd38ff75126f04f606147deed065d97150bd935a82cd0e012c09474d1",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-method.png",
+  "repo_path": null,
+  "bytes": 127462,
+  "sha256_original": "3a7ea098356c90134c4878072eb187fab8b0256a91edc816edb828b4c7882547",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-patterns.png",
+  "repo_path": null,
+  "bytes": 305185,
+  "sha256_original": "884d6586392358845f2514ee70ed657e583ca7c56f20362010585a0c3969222f",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-dx-tests.png",
+  "repo_path": null,
+  "bytes": 369940,
+  "sha256_original": "3bd39b23e1700110bb592bd984d19da91860e19ce44c5d0a08c76abbde6adc82",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-light-hero.png",
+  "repo_path": null,
+  "bytes": 72321,
+  "sha256_original": "888a104aa32ab4e34a33d6c926281dc9ae1c4379230eba7da8f567d98d603844",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-desktop-top.png",
+  "repo_path": null,
+  "bytes": 168665,
+  "sha256_original": "ac37268aff75f099e9e191ddd11a8e6bc0c6dd407514467f2c5bfff3eaf832d1",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-cta-contact.png",
+  "repo_path": null,
+  "bytes": 36141,
+  "sha256_original": "c58a65a068e7e8bd78a47c1b8065364538604e1f01d4a0cd397abb582775a68a",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-accounts.png",
+  "repo_path": null,
+  "bytes": 419247,
+  "sha256_original": "1a6bc07dfa25d081cdc86d6943d15353e6ba5a1b0d0f99ec3a94523e4147e1c9",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-answer.png",
+  "repo_path": null,
+  "bytes": 38081,
+  "sha256_original": "ba9e135d7872f6ff961b9a7932cec888dee3bb9e2bdf3d25303fd1f7ae1d3d12",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-compare.png",
+  "repo_path": null,
+  "bytes": 341021,
+  "sha256_original": "e78967bdafe1bc81a097b3a5e5b05e746f87670809ea43d3f4de2d0cf9fa24ae",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-examples.png",
+  "repo_path": null,
+  "bytes": 99319,
+  "sha256_original": "39a71e4c98d6bd80e538bf5ad6247a705ae9df2d45f225474e88d61b0648b716",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-findings.png",
+  "repo_path": null,
+  "bytes": 8579,
+  "sha256_original": "9634a6c26e9ffdd26431d29fe9c7f2d85ccee108b268614483d0cca1075037e0",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-help.png",
+  "repo_path": null,
+  "bytes": 42672,
+  "sha256_original": "2290fe8d7e3700dd4c41848f2e8a238a2b72937c19e389f740f7f8aaf7941dd0",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-method.png",
+  "repo_path": null,
+  "bytes": 116210,
+  "sha256_original": "5f8090a504cec6a954f4bef023fd57b47b563f5b41baf999d884d6e710a747aa",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-patterns.png",
+  "repo_path": null,
+  "bytes": 271369,
+  "sha256_original": "8eac346f39e053ee7d730e1ffe843ba5c19c522fc5b8d78c4aac076a910d5460",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-dx-tests.png",
+  "repo_path": null,
+  "bytes": 377813,
+  "sha256_original": "1de9fae7fb20715b781076fc4c67f1c8acdbf3865c8f1c247fe81e48bea0ff88",
+  "sha256_stored": null,
+  "redacted": false
+ },
+ {
+  "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/preview-mobile-top.png",
+  "repo_path": null,
+  "bytes": 65108,
+  "sha256_original": "c6ef89d0c4f29429a61a68a86adbb8b0996db0e1b2b7f7cd5355cce859eb8a64",
+  "sha256_stored": null,
+  "redacted": false
+ }
+]

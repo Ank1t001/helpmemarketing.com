@@ -2,35 +2,148 @@
  "edition": "001",
  "note": "Five-clinic comparison, same definitions for every clinic. Each cell is short text plus the observations it rests on; a cell without evidence carries status not_confirmed and is shown as \"Not confirmed\". Instagram and advertising columns are filled by build.py from social.json and ads.json. No cell uses a tick or a score.",
  "columns": [
-  {"key": "positioning", "label": "Implant positioning"},
-  {"key": "cost", "label": "Published cost information"},
-  {"key": "consult", "label": "Consultation offer"},
-  {"key": "proof", "label": "Type of proof"},
-  {"key": "enquiry", "label": "Enquiry route and next step"}
+  {
+   "key": "positioning",
+   "label": "Implant positioning"
+  },
+  {
+   "key": "cost",
+   "label": "Published cost information"
+  },
+  {
+   "key": "consult",
+   "label": "Consultation offer"
+  },
+  {
+   "key": "proof",
+   "label": "Type of proof"
+  },
+  {
+   "key": "enquiry",
+   "label": "Enquiry route and next step"
+  }
  ],
  "rows": {
   "studiob": {
-   "positioning": {"text": "Full-arch, same-day branded offer for failing teeth or dentures; separate single and zirconia implant pages", "obs": ["sb-arch-hook", "sb-zirconia"]},
-   "cost": {"text": "Yes: full-arch starting fee, a single-implant range and a full-set range, on different pages", "obs": ["sb-arch-fee", "sb-single-range", "sb-full-range"]},
-   "consult": {"text": "Five listed options with length and fee, including a complimentary screening", "obs": ["sb-consult-options", "sb-arch-screen"]},
-   "proof": {"text": "Lead dentist; image galleries; clinic-stated success rate and warranty", "obs": ["sb-lead-dentist", "sb-gallery", "sb-success-claim", "sb-warranty"]},
-   "enquiry": {"text": "Virtual consult form with optional smile photos; page says the team will contact you", "obs": ["sb-form", "sb-next"]}
+   "positioning": {
+    "text": "Full-arch, same-day branded offer for failing teeth or dentures; separate single and zirconia implant pages",
+    "obs": [
+     "sb-arch-hook",
+     "sb-zirconia"
+    ]
+   },
+   "cost": {
+    "text": "Yes: full-arch starting fee, a single-implant range and a full-set range, on different pages",
+    "obs": [
+     "sb-arch-fee",
+     "sb-single-range",
+     "sb-full-range"
+    ]
+   },
+   "consult": {
+    "text": "Five listed options with length and fee, including a complimentary screening",
+    "obs": [
+     "sb-consult-options",
+     "sb-arch-screen"
+    ]
+   },
+   "proof": {
+    "text": "Lead dentist; image galleries; clinic-stated success rate and warranty",
+    "obs": [
+     "sb-lead-dentist",
+     "sb-gallery",
+     "sb-success-claim",
+     "sb-warranty"
+    ]
+   },
+   "enquiry": {
+    "text": "Virtual consult form with optional smile photos; page says the team will contact you",
+    "obs": [
+     "sb-form",
+     "sb-next"
+    ]
+   }
   },
   "nysc": {
-   "positioning": {"text": "Full-arch page opening with patient situations; single-tooth implants on a separate page", "obs": ["ny-arch-situations", "ny-single-range"]},
-   "cost": {"text": "Yes: single-implant range with inclusions; three full-arch levels per arch with monthly figures on approved credit", "obs": ["ny-single-range", "ny-tiers"]},
-   "consult": {"text": "Free, no-obligation consultation", "obs": ["ny-free", "ny-noobligation"]},
-   "proof": {"text": "Planning technology and a step-by-step journey; clinic-stated experience; general reviews", "obs": ["ny-tech", "ny-journey", "ny-experience-claim", "ny-reviews"]},
-   "enquiry": {"text": "Appointment request with preferred date and time; three-step explanation of what happens next", "obs": ["ny-form", "ny-next"]}
+   "positioning": {
+    "text": "Full-arch page opening with patient situations; single-tooth implants on a separate page",
+    "obs": [
+     "ny-arch-situations",
+     "ny-single-range"
+    ]
+   },
+   "cost": {
+    "text": "Yes: single-implant range with inclusions; three full-arch levels per arch with monthly figures on approved credit",
+    "obs": [
+     "ny-single-range",
+     "ny-tiers"
+    ]
+   },
+   "consult": {
+    "text": "Free, no-obligation consultation",
+    "obs": [
+     "ny-free",
+     "ny-noobligation"
+    ]
+   },
+   "proof": {
+    "text": "Planning technology and a step-by-step journey; clinic-stated experience; general reviews",
+    "obs": [
+     "ny-tech",
+     "ny-journey",
+     "ny-experience-claim",
+     "ny-reviews"
+    ]
+   },
+   "enquiry": {
+    "text": "Appointment request with preferred date and time; three-step explanation of what happens next",
+    "obs": [
+     "ny-form",
+     "ny-next"
+    ]
+   }
   },
   "gajjar": {
-   "positioning": {"text": "Single and full-arch implants on one page, framed around missing teeth", "obs": ["gj-h1"]},
-   "cost": {"text": "Not published on the implant page reviewed", "obs": ["gj-noprice"]},
-   "consult": {"text": "Call to schedule a consultation; contents and fee not stated", "obs": ["gj-consult"]},
-   "proof": {"text": "Clinician credentials, including a prosthodontist; a smile gallery (implant cases not confirmed)", "obs": ["gj-prosth", "gj-gallery"]},
-   "enquiry": {"text": "Appointment request with date, time and patient status; next step not explained", "obs": ["gj-form", "gj-nonext"]}
+   "positioning": {
+    "text": "Single and full-arch implants on one page, framed around missing teeth",
+    "obs": [
+     "gj-h1"
+    ]
+   },
+   "cost": {
+    "text": "Not published on the implant page reviewed",
+    "obs": [
+     "gj-noprice"
+    ]
+   },
+   "consult": {
+    "text": "Call to schedule a consultation; contents and fee not stated",
+    "obs": [
+     "gj-consult"
+    ]
+   },
+   "proof": {
+    "text": "Clinician credentials, including a prosthodontist; a smile gallery (implant cases not confirmed)",
+    "obs": [
+     "gj-prosth",
+     "gj-gallery"
+    ]
+   },
+   "enquiry": {
+    "text": "Appointment request with date, time and patient status; next step not explained",
+    "obs": [
+     "gj-form",
+     "gj-nonext"
+    ]
+   }
   },
-  "dundas": {"status": "not_confirmed", "reason": "Website refused automated access; browser check pending"},
-  "bond": {"status": "not_confirmed", "reason": "Website returned a challenge page; browser check pending"}
+  "dundas": {
+   "status": "not_confirmed",
+   "reason": "Website showed a \"VPN or Proxy Detected\" panel; ordinary browser check pending"
+  },
+  "bond": {
+   "status": "not_confirmed",
+   "reason": "Website showed a Cloudflare security check; ordinary browser check pending"
+  }
  }
 }

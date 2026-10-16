@@ -16,10 +16,22 @@
 .msi.msi .dx-dl{display:grid;grid-template-columns:minmax(10em,14em) 1fr;gap:8px 18px;margin:var(--s3) 0 0}
 .msi.msi .dx-dl dt{color:var(--text-tertiary);font-weight:600}
 .msi.msi .dx-dl dd{margin:0;color:var(--text-body,var(--text))}
-.msi.msi .dx-cmp th[scope="row"]{text-align:left;font-weight:600}
+.msi.msi .dx-cmp th[scope="row"]{text-align:left;font-weight:600;vertical-align:top}
 .msi.msi .dx-cmp td.wrap-cell{min-width:11em}
 .msi.msi .dx-cmp td.dx-miss{color:var(--text-muted)}
-.msi.msi a:focus-visible,.msi.msi summary:focus-visible{outline:2px solid var(--cta);outline-offset:2px}
+.msi.msi a:focus-visible,.msi.msi summary:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
+/* Buttons inside .msi (2026-10-16): the shared Index rule ".msi.msi a{color:var(--text-muted)}" ties on specificity with "body.redesign-prototype .btn-primary" and wins on order, so the dark-theme hero button "See the five clinics" was grey on orange (1.08:1). These restore the global button text colours. In the light theme the global rule html:not([data-theme="dark"]) body.redesign-prototype .btn-primary still wins, and /contact buttons keep their own rule. */
+.msi.msi a.btn-primary{color:var(--bg)}
+.msi.msi a.btn-outline{color:var(--text)}
+/* Evidence pass (2026-10-16): Instagram example cards, sample and ad tables, per-clinic ad list, price note. */
+.msi.msi .dx-h3{font-size:18px;margin:var(--s5) 0 var(--s3)}
+.msi.msi .dx-ex{margin:0}
+.msi.msi .dx-ex .kicker{margin:0 0 6px}
+.msi.msi .dx-ex .pnote{margin-top:8px}
+.msi.msi .dx-adlist{margin:0}
+.msi.msi .dx-price .dx-dl{margin:var(--s2) 0 var(--s3)}
+.msi.msi .dx-price .cell-sub{display:block;margin-top:4px;font-size:13px}
+.msi.msi .dx-price .cell-sub a{color:var(--cta-text,var(--cta));text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
 @media(max-width:720px){
 .msi.msi .dx-dl{grid-template-columns:1fr;gap:2px}
 .msi.msi .dx-dl dd{margin-bottom:10px}

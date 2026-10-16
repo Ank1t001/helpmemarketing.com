@@ -1,0 +1,26 @@
+{
+ "collector": {
+  "tool": "Headless Chromium (Playwright) in the Claude Code cloud container, through the container's outbound proxy",
+  "not": "Not the founder's Chrome; no logged-in session; no cookies exported; no paid collection; no form submitted; no challenge bypassed",
+  "one_attempt_rule": "Each URL loaded once; a refusal was recorded and not retried"
+ },
+ "evidence_prepared_utc": "2026-10-16T19:16:20+00:00",
+ "research_window": {
+  "start": "2026-09-16",
+  "end": "2026-10-15",
+  "inclusive": true,
+  "timezone": "America/Toronto",
+  "note": "Fixed. Not moved forward."
+ },
+ "session": "Claude Code cloud session session_018Zqg63gvGy44sVUM5NEbiy (container scratchpad ede75233-c5c6-5154-983e-51b967a674c5)",
+ "browser": "Headless Chromium launched by Playwright, logged out, through the container's outbound proxy. Not the founder's Chrome.",
+ "repeat_loads": [
+  "Meta Ad Library search for \"Studio B Dental\" loaded twice (the second added scrolling and a full-page screenshot); identical results.",
+  "Google Ads Transparency window searches loaded twice for all five domains: the first run's parser read the wrong line (google_window_try1.jsonl), the second run (google_window.jsonl) is the record. Neither run was refused."
+ ],
+ "refusals": [
+  "dundaseastdental.com: \"VPN or Proxy Detected\" panel, not bypassed",
+  "dentalimplantsclinic.ca: Cloudflare security check, not passed",
+  "instagram.com/gajjardentistry: HTTP 429 and login redirect, not retried"
+ ]
+}

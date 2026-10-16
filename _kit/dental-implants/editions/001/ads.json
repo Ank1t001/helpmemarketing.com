@@ -1,159 +1,1939 @@
 {
  "edition": "001",
- "note": "Advertising evidence. Status values: relevant_ads_observed, no_matching_ads_found, advertiser_uncertain, not_checked, access_blocked. A documented search with no result does not show that a clinic never advertises. Nothing here estimates spend, targeting or performance.",
+ "schema": 2,
+ "batch": "browser-20261016",
+ "note": "Advertising evidence, one record per ad card or creative, with each dimension kept separate: platform, advertiser and attribution confidence (confirmed, supported, uncertain), treatment relevance, observation time, platform-reported dates and the relation to the fixed edition window. Status per clinic and platform: relevant_ads_observed, no_matching_ads_found, advertiser_uncertain, access_blocked, not_checked. A documented search with no result does not show that a clinic never advertises. Nothing here estimates spend, reach, targeting or results, and historical ads are never described as current.",
+ "collected_with": "Logged-out headless Chromium in the Claude Code cloud container, 16 October 2026 (see raw/browser-20261016/provenance.json). Not the founder's Chrome.",
  "checks": {
   "studiob": {
    "meta": {
-    "status": "not_checked",
-    "reason": "Interactive check assigned to Chrome; not run in this session.",
-    "search_terms": [
-     "Studio B Dental"
+    "status": "relevant_ads_observed",
+    "searched_at": "2026-10-16T18:55:01.412Z",
+    "searches": [
+     {
+      "log_tag": "meta-studiob",
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Studio%20B%20Dental&search_type=keyword_exact_phrase",
+      "terms": "Studio B Dental",
+      "match": "exact phrase",
+      "filters": "Country Canada; all ads; active and inactive",
+      "searched_utc": "2026-10-16T18:55:01.412Z",
+      "result": "~2 results",
+      "screenshot": "raw/browser-20261016/shots/meta-studiob.png"
+     },
+     {
+      "log_tag": "meta-studiob-2",
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=Studio%20B%20Dental",
+      "terms": "Studio B Dental",
+      "match": "exact phrase",
+      "filters": "Country Canada; all ads; active and inactive",
+      "searched_utc": "2026-10-16T18:55:30.602Z",
+      "result": "~2 results",
+      "screenshot": "raw/browser-20261016/shots/meta-studiob-2.png"
+     }
     ],
-    "filters": "Country: Canada; ad category: all ads; active status: all",
-    "prepared_urls": [
-     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Studio%20B%20Dental&search_type=keyword_exact_phrase"
+    "summary": "Two ads from the page \"studiobdental\" were active when observed: an All-on-X offer and a veneers offer. Their library start dates are before the window.",
+    "limits": [
+     "Keyword search for the exact phrase only.",
+     "The library shows a start date and current status, not delivery during the window."
     ],
-    "searched_at": null,
-    "advertiser": null,
-    "evidence": []
+    "records": [
+     {
+      "id": "meta-1569086177506365",
+      "platform": "meta",
+      "url": "https://www.facebook.com/ads/library/?id=1569086177506365",
+      "advertiser": {
+       "name": "studiobdental",
+       "platform_verified": null
+      },
+      "attribution": {
+       "clinic": "studiob",
+       "confidence": "supported",
+       "basis": "Same page \"studiobdental\"; text names Studio B Dental."
+      },
+      "treatment": {
+       "category": "veneers",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T18:55:01.412Z",
+      "observed_in": "meta-studiob",
+      "platform_dates": {
+       "status_at_observation": "active",
+       "started": "2026-02-26",
+       "ended": null,
+       "last_shown": null,
+       "basis": "Meta Ad Library \"Started running on\" date; the library does not show day-by-day delivery"
+      },
+      "window_relation": "active_at_observation_started_before_window",
+      "grouped_ads": 1,
+      "text": "Transform your smile with Studio B Dental’s exclusive promotion ✨\n\n😍Smile Options:\n\n3D-Printed Resin Veneers\n• ✅ Quick, affordable, and pre-fabricated like porcelain\n• 💲 $750 per tooth (was $900)\n• 📅 Payments from $38/week (10 veneers)\n\nPremium Porcelain Veneers\n• ✨ The gold standard, offering a radiant, stunning look\n• 🦷 Durable and long-lasting for 15+ years\n• 💲 $1,600 per tooth (was $1,800)\n• 📅 Payments from $50/week (10 veneers)\n\n💡 We offer weekly/monthly payment options through Beautifi - trusted by tons of our patients!\n • ✅ quick and easy approval\n• 💳 Lower interest than your credit card\n• 💲 Flexible payment plans - Interest rates starting as low as 5.99%\n• 📅 No impact on credit score to see what you’re approved for.\n• 📲 Apply now — MESSAGE US FOR APPLICATION LINK \n\n• 🆓 IN-OFFICE & VIRTUAL consultations available—FREE!\n• ⭐ Dr. B has been transforming smiles for 29 years with thousands of happy clients!\n\n📲 Click the link in out bio to book your virtual consultation or DM us your smile photos today!\n\n#drb #drcharlesbotbol #studiobdental #dentist #dentistry #dentalwork #Toronto #torontodentist #torontodentistry #veneers #dentalveneers #dentisttoronto #torontocanada #canadianden",
+      "text_basis": "pages/meta-studiob.txt",
+      "display_domain": [
+       "INSTAGRAM.COM"
+      ],
+      "screenshot": "raw/browser-20261016/shots/meta-studiob.png"
+     },
+     {
+      "id": "meta-26002231369395543",
+      "platform": "meta",
+      "url": "https://www.facebook.com/ads/library/?id=26002231369395543",
+      "advertiser": {
+       "name": "studiobdental",
+       "platform_verified": null
+      },
+      "attribution": {
+       "clinic": "studiob",
+       "confidence": "supported",
+       "basis": "Facebook page \"studiobdental\" has the same name as the Instagram account linked from studiobdental.ca; the text names Dr. B and an All-on-X package. Destination is Messenger and the bio link, not the website."
+      },
+      "treatment": {
+       "category": "implant_full_arch",
+       "implant_related": "yes"
+      },
+      "observed_utc": "2026-10-16T18:55:01.412Z",
+      "observed_in": "meta-studiob",
+      "platform_dates": {
+       "status_at_observation": "active",
+       "started": "2026-01-21",
+       "ended": null,
+       "last_shown": null,
+       "basis": "Meta Ad Library \"Started running on\" date; the library does not show day-by-day delivery"
+      },
+      "window_relation": "active_at_observation_started_before_window",
+      "grouped_ads": 1,
+      "text": "Struggling with missing or failing teeth? We can restore your full smile — and your confidence.✨\n\nOur All-on-X package includes:😁\nTooth extractions\n4+ dental implants\nA custom NON - REMOVEABLE temporary bridge placed that same day\n\n—— $17,990 PER ARCH ——\nFinal bridge (4–6 months later): $8,900\n\n We offer weekly/monthly payment options through Beautifi - trusted by tons of our patients!\n- ✅Quick and easy approval \n- ✅Lower interest than your credit card \n- ✅ Flexible payment plans \n- ✅ Interest rates starting as low as 5.99%\n- ✅No Impact on credit score to see what you're approved for \nDM to start application now  💡\n\n🆓 IN OFFICE & VIRTUAL consultations available  - FREE!  \n🆓 FREE PANORAMIC XRAY \n🆓 FULL RECORDS APPOINTMENT $450 in value - FREE!\n\n\nDr. B has spent almost 30 years creating thousands of life-changing smiles.🥰\n\n‼️Click our bio link or send us a DM to book your FREE consultation!\n\n#allonx #implants #dentalimplants #promotion #confidence #smile #torontodentist #dentist #cosmeticdentist\n#toronto #the6ix #pearlywhites #smilesmilesmile #missingteeth #allon4 #allonfour #digitalimplantology #implantbridge\nSorry, we're having trouble playing this video.\nLearn more\nSend Message\nSy",
+      "text_basis": "pages/meta-studiob.txt",
+      "display_domain": [],
+      "screenshot": "raw/browser-20261016/shots/meta-studiob.png",
+      "summary": "All-on-X package with tooth extractions, four or more implants and a non-removable temporary bridge placed the same day, at $17,990 per arch; a final bridge 4 to 6 months later is listed separately at $8,900"
+     }
+    ],
+    "evidence": [
+     "raw/browser-20261016/logs/meta_parsed.json"
+    ]
    },
    "google": {
-    "status": "not_checked",
-    "reason": "Interactive check assigned to Chrome; not run in this session.",
-    "search_terms": [
-     "studiobdental.ca"
+    "status": "no_matching_ads_found",
+    "searched_at": "2026-10-16T18:58:19.928Z",
+    "searches": [
+     {
+      "log_tag": "google-studiob",
+      "kind": "any_time",
+      "url": "https://adstransparency.google.com/?region=CA&domain=studiobdental.ca",
+      "terms": "studiobdental.ca",
+      "filters": "Region Canada; any time",
+      "searched_utc": "2026-10-16T18:58:19.928Z",
+      "result_count": 0,
+      "screenshot": "raw/browser-20261016/shots/google-studiob.png"
+     },
+     {
+      "log_tag": "google_window:studiob",
+      "kind": "window",
+      "url": "https://adstransparency.google.com/?region=CA&domain=studiobdental.ca&start-date=2026-09-16&end-date=2026-10-15",
+      "terms": "studiobdental.ca",
+      "filters": "Region Canada; custom dates Sep 16 to Oct 15, 2026 (Pacific Time)",
+      "searched_utc": "2026-10-16T19:04:44.810Z",
+      "result_count": 0,
+      "date_label": "Custom Sep 16 – Oct 15, 2026",
+      "screenshot": "raw/browser-20261016/shots/google-studiob-window.png"
+     }
     ],
-    "filters": "Region: Canada",
-    "prepared_urls": [
-     "https://adstransparency.google.com/?region=CA&domain=studiobdental.ca"
+    "advertisers": [],
+    "summary": "No ads found for the domain studiobdental.ca at any time or in the window.",
+    "limits": [
+     "Domain search only; an ad pointing to another domain, or one Google does not list, would not appear.",
+     "Not proof that the clinic never advertises on Google."
     ],
-    "searched_at": null,
-    "advertiser": null,
-    "evidence": []
+    "records": [],
+    "evidence": [
+     "raw/browser-20261016/logs/google_window.jsonl"
+    ]
    }
   },
   "nysc": {
    "meta": {
-    "status": "not_checked",
-    "reason": "Interactive check assigned to Chrome; not run in this session.",
-    "search_terms": [
-     "North York Smile Centre",
-     "Smile By Design"
+    "status": "relevant_ads_observed",
+    "searched_at": "2026-10-16T18:55:46.803Z",
+    "searches": [
+     {
+      "log_tag": "meta-nysc",
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=North%20York%20Smile%20Centre",
+      "terms": "North York Smile Centre",
+      "match": "exact phrase",
+      "filters": "Country Canada; all ads; active and inactive",
+      "searched_utc": "2026-10-16T18:55:46.803Z",
+      "result": "~12 results",
+      "screenshot": "raw/browser-20261016/shots/meta-nysc.png"
+     },
+     {
+      "log_tag": "meta-nysc-sbd",
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=Smile%20By%20Design",
+      "terms": "Smile By Design",
+      "match": "exact phrase",
+      "filters": "Country Canada; all ads; active and inactive",
+      "searched_utc": "2026-10-16T18:56:03.052Z",
+      "result": "No ads match your search criteria",
+      "screenshot": "raw/browser-20261016/shots/meta-nysc-sbd.png"
+     }
     ],
-    "filters": "Country: Canada; ad category: all ads; active status: all",
-    "prepared_urls": [
-     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=North%20York%20Smile%20Centre&search_type=keyword_exact_phrase",
-     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Smile%20By%20Design&search_type=keyword_exact_phrase"
+    "summary": "Six ad cards from the page North York Smile Centre, all one Invisalign offer, were active when observed. None is about implants. A seventh card from the page My Smile Centre (veneers) is kept separate because its link to the North York clinic is uncertain. The exact phrase \"Smile By Design\" found no ads.",
+    "limits": [
+     "The library reported about 12 results; seven cards were shown, three of them grouping two ads.",
+     "Keyword search for exact phrases only."
     ],
-    "searched_at": null,
-    "advertiser": null,
-    "evidence": []
+    "records": [
+     {
+      "id": "meta-2023758354972864",
+      "platform": "meta",
+      "url": "https://www.facebook.com/ads/library/?id=2023758354972864",
+      "advertiser": {
+       "name": "North York Smile Centre",
+       "platform_verified": null
+      },
+      "attribution": {
+       "clinic": "nysc",
+       "confidence": "supported",
+       "basis": "Page named North York Smile Centre; text names North York."
+      },
+      "treatment": {
+       "category": "invisalign",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T18:55:46.803Z",
+      "observed_in": "meta-nysc",
+      "platform_dates": {
+       "status_at_observation": "active",
+       "started": "2026-09-15",
+       "ended": null,
+       "last_shown": null,
+       "basis": "Meta Ad Library \"Started running on\" date; the library does not show day-by-day delivery"
+      },
+      "window_relation": "active_at_observation_started_before_window",
+      "grouped_ads": 2,
+      "text": "Hey North York 👋 Thinking About Invisalign?\n\nExplore clear aligners with a dental practice that has been serving North York for 35+ years.\n\n⭐ 4.9 Stars From 1,018 Google Reviews\n\nFor a limited time, receive:\n\n🔥 $2,000 OFF Invisalign Treatment\n\nPLUS:\n\n✅ FREE iTero 3D Digital Scan\n✅ FREE Panoramic X-Ray\n✅ FREE Limited Oral Exam\n✅ FREE Set of 4 Retainers\n✅ FREE Oral-B iO5 Toothbrush Kit\n✅ FREE Take-Home Whitening After Treatment\n\n✨ Trusted local care and modern digital planning for your Invisalign journey.\n\n👇 Click “LEARN MORE” to book your FREE Invisalign consultation today!",
+      "text_basis": "pages/meta-nysc.txt",
+      "display_domain": [],
+      "screenshot": "raw/browser-20261016/shots/meta-nysc.png"
+     },
+     {
+      "id": "meta-2192204594975485",
+      "platform": "meta",
+      "url": "https://www.facebook.com/ads/library/?id=2192204594975485",
+      "advertiser": {
+       "name": "North York Smile Centre",
+       "platform_verified": null
+      },
+      "attribution": {
+       "clinic": "nysc",
+       "confidence": "supported",
+       "basis": "Page named North York Smile Centre; display domain NORTHYORKSMILECENTRE.FREESMILECONSULT.CLINIC is not the clinic's website."
+      },
+      "treatment": {
+       "category": "invisalign",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T18:55:46.803Z",
+      "observed_in": "meta-nysc",
+      "platform_dates": {
+       "status_at_observation": "active",
+       "started": "2026-09-29",
+       "ended": null,
+       "last_shown": null,
+       "basis": "Meta Ad Library \"Started running on\" date; the library does not show day-by-day delivery"
+      },
+      "window_relation": "active_at_observation_started_in_window",
+      "grouped_ads": 1,
+      "text": "Hey North York 👋 Thinking About Invisalign?\n\nExplore clear aligners with a dental practice that has been serving North York for 35+ years.\n\n⭐ 4.9 Stars From 1,018 Google Reviews\n\nFor a limited time, receive:\n\n🔥 $2,000 OFF Invisalign Treatment\n\nPLUS:\n\n✅ FREE iTero 3D Digital Scan\n✅ FREE Panoramic X-Ray\n✅ FREE Limited Oral Exam\n✅ FREE Set of 4 Retainers\n✅ FREE Oral-B iO5 Toothbrush Kit\n✅ FREE Take-Home Whitening After Treatment\n\n✨ Trusted local care and modern digital planning for your Invisalign journey.\n\n👇 Click “LEARN MORE” to book your FREE Invisalign consultation today!\nSorry, we're having trouble playing this video.\nLearn more\nNORTHYORKSMILECENTRE.FREESMILECONSULT.CLINIC\nNorth York: Save $2,000 on Invisalign 😁\nLearn more",
+      "text_basis": "pages/meta-nysc.txt",
+      "display_domain": [
+       "NORTHYORKSMILECENTRE.FREESMILECONSULT.CLINIC"
+      ],
+      "screenshot": "raw/browser-20261016/shots/meta-nysc.png"
+     },
+     {
+      "id": "meta-4315299038726791",
+      "platform": "meta",
+      "url": "https://www.facebook.com/ads/library/?id=4315299038726791",
+      "advertiser": {
+       "name": "My Smile Centre",
+       "platform_verified": null
+      },
+      "attribution": {
+       "clinic": "nysc",
+       "confidence": "uncertain",
+       "basis": "Page \"My Smile Centre\". The @northyork.smilecentre Instagram bio names @mysmilecentre as head office and smile-by-design.ca names Dr. Jerry Jesin, who appears in the ad, but the ad does not name the North York location."
+      },
+      "treatment": {
+       "category": "veneers",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T18:55:46.803Z",
+      "observed_in": "meta-nysc",
+      "platform_dates": {
+       "status_at_observation": "active",
+       "started": "2026-04-08",
+       "ended": null,
+       "last_shown": null,
+       "basis": "Meta Ad Library \"Started running on\" date; the library does not show day-by-day delivery"
+      },
+      "window_relation": "active_at_observation_started_before_window",
+      "grouped_ads": 1,
+      "text": "Hello GTA Residents!\nDo you ever feel self-conscious about your smile?\n\nDr. Jerry Jesin has been helping patients transform their smiles for over 40 years at Smile Centre. Many people come in feeling uncomfortable, hiding their teeth, or avoiding a full smile altogether.\n\nWith porcelain veneers, we’re able to completely enhance the look of your smile — creating something that feels natural, confident, and long-lasting.\n\nDr. Jesin focuses on delivering results that not only look great, but feel comfortable and truly personalized to each patient.\n\nWhy patients choose veneers:\n• Instantly improve the shape, color, and appearance of teeth\n• Create a more confident, natural-looking smile\n• Long-lasting results with modern techniques\n\nIf you’ve been holding back your smile, there are solutions available today.\n\n👉 Send us a message to learn more about veneers.\nSorry, we're having trouble playing this video.\nLearn more\nTransform Your Smile with Veneers\nDentist\nSend message",
+      "text_basis": "pages/meta-nysc.txt",
+      "display_domain": [],
+      "screenshot": "raw/browser-20261016/shots/meta-nysc.png"
+     },
+     {
+      "id": "meta-1089709797174359",
+      "platform": "meta",
+      "url": "https://www.facebook.com/ads/library/?id=1089709797174359",
+      "advertiser": {
+       "name": "North York Smile Centre",
+       "platform_verified": null
+      },
+      "attribution": {
+       "clinic": "nysc",
+       "confidence": "supported",
+       "basis": "Page named North York Smile Centre."
+      },
+      "treatment": {
+       "category": "invisalign",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T18:55:46.803Z",
+      "observed_in": "meta-nysc",
+      "platform_dates": {
+       "status_at_observation": "active",
+       "started": "2026-09-29",
+       "ended": null,
+       "last_shown": null,
+       "basis": "Meta Ad Library \"Started running on\" date; the library does not show day-by-day delivery"
+      },
+      "window_relation": "active_at_observation_started_in_window",
+      "grouped_ads": 2,
+      "text": "Hey North York 👋 Thinking About Invisalign?\n\nExplore clear aligners with a dental practice that has been serving North York for 35+ years.\n\n⭐ 4.9 Stars From 1,018 Google Reviews\n\nFor a limited time, receive:\n\n🔥 $2,000 OFF Invisalign Treatment\n\nPLUS:\n\n✅ FREE iTero 3D Digital Scan\n✅ FREE Panoramic X-Ray\n✅ FREE Limited Oral Exam\n✅ FREE Set of 4 Retainers\n✅ FREE Oral-B iO5 Toothbrush Kit\n✅ FREE Take-Home Whitening After Treatment\n\n✨ Trusted local care and modern digital planning for your Invisalign journey.\n\n👇 Click “LEARN MORE” to book your FREE Invisalign consultation today!",
+      "text_basis": "pages/meta-nysc.txt",
+      "display_domain": [],
+      "screenshot": "raw/browser-20261016/shots/meta-nysc.png"
+     },
+     {
+      "id": "meta-1151702920869512",
+      "platform": "meta",
+      "url": "https://www.facebook.com/ads/library/?id=1151702920869512",
+      "advertiser": {
+       "name": "North York Smile Centre",
+       "platform_verified": null
+      },
+      "attribution": {
+       "clinic": "nysc",
+       "confidence": "supported",
+       "basis": "Page named North York Smile Centre; display domain NORTHYORKSMILECENTRE.FREESMILECONSULT.CLINIC."
+      },
+      "treatment": {
+       "category": "invisalign",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T18:55:46.803Z",
+      "observed_in": "meta-nysc",
+      "platform_dates": {
+       "status_at_observation": "active",
+       "started": "2026-10-05",
+       "ended": null,
+       "last_shown": null,
+       "basis": "Meta Ad Library \"Started running on\" date; the library does not show day-by-day delivery"
+      },
+      "window_relation": "active_at_observation_started_in_window",
+      "grouped_ads": 1,
+      "text": "Hey North York 👋 Thinking About Invisalign?\n\nExplore clear aligners with a dental practice that has been serving North York for 35+ years.\n\n⭐ 4.9 Stars From 1,018 Google Reviews\n\nFor a limited time, receive:\n\n🔥 $2,000 OFF Invisalign Treatment\n\nPLUS:\n\n✅ FREE iTero 3D Digital Scan\n✅ FREE Panoramic X-Ray\n✅ FREE Limited Oral Exam\n✅ FREE Set of 4 Retainers\n✅ FREE Oral-B iO5 Toothbrush Kit\n✅ FREE Take-Home Whitening After Treatment\n\n✨ Trusted local care and modern digital planning for your Invisalign journey.\n\n👇 Click “LEARN MORE” to book your FREE Invisalign consultation today!\nSorry, we're having trouble playing this video.\nLearn more\nNORTHYORKSMILECENTRE.FREESMILECONSULT.CLINIC\nNorth York: Save $2,000 on Invisalign 😁\nLearn more",
+      "text_basis": "pages/meta-nysc.txt",
+      "display_domain": [
+       "NORTHYORKSMILECENTRE.FREESMILECONSULT.CLINIC"
+      ],
+      "screenshot": "raw/browser-20261016/shots/meta-nysc.png"
+     },
+     {
+      "id": "meta-28406200442344726",
+      "platform": "meta",
+      "url": "https://www.facebook.com/ads/library/?id=28406200442344726",
+      "advertiser": {
+       "name": "North York Smile Centre",
+       "platform_verified": null
+      },
+      "attribution": {
+       "clinic": "nysc",
+       "confidence": "supported",
+       "basis": "Page named North York Smile Centre."
+      },
+      "treatment": {
+       "category": "invisalign",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T18:55:46.803Z",
+      "observed_in": "meta-nysc",
+      "platform_dates": {
+       "status_at_observation": "active",
+       "started": "2026-09-18",
+       "ended": null,
+       "last_shown": null,
+       "basis": "Meta Ad Library \"Started running on\" date; the library does not show day-by-day delivery"
+      },
+      "window_relation": "active_at_observation_started_in_window",
+      "grouped_ads": 2,
+      "text": "Hey North York 👋 Thinking About Invisalign?\n\nExplore clear aligners with a dental practice that has been serving North York for 35+ years.\n\n⭐ 4.9 Stars From 1,018 Google Reviews\n\nFor a limited time, receive:\n\n🔥 $2,000 OFF Invisalign Treatment\n\nPLUS:\n\n✅ FREE iTero 3D Digital Scan\n✅ FREE Panoramic X-Ray\n✅ FREE Limited Oral Exam\n✅ FREE Set of 4 Retainers\n✅ FREE Oral-B iO5 Toothbrush Kit\n✅ FREE Take-Home Whitening After Treatment\n\n✨ Trusted local care and modern digital planning for your Invisalign journey.\n\n👇 Click “LEARN MORE” to book your FREE Invisalign consultation today!",
+      "text_basis": "pages/meta-nysc.txt",
+      "display_domain": [],
+      "screenshot": "raw/browser-20261016/shots/meta-nysc.png"
+     },
+     {
+      "id": "meta-1085671074238286",
+      "platform": "meta",
+      "url": "https://www.facebook.com/ads/library/?id=1085671074238286",
+      "advertiser": {
+       "name": "North York Smile Centre",
+       "platform_verified": null
+      },
+      "attribution": {
+       "clinic": "nysc",
+       "confidence": "supported",
+       "basis": "Page named North York Smile Centre; display domain NORTHYORKSMILECENTRE.FREESMILECONSULT.CLINIC."
+      },
+      "treatment": {
+       "category": "invisalign",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T18:55:46.803Z",
+      "observed_in": "meta-nysc",
+      "platform_dates": {
+       "status_at_observation": "active",
+       "started": "2026-09-29",
+       "ended": null,
+       "last_shown": null,
+       "basis": "Meta Ad Library \"Started running on\" date; the library does not show day-by-day delivery"
+      },
+      "window_relation": "active_at_observation_started_in_window",
+      "grouped_ads": 1,
+      "text": "Hey North York 👋 Thinking About Invisalign?\n\nExplore clear aligners with a dental practice that has been serving North York for 35+ years.\n\n⭐ 4.9 Stars From 1,018 Google Reviews\n\nFor a limited time, receive:\n\n🔥 $2,000 OFF Invisalign Treatment\n\nPLUS:\n\n✅ FREE iTero 3D Digital Scan\n✅ FREE Panoramic X-Ray\n✅ FREE Limited Oral Exam\n✅ FREE Set of 4 Retainers\n✅ FREE Oral-B iO5 Toothbrush Kit\n✅ FREE Take-Home Whitening After Treatment\n\n✨ Trusted local care and modern digital planning for your Invisalign journey.\n\n👇 Click “LEARN MORE” to book your FREE Invisalign consultation today!\nSorry, we're having trouble playing this video.\nLearn more\nNORTHYORKSMILECENTRE.FREESMILECONSULT.CLINIC\nNorth York: Save $2,000 on Invisalign 😁\nLearn more\n",
+      "text_basis": "pages/meta-nysc.txt",
+      "display_domain": [
+       "NORTHYORKSMILECENTRE.FREESMILECONSULT.CLINIC"
+      ],
+      "screenshot": "raw/browser-20261016/shots/meta-nysc.png"
+     }
+    ],
+    "evidence": [
+     "raw/browser-20261016/logs/meta_parsed.json"
+    ]
    },
    "google": {
-    "status": "not_checked",
-    "reason": "Interactive check assigned to Chrome; not run in this session.",
-    "search_terms": [
-     "smile-by-design.ca"
+    "status": "relevant_ads_observed",
+    "searched_at": "2026-10-16T18:58:36.999Z",
+    "searches": [
+     {
+      "log_tag": "google-nysc",
+      "kind": "any_time",
+      "url": "https://adstransparency.google.com/?region=CA&domain=smile-by-design.ca",
+      "terms": "smile-by-design.ca",
+      "filters": "Region Canada; any time",
+      "searched_utc": "2026-10-16T18:58:36.999Z",
+      "result_count": 3,
+      "screenshot": "raw/browser-20261016/shots/google-nysc.png"
+     },
+     {
+      "log_tag": "google_window:nysc",
+      "kind": "window",
+      "url": "https://adstransparency.google.com/?region=CA&domain=smile-by-design.ca&start-date=2026-09-16&end-date=2026-10-15",
+      "terms": "smile-by-design.ca",
+      "filters": "Region Canada; custom dates Sep 16 to Oct 15, 2026 (Pacific Time)",
+      "searched_utc": "2026-10-16T19:04:58.890Z",
+      "result_count": 0,
+      "date_label": "Custom Sep 16 – Oct 15, 2026",
+      "screenshot": "raw/browser-20261016/shots/google-nysc-window.png"
+     }
     ],
-    "filters": "Region: Canada",
-    "prepared_urls": [
-     "https://adstransparency.google.com/?region=CA&domain=smile-by-design.ca"
+    "advertisers": [
+     {
+      "name": "OneCore Media Corp.",
+      "verified": true,
+      "relation": "Marketing provider credited on smile-by-design.ca (observation ny-credit); a published association, not a confirmed contract."
+     }
     ],
-    "searched_at": null,
-    "advertiser": null,
-    "evidence": []
+    "summary": "Three implant ads from OneCore Media Corp. point to smile-by-design.ca, last shown in November 2025. They are historical examples outside this edition's window; no ad for the domain was shown in the window.",
+    "limits": [
+     "Domain search only.",
+     "Only the first variation of each creative was read."
+    ],
+    "records": [
+     {
+      "id": "google-CR00314598623490867201",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR15736586312267857921/creative/CR00314598623490867201?region=CA",
+      "advertiser": {
+       "name": "OneCore Media Corp.",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "nysc",
+       "confidence": "supported",
+       "basis": "Returned by the domain search for smile-by-design.ca; advertiser OneCore Media Corp., which the clinic website credits; display name is the head-office brand My Smile Centre."
+      },
+      "treatment": {
+       "category": "implant",
+       "implant_related": "yes"
+      },
+      "observed_utc": "2026-10-16T19:00:12.364Z",
+      "observed_in": "google-nysc-cr1",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2025-11-19",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "historical_before_window",
+      "format": "Text",
+      "text": "My Smile Centre, promo.mysmilecentre.ca: \"Dental Implant Cost - Toronto Dental Implant Clinic\"",
+      "summary": "My Smile Centre, promo.mysmilecentre.ca: \"Dental Implant Cost - Toronto Dental Implant Clinic\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/google-nysc-cr1.png"
+     },
+     {
+      "id": "google-CR06173431441167220737",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR15736586312267857921/creative/CR06173431441167220737?region=CA",
+      "advertiser": {
+       "name": "OneCore Media Corp.",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "nysc",
+       "confidence": "supported",
+       "basis": "Display URL is on the clinic's official domain; advertiser OneCore Media Corp."
+      },
+      "treatment": {
+       "category": "implant_full_arch",
+       "implant_related": "yes"
+      },
+      "observed_utc": "2026-10-16T19:00:22.545Z",
+      "observed_in": "google-nysc-cr2",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2025-11-26",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "historical_before_window",
+      "format": "Text",
+      "text": "My Smile Centre, promo.smile-by-design.ca/allon4: \"Toronto All on Four Dentistry - All On Four Centre Clinic\"",
+      "summary": "My Smile Centre, promo.smile-by-design.ca/allon4: \"Toronto All on Four Dentistry - All On Four Centre Clinic\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/google-nysc-cr2.png"
+     },
+     {
+      "id": "google-CR16746864668710010881",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR15736586312267857921/creative/CR16746864668710010881?region=CA",
+      "advertiser": {
+       "name": "OneCore Media Corp.",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "nysc",
+       "confidence": "supported",
+       "basis": "Display URL is on the clinic's official domain; advertiser OneCore Media Corp."
+      },
+      "treatment": {
+       "category": "implant",
+       "implant_related": "yes"
+      },
+      "observed_utc": "2026-10-16T19:00:32.174Z",
+      "observed_in": "google-nysc-cr3",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2025-11-26",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "historical_before_window",
+      "format": "Text",
+      "text": "My Smile Centre, promo.smile-by-design.ca: \"Same-Day Dental Implants - Chipped, cracked, broken teeth\"",
+      "summary": "My Smile Centre, promo.smile-by-design.ca: \"Same-Day Dental Implants - Chipped, cracked, broken teeth\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/google-nysc-cr3.png"
+     }
+    ],
+    "evidence": [
+     "raw/browser-20261016/logs/google_window.jsonl"
+    ]
    }
   },
   "gajjar": {
    "meta": {
-    "status": "not_checked",
-    "reason": "Interactive check assigned to Chrome; not run in this session.",
-    "search_terms": [
-     "Dr. Neil J. Gajjar",
-     "Gajjar Dentistry"
+    "status": "relevant_ads_observed",
+    "searched_at": "2026-10-16T18:56:18.891Z",
+    "searches": [
+     {
+      "log_tag": "meta-gajjar-dr",
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=Dr.%20Neil%20J.%20Gajjar",
+      "terms": "Dr. Neil J. Gajjar",
+      "match": "exact phrase",
+      "filters": "Country Canada; all ads; active and inactive",
+      "searched_utc": "2026-10-16T18:56:18.891Z",
+      "result": "~6 results",
+      "screenshot": "raw/browser-20261016/shots/meta-gajjar-dr.png"
+     },
+     {
+      "log_tag": "meta-gajjar",
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=Gajjar%20Dentistry",
+      "terms": "Gajjar Dentistry",
+      "match": "exact phrase",
+      "filters": "Country Canada; all ads; active and inactive",
+      "searched_utc": "2026-10-16T18:56:36.454Z",
+      "result": "No ads match your search criteria",
+      "screenshot": "raw/browser-20261016/shots/meta-gajjar.png"
+     }
     ],
-    "filters": "Country: Canada; ad category: all ads; active status: all",
-    "prepared_urls": [
-     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Dr.%20Neil%20J.%20Gajjar&search_type=keyword_exact_phrase",
-     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Gajjar%20Dentistry&search_type=keyword_exact_phrase"
+    "summary": "Two ad cards from the page Dr. Neil J. Gajjar, Associates & Specialists started on 12 October, inside the window, and promote general dental care in Mississauga, not implants. An inactive 2024 election notice is recorded but is not treatment marketing. \"Gajjar Dentistry\" found no ads.",
+    "limits": [
+     "The library reported about 6 results; three cards were shown, two of them grouping two ads.",
+     "Keyword search for exact phrases only."
     ],
-    "searched_at": null,
-    "advertiser": null,
-    "evidence": []
+    "records": [
+     {
+      "id": "meta-2950094802022907",
+      "platform": "meta",
+      "url": "https://www.facebook.com/ads/library/?id=2950094802022907",
+      "advertiser": {
+       "name": "Dr. Neil J. Gajjar, Associates & Specialists",
+       "platform_verified": null
+      },
+      "attribution": {
+       "clinic": "gajjar",
+       "confidence": "confirmed",
+       "basis": "Page named Dr. Neil J. Gajjar, Associates & Specialists; display destination DRGAJJAR.COM, the clinic's official domain."
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T18:56:18.891Z",
+      "observed_in": "meta-gajjar-dr",
+      "platform_dates": {
+       "status_at_observation": "active",
+       "started": "2026-10-12",
+       "ended": null,
+       "last_shown": null,
+       "basis": "Meta Ad Library \"Started running on\" date; the library does not show day-by-day delivery"
+      },
+      "window_relation": "active_at_observation_started_in_window",
+      "grouped_ads": 2,
+      "text": "Let Dr. Gajjar and his team provide you and your family with dental care in Mississauga.\nDRGAJJAR.COM\nMaintain Your Healthy and Dazzling Smile\nSee Details\n \nDRGAJJAR.COM\nMaintain Your Healthy and Dazzling Smile\nSee Details",
+      "text_basis": "pages/meta-gajjar-dr.txt",
+      "display_domain": [
+       "DRGAJJAR.COM"
+      ],
+      "screenshot": "raw/browser-20261016/shots/meta-gajjar-dr.png"
+     },
+     {
+      "id": "meta-512522885103391",
+      "platform": "meta",
+      "url": "https://www.facebook.com/ads/library/?id=512522885103391",
+      "advertiser": {
+       "name": "Dr. Neil J. Gajjar, DDS - RCDSO Council Candidate",
+       "platform_verified": null
+      },
+      "attribution": {
+       "clinic": "gajjar",
+       "confidence": "confirmed",
+       "basis": "Election notice for the RCDSO council, paid for by the clinic. Not treatment marketing; the library's spend and audience figures are deliberately not recorded."
+      },
+      "treatment": {
+       "category": "not_treatment_marketing",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T18:56:18.891Z",
+      "observed_in": "meta-gajjar-dr",
+      "platform_dates": {
+       "status_at_observation": "inactive",
+       "started": "2024-11-26",
+       "ended": "2024-12-12",
+       "last_shown": null,
+       "basis": "Meta Ad Library \"Started running on\" date; the library does not show day-by-day delivery"
+      },
+      "window_relation": "historical_before_window",
+      "grouped_ads": 1,
+      "text": "",
+      "text_basis": "not recorded (election notice)",
+      "display_domain": [
+       "ZC1.MAILLIST-MANAGE.CA"
+      ],
+      "screenshot": "raw/browser-20261016/shots/meta-gajjar-dr.png"
+     },
+     {
+      "id": "meta-1911245073618549",
+      "platform": "meta",
+      "url": "https://www.facebook.com/ads/library/?id=1911245073618549",
+      "advertiser": {
+       "name": "Dr. Neil J. Gajjar, Associates & Specialists",
+       "platform_verified": null
+      },
+      "attribution": {
+       "clinic": "gajjar",
+       "confidence": "confirmed",
+       "basis": "Same page and destination as 2950094802022907."
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T18:56:18.891Z",
+      "observed_in": "meta-gajjar-dr",
+      "platform_dates": {
+       "status_at_observation": "active",
+       "started": "2026-10-12",
+       "ended": null,
+       "last_shown": null,
+       "basis": "Meta Ad Library \"Started running on\" date; the library does not show day-by-day delivery"
+      },
+      "window_relation": "active_at_observation_started_in_window",
+      "grouped_ads": 2,
+      "text": "Let Dr. Gajjar and his team provide you and your family with dental care in Mississauga.\nDRGAJJAR.COM\nMaintain Your Healthy and Dazzling Smile\nSee Details\n \nDRGAJJAR.COM\nMaintain Your Healthy and Dazzling Smile\nSee Details\n \nSystem status\nAd Library APIAbout ads and data usePrivacyTermsCookies\nEnglish (US)",
+      "text_basis": "pages/meta-gajjar-dr.txt",
+      "display_domain": [
+       "DRGAJJAR.COM"
+      ],
+      "screenshot": "raw/browser-20261016/shots/meta-gajjar-dr.png"
+     }
+    ],
+    "evidence": [
+     "raw/browser-20261016/logs/meta_parsed.json"
+    ]
    },
    "google": {
-    "status": "not_checked",
-    "reason": "Interactive check assigned to Chrome; not run in this session.",
-    "search_terms": [
-     "drgajjar.com"
+    "status": "relevant_ads_observed",
+    "searched_at": "2026-10-16T18:58:54.209Z",
+    "searches": [
+     {
+      "log_tag": "google-gajjar",
+      "kind": "any_time",
+      "url": "https://adstransparency.google.com/?region=CA&domain=drgajjar.com",
+      "terms": "drgajjar.com",
+      "filters": "Region Canada; any time",
+      "searched_utc": "2026-10-16T18:58:54.209Z",
+      "result_count": 15,
+      "screenshot": "raw/browser-20261016/shots/google-gajjar.png"
+     },
+     {
+      "log_tag": "google_window:gajjar",
+      "kind": "window",
+      "url": "https://adstransparency.google.com/?region=CA&domain=drgajjar.com&start-date=2026-09-16&end-date=2026-10-15",
+      "terms": "drgajjar.com",
+      "filters": "Region Canada; custom dates Sep 16 to Oct 15, 2026 (Pacific Time)",
+      "searched_utc": "2026-10-16T19:05:12.635Z",
+      "result_count": 0,
+      "date_label": "Custom Sep 16 – Oct 15, 2026",
+      "screenshot": "raw/browser-20261016/shots/google-gajjar-window.png"
+     }
     ],
-    "filters": "Region: Canada",
-    "prepared_urls": [
-     "https://adstransparency.google.com/?region=CA&domain=drgajjar.com"
+    "advertisers": [
+     {
+      "name": "Optio Publishing Inc.",
+      "verified": true,
+      "relation": "Advertiser account running ads to the clinic's official domain; its relationship to the clinic is not stated."
+     }
     ],
-    "searched_at": null,
-    "advertiser": null,
-    "evidence": []
+    "summary": "Fifteen ads from Optio Publishing Inc. point to drgajjar.com; none was shown in the window. The four opened were last shown on 31 May 2026 and promote general dental care. They are historical evidence only.",
+    "limits": [
+     "Eleven of the fifteen any-time creatives were not opened; none of the fifteen was shown in the window.",
+     "Domain search only."
+    ],
+    "records": [
+     {
+      "id": "google-CR03138597181762568193",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14748382541538918401/creative/CR03138597181762568193?region=CA",
+      "advertiser": {
+       "name": "Optio Publishing Inc.",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "gajjar",
+       "confidence": "confirmed",
+       "basis": "Returned by the domain search for drgajjar.com; advertiser Optio Publishing Inc."
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:00:41.712Z",
+      "observed_in": "google-gajjar-cr1",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-05-31",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "historical_before_window",
+      "format": "Video",
+      "text": "\"Conveniently Located In Mississauga\" (video)",
+      "summary": "\"Conveniently Located In Mississauga\" (video)",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/google-gajjar-cr1.png"
+     },
+     {
+      "id": "google-CR06703264757194948609",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14748382541538918401/creative/CR06703264757194948609?region=CA",
+      "advertiser": {
+       "name": "Optio Publishing Inc.",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "gajjar",
+       "confidence": "confirmed",
+       "basis": "Display name is the clinic; advertiser Optio Publishing Inc."
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:00:51.617Z",
+      "observed_in": "google-gajjar-cr2",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-05-31",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "historical_before_window",
+      "format": "Text",
+      "text": "Dr. Neil J. Gajjar: \"Call (905) 564-2021\"; dental care for babies, kids, teens and adults in Mississauga",
+      "summary": "Dr. Neil J. Gajjar: \"Call (905) 564-2021\"; dental care for babies, kids, teens and adults in Mississauga",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/google-gajjar-cr2.png"
+     },
+     {
+      "id": "google-CR14217978132299776001",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14748382541538918401/creative/CR14217978132299776001?region=CA",
+      "advertiser": {
+       "name": "Optio Publishing Inc.",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "gajjar",
+       "confidence": "confirmed",
+       "basis": "Location asset names the clinic; advertiser Optio Publishing Inc."
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:01:01.305Z",
+      "observed_in": "google-gajjar-cr3",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-05-31",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "historical_before_window",
+      "format": "Text",
+      "text": "Location ad: Dr. Neil J. Gajjar, dental clinic, Mississauga",
+      "summary": "Location ad: Dr. Neil J. Gajjar, dental clinic, Mississauga",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/google-gajjar-cr3.png"
+     },
+     {
+      "id": "google-CR15437093234785910785",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14748382541538918401/creative/CR15437093234785910785?region=CA",
+      "advertiser": {
+       "name": "Optio Publishing Inc.",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "gajjar",
+       "confidence": "confirmed",
+       "basis": "Returned by the domain search for drgajjar.com; advertiser Optio Publishing Inc."
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:01:11.058Z",
+      "observed_in": "google-gajjar-cr4",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-05-31",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "historical_before_window",
+      "format": "Video",
+      "text": "\"Conveniently Located In Mississauga\" (video)",
+      "summary": "\"Conveniently Located In Mississauga\" (video)",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/google-gajjar-cr4.png"
+     }
+    ],
+    "evidence": [
+     "raw/browser-20261016/logs/google_window.jsonl"
+    ]
    }
   },
   "dundas": {
    "meta": {
-    "status": "not_checked",
-    "reason": "Interactive check assigned to Chrome; not run in this session.",
-    "search_terms": [
-     "Dundas East Dental"
+    "status": "no_matching_ads_found",
+    "searched_at": "2026-10-16T18:56:52.288Z",
+    "searches": [
+     {
+      "log_tag": "meta-dundas",
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=Dundas%20East%20Dental",
+      "terms": "Dundas East Dental",
+      "match": "exact phrase",
+      "filters": "Country Canada; all ads; active and inactive",
+      "searched_utc": "2026-10-16T18:56:52.288Z",
+      "result": "No ads match your search criteria",
+      "screenshot": "raw/browser-20261016/shots/meta-dundas.png"
+     }
     ],
-    "filters": "Country: Canada; ad category: all ads; active status: all",
-    "prepared_urls": [
-     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Dundas%20East%20Dental&search_type=keyword_exact_phrase"
+    "summary": "No ads matched the exact phrase \"Dundas East Dental\".",
+    "limits": [
+     "Exact phrase only; a page under another name, such as a dentist's name, would not appear.",
+     "Not proof that the clinic never advertises on Meta."
     ],
-    "searched_at": null,
-    "advertiser": null,
-    "evidence": []
+    "records": [],
+    "evidence": [
+     "raw/browser-20261016/logs/meta_parsed.json"
+    ]
    },
    "google": {
-    "status": "not_checked",
-    "reason": "Interactive check assigned to Chrome; not run in this session.",
-    "search_terms": [
-     "dundaseastdental.com"
+    "status": "no_matching_ads_found",
+    "searched_at": "2026-10-16T18:59:11.176Z",
+    "searches": [
+     {
+      "log_tag": "google-dundas",
+      "kind": "any_time",
+      "url": "https://adstransparency.google.com/?region=CA&domain=dundaseastdental.com",
+      "terms": "dundaseastdental.com",
+      "filters": "Region Canada; any time",
+      "searched_utc": "2026-10-16T18:59:11.176Z",
+      "result_count": 0,
+      "screenshot": "raw/browser-20261016/shots/google-dundas.png"
+     },
+     {
+      "log_tag": "google_window:dundas",
+      "kind": "window",
+      "url": "https://adstransparency.google.com/?region=CA&domain=dundaseastdental.com&start-date=2026-09-16&end-date=2026-10-15",
+      "terms": "dundaseastdental.com",
+      "filters": "Region Canada; custom dates Sep 16 to Oct 15, 2026 (Pacific Time)",
+      "searched_utc": "2026-10-16T19:05:26.207Z",
+      "result_count": 0,
+      "date_label": "Custom Sep 16 – Oct 15, 2026",
+      "screenshot": "raw/browser-20261016/shots/google-dundas-window.png"
+     }
     ],
-    "filters": "Region: Canada",
-    "prepared_urls": [
-     "https://adstransparency.google.com/?region=CA&domain=dundaseastdental.com"
+    "advertisers": [],
+    "summary": "No ads found for the domain dundaseastdental.com at any time or in the window.",
+    "limits": [
+     "Domain search only.",
+     "Not proof that the clinic never advertises on Google."
     ],
-    "searched_at": null,
-    "advertiser": null,
-    "evidence": []
+    "records": [],
+    "evidence": [
+     "raw/browser-20261016/logs/google_window.jsonl"
+    ]
    }
   },
   "bond": {
    "meta": {
-    "status": "not_checked",
-    "reason": "Interactive check assigned to Chrome; not run in this session.",
-    "search_terms": [
-     "Bond Street Dental"
+    "status": "no_matching_ads_found",
+    "searched_at": "2026-10-16T18:57:08.101Z",
+    "searches": [
+     {
+      "log_tag": "meta-bond",
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&search_type=keyword_exact_phrase&q=Bond%20Street%20Dental",
+      "terms": "Bond Street Dental",
+      "match": "exact phrase",
+      "filters": "Country Canada; all ads; active and inactive",
+      "searched_utc": "2026-10-16T18:57:08.101Z",
+      "result": "No ads match your search criteria",
+      "screenshot": "raw/browser-20261016/shots/meta-bond.png"
+     }
     ],
-    "filters": "Country: Canada; ad category: all ads; active status: all",
-    "prepared_urls": [
-     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Bond%20Street%20Dental&search_type=keyword_exact_phrase"
+    "summary": "No ads matched the exact phrase \"Bond Street Dental\".",
+    "limits": [
+     "Exact phrase only. The Google display name \"Dental Implants Clinic\" and the advertiser \"Passion Dental Group\" were not searched on Meta.",
+     "Not proof that the clinic never advertises on Meta."
     ],
-    "searched_at": null,
-    "advertiser": null,
-    "evidence": []
+    "records": [],
+    "evidence": [
+     "raw/browser-20261016/logs/meta_parsed.json"
+    ]
    },
    "google": {
-    "status": "not_checked",
-    "reason": "Interactive check assigned to Chrome; not run in this session.",
-    "search_terms": [
-     "dentalimplantsclinic.ca"
+    "status": "advertiser_uncertain",
+    "searched_at": "2026-10-16T18:59:28.237Z",
+    "searches": [
+     {
+      "log_tag": "google-bond",
+      "kind": "any_time",
+      "url": "https://adstransparency.google.com/?region=CA&domain=dentalimplantsclinic.ca",
+      "terms": "dentalimplantsclinic.ca",
+      "filters": "Region Canada; any time",
+      "searched_utc": "2026-10-16T18:59:28.237Z",
+      "result_count": 31,
+      "screenshot": "raw/browser-20261016/shots/google-bond.png"
+     },
+     {
+      "log_tag": "google_window:bond",
+      "kind": "window",
+      "url": "https://adstransparency.google.com/?region=CA&domain=dentalimplantsclinic.ca&start-date=2026-09-16&end-date=2026-10-15",
+      "terms": "dentalimplantsclinic.ca",
+      "filters": "Region Canada; custom dates Sep 16 to Oct 15, 2026 (Pacific Time)",
+      "searched_utc": "2026-10-16T19:05:39.885Z",
+      "result_count": 26,
+      "date_label": "Custom Sep 16 – Oct 15, 2026",
+      "screenshot": "raw/browser-20261016/shots/google-bond-window.png"
+     }
     ],
-    "filters": "Region: Canada",
-    "prepared_urls": [
-     "https://adstransparency.google.com/?region=CA&domain=dentalimplantsclinic.ca"
+    "advertisers": [
+     {
+      "name": "Passion Dental Group Inc",
+      "verified": true,
+      "relation": "uncertain: the advertiser's relationship to Bond Street Dental is not stated in any evidence read; ads are not attributed to Bond Street Dental as a group"
+     }
     ],
-    "searched_at": null,
-    "advertiser": null,
-    "evidence": []
+    "summary": "Twenty-six ads from the verified advertiser Passion Dental Group Inc pointed to dentalimplantsclinic.ca in the window. Twelve name Bond Street Dental or show a Bond Street location or address; fourteen show only the domain or the name \"Dental Implants Clinic\". Three are about implants. Because the website could not be read, the link between the domain, the advertiser and Bond Street Dental is not confirmed.",
+    "limits": [
+     "The window filter uses Pacific Time, three hours behind Toronto at each end.",
+     "Only the first variation of each creative was read.",
+     "Creatives may vary by location."
+    ],
+    "records": [
+     {
+      "id": "google-CR02067580969778413569",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR02067580969778413569?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "supported",
+       "basis": "The creative text gives the address 113 Bond St.",
+       "creative_evidence": "address"
+      },
+      "treatment": {
+       "category": "implant",
+       "implant_related": "yes"
+      },
+      "observed_utc": "2026-10-16T19:06:36.121Z",
+      "observed_in": "bond-google/cr01",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-16",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Advanced Dental Implants; dentalimplantsclinic.ca, Toronto, 113 Bond St",
+      "summary": "Advanced Dental Implants; dentalimplantsclinic.ca, Toronto, 113 Bond St",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr01.png",
+      "variations": null
+     },
+     {
+      "id": "google-CR16106927460867637249",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR16106927460867637249?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "implant_full_arch",
+       "implant_related": "yes"
+      },
+      "observed_utc": "2026-10-16T19:06:43.736Z",
+      "observed_in": "bond-google/cr02",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-16",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Dental Implants Clinic: \"Dental Implants Clinic - Voted best dentist in Toronto\"; sitelinks \"All On 4 Dental Implants\", \"Quality Dental Implants\"",
+      "summary": "Dental Implants Clinic: \"Dental Implants Clinic - Voted best dentist in Toronto\"; sitelinks \"All On 4 Dental Implants\", \"Quality Dental Implants\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr02.png",
+      "variations": null
+     },
+     {
+      "id": "google-CR07943027236351770625",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR07943027236351770625?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "supported",
+       "basis": "The creative names Bond Street Dental.",
+       "creative_evidence": "name"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:06:51.601Z",
+      "observed_in": "bond-google/cr03",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-16",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Location asset: Bond Street Dental - Toronto",
+      "summary": "Location asset: Bond Street Dental - Toronto",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr03.png",
+      "variations": "1 of 2 variations"
+     },
+     {
+      "id": "google-CR09222049530524991489",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR09222049530524991489?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "supported",
+       "basis": "The creative's location line reads Bond Street.",
+       "creative_evidence": "street"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:06:59.548Z",
+      "observed_in": "bond-google/cr04",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Dental Implants Clinic: \"Open 7 Days a Week - Evening & Weekend\"; Bond Street",
+      "summary": "Dental Implants Clinic: \"Open 7 Days a Week - Evening & Weekend\"; Bond Street",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr04.png",
+      "variations": "1 of 3 variations"
+     },
+     {
+      "id": "google-CR13456985845290500097",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR13456985845290500097?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:07:07.254Z",
+      "observed_in": "bond-google/cr05",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "\"Do root canals hurt, and what happens during the procedure?\"",
+      "summary": "\"Do root canals hurt, and what happens during the procedure?\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr05.png",
+      "variations": "1 of 2 variations"
+     },
+     {
+      "id": "google-CR09964105530064502785",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR09964105530064502785?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "supported",
+       "basis": "The creative's location line reads Bond Street.",
+       "creative_evidence": "street"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:07:14.778Z",
+      "observed_in": "bond-google/cr06",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Dental Implants Clinic: \"Dental Clinic Toronto\"; Bond Street; cleaning, exam and X-ray offer",
+      "summary": "Dental Implants Clinic: \"Dental Clinic Toronto\"; Bond Street; cleaning, exam and X-ray offer",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr06.png",
+      "variations": "1 of 4 variations"
+     },
+     {
+      "id": "google-CR02892392957523001345",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR02892392957523001345?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "supported",
+       "basis": "The creative names Bond Street Dental.",
+       "creative_evidence": "name"
+      },
+      "treatment": {
+       "category": "emergency",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:07:22.701Z",
+      "observed_in": "bond-google/cr07",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Map ad: Bond Street Dental; \"Emergency Dentist Toronto | Same-Day Urgent\"",
+      "summary": "Map ad: Bond Street Dental; \"Emergency Dentist Toronto | Same-Day Urgent\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr07.png",
+      "variations": "1 of 2 variations"
+     },
+     {
+      "id": "google-CR07816295413010399233",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR07816295413010399233?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "supported",
+       "basis": "The creative's location line reads Bond Street.",
+       "creative_evidence": "street"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:07:30.237Z",
+      "observed_in": "bond-google/cr08",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Dental Implants Clinic: \"Toronto Dental Clinic - Bon...\"; Bond Street",
+      "summary": "Dental Implants Clinic: \"Toronto Dental Clinic - Bon...\"; Bond Street",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr08.png",
+      "variations": "1 of 4 variations"
+     },
+     {
+      "id": "google-CR11093117604569546753",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR11093117604569546753?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "supported",
+       "basis": "The creative's location line reads Bond Street.",
+       "creative_evidence": "street"
+      },
+      "treatment": {
+       "category": "cosmetic",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:07:38.035Z",
+      "observed_in": "bond-google/cr09",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Dental Implants Clinic: \"Best Periodontist in Toronto - Cosmetic Dental Services\"; Bond Street",
+      "summary": "Dental Implants Clinic: \"Best Periodontist in Toronto - Cosmetic Dental Services\"; Bond Street",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr09.png",
+      "variations": "1 of 3 variations"
+     },
+     {
+      "id": "google-CR07973175381328920577",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR07973175381328920577?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:07:49.864Z",
+      "observed_in": "bond-google/cr10",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "\"Complete Oral Health Plans - Book Your Appointment Today\"",
+      "summary": "\"Complete Oral Health Plans - Book Your Appointment Today\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr10.png",
+      "variations": null
+     },
+     {
+      "id": "google-CR17837435153828282369",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR17837435153828282369?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:07:57.675Z",
+      "observed_in": "bond-google/cr11",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "\"Need A Dentist Today?\"",
+      "summary": "\"Need A Dentist Today?\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr11.png",
+      "variations": null
+     },
+     {
+      "id": "google-CR17251510269289431041",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR17251510269289431041?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "unclear",
+       "implant_related": "unclear"
+      },
+      "observed_utc": "2026-10-16T19:08:05.610Z",
+      "observed_in": "bond-google/cr12",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Image carousel with no readable headline",
+      "summary": "Image carousel with no readable headline",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr12.png",
+      "variations": "1 of 5 variations"
+     },
+     {
+      "id": "google-CR12198295513979682817",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR12198295513979682817?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "cosmetic",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:08:13.396Z",
+      "observed_in": "bond-google/cr13",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "\"Get cosmetic dentistry - Same-Day Appointment Available\"; text names \"Bentway\"",
+      "summary": "\"Get cosmetic dentistry - Same-Day Appointment Available\"; text names \"Bentway\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr13.png",
+      "variations": null
+     },
+     {
+      "id": "google-CR08934869291057020929",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR08934869291057020929?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:08:21.084Z",
+      "observed_in": "bond-google/cr14",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "\"Family Dentist Toronto - Appointments Within 20 Minutes\" (extractions, wisdom teeth)",
+      "summary": "\"Family Dentist Toronto - Appointments Within 20 Minutes\" (extractions, wisdom teeth)",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr14.png",
+      "variations": "1 of 5 variations"
+     },
+     {
+      "id": "google-CR10630403254304899073",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR10630403254304899073?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "root_canal",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:08:29.307Z",
+      "observed_in": "bond-google/cr15",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "\"Same-Day Root Canal Visit - Affordable Root Canal\"",
+      "summary": "\"Same-Day Root Canal Visit - Affordable Root Canal\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr15.png",
+      "variations": null
+     },
+     {
+      "id": "google-CR03812698612471693313",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR03812698612471693313?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "implant",
+       "implant_related": "yes"
+      },
+      "observed_utc": "2026-10-16T19:08:36.861Z",
+      "observed_in": "bond-google/cr16",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Dental Implants Clinic: \"Dental Implant At $1,599 - Affordable Implants at $1,599\"; no conditions visible in the creative",
+      "summary": "Dental Implants Clinic: \"Dental Implant At $1,599 - Affordable Implants at $1,599\"; no conditions visible in the creative",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr16.png",
+      "variations": "1 of 2 variations"
+     },
+     {
+      "id": "google-CR14812388858603241473",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR14812388858603241473?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "supported",
+       "basis": "The creative's location line reads Bond Street.",
+       "creative_evidence": "street"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:08:44.643Z",
+      "observed_in": "bond-google/cr17",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-15",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Dental Implants Clinic: \"Dental Care When Needed - Affordable Dental Services\"; Bond Street",
+      "summary": "Dental Implants Clinic: \"Dental Care When Needed - Affordable Dental Services\"; Bond Street",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr17.png",
+      "variations": "1 of 5 variations"
+     },
+     {
+      "id": "google-CR07164746812622897153",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR07164746812622897153?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:08:52.563Z",
+      "observed_in": "bond-google/cr18",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-13",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "\"Stress Free Dental Visits\"",
+      "summary": "\"Stress Free Dental Visits\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr18.png",
+      "variations": null
+     },
+     {
+      "id": "google-CR07156081750462955521",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR07156081750462955521?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "sedation",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:09:00.231Z",
+      "observed_in": "bond-google/cr19",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-13",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "\"Sedation Dentistry Toronto\"",
+      "summary": "\"Sedation Dentistry Toronto\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr19.png",
+      "variations": null
+     },
+     {
+      "id": "google-CR01764620814306508801",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR01764620814306508801?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:09:08.093Z",
+      "observed_in": "bond-google/cr20",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-13",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "\"Dentist appointment today - Dentist Toronto\"",
+      "summary": "\"Dentist appointment today - Dentist Toronto\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr20.png",
+      "variations": "1 of 3 variations"
+     },
+     {
+      "id": "google-CR00015307332162420737",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR00015307332162420737?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:09:15.731Z",
+      "observed_in": "bond-google/cr21",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-13",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "\"Call Us Today to Schedule\"",
+      "summary": "\"Call Us Today to Schedule\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr21.png",
+      "variations": null
+     },
+     {
+      "id": "google-CR06741742888163475457",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR06741742888163475457?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "supported",
+       "basis": "The creative's location line reads Bond Street.",
+       "creative_evidence": "street"
+      },
+      "treatment": {
+       "category": "whitening",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:09:23.357Z",
+      "observed_in": "bond-google/cr22",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-13",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Dental Implants Clinic, /teeth_whitening: \"Zoom Whitening for $349 - Same-Day Whitening\"; Bond Street",
+      "summary": "Dental Implants Clinic, /teeth_whitening: \"Zoom Whitening for $349 - Same-Day Whitening\"; Bond Street",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr22.png",
+      "variations": "1 of 2 variations"
+     },
+     {
+      "id": "google-CR02869722256118906881",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR02869722256118906881?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "supported",
+       "basis": "The creative names Bond Street Dental.",
+       "creative_evidence": "name"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:09:31.184Z",
+      "observed_in": "bond-google/cr23",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-13",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Location asset: Bond Street Dental",
+      "summary": "Location asset: Bond Street Dental",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr23.png",
+      "variations": "1 of 2 variations"
+     },
+     {
+      "id": "google-CR16294167384770478081",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR16294167384770478081?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "supported",
+       "basis": "The creative names Bond Street Dental.",
+       "creative_evidence": "name"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:09:38.784Z",
+      "observed_in": "bond-google/cr24",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-10-13",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "\"Bond Street Dental\"; display \"bond street dental/\"",
+      "summary": "\"Bond Street Dental\"; display \"bond street dental/\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr24.png",
+      "variations": "1 of 2 variations"
+     },
+     {
+      "id": "google-CR13434744769465024513",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR13434744769465024513?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "supported",
+       "basis": "The creative names Bond Street Dental.",
+       "creative_evidence": "name"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:09:46.423Z",
+      "observed_in": "bond-google/cr25",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-09-17",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Image ad: Bond Street Dental",
+      "summary": "Image ad: Bond Street Dental",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr25.png",
+      "variations": null
+     },
+     {
+      "id": "google-CR08144756558845181953",
+      "platform": "google",
+      "url": "https://adstransparency.google.com/advertiser/AR14415021800092073985/creative/CR08144756558845181953?region=CA",
+      "advertiser": {
+       "name": "Passion Dental Group Inc",
+       "platform_verified": true
+      },
+      "attribution": {
+       "clinic": "bond",
+       "confidence": "uncertain",
+       "basis": "Only the domain or the display name \"Dental Implants Clinic\" is shown; nothing in the creative names Bond Street Dental.",
+       "creative_evidence": "domain"
+      },
+      "treatment": {
+       "category": "general_dentistry",
+       "implant_related": "no"
+      },
+      "observed_utc": "2026-10-16T19:09:54.352Z",
+      "observed_in": "bond-google/cr26",
+      "platform_dates": {
+       "status_at_observation": null,
+       "started": null,
+       "ended": null,
+       "last_shown": "2026-09-17",
+       "basis": "Google Ads Transparency Center \"Last shown\" date (Pacific Time); first shown is not displayed"
+      },
+      "window_relation": "shown_in_window",
+      "format": "Text",
+      "text": "Dental Implants Clinic: \"Gentle Dental Care - Vote...\"",
+      "summary": "Dental Implants Clinic: \"Gentle Dental Care - Vote...\"",
+      "text_basis": "transcribed from the creative screenshot (first variation only)",
+      "screenshot": "raw/browser-20261016/shots/bond-google/cr26.png",
+      "variations": "1 of 3 variations"
+     }
+    ],
+    "evidence": [
+     "raw/browser-20261016/logs/google_window.jsonl"
+    ],
+    "identity": {
+     "domain_is_bond_street_dental": "uncertain",
+     "basis": "Supported by Google ad records only (location assets and names in 12 creatives); not verified on the official site, which showed a Cloudflare security check."
+    }
    }
   }
  }

@@ -11,6 +11,8 @@ Status: edition 001 is a **draft** (noindex, not in the sitemap, not linked from
 - `head_dental.html`: dental-only styles (scoped to `.msi`) and the research CTA tracking (`review_cta_click`, `research_service_click`).
 - `build.py`: validates every input, renders the page and the observations CSV. Never edit the page body by hand.
 - `tests/test_build.py`: `python3 -m unittest tests.test_build` (window boundaries, post cleaning, identities, excerpt and figure tracing, three tests, takeaways, voice, draft and release gates).
+- `tools/ingest_browser.py`: copies a browser evidence pass into `editions/NNN/raw/<batch>/` byte for byte, with `manifest.json` (sha256 per file), `provenance.json` and `validation_report.json`; redacts preview share tokens in collector scripts; validates the evidence JSON against the fixed window, collection times, source hosts, post ownership and dates, ad identifiers and screenshot references. `--check` validates without writing.
+- `tools/records_browser_20261016.py`: writes `ads.json` and `social.json` from the browser-20261016 batch. The reviewed classification decisions (attribution confidence, treatment, cover notes, why an example was chosen) are written out in the script. A later batch gets its own script.
 - `tools/fetch.py`: saves public pages as evidence (`editions/NNN/raw/pages/<sha12>.html.gz`, one line per fetch in `raw/fetch_log.jsonl`). Never submits forms, sends cookies or logs in.
 - `tools/extract.py`: plain text (`raw/text/`) and visible form fields (`raw/forms.json`) from the saved pages. `tools/view.py` prints a page's text without its site navigation.
 - `CHROME_HANDOFF.md`: the browser work still to do for edition 001.
@@ -19,21 +21,22 @@ Per edition (`editions/NNN/`):
 
 | File | Holds |
 |---|---|
-| `raw/` | Source records: saved pages, fetch log (URL, final URL, status, UTC time, bytes, sha256), extracted text and form fields |
+| `raw/` | Source records: saved pages, fetch log (URL, final URL, status, UTC time, bytes, sha256), extracted text and form fields; `raw/<batch>/` for each browser evidence pass (logs, page text, screenshots, collector scripts, manifest, provenance) |
 | `observations.json` | Dated, sourced observations: clinic, dimension, kind (`observed`, `claim`, `absence`), excerpt, statement, limitation |
 | `leads.json` | Unverified leads (for example cached copies of blocked sites). Never shown or counted |
 | `comparison.json` | The five-clinic comparison cells, each resting on observations |
-| `social.json` | Instagram handles (verified from the official site, or empty with a reason) and collected posts |
-| `ads.json` | Meta Ad Library and Google Ads Transparency Center status per clinic, with prepared searches |
+| `social.json` | Instagram handles (verified from the official site, or empty with a reason), coverage per clinic and observed posts (schema 2; status `partial_sample` until coverage is confirmed) |
+| `ads.json` | Meta Ad Library and Google Ads Transparency Center per clinic: status, searches and one record per ad with attribution confidence, treatment, platform dates and relation to the window (schema 2) |
 | `narrative.json` | The reading: summary, findings, clinic analyses, cross-clinic patterns, exactly three tests |
-| `edition.json` | Status (`draft` or `ready`), window rule, snapshot path, release requirements |
+| `edition.json` | Status (`draft` or `ready`), the fixed observation window, evidence batches, reviewed limitations, forms script flag, snapshot path, release requirements |
 
-Outputs: `dental-index.html` and `assets/index/dental/dental-index-edition-NNN-observations.csv` (only the observations used on the page; no personal data).
+Outputs: `dental-index.html` and three CSVs in `assets/index/dental/`: `dental-index-edition-NNN-observations.csv` (website observations used on the page), `-ads.csv` (every ad record) and `-instagram.csv` (observed posts). No personal data.
 
 ## Build
 
 ```
 python3 build.py --edition 001 --check   # validate only
+python3 build.py --edition 001 --report  # release report by category
 python3 build.py --edition 001           # draft page and CSV
 python3 -m unittest tests.test_build
 ```
@@ -42,7 +45,7 @@ python3 -m unittest tests.test_build
 
 ## Windows and social posts
 
-Observation window: the last 30 complete calendar days in America/Toronto before the collection date (`window_last_30`). Collected Instagram posts go through `clean_posts`: window filter by Toronto date, error rows dropped, duplicates removed, old pinned posts outside the window excluded, clinic-owned and collaborator-owned posts kept apart, negative or hidden metrics kept missing (never zero). Classify implant relevance per post (implant, general dentistry, hygiene, Invisalign, other); compare implant posts only, and say so if there are too few. No engagement ranking.
+Observation window: fixed in `edition.json` (edition 001: 16 September to 15 October 2026, America/Toronto). It is the last 30 complete calendar days before the first collection (`window_last_30`), written once and never recomputed; the build refuses a window that is not 30 days, a post outside it and any collection before its end. Ad records keep platform dates separate from the window relation, and a historical ad is never shown as active. Collected Instagram posts go through `clean_posts`: window filter by Toronto date, error rows dropped, duplicates removed, old pinned posts outside the window excluded, clinic-owned and collaborator-owned posts kept apart, negative or hidden metrics kept missing (never zero). Classify implant relevance per post (implant, general dentistry, hygiene, Invisalign, other); compare implant posts only, and say so if there are too few. No engagement ranking.
 
 ## Release (not run for edition 001)
 

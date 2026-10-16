@@ -1,34 +1,46 @@
-# Chrome handoff, Dental Implant Marketing Index edition 001
+# Ordinary-browser handoff, Dental Implant Marketing Index edition 001
 
-Prepared 16 October 2026. Nothing below has been done yet. Record every result with the date and time (Toronto), the exact URL and a screenshot, then add it to the kit files named in brackets. Do not submit forms, book, upload photos, message clinics, use logins for clinic accounts or bypass any restriction.
+Updated 16 October 2026 after the browser-20261016 evidence pass. That pass ran in a logged-out headless Chromium in the Claude Code cloud container, not in the founder's Chrome. What it completed is in `editions/001/raw/browser-20261016/` and in `ads.json` and `social.json`. The checks below are still outstanding and need an ordinary browser on an ordinary connection. Keep the window fixed at 16 September to 15 October 2026 (America/Toronto). Record each check's date and time (Toronto), the exact URL and a screenshot. Do not submit forms, book, upload photos, message clinics, use logins for clinic accounts or bypass any restriction.
 
-## 1. Websites that refused automated access [observations.json, comparison.json, narrative.json]
+## 1. Websites still unread [observations.json, comparison.json, narrative.json]
 
-- **Dundas East Dental**, https://dundaseastdental.com/ (HTTP 403 to automated requests).
-  - Confirm: practice name, street address and city, phone, the clinician presented for implants (a cached copy names Dr. Ammar Taimish) and whether reviews shown refer to other clinics (a cached copy shows Norton Dental Centre and Northland Dental Vaughan).
-  - Open the main implant or full-arch page: positioning and patient situation, any published price (a cached copy shows several all-inclusive full-arch prices), financing, consultation offer, proof, the enquiry form's fields (read only), and any explanation of what happens after an enquiry.
-  - Note the Instagram link in the header or footer, and any agency credit.
-- **Bond Street Dental**, https://www.dentalimplantsclinic.ca/ (Cloudflare challenge). Pass the challenge only as a normal visitor in a normal browser.
-  - Confirm that the site identifies Bond Street Dental (a cached copy says so) and its address.
-  - Same implant page review as above, including the advertised surgical-phase price and its stated conditions.
-  - Note the Instagram link and any agency credit.
+- **Dundas East Dental**, https://dundaseastdental.com/. The cloud browser saw only a "VPN or Proxy Detected" panel. In an ordinary browser, record:
+  - practice name, street address and city, and phone;
+  - implant and full-arch page URLs, and the clinician presented for implants;
+  - consultation offer and fee;
+  - cost and financing: single, per arch or full mouth; starting price or package; materials; temporary versus final restoration; inclusions, exclusions and conditions;
+  - enquiry route and required fields (read only), and what the site says happens next;
+  - the Instagram link and any agency credit;
+  - whether the reviews shown refer to other clinics (an unverified cached copy names Norton Dental Centre and Northland Dental Vaughan).
+- **Bond Street Dental**, https://www.dentalimplantsclinic.ca/. The cloud browser saw a Cloudflare security check. Pass it only as a normal visitor would. Record:
+  - whether the site itself identifies Bond Street Dental, with its address (Google ad records show "Bond Street Dental" listings and "113 Bond St", but that is ad evidence only);
+  - whether the site names Passion Dental Group, or another brand such as "Bentway", which appears in one ad;
+  - the same fields as for Dundas East Dental above;
+  - the conditions behind any implant price: Google ads show "Dental Implant At $1,599", and an unverified cached copy mentioned a surgical-phase price.
 
-## 2. Advertising [ads.json]
+## 2. Instagram [social.json]
 
-For each clinic, both platforms. Statuses: relevant ads observed, no matching ads found in the documented search, advertiser identity uncertain, access blocked.
+- **@gajjardentistry**: the logged-out profile request was refused (HTTP 429). Read the profile and every post dated 16 September to 15 October 2026. Record for each post: URL, date from the post page, owner, collaborators, format, caption first line, visible likes and comments, plays where shown, pinned status and whether it concerns implants.
+- **@studiobdental** and **@northyork.smilecentre**: confirm that the posts already recorded are every post in the window (4 and 5 observed). Look for posts the logged-out grid may have missed, collaborator posts, and posts dated 1 to 15 October. Then set coverage to `confirmed_complete` or record the gap. Plays were not shown logged out; record them where they are shown.
+- **Dundas East Dental and Bond Street Dental**: only after the website gives the handle, read the posts as above.
 
-- **Meta Ad Library**: country Canada, all ads, active status all. Search terms are in `ads.json` (`prepared_urls`). Match the advertiser page to the clinic before attributing anything; record the advertiser page URL, each relevant ad's library URL, creative or offer text, start date and destination URL where shown.
-- **Google Ads Transparency Center**: region Canada, search by the clinic's domain (prepared links in `ads.json`). Record the advertiser name and verification, each relevant ad's URL, format, creative or offer, and dates shown.
+## 3. Advertising [ads.json]
+
+- **Meta Ad Library**, Bond: searches for "Dental Implants Clinic" and "Passion Dental Group" were not run. Match the advertiser page before attributing anything.
+- **Meta Ad Library**, Dundas East Dental: if the website names a dentist or another page name, search it as well.
+- **Google Ads Transparency**, Gajjar: 11 of 15 any-time creatives were not opened. None was shown in the window, so this is optional.
 - Never record spend, reach, targeting or performance.
 
-## 3. Instagram [social.json]
+## 4. Preview
 
-Not collected: paid collection is not authorised for this study, and a logged-out request was refused (HTTP 429). Founder decision needed: either authorise a collection route with a spending limit, or approve a manual read in the browser. If manual, for each verified handle (@studiobdental, @northyork.smilecentre, @gajjardentistry, plus the two handles found in step 1): list every post published 16 September to 15 October 2026 (Toronto time) with its URL, date, format, owner (clinic or collaborator), caption first line, visible likes and comments, plays where shown, pinned status, and whether it concerns implants. Keep hidden values blank. If the window is re-dated at collection, use the window `build.py` computes for that collection date.
-
-## 4. Preview verification
-
-Open the preview link from the build report on a phone and a desktop browser: hero, comparison (cards on a phone), content placeholders, a clinic card and its takeaway, the three tests, the method sections with the keyboard (Tab and Enter on each summary), and the "Review my implant enquiry journey" button, which should open `/contact?intent=review&entry=research_dental`.
+Open the preview link from the build report on a real phone and in desktop Chrome, in both themes:
+- the hero buttons, and Tab focus on "See the five clinics";
+- the comparison, examples and advertising tables as cards on the phone;
+- the price note in the Studio B Dental card;
+- every summary opened with Enter;
+- "Review my implant enquiry journey", which must open `/contact?intent=review&entry=research_dental` without submitting.
 
 ## Not for this handoff
 
-No production verification or indexing request until the edition is released.
+- No production verification and no indexing request until the edition is released.
+- The forms script must be redeployed with `research_dental` (set `forms_script_research_dental_deployed` in `edition.json` once confirmed).

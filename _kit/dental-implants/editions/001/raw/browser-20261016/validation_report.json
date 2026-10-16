@@ -1,0 +1,45 @@
+{
+ "batch": "browser-20261016",
+ "source": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence",
+ "ingested_by": "tools/ingest_browser.py",
+ "files": 136,
+ "stored": 113,
+ "hash_only": 23,
+ "redacted": [
+  "collector/pv.mjs",
+  "collector/pv2.mjs",
+  "collector/pv3.mjs"
+ ],
+ "not_copied": {
+  "jar.txt": "cookie jar for the preview share link (credential); never stored"
+ },
+ "screenshot_references": 88,
+ "errors": [],
+ "notes": [
+  "browser loads 2026-10-16T18:54:17.399000+00:00 to 2026-10-16T19:13:24.409000+00:00",
+  "hash only (QA screenshot of a superseded preview build): preview-desktop-cta-contact.png",
+  "hash only (QA screenshot of a superseded preview build): preview-desktop-dx-accounts.png",
+  "hash only (QA screenshot of a superseded preview build): preview-desktop-dx-answer.png",
+  "hash only (QA screenshot of a superseded preview build): preview-desktop-dx-compare.png",
+  "hash only (QA screenshot of a superseded preview build): preview-desktop-dx-examples.png",
+  "hash only (QA screenshot of a superseded preview build): preview-desktop-dx-findings.png",
+  "hash only (QA screenshot of a superseded preview build): preview-desktop-dx-help.png",
+  "hash only (QA screenshot of a superseded preview build): preview-desktop-dx-method.png",
+  "hash only (QA screenshot of a superseded preview build): preview-desktop-dx-patterns.png",
+  "hash only (QA screenshot of a superseded preview build): preview-desktop-dx-tests.png",
+  "hash only (QA screenshot of a superseded preview build): preview-desktop-light-hero.png",
+  "hash only (QA screenshot of a superseded preview build): preview-desktop-top.png",
+  "hash only (QA screenshot of a superseded preview build): preview-mobile-cta-contact.png",
+  "hash only (QA screenshot of a superseded preview build): preview-mobile-dx-accounts.png",
+  "hash only (QA screenshot of a superseded preview build): preview-mobile-dx-answer.png",
+  "hash only (QA screenshot of a superseded preview build): preview-mobile-dx-compare.png",
+  "hash only (QA screenshot of a superseded preview build): preview-mobile-dx-examples.png",
+  "hash only (QA screenshot of a superseded preview build): preview-mobile-dx-findings.png",
+  "hash only (QA screenshot of a superseded preview build): preview-mobile-dx-help.png",
+  "hash only (QA screenshot of a superseded preview build): preview-mobile-dx-method.png",
+  "hash only (QA screenshot of a superseded preview build): preview-mobile-dx-patterns.png",
+  "hash only (QA screenshot of a superseded preview build): preview-mobile-dx-tests.png",
+  "hash only (QA screenshot of a superseded preview build): preview-mobile-top.png"
+ ],
+ "result": "PASS"
+}
