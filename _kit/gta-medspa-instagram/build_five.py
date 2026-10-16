@@ -52,6 +52,12 @@ def long_date(d, year=True):
     return f"{d.day} {MONTHS[d.month - 1]}" + (f" {d.year}" if year else "")
 
 
+def card_date(ts):
+    """The /hmm-index card date, Canadian style: October 15, 2026 (Toronto date of a recorded time)."""
+    d = to_local(ts).date()
+    return f"{MONTHS[d.month - 1]} {d.day}, {d.year}"
+
+
 def span(a, b):
     a, b = (x if isinstance(x, dt.date) else dt.date.fromisoformat(str(x)[:10]) for x in (a, b))
     return f"{long_date(a, a.year != b.year)} to {long_date(b)}"
@@ -693,7 +699,6 @@ def hub_texts(latest, pubs):
     t["limits"] = (f"Edition {L} compares {WORDS[len(rd_)]} readable account{'s' if len(rd_) != 1 else ''} with {WORDS[min(pw_)] if min(pw_) <= 20 else num(min(pw_))} to {WORDS[max(pw_)] if max(pw_) <= 20 else num(max(pw_))} posts each, so its medians describe little; "
                    f"editions {first} onward use the same accounts and method, so a change between them is an observation, not a trend. " + lg["limits"])
     t["learn"] = f"Edition {L}: what five clinics posted, the response each received and practical tests for your own account. " + lg["learn"]
-    t["ix-latest"] = f"Edition {L}, collected {long_date(latest['collected_on'])}"
     t["ix-pts1"] = f"{'All five' if not ur_ else WORDS[len(rd_)].capitalize() + ' of five'} readable, {rng} posts each in the window"
     return t
 
@@ -704,13 +709,13 @@ def restriction_for(ed, h):
     return f"a {m.group(1)}+ viewing restriction" if m else "a restricted profile"
 
 
-def schedule_dl(latest_text, collected):
+def schedule_dl(updated, collected):
     sc = COH["schedule"]
     if sc.get("active"):
-        return (f'<div><dt>Latest published data</dt><dd>{latest_text}</dd></div>'
-                f'<div><dt>Next scheduled collection</dt><dd data-ix-next="{sc["day"]}" data-ix-tz="America/Toronto" data-ix-latest="{collected}">The {sc["day"]}th of each month</dd></div>')
-    return (f'<div><dt>Latest published data</dt><dd>{latest_text}</dd></div>'
-            '<div><dt>Next scheduled collection</dt><dd>To be confirmed</dd></div>')
+        return (f'<div><dt>Last updated</dt><dd>{updated}</dd></div>'
+                f'<div><dt>Next update</dt><dd data-ix-next="{sc["day"]}" data-ix-tz="America/Toronto" data-ix-latest="{collected}">The {sc["day"]}th of each month</dd></div>')
+    return (f'<div><dt>Last updated</dt><dd>{updated}</dd></div>'
+            '<div><dt>Next update</dt><dd>To be confirmed</dd></div>')
 
 
 def apply_hub_and_index():
@@ -721,7 +726,6 @@ def apply_hub_and_index():
     for k in ("who", "pts1", "links", "geo", "period", "sample", "limits", "learn"):
         h = put(h, k, t[k], "hub")
     ix = IX.read_text()
-    ix = put(ix, "ix-dates", schedule_dl(t["ix-latest"], latest["collected_on"]), "/hmm-index")
     ix = put(ix, "ix-pts1", t["ix-pts1"], "/hmm-index")
     return h, ix
 
@@ -764,6 +768,7 @@ if args.target == "release":
     h, k2 = re.subn(r"(Published \d+ \w+ \d{4} &middot; Updated )\d+ \w+ \d{4}", lambda m: m.group(1) + tor, h, 1)
     assert k1 == 1 and k2 == 1, "research hub date markers not found"
     HUB.write_text(h)
+    ix = put(ix, "ix-dates", schedule_dl(card_date(args.modified_at), CFG["collected_on"]), "/hmm-index")  # Last updated follows the recorded time
     IX.write_text(ix)
     if FIRST_RELEASE:
         sm = SITEMAP.read_text()

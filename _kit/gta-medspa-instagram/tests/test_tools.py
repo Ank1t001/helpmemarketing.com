@@ -635,7 +635,7 @@ class Five(unittest.TestCase):
         hub = (self.t / "medspa-marketing-research.html").read_text()
         self.assertIn("Edition 004 covers 15 September to 14 October 2026 and re-collects", hub)
         self.assertIn('href="/medspa-index/edition-003">Edition 003 snapshot</a>', hub)
-        self.assertIn("Edition 004, collected 15 October 2026", (self.t / "hmm-index.html").read_text())
+        self.assertIn("<dt>Last updated</dt><dd>November 15, 2026</dd>", (self.t / "hmm-index.html").read_text())
         self.assertIn("<lastmod>2026-11-15", (self.t / "sitemap.xml").read_text())
         t1 = "2026-11-15T20:10:00.000+00:00"
         p = self.k_run("build_five.py", "--edition", "004", "--target", "release", "--published-at", t1, "--modified-at", t1, "--modified-source", "deployment dpl_x (commit abc)")

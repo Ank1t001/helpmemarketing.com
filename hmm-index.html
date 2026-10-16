@@ -111,7 +111,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
           <p class="wk-tool-kind">Benchmark &middot; Canada &middot; Monthly</p>
           <h3 class="wk-tool-title">The Real Estate Index</h3>
           <p class="wk-tool-who">Five Canadian private real estate investment firms, ranked on public Instagram likes, comments and recorded plays.</p>
-          <dl class="ix-dates"><div><dt>Latest published data</dt><dd>Collected 13 October 2026</dd></div><div><dt>Next scheduled collection</dt><dd data-ix-next="14" data-ix-tz="America/New_York" data-ix-latest="2026-10-13">The 14th of each month</dd></div></dl>
+          <dl class="ix-dates"><div><dt>Last updated</dt><dd>October 13, 2026</dd></div><div><dt>Next update</dt><dd data-ix-next="14" data-ix-tz="America/New_York" data-ix-latest="2026-10-13">The 14th of each month</dd></div></dl>
           <div class="wk-tool-links"><a class="wk-tool-cta" href="/realestate-index">Read the Real Estate Index &rarr;</a></div>
         </div>
       </article>
@@ -121,7 +121,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
           <p class="wk-tool-kind">Benchmark &middot; Ontario &middot; Monthly</p>
           <h3 class="wk-tool-title">The Hair Loss Index</h3>
           <p class="wk-tool-who">Nine non-surgical hair loss brands in Northern Ontario and the GTA, scored on public Instagram engagement and the path to a booking enquiry.</p>
-          <dl class="ix-dates"><div><dt>Latest published data</dt><dd>Edition 001, collected 8 September 2026</dd></div><div><dt>Next scheduled collection</dt><dd data-ix-next="16" data-ix-tz="America/Toronto" data-ix-latest="2026-09-08">The 16th of each month</dd></div></dl>
+          <dl class="ix-dates"><div><dt>Last updated</dt><dd>October 14, 2026</dd></div><div><dt>Next update</dt><dd data-ix-next="16" data-ix-tz="America/Toronto" data-ix-latest="2026-09-08">The 16th of each month</dd></div></dl>
           <div class="wk-tool-links"><a class="wk-tool-cta" href="/hair-loss-index">Read the Hair Loss Index &rarr;</a></div>
         </div>
       </article>
@@ -131,7 +131,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
           <p class="wk-tool-kind">Comparison &middot; Ontario &middot; Monthly</p>
           <h3 class="wk-tool-title">Med Spa Index</h3>
           <p class="wk-tool-who">Five selected Ontario med spa Instagram accounts: what they post and the response, not a ranking of clinics. <span data-msi="ix-pts1">Four of five readable, 1 to 17 posts each in the window</span>.</p>
-          <dl class="ix-dates" data-msi="ix-dates"><div><dt>Latest published data</dt><dd>Edition 003, collected 15 October 2026</dd></div><div><dt>Next scheduled collection</dt><dd data-ix-next="15" data-ix-tz="America/Toronto" data-ix-latest="2026-10-15">The 15th of each month</dd></div></dl>
+          <dl class="ix-dates" data-msi="ix-dates"><div><dt>Last updated</dt><dd>October 15, 2026</dd></div><div><dt>Next update</dt><dd data-ix-next="15" data-ix-tz="America/Toronto" data-ix-latest="2026-10-15">The 15th of each month</dd></div></dl>
           <div class="wk-tool-links"><a class="wk-tool-cta" href="/medspa-index">Read the Med Spa Index &rarr;</a><a class="wk-tool-cta" href="/medspa-marketing-research">All medspa research</a></div>
         </div>
       </article>
@@ -148,13 +148,13 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       <li><h3>Measured the same way</h3><p>Every account in an edition is read on the same public signals, such as likes, comments and recorded plays, so the comparison is consistent.</p></li>
       <li><h3>Linked to the source</h3><p>Every claim points to the post behind it, so you can check it yourself.</p></li>
     </ul>
-    <p class="ix-note">A scheduled collection date is when the next run is planned. Each page changes only after that edition is reviewed and published, and its date bar shows when its data was last verified.</p>
+    <p class="ix-note">Last updated is the day each page last went live. Next update is the day the next collection is scheduled; each page changes only after that edition is reviewed, so it can go live a little later, and its date bar shows when its data was last verified.</p>
   </div>
 </section>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   var M=['January','February','March','April','May','June','July','August','September','October','November','December'];
-  // Next scheduled collection: the first scheduled day on or after today that is at least 20 days after the
+  // Next update: the first scheduled collection day on or after today that is at least 20 days after the
   // latest published data (each routine skips a run when its previous collection is more recent than that).
   document.querySelectorAll('[data-ix-next]').forEach(function(el){
     try{
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded',function(){
       var today=Date.UTC(g('year'),g('month')-1,g('day')),lp=last.split('-'),min=Date.UTC(+lp[0],+lp[1]-1,+lp[2])+20*864e5;
       var y=g('year'),m=g('month');
       for(var i=0;i<24;i++){var t=Date.UTC(y,m-1,d);if(t>=today&&t>=min)break;m+=1;if(m>12){m=1;y+=1;}}
-      el.textContent=d+' '+M[m-1]+' '+y+(Date.UTC(y,m-1,d)===today?' (today)':'');
+      el.textContent=M[m-1]+' '+d+', '+y+(Date.UTC(y,m-1,d)===today?' (today)':'');
     }catch(e){}
   });
 });
