@@ -321,8 +321,6 @@ names = lambda hs: ", ".join(E(A[h]["brand"]) for h in hs[:-1]) + (" and " if le
 B["UNREADABLE_DEK"] = "".join(f" When the logged-out collection tools requested {E(A[h]['brand'])}&rsquo;s profile, Instagram returned {restriction(h)[0]}, so it could not be read; it is shown, not analysed, and not treated as inactive." for h in unreadable)
 B["UNREADABLE_FAQ"] = "".join(f" Instagram returned {restriction(h)[0]} for {E(A[h]['brand'])}&rsquo;s profile to the logged-out collection tools, so it could not be read." for h in unreadable)
 
-B["HERO"] = rich(NAR["hero"], "hero finding")
-assert len(re.sub(r"<[^>]+>|\{\{[^{}]+\}\}", "", NAR["hero"])) <= 320, "hero finding: one or two short sentences"
 B["COMPARABILITY"] = rich(NAR["comparability"], "comparability note")
 F = NAR["findings"]
 assert len(F) == 3, "exactly three findings"

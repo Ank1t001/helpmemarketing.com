@@ -1,6 +1,5 @@
 {
  "edition": "004",
- "hero": "{{a.sig.brand}} published {{w.a.sig.reels}} reels and {{a.vit.brand}} {{a.vit.reels}}, yet {{a.sig.brand}}&rsquo;s median reel recorded about {{r.sig.vit.median_plays}} times as many plays. The two accounts post about different subjects, so this is a difference to read, not a ranking.",
  "comparability": "These accounts post about different things, to different audiences, in very different amounts. Read each account&rsquo;s plays and likes against its own median, not as a league table.",
  "findings": [
   {
