@@ -10,10 +10,10 @@
  "timezone": "America/Toronto",
  "cohort": "editions/003/accounts.json",
  "published_at": "2026-10-15T19:45:51.300+00:00",
- "modified_at": "2026-10-15T20:02:59.183+00:00",
+ "modified_at": "2026-10-16T00:32:55.106+00:00",
  "snapshot_path": "/medspa-index/edition-003",
  "note": "Edition 003 is a deliberately selected five-account comparison. It is not published: no publication date is recorded and no snapshot exists until build_003.py --target release is run with --published-at from the production deployment.",
- "modified_at_source": "production deployment dpl_Gwb3A8gTrjQHL9SrJL8e3NAAxCfR (commit a45426f) ready 2026-10-15T20:02:59.183+00:00",
+ "modified_at_source": "production deployment dpl_Dnqd8jdbWPYYU6fNzxkVUwaK9D7G (commit fc369b2) ready 2026-10-16T00:32:55.106+00:00",
  "hub_modified_at": "2026-10-15T19:45:51.300+00:00",
  "clarifications": [
   {
@@ -25,6 +25,15 @@
    "deployment": "dpl_Gwb3A8gTrjQHL9SrJL8e3NAAxCfR",
    "ready": "2026-10-15T20:02:59.183+00:00",
    "note": "Skin Vitality wording names the 21+ viewing restriction recorded in raw/source_profiles.json.gz (restrictionReason); no figure or collection date changed; snapshot unchanged."
+  },
+  {
+   "date": "2026-10-16",
+   "commits": [
+    "fc369b2"
+   ],
+   "deployment": "dpl_Dnqd8jdbWPYYU6fNzxkVUwaK9D7G",
+   "ready": "2026-10-16T00:32:55.106+00:00",
+   "note": "Layout and UX pass (audit items 1 to 14): new visible text is the help-section review button and the table hint for phones; no figure, finding or collection date changed; snapshot and hub unchanged."
   }
  ]
 }
