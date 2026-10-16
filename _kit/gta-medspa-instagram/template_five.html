@@ -11,16 +11,16 @@
 </section>
 
 <section id="ri-table"><div class="sec-head"><h2>Account comparison</h2>
-<p class="dek">Five named accounts, the same window, the same collection. Select a column heading to sort; accounts that could not be read always stay at the bottom. On a phone, scroll the table sideways.</p></div>
+<p class="dek">Five named accounts, the same window, the same collection. On a wider screen, select a column heading to sort; accounts that could not be read always stay at the bottom. On a phone, each account is shown as a card.</p></div>
 <p id="cmp-status" class="sr-only" aria-live="polite"></p>
-<div class="tw" tabindex="0" role="region" aria-label="Account comparison table, scrolls sideways"><table class="cmp" data-sortable data-status="cmp-status"><caption class="sr-only">Instagram activity of five selected Ontario med spa accounts, {{WSTART}} to {{WEND}}</caption>
+<div class="tw cards" tabindex="0" role="region" aria-label="Account comparison table"><table class="cmp" data-sortable data-status="cmp-status"><caption class="sr-only">Instagram activity of five selected Ontario med spa accounts, {{WSTART}} to {{WEND}}</caption>
 <thead><tr><th class="sortable" scope="col" data-text><button type="button" class="sort">Account</button></th><th class="sortable" scope="col" data-text><button type="button" class="sort">Locations</button></th><th class="sortable r" scope="col"><button type="button" class="sort">Followers</button></th><th class="sortable r" scope="col"><button type="button" class="sort">Posts in window</button></th><th class="sortable r" scope="col"><button type="button" class="sort">Reels / carousels / static</button></th><th class="sortable r" scope="col"><button type="button" class="sort">Median likes</button></th><th class="sortable r" scope="col"><button type="button" class="sort">Median comments</button></th><th class="sortable r" scope="col"><button type="button" class="sort">Median reel plays</button></th><th scope="col">Coverage</th></tr></thead><tbody>
 {{BLOCK:TABLE_ROWS}}
 </tbody></table></div>
 <p class="pnote"><b>Definitions.</b> Followers were captured on {{CAPTURE}}. Posts in window are every post on the feed published between {{WSTART}} and {{WEND}} (Toronto time), collaboration posts included. Format mix, likes, comments and plays use only posts the account published itself. Median likes use posts where likes were visible; hidden likes are left out, never counted as zero. Median reel plays use own reels with a recorded play count. Sorting by format mix sorts by reels. There is no score and no rank, and with three or fewer posts a median describes very little.</p>
 <h3>Services listed on each brand&rsquo;s website</h3>
 <p class="dek">Secondary context, checked on the official websites on {{SERVICES_CHECKED}}. A listed service says nothing about whether it was promoted on Instagram, and one location&rsquo;s menu may not apply to every location. Each entry links to its source.</p>
-<div class="tw" tabindex="0" role="region" aria-label="Services table, scrolls sideways"><table class="svc"><thead><tr><th scope="col">Brand</th><th scope="col">Injectables</th><th scope="col">RF microneedling</th><th scope="col">Body contouring</th><th scope="col">Medical weight loss</th><th scope="col">Laser hair removal</th><th scope="col">IV therapy</th></tr></thead><tbody>
+<div class="tw cards" tabindex="0" role="region" aria-label="Services table"><table class="svc"><thead><tr><th scope="col">Brand</th><th scope="col">Injectables</th><th scope="col">RF microneedling</th><th scope="col">Body contouring</th><th scope="col">Medical weight loss</th><th scope="col">Laser hair removal</th><th scope="col">IV therapy</th></tr></thead><tbody>
 {{BLOCK:SERVICE_ROWS}}
 </tbody></table></div>
 <p class="pnote">Across the {{p.own_posts}} own posts in the window, captions named injectables in {{m.injectables}}, RF microneedling devices in {{m.rf_microneedling}}, body contouring treatments in {{m.body_contouring}}, a weight loss medication in {{m.medical_weight_loss}}, laser hair removal in {{m.laser_hair_removal}} and IV therapy in {{m.iv_therapy}}. {{BLOCK:ADLIB_SUMMARY}}</p>
@@ -109,8 +109,8 @@
 </section>
 
 <section id="ri-help"><div class="sec-head"><h2>If you want your own account read this way</h2></div>
-<div class="card"><p class="dek m0">This comparison does not tell you how your clinic is doing. If you would like your own Instagram activity read against the same measures, <a href="/contact?intent=review&amp;entry=research_gta_medspa#contact-form" data-review-cta="research_gta_medspa">ask for a free marketing review</a>. Related services: <a href="/services/branding-social">Branding and social</a> and <a href="/services/analytics-attribution">Analytics and attribution</a>.</p></div></section>
-</div>
+<div class="card"><p class="dek m0">This comparison does not tell you how your clinic is doing. If you would like your own Instagram activity read against the same measures, <a href="/contact?intent=review&amp;entry=research_gta_medspa#contact-form" data-review-cta="research_gta_medspa">ask for a free marketing review</a>. Related services: <a href="/services/branding-social">Branding and social</a> and <a href="/services/analytics-attribution">Analytics and attribution</a>.</p>
+<a class="btn btn-primary" href="/contact?intent=review&amp;entry=research_gta_medspa#contact-form" data-review-cta="research_gta_medspa">Get my free marketing review</a></div></section>
 <footer>
 <div class="about"><p><b>About this index.</b> The Med Spa Index is part of <b>The HMM Index</b> by Help Me Marketing. Edition {{EDITION}} compares the public Instagram activity of five selected Ontario med spa accounts from {{WSTART}} to {{WEND}}. It is not a ranking and does not measure bookings or revenue.</p></div>
 <div class="byline-block">
@@ -121,3 +121,4 @@
 <p>Data collected <b>{{COLLECTED}}</b> &middot; edition <b>{{EDITION}}</b></p>
 <p>Clinic names are used to report publicly available data and imply no relationship with Help Me Marketing.</p>
 </div></footer>
+</div>

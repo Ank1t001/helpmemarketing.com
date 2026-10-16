@@ -190,37 +190,38 @@ T["x.records"] = num(next(r for r in LED["runs"] if r["stage"] == "posts")["item
 T["x.caps"] = f"{sum(float(r.get('cap_usd') or 0) for r in LED['runs']):.2f}"
 
 # ---- generated blocks ----------------------------------------------------------------------------
-def cell(v, txt=None, cls="r"):
+def cell(v, txt=None, cls="r", label=""):
     dv = "" if v is None else f' data-v="{v}"'
-    return f'<td class="{cls}"{dv}>{txt if txt is not None else ("Not readable" if v is None else num(v))}</td>'
+    lab = f' data-label="{label}"' if label else ""
+    return f'<td class="{cls}"{dv}{lab}>{txt if txt is not None else ("Not readable" if v is None else num(v))}</td>'
 
 
 rows = []
 for h, al in ALIAS.items():
     m, a = M["accounts"][h], A[h]
     name = f'<td class="brandcell" data-v="{E(a["brand"])}"><a href="{a["instagram_url"]}" target="_blank" rel="noopener">{E(a["brand"])}</a><span class="handle">@{h}</span></td>'
-    loc = f'<td data-v="{E(a["locations"])}">{E(a["locations"].capitalize())}</td>'
+    loc = f'<td data-v="{E(a["locations"])}" data-label="Locations">{E(a["locations"].capitalize())}</td>'
     if not m["accessible"]:
-        rows.append(f"<tr>{name}{loc}" + "".join(cell(None) for _ in range(6)) + '<td class="wrap-cell" data-v="z">21+ viewing restriction: not readable</td></tr>')
+        rows.append(f"<tr>{name}{loc}" + "".join(cell(None, cls="r nr") for _ in range(6)) + '<td class="wrap-cell" data-v="z" data-label="Coverage">21+ viewing restriction: not readable</td></tr>')
         continue
     posts_txt = num(m["posts_in_window"]) + (f'<span class="cell-sub">{num(m["own_posts"])} own, {num(m["collab_posts"])} collaboration</span>' if m["collab_posts"] else "")
     mix = f'{num(m["reels"])} / {num(m["carousels"])} / {num(m["statics"])}'
     lk = num(m["median_likes"]) + f'<span class="cell-sub">likes visible on {num(m["likes_visible"])} of {num(m["own_posts"])}</span>'
     cm = num(m["median_comments"]) + f'<span class="cell-sub">{num(m["comments_counted"])} post{"s" if m["comments_counted"] != 1 else ""}</span>'
     pl = num(m["median_plays"]) + f'<span class="cell-sub">{num(m["reels_with_plays"])} reel{"s" if m["reels_with_plays"] != 1 else ""}</span>'
-    rows.append(f"<tr>{name}{loc}{cell(m['followers'])}{cell(m['posts_in_window'], posts_txt)}{cell(m['reels'], mix)}"
-                f"{cell(m['median_likes'], lk)}{cell(m['median_comments'], cm)}{cell(m['median_plays'], pl)}"
-                f'<td class="wrap-cell" data-v="a">Complete for the window</td></tr>')
+    rows.append(f"<tr>{name}{loc}{cell(m['followers'], label='Followers')}{cell(m['posts_in_window'], posts_txt, label='Posts in window')}{cell(m['reels'], mix, label='Reels / carousels / static')}"
+                f"{cell(m['median_likes'], lk, label='Median likes')}{cell(m['median_comments'], cm, label='Median comments')}{cell(m['median_plays'], pl, label='Median reel plays')}"
+                f'<td class="wrap-cell" data-v="a" data-label="Coverage">Complete for the window</td></tr>')
 B = {"TABLE_ROWS": "\n".join(rows)}
 
 srows = []
 for h in ALIAS:
     s = SV["services"][h]
     tds = []
-    for k, _ in SVC:
+    for k, lab in SVC:
         e = s[k]
         mark = "Yes" if e["status"] == "Confirmed" else "Not confirmed"
-        tds.append(f'<td><a href="{e["source"]}" target="_blank" rel="noopener">{mark}</a><span class="cell-sub">{E(e["detail"])}</span></td>')
+        tds.append(f'<td data-label="{lab}"><a href="{e["source"]}" target="_blank" rel="noopener">{mark}</a><span class="cell-sub">{E(e["detail"])}</span></td>')
     srows.append(f'<tr><td class="brandcell">{E(A[h]["brand"])}</td>{"".join(tds)}</tr>')
 B["SERVICE_ROWS"] = "\n".join(srows)
 

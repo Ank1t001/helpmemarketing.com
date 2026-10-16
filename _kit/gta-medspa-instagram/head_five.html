@@ -20,6 +20,43 @@
 .msi.msi .stand dt{color:var(--text-tertiary)}
 .msi.msi .stand dd{margin:0;color:var(--text);font-variant-numeric:tabular-nums}
 .msi.msi .tests li{margin-bottom:var(--s4)}
+/* Layout pass (2026-10-16, founder approval of audit items 1 to 14): cover note only on a real load error; tables as cards on phones; table fits from 1280 px; larger table and badge type; 72ch reading width; visible links; footer and card spacing; hero art shape; phone hero, nav and takeaway tweaks; help button. */
+.msi.msi .frame .shot::before{content:""}
+.msi.msi .frame .shot.err::before{content:"Frame no longer available at the source"}
+.msi.msi .frame .shot.err img{visibility:hidden}
+.msi.msi header{background:none}
+.msi.msi header::after{aspect-ratio:1056/591}
+.msi.msi .tw .cmp{min-width:0}
+.msi.msi .cmp td.wrap-cell{white-space:normal;min-width:9em}
+.msi.msi .cmp td.brandcell{min-width:13.5em}
+.msi.msi table{font-size:13.5px}
+.msi.msi .cell-sub{font-size:12.5px}
+.msi.msi .frame .verdict{font-size:11.5px;padding:4px 10px}
+.msi.msi .card .dek,.msi.msi .sec-head .dek,.msi.msi section>.dek,.msi.msi .pnote,.msi.msi .note p,.msi.msi .tests li,.msi.msi .frame .body p{max-width:72ch}
+.msi.msi .frames+.pnote{margin-top:24px}
+.msi.msi #ri-method .grid2{margin:24px 0 16px;align-items:stretch}
+.msi.msi #ri-method .grid2>.card{margin:0}
+.msi.msi .grid2 .card a,.msi.msi #ri-help .dek a{color:var(--cta-text,var(--cta));text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.msi.msi #ri-help .btn{margin-top:16px}
+.msi.msi footer{margin-top:32px}
+@media(max-width:720px){
+.msi.msi header::after{display:none}
+.msi.msi .livebar{margin-bottom:0}
+.msi.msi .card .note.take{background:none;border:0;border-left:3px solid var(--cta);border-radius:0;padding:2px 0 2px 12px}
+}
+@media(max-width:900px){
+.msi.msi .ri-nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.msi.msi .ri-nav::-webkit-scrollbar{display:none}
+.msi.msi .ri-nav a{flex:none;white-space:nowrap}
+.msi.msi .tw.cards{overflow:visible;border:0;background:none;border-radius:0}
+.msi.msi .tw.cards table,.msi.msi .tw.cards tbody,.msi.msi .tw.cards tr,.msi.msi .tw.cards td{display:block;width:auto;min-width:0}
+.msi.msi .tw.cards thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.msi.msi .tw.cards tr{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px 16px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--r2);padding:16px;margin-bottom:12px}
+.msi.msi .tw.cards td{padding:0;border:0;text-align:left;white-space:normal}
+.msi.msi .tw.cards td.brandcell,.msi.msi .tw.cards td.wrap-cell{grid-column:1/-1}
+.msi.msi .tw.cards td[data-label]::before{content:attr(data-label);display:block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:2px}
+.msi.msi .tw.cards td.nr{display:none}
+}
 </style>
 <script data-msi-sort>
 /* Sortable comparison table: header buttons sort by each cell's data-v (numbers numerically, text alphabetically); empty values always sort last. */
@@ -50,6 +87,16 @@ document.addEventListener('DOMContentLoaded', function () {
         if (live) live.textContent = 'Sorted by ' + btn.textContent.trim() + ', ' + dir + '. Accounts that could not be read stay at the bottom.';
       });
     });
+  });
+});
+</script>
+<script data-msi-frames>
+/* Cover frames: the "no longer available" note shows only when an image fails to load, never while it is still loading. */
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.frame .shot img').forEach(function (img) {
+    var mark = function () { img.parentNode.classList.add('err'); };
+    if (img.complete && img.currentSrc && img.naturalWidth === 0) mark();
+    img.addEventListener('error', mark);
   });
 });
 </script>
