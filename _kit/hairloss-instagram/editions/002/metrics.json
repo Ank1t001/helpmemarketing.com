@@ -1,0 +1,2332 @@
+{
+ "edition": "002",
+ "window": [
+  "2026-07-18",
+  "2026-10-16"
+ ],
+ "scraped_at": "2026-10-16",
+ "weights": {
+  "discovery": 0.3,
+  "interest": 0.2,
+  "consideration": 0.3,
+  "conversion": 0.2
+ },
+ "brands_total": 10,
+ "handles_total": 10,
+ "ranked": 7,
+ "posts_analysed": 147,
+ "comments_recorded": 158,
+ "brands_with_ads": 5,
+ "ads_checked_at": "2026-10-16",
+ "collab_posts": [
+  {
+   "brand": "Truly You",
+   "owner": "michaelvestri",
+   "shortcode": "Dejzg_NR1rV",
+   "date": "2026-10-16",
+   "fmt": "Reel",
+   "likes": 18,
+   "comments": 3,
+   "plays": 414,
+   "hook": "Have you ever heard of trichology?"
+  },
+  {
+   "brand": "The Toronto Hair Transplant Clinic",
+   "owner": "corytorgerson",
+   "shortcode": "DbbIfMty0gE",
+   "date": "2026-07-30",
+   "fmt": "Static",
+   "likes": 135,
+   "comments": 35,
+   "plays": null,
+   "hook": "Being trusted by patients is something I value every day, and being recognized alongside so many talented colleagues is a privilege."
+  },
+  {
+   "brand": "Hair Transplant Centre Toronto",
+   "owner": "stephandyer",
+   "shortcode": "Db6ceZLzLgo",
+   "date": "2026-08-11",
+   "fmt": "Reel",
+   "likes": 3121,
+   "comments": 197,
+   "plays": 93569,
+   "hook": "Toronto > Turkey"
+  },
+  {
+   "brand": "The Toronto Hair Transplant Clinic",
+   "owner": "sovereignskin",
+   "shortcode": "DeZf8P2Rvuc",
+   "date": "2026-10-12",
+   "fmt": "Reel",
+   "likes": 101,
+   "comments": 4,
+   "plays": 2951,
+   "hook": "🍂Happy Thanksgiving!"
+  },
+  {
+   "brand": "FREEDOMclinic",
+   "owner": "barrylovesskin",
+   "shortcode": "DbYVnfdO369UqXgY2lg7t9gcGcYjAsUvLdceRk0",
+   "date": "2026-07-29",
+   "fmt": "Static",
+   "likes": 51,
+   "comments": 4,
+   "plays": null,
+   "hook": "@freedomclinictoronto has been a partner with us from the VERY beginning! We love and appreciate you very much ❤️💫"
+  },
+  {
+   "brand": "Truly You",
+   "owner": "dr_ashlin",
+   "shortcode": "DbT6v-eR-aK",
+   "date": "2026-07-27",
+   "fmt": "Reel",
+   "likes": null,
+   "comments": 0,
+   "plays": 1660,
+   "hook": "@trulyyouhair and we discuss why we believe the best patient outcomes happen when specialists work together. 🤝"
+  },
+  {
+   "brand": "Alopecia & Beyond",
+   "owner": "clorebeauty",
+   "shortcode": "DdM9k3TEXLV",
+   "date": "2026-09-12",
+   "fmt": "Carousel",
+   "likes": 132,
+   "comments": 19,
+   "plays": null,
+   "hook": "We spend a lot of time talking about hair. It is time we talked about the scalp underneath it."
+  },
+  {
+   "brand": "Alopecia & Beyond",
+   "owner": "clorebeauty",
+   "shortcode": "Ddwq97KEbuu",
+   "date": "2026-09-26",
+   "fmt": "Reel",
+   "likes": 71,
+   "comments": 6,
+   "plays": 1241,
+   "hook": "If you missed The Scalp Edit conversation, you can watch it again here."
+  }
+ ],
+ "board": [
+  {
+   "name": "Truly You",
+   "group": "NON-SURGICAL",
+   "handles": [
+    "trulyyouhair"
+   ],
+   "frame_slug": "truly-you",
+   "followers": 6778,
+   "posts": 27,
+   "reels": 9,
+   "ads": 0,
+   "conversion": {
+    "ask": "booking",
+    "ask_text": "Free discovery call or assessment on most posts",
+    "route": "Booking page, phone and email on the website",
+    "steps": 3,
+    "steps_text": "Leaves the app"
+   },
+   "reel_share": 33,
+   "avg_plays": 3304,
+   "total_plays": 29736,
+   "ppf": 0.48745942755975213,
+   "avg_likes": 29.037037037037038,
+   "median_likes": 15,
+   "total_comments": 41,
+   "avg_comments": 1.5185185185185186,
+   "median_comments": 0,
+   "zero_comment_posts": 17,
+   "er": 0.450804891642897,
+   "c2l": 5.229591836734694,
+   "top": {
+    "shortcode": "DbnsfKYRLrp",
+    "likes": 110,
+    "fmt": "Reel",
+    "plays": 5206,
+    "x_median": 7.3,
+    "hook": "🎥 Ask Caroline Ruggiero (IAT, EBHF),  Toronto’s Trichology Expert!"
+   },
+   "peak": {
+    "shortcode": "DdB_eEYx4Ru",
+    "plays": 11451,
+    "x_followers": 1.69
+   },
+   "postlog": [
+    {
+     "date": "2026-10-16",
+     "fmt": "Static",
+     "hook": "NEW 2027 DATES | STUDY TRICHOLOGY IN #TORONTO 🇨🇦",
+     "theme": "Promo and products",
+     "likes": 13,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dejqw8GR54P"
+    },
+    {
+     "date": "2026-10-07",
+     "fmt": "Carousel",
+     "hook": "#BreastCancerAwarenessMonth 🌸 When so much is changing, looking and feeling like yourself matters.",
+     "theme": "Awareness day and greetings",
+     "likes": 19,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DeMfuLFkY3u"
+    },
+    {
+     "date": "2026-10-02",
+     "fmt": "Reel",
+     "hook": "#BFRBAwarenessWeek 📣TRICHOTILLOMANIA: YOUR HAIR LOSS DOESN’T DEFINE YOU",
+     "theme": "Patient review",
+     "likes": 16,
+     "comments": 0,
+     "plays": 2940,
+     "shortcode": "Dd_6uf6pLBi"
+    },
+    {
+     "date": "2026-10-01",
+     "fmt": "Carousel",
+     "hook": "🎓CONGRATULATIONS to our ✨Hair Replacement Foundations Course✨ graduates from the  #TrulyYouAcademy!",
+     "theme": "Partnership, launch and news",
+     "likes": 55,
+     "comments": 2,
+     "plays": null,
+     "shortcode": "Dd9NpDekZz-"
+    },
+    {
+     "date": "2026-09-29",
+     "fmt": "Carousel",
+     "hook": "3 Months of Treatment at #TrulyYouHair 🔥",
+     "theme": "Result reveal",
+     "likes": 13,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dd4BmErkXXI"
+    },
+    {
+     "date": "2026-09-28",
+     "fmt": "Carousel",
+     "hook": "A partnership we’re proud of! 🇨🇦✨ @laboratoirenature",
+     "theme": "Partnership, launch and news",
+     "likes": 103,
+     "comments": 17,
+     "plays": null,
+     "shortcode": "Dd1ahf3kcbI"
+    },
+    {
+     "date": "2026-09-25",
+     "fmt": "Carousel",
+     "hook": "🎓 CONGRATULATIONS TO OUR SEPTEMBER 2026 “INTRO TO TRICHOLOGY” GRADUATING CLASS!🎓",
+     "theme": "Partnership, launch and news",
+     "likes": 55,
+     "comments": 4,
+     "plays": null,
+     "shortcode": "DdtcEy7gEAP"
+    },
+    {
+     "date": "2026-09-17",
+     "fmt": "Carousel",
+     "hook": "💡PRODUCT SPOTLIGHT: PRIVATE LABEL, HAIR BY #TRULYYOUHAIR",
+     "theme": "Promo and products",
+     "likes": 1,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DdZacbaiQQp"
+    },
+    {
+     "date": "2026-09-14",
+     "fmt": "Carousel",
+     "hook": "👏 PROGRESS WORTH CELEBRATING!",
+     "theme": "Result reveal",
+     "likes": 12,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DdRlxSxEQxj"
+    },
+    {
+     "date": "2026-09-10",
+     "fmt": "Reel",
+     "hook": "💙 ALOPECIA HAS MANY FACES.",
+     "theme": "Awareness day and greetings",
+     "likes": 8,
+     "comments": 0,
+     "plays": 584,
+     "shortcode": "DdHBcnQRM48"
+    },
+    {
+     "date": "2026-09-08",
+     "fmt": "Reel",
+     "hook": "💧 IS MY WATER CAUSING MY HAIR LOSS?",
+     "theme": "Hair loss education",
+     "likes": 94,
+     "comments": 0,
+     "plays": 11451,
+     "shortcode": "DdB_eEYx4Ru"
+    },
+    {
+     "date": "2026-09-04",
+     "fmt": "Static",
+     "hook": "🎒SEPTEMBER IS A BIG MONTH FOR OUR KIDS!",
+     "theme": "Awareness day and greetings",
+     "likes": 19,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dc3g2AlRhlU"
+    },
+    {
+     "date": "2026-09-01",
+     "fmt": "Reel",
+     "hook": "RECLAIM YOUR HAIR ✨ RECLAIM YOUR RITUAL.",
+     "theme": "Treatment explainer",
+     "likes": 12,
+     "comments": 0,
+     "plays": 1085,
+     "shortcode": "DcvwhgWxhF9"
+    },
+    {
+     "date": "2026-08-31",
+     "fmt": "Carousel",
+     "hook": "Medical hair loss requires more than hair. It requires expertise. 💙",
+     "theme": "Treatment explainer",
+     "likes": 8,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DctPA6vEWBa"
+    },
+    {
+     "date": "2026-08-27",
+     "fmt": "Static",
+     "hook": "📣 ONE MONTH TO GO ,  Hair Replacement Foundations Course | September 27-29,",
+     "theme": "Promo and products",
+     "likes": 2,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dci1xbDRzBw"
+    },
+    {
+     "date": "2026-08-25",
+     "fmt": "Carousel",
+     "hook": "🔥 REAL RESULTS. EVIDENCE-BASED CARE.",
+     "theme": "Result reveal",
+     "likes": 11,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dcd12yNkfGz"
+    },
+    {
+     "date": "2026-08-20",
+     "fmt": "Static",
+     "hook": "Hair enhancement is a specialty. Trust a specialist. 🥼",
+     "theme": "Team and credentials",
+     "likes": 27,
+     "comments": 2,
+     "plays": null,
+     "shortcode": "DcRAMX9xLoo"
+    },
+    {
+     "date": "2026-08-18",
+     "fmt": "Reel",
+     "hook": "Microneedling: stimulating new possibilities for hair growth at #TrulyYouHair 🌱",
+     "theme": "Treatment explainer",
+     "likes": 7,
+     "comments": 1,
+     "plays": 875,
+     "shortcode": "DcLr-QExZFv"
+    },
+    {
+     "date": "2026-08-14",
+     "fmt": "Reel",
+     "hook": "Did you know Trichology is for every hair type? 🌱",
+     "theme": "Hair loss education",
+     "likes": 46,
+     "comments": 0,
+     "plays": 5138,
+     "shortcode": "DcBXTmVxawg"
+    },
+    {
+     "date": "2026-08-13",
+     "fmt": "Carousel",
+     "hook": "This #HairLossAwarenessMonth, we’re celebrating some of the incredible client before & after transformations we’ve been privileged to witness over the...",
+     "theme": "Result reveal",
+     "likes": 15,
+     "comments": 3,
+     "plays": null,
+     "shortcode": "Db_ExUKkfo6"
+    },
+    {
+     "date": "2026-08-06",
+     "fmt": "Reel",
+     "hook": "The true magic of hair replacement happens behind the chair at #TrulyYouHair 🪄",
+     "theme": "Treatment explainer",
+     "likes": 7,
+     "comments": 0,
+     "plays": 892,
+     "shortcode": "Dbs-CqsxKgk"
+    },
+    {
+     "date": "2026-08-04",
+     "fmt": "Reel",
+     "hook": "🎥 Ask Caroline Ruggiero (IAT, EBHF),  Toronto’s Trichology Expert!",
+     "theme": "Team and credentials",
+     "likes": 110,
+     "comments": 4,
+     "plays": 5206,
+     "shortcode": "DbnsfKYRLrp"
+    },
+    {
+     "date": "2026-07-30",
+     "fmt": "Carousel",
+     "hook": "🔥More promising results from our Trichology Program at #TrulyYouHair !",
+     "theme": "Result reveal",
+     "likes": 14,
+     "comments": 1,
+     "plays": null,
+     "shortcode": "Dba0pPUEVt-"
+    },
+    {
+     "date": "2026-07-27",
+     "fmt": "Reel",
+     "hook": "✨ Alma TED is an incredible technology, but technology alone doesn’t restore hair. Expertise does.",
+     "theme": "Treatment explainer",
+     "likes": 32,
+     "comments": 1,
+     "plays": 1565,
+     "shortcode": "DbTi07Kp3OE"
+    },
+    {
+     "date": "2026-07-24",
+     "fmt": "Static",
+     "hook": "When it comes to hair loss, expertise matter. And so does having someone in your corner who truly cares 🤍",
+     "theme": "Team and credentials",
+     "likes": 56,
+     "comments": 6,
+     "plays": null,
+     "shortcode": "DbLyAdIJQNI"
+    },
+    {
+     "date": "2026-07-22",
+     "fmt": "Carousel",
+     "hook": "🧠 #TrichoTrivia! Did you know that nutritional deficiencies can sometimes contribute to diffuse hair loss?",
+     "theme": "Hair loss education",
+     "likes": 26,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DbGNrKVkTOw"
+    },
+    {
+     "date": "2026-07-20",
+     "fmt": "Carousel",
+     "hook": "📣Our #TrulyYouHair Summer Hair Sale is here! Our Biggest (and final) Sale of the Year ☀️",
+     "theme": "Promo and products",
+     "likes": 3,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DbBHTQpEZne"
+    }
+   ],
+   "ranked": true,
+   "flag": "0.25 to 1x",
+   "pillars": {
+    "discovery": 92.9,
+    "interest": 78.6,
+    "consideration": 78.6,
+    "conversion": 70
+   },
+   "score": 81,
+   "rank": 1
+  },
+  {
+   "name": "The Toronto Hair Transplant Clinic",
+   "group": "TRANSPLANT",
+   "handles": [
+    "torontohairtransplantclinic"
+   ],
+   "frame_slug": "toronto-hair-transplant-clinic",
+   "followers": 4344,
+   "posts": 10,
+   "reels": 3,
+   "ads": 0,
+   "conversion": {
+    "ask": "general",
+    "ask_text": "No booking ask in this window; a comment contest",
+    "route": "Website in bio, no booking line",
+    "steps": 3,
+    "steps_text": "Leaves the app"
+   },
+   "reel_share": 30,
+   "avg_plays": 1470,
+   "total_plays": 4410,
+   "ppf": 0.3383977900552486,
+   "avg_likes": 38.7,
+   "median_likes": 20.5,
+   "total_comments": 41,
+   "avg_comments": 4.1,
+   "median_comments": 0.5,
+   "zero_comment_posts": 5,
+   "er": 0.9852670349907919,
+   "c2l": 10.594315245478036,
+   "top": {
+    "shortcode": "DbUM_XBHG89",
+    "likes": 214,
+    "fmt": "Carousel",
+    "plays": null,
+    "x_median": 10.4,
+    "hook": "Officially signed. Thank you to MLSE- It was a pleasure to celebrate the launch of our partnership with The Toronto FC."
+   },
+   "peak": {
+    "shortcode": "DbLhPrpuQ0h",
+    "plays": 3638,
+    "x_followers": 0.84
+   },
+   "postlog": [
+    {
+     "date": "2026-10-14",
+     "fmt": "Carousel",
+     "hook": "A remarkable transformation with a fuller hairline and natural-looking results. Discover what’s possible at Toronto Hair Transplant Clinic. #before #a...",
+     "theme": "Result reveal",
+     "likes": 19,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DefBdQToOrV"
+    },
+    {
+     "date": "2026-10-10",
+     "fmt": "Static",
+     "hook": "Hair: 1. Hair loss: 0. ⚽️",
+     "theme": "Partnership, launch and news",
+     "likes": 27,
+     "comments": 1,
+     "plays": null,
+     "shortcode": "DeSGpEKTUyb"
+    },
+    {
+     "date": "2026-09-30",
+     "fmt": "Reel",
+     "hook": "As Official Partners of The Toronto FC, we’ve put some thought into our own starting lineup: FUE edition💭🙌🏼⚽️#hairrestoration #officialpartner #toront...",
+     "theme": "Partnership, launch and news",
+     "likes": 22,
+     "comments": 0,
+     "plays": 592,
+     "shortcode": "Dd7PilTzAJR"
+    },
+    {
+     "date": "2026-09-23",
+     "fmt": "Static",
+     "hook": "More than just a moisturizer.",
+     "theme": "Not hair",
+     "likes": 5,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DdpMmDRThcq"
+    },
+    {
+     "date": "2026-09-19",
+     "fmt": "Static",
+     "hook": "Toronto FC Match day is here ,  and we’re putting your hair knowledge to the test⚽️ 🚨",
+     "theme": "Promo and products",
+     "likes": 7,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DdcNoUqzLu4"
+    },
+    {
+     "date": "2026-09-16",
+     "fmt": "Static",
+     "hook": "It’s all in the details.",
+     "theme": "Treatment explainer",
+     "likes": 23,
+     "comments": 1,
+     "plays": null,
+     "shortcode": "DdWYLPkzoYE"
+    },
+    {
+     "date": "2026-09-14",
+     "fmt": "Reel",
+     "hook": "Stronger hair starts with the right support.",
+     "theme": "Promo and products",
+     "likes": 7,
+     "comments": 0,
+     "plays": 180,
+     "shortcode": "DdRl8dCTkyt"
+    },
+    {
+     "date": "2026-07-28",
+     "fmt": "Carousel",
+     "hook": "Officially signed. Thank you to MLSE- It was a pleasure to celebrate the launch of our partnership with The Toronto FC.",
+     "theme": "Partnership, launch and news",
+     "likes": 214,
+     "comments": 31,
+     "plays": null,
+     "shortcode": "DbUM_XBHG89"
+    },
+    {
+     "date": "2026-07-24",
+     "fmt": "Reel",
+     "hook": "EVERYTHING is personalized here at our clinic 😁🤝 #personalized #consultation #torontolife",
+     "theme": "Other",
+     "likes": 46,
+     "comments": 7,
+     "plays": 3638,
+     "shortcode": "DbLhPrpuQ0h"
+    },
+    {
+     "date": "2026-07-18",
+     "fmt": "Static",
+     "hook": "THE PARTNERSHIP IS OFFICIAL 👀",
+     "theme": "Partnership, launch and news",
+     "likes": 17,
+     "comments": 1,
+     "plays": null,
+     "shortcode": "Da5k5uEucNh"
+    }
+   ],
+   "ranked": true,
+   "flag": "0.25 to 1x",
+   "pillars": {
+    "discovery": 78.6,
+    "interest": 92.9,
+    "consideration": 92.9,
+    "conversion": 45
+   },
+   "score": 79,
+   "rank": 2
+  },
+  {
+   "name": "Ottawa Hair Loss Clinic",
+   "group": "NON-SURGICAL",
+   "handles": [
+    "ottawahairlossclinicandwellnes"
+   ],
+   "frame_slug": "ottawa-hair-loss-clinic",
+   "followers": 4255,
+   "posts": 48,
+   "reels": 14,
+   "ads": 3,
+   "conversion": {
+    "ask": "booking",
+    "ask_text": "Book a hair and scalp consultation on most posts",
+    "route": "Bio link to the clinic website, phone",
+    "steps": 3,
+    "steps_text": "Leaves the app"
+   },
+   "reel_share": 29,
+   "avg_plays": 1058.857142857143,
+   "total_plays": 14824,
+   "ppf": 0.2488500923283532,
+   "avg_likes": 7.854166666666667,
+   "median_likes": 6.0,
+   "total_comments": 42,
+   "avg_comments": 0.875,
+   "median_comments": 0.0,
+   "zero_comment_posts": 29,
+   "er": 0.20515080297688998,
+   "c2l": 11.140583554376658,
+   "top": {
+    "shortcode": "DdH8IlPx3OE",
+    "likes": 46,
+    "fmt": "Reel",
+    "plays": 4600,
+    "x_median": 7.7,
+    "hook": "Meet your Trichologist"
+   },
+   "peak": {
+    "shortcode": "DdU2IL3RZ1f",
+    "plays": 4824,
+    "x_followers": 1.13
+   },
+   "postlog": [
+    {
+     "date": "2026-10-15",
+     "fmt": "Static",
+     "hook": "REAL CLIENT. REAL RESULTS. ONE SESSION.",
+     "theme": "Result reveal",
+     "likes": 3,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DeiEFp1RctL"
+    },
+    {
+     "date": "2026-10-15",
+     "fmt": "Carousel",
+     "hook": "Can stress really affect your hair? Let’s look at the research.",
+     "theme": "Hair loss education",
+     "likes": 2,
+     "comments": 2,
+     "plays": null,
+     "shortcode": "Defp1iCFBKt"
+    },
+    {
+     "date": "2026-10-13",
+     "fmt": "Reel",
+     "hook": "From Ottawa to Casablanca, Morocco. 🇨🇦🇲🇦",
+     "theme": "Team and credentials",
+     "likes": 4,
+     "comments": 0,
+     "plays": 112,
+     "shortcode": "DedArE3x5YB"
+    },
+    {
+     "date": "2026-10-12",
+     "fmt": "Static",
+     "hook": "This Thanksgiving, our hearts are filled with gratitude.",
+     "theme": "Awareness day and greetings",
+     "likes": 2,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DeZTuN3xr_I"
+    },
+    {
+     "date": "2026-10-04",
+     "fmt": "Carousel",
+     "hook": "Noticing more hair in your brush or shower this fall? 🍂",
+     "theme": "Hair loss education",
+     "likes": 4,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DeEXHP1gOII"
+    },
+    {
+     "date": "2026-10-02",
+     "fmt": "Static",
+     "hook": "Behind every hair concern is a story. Stop guessing and let’s look at the science.",
+     "theme": "Team and credentials",
+     "likes": 13,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DeAlf_0AAv7"
+    },
+    {
+     "date": "2026-10-02",
+     "fmt": "Reel",
+     "hook": "When learning becomes part of your DNA, you go above and beyond to gain knowledge that transforms client care.",
+     "theme": "Team and credentials",
+     "likes": 4,
+     "comments": 0,
+     "plays": 102,
+     "shortcode": "Dd_Vhu7A0LZ"
+    },
+    {
+     "date": "2026-10-02",
+     "fmt": "Reel",
+     "hook": "October is Breast Cancer Awareness Month. 🎀",
+     "theme": "Awareness day and greetings",
+     "likes": 4,
+     "comments": 1,
+     "plays": 215,
+     "shortcode": "Dd-KyppRF9Y"
+    },
+    {
+     "date": "2026-09-30",
+     "fmt": "Static",
+     "hook": "Progress doesn’t always happen overnight and it doesn’t look the same for everyone.",
+     "theme": "Result reveal",
+     "likes": 7,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dd5AY99IwFc"
+    },
+    {
+     "date": "2026-09-28",
+     "fmt": "Carousel",
+     "hook": "Itchy, burning or tight scalp after hair colour? Don’t automatically dismiss it as “sensitivity.”",
+     "theme": "Hair loss education",
+     "likes": 3,
+     "comments": 2,
+     "plays": null,
+     "shortcode": "Dd2REU2FMfl"
+    },
+    {
+     "date": "2026-09-27",
+     "fmt": "Static",
+     "hook": "Clarity Before Treatment.",
+     "theme": "Treatment explainer",
+     "likes": 8,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Ddz0eE3xYel"
+    },
+    {
+     "date": "2026-09-23",
+     "fmt": "Static",
+     "hook": "Real hair progress begins with understanding the root cause. 🔬✨",
+     "theme": "Treatment explainer",
+     "likes": 7,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DdpR7D2lBG6"
+    },
+    {
+     "date": "2026-09-22",
+     "fmt": "Reel",
+     "hook": "A sudden smooth or patchy area of hair loss deserves attention.",
+     "theme": "Hair loss education",
+     "likes": 7,
+     "comments": 3,
+     "plays": 196,
+     "shortcode": "Ddm6nPlRLR7"
+    },
+    {
+     "date": "2026-09-21",
+     "fmt": "Carousel",
+     "hook": "Ferritin is a blood marker that reflects your body’s stored iron. Iron supports oxygen transport, energy production, immune function, and other essent...",
+     "theme": "Hair loss education",
+     "likes": 8,
+     "comments": 2,
+     "plays": null,
+     "shortcode": "DdjtZrxlASd"
+    },
+    {
+     "date": "2026-09-19",
+     "fmt": "Static",
+     "hook": "Real progress takes time.",
+     "theme": "Result reveal",
+     "likes": 16,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DdfNdbOxQXp"
+    },
+    {
+     "date": "2026-09-19",
+     "fmt": "Static",
+     "hook": "Your hair is allowed to have off days.",
+     "theme": "Hair loss education",
+     "likes": 6,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DdcwoFixvqy"
+    },
+    {
+     "date": "2026-09-17",
+     "fmt": "Reel",
+     "hook": "Your hair may be shedding today because of something that happened months ago.",
+     "theme": "Hair loss education",
+     "likes": 9,
+     "comments": 0,
+     "plays": 2596,
+     "shortcode": "DdZ691wxSil"
+    },
+    {
+     "date": "2026-09-16",
+     "fmt": "Carousel",
+     "hook": "Thyroid changes, prolonged stress, and hair shedding and how are they connected?",
+     "theme": "Hair loss education",
+     "likes": 14,
+     "comments": 4,
+     "plays": null,
+     "shortcode": "DdW0fi7lPmu"
+    },
+    {
+     "date": "2026-09-15",
+     "fmt": "Reel",
+     "hook": "Your hair loss is rarely the root issue on its own,it is often a signal.",
+     "theme": "Hair loss education",
+     "likes": 28,
+     "comments": 1,
+     "plays": 4824,
+     "shortcode": "DdU2IL3RZ1f"
+    },
+    {
+     "date": "2026-09-14",
+     "fmt": "Carousel",
+     "hook": "Hair changes are rarely one-size-fits-all.",
+     "theme": "Hair loss education",
+     "likes": 7,
+     "comments": 1,
+     "plays": null,
+     "shortcode": "DdRtRgnlEBM"
+    },
+    {
+     "date": "2026-09-13",
+     "fmt": "Static",
+     "hook": "Every hair journey is personal and the body matters too.",
+     "theme": "Result reveal",
+     "likes": 7,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DdPJCjJxzJD"
+    },
+    {
+     "date": "2026-09-11",
+     "fmt": "Reel",
+     "hook": "Does your wash day need a RESET or REPAIR? ✨",
+     "theme": "Promo and products",
+     "likes": 6,
+     "comments": 1,
+     "plays": 338,
+     "shortcode": "DdKKlIpxdTS"
+    },
+    {
+     "date": "2026-09-10",
+     "fmt": "Reel",
+     "hook": "Meet your Trichologist",
+     "theme": "Team and credentials",
+     "likes": 46,
+     "comments": 0,
+     "plays": 4600,
+     "shortcode": "DdH8IlPx3OE"
+    },
+    {
+     "date": "2026-09-09",
+     "fmt": "Static",
+     "hook": "Consistency. Science. Real progress.",
+     "theme": "Result reveal",
+     "likes": 8,
+     "comments": 2,
+     "plays": null,
+     "shortcode": "DdFa11lxUuV"
+    },
+    {
+     "date": "2026-09-08",
+     "fmt": "Carousel",
+     "hook": "A hair and scalp consultation is more than a quick look; it’s a chance to be heard, ask questions, and better understand what may be affecting your ha...",
+     "theme": "Treatment explainer",
+     "likes": 10,
+     "comments": 2,
+     "plays": null,
+     "shortcode": "DdC4UUIlKZj"
+    },
+    {
+     "date": "2026-09-07",
+     "fmt": "Static",
+     "hook": "Today, take a moment for you, your wellness, confidence, and goals matter. At Ottawa Hair Loss Clinic & Wellness, we’re here to support your journey t...",
+     "theme": "Other",
+     "likes": 6,
+     "comments": 2,
+     "plays": null,
+     "shortcode": "Dc_4ixNx4eZ"
+    },
+    {
+     "date": "2026-09-06",
+     "fmt": "Reel",
+     "hook": "Sunday at the clinic",
+     "theme": "Team and credentials",
+     "likes": 13,
+     "comments": 0,
+     "plays": 381,
+     "shortcode": "Dc88H3hx4Gl"
+    },
+    {
+     "date": "2026-09-05",
+     "fmt": "Static",
+     "hook": "Hair loss can look similar on the surface but the underlying causes are very different. Understanding these distinctions helps guide proper diagnosis...",
+     "theme": "Hair loss education",
+     "likes": 8,
+     "comments": 5,
+     "plays": null,
+     "shortcode": "Dc7AX8ERksH"
+    },
+    {
+     "date": "2026-09-01",
+     "fmt": "Reel",
+     "hook": "September is Alopecia Areata Awareness Month 💙This month, we stand together to raise awareness, offer hope, and remind everyone that healing is possib...",
+     "theme": "Awareness day and greetings",
+     "likes": 7,
+     "comments": 1,
+     "plays": 401,
+     "shortcode": "DcwD6mIxqaM"
+    },
+    {
+     "date": "2026-09-01",
+     "fmt": "Reel",
+     "hook": "Restoring confidence through science‑based hair and scalp care",
+     "theme": "Other",
+     "likes": 5,
+     "comments": 3,
+     "plays": 348,
+     "shortcode": "DcuW4DbxfXZ"
+    },
+    {
+     "date": "2026-08-28",
+     "fmt": "Carousel",
+     "hook": "Seborrheic Dermatitis is a chronic inflammatory scalp condition often linked to Malassezia yeast, excess sebum, and barrier dysfunction. It can cause...",
+     "theme": "Hair loss education",
+     "likes": 6,
+     "comments": 4,
+     "plays": null,
+     "shortcode": "Dcl2izelCKr"
+    },
+    {
+     "date": "2026-08-26",
+     "fmt": "Carousel",
+     "hook": "Miniaturization is the progressive shrinking of hair follicles over time, leading to thinner, shorter hairs and eventual loss of density. This process...",
+     "theme": "Hair loss education",
+     "likes": 6,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DcgvekVlNqj"
+    },
+    {
+     "date": "2026-08-25",
+     "fmt": "Static",
+     "hook": "POSTPARTUM SHEDDING",
+     "theme": "Hair loss education",
+     "likes": 5,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dcd-CBZRaQ4"
+    },
+    {
+     "date": "2026-08-19",
+     "fmt": "Carousel",
+     "hook": "TRACTION ALOPECIA ,  MYTHS VS FACTS",
+     "theme": "Hair loss education",
+     "likes": 8,
+     "comments": 1,
+     "plays": null,
+     "shortcode": "DcO6bL_lBa5"
+    },
+    {
+     "date": "2026-08-18",
+     "fmt": "Reel",
+     "hook": "Restoring confidence through science‑based hair and scalp care",
+     "theme": "Other",
+     "likes": 6,
+     "comments": 0,
+     "plays": 159,
+     "shortcode": "DcMfKGKRJ4N"
+    },
+    {
+     "date": "2026-08-17",
+     "fmt": "Reel",
+     "hook": "Healing isn’t a straight line ,  it’s a gentle return to yourself.",
+     "theme": "Promo and products",
+     "likes": 6,
+     "comments": 2,
+     "plays": 390,
+     "shortcode": "DcKChykxu6x"
+    },
+    {
+     "date": "2026-08-16",
+     "fmt": "Static",
+     "hook": "Early intervention leads to significantly better outcomes because follicles respond best before advanced miniaturization occurs.",
+     "theme": "Hair loss education",
+     "likes": 5,
+     "comments": 3,
+     "plays": null,
+     "shortcode": "DcG4FtWxILh"
+    },
+    {
+     "date": "2026-08-13",
+     "fmt": "Static",
+     "hook": "Feeling tired, stressed, or noticing more hair shedding than usual?",
+     "theme": "Hair loss education",
+     "likes": 5,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Db_2dsXRLOa"
+    },
+    {
+     "date": "2026-08-12",
+     "fmt": "Reel",
+     "hook": "Healthy eating is essential for healthy hair.",
+     "theme": "Hair loss education",
+     "likes": 6,
+     "comments": 0,
+     "plays": 162,
+     "shortcode": "Db9GJgUR0in"
+    },
+    {
+     "date": "2026-08-12",
+     "fmt": "Static",
+     "hook": "Alopecia is more than hair loss;  it’s a sign your body is asking for support.",
+     "theme": "Awareness day and greetings",
+     "likes": 2,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Db674-fReVe"
+    },
+    {
+     "date": "2026-08-11",
+     "fmt": "Static",
+     "hook": "Thyroid Health & Hair Loss ,  The Hidden Connection Your thyroid plays a vital role in your hair growth cycle. When thyroid hormones (T3/T4) are imbal...",
+     "theme": "Hair loss education",
+     "likes": 22,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Db4XoHvRAdY"
+    },
+    {
+     "date": "2026-08-09",
+     "fmt": "Static",
+     "hook": "Real Results. Real Confidence.",
+     "theme": "Result reveal",
+     "likes": 4,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Db1cccSxnRS"
+    },
+    {
+     "date": "2026-08-08",
+     "fmt": "Carousel",
+     "hook": "Did you know that Vitamin D and Zinc are two of the most researched nutrients linked to hair growth and scalp health?",
+     "theme": "Hair loss education",
+     "likes": 6,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DbyR8MwFspE"
+    },
+    {
+     "date": "2026-08-05",
+     "fmt": "Static",
+     "hook": "A Head Full of Hair ,  With Continuous Progress (5 months)",
+     "theme": "Result reveal",
+     "likes": 4,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dbo-JT6xIOE"
+    },
+    {
+     "date": "2026-08-03",
+     "fmt": "Static",
+     "hook": "Vitamin B12 plays a critical role in hair growth and most people don’t know they’re deficient. When B12 drops below 300 pg/mL, oxygen delivery to your...",
+     "theme": "Hair loss education",
+     "likes": 2,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DblnD5ZxgzL"
+    },
+    {
+     "date": "2026-08-01",
+     "fmt": "Static",
+     "hook": "Visible Results, Real Growth",
+     "theme": "Result reveal",
+     "likes": 4,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DbgZdR5xdvc"
+    },
+    {
+     "date": "2026-07-31",
+     "fmt": "Static",
+     "hook": "Understanding PCOS/PMOS & Hair Loss: The Hormonal Connection",
+     "theme": "Hair loss education",
+     "likes": 4,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DbeZo7mxLeF"
+    },
+    {
+     "date": "2026-07-28",
+     "fmt": "Static",
+     "hook": "Low ferritin is one of the most overlooked causes of excessive hair shedding.",
+     "theme": "Hair loss education",
+     "likes": 4,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DbWrUxTRl3n"
+    }
+   ],
+   "ranked": true,
+   "flag": "Below 0.25x",
+   "pillars": {
+    "discovery": 64.3,
+    "interest": 50.0,
+    "consideration": 64.3,
+    "conversion": 70
+   },
+   "score": 63,
+   "rank": 3
+  },
+  {
+   "name": "CADMEN Clinic",
+   "group": "NON-SURGICAL",
+   "handles": [
+    "cadmenclinic"
+   ],
+   "frame_slug": "cadmen-clinic",
+   "followers": 3067,
+   "posts": 10,
+   "reels": 0,
+   "ads": 2,
+   "conversion": {
+    "ask": "booking",
+    "ask_text": "Free consultation offer on most posts",
+    "route": "Bio link to the clinic website",
+    "steps": 3,
+    "steps_text": "Leaves the app"
+   },
+   "reel_share": 0,
+   "avg_plays": null,
+   "total_plays": null,
+   "ppf": null,
+   "avg_likes": 11.9,
+   "median_likes": 11.0,
+   "total_comments": 8,
+   "avg_comments": 0.8,
+   "median_comments": 0.5,
+   "zero_comment_posts": 5,
+   "er": 0.4140854254972286,
+   "c2l": 6.722689075630252,
+   "top": {
+    "shortcode": "Dd-KZ1uDK2N",
+    "likes": 18,
+    "fmt": "Carousel",
+    "plays": null,
+    "x_median": 1.6,
+    "hook": "Three layers, one protocol - and each one does a different job."
+   },
+   "peak": null,
+   "postlog": [
+    {
+     "date": "2026-10-14",
+     "fmt": "Static",
+     "hook": "Every hair journey has a starting point. What’s yours? 👀",
+     "theme": "Promo and products",
+     "likes": 6,
+     "comments": 1,
+     "plays": null,
+     "shortcode": "DedGirCmrSv"
+    },
+    {
+     "date": "2026-10-12",
+     "fmt": "Static",
+     "hook": "Your hair journey deserves personalized care. 🤍",
+     "theme": "Treatment explainer",
+     "likes": 10,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DeabBoMp-Sk"
+    },
+    {
+     "date": "2026-10-09",
+     "fmt": "Carousel",
+     "hook": "The questions almost nobody asks out loud about hair loss - answered straight, no fine print. Does it hurt? What does it cost? How long until I see an...",
+     "theme": "Treatment explainer",
+     "likes": 8,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DeQT1Z0CJVy"
+    },
+    {
+     "date": "2026-10-08",
+     "fmt": "Carousel",
+     "hook": "Three therapies. One physician-directed protocol. Here's what each one actually does. PRP concentrates your own growth factors. Mesotherapy micro-infu...",
+     "theme": "Treatment explainer",
+     "likes": 12,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DeNoK_fCGeB"
+    },
+    {
+     "date": "2026-10-05",
+     "fmt": "Static",
+     "hook": "Hair loss isn't a men's issue with a women's exception. Many women deal with it privately: a wider part, more hair in the brush, a ponytail that feels...",
+     "theme": "Hair loss education",
+     "likes": 9,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DeIRLglDSlz"
+    },
+    {
+     "date": "2026-10-05",
+     "fmt": "Static",
+     "hook": "Thinning rarely announces itself. It starts quietly: a part that looks a little wider, a crown that feels softer, a hairline that has shifted over the...",
+     "theme": "Hair loss education",
+     "likes": 9,
+     "comments": 1,
+     "plays": null,
+     "shortcode": "DeF5hwxik5J"
+    },
+    {
+     "date": "2026-10-02",
+     "fmt": "Carousel",
+     "hook": "Three layers, one protocol - and each one does a different job.",
+     "theme": "Treatment explainer",
+     "likes": 18,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dd-KZ1uDK2N"
+    },
+    {
+     "date": "2026-09-30",
+     "fmt": "Static",
+     "hook": "1,000+ reviews, and one line keeps coming back: \"I wish I'd done this years ago.\"",
+     "theme": "Patient review",
+     "likes": 13,
+     "comments": 3,
+     "plays": null,
+     "shortcode": "Dd7VzwqDnMM"
+    },
+    {
+     "date": "2026-08-27",
+     "fmt": "Static",
+     "hook": "CADMEN Clinic Vaughan is NOW OPEN. ✨",
+     "theme": "Partnership, launch and news",
+     "likes": 16,
+     "comments": 2,
+     "plays": null,
+     "shortcode": "DcjlRu7Jdca"
+    },
+    {
+     "date": "2026-07-23",
+     "fmt": "Static",
+     "hook": "After 5 PRP sessions at Cadmen Clinic, Sergio saw visibly thicker, fuller hair ,  paired with DermaStrand Regrowth Hair Shampoo to support his hair re...",
+     "theme": "Result reveal",
+     "likes": 18,
+     "comments": 1,
+     "plays": null,
+     "shortcode": "DbJYeNRpgZL"
+    }
+   ],
+   "ranked": true,
+   "flag": "no video",
+   "pillars": {
+    "discovery": 7.1,
+    "interest": 64.3,
+    "consideration": 50.0,
+    "conversion": 70
+   },
+   "score": 44,
+   "rank": 4
+  },
+  {
+   "name": "FREEDOMclinic",
+   "group": "TRANSPLANT",
+   "handles": [
+    "freedomclinictoronto"
+   ],
+   "frame_slug": "freedomclinic",
+   "followers": 3567,
+   "posts": 11,
+   "reels": 3,
+   "ads": 0,
+   "conversion": {
+    "ask": "booking",
+    "ask_text": "Book a consultation or DM to book, on about half of posts",
+    "route": "DM, phone and website",
+    "steps": 2,
+    "steps_text": "Two taps, by DM"
+   },
+   "reel_share": 27,
+   "avg_plays": 359.3333333333333,
+   "total_plays": 1078,
+   "ppf": 0.10073824876179796,
+   "avg_likes": 3.4545454545454546,
+   "median_likes": 2,
+   "total_comments": 0,
+   "avg_comments": 0.0,
+   "median_comments": 0,
+   "zero_comment_posts": 11,
+   "er": 0.09684736345796059,
+   "c2l": 0.0,
+   "top": {
+    "shortcode": "DdmW2iblAml",
+    "likes": 10,
+    "fmt": "Carousel",
+    "plays": null,
+    "x_median": 5.0,
+    "hook": "MEET THE NEWEST MEMBER OF THE FREEDOM FAMILY! 👏👏"
+   },
+   "peak": {
+    "shortcode": "Dbwme9EN7kt",
+    "plays": 431,
+    "x_followers": 0.12
+   },
+   "postlog": [
+    {
+     "date": "2026-10-10",
+     "fmt": "Static",
+     "hook": "Why I Advise Against Dermarolling for Hair Loss",
+     "theme": "Hair loss education",
+     "likes": 1,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DeU6m9lDAj9"
+    },
+    {
+     "date": "2026-10-06",
+     "fmt": "Static",
+     "hook": "When it comes to hair loss, experience matters. Meet John Ranney, IAT, Certified Clinical Trichologist at FREEDOMclinic Toronto.",
+     "theme": "Team and credentials",
+     "likes": 5,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DeKhTomtTcF"
+    },
+    {
+     "date": "2026-09-22",
+     "fmt": "Reel",
+     "hook": "🇨🇦 HEALTH CANADA APPROVED MEDICATED SHAMPOO",
+     "theme": "Promo and products",
+     "likes": 7,
+     "comments": 0,
+     "plays": 295,
+     "shortcode": "Ddm6mB1t3wJ"
+    },
+    {
+     "date": "2026-09-22",
+     "fmt": "Carousel",
+     "hook": "MEET THE NEWEST MEMBER OF THE FREEDOM FAMILY! 👏👏",
+     "theme": "Team and credentials",
+     "likes": 10,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DdmW2iblAml"
+    },
+    {
+     "date": "2026-09-10",
+     "fmt": "Static",
+     "hook": "🇨🇦 BIG NEWS FOR CANADIAN HAIR PROFESSIONALS!",
+     "theme": "Partnership, launch and news",
+     "likes": 1,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DdHbvAKPnyl"
+    },
+    {
+     "date": "2026-09-04",
+     "fmt": "Carousel",
+     "hook": "IT’S OFFICIAL ,  THE NEW FREEDOM STORE IS LIVE!",
+     "theme": "Partnership, launch and news",
+     "likes": 3,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dc31oNUlOuB"
+    },
+    {
+     "date": "2026-08-20",
+     "fmt": "Static",
+     "hook": "NEW HAIR. NEW CONFIDENCE. 30% OFF.",
+     "theme": "Promo and products",
+     "likes": 1,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DcRRcZBKoij"
+    },
+    {
+     "date": "2026-08-20",
+     "fmt": "Static",
+     "hook": "Strong profile. Natural definition.",
+     "theme": "Not hair",
+     "likes": 0,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DcRQ_geCZx6"
+    },
+    {
+     "date": "2026-08-08",
+     "fmt": "Reel",
+     "hook": "🎙️ LET’S TALK ABOUT IT WITH KELLY ,  SEASON 2 IS HERE! 🎙️",
+     "theme": "Hair loss education",
+     "likes": 7,
+     "comments": 0,
+     "plays": 431,
+     "shortcode": "Dbwme9EN7kt"
+    },
+    {
+     "date": "2026-07-24",
+     "fmt": "Reel",
+     "hook": "How Much Hair Loss Is Normal?",
+     "theme": "Hair loss education",
+     "likes": 1,
+     "comments": 0,
+     "plays": 352,
+     "shortcode": "DbLVtm6icJ-"
+    },
+    {
+     "date": "2026-07-18",
+     "fmt": "Static",
+     "hook": "Reveal Healthier, Brighter, More Youthful Skin with a PRP Facial",
+     "theme": "Not hair",
+     "likes": 2,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Da8gU5TCeGW"
+    }
+   ],
+   "ranked": true,
+   "flag": "Below 0.25x",
+   "pillars": {
+    "discovery": 50.0,
+    "interest": 35.7,
+    "consideration": 7.1,
+    "conversion": 85
+   },
+   "score": 41,
+   "rank": 5
+  },
+  {
+   "name": "Nova Medical Hair Transplant",
+   "group": "TRANSPLANT",
+   "handles": [
+    "nova_medical_hair_transplant"
+   ],
+   "frame_slug": "nova-medical",
+   "followers": 10655,
+   "posts": 6,
+   "reels": 6,
+   "ads": 0,
+   "conversion": {
+    "ask": "general",
+    "ask_text": "One booking line in six posts; the bio lists a text number",
+    "route": "Text number and website for locations across the US and Canada",
+    "steps": 3,
+    "steps_text": "Leaves the app"
+   },
+   "reel_share": 100,
+   "avg_plays": 608.6666666666666,
+   "total_plays": 3652,
+   "ppf": 0.057124980447364304,
+   "avg_likes": 2.8333333333333335,
+   "median_likes": 1.0,
+   "total_comments": 4,
+   "avg_comments": 0.6666666666666666,
+   "median_comments": 0.0,
+   "zero_comment_posts": 4,
+   "er": 0.0328484279680901,
+   "c2l": 23.52941176470588,
+   "top": {
+    "shortcode": "Dd4HxZAqroJ",
+    "likes": 10,
+    "fmt": "Reel",
+    "plays": 2195,
+    "x_median": 10.0,
+    "hook": "Just shave it. 👀"
+   },
+   "peak": {
+    "shortcode": "Dd4HxZAqroJ",
+    "plays": 2195,
+    "x_followers": 0.21
+   },
+   "postlog": [
+    {
+     "date": "2026-10-14",
+     "fmt": "Reel",
+     "hook": "🧐 Can hair for a transplant really come from anywhere on your body?",
+     "theme": "Treatment explainer",
+     "likes": 0,
+     "comments": 0,
+     "plays": 133,
+     "shortcode": "Deew6yfKWP4"
+    },
+    {
+     "date": "2026-10-07",
+     "fmt": "Reel",
+     "hook": "So you got the hair transplant. Amazing. 🙌",
+     "theme": "Treatment explainer",
+     "likes": 1,
+     "comments": 0,
+     "plays": 256,
+     "shortcode": "DeM8NO8vkCA"
+    },
+    {
+     "date": "2026-10-05",
+     "fmt": "Reel",
+     "hook": "⚡ Can a hair transplant actually fail… or be rejected?",
+     "theme": "Treatment explainer",
+     "likes": 1,
+     "comments": 0,
+     "plays": 243,
+     "shortcode": "DeIRF4Jv35u"
+    },
+    {
+     "date": "2026-09-29",
+     "fmt": "Reel",
+     "hook": "Just shave it. 👀",
+     "theme": "Result reveal",
+     "likes": 10,
+     "comments": 2,
+     "plays": 2195,
+     "shortcode": "Dd4HxZAqroJ"
+    },
+    {
+     "date": "2026-09-28",
+     "fmt": "Reel",
+     "hook": "🧔 So… what actually goes into getting a #beardtransplant?",
+     "theme": "Treatment explainer",
+     "likes": 0,
+     "comments": 0,
+     "plays": 199,
+     "shortcode": "Dd1gxXOKEGB"
+    },
+    {
+     "date": "2026-09-24",
+     "fmt": "Reel",
+     "hook": "You waited 12 months for this… and it’s finally here. 🔥",
+     "theme": "Result reveal",
+     "likes": 5,
+     "comments": 2,
+     "plays": 626,
+     "shortcode": "DdrvG8IvX4s"
+    }
+   ],
+   "ranked": true,
+   "flag": "Below 0.25x",
+   "pillars": {
+    "discovery": 35.7,
+    "interest": 21.4,
+    "consideration": 35.7,
+    "conversion": 45
+   },
+   "score": 35,
+   "rank": 6
+  },
+  {
+   "name": "Toronto Hair Transplant Surgeons",
+   "group": "TRANSPLANT",
+   "handles": [
+    "torontohairtransplantsurgeons"
+   ],
+   "frame_slug": "toronto-hair-transplant-surgeons",
+   "followers": 16975,
+   "posts": 28,
+   "reels": 6,
+   "ads": 12,
+   "conversion": {
+    "ask": "booking",
+    "ask_text": "Book a free consultation through the link in bio, on about a third of posts",
+    "route": "Bio link page with a free virtual consult booking link",
+    "steps": 2,
+    "steps_text": "Two taps, through the bio"
+   },
+   "reel_share": 21,
+   "avg_plays": 286.6666666666667,
+   "total_plays": 1720,
+   "ppf": 0.016887579774177715,
+   "avg_likes": 2.392857142857143,
+   "median_likes": 2.0,
+   "total_comments": 3,
+   "avg_comments": 0.10714285714285714,
+   "median_comments": 0.0,
+   "zero_comment_posts": 26,
+   "er": 0.014727540500736377,
+   "c2l": 4.477611940298507,
+   "top": {
+    "shortcode": "Ddmxlk-ua86",
+    "likes": 5,
+    "fmt": "Static",
+    "plays": null,
+    "x_median": 2.5,
+    "hook": "What exactly is Secretome?"
+   },
+   "peak": {
+    "shortcode": "DbgNHMlO8EG",
+    "plays": 350,
+    "x_followers": 0.02
+   },
+   "postlog": [
+    {
+     "date": "2026-10-14",
+     "fmt": "Static",
+     "hook": "You do not have to wait until hair loss becomes advanced before asking what is happening.",
+     "theme": "Hair loss education",
+     "likes": 1,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DefTVI9BK7n"
+    },
+    {
+     "date": "2026-10-11",
+     "fmt": "Static",
+     "hook": "Wishing you and yours a wonderful Thanksgiving!",
+     "theme": "Awareness day and greetings",
+     "likes": 2,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DeXW7N1PM5X"
+    },
+    {
+     "date": "2026-10-06",
+     "fmt": "Static",
+     "hook": "🌟  Your kind words mean everything to us! Helping patients feel their best is our mission, and reviews like this make it all worth it.",
+     "theme": "Patient review",
+     "likes": 3,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DeKPu9fxph3"
+    },
+    {
+     "date": "2026-09-30",
+     "fmt": "Carousel",
+     "hook": "A successful result starts long before the procedure itself.",
+     "theme": "Result reveal",
+     "likes": 3,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dd64zofGt7v"
+    },
+    {
+     "date": "2026-09-22",
+     "fmt": "Static",
+     "hook": "What exactly is Secretome?",
+     "theme": "Treatment explainer",
+     "likes": 5,
+     "comments": 1,
+     "plays": null,
+     "shortcode": "Ddmxlk-ua86"
+    },
+    {
+     "date": "2026-09-21",
+     "fmt": "Static",
+     "hook": "From your first call to your final result - we're with you every step of the way.",
+     "theme": "Patient review",
+     "likes": 2,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Ddjv8W1IQVj"
+    },
+    {
+     "date": "2026-09-16",
+     "fmt": "Carousel",
+     "hook": "A 5-star experience for a 5-star patient! We take pride in providing top-quality care and nothing beats the feeling of a happy patient!",
+     "theme": "Patient review",
+     "likes": 2,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DdXUEjVjnCm"
+    },
+    {
+     "date": "2026-09-14",
+     "fmt": "Static",
+     "hook": "One of the most common misconceptions about hair transplantation is that donor hair simply “grows back” after it is removed.",
+     "theme": "Treatment explainer",
+     "likes": 1,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DdR7rWUhU5E"
+    },
+    {
+     "date": "2026-09-03",
+     "fmt": "Carousel",
+     "hook": "A successful result starts long before the procedure itself.",
+     "theme": "Result reveal",
+     "likes": 4,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dc0xY7nlCi5"
+    },
+    {
+     "date": "2026-09-02",
+     "fmt": "Static",
+     "hook": "A changing hairline can happen for different reasons, but one of the most common is hereditary male pattern hair loss.",
+     "theme": "Hair loss education",
+     "likes": 2,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dcy5SVbIN06"
+    },
+    {
+     "date": "2026-08-27",
+     "fmt": "Reel",
+     "hook": "🧐 Curious what recovery from a hair transplant looks like?",
+     "theme": "Treatment explainer",
+     "likes": 4,
+     "comments": 0,
+     "plays": 231,
+     "shortcode": "DciqCClB0WQ"
+    },
+    {
+     "date": "2026-08-26",
+     "fmt": "Static",
+     "hook": "🥰 Your kind words mean everything to us! Helping patients feel their best is our mission, and reviews like this make it all worth it. Thank you!",
+     "theme": "Patient review",
+     "likes": 3,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DceW9TRoBq5"
+    },
+    {
+     "date": "2026-08-25",
+     "fmt": "Carousel",
+     "hook": "🌱 Results you need to see to believe!",
+     "theme": "Result reveal",
+     "likes": 2,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DceYOn3GplA"
+    },
+    {
+     "date": "2026-08-20",
+     "fmt": "Carousel",
+     "hook": "Female hair loss doesn’t always call for the same solution.",
+     "theme": "Treatment explainer",
+     "likes": 3,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DcREZDnDoHY"
+    },
+    {
+     "date": "2026-08-13",
+     "fmt": "Reel",
+     "hook": "The best results are the ones that look like they were always there.",
+     "theme": "Result reveal",
+     "likes": 2,
+     "comments": 0,
+     "plays": 314,
+     "shortcode": "Db_V1y-RpR7"
+    },
+    {
+     "date": "2026-08-12",
+     "fmt": "Static",
+     "hook": "🏆 Life-changing results, one patient at a time! Our expertise + your vision = a beautiful transformation. 💕",
+     "theme": "Result reveal",
+     "likes": 1,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Db8hvd8OhLJ"
+    },
+    {
+     "date": "2026-08-11",
+     "fmt": "Static",
+     "hook": "👀 Seeing more hair than usual in the shower or on your brush can be alarming, but increased shedding does not always mean permanent hair loss.",
+     "theme": "Hair loss education",
+     "likes": 1,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Db34kofhmeI"
+    },
+    {
+     "date": "2026-08-10",
+     "fmt": "Reel",
+     "hook": "Meet Dr. Ashlin Alexander one of our surgical and hair restoration experts here at Toronto Hair Transplant Surgeons.",
+     "theme": "Team and credentials",
+     "likes": 2,
+     "comments": 0,
+     "plays": 241,
+     "shortcode": "Db35AyOBKGr"
+    },
+    {
+     "date": "2026-08-08",
+     "fmt": "Carousel",
+     "hook": "Think you know PRP? Think again. Here are 5 facts that might surprise you ,  and help you decide if it’s right for you.",
+     "theme": "Treatment explainer",
+     "likes": 1,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dbxu-t-msrf"
+    },
+    {
+     "date": "2026-08-07",
+     "fmt": "Static",
+     "hook": "A great patient experience starts with feeling informed, comfortable, and cared for.",
+     "theme": "Patient review",
+     "likes": 5,
+     "comments": 2,
+     "plays": null,
+     "shortcode": "Dbv1m3DORyZ"
+    },
+    {
+     "date": "2026-08-04",
+     "fmt": "Reel",
+     "hook": "Every patient begins with a different pattern of hair loss, different goals, and a different vision of what a successful result should look like.",
+     "theme": "Result reveal",
+     "likes": 3,
+     "comments": 0,
+     "plays": 244,
+     "shortcode": "DbnbOb7B41N"
+    },
+    {
+     "date": "2026-08-03",
+     "fmt": "Static",
+     "hook": "💕 Because you deserve the best! Our patients put their trust in us, and we love delivering results that make them smile. 😊",
+     "theme": "Result reveal",
+     "likes": 2,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DblpntjxaZP"
+    },
+    {
+     "date": "2026-08-01",
+     "fmt": "Reel",
+     "hook": "🔍 Got questions? We’ve got answers!",
+     "theme": "Treatment explainer",
+     "likes": 4,
+     "comments": 0,
+     "plays": 350,
+     "shortcode": "DbgNHMlO8EG"
+    },
+    {
+     "date": "2026-07-31",
+     "fmt": "Carousel",
+     "hook": "Natural hair restoration is built on details.",
+     "theme": "Result reveal",
+     "likes": 2,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DbdIA9HEXqt"
+    },
+    {
+     "date": "2026-07-30",
+     "fmt": "Static",
+     "hook": "\"Knowledgeable, thorough...one of the most informative consultations I've had.\"",
+     "theme": "Patient review",
+     "likes": 1,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DbbUSPUuMbj"
+    },
+    {
+     "date": "2026-07-24",
+     "fmt": "Static",
+     "hook": "😎Trust takes time to earn ,  and we’re proud to have earned it from so many patients.",
+     "theme": "Patient review",
+     "likes": 1,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DbJrTP1Bc7p"
+    },
+    {
+     "date": "2026-07-23",
+     "fmt": "Carousel",
+     "hook": "Most people notice when the crown begins to thin.",
+     "theme": "Treatment explainer",
+     "likes": 2,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DbJq1NZAYCf"
+    },
+    {
+     "date": "2026-07-18",
+     "fmt": "Reel",
+     "hook": "Meet Dr. Jonathan Huber, a surgical and hair restoration expert at Toronto Hair Transplant Surgeons.",
+     "theme": "Team and credentials",
+     "likes": 3,
+     "comments": 0,
+     "plays": 340,
+     "shortcode": "Da7uUYNBVN8"
+    }
+   ],
+   "ranked": true,
+   "flag": "Below 0.25x",
+   "pillars": {
+    "discovery": 21.4,
+    "interest": 7.1,
+    "consideration": 21.4,
+    "conversion": 85
+   },
+   "score": 31,
+   "rank": 7
+  },
+  {
+   "name": "Alopecia & Beyond",
+   "group": "NON-SURGICAL",
+   "handles": [
+    "alopeciaandbeyond"
+   ],
+   "frame_slug": "alopecia-and-beyond",
+   "followers": 837,
+   "posts": 3,
+   "reels": 2,
+   "ads": 0,
+   "conversion": {
+    "ask": "booking",
+    "ask_text": "Book a hair loss assessment, on one of three posts",
+    "route": "Link page in bio to the website",
+    "steps": 2,
+    "steps_text": "Two taps, through the bio"
+   },
+   "reel_share": 67,
+   "avg_plays": 998,
+   "total_plays": 1996,
+   "ppf": 1.1923536439665472,
+   "avg_likes": 28,
+   "median_likes": 28,
+   "total_comments": 17,
+   "avg_comments": 5.666666666666667,
+   "median_comments": 2,
+   "zero_comment_posts": 0,
+   "er": 4.0223018717642365,
+   "c2l": 60.71428571428571,
+   "top": {
+    "shortcode": "DdPx-Yhxxp1",
+    "likes": 28,
+    "fmt": "Static",
+    "plays": null,
+    "x_median": 1.0,
+    "hook": "I’m looking forward to joining @clorebeauty for The Scalp Edit on Saturday, Sept. 26."
+   },
+   "peak": {
+    "shortcode": "Dd9m6-YR6Xb",
+    "plays": 1501,
+    "x_followers": 1.79
+   },
+   "postlog": [
+    {
+     "date": "2026-10-01",
+     "fmt": "Reel",
+     "hook": "A glimpse of The Scalp Edit It✨",
+     "theme": "Partnership, launch and news",
+     "likes": null,
+     "comments": 13,
+     "plays": 1501,
+     "shortcode": "Dd9m6-YR6Xb"
+    },
+    {
+     "date": "2026-09-13",
+     "fmt": "Static",
+     "hook": "I’m looking forward to joining @clorebeauty for The Scalp Edit on Saturday, Sept. 26.",
+     "theme": "Partnership, launch and news",
+     "likes": 28,
+     "comments": 2,
+     "plays": null,
+     "shortcode": "DdPx-Yhxxp1"
+    },
+    {
+     "date": "2026-07-24",
+     "fmt": "Reel",
+     "hook": "🚨 Traction alopecia is one of the few types of hair loss that is largely preventable.",
+     "theme": "Hair loss education",
+     "likes": null,
+     "comments": 2,
+     "plays": 495,
+     "shortcode": "DbJ9wILR7V3"
+    }
+   ],
+   "ranked": false,
+   "flag": "Fewer than 5 posts",
+   "pillars": {
+    "discovery": 100.0,
+    "interest": 100.0,
+    "consideration": 100.0,
+    "conversion": 85
+   },
+   "score": 97
+  },
+  {
+   "name": "Hair Transplant Medical Centre",
+   "group": "TRANSPLANT",
+   "handles": [
+    "hairtransplantmc"
+   ],
+   "frame_slug": "hair-transplant-medical-centre",
+   "followers": 747,
+   "posts": 2,
+   "reels": 1,
+   "ads": 25,
+   "conversion": {
+    "ask": "booking",
+    "ask_text": "Book a free consultation, on both posts",
+    "route": "Phone and website in bio",
+    "steps": 3,
+    "steps_text": "Leaves the app"
+   },
+   "reel_share": 50,
+   "avg_plays": 324,
+   "total_plays": 324,
+   "ppf": 0.43373493975903615,
+   "avg_likes": 2,
+   "median_likes": 2.0,
+   "total_comments": 2,
+   "avg_comments": 1.0,
+   "median_comments": 1.0,
+   "zero_comment_posts": 1,
+   "er": 0.4016064257028112,
+   "c2l": 50.0,
+   "top": {
+    "shortcode": "DdaVo3ZpvO6",
+    "likes": 3,
+    "fmt": "Static",
+    "plays": null,
+    "x_median": 1.5,
+    "hook": "12 months of progress. A lifetime of confidence. ✨"
+   },
+   "peak": {
+    "shortcode": "Dd1dRnih_L5",
+    "plays": 324,
+    "x_followers": 0.43
+   },
+   "postlog": [
+    {
+     "date": "2026-09-28",
+     "fmt": "Reel",
+     "hook": "Twelve months. One transformation. A lifetime of confidence.",
+     "theme": "Result reveal",
+     "likes": 1,
+     "comments": 2,
+     "plays": 324,
+     "shortcode": "Dd1dRnih_L5"
+    },
+    {
+     "date": "2026-09-18",
+     "fmt": "Static",
+     "hook": "12 months of progress. A lifetime of confidence. ✨",
+     "theme": "Result reveal",
+     "likes": 3,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "DdaVo3ZpvO6"
+    }
+   ],
+   "ranked": false,
+   "flag": "Fewer than 5 posts",
+   "pillars": {
+    "discovery": 85.7,
+    "interest": 57.1,
+    "consideration": 71.4,
+    "conversion": 70
+   },
+   "score": 73
+  },
+  {
+   "name": "Hair Transplant Centre Toronto",
+   "group": "TRANSPLANT",
+   "handles": [
+    "torontohairtransplantcentre"
+   ],
+   "frame_slug": "hair-transplant-centre-toronto",
+   "followers": 934,
+   "posts": 2,
+   "reels": 1,
+   "ads": 4,
+   "conversion": {
+    "ask": "booking",
+    "ask_text": "DM or call, on both posts",
+    "route": "DM or phone",
+    "steps": 2,
+    "steps_text": "Two taps, by DM"
+   },
+   "reel_share": 50,
+   "avg_plays": 1135,
+   "total_plays": 1135,
+   "ppf": 1.215203426124197,
+   "avg_likes": 9,
+   "median_likes": 9.0,
+   "total_comments": 0,
+   "avg_comments": 0.0,
+   "median_comments": 0.0,
+   "zero_comment_posts": 2,
+   "er": 0.9635974304068522,
+   "c2l": 0.0,
+   "top": {
+    "shortcode": "DbdqKQwxH8J",
+    "likes": 11,
+    "fmt": "Reel",
+    "plays": 1135,
+    "x_median": 1.2,
+    "hook": "When it comes to hair transplants, the price difference between clinics can be significant. It’s tempting to go the cheaper route ,  especially when t..."
+   },
+   "peak": {
+    "shortcode": "DbdqKQwxH8J",
+    "plays": 1135,
+    "x_followers": 1.22
+   },
+   "postlog": [
+    {
+     "date": "2026-08-05",
+     "fmt": "Carousel",
+     "hook": "This is the result of Exosome Hair Restoration @torontohairtransplantcentre one of the most advanced non-surgical hair loss treatments available right...",
+     "theme": "Result reveal",
+     "likes": 7,
+     "comments": 0,
+     "plays": null,
+     "shortcode": "Dbq8V7jmW6U"
+    },
+    {
+     "date": "2026-07-31",
+     "fmt": "Reel",
+     "hook": "When it comes to hair transplants, the price difference between clinics can be significant. It’s tempting to go the cheaper route ,  especially when t...",
+     "theme": "Treatment explainer",
+     "likes": 11,
+     "comments": 0,
+     "plays": 1135,
+     "shortcode": "DbdqKQwxH8J"
+    }
+   ],
+   "ranked": false,
+   "flag": "Fewer than 5 posts",
+   "pillars": {
+    "discovery": 100.0,
+    "interest": 85.7,
+    "consideration": 7.1,
+    "conversion": 85
+   },
+   "score": 66
+  }
+ ],
+ "themes": {
+  "Partnership, launch and news": {
+   "posts": 12,
+   "median_likes": 27,
+   "share": 8,
+   "top_brand": [
+    "The Toronto Hair Transplant Clinic",
+    4
+   ],
+   "brands": 5
+  },
+  "Team and credentials": {
+   "posts": 12,
+   "median_likes": 11.5,
+   "share": 8,
+   "top_brand": [
+    "Ottawa Hair Loss Clinic",
+    5
+   ],
+   "brands": 4
+  },
+  "Treatment explainer": {
+   "posts": 25,
+   "median_likes": 7,
+   "share": 17,
+   "top_brand": [
+    "Toronto Hair Transplant Surgeons",
+    7
+   ],
+   "brands": 7
+  },
+  "Promo and products": {
+   "posts": 11,
+   "median_likes": 6,
+   "share": 7,
+   "top_brand": [
+    "Truly You",
+    4
+   ],
+   "brands": 5
+  },
+  "Hair loss education": {
+   "posts": 35,
+   "median_likes": 6.0,
+   "share": 24,
+   "top_brand": [
+    "Ottawa Hair Loss Clinic",
+    23
+   ],
+   "brands": 6
+  },
+  "Other": {
+   "posts": 4,
+   "median_likes": 6.0,
+   "share": 3,
+   "top_brand": [
+    "Ottawa Hair Loss Clinic",
+    3
+   ],
+   "brands": 2
+  },
+  "Awareness day and greetings": {
+   "posts": 8,
+   "median_likes": 5.5,
+   "share": 5,
+   "top_brand": [
+    "Ottawa Hair Loss Clinic",
+    4
+   ],
+   "brands": 3
+  },
+  "Result reveal": {
+   "posts": 28,
+   "median_likes": 4.5,
+   "share": 19,
+   "top_brand": [
+    "Ottawa Hair Loss Clinic",
+    8
+   ],
+   "brands": 8
+  },
+  "Patient review": {
+   "posts": 9,
+   "median_likes": 3,
+   "share": 6,
+   "top_brand": [
+    "Toronto Hair Transplant Surgeons",
+    7
+   ],
+   "brands": 3
+  },
+  "Not hair": {
+   "posts": 3,
+   "median_likes": 2,
+   "share": 2,
+   "top_brand": [
+    "FREEDOMclinic",
+    2
+   ],
+   "brands": 2
+  }
+ },
+ "formats": {
+  "Reel": {
+   "posts": 45,
+   "median_likes": 7
+  },
+  "Carousel": {
+   "posts": 40,
+   "median_likes": 8.0
+  },
+  "Static": {
+   "posts": 62,
+   "median_likes": 5.0
+  }
+ },
+ "stage1": [
+  {
+   "name": "Hair Transplant Centre Toronto",
+   "ppf": 1.215203426124197
+  },
+  {
+   "name": "Alopecia & Beyond",
+   "ppf": 1.1923536439665472
+  },
+  {
+   "name": "Truly You",
+   "ppf": 0.48745942755975213
+  },
+  {
+   "name": "Hair Transplant Medical Centre",
+   "ppf": 0.43373493975903615
+  },
+  {
+   "name": "The Toronto Hair Transplant Clinic",
+   "ppf": 0.3383977900552486
+  },
+  {
+   "name": "Ottawa Hair Loss Clinic",
+   "ppf": 0.2488500923283532
+  },
+  {
+   "name": "FREEDOMclinic",
+   "ppf": 0.10073824876179796
+  },
+  {
+   "name": "Nova Medical Hair Transplant",
+   "ppf": 0.057124980447364304
+  },
+  {
+   "name": "Toronto Hair Transplant Surgeons",
+   "ppf": 0.016887579774177715
+  }
+ ],
+ "stage2": [
+  {
+   "name": "Alopecia & Beyond",
+   "avg_comments": 5.666666666666667
+  },
+  {
+   "name": "The Toronto Hair Transplant Clinic",
+   "avg_comments": 4.1
+  },
+  {
+   "name": "Truly You",
+   "avg_comments": 1.5185185185185186
+  },
+  {
+   "name": "Hair Transplant Medical Centre",
+   "avg_comments": 1.0
+  },
+  {
+   "name": "Ottawa Hair Loss Clinic",
+   "avg_comments": 0.875
+  },
+  {
+   "name": "CADMEN Clinic",
+   "avg_comments": 0.8
+  },
+  {
+   "name": "Nova Medical Hair Transplant",
+   "avg_comments": 0.6666666666666666
+  },
+  {
+   "name": "Toronto Hair Transplant Surgeons",
+   "avg_comments": 0.10714285714285714
+  },
+  {
+   "name": "FREEDOMclinic",
+   "avg_comments": 0.0
+  },
+  {
+   "name": "Hair Transplant Centre Toronto",
+   "avg_comments": 0.0
+  }
+ ]
+}

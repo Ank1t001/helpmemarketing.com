@@ -1,0 +1,77 @@
+{
+ "reviewed": true,
+ "reviewed_on": "2026-10-16",
+ "rule": "booking = a booking or enquiry ask on at least a quarter of brand-authored posts in the window; steps: 1 DM keyword, 2 a DM or a bio link page with a booking link, 3 a phone number or the clinic website",
+ "brands": {
+  "Toronto Hair Transplant Surgeons": {
+   "ask": "booking",
+   "ask_text": "Book a free consultation through the link in bio, on about a third of posts",
+   "route": "Bio link page with a free virtual consult booking link",
+   "steps": 2,
+   "steps_text": "Two taps, through the bio"
+  },
+  "Nova Medical Hair Transplant": {
+   "ask": "general",
+   "ask_text": "One booking line in six posts; the bio lists a text number",
+   "route": "Text number and website for locations across the US and Canada",
+   "steps": 3,
+   "steps_text": "Leaves the app"
+  },
+  "Truly You": {
+   "ask": "booking",
+   "ask_text": "Free discovery call or assessment on most posts",
+   "route": "Booking page, phone and email on the website",
+   "steps": 3,
+   "steps_text": "Leaves the app"
+  },
+  "The Toronto Hair Transplant Clinic": {
+   "ask": "general",
+   "ask_text": "No booking ask in this window; a comment contest",
+   "route": "Website in bio, no booking line",
+   "steps": 3,
+   "steps_text": "Leaves the app"
+  },
+  "Ottawa Hair Loss Clinic": {
+   "ask": "booking",
+   "ask_text": "Book a hair and scalp consultation on most posts",
+   "route": "Bio link to the clinic website, phone",
+   "steps": 3,
+   "steps_text": "Leaves the app"
+  },
+  "FREEDOMclinic": {
+   "ask": "booking",
+   "ask_text": "Book a consultation or DM to book, on about half of posts",
+   "route": "DM, phone and website",
+   "steps": 2,
+   "steps_text": "Two taps, by DM"
+  },
+  "CADMEN Clinic": {
+   "ask": "booking",
+   "ask_text": "Free consultation offer on most posts",
+   "route": "Bio link to the clinic website",
+   "steps": 3,
+   "steps_text": "Leaves the app"
+  },
+  "Hair Transplant Centre Toronto": {
+   "ask": "booking",
+   "ask_text": "DM or call, on both posts",
+   "route": "DM or phone",
+   "steps": 2,
+   "steps_text": "Two taps, by DM"
+  },
+  "Alopecia & Beyond": {
+   "ask": "booking",
+   "ask_text": "Book a hair loss assessment, on one of three posts",
+   "route": "Link page in bio to the website",
+   "steps": 2,
+   "steps_text": "Two taps, through the bio"
+  },
+  "Hair Transplant Medical Centre": {
+   "ask": "booking",
+   "ask_text": "Book a free consultation, on both posts",
+   "route": "Phone and website in bio",
+   "steps": 3,
+   "steps_text": "Leaves the app"
+  }
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "checked_at": "2026-10-16",
+ "method": "Meta Ad Library, active ads, country CA, keyword search per clinic name (apify/facebook-ads-scraper run 8ugbGvf9eTmTpkjpB, 25 results per search); only ads run by the clinic's own page are counted, so counts are minimums and 25 means the search hit its cap.",
+ "cap": 25,
+ "brands": {
+  "Toronto Hair Transplant Surgeons": 12,
+  "Nova Medical Hair Transplant": 0,
+  "Truly You": 0,
+  "The Toronto Hair Transplant Clinic": 0,
+  "Ottawa Hair Loss Clinic": 3,
+  "FREEDOMclinic": 0,
+  "CADMEN Clinic": 2,
+  "Hair Transplant Centre Toronto": 4,
+  "Alopecia & Beyond": 0,
+  "Hair Transplant Medical Centre": 25
+ },
+ "pages": {
+  "Toronto Hair Transplant Surgeons": [
+   "Toronto Hair Transplant Surgeons (384855498273307)"
+  ],
+  "Ottawa Hair Loss Clinic": [
+   "ottawahairlossclinicandwellnes (107357931622706)",
+   "Ottawa Hair Loss Clinic & Wellness (970301413111982)"
+  ],
+  "CADMEN Clinic": [
+   "Cadmen Cosmetic Clinic (101867425009943)"
+  ],
+  "Hair Transplant Centre Toronto": [
+   "Hair Transplant Centre Toronto (253397534525511)"
+  ],
+  "Hair Transplant Medical Centre": [
+   "Hair Transplant Medical Centre (100545172462959)"
+  ]
+ },
+ "excluded": "Unrelated advertisers returned by the searches (for example Terra Nova Medical Clinics for Nova Medical, and beauty and wig sellers for Truly You) are not counted."
+}

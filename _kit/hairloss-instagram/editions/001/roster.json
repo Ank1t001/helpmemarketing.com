@@ -1,0 +1,80 @@
+{
+ "built_at": "2026-09-08",
+ "source": "editorial roster, edition 001",
+ "note": "An editorial roster, not a discovery search: nine non-surgical hair loss brands in three groups. Change it only with Ankit's approval; a brand that stops posting stays on the board.",
+ "brands": [
+  {
+   "name": "Mulberry",
+   "group": "TOURING",
+   "handles": [
+    "mulberryhairextensions"
+   ],
+   "frame_slug": "mulberry"
+  },
+  {
+   "name": "Hair Loss Lab",
+   "group": "NORTH",
+   "handles": [
+    "hairlosslab.sudbury"
+   ],
+   "frame_slug": "hair-loss-lab"
+  },
+  {
+   "name": "Truly You",
+   "group": "GTA",
+   "handles": [
+    "trulyyouhair"
+   ],
+   "frame_slug": "truly-you"
+  },
+  {
+   "name": "Sudbury Skin Clinique",
+   "group": "NORTH",
+   "handles": [
+    "sudburyskinclinique"
+   ],
+   "frame_slug": "sudbury-skin-clinique"
+  },
+  {
+   "name": "Modern Pigment",
+   "group": "GTA",
+   "handles": [
+    "modernpigment"
+   ],
+   "frame_slug": "modern-pigment"
+  },
+  {
+   "name": "Wigs R Us Toronto",
+   "group": "GTA",
+   "handles": [
+    "wigsrustoronto"
+   ],
+   "frame_slug": "wigs-r-us-toronto"
+  },
+  {
+   "name": "Toronto Wig Studio",
+   "group": "GTA",
+   "handles": [
+    "torontowigstudio"
+   ],
+   "frame_slug": "toronto-wig-studio"
+  },
+  {
+   "name": "Wig Boutique",
+   "group": "NORTH",
+   "handles": [
+    "wigboutiquesudbury",
+    "wigboutiquessm"
+   ],
+   "frame_slug": "wig-boutique"
+  },
+  {
+   "name": "Ethereal Ink by Ash",
+   "group": "NORTH",
+   "handles": [
+    "ethereal.ink.byash"
+   ],
+   "frame_slug": "ethereal-ink-by-ash"
+  }
+ ]
+}

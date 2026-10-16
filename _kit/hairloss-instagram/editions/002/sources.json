@@ -1,0 +1,36 @@
+{
+ "edition": "002",
+ "collected_on": "2026-10-16",
+ "runs": [
+  {
+   "stage": "selection and followers",
+   "actor": "apify/instagram-profile-scraper",
+   "run_id": "OdgeAtFRHeZLEdgV0",
+   "dataset_id": "tUmwz6AlPKeenhQIe",
+   "started_at": "2026-10-16T15:43:39.865Z",
+   "items": 26
+  },
+  {
+   "stage": "posts",
+   "actor": "apify/instagram-scraper",
+   "run_id": "ha4j4kI4TgG7wzzac",
+   "dataset_id": "MOCjqUEdJUasjHdp3",
+   "started_at": "2026-10-16T16:31:24.654Z",
+   "input": {
+    "resultsType": "posts",
+    "resultsLimit": 200,
+    "onlyPostsNewerThan": "2026-07-18"
+   },
+   "items": 167
+  },
+  {
+   "stage": "ads",
+   "actor": "apify/facebook-ads-scraper",
+   "run_id": "8ugbGvf9eTmTpkjpB",
+   "dataset_id": "qONbUdRyq80yqQ3m8",
+   "started_at": "2026-10-16T16:50:00.518Z",
+   "items": 67
+  }
+ ],
+ "stopped_run": "The scheduled run of 16 October (session cse_017YW4E5fu9qJS27RSpofdBg) collected the old nine-brand roster and was stopped on Ankit's instruction before it built anything; its data is not used."
+}

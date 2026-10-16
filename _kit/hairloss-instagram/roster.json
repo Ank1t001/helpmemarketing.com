@@ -1,80 +1,102 @@
 {
- "built_at": "2026-09-08",
- "source": "editorial roster, edition 001",
- "note": "An editorial roster, not a discovery search: nine non-surgical hair loss brands in three groups. Change it only with Ankit's approval; a brand that stops posting stays on the board.",
+ "built_at": "2026-10-16",
+ "source": "top 10 Ontario hair loss clinics, edition 002",
+ "note": "Founder decision (2026-10-16): the ten Ontario hair loss clinics (medical, non-surgical and hair transplant clinics; no wig shops, extension salons or pigment artists) with the largest Instagram accounts that posted in the 90 days before selection, chosen by follower count on 16 October 2026 from 25 candidates whose handle is linked from the clinic's own website. Clinic accounts only: no US corporate accounts or surgeons' personal accounts. Two groups: TRANSPLANT (offers hair transplant surgery) and NON-SURGICAL. Change it only with Ankit's approval; a clinic that stops posting stays on the board. Edition 001 used a different roster (editions/001/roster.json).",
+ "selection": {
+  "date": "2026-10-16",
+  "rule": "followers, Ontario clinic account, posted in the last 90 days",
+  "profiles_run": "apify/instagram-profile-scraper OdgeAtFRHeZLEdgV0"
+ },
  "brands": [
   {
-   "name": "Mulberry",
-   "group": "TOURING",
+   "name": "Toronto Hair Transplant Surgeons",
+   "group": "TRANSPLANT",
    "handles": [
-    "mulberryhairextensions"
+    "torontohairtransplantsurgeons"
    ],
-   "frame_slug": "mulberry"
+   "frame_slug": "toronto-hair-transplant-surgeons",
+   "city": "Oakville"
   },
   {
-   "name": "Hair Loss Lab",
-   "group": "NORTH",
+   "name": "Nova Medical Hair Transplant",
+   "group": "TRANSPLANT",
    "handles": [
-    "hairlosslab.sudbury"
+    "nova_medical_hair_transplant"
    ],
-   "frame_slug": "hair-loss-lab"
+   "frame_slug": "nova-medical",
+   "city": "Toronto"
   },
   {
    "name": "Truly You",
-   "group": "GTA",
+   "group": "NON-SURGICAL",
    "handles": [
     "trulyyouhair"
    ],
-   "frame_slug": "truly-you"
+   "frame_slug": "truly-you",
+   "city": "Mississauga"
   },
   {
-   "name": "Sudbury Skin Clinique",
-   "group": "NORTH",
+   "name": "The Toronto Hair Transplant Clinic",
+   "group": "TRANSPLANT",
    "handles": [
-    "sudburyskinclinique"
+    "torontohairtransplantclinic"
    ],
-   "frame_slug": "sudbury-skin-clinique"
+   "frame_slug": "toronto-hair-transplant-clinic",
+   "city": "Toronto"
   },
   {
-   "name": "Modern Pigment",
-   "group": "GTA",
+   "name": "Ottawa Hair Loss Clinic",
+   "group": "NON-SURGICAL",
    "handles": [
-    "modernpigment"
+    "ottawahairlossclinicandwellnes"
    ],
-   "frame_slug": "modern-pigment"
+   "frame_slug": "ottawa-hair-loss-clinic",
+   "city": "Ottawa"
   },
   {
-   "name": "Wigs R Us Toronto",
-   "group": "GTA",
+   "name": "FREEDOMclinic",
+   "group": "TRANSPLANT",
    "handles": [
-    "wigsrustoronto"
+    "freedomclinictoronto"
    ],
-   "frame_slug": "wigs-r-us-toronto"
+   "frame_slug": "freedomclinic",
+   "city": "Toronto (North York)"
   },
   {
-   "name": "Toronto Wig Studio",
-   "group": "GTA",
+   "name": "CADMEN Clinic",
+   "group": "NON-SURGICAL",
    "handles": [
-    "torontowigstudio"
+    "cadmenclinic"
    ],
-   "frame_slug": "toronto-wig-studio"
+   "frame_slug": "cadmen-clinic",
+   "city": "Toronto, Mississauga and Vaughan"
   },
   {
-   "name": "Wig Boutique",
-   "group": "NORTH",
+   "name": "Hair Transplant Centre Toronto",
+   "group": "TRANSPLANT",
    "handles": [
-    "wigboutiquesudbury",
-    "wigboutiquessm"
+    "torontohairtransplantcentre"
    ],
-   "frame_slug": "wig-boutique"
+   "frame_slug": "hair-transplant-centre-toronto",
+   "city": "Toronto"
   },
   {
-   "name": "Ethereal Ink by Ash",
-   "group": "NORTH",
+   "name": "Alopecia & Beyond",
+   "group": "NON-SURGICAL",
    "handles": [
-    "ethereal.ink.byash"
+    "alopeciaandbeyond"
    ],
-   "frame_slug": "ethereal-ink-by-ash"
+   "frame_slug": "alopecia-and-beyond",
+   "city": "Vaughan"
+  },
+  {
+   "name": "Hair Transplant Medical Centre",
+   "group": "TRANSPLANT",
+   "handles": [
+    "hairtransplantmc"
+   ],
+   "frame_slug": "hair-transplant-medical-centre",
+   "city": "Mississauga"
   }
  ]
 }

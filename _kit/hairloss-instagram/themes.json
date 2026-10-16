@@ -1,102 +1,97 @@
 {
- "note": "Caption keyword coding, first match wins in this order, one theme per post. Edition 001 was coded by hand and its lists were not saved; these lists follow its eight themes. Review work/theme_review.json and put corrections in editions/NNN/theme_overrides.json {shortcode: theme}. Lower-case regular expressions.",
+ "note": "Clinic themes from edition 002 (the top 10 Ontario hair loss clinics). Caption keyword coding, first match wins in this order, one theme per post; review work/theme_review.json and put corrections in editions/NNN/theme_overrides.json {shortcode: theme}. Lower-case regular expressions. Edition 001 used studio themes (editions/001/themes.json).",
  "order": [
-  "Pop-up and tour announcement",
-  "Launch teaser",
-  "Promo, sale and hiring",
-  "Team and credentials",
-  "Client story and testimonial",
+  "Not hair",
+  "Awareness day and greetings",
+  "Partnership, launch and news",
+  "Promo and products",
+  "Patient review",
   "Result reveal",
-  "Scalp and hair education",
-  "Skin and body, not hair"
+  "Team and credentials",
+  "Treatment explainer",
+  "Hair loss education"
  ],
  "fallback": "Other",
  "patterns": {
-  "Pop-up and tour announcement": [
-   "pop-?up",
-   "\\btour\\b",
-   "\\bcoming to\\b",
-   "dm (the|your) city",
-   "\\bwe.?re (coming|in|back in)\\b"
+  "Not hair": [
+   "jawline",
+   "\\bfiller",
+   "prp facial",
+   "moisturi[sz]er",
+   "botox",
+   "laser hair removal"
   ],
-  "Launch teaser": [
-   "coming soon",
-   "countdown",
-   "\\bdays? (to go|left|until)\\b",
-   "something (big|new) is coming",
-   "\\blaunch(ing)?\\b",
-   "stay tuned"
+  "Awareness day and greetings": [
+   "awareness (month|week|day)",
+   "thanksgiving",
+   "happy (new year|holidays|canada day)",
+   "merry christmas"
   ],
-  "Promo, sale and hiring": [
+  "Partnership, launch and news": [
+   "partnership",
+   "official partner",
+   "now open",
+   "\\blaunch",
+   "distributor",
+   "graduat"
+  ],
+  "Promo and products": [
    "\\bsale\\b",
    "% off",
-   "\\$\\d",
    "\\bpromo",
-   "\\bdiscount",
-   "\\bhiring\\b",
-   "\\bjoin our team\\b",
+   "giveaway",
+   "\\bwin\\b",
+   "product spotlight",
+   "shop (the|our|now)",
+   "register",
    "\\bcourse\\b",
-   "\\bgiveaway",
-   "limited time"
+   "\\bquiz\\b"
+  ],
+  "Patient review": [
+   "review",
+   "kind words",
+   "5-star",
+   "testimonial",
+   "thank you for trusting"
+  ],
+  "Result reveal": [
+   "before (&|and) after",
+   "\\bresults?\\b",
+   "transformation",
+   "\\bmonths? (of|post|after)",
+   "progress"
   ],
   "Team and credentials": [
    "\\bmeet\\b",
-   "\\bour team\\b",
-   "\\bconference\\b",
-   "certif",
-   "trichologist",
-   "\\bspecialist",
-   "\\bcongress\\b",
-   "\\btraining\\b",
-   "\\bfounder\\b",
-   "award"
+   "certified",
+   "fellowship",
+   "board-certified",
+   "our team",
+   "newest member"
   ],
-  "Client story and testimonial": [
-   "\\breview\\b",
-   "testimonial",
-   "\\bclient (story|says|said|shares)",
-   "5[ -]star",
-   "\\bthank you\\b.*\\bfor trusting",
-   "\\bher story\\b",
-   "\\bhis story\\b",
-   "\\bjourney\\b"
-  ],
-  "Result reveal": [
-   "before (and|&) after",
-   "before/after",
-   "\\bresults?\\b",
-   "transformation",
-   "\\breveal",
-   "\\bsession \\d",
-   "scar camouflage",
-   "\\bsmp\\b",
-   "\\bhealed\\b"
-  ],
-  "Scalp and hair education": [
-   "\\bfollic",
-   "\\bdht\\b",
-   "\\bshedding\\b",
-   "ludwig",
-   "alopecia",
-   "\\bscalp\\b",
-   "\\bthinning\\b",
-   "\\bmyth",
-   "did you know",
-   "\\bwhy\\b",
-   "\\bhow (to|does|long)\\b",
-   "\\bpostpartum\\b"
-  ],
-  "Skin and body, not hair": [
-   "botox",
-   "emsculpt",
-   "\\bspf\\b",
-   "\\bfiller",
-   "\\bfacial\\b",
-   "\\blaser\\b",
-   "\\bskin\\b",
-   "\\bbody contour",
+  "Treatment explainer": [
+   "\\bprp\\b",
+   "\\bfue\\b",
+   "\\bfut\\b",
+   "exosome",
+   "graft",
+   "recovery",
    "microneedling",
-   "\\bpeel\\b"
+   "mesotherapy",
+   "alma ted",
+   "procedure",
+   "consultation is"
+  ],
+  "Hair loss education": [
+   "shedding",
+   "alopecia",
+   "thinning",
+   "ferritin",
+   "thyroid",
+   "telogen",
+   "miniaturi",
+   "scalp",
+   "did you know"
   ]
  }
 }

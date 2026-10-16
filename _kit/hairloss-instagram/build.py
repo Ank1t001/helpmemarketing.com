@@ -79,7 +79,8 @@ def validate(page, body, snap, state, ed):
     def need(cond, msg):
         if not cond:
             errs.append(msg)
-    roster = json.load(open(HERE / "roster.json"))
+    er = HERE / "editions" / ed / "roster.json"  # an edition published on an earlier roster keeps it
+    roster = json.load(open(er if er.exists() else HERE / "roster.json"))
     ids = re.findall(r'<section id="([^"]+)"', body)
     need(ids == SECTIONS, f"section order {ids}")
     need(not re.search(r'\sstyle="', body), "style attribute in body")

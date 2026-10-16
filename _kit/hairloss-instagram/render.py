@@ -28,7 +28,7 @@ def w(v, top):
     return f"{x:.1f}".rstrip("0").rstrip(".")
 
 
-def score_row(r, ranked, note):
+def score_row(r, ranked, note, cap=None):
     handles = " + ".join("@" + h for h in r["handles"])
     head = (f'<tr data-note="{esc(note)}">\n<td class="brandcell"><a href="{IG}{r["handles"][0]}/" target="_blank" rel="noopener">{esc(r["name"])}</a>\n'
             f'<span class="handle">{handles}</span>\n<div><span class="chip">{r["group"]}</span></div></td>\n')
@@ -42,7 +42,8 @@ def score_row(r, ranked, note):
     ppf = f'{r["ppf"]:.2f}x' if r.get("ppf") is not None else "no video"
     likes = (f'{r["avg_likes"]:.1f}<div class="cell-sub">{r["er"]:.2f}% ER</div>' if r.get("avg_likes") is not None and r.get("er") is not None
              else "hidden")
-    ads = f'<div class="cell-sub">{r["ads"]} live Meta ad{"s" if r["ads"] != 1 else ""}</div>' if r["ads"] else ""
+    plus = "+" if cap and r["ads"] >= cap else ""  # a search that hit its result limit gives a minimum
+    ads = f'<div class="cell-sub">{r["ads"]}{plus} live Meta ad{"s" if r["ads"] != 1 else ""}</div>' if r["ads"] else ""
     top = (f'<b>{n(r["top"]["likes"])}</b><div class="cell-sub"><a href="{IG}p/{r["top"]["shortcode"]}/" target="_blank" rel="noopener">open</a></div>'
            if r.get("top") else "likes hidden")
     return head + (f'<td class="r"><span class="score {cls}">{r["score"]}</span><div class="cell-sub">{pos}</div></td>\n'
@@ -62,7 +63,8 @@ def main():
     missing = [r["name"] for r in board if not notes.get(r["name"], "").strip()]
     if missing:
         raise SystemExit(f"notes.json lacks a data-note for: {missing}")
-    rows = "".join(score_row(r, m["ranked"], notes[r["name"]]) for r in board)
+    cap = json.load(open(d / "ads.json")).get("cap") if (d / "ads.json").exists() else None
+    rows = "".join(score_row(r, m["ranked"], notes[r["name"]], cap) for r in board)
     s1, s2 = m["stage1"], m["stage2"]
     st1 = "\n".join(f'<tr><td class="brandcell">{esc(x["name"])}</td><td><span class="tbar" data-w="{w(x["ppf"], s1[0]["ppf"])}"></span></td>'
                     f'<td class="r">{"<b>" if i == 0 else ""}{x["ppf"]:.2f}x{"</b>" if i == 0 else ""}</td></tr>' for i, x in enumerate(s1))
