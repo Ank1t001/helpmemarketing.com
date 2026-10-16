@@ -1,0 +1,14 @@
+# Dental Implant Marketing Index: editorial rules (edition 001, 16 October 2026)
+
+Structure (in this order, built by `build.py`): header (kicker "The HMM Index · Dental implants", H1 "Dental Implant Marketing Index", lede, byline with the observation window, livebar with website check time, Instagram status, edition and draft or publication status, two actions "See the five clinics" and "Explore the three tests"); draft notice while a draft; on-page navigation; "The short answer"; "What stood out" (one to four findings, each with examples, a limitation, sources and a takeaway); "Five-clinic comparison" (one row per clinic, the same definitions, "Not confirmed" and "Not checked" for missing evidence, cards on phones); "Observed content examples"; "Clinic by clinic" (Positioning, Observed marketing, What the evidence supports, What remains unknown, then the takeaway); "Across the clinics" (patterns with takeaways); "Three practical tests"; "Method, sources and limitations"; researcher and citation cards; related research; one service CTA "Review my implant enquiry journey" (`entry=research_dental`); footer.
+
+Wording:
+- A study of published marketing, never a ranking, never a judgement of clinical quality, outcomes or suitability.
+- Clinic statements about outcomes, experience, warranties or reviews are the clinic's claims ("states", "says"), never endorsed. A published price is "published by the clinic", not a quote, and prices are not compared as if like for like.
+- Observation, clinic claim and interpretation are kept apart; interpretations are mine and say so ("My reading", "hypothesis").
+- Never: estimates of budgets, revenue, ROAS, cost per lead, conversion, acceptance, fees or capacity; "best performing", "winning", "viral"; a claim that a feature caused results; an engagement leaderboard; a check mark that implies quality.
+- A provider credit shows a published association only. A tracking tag or phone number does not show working attribution or automation. A stated response promise is not a measured response time.
+- Missing evidence is "Not confirmed", "Not checked" or "Not verified", never zero and never a guess. A clinic that cannot be read keeps its row with the reason.
+- Takeaways are labelled exactly "What this means for your clinic", two or three short sentences, tied to the section's evidence, with one question for the team or one test and its measure. Pending clinics get a labelled placeholder.
+- Tests: exactly three, each with evidence, hypothesis, one change, what stays the same, primary measure from the clinic's own records, guardrails, how and when to compare, and what counts as insufficient evidence. No baselines, targets or lifts. A before-and-after comparison is never called a controlled test.
+- First person singular for HMM ("I"), never "we", "our" or "us". Canadian spelling, sentence-case headings, no em or en dashes, no inline styles.

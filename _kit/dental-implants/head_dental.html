@@ -1,0 +1,35 @@
+<style>
+/* Dental Implant Marketing Index (2026-10-16): header without artwork, hero actions, sources lines, evidence placeholders, test definition lists. Spec: Design System note "Dental Implant Marketing Index". */
+.msi.msi header.dx-head{grid-template-columns:1fr}
+.msi.msi header.dx-head::after{content:none;display:none}
+.msi.msi header.dx-head .lede{max-width:72ch}
+.msi.msi .dx-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.msi.msi .dx-actions .btn{min-height:44px}
+.msi.msi .dx-h{font-size:22px;margin:0 0 var(--s2)}
+.msi.msi .dx-lim{color:var(--text-muted)}
+.msi.msi .dx-src{margin:var(--s3) 0 0;font-size:13px}
+.msi.msi .dx-src a{color:var(--cta-text,var(--cta));text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+.msi.msi .dx-phs{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:var(--s4)}
+.msi.msi .dx-ph{border-style:dashed;margin:0}
+.msi.msi .dx-ph .kicker{margin:0 0 6px}
+.msi.msi .note.take.dx-pending>.lbl{color:var(--text-muted)}
+.msi.msi .dx-dl{display:grid;grid-template-columns:minmax(10em,14em) 1fr;gap:8px 18px;margin:var(--s3) 0 0}
+.msi.msi .dx-dl dt{color:var(--text-tertiary);font-weight:600}
+.msi.msi .dx-dl dd{margin:0;color:var(--text-body,var(--text))}
+.msi.msi .dx-cmp th[scope="row"]{text-align:left;font-weight:600}
+.msi.msi .dx-cmp td.wrap-cell{min-width:11em}
+.msi.msi .dx-cmp td.dx-miss{color:var(--text-muted)}
+.msi.msi a:focus-visible,.msi.msi summary:focus-visible{outline:2px solid var(--cta);outline-offset:2px}
+@media(max-width:720px){
+.msi.msi .dx-dl{grid-template-columns:1fr;gap:2px}
+.msi.msi .dx-dl dd{margin-bottom:10px}
+.msi.msi .dx-actions .btn{flex:1 1 100%;justify-content:center}
+}
+</style>
+<script data-dx-track>
+document.addEventListener('DOMContentLoaded',function(){
+  function push(o){try{window.dataLayer=window.dataLayer||[];window.dataLayer.push(o);}catch(e){}}
+  document.querySelectorAll('[data-review-cta^="research_"]').forEach(function(a){a.addEventListener('click',function(){push({event:'review_cta_click',entry_point:a.getAttribute('data-review-cta')});});});
+  document.querySelectorAll('[data-research-service]').forEach(function(a){a.addEventListener('click',function(){push({event:'research_service_click',research_page:'dental-index',service:a.getAttribute('data-research-service')});});});
+});
+</script>

@@ -1,0 +1,946 @@
+{
+ "https://studiobdental.ca/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "form_fields[name]",
+     "type": "text",
+     "placeholder": "Name",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[email]",
+     "type": "email",
+     "placeholder": "Email",
+     "required": "required",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_1162092]",
+     "type": "number",
+     "placeholder": "Phone",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_189c1e1]",
+     "type": "file",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_0f809d8]",
+     "type": "file",
+     "tag": "input"
+    }
+   ]
+  },
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "form_fields[name]",
+     "type": "text",
+     "placeholder": "Name",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[email]",
+     "type": "email",
+     "placeholder": "Email",
+     "required": "required",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_1162092]",
+     "type": "number",
+     "placeholder": "Phone",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_189c1e1][]",
+     "type": "file",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_0f809d8][]",
+     "type": "file",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://www.smile-by-design.ca/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "name",
+     "type": "text",
+     "placeholder": "Name: *",
+     "tag": "input"
+    },
+    {
+     "name": "phone",
+     "type": "tel",
+     "placeholder": "Phone: *",
+     "tag": "input"
+    },
+    {
+     "name": "email",
+     "type": "email",
+     "placeholder": "Email: *",
+     "tag": "input"
+    },
+    {
+     "name": "message",
+     "placeholder": "How can we help you:",
+     "tag": "textarea"
+    }
+   ]
+  },
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "name",
+     "type": "text",
+     "placeholder": "Name: *",
+     "tag": "input"
+    },
+    {
+     "name": "phone",
+     "type": "tel",
+     "placeholder": "Phone: *",
+     "tag": "input"
+    },
+    {
+     "name": "email",
+     "type": "email",
+     "placeholder": "Email: *",
+     "tag": "input"
+    },
+    {
+     "name": "location",
+     "tag": "select"
+    },
+    {
+     "name": "date",
+     "type": "text",
+     "placeholder": "Preferred Date:",
+     "tag": "input"
+    },
+    {
+     "name": "time",
+     "tag": "select"
+    },
+    {
+     "name": "message",
+     "placeholder": "How can we help you:",
+     "tag": "textarea"
+    }
+   ]
+  }
+ ],
+ "https://www.drgajjar.com/": [
+  {
+   "action": "https://www.drgajjar.com",
+   "fields": [
+    {
+     "name": "s",
+     "type": "search",
+     "placeholder": "Type to search...",
+     "aria-label": "search",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://studiobdental.ca/dental-implants-toronto/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "form_fields[name]",
+     "type": "text",
+     "placeholder": "Name",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[email]",
+     "type": "email",
+     "placeholder": "Email",
+     "required": "required",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_1162092]",
+     "type": "number",
+     "placeholder": "Phone",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_189c1e1][]",
+     "type": "file",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_0f809d8][]",
+     "type": "file",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://studiobdental.ca/dental-implants/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "form_fields[name]",
+     "type": "text",
+     "placeholder": "Name",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[email]",
+     "type": "email",
+     "placeholder": "Email",
+     "required": "required",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_1162092]",
+     "type": "number",
+     "placeholder": "Phone",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_189c1e1][]",
+     "type": "file",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_0f809d8][]",
+     "type": "file",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://studiobdental.ca/toronto-dental-implants/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "form_fields[name]",
+     "type": "text",
+     "placeholder": "Name",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[email]",
+     "type": "email",
+     "placeholder": "Email",
+     "required": "required",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_1162092]",
+     "type": "number",
+     "placeholder": "Phone",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_189c1e1][]",
+     "type": "file",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_0f809d8][]",
+     "type": "file",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://studiobdental.ca/teeth-in-1-day-same-day-dental-implants/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "form_fields[name]",
+     "type": "text",
+     "placeholder": "Name",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[email]",
+     "type": "email",
+     "placeholder": "Email",
+     "required": "required",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_1162092]",
+     "type": "number",
+     "placeholder": "Phone",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_189c1e1][]",
+     "type": "file",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_0f809d8][]",
+     "type": "file",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://studiobdental.ca/need-to-know-dental-implants/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "form_fields[name]",
+     "type": "text",
+     "placeholder": "Name",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[email]",
+     "type": "email",
+     "placeholder": "Email",
+     "required": "required",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_1162092]",
+     "type": "number",
+     "placeholder": "Phone",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_189c1e1][]",
+     "type": "file",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_0f809d8][]",
+     "type": "file",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://studiobdental.ca/financing/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "form_fields[name]",
+     "type": "text",
+     "placeholder": "Name",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[email]",
+     "type": "email",
+     "placeholder": "Email",
+     "required": "required",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_1162092]",
+     "type": "number",
+     "placeholder": "Phone",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_189c1e1][]",
+     "type": "file",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_0f809d8][]",
+     "type": "file",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://studiobdental.ca/contact-us/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "form_fields[name]",
+     "type": "text",
+     "placeholder": "Name",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[email]",
+     "type": "email",
+     "placeholder": "Email",
+     "required": "required",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_1162092]",
+     "type": "number",
+     "placeholder": "Phone",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_189c1e1][]",
+     "type": "file",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_0f809d8][]",
+     "type": "file",
+     "tag": "input"
+    }
+   ]
+  },
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "form_fields[name]",
+     "type": "text",
+     "placeholder": "Name",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[email]",
+     "type": "email",
+     "placeholder": "Email",
+     "required": "required",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_1162092]",
+     "type": "number",
+     "placeholder": "Phone",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_189c1e1][]",
+     "type": "file",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_0f809d8][]",
+     "type": "file",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://www.smile-by-design.ca/procedures/dental-implants/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "name",
+     "type": "text",
+     "placeholder": "Name: *",
+     "tag": "input"
+    },
+    {
+     "name": "phone",
+     "type": "tel",
+     "placeholder": "Phone: *",
+     "tag": "input"
+    },
+    {
+     "name": "email",
+     "type": "email",
+     "placeholder": "Email: *",
+     "tag": "input"
+    },
+    {
+     "name": "location",
+     "tag": "select"
+    },
+    {
+     "name": "date",
+     "type": "text",
+     "placeholder": "Preferred Date:",
+     "tag": "input"
+    },
+    {
+     "name": "time",
+     "tag": "select"
+    },
+    {
+     "name": "message",
+     "placeholder": "How can we help you:",
+     "tag": "textarea"
+    }
+   ]
+  }
+ ],
+ "https://www.smile-by-design.ca/procedures/all-on-x-dental-implants/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "name",
+     "type": "text",
+     "placeholder": "Name: *",
+     "tag": "input"
+    },
+    {
+     "name": "phone",
+     "type": "tel",
+     "placeholder": "Phone: *",
+     "tag": "input"
+    },
+    {
+     "name": "email",
+     "type": "email",
+     "placeholder": "Email: *",
+     "tag": "input"
+    },
+    {
+     "name": "location",
+     "tag": "select"
+    },
+    {
+     "name": "date",
+     "type": "text",
+     "placeholder": "Preferred Date:",
+     "tag": "input"
+    },
+    {
+     "name": "time",
+     "tag": "select"
+    },
+    {
+     "name": "message",
+     "placeholder": "How can we help you:",
+     "tag": "textarea"
+    }
+   ]
+  }
+ ],
+ "https://www.smile-by-design.ca/procedures/all-on-four/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "name",
+     "type": "text",
+     "placeholder": "Name: *",
+     "tag": "input"
+    },
+    {
+     "name": "phone",
+     "type": "tel",
+     "placeholder": "Phone: *",
+     "tag": "input"
+    },
+    {
+     "name": "email",
+     "type": "email",
+     "placeholder": "Email: *",
+     "tag": "input"
+    },
+    {
+     "name": "location",
+     "tag": "select"
+    },
+    {
+     "name": "date",
+     "type": "text",
+     "placeholder": "Preferred Date:",
+     "tag": "input"
+    },
+    {
+     "name": "time",
+     "tag": "select"
+    },
+    {
+     "name": "message",
+     "placeholder": "How can we help you:",
+     "tag": "textarea"
+    }
+   ]
+  }
+ ],
+ "https://www.smile-by-design.ca/financing/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "name",
+     "type": "text",
+     "placeholder": "Name: *",
+     "tag": "input"
+    },
+    {
+     "name": "phone",
+     "type": "tel",
+     "placeholder": "Phone: *",
+     "tag": "input"
+    },
+    {
+     "name": "email",
+     "type": "email",
+     "placeholder": "Email: *",
+     "tag": "input"
+    },
+    {
+     "name": "location",
+     "tag": "select"
+    },
+    {
+     "name": "date",
+     "type": "text",
+     "placeholder": "Preferred Date:",
+     "tag": "input"
+    },
+    {
+     "name": "time",
+     "tag": "select"
+    },
+    {
+     "name": "message",
+     "placeholder": "How can we help you:",
+     "tag": "textarea"
+    }
+   ]
+  }
+ ],
+ "https://www.smile-by-design.ca/contact/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "name",
+     "type": "text",
+     "placeholder": "Name: *",
+     "tag": "input"
+    },
+    {
+     "name": "phone",
+     "type": "tel",
+     "placeholder": "Phone: *",
+     "tag": "input"
+    },
+    {
+     "name": "email",
+     "type": "email",
+     "placeholder": "Email: *",
+     "tag": "input"
+    },
+    {
+     "name": "message",
+     "placeholder": "How can we help you:",
+     "tag": "textarea"
+    }
+   ]
+  },
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "name",
+     "type": "text",
+     "placeholder": "Name: *",
+     "tag": "input"
+    },
+    {
+     "name": "phone",
+     "type": "tel",
+     "placeholder": "Phone: *",
+     "tag": "input"
+    },
+    {
+     "name": "email",
+     "type": "email",
+     "placeholder": "Email: *",
+     "tag": "input"
+    },
+    {
+     "name": "location",
+     "tag": "select"
+    },
+    {
+     "name": "date",
+     "type": "text",
+     "placeholder": "Preferred Date:",
+     "tag": "input"
+    },
+    {
+     "name": "time",
+     "tag": "select"
+    },
+    {
+     "name": "message",
+     "placeholder": "How can we help you:",
+     "tag": "textarea"
+    }
+   ]
+  }
+ ],
+ "https://www.drgajjar.com/dental-implants-all-on-x/": [
+  {
+   "action": "https://www.drgajjar.com",
+   "fields": [
+    {
+     "name": "s",
+     "type": "search",
+     "placeholder": "Type to search...",
+     "aria-label": "search",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://www.drgajjar.com/appointment-request/": [
+  {
+   "action": "https://www.ekwa.com/ekwa-wufoo-handler/en-no-recaptcha.php",
+   "fields": [
+    {
+     "name": "website_url",
+     "type": "text",
+     "tag": "input"
+    },
+    {
+     "name": "Field24",
+     "type": "text",
+     "placeholder": "Select a date",
+     "tag": "input"
+    },
+    {
+     "name": "Field5",
+     "tag": "select"
+    },
+    {
+     "name": "Field230",
+     "tag": "select"
+    },
+    {
+     "name": "Field6",
+     "type": "text",
+     "placeholder": "Your name",
+     "tag": "input"
+    },
+    {
+     "name": "Field7",
+     "type": "email",
+     "placeholder": "Email address",
+     "tag": "input"
+    },
+    {
+     "name": "Field128",
+     "type": "tel",
+     "placeholder": "(111)-111-1111",
+     "tag": "input"
+    },
+    {
+     "name": "Field10",
+     "placeholder": "Enter your message...",
+     "tag": "textarea"
+    },
+    {
+     "name": "Field27",
+     "type": "checkbox",
+     "tag": "input"
+    }
+   ]
+  },
+  {
+   "action": "https://www.drgajjar.com",
+   "fields": [
+    {
+     "name": "s",
+     "type": "search",
+     "placeholder": "Type to search...",
+     "aria-label": "search",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://www.drgajjar.com/contact-us/": [
+  {
+   "action": "https://www.ekwa.com/ekwa-wufoo-handler/en-no-recaptcha.php",
+   "fields": [
+    {
+     "name": "website_url",
+     "type": "text",
+     "tag": "input"
+    },
+    {
+     "name": "Field6",
+     "type": "text",
+     "placeholder": "John Doe",
+     "tag": "input"
+    },
+    {
+     "name": "Field17",
+     "type": "email",
+     "placeholder": "youremail@gmail.com",
+     "tag": "input"
+    },
+    {
+     "name": "Field18",
+     "type": "tel",
+     "placeholder": "(111) 111-1111",
+     "tag": "input"
+    },
+    {
+     "name": "Field10",
+     "placeholder": "Enter your message...",
+     "tag": "textarea"
+    },
+    {
+     "name": "Field20",
+     "type": "checkbox",
+     "tag": "input"
+    }
+   ]
+  },
+  {
+   "action": "https://www.drgajjar.com",
+   "fields": [
+    {
+     "name": "s",
+     "type": "search",
+     "placeholder": "Type to search...",
+     "aria-label": "search",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://studiobdental.ca/zirconia-dental-implants/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "form_fields[name]",
+     "type": "text",
+     "placeholder": "Name",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[email]",
+     "type": "email",
+     "placeholder": "Email",
+     "required": "required",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_1162092]",
+     "type": "number",
+     "placeholder": "Phone",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_189c1e1][]",
+     "type": "file",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_0f809d8][]",
+     "type": "file",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://www.drgajjar.com/smile-gallery/": [
+  {
+   "action": "https://www.drgajjar.com",
+   "fields": [
+    {
+     "name": "s",
+     "type": "search",
+     "placeholder": "Type to search...",
+     "aria-label": "search",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://studiobdental.ca/full-mouth-restoration/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "form_fields[name]",
+     "type": "text",
+     "placeholder": "Name",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[email]",
+     "type": "email",
+     "placeholder": "Email",
+     "required": "required",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_1162092]",
+     "type": "number",
+     "placeholder": "Phone",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_189c1e1][]",
+     "type": "file",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_0f809d8][]",
+     "type": "file",
+     "tag": "input"
+    }
+   ]
+  }
+ ],
+ "https://studiobdental.ca/what-to-expect/": [
+  {
+   "action": null,
+   "fields": [
+    {
+     "name": "form_fields[name]",
+     "type": "text",
+     "placeholder": "Name",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[email]",
+     "type": "email",
+     "placeholder": "Email",
+     "required": "required",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_1162092]",
+     "type": "number",
+     "placeholder": "Phone",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_189c1e1][]",
+     "type": "file",
+     "tag": "input"
+    },
+    {
+     "name": "form_fields[field_0f809d8][]",
+     "type": "file",
+     "tag": "input"
+    }
+   ]
+  }
+ ]
+}

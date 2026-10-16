@@ -1,0 +1,12 @@
+{
+ "edition": "001",
+ "note": "Unverified leads only. Never shown on the page as findings and never counted in figures. Each lead must be confirmed on the live official website in a browser check before it becomes an observation.",
+ "blocked_fetches": [
+  {"clinic": "dundas", "url": "https://dundaseastdental.com/", "result": "HTTP 403 Forbidden to the standard-library fetcher at 2026-10-16T18:14:33Z; the WebFetch tool returned an empty page."},
+  {"clinic": "bond", "url": "https://www.dentalimplantsclinic.ca/", "result": "HTTP 403 with a Cloudflare \"Just a moment...\" challenge at 2026-10-16T18:14:34Z; the WebFetch tool also received HTTP 403. The challenge was not bypassed."}
+ ],
+ "leads": [
+  {"clinic": "dundas", "source": "Exa web_fetch cached copy of https://dundaseastdental.com/, retrieved 2026-10-16; the cache date was not returned", "points": ["Page title reads \"Dental Implants Toronto | At Dundas East Dental\".", "Presents Dr. Ammar Taimish as the dentist overseeing implant procedures, with All-on-4 and Teeth-in-a-Day for loose dentures and failing teeth.", "Shows several all-inclusive full-arch prices.", "Displayed reviews name other clinics (Norton Dental Centre, Northland Dental Vaughan), so the clinician's location scope needs confirming."]},
+  {"clinic": "bond", "source": "Exa web_fetch cached copy of https://www.dentalimplantsclinic.ca/, retrieved 2026-10-16; the cache date was not returned", "points": ["Text names Bond Street Dental as an approved facility and refers to \"the bond street implants clinic in Toronto\".", "Leads with a dental implant price for the surgical phase only, with additional fees that may apply.", "Displays a Google review count and selected reviews.", "Mentions a location a few minutes from Yonge-Dundas Square and opening seven days a week."]}
+ ]
+}

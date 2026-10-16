@@ -1,0 +1,20 @@
+{
+ "note": "Dental Implant Marketing Index cohort (founder brief, 16 October 2026): five selected Ontario dental clinics, compared for how they present and promote implant consultations. A fixed editorial selection, not a ranking and not a sample of Ontario dentistry. Never substitute, add or drop a clinic silently; a clinic that cannot be verified stays in the cohort with its limitation. Reserve candidates are recorded for possible later editions only and never appear on the page.",
+ "since_edition": "001",
+ "scope": "Ontario, initial comparison focused on the Greater Toronto Area",
+ "clinics": [
+  {"alias": "studiob", "name": "Studio B Dental", "official_url": "https://studiobdental.ca/", "domain": "studiobdental.ca", "city": "North York (Toronto)", "identity_note": "Clinic account and website; Dr. Charles Botbol (\"Dr. B\") is presented as the clinic's lead implant dentist. His personal accounts are not part of this research."},
+  {"alias": "nysc", "name": "North York Smile Centre", "official_url": "https://www.smile-by-design.ca/", "domain": "smile-by-design.ca", "city": "North York (Toronto)", "identity_note": "North York Smile Centre and Smile By Design are the same practice in this research (the smile-by-design.ca website is titled North York Smile Centre). Counted once."},
+  {"alias": "gajjar", "name": "Dr. Neil J. Gajjar Associates & Specialists", "official_url": "https://www.drgajjar.com/", "domain": "drgajjar.com", "city": "Mississauga", "identity_note": "Practice website and the accounts it links. Dr. Gajjar's personal LinkedIn profile is linked from the site but is not a clinic account."},
+  {"alias": "dundas", "name": "Dundas East Dental", "official_url": "https://dundaseastdental.com/", "domain": "dundaseastdental.com", "city": "Toronto (to be confirmed)", "identity_note": "Location, clinician and accounts to be confirmed on the live website in a browser check."},
+  {"alias": "bond", "name": "Bond Street Dental", "official_url": "https://www.dentalimplantsclinic.ca/", "domain": "dentalimplantsclinic.ca", "city": "Toronto (to be confirmed)", "identity_note": "The founder brief states that dentalimplantsclinic.ca identifies Bond Street Dental. That relationship must be confirmed on the live website in a browser check before any content is attributed."}
+ ],
+ "reserves": [
+  {"name": "Chrysalis Dental Centres", "url": "https://chrysaliscanada.com/"},
+  {"name": "Revive Smiles", "url": "https://www.reviveimplant.ca/"},
+  {"name": "City Dental on Bay", "url": "https://citydentaltoronto.com/"},
+  {"name": "Southcommon Dental", "url": "https://www.southcommondental.com/"},
+  {"name": "Dawson Dental", "url": "https://www.dawsondental.ca/"}
+ ],
+ "out_of_scope": "HVAC and mortgage brokerages are future topics, not part of this Index."
+}

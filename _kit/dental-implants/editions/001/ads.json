@@ -1,0 +1,160 @@
+{
+ "edition": "001",
+ "note": "Advertising evidence. Status values: relevant_ads_observed, no_matching_ads_found, advertiser_uncertain, not_checked, access_blocked. A documented search with no result does not show that a clinic never advertises. Nothing here estimates spend, targeting or performance.",
+ "checks": {
+  "studiob": {
+   "meta": {
+    "status": "not_checked",
+    "reason": "Interactive check assigned to Chrome; not run in this session.",
+    "search_terms": [
+     "Studio B Dental"
+    ],
+    "filters": "Country: Canada; ad category: all ads; active status: all",
+    "prepared_urls": [
+     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Studio%20B%20Dental&search_type=keyword_exact_phrase"
+    ],
+    "searched_at": null,
+    "advertiser": null,
+    "evidence": []
+   },
+   "google": {
+    "status": "not_checked",
+    "reason": "Interactive check assigned to Chrome; not run in this session.",
+    "search_terms": [
+     "studiobdental.ca"
+    ],
+    "filters": "Region: Canada",
+    "prepared_urls": [
+     "https://adstransparency.google.com/?region=CA&domain=studiobdental.ca"
+    ],
+    "searched_at": null,
+    "advertiser": null,
+    "evidence": []
+   }
+  },
+  "nysc": {
+   "meta": {
+    "status": "not_checked",
+    "reason": "Interactive check assigned to Chrome; not run in this session.",
+    "search_terms": [
+     "North York Smile Centre",
+     "Smile By Design"
+    ],
+    "filters": "Country: Canada; ad category: all ads; active status: all",
+    "prepared_urls": [
+     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=North%20York%20Smile%20Centre&search_type=keyword_exact_phrase",
+     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Smile%20By%20Design&search_type=keyword_exact_phrase"
+    ],
+    "searched_at": null,
+    "advertiser": null,
+    "evidence": []
+   },
+   "google": {
+    "status": "not_checked",
+    "reason": "Interactive check assigned to Chrome; not run in this session.",
+    "search_terms": [
+     "smile-by-design.ca"
+    ],
+    "filters": "Region: Canada",
+    "prepared_urls": [
+     "https://adstransparency.google.com/?region=CA&domain=smile-by-design.ca"
+    ],
+    "searched_at": null,
+    "advertiser": null,
+    "evidence": []
+   }
+  },
+  "gajjar": {
+   "meta": {
+    "status": "not_checked",
+    "reason": "Interactive check assigned to Chrome; not run in this session.",
+    "search_terms": [
+     "Dr. Neil J. Gajjar",
+     "Gajjar Dentistry"
+    ],
+    "filters": "Country: Canada; ad category: all ads; active status: all",
+    "prepared_urls": [
+     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Dr.%20Neil%20J.%20Gajjar&search_type=keyword_exact_phrase",
+     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Gajjar%20Dentistry&search_type=keyword_exact_phrase"
+    ],
+    "searched_at": null,
+    "advertiser": null,
+    "evidence": []
+   },
+   "google": {
+    "status": "not_checked",
+    "reason": "Interactive check assigned to Chrome; not run in this session.",
+    "search_terms": [
+     "drgajjar.com"
+    ],
+    "filters": "Region: Canada",
+    "prepared_urls": [
+     "https://adstransparency.google.com/?region=CA&domain=drgajjar.com"
+    ],
+    "searched_at": null,
+    "advertiser": null,
+    "evidence": []
+   }
+  },
+  "dundas": {
+   "meta": {
+    "status": "not_checked",
+    "reason": "Interactive check assigned to Chrome; not run in this session.",
+    "search_terms": [
+     "Dundas East Dental"
+    ],
+    "filters": "Country: Canada; ad category: all ads; active status: all",
+    "prepared_urls": [
+     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Dundas%20East%20Dental&search_type=keyword_exact_phrase"
+    ],
+    "searched_at": null,
+    "advertiser": null,
+    "evidence": []
+   },
+   "google": {
+    "status": "not_checked",
+    "reason": "Interactive check assigned to Chrome; not run in this session.",
+    "search_terms": [
+     "dundaseastdental.com"
+    ],
+    "filters": "Region: Canada",
+    "prepared_urls": [
+     "https://adstransparency.google.com/?region=CA&domain=dundaseastdental.com"
+    ],
+    "searched_at": null,
+    "advertiser": null,
+    "evidence": []
+   }
+  },
+  "bond": {
+   "meta": {
+    "status": "not_checked",
+    "reason": "Interactive check assigned to Chrome; not run in this session.",
+    "search_terms": [
+     "Bond Street Dental"
+    ],
+    "filters": "Country: Canada; ad category: all ads; active status: all",
+    "prepared_urls": [
+     "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CA&q=Bond%20Street%20Dental&search_type=keyword_exact_phrase"
+    ],
+    "searched_at": null,
+    "advertiser": null,
+    "evidence": []
+   },
+   "google": {
+    "status": "not_checked",
+    "reason": "Interactive check assigned to Chrome; not run in this session.",
+    "search_terms": [
+     "dentalimplantsclinic.ca"
+    ],
+    "filters": "Region: Canada",
+    "prepared_urls": [
+     "https://adstransparency.google.com/?region=CA&domain=dentalimplantsclinic.ca"
+    ],
+    "searched_at": null,
+    "advertiser": null,
+    "evidence": []
+   }
+  }
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "edition": "001",
+ "platform": "Instagram",
+ "status": "not_collected",
+ "collection_started_utc": null,
+ "reason": "No authorised collection method for this study. Paid collection (Apify) is not authorised for the dental study, and a single logged-out request to https://www.instagram.com/studiobdental/ at 2026-10-16T18:19:18Z returned HTTP 429. No login, cookies or workaround were used.",
+ "handles": {
+  "studiob": {
+   "handle": "studiobdental",
+   "status": "verified_link",
+   "source_obs": "sb-ig"
+  },
+  "nysc": {
+   "handle": "northyork.smilecentre",
+   "status": "verified_link",
+   "source_obs": "ny-ig"
+  },
+  "gajjar": {
+   "handle": "gajjardentistry",
+   "status": "verified_link",
+   "source_obs": "gj-ig"
+  },
+  "dundas": {
+   "handle": null,
+   "status": "not_verified",
+   "reason": "Official website blocked automated access; handle not confirmed."
+  },
+  "bond": {
+   "handle": null,
+   "status": "not_verified",
+   "reason": "Official website blocked automated access; handle not confirmed."
+  }
+ },
+ "posts": [],
+ "public_reason": "Instagram posts have not been collected for this draft. A logged-out request to Instagram on 16 October 2026 was refused, and I do not log in or work around access limits."
+}

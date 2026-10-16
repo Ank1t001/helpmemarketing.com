@@ -1,0 +1,14 @@
+{
+ "edition": "001",
+ "status": "draft",
+ "timezone": "America/Toronto",
+ "window_rule": "the last 30 complete calendar days in America/Toronto before the social collection date; computed by build.py from social.json collection_started_utc, or from the website collection time while social collection has not run",
+ "snapshot_path": "/dental-index/edition-001",
+ "release_requirements": [
+  "all five clinic websites reviewed live and identities confirmed (no clinic left as a lead only)",
+  "Instagram posts collected for the window for every verified handle, or each gap recorded as a reviewed limitation",
+  "Meta Ad Library and Google Ads Transparency Center checked for all five clinics (any status other than not checked)",
+  "founder review of the reading and the three tests",
+  "research_dental added to the deployed forms script entry list"
+ ]
+}
