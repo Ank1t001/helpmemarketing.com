@@ -6035,3 +6035,9 @@ body.redesign-prototype .ix-dates dt { color: var(--text-tertiary); }
 body.redesign-prototype .ix-dates dd { margin: 0; color: var(--text-body); }
 body.redesign-prototype .ix-note { margin: 24px 0 0; max-width: 760px; font-size: 15px; line-height: 1.6; color: var(--text-body); }
 @media (max-width: 720px) { body.redesign-prototype .ix-dates div { grid-template-columns: 1fr; gap: 2px; } }
+/* HMM Index cards, compact (2026-10-16): index artwork at 2:1, the two dates side by side, no bullet list. */
+body.redesign-prototype .ix-card .wk-tool-shot { aspect-ratio: 2 / 1; }
+body.redesign-prototype .ix-card .wk-tool-shot img { object-position: center; }
+body.redesign-prototype .ix-card .ix-dates { grid-template-columns: 1fr 1fr; gap: 12px 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+body.redesign-prototype .ix-card .ix-dates div { display: block; font-size: 13.5px; line-height: 1.45; }
+body.redesign-prototype .ix-card .ix-dates dt { margin-bottom: 2px; font-size: 12px; }

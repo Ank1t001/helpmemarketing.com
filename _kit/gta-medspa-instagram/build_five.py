@@ -694,7 +694,7 @@ def hub_texts(latest, pubs):
                    f"editions {first} onward use the same accounts and method, so a change between them is an observation, not a trend. " + lg["limits"])
     t["learn"] = f"Edition {L}: what five clinics posted, the response each received and practical tests for your own account. " + lg["learn"]
     t["ix-latest"] = f"Edition {L}, collected {long_date(latest['collected_on'])}"
-    t["ix-pts1"] = f"Five accounts selected; {'all five' if not ur_ else WORDS[len(rd_)]} readable, with {rng} posts each in the window"
+    t["ix-pts1"] = f"{'All five' if not ur_ else WORDS[len(rd_)].capitalize() + ' of five'} readable, {rng} posts each in the window"
     return t
 
 
@@ -707,9 +707,9 @@ def restriction_for(ed, h):
 def schedule_dl(latest_text, collected):
     sc = COH["schedule"]
     if sc.get("active"):
-        return (f'<div><dt>Refresh plan</dt><dd>Monthly, collection scheduled on the {sc["day"]}th</dd></div><div><dt>Latest published data</dt><dd>{latest_text}</dd></div>'
+        return (f'<div><dt>Latest published data</dt><dd>{latest_text}</dd></div>'
                 f'<div><dt>Next scheduled collection</dt><dd data-ix-next="{sc["day"]}" data-ix-tz="America/Toronto" data-ix-latest="{collected}">The {sc["day"]}th of each month</dd></div>')
-    return (f'<div><dt>Refresh plan</dt><dd>Re-collect the same five accounts; timing to be confirmed</dd></div><div><dt>Latest published data</dt><dd>{latest_text}</dd></div>'
+    return (f'<div><dt>Latest published data</dt><dd>{latest_text}</dd></div>'
             '<div><dt>Next scheduled collection</dt><dd>To be confirmed</dd></div>')
 
 
