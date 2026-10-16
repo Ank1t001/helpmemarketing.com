@@ -1,11 +1,16 @@
 {
  "built_at": "2026-10-16",
- "source": "top 10 Ontario hair loss clinics, edition 002",
- "note": "Founder decision (2026-10-16): the ten Ontario hair loss clinics (medical, non-surgical and hair transplant clinics; no wig shops, extension salons or pigment artists) with the largest Instagram accounts that posted in the 90 days before selection, chosen by follower count on 16 October 2026 from 25 candidates whose handle is linked from the clinic's own website. Clinic accounts only: no US corporate accounts or surgeons' personal accounts. Two groups: TRANSPLANT (offers hair transplant surgery) and NON-SURGICAL. Change it only with Ankit's approval; a clinic that stops posting stays on the board. Edition 001 used a different roster (editions/001/roster.json).",
+ "source": "the seven largest active Ontario hair loss clinic accounts, edition 002",
+ "note": "Founder decisions (16 October 2026): the seven Ontario hair loss clinics (medical, non-surgical and hair transplant clinics; no wig shops, extension salons or pigment artists) with the largest Instagram accounts that published at least five posts in the 90 days ending 16 October 2026. Chosen by follower count from 25 candidates whose handle is linked from the clinic's own website; clinic accounts only, no US corporate accounts or surgeons' personal accounts. The ten largest were selected first; Alopecia & Beyond, Hair Transplant Medical Centre and Hair Transplant Centre Toronto published fewer than five posts and were removed the same day (the edition 002 snapshot keeps the ten-clinic version first published). Two groups: TRANSPLANT (offers hair transplant surgery) and NON-SURGICAL. Change it only with Ankit's approval; a clinic that later posts fewer than five times stays on the board, shown as not ranked. Edition 001 used a different roster (editions/001/roster.json).",
  "selection": {
   "date": "2026-10-16",
   "rule": "followers, Ontario clinic account, posted in the last 90 days",
-  "profiles_run": "apify/instagram-profile-scraper OdgeAtFRHeZLEdgV0"
+  "profiles_run": "apify/instagram-profile-scraper OdgeAtFRHeZLEdgV0",
+  "removed": [
+   "Alopecia & Beyond",
+   "Hair Transplant Centre Toronto",
+   "Hair Transplant Medical Centre"
+  ]
  },
  "brands": [
   {
@@ -70,33 +75,6 @@
    ],
    "frame_slug": "cadmen-clinic",
    "city": "Toronto, Mississauga and Vaughan"
-  },
-  {
-   "name": "Hair Transplant Centre Toronto",
-   "group": "TRANSPLANT",
-   "handles": [
-    "torontohairtransplantcentre"
-   ],
-   "frame_slug": "hair-transplant-centre-toronto",
-   "city": "Toronto"
-  },
-  {
-   "name": "Alopecia & Beyond",
-   "group": "NON-SURGICAL",
-   "handles": [
-    "alopeciaandbeyond"
-   ],
-   "frame_slug": "alopecia-and-beyond",
-   "city": "Vaughan"
-  },
-  {
-   "name": "Hair Transplant Medical Centre",
-   "group": "TRANSPLANT",
-   "handles": [
-    "hairtransplantmc"
-   ],
-   "frame_slug": "hair-transplant-medical-centre",
-   "city": "Mississauga"
   }
  ]
 }
