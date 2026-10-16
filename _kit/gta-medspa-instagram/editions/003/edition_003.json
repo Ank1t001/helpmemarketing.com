@@ -10,10 +10,10 @@
  "timezone": "America/Toronto",
  "cohort": "editions/003/accounts.json",
  "published_at": "2026-10-15T19:45:51.300+00:00",
- "modified_at": "2026-10-16T00:32:55.106+00:00",
+ "modified_at": "2026-10-16T00:42:32.640+00:00",
  "snapshot_path": "/medspa-index/edition-003",
  "note": "Edition 003 is a deliberately selected five-account comparison. It is not published: no publication date is recorded and no snapshot exists until build_003.py --target release is run with --published-at from the production deployment.",
- "modified_at_source": "production deployment dpl_Dnqd8jdbWPYYU6fNzxkVUwaK9D7G (commit fc369b2) ready 2026-10-16T00:32:55.106+00:00",
+ "modified_at_source": "production deployment dpl_14qJTcXq7J1TtyChmvFmLheQ5HqX (commit 6afdc0b) ready 2026-10-16T00:42:32.640+00:00",
  "hub_modified_at": "2026-10-15T19:45:51.300+00:00",
  "clarifications": [
   {
@@ -34,6 +34,16 @@
    "deployment": "dpl_Dnqd8jdbWPYYU6fNzxkVUwaK9D7G",
    "ready": "2026-10-16T00:32:55.106+00:00",
    "note": "Layout and UX pass (audit items 1 to 14): new visible text is the help-section review button and the table hint for phones; no figure, finding or collection date changed; snapshot and hub unchanged."
+  },
+  {
+   "date": "2026-10-16",
+   "commits": [
+    "626cd12",
+    "6afdc0b"
+   ],
+   "deployment": "dpl_14qJTcXq7J1TtyChmvFmLheQ5HqX",
+   "ready": "2026-10-16T00:42:32.640+00:00",
+   "note": "Content hierarchy pass: 'Before comparing the numbers' note and 'Download the data' line under the comparison table, a pointer to the note in finding 2, services matrix in a disclosure; header unchanged (founder decision); no figure changed; snapshot and hub unchanged."
   }
  ]
 }
