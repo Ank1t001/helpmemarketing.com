@@ -54,6 +54,8 @@ STEP 7, WRITE THE READING (editions/NNN/narrative.json)
 Run python3 build_five.py --edition NNN --tokens to list every figure available, with its value. Then write narrative.json fresh for this edition. Read the previous edition's narrative.json (or, for edition 004, the edition 003 page) for structure and tone only: never carry a sentence that describes last month's posts.
 Shape:
 {"edition": "NNN",
+ "hero": "one or two short sentences: the single most interesting observation of this edition, with its figures as tokens and, where accounts differ in subject or size, a plain note that it is a difference to read, not a ranking",
+ "comparability": "what makes the accounts' numbers not like-for-like this month (subjects, audiences, post counts), ending with: read each account against its own median, not as a league table",
  "findings": [three of {"title": "...", "text": "... <b>Denominator:</b> ..."}],
  "findings_takeaway": "...",
  "accounts": {alias: {"blocks": [["What it published", "..."], ["Interpretation", "..."], ["Limitation", "..."], ["One test", "..."]], "takeaway": "..."}} for exactly the readable accounts (aliases in cohort_five.json; "Observed gap" may replace "Interpretation" when the observation is a posting gap),
@@ -62,6 +64,7 @@ Shape:
 Rules (the build enforces the first four):
 - Every figure is a token: {{a.vit.posts_in_window}}, {{s.sig.likes}}, {{p.posts_all}}, {{r.sig.vit.median_plays}} (ratio), {{prev.vit.posts_in_window}} (previous edition), {{a.las.gap_days}}, {{a.spa.before1}} (date of the last post before the window). Small counts in words: {{w.p.readable}} gives "four", {{W.p.readable}} "Four". Never type a figure; quoted numbers only via literal_numbers.
 - No "we", "our" or "us"; no em or en dash; none of: viral, winning, the best, top-performing, leverage, unlock, supercharge.
+- The hero sentence leads the page: an observation, never a cause, a ranking or a recommendation; it must repeat a figure that also appears in the findings.
 - Each finding states its denominator. Each test title ends with "(finding N)" and its measure names what to read and when (for example saves seven days after posting).
 - Separate observation from interpretation. Never claim a cause, a reason the clinic did something, bookings or enquiries. A posting gap is reported with its dates and "the reason is not known from public data". Comments are not bookings; a play is a view, not a person; boosting cannot be seen.
 - A comparison with the previous edition uses prev.* tokens, says "compared with edition PPP", and is an observation, not a trend.

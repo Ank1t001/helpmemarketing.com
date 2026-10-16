@@ -1,6 +1,6 @@
 <!-- Med Spa Index, five-account editions from 004: fixed page structure. build_five.py fills {{tokens}} from the data and {{BLOCK:...}} from the data and editions/NNN/narrative.json. Edit structure here only with the founder's approval; the monthly reading goes in narrative.json. -->
 <div class="wrap">
-<header><p class="kicker">The HMM Index &middot; Instagram</p><h1>Med Spa Index</h1><p class="lede">What five selected Ontario med spas posted on Instagram, the public response those posts received, and what another clinic could learn from it. A side-by-side reading of {{a.vit.brand}}, {{a.sig.brand}}, {{a.las.brand}}, {{a.skv.brand}} and {{a.spa.brand}}.</p>
+<header><p class="kicker">The HMM Index &middot; Instagram</p><h1>Med Spa Index</h1><p class="hero-find">{{BLOCK:HERO}}</p><p class="lede">What five selected Ontario med spas posted on Instagram, the public response those posts received, and what another clinic could learn from it. A side-by-side reading of {{a.vit.brand}}, {{a.sig.brand}}, {{a.las.brand}}, {{a.skv.brand}} and {{a.spa.brand}}.</p>
 <div class="byline"><span><b>Reporting window</b> {{WSTART}} to {{WEND}}</span><span>For Ontario clinic owners reviewing their marketing.</span><span>Research and analysis by <b><a href="/about">Ankit Kumar</a></b> &middot; Founder, <a href="/">HMM</a></span></div>
 <div class="livebar"><span>Data collected <b>{{COLLECTED}}</b></span><span>Edition <b>{{EDITION}}</b></span></div></header>
 <nav class="ri-nav" aria-label="On this page"><a href="#ri-findings">What stood out</a><a href="#ri-table">Comparison</a><a href="#ri-standouts">Standout posts</a><a href="#ri-accounts">Each account</a><a href="#ri-patterns">Patterns</a><a href="#ri-tests">Tests to run</a><a href="#ri-method">Method</a></nav>
@@ -18,12 +18,15 @@
 {{BLOCK:TABLE_ROWS}}
 </tbody></table></div>
 <p class="pnote"><b>Definitions.</b> Followers were captured on {{CAPTURE}}. Posts in window are every post on the feed published between {{WSTART}} and {{WEND}} (Toronto time), collaboration posts included. Format mix, likes, comments and plays use only posts the account published itself. Median likes use posts where likes were visible; hidden likes are left out, never counted as zero. Median reel plays use own reels with a recorded play count. Sorting by format mix sorts by reels. There is no score and no rank, and with three or fewer posts a median describes very little.</p>
-<h3>Services listed on each brand&rsquo;s website</h3>
+<div class="note cmpnote"><span class="lbl">Before comparing the numbers</span><p>{{BLOCK:COMPARABILITY}}</p></div>
+<p class="pnote dlinks"><b>Download the data:</b> <a href="/assets/index/medspa/medspa-index-edition-{{EDITION}}-posts.csv">every post in the window (CSV)</a> and <a href="/assets/index/medspa/medspa-index-edition-{{EDITION}}-accounts.csv">the account summary (CSV)</a>. Captions are not included; each row links to its post.</p>
+<details class="ri-adv svcs"><summary>Services listed on each brand&rsquo;s website</summary>
 <p class="dek">Secondary context, checked on the official websites on {{SERVICES_CHECKED}}. A listed service says nothing about whether it was promoted on Instagram, and one location&rsquo;s menu may not apply to every location. Each entry links to its source.</p>
 <div class="tw cards" tabindex="0" role="region" aria-label="Services table"><table class="svc"><thead><tr><th scope="col">Brand</th><th scope="col">Injectables</th><th scope="col">RF microneedling</th><th scope="col">Body contouring</th><th scope="col">Medical weight loss</th><th scope="col">Laser hair removal</th><th scope="col">IV therapy</th></tr></thead><tbody>
 {{BLOCK:SERVICE_ROWS}}
 </tbody></table></div>
 <p class="pnote">Across the {{p.own_posts}} own posts in the window, captions named injectables in {{m.injectables}}, RF microneedling devices in {{m.rf_microneedling}}, body contouring treatments in {{m.body_contouring}}, a weight loss medication in {{m.medical_weight_loss}}, laser hair removal in {{m.laser_hair_removal}} and IV therapy in {{m.iv_therapy}}. {{BLOCK:ADLIB_SUMMARY}}</p>
+</details>
 </section>
 
 <section id="ri-standouts"><div class="sec-head"><h2>One standout post per account</h2>
