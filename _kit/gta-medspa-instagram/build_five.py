@@ -123,7 +123,8 @@ PROF = {p["username"]: p for p in json.load(__import__("gzip").open(ED / "raw" /
 assert M["edition"] == OBS["edition"] == NNN == NAR.get("edition") == COD.get("edition"), "metrics, observations, coding and narrative must all be for this edition"
 assert M["window"] == OBS["window"] == CFG["window"]
 W0, W1 = (dt.date.fromisoformat(x) for x in CFG["window"])
-assert (W1 - W0).days == 29 and W1 == dt.date.fromisoformat(CFG["collected_on"]) - dt.timedelta(days=1)
+from window_five import window
+assert (W0, W1) == window(CFG["collected_on"]), "the window must be the 15th of the previous month to the 14th (window_five.py)"
 A = {a["handle"]: a for a in ACC}
 assert list(A) == list(ALIAS) == list(M["accounts"]), "the five accounts of cohort_five.json, in order"
 assert set(SV["services"]) == set(ALIAS)
@@ -684,7 +685,8 @@ def hub_texts(latest, pubs):
                   + "".join(f'<a class="wk-tool-cta" href="/medspa-index/edition-{e["edition"]}">Edition {e["edition"]} snapshot</a>' for e in sorted(earlier, key=lambda e: e["edition"], reverse=True))
                   + '<a class="wk-tool-cta" href="/gta-medspa-index/edition-002">Edition 002 snapshot</a><a class="wk-tool-cta" href="/gta-medspa-index/edition-001">Edition 001 snapshot</a>')
     t["geo"] = f"Editions {first} to {L}: the same five Ontario med spa brands, single and multi-location. " + lg["geo"]
-    t["period"] = (f"Edition {L} covers the 30 days from {span(*wl)}, collected on {long_date(latest['collected_on'], False)}. "
+    ndays = (dt.date.fromisoformat(wl[1]) - dt.date.fromisoformat(wl[0])).days + 1
+    t["period"] = (f"Edition {L} covers the {ndays} days from {span(*wl)}, collected on {long_date(latest['collected_on'], False)}. "
                    + "".join(f"Edition {e['edition']} covered {span(*e['window'])}. " for e in sorted(earlier, key=lambda e: e["edition"], reverse=True)) + lg["period"])
     t["sample"] = (f"Editions {first} to {L}: the same five named accounts chosen editorially ({names5})"
                    + ("".join(f"; in edition {L}, Instagram returned {restriction_for(L, h)} for {E(A[h]['brand'])}&rsquo;s profile, so it could not be read" for h in ur_)) + ". " + lg["sample"])

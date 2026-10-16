@@ -60,7 +60,7 @@
 {{BLOCK:ACCOUNT_ROWS}}
 </tbody></table></div></details></section>
 <section><details class="ri-adv"><summary>Window, collection and completeness</summary>
-<p><b>Window.</b> The most recent {{WINDOW_DAYS}} complete calendar days before collection, Toronto time: {{WSTART}} to {{WEND}}, both days included.</p>
+<p><b>Window.</b> Each edition covers the 15th of one month to the 14th of the next, Toronto time, so editions follow on without a gap or an overlap: {{WSTART}} to {{WEND}}, both days included ({{WINDOW_DAYS}} days). Months differ in length, so compare post counts between editions with that in mind; medians are not affected.</p>
 <p><b>Collection.</b> On {{COLLECTED}}, follower counts came from the Apify Instagram profile scraper and posts from the Apify Instagram scraper, all five accounts in the same run, with up to {{x.results_limit}} recent posts per account and no date filter. The post run returned {{x.records}} records. Run caps totalled {{x.caps}} USD; no run reached its cap.</p>
 <p><b>Completeness.</b> For each readable account, the oldest unpinned post returned was published before {{WSTART}}, so the window was covered back to its start. Older pinned posts were excluded by their publication date; a post pinned but published inside the window stays in.{{BLOCK:UNATTRIBUTED}}</p></details></section>
 <section><details class="ri-adv"><summary>Definitions and formulas</summary>

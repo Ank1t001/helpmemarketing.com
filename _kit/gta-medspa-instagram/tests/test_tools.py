@@ -683,6 +683,18 @@ class Five(unittest.TestCase):
             (self.e4 / "coding.json").write_text(json.dumps(c))
         self.bad(f, "standout_titles")
 
+    def test_window_is_the_15th_to_the_14th(self):
+        sys.path.insert(0, str(KIT))
+        from window_five import window
+        import datetime as d
+        D = d.date.fromisoformat
+        self.assertEqual(window("2026-10-15"), (D("2026-09-15"), D("2026-10-14")))  # edition 003
+        self.assertEqual(window("2026-11-15"), (D("2026-10-15"), D("2026-11-14")))  # 31 days, starts the day after 003 ends
+        self.assertEqual(window("2027-01-15"), (D("2026-12-15"), D("2027-01-14")))
+        self.assertEqual(window("2027-03-17"), (D("2027-02-15"), D("2027-03-14")))  # a late run keeps the same window
+        with self.assertRaises(ValueError):
+            window("2026-11-14")
+
     def test_cohort_cannot_change(self):
         a = json.loads((self.e4 / "accounts.json").read_text())
         a["accounts"][4]["handle"] = "someotherclinic"

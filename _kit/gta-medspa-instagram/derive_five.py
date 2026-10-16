@@ -12,7 +12,7 @@ Every count is reconciled with asserts; the build stops on any disagreement. The
 cohort_five.json: the same five accounts every edition, never replaced or added to.
 For edition 003 this reproduces the committed files of derive_003.py byte for byte (tests.test_tools).
 
-Window: the most recent 30 complete calendar days in America/Toronto before the collection date.
+Window: the 15th of the previous month to the 14th of the collection month, America/Toronto (window_five.py).
 """
 import argparse, datetime as dt, gzip, json, statistics as st
 from collections import Counter
@@ -29,9 +29,9 @@ TZ = ZoneInfo("America/Toronto")
 CFG = json.load(open(ED / "edition.json" if (ED / "edition.json").exists() else ED / f"edition_{NNN}.json"))
 assert CFG["edition"] == NNN
 COLLECTED = dt.date.fromisoformat(CFG["collected_on"])
-W_END = COLLECTED - dt.timedelta(days=1)            # last complete day
-W_START = W_END - dt.timedelta(days=29)             # 30 days, both ends included
-assert (W_START.isoformat(), W_END.isoformat()) == tuple(CFG["window"]), "the edition record's window must equal the computed 30-day window"
+from window_five import window
+W_START, W_END = window(COLLECTED)                  # the 15th of the previous month to the 14th, both included
+assert (W_START.isoformat(), W_END.isoformat()) == tuple(CFG["window"]), "the edition record's window must be the 15th of the previous month to the 14th (window_five.py)"
 T0 = dt.datetime.combine(W_START, dt.time(0), TZ)
 T1 = dt.datetime.combine(W_END + dt.timedelta(days=1), dt.time(0), TZ)
 FMT = {"Video": "reel", "Sidecar": "carousel", "Image": "static"}
