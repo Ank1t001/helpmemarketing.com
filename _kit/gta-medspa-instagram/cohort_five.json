@@ -71,9 +71,9 @@
   "product"
  ],
  "schedule": {
-  "active": false,
+  "active": true,
   "day": 15,
-  "note": "Set active to true only when the founder re-enables the stored monthly task; build_five.py then writes the monthly refresh plan on /hmm-index at the next release."
+  "note": "Active since 2026-10-16 (founder enabled the stored monthly task). build_five.py writes the monthly refresh plan on /hmm-index at each release; set active to false if the task is paused again."
  },
  "history_notes": {
   "003": "A deliberately selected comparison of five named Ontario med spa accounts over 30 days. Not comparable with earlier editions."
