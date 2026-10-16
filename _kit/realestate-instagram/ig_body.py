@@ -20,13 +20,15 @@ def split_shell(source):
     finish = source.index(END, match.end())
     return source[:match.end()], source[match.end():finish], source[finish:]
 
-def render(csv_text, cycle, verified_date, next_date, as_of, modified_at=None):
+def render(csv_text, cycle, verified_date, next_date, as_of, modified_at=None, window=None, window_days=30):
     shell = (BASE / 'site_shell.html').read_text(encoding='utf-8')
     prefix, _, suffix = split_shell(shell)
     body = (BASE / 'report_body.html').read_text(encoding='utf-8')
     rows = list(csv.DictReader(io.StringIO(csv_text)))
     ranked = sum(r['cohort'] != 'REFERENCE' for r in rows)
     reference = len(rows) - ranked
+    body = body.replace('{{WINDOW_DAYS}}', str(window_days))
+    body = body.replace('{{WINDOW_END_LONG}}', long_date(window[1] if window else verified_date))
     body = body.replace('{{LAST_VERIFIED_LONG}}', long_date(verified_date))
     body = body.replace('{{NEXT_REFRESH_LONG}}', long_date(next_date))
     body = body.replace('{{LAST_VERIFIED}}', verified_date)

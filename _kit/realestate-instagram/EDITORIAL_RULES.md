@@ -3,8 +3,8 @@
 `report_body.html` is the live, approved body. Each refresh updates its figures and editorial text from the new cycle's evidence and keeps everything below. `build_v2.py` fails on most of these; the rest are review checks.
 
 ## Structure (in this order)
-1. Header: kicker "The HMM Index · Instagram"; H1 "The Real Estate Index"; the lede; byline row "Last 30 days ending {date}" · "For business owners and marketing leads." · "Research and analysis by Ankit Kumar (link /about) · Founder, HMM (link /)". Date bar: "Last verified data" and "Next scheduled refresh" in long dates ("13 October 2026"); no cycle number.
-2. `#ri-overview` "What stood out in the last 30 days": three tiles (Posts analysed, Comments recorded, Firms running Meta ads), a "Firms included" line, one card with three titled findings that name the firms, and the italic sample caveat.
+1. Header: kicker "The HMM Index · Instagram"; H1 "The Real Estate Index"; the lede; byline row "Last {N} days ending {window end}" (tokens `{{WINDOW_DAYS}}` and `{{WINDOW_END_LONG}}`) · "For business owners and marketing leads." · "Research and analysis by Ankit Kumar (link /about) · Founder, HMM (link /)". Date bar: "Last verified data" and "Next scheduled refresh" in long dates ("13 October 2026"); no cycle number.
+2. `#ri-overview` "What stood out in the last {N} days": three tiles (Posts analysed, Comments recorded, Firms running Meta ads), a "Firms included" line, one card with three titled findings that name the firms, and the italic sample caveat.
 3. One-line metrics note: "Tap or hover over underlined metrics for a definition. Open the linked posts to see the evidence."
 4. `#ri-rankings` "The scoreboard": intro, "Which firm leads this edition?" answer with its limitation, the comparison card (built by the head script from the table), then expanders "View all metrics" (the table, exact headings below) and "How the rankings work" (firm summaries live in Research, not here). Every scoreboard `<tr>` carries a plain-sentence `data-note`.
 5. `#ri-creative` "The top post from each firm": cards ordered by likes, "Top post" badge, likes and "times the firm's median likes", one observation, "View post"; frame reads and tests under "Read the analysis".
@@ -20,7 +20,7 @@
 Exact scoreboard headings (the head script reads them): Account, Score, Followers, Posts, Mix, Median likes, Med comm, Like/play, Peak, Flag, Top post.
 
 ## Wording
-- This sample, never the whole category. Edition, not cycle, in visitor text. % not "percent". "30-day", "90-day", "30 days".
+- This sample, never the whole category. Edition, not cycle, in visitor text. % not "percent". "{N}-day", "90-day", "{N} days", where N is the window length (`{{WINDOW_DAYS}}` in report_body.html, never typed; edition 005 printed 30). Window rule from edition 006 (founder, 2026-10-16): the 14th of the previous month to the 13th of the collection month, both included, Toronto time, so editions follow on without gaps or overlaps (28 to 31 days).
 - Post with the most likes, never best-performing or winning. Above or below account median, never working, landed or not landing.
 - Recorded plays, never reach. Peak plays ÷ followers bands are numeric (below 10x, 10 to 50x, above 50x); plays can include repeats and do not show unique viewers or paid distribution.
 - Active ads found, never spend. Public post metrics do not separate paid and organic engagement.

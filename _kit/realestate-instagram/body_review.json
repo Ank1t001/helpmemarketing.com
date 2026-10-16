@@ -1,10 +1,10 @@
 {
   "cycle": "005",
   "dataset_sha256": "b205080a0d99fa690de8bfacad2485328f2128df049795b01b680e979b2c30d4",
-  "body_sha256": "72522ed63f07b16d3d1871902e61c93e9e386d315d106d768c4f219c3aa9758a",
+  "body_sha256": "8d6845fe37b3b8ac83855dce5bbd535f5a48d8a49fd7cc08e8759e596ab05be7",
   "publication_review": "complete",
   "note": "Verify all claims, frames, advertising and raw inputs before marking complete.",
   "source": "Fresh Apify scrape 2026-10-13 (posts T48E9Efh1vFH6UDd9, profiles FKv4hasHTzLv5e3OR), Meta ad library via apify/facebook-ads-scraper (LSzuwA31KCmxyaCYK, oPGV81tjCBZpS4k5k, T4fsgUNKgyYbG2Ha3), five frames read",
   "review_scope": "Claims checked against computed metrics, captions, frames and ad library rows; badges computed from likes vs account median; consistency rules 1 to 5 checked; cycle 004 baseline exception approved by Ankit 2026-10-13",
-  "body_note": "2026-10-13: body replaced with the live, founder-approved page body (shipped commits 05568b8 to e6501c1 plus the authorship and citation update), tokenised for edition and dates. Data unchanged. 2026-10-13 later: edition 004 wording aligned to \"scoreboard dated 5 October 2026\"; edition 001 to 003 dates described as website-code dates (founder review). 2026-10-13 later: wording consistency (edition not cycle, % not percent, 30-day/90-day, round-up, Meta Ad Library, View post links)."
+  "body_note": "2026-10-13: body replaced with the live, founder-approved page body (shipped commits 05568b8 to e6501c1 plus the authorship and citation update), tokenised for edition and dates. Data unchanged. 2026-10-13 later: edition 004 wording aligned to \"scoreboard dated 5 October 2026\"; edition 001 to 003 dates described as website-code dates (founder review). 2026-10-13 later: wording consistency (edition not cycle, % not percent, 30-day/90-day, round-up, Meta Ad Library, View post links). 2026-10-16: the window length and end date are tokens ({{WINDOW_DAYS}}, {{WINDOW_END_LONG}}) for the 14th to 13th window rule from edition 006; they render the same text for edition 005."
 }

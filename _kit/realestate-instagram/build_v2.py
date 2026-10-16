@@ -8,7 +8,7 @@ import io
 import json
 import re
 import statistics as st
-from datetime import date
+from datetime import date, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
 import reindex_data as data
@@ -171,6 +171,11 @@ def validate(source, actual, rows, config):
     return {'scoreboard_contract':True,'reading_level_ids':True,'gate_transport_preserved':True,
             'instagram_only':True,'csv_rows':len(rows),'dash_normalisation':True}
 
+def window_14_13(scraped):
+    """The 14th of the previous month to the 13th of the collection month (both included), for a collection on or after the 14th."""
+    end=scraped.replace(day=13) if scraped.day>=14 else (scraped.replace(day=1)-timedelta(days=1)).replace(day=13)
+    return ((end.replace(day=1)-timedelta(days=1)).replace(day=14), end)
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--verify-baseline',action='store_true',help='Historical local QA only; never ready for publication')
@@ -182,10 +187,19 @@ def main():
     body=(BASE/'report_body.html').read_bytes()
     if review['body_sha256']!=hashlib.sha256(body).hexdigest(): raise ValueError('Body changed since review; recheck and record its hash')
     scraped=date.fromisoformat(config['scraped_at']); window=tuple(map(date.fromisoformat,config['window']))
-    if window[1]!=scraped or (window[1]-window[0]).days!=30: raise ValueError('Expected explicit 30-day window ending at scrape date')
+    if config.get('window_rule')=='14th-13th':
+        # From edition 006 (founder, 2026-10-16): the 14th of the previous month to the 13th of the collection month, so editions follow on.
+        if window!=window_14_13(scraped): raise ValueError('Window must run from the 14th of the previous month to the 13th: '+str(window_14_13(scraped)))
+        if config.get('window_days')!=(window[1]-window[0]).days+1: raise ValueError('window_days must be the window length, both ends included')
+        pw=config.get('prior_window')
+        if not pw or date.fromisoformat(pw[1])+timedelta(days=1)!=window[0]: raise ValueError('prior_window missing, or the window does not start the day after the previous edition ended')
+        peak_end=window[1]
+    else:
+        if window[1]!=scraped or (window[1]-window[0]).days!=30: raise ValueError('Expected explicit 30-day window ending at scrape date')
+        peak_end=scraped
     if any(not window[0] <= date.fromisoformat(p[1]) <= window[1] for p in data.IG): raise ValueError('Out-of-window post')
     for b,p in data.IG_PEAK_90D.items():
-        if not 0 <= (scraped-date.fromisoformat(p['date'])).days <= 90: raise ValueError('Out-of-window peak: '+b)
+        if not 0 <= (peak_end-date.fromisoformat(p['date'])).days <= 90: raise ValueError('Out-of-window peak: '+b)
     if not args.verify_baseline:
         if config['status']!='fresh' or scraped!=args.as_of: raise ValueError('Historical inputs: use --verify-baseline for QA, or supply a fresh complete cycle')
         caps=json.loads((BASE/'ig_caps.json').read_text())
@@ -208,7 +222,7 @@ def main():
         if p is None or row['brand']!=p[0] or int(row['likes'])!=p[2] or int(row['comments'])!=p[3]: raise ValueError('Postlog metric mismatch')
     next_date=date.fromisoformat(config['next_scheduled_refresh'])
     if next_date.day!=14 or next_date<=scraped: raise ValueError('Next scheduled refresh must be a future monthly 14th')
-    source=normalise(render(csv_text,config['cycle'],config['scraped_at'],next_date.isoformat(),args.as_of.isoformat(),config.get('modified_at')))
+    source=normalise(render(csv_text,config['cycle'],config['scraped_at'],next_date.isoformat(),args.as_of.isoformat(),config.get('modified_at'),config['window'],config.get('window_days',30)))
     checks=validate(source,actual,rows,config)
     output=BASE/'output'; output.mkdir(exist_ok=True)
     name='HISTORICAL_QA_cycle003.html' if args.verify_baseline else 'Re Index Instagram v8.html'
