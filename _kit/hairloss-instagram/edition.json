@@ -7,7 +7,7 @@
     "2026-10-16"
   ],
   "window_days": 90,
-  "status": "fresh",
+  "status": "published",
   "schedule": {
     "day": 16,
     "time": "09:15",
@@ -16,8 +16,8 @@
   "next_scheduled_refresh": "2026-11-16",
   "roster": "roster.json",
   "ads_checked_at": "2026-10-16",
-  "modified_at": "2026-10-14T21:21:26+00:00",
-  "modified_at_source": "Vercel production deployment dpl_Au4zefKkonQZTESQb8rR8TdjHpwT (commit ac1a314) ready time, the last content change to /hair-loss-index",
+  "modified_at": "2026-10-16T17:14:08.015+00:00",
+  "modified_at_source": "Vercel production deployment dpl_2CZUfpRZhwWitcuZ78Luu9okv9ba (commit 2c19cc2) ready time",
   "method": "From edition 002: one collection, score.py. Edition 002 starts a new roster (the top 10 Ontario hair loss clinics by Instagram followers); edition 001 covered nine non-surgical hair loss brands (editions/001/roster.json).",
   "data_store": {
     "sheet": "1wVrhuPpavUQ9-D9B4BPiWJbAeg0MZ-1-V2Xv5NpsWpU",
