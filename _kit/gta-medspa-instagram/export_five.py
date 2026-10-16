@@ -11,7 +11,7 @@ Writes work/sheet/ (not committed):
                         leader (none: no ranking), score (none), status, page, snapshot, commit, note
 Figures come from the committed CSVs and metrics.json; nothing is retyped.
 """
-import argparse, csv, json
+import argparse, csv, json, re
 from pathlib import Path
 
 HERE = Path(__file__).parent
@@ -31,8 +31,13 @@ out = HERE / "work" / "sheet"
 out.mkdir(parents=True, exist_ok=True)
 
 
+def cell(c):
+    s = str(c).replace("\t", " ").replace("\n", " ")
+    return "'" + s if re.match(r"^(0\d|[=+\-])", s) else s   # keep "004" as text in Sheets, never a formula
+
+
 def tsv(rows):
-    return "".join("\t".join(str(c).replace("\t", " ").replace("\n", " ") for c in r) + "\n" for r in rows)
+    return "".join("\t".join(cell(c) for c in r) + "\n" for r in rows)
 
 
 for kind in ("posts", "accounts"):
