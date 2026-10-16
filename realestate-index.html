@@ -414,7 +414,9 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .msi.msi .pnote.mb12{margin-bottom:12px}
 /* Bars: width comes from data-w (0 to 100), applied by the head script below; no style attributes in the body. */
 .msi.msi [data-w]{width:0}
-.msi.msi .frame .shot::before{content:"Frame no longer available at the source"}
+.msi.msi .frame .shot::before{content:""}
+.msi.msi .frame .shot.err::before{content:"Frame no longer available at the source"}
+.msi.msi .frame .shot.err img{visibility:hidden}
 /* Neutralise the few unscoped rules styles.css applies to plain tags and shared class names */
 .msi.msi section{padding:0}
 .msi.msi h4,.msi.msi .card h4{color:var(--text-tertiary)}
@@ -588,6 +590,16 @@ document.addEventListener("DOMContentLoaded",function(){
   var tw=sec.querySelector(".tw"),at=tw.closest("details")||tw;at.parentNode.insertBefore(box,at);draw();
 });
 </script><script data-bar-widths>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".msi [data-w]").forEach(function(el){var w=parseFloat(el.getAttribute("data-w"));if(!isNaN(w))el.style.width=Math.max(0,Math.min(100,w))+"%";});});</script>
+<script data-msi-frames>
+/* Cover frames: the "no longer available" note shows only when an image fails to load, never while it is still loading. */
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.frame .shot img').forEach(function (img) {
+    var mark = function () { img.parentNode.classList.add('err'); };
+    if (img.complete && img.currentSrc && img.naturalWidth === 0) mark();
+    img.addEventListener('error', mark);
+  });
+});
+</script>
 </head><body class="redesign-prototype">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSQPX93X" height="0" width="0" class="gtm-ns"></iframe></noscript>
