@@ -21,12 +21,41 @@
   {
    "batch": "browser-20261016",
    "where": "raw/browser-20261016",
-   "what": "Logged-out headless Chromium pass in the Claude Code cloud container, 18:50 to 19:13 UTC on 16 October 2026: blocked clinic sites, Meta Ad Library, Google Ads Transparency Center, Instagram profiles and posts, preview QA. Not the founder's Chrome."
+   "what": "Logged-out headless Chromium pass in the Claude Code cloud container, 18:50 to 19:13 UTC on 16 October 2026: blocked clinic sites, Meta Ad Library, Google Ads Transparency Center, Instagram profiles and posts, preview QA. Not the founder's Chrome. Third-party commenter data removed on 2026-10-17 (tools/sanitise_comments.py); see the batch manifest and provenance.json."
   }
  ],
  "reviewed_limitations": [],
- "reviewed_limitations_note": "Founder-approved entries only, as {\"clinic\": alias, \"gap\": \"instagram_coverage\", \"approved_by\": name, \"date\": ISO}. An entry clears that one coverage gap in the release report; it never clears a core evidence gap.",
- "forms_script_research_dental_deployed": false,
+ "reviewed_limitations_schema": {
+  "fields": {
+   "clinic": "alias with a verified handle",
+   "gap": "instagram_coverage (the only reviewable gap)",
+   "affected_evidence": "list of record ids, files or posts the review covers",
+   "not_confirmed": "what could not be confirmed",
+   "why_usable": "why the remaining observation is still usable",
+   "permitted_claims": "list of claims the page may make",
+   "prohibited_claims": "list of claims that stay prohibited; must rule out frequency, window totals and that the observed posts are all the account published",
+   "reviewer": "the person who reviewed it (not a tool or build)",
+   "review_date": "YYYY-MM-DD, after the window"
+  },
+  "rule": "A reviewed limitation clears only that coverage gap in the release report. It never turns unknown identity, incomplete coverage or missing activity into a verified fact: social.json keeps its coverage status and the page keeps its incomplete-sample wording. Founder entries only."
+ },
+ "forms_script_readiness": {
+  "status": "not_verified",
+  "required": "status 'verified' needs the deployed Apps Script version or revision, its deployment time, and a check by a person that a lead carrying entry_point research_dental reached the intended lead record (sheet tab and row or another record reference). Source changes, build or unit tests and frontend analytics events never count.",
+  "deployment": {
+   "version": null,
+   "deployment_id": null,
+   "deployed_at": null
+  },
+  "verification": {
+   "method": null,
+   "lead_record_reference": null,
+   "entry_point_seen": null,
+   "verified_by": null,
+   "verified_at": null
+  },
+  "note": "Not deployed or verified in this work. research_dental is in contact.html and docs/HMM_Forms_AppsScript.gs source only."
+ },
  "release_requirements": [
   "all five clinic websites reviewed live and identities confirmed (no clinic left as a lead only)",
   "Instagram posts collected for the window for every verified handle, or each gap recorded as a reviewed limitation",

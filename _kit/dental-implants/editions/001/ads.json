@@ -31,7 +31,7 @@
       "screenshot": "raw/browser-20261016/shots/meta-studiob-2.png"
      }
     ],
-    "summary": "Two ads from the page \"studiobdental\" were active when observed: an All-on-X offer and a veneers offer. Their library start dates are before the window.",
+    "summary": "Two ads from the page \"studiobdental\", whose name matches the clinic's Instagram account (supported, not confirmed), were running when checked, the day after the window ended: an All-on-X offer and a veneers offer. Both library start dates are before the window, and the library does not show whether either ran during it.",
     "limits": [
      "Keyword search for the exact phrase only.",
      "The library shows a start date and current status, not delivery during the window."
@@ -175,7 +175,7 @@
       "screenshot": "raw/browser-20261016/shots/meta-nysc-sbd.png"
      }
     ],
-    "summary": "Six ad cards from the page North York Smile Centre, all one Invisalign offer, were active when observed. None is about implants. A seventh card from the page My Smile Centre (veneers) is kept separate because its link to the North York clinic is uncertain. The exact phrase \"Smile By Design\" found no ads.",
+    "summary": "Six ad cards from the page North York Smile Centre, all one Invisalign offer and none about implants, were running when checked after the window. Five have library start dates inside the window and one on 15 September, the day before it. A seventh card, a veneers ad from the page My Smile Centre, is kept separate because its link to the North York clinic is uncertain. The exact phrase \"Smile By Design\" found no ads.",
     "limits": [
      "The library reported about 12 results; seven cards were shown, three of them grouping two ads.",
      "Keyword search for exact phrases only."
@@ -593,7 +593,7 @@
       "screenshot": "raw/browser-20261016/shots/meta-gajjar.png"
      }
     ],
-    "summary": "Two ad cards from the page Dr. Neil J. Gajjar, Associates & Specialists started on 12 October, inside the window, and promote general dental care in Mississauga, not implants. An inactive 2024 election notice is recorded but is not treatment marketing. \"Gajjar Dentistry\" found no ads.",
+    "summary": "Two ad cards from the page Dr. Neil J. Gajjar, Associates & Specialists, which links to the clinic's website (confirmed), started on 12 October, inside the window, were running when checked and promote general dental care in Mississauga, not implants. An inactive 2024 election notice is recorded but is not treatment marketing. \"Gajjar Dentistry\" found no ads.",
     "limits": [
      "The library reported about 6 results; three cards were shown, two of them grouping two ads.",
      "Keyword search for exact phrases only."
@@ -1009,7 +1009,7 @@
       "relation": "uncertain: the advertiser's relationship to Bond Street Dental is not stated in any evidence read; ads are not attributed to Bond Street Dental as a group"
      }
     ],
-    "summary": "Twenty-six ads from the verified advertiser Passion Dental Group Inc pointed to dentalimplantsclinic.ca in the window. Twelve name Bond Street Dental or show a Bond Street location or address; fourteen show only the domain or the name \"Dental Implants Clinic\". Three are about implants. Because the website could not be read, the link between the domain, the advertiser and Bond Street Dental is not confirmed.",
+    "summary": "Twenty-six ads from the verified advertiser Passion Dental Group Inc pointed to dentalimplantsclinic.ca and were shown in the window, by Google's date filter in Pacific Time. Twelve name Bond Street Dental or show a Bond Street location or address; fourteen show only the domain or the name \"Dental Implants Clinic\". Three are about implants. Because the website could not be read, the link between the domain, the advertiser and Bond Street Dental is not confirmed.",
     "limits": [
      "The window filter uses Pacific Time, three hours behind Toronto at each end.",
      "Only the first variation of each creative was read.",

@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Copy a browser evidence pass into an edition's raw folder, unchanged, with a sha256 manifest and a validation report.
+"""Copy a browser evidence pass into an edition's raw folder with a sha256 manifest and a validation report.
 
     python3 tools/ingest_browser.py --source DIR --edition 001 --batch browser-20261016 [--check]
 
 DIR is the collecting session's evidence folder (dental_evidence_*.json and .md in out/, logs, pages/, shots/).
-Files are copied byte for byte. The only exception: collector scripts that contain a temporary preview share token are
-stored with the token replaced by REDACTED, and the manifest records both hashes. Nothing is fetched again.
+Files are copied byte for byte, with two exceptions recorded in the manifest (both hashes kept): collector scripts that
+contain a temporary preview share token are stored with the token replaced by REDACTED, and Instagram post logs and
+screenshots are sanitised by tools/sanitise_comments.py (third-party commenter data removed) after validation. Nothing is
+fetched again.
 The validator checks the evidence JSON against the kit's expectations: fixed edition window, collection timestamps,
 source URL hosts, Instagram ownership and dates, ad identifiers present in the saved logs, and every screenshot
 reference resolved to a stored file or to a recorded hash.
@@ -136,6 +138,8 @@ def main(argv=None):
         (dest / "manifest.json").write_text(json.dumps(manifest, indent=1) + "\n")
         (dest / "validation_report.json").write_text(json.dumps(report, indent=1) + "\n")
         (dest / "provenance.json").write_text(json.dumps(prov, indent=1, ensure_ascii=False) + "\n")
+        sys.path.insert(0, str(Path(__file__).resolve().parent)); import sanitise_comments
+        print("sanitised:", len(sanitise_comments.run(dest)), "files")
     print(json.dumps({k: report[k] for k in ("result", "files", "stored", "hash_only", "redacted", "screenshot_references", "errors")}, indent=1))
     for n in notes: print("note:", n)
     sys.exit(0 if not errs else 1)

@@ -1,11 +1,11 @@
 {
  "edition": "001",
  "note": "The reading of edition 001, written from observations.json (websites), ads.json (ad library records, cited as ad:<record id>) and social.json (observed Instagram posts, cited as ig:<shortcode>). Every digit must appear in a cited source or be a count computed from the records (build.py checks this). Interpretations are mine and say so; clinic statements are reported as the clinic's own. Pending clinics render as labelled placeholders. Updated 16 October 2026 from the browser-20261016 evidence pass.",
- "summary": "Draft. Of the five selected clinics, I could read three websites: Studio B Dental, North York Smile Centre and Dr. Neil J. Gajjar Associates & Specialists. Two of the three publish implant prices before the enquiry, and all three ask visitors to send a request and wait to be contacted rather than book a confirmed time. In the public ad libraries, Studio B Dental had an All-on-X ad active when checked whose fee is worded differently from its website, North York Smile Centre's active Meta ads were for Invisalign while most of its observed posts were about full-arch implants, and Dr. Gajjar's active Meta ads promoted general dental care. Dundas East Dental's and Bond Street Dental's websites could not be read and the Instagram evidence is an incomplete sample, so this page is not a finished comparison.",
+ "summary": "Draft. Of the five selected clinics, I could read three websites: Studio B Dental, North York Smile Centre and Dr. Neil J. Gajjar Associates & Specialists. Two of the three publish implant prices before the enquiry, and all three ask visitors to send a request and wait to be contacted rather than book a confirmed time. In the ad library searches for these three clinics, the one implant ad found was an All-on-X offer from a Meta page that shares its name with Studio B Dental's Instagram account; it was running when I checked, the day after the window ended, and its price is worded differently from the clinic's website. The ads found for North York Smile Centre were for Invisalign, although most of its observed posts were about full-arch implants, and those for Dr. Gajjar promoted general dental care. Dundas East Dental's and Bond Street Dental's websites could not be read and the Instagram evidence is an incomplete sample, so this page is not a finished comparison.",
  "findings": [
   {
    "title": "Two of the three readable clinics publish implant prices before the enquiry",
-   "text": "Studio B Dental and North York Smile Centre both give figures for a single implant and for full-arch treatment. North York Smile Centre sets out three full-arch levels per arch, each tied to a restoration material and shown with a monthly figure on approved credit. Studio B Dental gives a starting fee on its All-on-X page and a different full-set range on another implant page. Dr. Gajjar's implant page gives no figure and closes with a call to schedule a consultation. Studio B Dental's All-on-X ad in Meta Ad Library, active when checked, gives a per-arch figure and prices a final bridge separately, while its website gives a different starting fee and, in the text I saved, no separate fee for the final bridge. The two do not describe their inclusions in the same way, so the difference is unresolved.",
+   "text": "Studio B Dental and North York Smile Centre both give figures for a single implant and for full-arch treatment. North York Smile Centre sets out three full-arch levels per arch, each tied to a restoration material and shown with a monthly figure on approved credit. Studio B Dental gives a starting fee on its All-on-X page and a different full-set range on another implant page. Dr. Gajjar's implant page gives no figure and closes with a call to schedule a consultation. An All-on-X ad in Meta Ad Library from the page \"studiobdental\", which shares its name with the clinic's Instagram account and was running when I checked, gives a per-arch figure and prices a final bridge separately, while the website gives a different starting fee and, in the text I saved, no separate fee for the final bridge. The two do not describe their inclusions in the same way, so the difference is unresolved.",
    "obs": [
     "ny-tiers",
     "ny-single-range",
@@ -17,7 +17,7 @@
     "sb-arch-phases",
     "ad:meta-26002231369395543"
    ],
-   "limitation": "Published starting prices are the clinics' own statements with different inclusions, so they are not comparable with each other. I saw the ad and the page on the same day, which does not show which figure a patient is quoted, and two of the five clinics could not be read.",
+   "limitation": "Published starting prices are the clinics' own statements with different inclusions, so they are not comparable with each other. The ad's link to the clinic rests on its page name, which supports but does not confirm it. I saw the ad and the page on the same day, which does not show which figure a patient is quoted, and two of the five clinics could not be read.",
    "takeaway": "Cost is one of the first questions an implant patient has, and two of these clinics answer it before asking for contact details. Check that every price in your ads matches the page or message it leads to, with the same inclusions, and ask your team which cost questions the front desk hears every week."
   },
   {
@@ -49,28 +49,30 @@
    "takeaway": "Between the form and the first call, an implant enquiry can go cold, and a generic form tells your team little about the case before they call. Ask your team how long recent implant enquiries waited for a first reply, and whether your form tells people what happens next."
   },
   {
-   "title": "Only one readable clinic had an implant ad active when checked",
-   "text": "Of the three clinics whose websites I could read, Studio B Dental was the only one with an implant ad active in Meta Ad Library when checked: an All-on-X offer, alongside a veneers offer. North York Smile Centre's active Meta ads were one Invisalign offer, while three of the five posts observed on its Instagram account were about full-arch implants, including a webinar invitation. Dr. Gajjar's Meta ads, started on 12 October, promote general dental care. Google Ads Transparency showed no ads for these three domains in the window; North York Smile Centre's implant ads there were last shown in November 2025.",
+   "title": "The ad library searches for the three readable clinics found one implant ad",
+   "text": "I searched Meta Ad Library by exact name and Google Ads Transparency by domain for the three clinics whose websites I could read. The one implant ad found was an All-on-X offer from the Meta page \"studiobdental\", which shares its name with the Instagram account Studio B Dental's website links; that supports, but does not confirm, its link to the clinic. It was running when I checked, the day after the window ended, and its library start date is 21 January 2026; the library does not show whether it ran during the window. The other ads found promote other treatments: veneers from the same page, an Invisalign offer from the page North York Smile Centre with start dates between 15 September and 5 October, and general dental care from Dr. Gajjar's page, which links to the clinic's website, started on 12 October. A veneers ad from the head-office page My Smile Centre is kept apart because its link to the North York clinic is uncertain. Google showed no ads for these three domains in the window; North York Smile Centre's implant ads there were last shown before it, in November 2025. On Instagram, three of the five posts observed from North York Smile Centre were about full-arch implants.",
    "obs": [
     "ad:meta-26002231369395543",
     "ad:meta-1569086177506365",
     "ad:meta-2023758354972864",
+    "ad:meta-1151702920869512",
+    "ad:meta-4315299038726791",
+    "ad:meta-2950094802022907",
+    "ad:google-CR06173431441167220737",
     "ig:Dd9BwhfFG0x",
     "ig:DdtiGIPlrNt",
-    "ig:DdrBZDBHDHg",
-    "ad:meta-2950094802022907",
-    "ad:google-CR06173431441167220737"
+    "ig:DdrBZDBHDHg"
    ],
-   "limitation": "The ad libraries were searched by exact name and by domain on one day. An ad under another page name or pointing elsewhere would not appear, an active ad may not have run on every day of the window, and the Instagram posts are an incomplete sample. Nothing here shows budget or results.",
+   "limitation": "These were exact-name and domain searches run once, the day after the window ended, so they do not describe all of a clinic's advertising: an ad under another page name, or pointing to another site, would not appear. Meta shows a start date and whether an ad was running when checked, not day-by-day delivery, so an ad that started before the window and was running afterwards is not shown to have run inside it. Dundas East Dental and Bond Street Dental are left out because their websites could not be read, and nothing here shows budget or results.",
    "takeaway": "What a clinic posts about and what it pays to promote are separate decisions. Ask your team which treatment each of your live ads promotes today, and whether that matches the treatment you most want enquiries for."
   }
  ],
  "accounts": {
   "studiob": {
    "positioning": "Full-arch replacement for people with failing teeth or dentures they dislike, under a same-day brand, Teeth-In-1-Day, with separate pages for single implants and metal-free zirconia implants.",
-   "observed": "A starting fee on the All-on-X page with the two treatment phases spelled out, a price range on a second implant page, five consultation options with lengths and fees, a site-wide virtual consult form with optional smile photo uploads, an implant guide covering bone, pain and insurance, and the lead dentist named and described as teaching the procedure. Four posts were observed on its Instagram account in the window: one implant testimonial, one whose hashtags mention implant surgery and veneers, and two about cosmetic work and clinic life. Meta Ad Library showed two ads active when checked, an All-on-X offer and a veneers offer, both with library start dates before the window; Google Ads Transparency showed no ads for its domain.",
+   "observed": "A starting fee on the All-on-X page with the two treatment phases spelled out, a price range on a second implant page, five consultation options with lengths and fees, a site-wide virtual consult form with optional smile photo uploads, an implant guide covering bone, pain and insurance, and the lead dentist named and described as teaching the procedure. Four posts were observed on its Instagram account in the window: one implant testimonial, one whose hashtags mention implant surgery and veneers, and two about cosmetic work and clinic life. Meta Ad Library showed two ads from the page \"studiobdental\", whose name matches the clinic's Instagram account, which supports but does not confirm the link: an All-on-X offer and a veneers offer. Both were running when I checked and both have library start dates before the window, so the library does not show whether they ran during it. Google Ads Transparency showed no ads for its domain in the documented search.",
    "supports": "The website is built around one clinician and one full-arch offer, and it answers cost and consultation questions before asking for contact. My reading: the cost figures on different pages, and a different figure in the All-on-X ad, could leave a visitor unsure which applies. That is a reading of the published offers, not a measured effect.",
-   "unknown": "Whether the account published other posts in the window beyond the four observed, play counts, whether the All-on-X ad ran on every day of the window, which fee a patient is quoted, the image galleries, and how the form is answered.",
+   "unknown": "Whether the account published other posts in the window beyond the four observed, play counts, whether the All-on-X ad ran at any point during the window, which fee a patient is quoted, the image galleries, and how the form is answered.",
    "takeaway": "When cost appears in more than one place, every figure needs to describe the same thing. Ask your team to list each implant price in your ads and on your site with what it includes, and check that they agree.",
    "obs": [
     "sb-arch-hook",
@@ -106,7 +108,7 @@
        "ad:meta-26002231369395543"
       ],
       "wording": "\"$17,990 PER ARCH\" for a package of extractions, four or more implants and a non-removable temporary bridge placed the same day.",
-      "scope": "A final bridge 4 to 6 months later is listed separately at $8,900. The ad also lists free consultations, a free panoramic X-ray and a free records appointment, and does not name the implant material. Active when checked; library start date 21 January 2026."
+      "scope": "A final bridge 4 to 6 months later is listed separately at $8,900. The ad also lists free consultations, a free panoramic X-ray and a free records appointment, and does not name the implant material. Running when checked, the day after the window ended; library start date 21 January 2026; the library does not show whether it ran during the window."
      }
     ],
     "reading": "I observed both on the same day. They differ in the starting figure, in the timing of the final bridge and in whether the final bridge is priced, and their inclusions may not match, so I do not add the amounts, call either figure wrong or compare it with other clinics. It is an unresolved difference between two published offers."
@@ -114,9 +116,9 @@
   },
   "nysc": {
    "positioning": "A family practice that gives full-arch implants their own page, opening with situations such as loose dentures and teeth that cannot be saved, alongside single-tooth implants.",
-   "observed": "A single-implant range with what it includes, three All-on-X levels per arch tied to restoration materials and shown with monthly figures on approved credit, a named financing partner, a free, no-obligation consultation, a six-step treatment journey, the planning technology explained, an appointment request form with preferred date and time, and a three-step explanation of what happens after a request. Five posts were observed on its Instagram account in the window: three about full-arch implants (a patient testimonial, an All-on-X question reel and a webinar invitation), one about emergencies and one about Invisalign. Its Meta ads active when checked were one Invisalign offer; its implant ads in Google Ads Transparency, placed by OneCore Media Corp., were last shown in November 2025.",
+   "observed": "A single-implant range with what it includes, three All-on-X levels per arch tied to restoration materials and shown with monthly figures on approved credit, a named financing partner, a free, no-obligation consultation, a six-step treatment journey, the planning technology explained, an appointment request form with preferred date and time, and a three-step explanation of what happens after a request. Five posts were observed on its Instagram account in the window: three about full-arch implants (a patient testimonial, an All-on-X question reel and a webinar invitation), one about emergencies and one about Invisalign. The Meta ads found under its name were one Invisalign offer, running when I checked, with start dates between 15 September and 5 October; a veneers ad from the head-office page My Smile Centre is kept apart because its link to this clinic is uncertain. Its implant ads in Google Ads Transparency, placed by OneCore Media Corp., were last shown before the window, in November 2025.",
    "supports": "Of the three websites I could read, this one sets out the fullest published picture of price and process: levels, materials, monthly figures and the steps from consultation to final teeth are all visible before the enquiry. Whether that changes who enquires is a hypothesis, not something public pages can show. My reading: the observed posts carry the implant message onto Instagram and offer a webinar as a lower-commitment next step than a consultation; whether that changes who enquires is not visible from outside.",
-   "unknown": "Whether the account published other posts in the window beyond the five observed, play counts, how many people registered for or attended the webinar, what the active ads would have promoted on other days, and whether the reviews shown relate to implants.",
+   "unknown": "Whether the account published other posts in the window beyond the five observed, play counts, how many people registered for or attended the webinar, how long the Invisalign ads ran inside the window, and whether the reviews shown relate to implants.",
    "takeaway": "Tiered pricing turns one large number into a choice between levels. If you publish full-arch fees, test showing levels by material and measure which consultations go ahead and at what level, from your own records.",
    "obs": [
     "ny-arch-situations",
@@ -135,12 +137,14 @@
     "ig:Dd6dymzkcvJ",
     "ig:DdbhpOgIMJE",
     "ad:meta-2023758354972864",
-    "ad:google-CR06173431441167220737"
+    "ad:google-CR06173431441167220737",
+    "ad:meta-1151702920869512",
+    "ad:meta-4315299038726791"
    ]
   },
   "gajjar": {
    "positioning": "A multi-specialty practice in Mississauga that covers single implants and All-on-4 or All-on-X on one page, framed around missing teeth and an evaluation of the right option.",
-   "observed": "Six questions and answers on candidacy, process, full-arch options, lifespan and bone loss, clinician profiles including a prosthodontist, no price or financing figure on the implant page, a call to schedule a consultation, and an appointment request form that requires a date, time, patient status and contact details. Its Instagram account refused my logged-out request, so no posts were read. Two Meta ads started on 12 October and promote general dental care in Mississauga. Google ads for its domain, placed by Optio Publishing Inc., were last shown on 31 May 2026 in the creatives I opened, and none was shown in the window.",
+   "observed": "Six questions and answers on candidacy, process, full-arch options, lifespan and bone loss, clinician profiles including a prosthodontist, no price or financing figure on the implant page, a call to schedule a consultation, and an appointment request form that requires a date, time, patient status and contact details. Its Instagram account refused my logged-out request, so no posts were read. Two Meta ad cards from the page Dr. Neil J. Gajjar, Associates & Specialists, which links to the clinic's website, started on 12 October, inside the window, and promote general dental care in Mississauga, not implants. Google ads for its domain, placed by Optio Publishing Inc., were last shown on 31 May 2026 in the creatives I opened, and none was shown in the window.",
    "supports": "The page leads with clinician credentials and plain answers rather than price or an offer. Because single-tooth and full-arch treatment share one page, its opening speaks to both situations at once.",
    "unknown": "Instagram posts, whether implant ads ran in the window under another name or domain, the smile gallery's implant cases and how the form is answered.",
    "takeaway": "Credentials answer who will treat the patient, but not what it will cost or what happens next. Ask your team which questions implant callers ask most, and whether your implant page answers them before the form.",
@@ -167,7 +171,7 @@
    "reason": "On 16 October 2026 dentalimplantsclinic.ca showed a Cloudflare security check, both to an automated request and in the headless browser, and I did not pass it. The website was not read, so its link to Bond Street Dental is not confirmed by the site itself. Its implant pages, prices and conditions, Instagram account and enquiry route are to be checked in an ordinary browser before anything is written here.",
    "method_note": "dentalimplantsclinic.ca showed a Cloudflare security check on 16 October 2026, which I did not pass; not reviewed. Its identity rests on Google ad records only.",
    "ad_note": {
-    "text": "Google Ads Transparency listed 26 ads from the verified advertiser Passion Dental Group Inc that pointed to dentalimplantsclinic.ca in the window. 12 of them name Bond Street Dental or show a Bond Street location or address, which supports, but does not confirm, a link between the domain and the clinic; the rest show only the domain. 3 are about implants, including a headline offering a dental implant at $1,599 with no conditions visible, and only one of those shows a Bond Street address. The group's ads are not credited to Bond Street Dental as a group.",
+    "text": "Google Ads Transparency listed 26 ads from the verified advertiser Passion Dental Group Inc that pointed to dentalimplantsclinic.ca and were shown in the window, by Google's date filter in Pacific Time. 12 of them name Bond Street Dental or show a Bond Street location or address, which supports, but does not confirm, a link between the domain and the clinic; the rest show only the domain. 3 are about implants, including a headline offering a dental implant at $1,599 with no conditions visible, and only one of those shows a Bond Street address; the other two cannot be tied to the clinic from what they show. The group's ads are not credited to Bond Street Dental as a group.",
     "obs": [
      "ad:google-CR02067580969778413569",
      "ad:google-CR16106927460867637249",

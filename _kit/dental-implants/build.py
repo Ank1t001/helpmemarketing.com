@@ -39,18 +39,34 @@ CONFIDENCE = {"confirmed": "Confirmed", "supported": "Supported", "uncertain": "
 TREATMENTS = {"implant": "Implants", "implant_full_arch": "Full-arch implants", "veneers": "Veneers", "invisalign": "Invisalign", "general_dentistry": "General dentistry",
               "emergency": "Emergency dentistry", "root_canal": "Root canal", "whitening": "Whitening", "cosmetic": "Cosmetic dentistry", "sedation": "Sedation dentistry",
               "clinic_culture": "Clinic culture", "not_treatment_marketing": "Not treatment marketing", "unclear": "Unclear"}
-RELATIONS = {"active_at_observation_started_before_window": "Active when observed; library start date before the window",
-             "active_at_observation_started_in_window": "Active when observed; started inside the window",
+RELATIONS = {"active_at_observation_started_before_window": "Started before the window and running when checked after it; the library does not show whether it ran inside the window",
+             "active_at_observation_started_in_window": "Started inside the window (library start date); running when checked after it",
              "started_after_window": "Started after the window",
              "ended_in_or_after_window": "Inactive when observed; ran into the window",
              "historical_before_window": "Historical: ended or last shown before the window",
              "shown_in_window": "Shown in the window (Google date filter, Pacific Time)"}
+# Whether platform evidence places the ad's activity inside the edition window (CSV column and tests).
+ACTIVITY = {"active_at_observation_started_before_window": "not established: started before the window, seen running only when checked after it",
+            "active_at_observation_started_in_window": "established: library start date inside the window",
+            "started_after_window": "no: started after the window",
+            "ended_in_or_after_window": "established: ran into the window by its start and end dates",
+            "historical_before_window": "no: ended or last shown before the window",
+            "shown_in_window": "established: shown in the window by the Google date filter (Pacific Time)"}
+# Wording that would turn an observation after the window, or one search, into established activity or complete coverage.
+OVERCLAIM = re.compile(r"\b(was|were|is|are) (active|running|live) (in|during|throughout) the window|\bran throughout the window|\bactive in the window|"
+                       r"\bthe only (one|clinic)\b|\bonly (one )?(readable )?clinic\b|\bno other clinic\b|\bdoes not advertise\b|\bnever advertises\b", re.I)
 COVERAGE = {"confirmed_complete", "probable_not_confirmed", "blocked", "handle_not_verified", "not_collected"}
 BANNED = ["viral", "winning", "best-performing", "best performing", "top-performing", "leverage", "unlock", "supercharge", "game-changer",
           "guarantee", "in today's fast-paced world"]
 # Claims that need complete coverage: posting frequency, totals for the window, "only" statements about what an account published.
 FREQUENCY = re.compile(r"\b(per (day|week|month)|a (day|week|month)\b|times a\b|posting frequency|every post|all (of )?(its|their) posts|only (posted|published)|published only|posted only|(total|all) posts in the window|posts in total)", re.I)
 TAKE = "What this means for your clinic"
+# Release review records. Only coverage gaps can be reviewed; identity and unread websites are core gaps no review clears.
+REVIEW_FIELDS = ("clinic", "gap", "affected_evidence", "not_confirmed", "why_usable", "permitted_claims", "prohibited_claims", "reviewer", "review_date")
+REVIEWABLE = {"instagram_coverage": ("frequency", "total", "all the account published")}  # each must be named in prohibited_claims
+NOT_A_PERSON = re.compile(r"claude|build|automat|script|bot\b|ci\b", re.I)
+# Apps Script readiness must come from the deployed script and a real lead record, never from source edits, builds or frontend events.
+READINESS_NOT_EVIDENCE = re.compile(r"source|commit|build|unit ?test|test suite|datalayer|data layer|analytics|ga4|gtm|frontend|front-end|console|preview", re.I)
 
 class BuildError(Exception):
     pass
@@ -310,6 +326,8 @@ def validate(K, target):
         o["_rec"] = r; O[o["id"]] = o
     ADR = validate_ads(K, w)
     validate_social(K, w)
+    validate_reviews(K, w)
+    forms_readiness(K["edition"])
     POSTS = {p["shortcode"]: p for p in K["social"]["posts"]}
     F = facts(K)
     partial = K["social"]["status"] != "collected"
@@ -345,6 +363,8 @@ def validate(K, target):
         low = text.lower()
         for b in BANNED: need(b not in low, f"{where}: banned wording '{b}'")
         if partial: need(not FREQUENCY.search(text), f"{where}: frequency or complete-window claim while Instagram coverage is not confirmed")
+        m = OVERCLAIM.search(text)
+        need(not m, f"{where}: '{m and m.group(0)}' claims window activity or complete ad coverage that the evidence does not establish")
 
     def takeaway(t, where):
         need(isinstance(t, str) and t.strip(), where + ": missing 'What this means for your clinic' takeaway")
@@ -426,6 +446,44 @@ def validate(K, target):
         need(not blockers, "release refused: " + "; ".join(blockers))
     return O
 
+def iso_time(v, where):
+    try: t = datetime.fromisoformat(str(v).replace("Z", "+00:00"))
+    except ValueError: raise BuildError(f"{where}: not an ISO 8601 time: {v!r}")
+    need(t.tzinfo is not None, f"{where}: time needs a timezone"); return t
+
+def validate_reviews(K, w):
+    """Each reviewed limitation must say what it covers, what stays unconfirmed, why the rest is usable, what may and may not be
+    claimed, and who reviewed it when. A review never clears a core gap and never changes a record's status."""
+    ed = K["edition"]; S = K["social"]
+    for i, r in enumerate(ed.get("reviewed_limitations", []), 1):
+        where = f"reviewed limitation {i}"
+        for f in REVIEW_FIELDS: need(r.get(f), f"{where}: missing {f}")
+        need(r["gap"] in REVIEWABLE, f"{where}: gap '{r['gap']}' cannot be cleared by review; only {', '.join(REVIEWABLE)} (identity, unread websites and unverified handles are core gaps)")
+        need(r["clinic"] in ALIASES and S["handles"][r["clinic"]]["status"] == "verified_link", f"{where}: a coverage review needs a clinic with a verified handle")
+        need(isinstance(r["permitted_claims"], list) and isinstance(r["prohibited_claims"], list) and isinstance(r["affected_evidence"], list), f"{where}: claims and evidence are lists")
+        low = " ".join(r["prohibited_claims"]).lower()
+        for tag in REVIEWABLE[r["gap"]]: need(tag in low, f"{where}: prohibited claims must rule out '{tag}' claims")
+        for c in r["permitted_claims"]:
+            need(not FREQUENCY.search(c) and not OVERCLAIM.search(c), f"{where}: permitted claim '{c}' would turn incomplete coverage into a fact")
+            need(not re.search(r"\b(all|every|complete|verified|confirmed)\b", c, re.I), f"{where}: permitted claim '{c}' claims completeness or verification")
+        need(not NOT_A_PERSON.search(r["reviewer"]), f"{where}: the reviewer must be a person")
+        d = date.fromisoformat(r["review_date"]); need(d > w[1], f"{where}: review date must follow the window")
+
+def forms_readiness(ed):
+    """Returns (ready, missing). Ready only with the deployed version, its deployment time and a check that research_dental reached a lead record."""
+    fr = ed.get("forms_script_readiness") or {}
+    dep, ver = fr.get("deployment") or {}, fr.get("verification") or {}
+    missing = [k for k, v in (("deployment.version", dep.get("version")), ("deployment.deployed_at", dep.get("deployed_at")),
+                              ("verification.lead_record_reference", ver.get("lead_record_reference")), ("verification.method", ver.get("method")),
+                              ("verification.verified_by", ver.get("verified_by")), ("verification.verified_at", ver.get("verified_at"))) if not v]
+    if ver.get("entry_point_seen") != "research_dental": missing.append("verification.entry_point_seen = research_dental")
+    if fr.get("status") != "verified": return False, missing or ["status is not 'verified'"]
+    need(not missing, "forms script readiness marked verified without: " + ", ".join(missing))
+    need(not READINESS_NOT_EVIDENCE.search(ver["method"]), "forms script readiness: source changes, builds, tests or frontend analytics events do not verify the deployed script")
+    need(not NOT_A_PERSON.search(ver["verified_by"]), "forms script readiness: verified_by must be a person")
+    need(iso_time(ver["verified_at"], "verification.verified_at") >= iso_time(dep["deployed_at"], "deployment.deployed_at"), "forms script readiness: verified before the recorded deployment")
+    return True, []
+
 def release_report(K):
     """Release status by category. Only the first three categories block a release; missing optional metrics and completed
     searches with no matching ads are reported, never treated as errors."""
@@ -447,7 +505,8 @@ def release_report(K):
     missing_plays = sum(1 for p in S.get("posts", []) if p["metrics"]["plays"] is None)
     if missing_plays: opt.append(f"plays not shown for {missing_plays} of {len(S['posts'])} posts (logged-out view); not a data error")
     if ed.get("status") != "ready": awaiting.append("founder review: edition.json status is not 'ready'")
-    if not ed.get("forms_script_research_dental_deployed"): awaiting.append("forms script with research_dental not confirmed deployed")
+    ok, miss = forms_readiness(ed)
+    if not ok: awaiting.append("forms script readiness not verified (needs " + ", ".join(miss) + ")")
     return {"core_evidence_gaps": core, "unreviewed_coverage_gaps": cov, "missing_optional_metrics": opt,
             "completed_searches_no_match": nomatch, "checks_awaiting_execution": awaiting}
 
@@ -503,7 +562,7 @@ def render(K, O, target, published=None, modified=None):
     def pdate(r):
         pd = r["platform_dates"]
         if r["platform"] == "meta":
-            s = f'{pd["status_at_observation"].capitalize()} when observed; library start date {long_date(date.fromisoformat(pd["started"]))}'
+            s = f'{"Running" if pd["status_at_observation"] == "active" else "Inactive"} when checked on {long_date(toronto(r["observed_utc"]))}; library start date {long_date(date.fromisoformat(pd["started"]))}'
             return s + (f'; ended {long_date(date.fromisoformat(pd["ended"]))}' if pd["ended"] else "")
         return f'Last shown {long_date(date.fromisoformat(pd["last_shown"]))} (Pacific Time)'
 
@@ -556,15 +615,25 @@ def render(K, O, target, published=None, modified=None):
         c = AD[a][plat]; rs = [r for r in c.get("records", []) if r["treatment"]["category"] != "not_treatment_marketing"]
         st = E(AD_STATUS[c["status"]])
         if not rs: return st
-        att = [r for r in rs if r["attribution"]["confidence"] != "uncertain"]; unc = len(rs) - len(att)
-        impl = sum(r["treatment"]["implant_related"] == "yes" for r in rs)
-        inwin = sum(r["window_relation"] in ("active_at_observation_started_before_window", "active_at_observation_started_in_window", "shown_in_window") for r in rs)
-        hist = sum(r["window_relation"] == "historical_before_window" for r in rs)
-        kind = "ad cards" if plat == "meta" else "creatives"
-        parts = [f"{len(rs)} {kind}, {impl} about implants"]
-        if inwin: parts.append(f"{inwin} active or shown in the window")
-        if hist: parts.append(f"{hist} historical only")
-        if unc: parts.append(f"{unc} not attributable to the clinic")
+        cnt = lambda f: sum(1 for r in rs if f(r))
+        impl, unclear = cnt(lambda r: r["treatment"]["implant_related"] == "yes"), cnt(lambda r: r["treatment"]["implant_related"] == "unclear")
+        other = len(rs) - impl - unclear
+        win_only = all(r["window_relation"] == "shown_in_window" for r in rs)
+        found = next((x.get("result_count") for x in c.get("searches", []) if x.get("kind") == ("window" if win_only else "any_time")), None)
+        kind = "ad cards" if plat == "meta" else ("creatives" if not found or found == len(rs) else f"creatives opened of {found}")
+        parts = [f"{len(rs)} {kind}: {impl} implant, {other} other treatment" + ("s" if other != 1 else "") + (f", {unclear} unclear" if unclear else "")]
+        parts.append(", ".join(f"{cnt(lambda r, k=k: r['attribution']['confidence'] == k)} {k}" for k in ("confirmed", "supported", "uncertain") if cnt(lambda r, k=k: r["attribution"]["confidence"] == k)))
+        rel = lambda k: cnt(lambda r: r["window_relation"] == k)
+        if plat == "meta":
+            t = []
+            if rel("active_at_observation_started_in_window"): t.append(f'{rel("active_at_observation_started_in_window")} started inside the window')
+            if rel("active_at_observation_started_before_window"): t.append(f'{rel("active_at_observation_started_before_window")} started before the window (activity inside it not shown)')
+            if t: parts.append(", ".join(t) + "; running when checked after the window")
+        else:
+            t = []
+            if rel("shown_in_window"): t.append(f'{rel("shown_in_window")} shown in the window')
+            if rel("historical_before_window"): t.append(f'{rel("historical_before_window")} last shown before the window')
+            if t: parts.append(", ".join(t))
         return f'{st}<span class="cell-sub">{E("; ".join(parts))}</span>'
 
     cols = C["columns"]
@@ -663,8 +732,8 @@ def render(K, O, target, published=None, modified=None):
     b.append('</tbody></table></div>')
     b.append('<p class="pnote"><b>How to read this.</b> Confirmed: the advertiser or destination is the clinic&rsquo;s own. Supported: the ad names the clinic, its dentist or its location, '
              'but the link was not confirmed on the clinic&rsquo;s site. Uncertain: the ad cannot be tied to the clinic from what it shows. Meta shows a start date and whether an ad was running when checked; '
-             'Google shows the last date an ad was shown. Neither shows delivery day by day, so &ldquo;active when observed&rdquo; does not mean the ad ran throughout the window, '
-             'and historical ads are examples of past activity only. The full list of records, including ads for other treatments, is in the ad records download.</p></section>')
+             'Google shows the last date an ad was shown and can filter by date. Neither shows delivery day by day: an ad that started before the window and was running when I checked, the day after it ended, '
+             'is not shown to have run inside it, while a start date inside the window or Google&rsquo;s date filter does place activity there. Historical ads are examples of past activity only. The full list of records, including ads for other treatments, is in the ad records download.</p></section>')
 
     b.append('<section id="dx-accounts"><div class="sec-head"><h2>Clinic by clinic</h2>'
              '<p class="dek">For each clinic: its implant positioning, what its website, observed posts and ad records show, what that evidence supports, what remains unknown, and what it means for your clinic. '
@@ -832,12 +901,12 @@ def write_csvs(used, O, ed, K):
     for i in used:
         o = O[i]; obs.append([i, NAMES[o["clinic"]], o["dimension"], o["kind"], o["statement"], o["excerpt"], o["source_url"], o["_rec"]["fetched_utc"], o["_rec"]["sha256"], o["limitation"]])
     ads = [["record_id", "clinic", "platform", "url", "advertiser", "attribution_confidence", "attribution_basis", "treatment", "implant_related", "observed_utc",
-            "status_at_observation", "library_start_date", "end_date", "last_shown_pacific", "relation_to_window", "ad_text_or_transcription", "text_basis"]]
+            "status_at_observation", "library_start_date", "end_date", "last_shown_pacific", "relation_to_window", "activity_in_window", "ad_text_or_transcription", "text_basis"]]
     for a, plat, r in ad_records(K).values():
         pd = r["platform_dates"]
         ads.append([r["id"], NAMES[a], plat, r["url"], r["advertiser"]["name"], r["attribution"]["confidence"], r["attribution"]["basis"], r["treatment"]["category"],
                     r["treatment"]["implant_related"], r["observed_utc"], pd["status_at_observation"] or "", pd["started"] or "", pd["ended"] or "", pd["last_shown"] or "",
-                    r["window_relation"], r["text"], r["text_basis"]])
+                    r["window_relation"], ACTIVITY[r["window_relation"]], r["text"], r["text_basis"]])
     ig = [["shortcode", "clinic", "account", "url", "format", "published_utc", "observed_utc", "topic", "treatment", "implant_related", "call_to_action", "likes_when_observed",
            "comments_when_observed", "plays", "collaboration", "analysis_basis"]]
     for p in K["social"]["posts"]:

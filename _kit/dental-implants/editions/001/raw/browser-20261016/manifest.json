@@ -84,8 +84,9 @@
   "repo_path": "logs/ig_posts.jsonl",
   "bytes": 35755,
   "sha256_original": "a5fbb38f41480060e0763afa50e50068c2f0ea659d30e9bb64e0570fdd61121b",
-  "sha256_stored": "a5fbb38f41480060e0763afa50e50068c2f0ea659d30e9bb64e0570fdd61121b",
-  "redacted": false
+  "sha256_stored": "4d1a3cbe420e442eb5b18b0290d5b462c0a496f76fb421c16127ba2d4fb42145",
+  "redacted": false,
+  "sanitised": "page text with comment thread removed; comment times dropped; page flags derived"
  },
  {
   "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/preview_results.json",
@@ -740,72 +741,81 @@
   "repo_path": "shots/ig/Dd3yAGBBrsW.png",
   "bytes": 210170,
   "sha256_original": "3ccd7233cdaf249e27594383c79128c8b7b3d92ebde9c77066df6a1cf5044eb9",
-  "sha256_stored": "3ccd7233cdaf249e27594383c79128c8b7b3d92ebde9c77066df6a1cf5044eb9",
-  "redacted": false
+  "sha256_stored": "0c59c41fe59d8398c182cd69ae92e008c311134f7be256e7518b83930fb1410f",
+  "redacted": false,
+  "sanitised": "right-hand panel (caption, comments, audio credit) covered"
  },
  {
   "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/Dd6dymzkcvJ.png",
   "repo_path": "shots/ig/Dd6dymzkcvJ.png",
   "bytes": 267758,
   "sha256_original": "87549be3dd044aa5dedcdc030de211bbdb48eaa370eaa99712c6525d847bb276",
-  "sha256_stored": "87549be3dd044aa5dedcdc030de211bbdb48eaa370eaa99712c6525d847bb276",
-  "redacted": false
+  "sha256_stored": "b386998c703101b8f81b58b92ace239a1920a0c67912730985a1f5182c8469bf",
+  "redacted": false,
+  "sanitised": "right-hand panel (caption, comments, audio credit) covered"
  },
  {
   "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/Dd6yzieDLQG.png",
   "repo_path": "shots/ig/Dd6yzieDLQG.png",
   "bytes": 341844,
   "sha256_original": "79322299082c84e27be2b0ec0ae7b9aae779b0fad77370fca7e8e3fb0368f508",
-  "sha256_stored": "79322299082c84e27be2b0ec0ae7b9aae779b0fad77370fca7e8e3fb0368f508",
-  "redacted": false
+  "sha256_stored": "b208b4a423e8e741d33ce62e4d8453c980aa5ed3bd26ceb7f959ff87bcf9493e",
+  "redacted": false,
+  "sanitised": "right-hand panel (caption, comments, audio credit) covered"
  },
  {
   "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/Dd9BwhfFG0x.png",
   "repo_path": "shots/ig/Dd9BwhfFG0x.png",
   "bytes": 192697,
   "sha256_original": "c43a322904e2bb2d13309a643e8e30184624450b9e2f5018f37a172db1a24f81",
-  "sha256_stored": "c43a322904e2bb2d13309a643e8e30184624450b9e2f5018f37a172db1a24f81",
-  "redacted": false
+  "sha256_stored": "4d76b6f9f8e790eafbd2071adef726c2892f65cb84cf24436fd7d17528b70166",
+  "redacted": false,
+  "sanitised": "right-hand panel (caption, comments, audio credit) covered"
  },
  {
   "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdbhpOgIMJE.png",
   "repo_path": "shots/ig/DdbhpOgIMJE.png",
   "bytes": 215862,
   "sha256_original": "e9e30bf31981106dd9e6b5702ae73a00f72534e9e7edeea4733fca8144d43831",
-  "sha256_stored": "e9e30bf31981106dd9e6b5702ae73a00f72534e9e7edeea4733fca8144d43831",
-  "redacted": false
+  "sha256_stored": "a7c7318d5efb3364cd517faccccb9fc04859ba93ee8f70bbe68133d3726d0b49",
+  "redacted": false,
+  "sanitised": "right-hand panel (caption, comments, audio credit) covered"
  },
  {
   "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdrBZDBHDHg.png",
   "repo_path": "shots/ig/DdrBZDBHDHg.png",
   "bytes": 254509,
   "sha256_original": "f0aa37be828bfd2c03260fa5ff6dff5005a4f45586271ff5704039f3a46e6da0",
-  "sha256_stored": "f0aa37be828bfd2c03260fa5ff6dff5005a4f45586271ff5704039f3a46e6da0",
-  "redacted": false
+  "sha256_stored": "122ac622ac9a9116c447858538b487058a3a2eed6942b2e7d7b0793c0d90c014",
+  "redacted": false,
+  "sanitised": "right-hand panel (caption, comments, audio credit) covered"
  },
  {
   "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdrKB7AhD3b.png",
   "repo_path": "shots/ig/DdrKB7AhD3b.png",
   "bytes": 209432,
   "sha256_original": "d098499b64170bef0cee1627b0a251c59e8f2dcaa9e819733d20f418093b6a75",
-  "sha256_stored": "d098499b64170bef0cee1627b0a251c59e8f2dcaa9e819733d20f418093b6a75",
-  "redacted": false
+  "sha256_stored": "d8b44ad574d46b4962f9b725a47c068932fe2718b67de35a4c683d352e0c2d6b",
+  "redacted": false,
+  "sanitised": "right-hand panel (caption, comments, audio credit) covered"
  },
  {
   "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdsKsuVM8b4.png",
   "repo_path": "shots/ig/DdsKsuVM8b4.png",
   "bytes": 325897,
   "sha256_original": "0f0ebfe9ab3e174e772574efbdc6788d2baee7aed0d3f4583568e5d7b7db1809",
-  "sha256_stored": "0f0ebfe9ab3e174e772574efbdc6788d2baee7aed0d3f4583568e5d7b7db1809",
-  "redacted": false
+  "sha256_stored": "eb0b5f063ef4086b8cf9070d0606077128786922ec51978851997a294ad5d30e",
+  "redacted": false,
+  "sanitised": "right-hand panel (caption, comments, audio credit) covered"
  },
  {
   "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig/DdtiGIPlrNt.png",
   "repo_path": "shots/ig/DdtiGIPlrNt.png",
   "bytes": 173885,
   "sha256_original": "13111884824e055a6f567ad871707979c368847d1446b5185cda9441cd4d47bf",
-  "sha256_stored": "13111884824e055a6f567ad871707979c368847d1446b5185cda9441cd4d47bf",
-  "redacted": false
+  "sha256_stored": "4a370f16a239fe4148e4021cc3de00348a29e523b05b5727288e52291c254c2b",
+  "redacted": false,
+  "sanitised": "right-hand panel (caption, comments, audio credit) covered"
  },
  {
   "original_path": "/tmp/claude-0/-home-user-helpmemarketing-com/ede75233-c5c6-5154-983e-51b967a674c5/scratchpad/evidence/shots/ig-gajjardentistry.png",

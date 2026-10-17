@@ -176,19 +176,19 @@ ads = {"edition": "001", "schema": 2, "batch": B,
  "checks": {}}
 C = ads["checks"]
 C["studiob"] = {
- "meta": meta_check("studiob", "relevant_ads_observed", "Two ads from the page \"studiobdental\" were active when observed: an All-on-X offer and a veneers offer. Their library start dates are before the window.",
+ "meta": meta_check("studiob", "relevant_ads_observed", "Two ads from the page \"studiobdental\", whose name matches the clinic's Instagram account (supported, not confirmed), were running when checked, the day after the window ended: an All-on-X offer and a veneers offer. Both library start dates are before the window, and the library does not show whether either ran during it.",
                     ["Keyword search for the exact phrase only.", "The library shows a start date and current status, not delivery during the window."]),
  "google": google_check("studiob", "no_matching_ads_found", "No ads found for the domain studiobdental.ca at any time or in the window.",
                         ["Domain search only; an ad pointing to another domain, or one Google does not list, would not appear.", "Not proof that the clinic never advertises on Google."], [], [])}
 C["nysc"] = {
- "meta": meta_check("nysc", "relevant_ads_observed", "Six ad cards from the page North York Smile Centre, all one Invisalign offer, were active when observed. None is about implants. A seventh card from the page My Smile Centre (veneers) is kept separate because its link to the North York clinic is uncertain. The exact phrase \"Smile By Design\" found no ads.",
+ "meta": meta_check("nysc", "relevant_ads_observed", "Six ad cards from the page North York Smile Centre, all one Invisalign offer and none about implants, were running when checked after the window. Five have library start dates inside the window and one on 15 September, the day before it. A seventh card, a veneers ad from the page My Smile Centre, is kept separate because its link to the North York clinic is uncertain. The exact phrase \"Smile By Design\" found no ads.",
                     ["The library reported about 12 results; seven cards were shown, three of them grouping two ads.", "Keyword search for exact phrases only."]),
  "google": google_check("nysc", "relevant_ads_observed", "Three implant ads from OneCore Media Corp. point to smile-by-design.ca, last shown in November 2025. They are historical examples outside this edition's window; no ad for the domain was shown in the window.",
                         ["Domain search only.", "Only the first variation of each creative was read."],
                         [google_rec(t, "nysc", *gcr_meta(t)[:3], GOOGLE_REVIEW[t], "OneCore Media Corp.", gcr_meta(t)[3]) for t in ("google-nysc-cr1", "google-nysc-cr2", "google-nysc-cr3")],
                         [{"name": "OneCore Media Corp.", "verified": True, "relation": "Marketing provider credited on smile-by-design.ca (observation ny-credit); a published association, not a confirmed contract."}])}
 C["gajjar"] = {
- "meta": meta_check("gajjar", "relevant_ads_observed", "Two ad cards from the page Dr. Neil J. Gajjar, Associates & Specialists started on 12 October, inside the window, and promote general dental care in Mississauga, not implants. An inactive 2024 election notice is recorded but is not treatment marketing. \"Gajjar Dentistry\" found no ads.",
+ "meta": meta_check("gajjar", "relevant_ads_observed", "Two ad cards from the page Dr. Neil J. Gajjar, Associates & Specialists, which links to the clinic's website (confirmed), started on 12 October, inside the window, were running when checked and promote general dental care in Mississauga, not implants. An inactive 2024 election notice is recorded but is not treatment marketing. \"Gajjar Dentistry\" found no ads.",
                     ["The library reported about 6 results; three cards were shown, two of them grouping two ads.", "Keyword search for exact phrases only."]),
  "google": google_check("gajjar", "relevant_ads_observed", "Fifteen ads from Optio Publishing Inc. point to drgajjar.com; none was shown in the window. The four opened were last shown on 31 May 2026 and promote general dental care. They are historical evidence only.",
                         ["Eleven of the fifteen any-time creatives were not opened; none of the fifteen was shown in the window.", "Domain search only."],
@@ -211,7 +211,7 @@ C["bond"] = {
  "meta": meta_check("bond", "no_matching_ads_found", "No ads matched the exact phrase \"Bond Street Dental\".",
                     ["Exact phrase only. The Google display name \"Dental Implants Clinic\" and the advertiser \"Passion Dental Group\" were not searched on Meta.", "Not proof that the clinic never advertises on Meta."]),
  "google": google_check("bond", "advertiser_uncertain",
-   "Twenty-six ads from the verified advertiser Passion Dental Group Inc pointed to dentalimplantsclinic.ca in the window. Twelve name Bond Street Dental or show a Bond Street location or address; fourteen show only the domain or the name \"Dental Implants Clinic\". Three are about implants. Because the website could not be read, the link between the domain, the advertiser and Bond Street Dental is not confirmed.",
+   "Twenty-six ads from the verified advertiser Passion Dental Group Inc pointed to dentalimplantsclinic.ca and were shown in the window, by Google's date filter in Pacific Time. Twelve name Bond Street Dental or show a Bond Street location or address; fourteen show only the domain or the name \"Dental Implants Clinic\". Three are about implants. Because the website could not be read, the link between the domain, the advertiser and Bond Street Dental is not confirmed.",
    ["The window filter uses Pacific Time, three hours behind Toronto at each end.", "Only the first variation of each creative was read.", "Creatives may vary by location."],
    bond_recs,
    [{"name": "Passion Dental Group Inc", "verified": True, "relation": "uncertain: the advertiser's relationship to Bond Street Dental is not stated in any evidence read; ads are not attributed to Bond Street Dental as a group"}])}
@@ -243,7 +243,7 @@ for sc, (alias, topic, treat, impl, cta, cover) in POSTS.items():
                   "cover": cover, **({"why": WHY[sc]} if sc in WHY else {}), "analysis_basis": "caption and visible cover only; videos not watched",
                   "metrics": {"likes": int(m[1].replace(",", "")), "comments": int(m[2].replace(",", "")), "plays": None,
                               "plays_status": "missing: not shown to a logged-out visitor", "basis": "public counts at observation; post ages differ"},
-                  "ai_content_label": "AI content" in r["text"][:400], "video_watched": False, "screenshot": shot(f"shots/ig/{sc}.png")})
+                  "ai_content_label": r["page_flags"]["ai_content_label"], "video_watched": False, "screenshot": shot(f"shots/ig/{sc}.png")})
 posts.sort(key=lambda p: (p["clinic"], p["published_utc"]))
 social = {"edition": "001", "platform": "Instagram", "schema": 2, "status": "partial_sample", "batch": B,
  "collection_started_utc": LOAD["ig-studiobdental"]["started_utc"],

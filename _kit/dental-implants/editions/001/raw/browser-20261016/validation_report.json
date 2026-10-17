@@ -41,5 +41,20 @@
   "hash only (QA screenshot of a superseded preview build): preview-mobile-dx-tests.png",
   "hash only (QA screenshot of a superseded preview build): preview-mobile-top.png"
  ],
- "result": "PASS"
+ "result": "PASS",
+ "post_ingest_changes": {
+  "sanitised": [
+   "logs/ig_posts.jsonl",
+   "shots/ig/Dd3yAGBBrsW.png",
+   "shots/ig/Dd6dymzkcvJ.png",
+   "shots/ig/Dd6yzieDLQG.png",
+   "shots/ig/Dd9BwhfFG0x.png",
+   "shots/ig/DdbhpOgIMJE.png",
+   "shots/ig/DdrBZDBHDHg.png",
+   "shots/ig/DdrKB7AhD3b.png",
+   "shots/ig/DdsKsuVM8b4.png",
+   "shots/ig/DdtiGIPlrNt.png"
+  ],
+  "note": "The validation above ran on the collected originals before sanitisation."
+ }
 }

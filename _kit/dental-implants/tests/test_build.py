@@ -188,8 +188,29 @@ class Advertising(Base):
 
     def test_unrelated_ads_not_counted_as_implant(self):
         page = self.page()
-        self.assertIn("7 ad cards, 0 about implants; 7 active or shown in the window; 1 not attributable to the clinic", page)  # NYSC Meta: Invisalign, plus My Smile Centre
-        self.assertIn("2 ad cards, 0 about implants", page)       # Gajjar Meta: general dentistry (election notice excluded)
+        self.assertIn("7 ad cards: 0 implant, 7 other treatments; 6 supported, 1 uncertain", page)  # NYSC Meta: Invisalign, plus My Smile Centre
+        self.assertIn("2 ad cards: 0 implant, 2 other treatments; 2 confirmed", page)  # Gajjar Meta: general dentistry (election notice excluded)
+
+    def test_timing_kept_apart_in_comparison(self):
+        page = self.page()
+        self.assertIn("2 started before the window (activity inside it not shown); running when checked after the window", page)  # Studio B
+        self.assertIn("5 started inside the window, 2 started before the window (activity inside it not shown)", page)               # NYSC
+        self.assertIn("3 last shown before the window", page)                                                                        # NYSC Google
+        self.assertNotIn("active or shown in the window", page)
+
+    def test_activity_in_window_column(self):
+        B.main(["--edition", ED])
+        import csv
+        rows = {r["record_id"]: r for r in csv.DictReader(open(REPO / "assets/index/dental/dental-index-edition-001-ads.csv"))}
+        self.assertTrue(rows["meta-26002231369395543"]["activity_in_window"].startswith("not established"))   # All-on-X, started before, seen after
+        self.assertTrue(rows["meta-2950094802022907"]["activity_in_window"].startswith("established"))       # Gajjar, started 12 October
+        self.assertTrue(rows["google-CR16106927460867637249"]["activity_in_window"].startswith("established"))  # Bond, Google window filter
+        self.assertTrue(rows["google-CR06173431441167220737"]["activity_in_window"].startswith("no"))         # NYSC, November 2025
+
+    def test_overclaim_wording_rejected(self):
+        K = copy.deepcopy(self.K); K["nar"]["findings"][3]["text"] += " The ad was active during the window."; self.fails(K)
+        K = copy.deepcopy(self.K); K["nar"]["findings"][3]["title"] = "Only one readable clinic had an implant ad"; self.fails(K)
+        K = copy.deepcopy(self.K); K["nar"]["accounts"]["gajjar"]["unknown"] += " The clinic does not advertise implants."; self.fails(K)
 
     def test_no_match_needs_an_empty_search(self):
         self.K["ads"]["checks"]["studiob"]["google"]["status"] = "no_matching_ads_found"
@@ -238,13 +259,81 @@ class Release(Base):
         self.assertIn("Studio B Dental: Instagram coverage probable_not_confirmed", rep["unreviewed_coverage_gaps"])
         self.assertIn("Dr. Neil J. Gajjar Associates & Specialists: Instagram coverage blocked", rep["unreviewed_coverage_gaps"])
         self.assertIn("Dundas East Dental: meta documented search found no matching ads", rep["completed_searches_no_match"])
-        self.assertTrue(any("forms script" in x for x in rep["checks_awaiting_execution"]))
+        self.assertTrue(any("forms script readiness not verified" in x for x in rep["checks_awaiting_execution"]))
+
+    REVIEW = {"clinic": "studiob", "gap": "instagram_coverage", "affected_evidence": ["social.json coverage.studiob", "posts DdsKsuVM8b4, DdrKB7AhD3b, Dd3yAGBBrsW, Dd6yzieDLQG"],
+              "not_confirmed": "Whether the account published posts in the window beyond the four observed in the logged-out grid.",
+              "why_usable": "Each observed post was opened and dated from its own page; the four are used only as examples.",
+              "permitted_claims": ["Four posts observed in the window, one about implants"],
+              "prohibited_claims": ["posting frequency", "totals for the window", "that the observed posts are all the account published"],
+              "reviewer": "Ankit Kumar", "review_date": "2026-10-20"}
 
     def test_reviewed_limitation_clears_only_its_gap(self):
-        self.K["edition"]["reviewed_limitations"] = [{"clinic": "studiob", "gap": "instagram_coverage"}]
-        rep = B.release_report(self.K)
+        self.K["edition"]["reviewed_limitations"] = [dict(self.REVIEW)]
+        B.validate(self.K, "draft"); rep = B.release_report(self.K)
         self.assertNotIn("Studio B Dental: Instagram coverage probable_not_confirmed", rep["unreviewed_coverage_gaps"])
         self.assertIn("North York Smile Centre: Instagram coverage probable_not_confirmed", rep["unreviewed_coverage_gaps"])
+
+    def test_review_does_not_turn_a_gap_into_a_fact(self):
+        self.K["edition"]["reviewed_limitations"] = [dict(self.REVIEW)]
+        self.assertEqual(self.K["social"]["coverage"]["studiob"]["status"], "probable_not_confirmed")
+        self.assertIn("incomplete sample", self.page())                       # wording stays
+        self.K["nar"]["accounts"]["studiob"]["observed"] += " It posts twice a week."
+        self.fails(self.K)                                                     # frequency still refused
+
+    def test_incomplete_or_invalid_reviews_rejected(self):
+        for change in ({"reviewer": ""}, {"why_usable": ""}, {"permitted_claims": []}, {"review_date": "2026-10-10"}, {"reviewer": "Claude build"},
+                       {"prohibited_claims": ["posting frequency"]}, {"permitted_claims": ["All posts in the window were observed"]},
+                       {"permitted_claims": ["The account posts weekly about implants, every post was read"]}, {"gap": "clinic_identity"},
+                       {"clinic": "bond"}):
+            K = copy.deepcopy(self.K); K["edition"]["reviewed_limitations"] = [{**self.REVIEW, **change}]
+            with self.assertRaises(B.BuildError, msg=str(change)): B.validate(K, "draft")
+
+    def test_core_gaps_cannot_be_reviewed_away(self):
+        self.K["edition"]["reviewed_limitations"] = [{**self.REVIEW, "clinic": "dundas"}]; self.fails(self.K)
+
+class FormsReadiness(Base):
+    GOOD = {"status": "verified", "deployment": {"version": "Version 42", "deployment_id": "AKfy...", "deployed_at": "2026-10-20T15:00:00-04:00"},
+            "verification": {"method": "Checked the Leads tab row for a test enquiry sent from /contact?entry=research_dental", "lead_record_reference": "HMM | Contact Us, Leads, row 812",
+                             "entry_point_seen": "research_dental", "verified_by": "Ankit Kumar", "verified_at": "2026-10-20T16:10:00-04:00"}}
+
+    def test_not_ready_by_default(self):
+        ok, miss = B.forms_readiness(self.K["edition"]); self.assertFalse(ok); self.assertIn("deployment.version", miss)
+
+    def test_complete_record_counts(self):
+        self.K["edition"]["forms_script_readiness"] = copy.deepcopy(self.GOOD)
+        B.validate(self.K, "draft")
+        self.assertFalse(any("forms script" in x for x in B.release_report(self.K)["checks_awaiting_execution"]))
+
+    def test_source_build_or_frontend_evidence_rejected(self):
+        for method in ("research_dental added to contact.html source", "build tests passed", "contact_view event with entry_point research_dental in the dataLayer", "GA4 DebugView"):
+            K = copy.deepcopy(self.K); fr = copy.deepcopy(self.GOOD); fr["verification"]["method"] = method; K["edition"]["forms_script_readiness"] = fr
+            with self.assertRaises(B.BuildError, msg=method): B.validate(K, "draft")
+
+    def test_missing_or_inconsistent_fields_rejected(self):
+        for path, val in ((("deployment", "version"), None), (("deployment", "deployed_at"), None), (("verification", "lead_record_reference"), None),
+                          (("verification", "entry_point_seen"), "home_hero"), (("verification", "verified_at"), "2026-10-19T10:00:00-04:00"),
+                          (("verification", "verified_by"), "Claude")):
+            K = copy.deepcopy(self.K); fr = copy.deepcopy(self.GOOD); fr[path[0]][path[1]] = val; K["edition"]["forms_script_readiness"] = fr
+            with self.assertRaises(B.BuildError, msg=str(path)): B.validate(K, "draft")
+
+class Sanitised(unittest.TestCase):
+    R = KIT / "editions/001/raw/browser-20261016"
+
+    def test_no_commenter_data_in_post_log(self):
+        for l in (self.R / "logs/ig_posts.jsonl").read_text().splitlines():
+            r = json.loads(l)
+            self.assertNotIn("text", r); self.assertEqual(len(r["times"]), 1); self.assertIn("page_flags", r); self.assertIn("sanitised", r)
+
+    def test_manifest_and_provenance_name_the_changed_files(self):
+        man = {m["repo_path"]: m for m in json.loads((self.R / "manifest.json").read_text()) if m["repo_path"]}
+        prov = json.loads((self.R / "provenance.json").read_text())
+        changed = sorted(k for k, m in man.items() if m.get("sanitised"))
+        self.assertEqual(changed, prov["sanitised_files"]); self.assertEqual(len(changed), 10)
+        for k in changed: self.assertNotEqual(man[k]["sha256_original"], man[k]["sha256_stored"])
+        for k, m in man.items():
+            if not m.get("sanitised") and not m.get("redacted"): self.assertEqual(m["sha256_original"], m["sha256_stored"], k)
+        self.assertIn("except those marked", prov["integrity"])
 
 class DarkModeButton(unittest.TestCase):
     """The Index head rule .msi.msi a{color:var(--text-muted)} once turned the dark-theme hero button grey on orange."""

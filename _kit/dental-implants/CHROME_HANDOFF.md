@@ -43,4 +43,4 @@ Open the preview link from the build report on a real phone and in desktop Chrom
 ## Not for this handoff
 
 - No production verification and no indexing request until the edition is released.
-- The forms script must be redeployed with `research_dental` (set `forms_script_research_dental_deployed` in `edition.json` once confirmed).
+- The forms script must be redeployed with `research_dental`. Record the deployed version, its deployment time and a check that a research_dental enquiry reached the Leads record in `edition.json` `forms_script_readiness`; source edits, build tests or dataLayer events do not count. Do not submit a form as part of the research.

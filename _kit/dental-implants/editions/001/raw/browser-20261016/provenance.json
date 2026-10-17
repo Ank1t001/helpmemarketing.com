@@ -22,5 +22,24 @@
   "dundaseastdental.com: \"VPN or Proxy Detected\" panel, not bypassed",
   "dentalimplantsclinic.ca: Cloudflare security check, not passed",
   "instagram.com/gajjardentistry: HTTP 429 and login redirect, not retried"
- ]
+ ],
+ "integrity": "Files are byte-identical to the collected originals except those marked in manifest.json: 'redacted' (preview share token replaced) and 'sanitised' (third-party commenter data removed). For those, sha256_original is the collected file and sha256_stored is the tracked file.",
+ "sanitised_files": [
+  "logs/ig_posts.jsonl",
+  "shots/ig/Dd3yAGBBrsW.png",
+  "shots/ig/Dd6dymzkcvJ.png",
+  "shots/ig/Dd6yzieDLQG.png",
+  "shots/ig/Dd9BwhfFG0x.png",
+  "shots/ig/DdbhpOgIMJE.png",
+  "shots/ig/DdrBZDBHDHg.png",
+  "shots/ig/DdrKB7AhD3b.png",
+  "shots/ig/DdsKsuVM8b4.png",
+  "shots/ig/DdtiGIPlrNt.png"
+ ],
+ "redacted_files": [
+  "collector/pv.mjs",
+  "collector/pv2.mjs",
+  "collector/pv3.mjs"
+ ],
+ "sanitisation": "Sanitised 2026-10-17: third-party comments, comment times and audio credits removed; see tools/sanitise_comments.py"
 }
