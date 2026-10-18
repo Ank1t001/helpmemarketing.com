@@ -198,7 +198,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   <button class="theme-toggle tt-text" type="button" data-theme-toggle aria-pressed="true"><svg class="tt-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg><svg class="tt-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span data-theme-label>Light mode</span></button>
 </div>
 
-<!-- HOMEPAGE (2026-10-17 revision): five sections inside the shared header and footer. 1 hero, 2 selected work, 3 how I help (six services and one illustrative report), 4 original research, 5 about Ankit and the free review. Shared prototype classes for spacing and type; homepage-only parts use hm-* (new) and jr-* (kept from the 2026-10-09 journey). Spec: docs/HMM_Design_System.md, note "Homepage five-section revision". -->
+<!-- HOMEPAGE (2026-10-17 revision): five sections inside the shared header and footer. 1 hero, 2 selected work, 3 how I help (six services and one illustrative report), 4 original research, 5 the person behind HMM (unchanged from the 2026-10-09 founder mockup) and the free review. Shared prototype classes for spacing and type; homepage-only parts use hm-* (new) and jr-* (kept from the 2026-10-09 journey). Spec: docs/HMM_Design_System.md, note "Homepage five-section revision". -->
 <main id="main-content">
 <section class="hero">
   <div class="container">
@@ -336,10 +336,10 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </section>
 
-<section class="content-section hm-section" id="about-ankit" aria-labelledby="why-h">
+<section class="content-section" aria-labelledby="why-h">
   <div class="container">
-    <p class="eyebrow">Who you&rsquo;ll work with</p>
-    <div class="jr-me hm-me">
+    <p class="eyebrow">The person behind HMM</p>
+    <div class="jr-me">
       <div class="jr-me-photo">
         <figure class="jr-portrait">
           <img src="/assets/contact/ankit-portrait-880.webp" srcset="/assets/contact/ankit-portrait-560.webp 560w, /assets/contact/ankit-portrait-880.webp 880w" sizes="(max-width: 900px) calc(100vw - 40px), 440px" width="880" height="1100" loading="lazy" decoding="async" alt="Ankit Kumar, founder of HelpMeMarketing">
@@ -353,21 +353,37 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       </div>
       <div class="jr-me-head">
         <h2 class="section-heading" id="why-h"><span class="jr-line">I don&rsquo;t just plan campaigns.</span> <em class="jr-line">I build and run them.</em></h2>
-        <p class="section-deck">I&rsquo;m Ankit Kumar. I&rsquo;ve spent 9+ years in marketing, across paid advertising, creative production, websites, analytics and automation.</p>
+        <p class="section-deck">I&rsquo;m Ankit Kumar, the founder of HMM. I&rsquo;ve worked across paid advertising, creative production, websites, analytics and automation. I bring this experience into every project to help businesses grow with marketing that actually works.</p>
       </div>
       <div class="jr-me-body">
-        <p class="hm-body">HelpMeMarketing is one person, so you work with me directly, from the first review to the work itself, with no hand-off. I&rsquo;m based in Halton Hills, Ontario.</p>
-        <a class="jr-me-link" href="/about">Read more about me and how I work <span class="jr-me-arrow" aria-hidden="true">&rarr;</span></a>
+        <ul class="jr-pillars">
+          <li><span class="jr-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a3 3 0 0 1 0 6"/><path d="M10 8v11a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1v-5"/><path d="M12 8l4.524 -3.77a.9 .9 0 0 1 1.476 .692v12.156a.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8"/></svg></span><h3>Paid marketing</h3><p>Planning, launching and managing campaigns that drive real business growth.</p></li>
+          <li><span class="jr-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10l4.553 -2.276a1 1 0 0 1 1.447 .894v6.764a1 1 0 0 1 -1.447 .894l-4.553 -2.276v-4z"/><path d="M3 8a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"/></svg></span><h3>Creative &amp; content</h3><p>Branding, social media, video production and design that gets people to take notice.</p></li>
+          <li><span class="jr-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z"/><path d="M7 20h10"/><path d="M9 16v4"/><path d="M15 16v4"/></svg></span><h3>Websites &amp; systems</h3><p>Building websites, landing pages and automation that turn visitors into enquiries.</p></li>
+          <li><span class="jr-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20v-6"/><path d="M12 20v-10"/><path d="M18 20v-14"/></svg></span><h3>Data &amp; performance</h3><p>Tracking results, connecting the dots and making better decisions with clear data.</p></li>
+        </ul>
+        <div class="jr-certs">
+          <p class="jr-certs-label">Certifications &amp; partners</p>
+          <ul>
+            <li><span class="jr-cert-logo"><img src="/assets/brand/google-color.svg" alt="" width="24" height="24" loading="lazy"></span><span><b>Google</b>Partner</span></li>
+            <li><span class="jr-cert-logo"><img src="/assets/brand/meta-color.svg" alt="" width="36" height="24" loading="lazy"></span><span><b>Meta</b>Partner</span></li>
+            <li><span class="jr-cert-logo"><img src="/assets/brand/hubspot-color.svg" alt="" width="24" height="24" loading="lazy"></span><span><b>HubSpot</b>Certified</span></li>
+          </ul>
+        </div>
+        <a class="jr-me-link" href="/work">See my work and results <span class="jr-me-arrow" aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
-    <div class="final-cta-section" id="start">
-      <div class="final-cta">
-        <span class="eyebrow">Free marketing review</span>
-        <h2 class="section-heading">Find out what&rsquo;s working and <em>what needs fixing</em>.</h2>
-        <p class="subhead">The initial review looks at your publicly visible website, messaging and enquiry steps, and tells you what deserves attention first.</p>
-        <div class="final-cta-actions">
-          <a href="/contact?intent=review&amp;entry=home_final#contact-form" class="btn btn-primary" data-review-cta="home_final">Get my free marketing review &rarr;</a>
-        </div>
+  </div>
+</section>
+
+<section class="final-cta-section" id="start">
+  <div class="container">
+    <div class="final-cta">
+      <span class="eyebrow">Free marketing review</span>
+      <h2 class="section-heading">Find out what&rsquo;s working and <em>what needs fixing</em>.</h2>
+      <p class="subhead">The initial review looks at your publicly visible website, messaging and enquiry steps, and tells you what deserves attention first.</p>
+      <div class="final-cta-actions">
+        <a href="/contact?intent=review&amp;entry=home_final#contact-form" class="btn btn-primary" data-review-cta="home_final">Get my free marketing review &rarr;</a>
       </div>
     </div>
   </div>
