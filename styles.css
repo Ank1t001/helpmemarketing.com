@@ -5701,12 +5701,11 @@ body.redesign-prototype .wk-result-label { margin: 0; font-size: 12px; letter-sp
 body.redesign-prototype .wk-result .wk-metric { margin-top: 6px; }
 body.redesign-prototype .wk-goal { margin: 6px 0 0; font-size: 15px; line-height: 1.6; color: var(--text-body); }
 body.redesign-prototype .wk-creative { margin-top: 32px; }
+/* Work creative gallery (2026-10-18): the Portfolio masonry, kept at two columns on phones so ten tiles stay a short scroll. */
+@media (max-width: 720px) { body.redesign-prototype .wk-creative { columns: 2; column-gap: 16px; max-width: none; } body.redesign-prototype .wk-creative.is-js { gap: 16px; } body.redesign-prototype .wk-creative .pg-tile { margin-bottom: 24px; } body.redesign-prototype .wk-creative .pg-title { font-size: 14px; line-height: 1.4; } body.redesign-prototype .wk-creative .wk-play { left: 10px; bottom: 10px; width: 44px; height: 44px; } }
 @media (max-width: 720px) { body.redesign-prototype .wk-head { font-size: 22px; } }
 body.redesign-prototype .wk-project .wk-shot:not(.wk-shot-tall) img { object-fit: contain; object-position: center; }
 /* Work creative section with three videos only: a plain row of three, not masonry. */
-body.redesign-prototype .wk-creative-3 { columns: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-body.redesign-prototype .wk-creative-3 .pg-tile { margin: 0; }
-@media (max-width: 720px) { body.redesign-prototype .wk-creative-3 { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; } }
 /* Work featured projects tour (2026-10-11): homepage-style walk-through without numbered stations. Classes set by the inline script: is-scroll, is-click, is-swipe. */
 body.redesign-prototype .wk-tour { margin-top: 32px; }
 body.redesign-prototype .wk-tour .wk-projects { margin-top: 0; }
