@@ -5284,6 +5284,7 @@ body.redesign-prototype .jr-me-link:hover .jr-me-arrow { background: var(--cta);
 }
 @media (prefers-reduced-motion: reduce) {
   body.redesign-prototype .jr-feed li:nth-child(n), body.redesign-prototype .jr-feed li:nth-child(n) .jr-feed-ic { animation: none; }
+  body.redesign-prototype .hm-example summary::after { transition: none; }
   body.redesign-prototype .jr-feed li { opacity: 1; }
   body.redesign-prototype .jr-feed li:last-child { border-color: var(--mint-bright, #00D4AA); }
   body.redesign-prototype .jr-find.is-live .jr-find-card, body.redesign-prototype .jr-find-tab { transition: none; }
@@ -5300,34 +5301,41 @@ body.redesign-prototype .hm-case { display: flex; flex-direction: column; paddin
 body.redesign-prototype .hm-case-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 0 0 16px; font-size: 14px; font-weight: 600; color: var(--text); }
 body.redesign-prototype .hm-case-meta img { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--border); }
 body.redesign-prototype .hm-case-tag { margin-left: auto; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
-body.redesign-prototype .hm-case-facts { display: grid; gap: 16px; margin: 24px 0 0; }
-body.redesign-prototype .hm-case-facts dt { margin: 0 0 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
-body.redesign-prototype .hm-case-facts dd { margin: 0; font-size: 16px; line-height: 1.6; color: var(--text-body, var(--text-muted)); }
+body.redesign-prototype .hm-case-text { margin: 16px 0 0; font-size: 16px; line-height: 1.6; color: var(--text-body, var(--text-muted)); }
+body.redesign-prototype .hm-case-result { margin: 16px 0 0; font-size: 16px; line-height: 1.5; color: var(--text-muted); }
 body.redesign-prototype .hm-figure { font-weight: 600; color: var(--mint); }
 body.redesign-prototype .hm-case .hm-link { margin-top: auto; padding-top: 24px; }
 body.redesign-prototype .hm-brands { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
-body.redesign-prototype .hm-brands-label, body.redesign-prototype .hm-stage { margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+body.redesign-prototype .hm-brands-label { margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
 body.redesign-prototype .hm-services, body.redesign-prototype .hm-research { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin: 40px 0 0; padding: 0; }
 body.redesign-prototype .hm-services li, body.redesign-prototype .hm-research li { padding-top: 20px; border-top: 1px solid var(--border-strong, var(--border)); }
-body.redesign-prototype .hm-stage { margin-bottom: 8px; }
 body.redesign-prototype .hm-service { margin: 0; font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1.25; }
 body.redesign-prototype .hm-service a { color: var(--text); text-decoration: none; }
 body.redesign-prototype .hm-service a span { color: var(--cta-text, var(--cta)); font-family: var(--sans); font-size: 18px; }
 body.redesign-prototype .hm-service a:hover { color: var(--cta-text, var(--cta)); }
 body.redesign-prototype .hm-services li > p:last-child, body.redesign-prototype .hm-research li > p { margin: 8px 0 0; font-size: 16px; line-height: 1.6; color: var(--text-muted); }
-body.redesign-prototype .hm-demo { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 56px; align-items: center; margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--border); }
+body.redesign-prototype .hm-example { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+body.redesign-prototype .hm-example summary { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 15px; font-weight: 600; color: var(--cta-text, var(--cta)); cursor: pointer; list-style: none; }
+body.redesign-prototype .hm-example summary::-webkit-details-marker { display: none; }
+body.redesign-prototype .hm-example summary::after { content: ""; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform .2s ease; }
+body.redesign-prototype .hm-example[open] summary::after { transform: translateY(2px) rotate(-135deg); }
+body.redesign-prototype .hm-example summary:hover { text-decoration: underline; text-underline-offset: 4px; }
+body.redesign-prototype .hm-demo { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 56px; align-items: center; margin-top: 24px; }
 body.redesign-prototype .hm-demo-text .eyebrow { margin-bottom: 16px; }
 body.redesign-prototype .hm-demo-text p:not(.eyebrow) { margin: 16px 0 0; color: var(--text-muted); }
 /* Homepage focus ring: the inherited ring resolves to legacy navy, which vanishes on dark; use the orange ink (theme-light is the homepage body class). Other pages are a known followup. */
-body.redesign-prototype.theme-light :is(a, button):focus-visible { outline: 2px solid var(--cta-text, var(--cta)); outline-offset: 3px; }
+body.redesign-prototype.theme-light :is(a, button, summary):focus-visible { outline: 2px solid var(--cta-text, var(--cta)); outline-offset: 3px; }
 @media (max-width: 900px) {
   body.redesign-prototype .hm-work { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   body.redesign-prototype .hm-services { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
   body.redesign-prototype .hm-research { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  body.redesign-prototype .hm-demo { grid-template-columns: minmax(0, 1fr); row-gap: 32px; margin-top: 48px; padding-top: 40px; }
+  body.redesign-prototype .hm-demo { grid-template-columns: minmax(0, 1fr); row-gap: 32px; }
+  body.redesign-prototype .hm-example { margin-top: 32px; }
 }
 @media (max-width: 720px) {
-  body.redesign-prototype .hm-services { grid-template-columns: minmax(0, 1fr); }
+  body.redesign-prototype .hm-services { grid-template-columns: minmax(0, 1fr); gap: 20px; margin-top: 32px; }
+  body.redesign-prototype .hm-services li { padding-top: 16px; }
+  body.redesign-prototype .hm-service { font-size: 20px; }
   body.redesign-prototype .hm-case { padding: 24px 20px; }
   body.redesign-prototype .hm-case-tag { flex-basis: 100%; margin-left: 0; }
   }
