@@ -8,7 +8,7 @@
    "label": "Explore the comparison",
    "href": "#bs-compare"
   },
-  "draft_note": "Draft for editorial review. This edition is not published. Items waiting for a browser check or for the relationship disclosure are labelled where they appear."
+  "draft_note": "Draft for editorial review. This edition is not published. Items waiting for a browser check are labelled where they appear."
  },
  "findings": {
   "dek": "Three things a Canadian business reading these sites would run into, each linked to the wording behind it. They describe how the offers are explained, not how the products perform.",
@@ -735,10 +735,6 @@
    "Regulatory statements are recorded as each provider published them. They were not checked against the FINTRAC or Bank of Canada registries and are not a compliance assessment.",
    "This edition does not compare FX costs or product performance and does not recommend a provider."
   ],
-  "relationship": {
-   "status": "pending",
-   "text": "Relationship disclosure pending. Before publication I will state here whether I or Help Me Marketing have any client, consulting, referral, affiliate, sponsorship or other commercial connection with any of the six providers."
-  },
   "corrections": "If an observation is wrong or out of date, email Hello@helpmemarketing.com with the page and the correction. Confirmed corrections will be made with a dated note."
  },
  "help": {

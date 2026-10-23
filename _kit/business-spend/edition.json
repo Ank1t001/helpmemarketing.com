@@ -10,6 +10,6 @@
   "published_at": null,
   "modified_at": null,
   "canonical": "https://helpmemarketing.com/business-spend-index",
-  "relationship_disclosure": {"status": "not_established", "note": "Whether Help Me Marketing or Ankit Kumar has any commercial connection (client, affiliate, referral, sponsorship, investment, paid account) with any of the six providers has not been confirmed. Publication is blocked until it is."},
-  "approvals": {"editorial": null, "relationship_disclosure": null, "publication": null}
+  "relationship_disclosure": {"status": "complete", "text": "Neither I nor Help Me Marketing has a commercial relationship with Venn, Float, Ramp, Loop, Keep or Airwallex.", "confirmed_by": "Ankit Kumar (founder), wording supplied in the build session", "confirmed_on": "2026-10-23"},
+  "approvals": {"editorial": null, "relationship_disclosure": "2026-10-23: founder supplied and confirmed the disclosure wording", "publication": null}
 }

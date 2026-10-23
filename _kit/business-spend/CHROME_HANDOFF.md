@@ -50,7 +50,7 @@ Ingest with `python3 ingest.py browser manifest.jsonl FILES_DIR`. If anything is
 
 ## Publication blockers (not browser items)
 
-- Relationship disclosure: whether Ankit Kumar or Help Me Marketing has any client, consulting, referral, affiliate, sponsorship or other commercial connection with Venn, Float, Ramp, Loop, Keep or Airwallex. Recorded as pending in `edition.json` and on the page.
+- Relationship disclosure: resolved 2026-10-23. The founder confirmed: "Neither I nor Help Me Marketing has a commercial relationship with Venn, Float, Ramp, Loop, Keep or Airwallex." Recorded in `edition.json` and shown in the method section.
 - Ten unresolved conflicts (status Conflicting). Each needs a browser check, a provider clarification, or a decision to keep it shown as an unresolved difference.
 - Owner's editorial review and explicit release instruction. Approvals in `edition.json` are entered by hand from the owner's instruction; nothing in the kit sets them.
 - Forms script: `research_business_spend` is added to the source in `docs/HMM_Forms_AppsScript.gs` but not deployed. Until the owner pastes the updated script into the Apps Script editor and deploys a new version (Deploy, Manage deployments, edit, New version), leads from this page are saved normally but the Source column omits the entry. Check with `testLeadSources` in the editor after deploying; it writes no row.

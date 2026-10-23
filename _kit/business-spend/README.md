@@ -12,7 +12,7 @@ How six platforms (Venn, Float, Ramp, Loop, Keep, Airwallex, in that order) expl
 
 | File | What it holds |
 |---|---|
-| `edition.json` | Edition number, status (draft or published), readiness, collection start and end (America/Toronto, with offsets), publication and modification dates (null for a draft), relationship disclosure status, approvals (entered by hand from the owner; never generated). |
+| `edition.json` | Edition number, status (draft or published), readiness, collection start and end (America/Toronto, with offsets), publication and modification dates (null for a draft), relationship disclosure (status and the confirmed wording, the one place it is stored), approvals (entered by hand from the owner; never generated). |
 | `platforms.json` | The six platforms, their order, code and Canadian starting URL. |
 | `sources.json` | One record per capture: stable ID `S-<CODE>-<ROLE>`, URL, final URL, HTTP status, sha256 of the captured bytes, capture time, method. No page content. |
 | `observations.json` | One record per claim: stable ID `O-<CODE>-NN`, platform, product, layer (product, cross_border, marketing), category, market, eligibility, plan, statement, amount, units, currency, conditions, cited sources with short excerpts, status, method, observed_at, conflicts, interpretation (my reading, kept apart from the statement), public flag. |
@@ -57,4 +57,4 @@ python3 -m unittest tests.test_kit
 
 ## Release (not done for edition 001)
 
-Before release: the Chrome items, the relationship disclosure, a decision on each conflict, the owner's review and explicit instruction, the deployed forms script with `research_business_spend`. Then set `status` to published and the approvals from the owner's instruction, add the page to `sitemap.xml` and the hub, and add `datePublished` and `dateModified` from the recorded production deployment (the Real Estate and Hair Loss Index rules in `CLAUDE.md`). Keep a fixed snapshot for each published edition.
+Before release: the Chrome items, a decision on each conflict, the owner's review and explicit instruction, the deployed forms script with `research_business_spend`. Then set `status` to published and the approvals from the owner's instruction, add the page to `sitemap.xml` and the hub, and add `datePublished` and `dateModified` from the recorded production deployment (the Real Estate and Hair Loss Index rules in `CLAUDE.md`). Keep a fixed snapshot for each published edition.

@@ -253,8 +253,12 @@ def body(c):
     m = n['method']
     st = ''.join('<dt>%s</dt><dd>%s</dd>' % (E(a), E(b)) for a, b in m['statuses'])
     lim = ''.join('<li>%s</li>' % E(x) for x in m['limitations'])
-    rel = m['relationship']
-    rel_html = ('<div class="note gap"><span class="lbl">Placeholder</span><p>%s</p></div>' % E(rel['text'])) if rel['status'] != 'complete' else '<p class="dek m0">%s</p>' % E(rel['text'])
+    rel = ed['relationship_disclosure']
+    if rel['status'] == 'complete':
+        rel_html = '<p class="dek m0">%s</p>' % E(rel['text'])
+    else:
+        rel_html = ('<div class="note gap"><span class="lbl">Placeholder</span><p>Relationship disclosure pending. Before publication I will state here whether '
+                    'I or Help Me Marketing have any commercial connection with any of the six providers.</p></div>')
     nobs = len(c.obs)
     nsrc = len(c.sources)
     out.append('<section id="bs-method"><div class="sec-head"><h2>How this research was done</h2></div>'

@@ -62,6 +62,17 @@ class KitTests(unittest.TestCase):
         self.assertNotIn('datePublished', self.page)
         self.assertEqual(self.page.count('<h1>'), 1)
 
+    def test_relationship_disclosure_is_confirmed_and_draft_stays(self):
+        rel = self.c.edition['relationship_disclosure']
+        self.assertEqual(rel['status'], 'complete')
+        self.assertEqual(rel['text'], 'Neither I nor Help Me Marketing has a commercial relationship with Venn, Float, Ramp, Loop, Keep or Airwallex.')
+        self.assertEqual(self.page.count(rel['text']), 1)
+        self.assertNotIn('Relationship disclosure pending', self.page)
+        self.assertEqual(self.c.edition['status'], 'draft')
+        self.assertIsNone(self.c.edition['approvals']['editorial'])
+        self.assertIsNone(self.c.edition['approvals']['publication'])
+        self.assertIn('<meta name="robots" content="noindex, follow">', self.page)
+
     def test_csv_formula_escaping(self):
         self.assertEqual(build.csv_safe('=SUM(A1)'), "'=SUM(A1)")
         self.assertEqual(build.csv_safe('+ Platform fee'), "'+ Platform fee")

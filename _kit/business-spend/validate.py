@@ -10,6 +10,7 @@ Exit status is 0 only when every check passes.
 """
 import csv
 import gzip
+from html import escape as html_escape
 import hashlib
 import io
 import json
@@ -99,6 +100,16 @@ def check_inputs(c):
             errs.append('edition: collection start and end must equal the first and last capture')
     except ValueError as e:
         errs.append('edition: %s' % e)
+    rel = ed.get('relationship_disclosure') or {}
+    if rel.get('status') not in ('complete', 'not_established'):
+        errs.append('edition: relationship_disclosure.status must be complete or not_established')
+    if rel.get('status') == 'complete':
+        if not rel.get('text') or not rel.get('confirmed_on') or not ed['approvals'].get('relationship_disclosure'):
+            errs.append('edition: a complete relationship disclosure needs its text, confirmed_on and the recorded approval')
+        if '\u2014' in rel.get('text', ''):
+            errs.append('edition: em dash in the relationship disclosure')
+    if 'relationship' in c.n.get('method', {}):
+        errs.append('narrative: the relationship disclosure lives in edition.json only')
     if ed['timezone'] != 'America/Toronto':
         errs.append('edition: timezone must be America/Toronto')
     if ed['status'] not in ('draft', 'published'):
@@ -106,7 +117,7 @@ def check_inputs(c):
     if ed['status'] == 'published':
         if not all(ed['approvals'].get(k) for k in ('editorial', 'relationship_disclosure', 'publication')):
             errs.append('edition: published needs recorded approvals (they are entered by hand from the owner, never generated)')
-        if c.n['method']['relationship']['status'] != 'complete':
+        if ed['relationship_disclosure']['status'] != 'complete':
             errs.append('edition: published needs a completed relationship disclosure')
         if not ed.get('published_at'):
             errs.append('edition: published needs published_at from the recorded deployment')
@@ -288,6 +299,12 @@ def check_outputs(c, page, csvtext):
         if o['conflicts'] and o['status'] == 'conflicting':
             if 'Unresolved difference:' not in body[body.index('id="ev-%s"' % o['id']):][:4000]:
                 errs.append('page: conflict for %s not rendered' % o['id'])
+    rel = c.edition['relationship_disclosure']
+    if rel['status'] == 'complete':
+        if body.count(html_escape(rel['text'])) != 1 or 'Relationship disclosure pending' in body:
+            errs.append('page: the confirmed relationship disclosure must appear once, with no pending placeholder')
+    elif 'Relationship disclosure pending' not in body:
+        errs.append('page: a pending relationship disclosure must show its placeholder')
     if 'data-review-cta="research_business_spend"' not in body or 'entry=research_business_spend#contact-form' not in body:
         errs.append('page: review CTA must carry entry research_business_spend')
     rows = list(csv.reader(io.StringIO(csvtext)))
