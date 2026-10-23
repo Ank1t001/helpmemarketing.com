@@ -31,9 +31,10 @@ CAT_LABEL = {
     'xb_accounts': 'Multi-currency accounts', 'xb_transfers': 'Transfers', 'registration': 'Registration as stated',
     'funds_holding': 'Where funds are held, as stated', 'positioning': 'Positioning', 'proof': 'Proof',
     'case_study': 'Case study', 'journey': 'Application or demo journey', 'page_quality': 'Page rendering',
+    'registry_entry': 'Registry entry (checked by me)',
 }
 LAYER_LABEL = {'product': 'Product context', 'cross_border': 'Cross-border context', 'marketing': 'Marketing execution'}
-METHOD_LABEL = {'server_fetch': 'server fetch, no JavaScript', 'browser': 'browser observation', 'manual_document_review': 'document review'}
+METHOD_LABEL = {'server_fetch': 'server fetch, no JavaScript', 'browser': 'browser capture (Chrome)', 'manual_document_review': 'document review'}
 E = lambda s: html.escape(s, quote=True)
 
 
@@ -167,10 +168,31 @@ def ev_item(c, o):
         extra += '<span class="interp"><b>Conditions:</b> %s</span>' % E(o['conditions'])
     for cf in o['conflicts']:
         extra += '<span class="interp"><b>Unresolved difference:</b> %s</span>' % E(cf['note'])
+    if o.get('reconciliation'):
+        extra += '<span class="interp"><b>Reconciliation:</b> %s</span>' % E(recon_text(o['reconciliation']))
     if o['interpretation']:
         extra += '<span class="interp"><b>My reading:</b> %s</span>' % E(o['interpretation'])
     return ('<li id="ev-%s"><span class="cat">%s</span> %s<br>%s%s%s</li>'
             % (o['id'], E(CAT_LABEL[o['category']]), status_tag(o['status'], True), E(o['statement']), extra, ''.join(src_html)))
+
+
+def recon_text(r):
+    labels = ' and '.join('%s (%s)' % (k, model.RECON_LABEL[k].lower()) for k in r['class'].split(' and '))
+    return 'class %s. %s' % (labels, r['note'])
+
+
+def recon_details(c):
+    rows = []
+    order = {p: i for i, p in enumerate(c.order)}
+    for o in sorted((o for o in c.obs.values() if o.get('reconciliation')), key=lambda o: (order[o['platform']], o['id'])):
+        r = o['reconciliation']
+        rows.append('<tr><td data-label="Platform">%s</td><td data-label="Difference"><a href="#ev-%s">%s</a></td><td data-label="Class">%s</td><td data-label="Why" class="wrap-cell">%s</td></tr>'
+                    % (E(c.name(o['platform'])), o['id'], E(r['topic']), E(r['class']), E(r['note'])))
+    legend = '; '.join('%s: %s' % (k, v) for k, v in sorted(model.RECON_LABEL.items()))
+    return ('<details class="ri-adv srcs" id="bs-recon"><summary>How the %d reported differences were reconciled</summary>'
+            '<p class="dek">After the first reading, a browser pass compared each pair of statements by product, transaction, country and customer, plan, currency, dates and conditions. Classes: %s. Both statements stay in the evidence for every item.</p>'
+            '<div class="tw cards" tabindex="0" role="region" aria-label="Reconciliation of the reported differences"><table class="bs"><thead><tr><th scope="col">Platform</th><th scope="col">Difference</th><th scope="col">Class</th><th scope="col">Why</th></tr></thead><tbody>%s</tbody></table></div></details>'
+            % (len(rows), E(legend), ''.join(rows)))
 
 
 def platform_block(c, pid):
@@ -185,8 +207,9 @@ def platform_block(c, pid):
     missing = p['missing']
     miss = ('<p class="dek"><b>Missing evidence.</b> %s.</p>' % E('; '.join(missing))) if missing else '<p class="dek"><b>Missing evidence.</b> None identified in this edition.</p>'
     tk = take(p['take']) if p.get('take') else gap_note('This takeaway is waiting for evidence: %s.' % '; '.join(missing))
-    when = 'Observed %s, %s to %s Toronto time, by server fetch of %d public pages.' % (
-        long_date(times[0]), toronto_time(times[0]), toronto_time(times[-1]), len(pages))
+    nb = sum(1 for x in pages if c.sources[x]['method'] == 'browser')
+    when = 'Observed %s, %s to %s Toronto time, from %d server captures and %d browser captures.' % (
+        long_date(times[0]), toronto_time(times[0]), toronto_time(times[-1]), len(pages) - nb, nb)
     return ('<div class="card plat" id="bs-p-%s"><h3>%s</h3><dl>%s</dl>'
             '<p class="dek"><b>Editorial observation.</b> %s</p>%s%s'
             '<details class="ri-adv srcs"><summary>Sources and exact wording for %s (%d observations)</summary><ul class="evlist">%s</ul></details>'
@@ -261,13 +284,15 @@ def body(c):
                     'I or Help Me Marketing have any commercial connection with any of the six providers.</p></div>')
     nobs = len(c.obs)
     nsrc = len(c.sources)
+    nbr = sum(1 for x in c.sources.values() if x['method'] == 'browser')
     out.append('<section id="bs-method"><div class="sec-head"><h2>How this research was done</h2></div>'
                '<div class="card"><h3>Selection</h3><p class="dek">%s</p><h3>Dates</h3><p class="dek">%s</p><h3>Public sources only</h3><p class="dek">%s</p>'
                '<h3 id="bs-statuses">What each status means</h3><dl class="statdefs">%s</dl><h3>Limitations</h3><ul class="dek">%s</ul>'
-               '<p class="pnote">%d observations from %d public pages, six platforms, edition %s. Interpretations are marked &ldquo;My reading&rdquo; and kept apart from what each source states.</p></div>'
-               % (E(m['selection']), E(m['dates']), E(m['public_only']), st, lim, nobs, nsrc, E(ed['edition'])))
+               '<p class="pnote">%d observations from %d captures of public pages (%d by server fetch, %d in a browser), six platforms, edition %s. Interpretations are marked &ldquo;My reading&rdquo; and kept apart from what each source states.</p></div>'
+               % (E(m['selection']), E(m['dates']), E(m['public_only']), st, lim, nobs, nsrc, nsrc - nbr, nbr, E(ed['edition'])))
     out.append('<div class="grid2"><div class="card"><h4>About the researcher</h4><p class="dek m0">Research and analysis by <a href="/about">Ankit Kumar</a>, founder of Help Me Marketing, a marketing practice in Halton Hills, Ontario. This Index reads marketing pages; it is not financial, legal or regulatory advice.</p></div>'
                '<div class="card"><h4>Relationship disclosure</h4>%s</div></div>' % rel_html)
+    out.append(recon_details(c))
     out.append('<details class="ri-adv"><summary>Corrections</summary><p class="m0">%s</p></details>' % E(m['corrections']).replace('Hello@helpmemarketing.com', '<a href="mailto:Hello@helpmemarketing.com">Hello@helpmemarketing.com</a>'))
     out.append('<p class="pnote dlinks"><b>Download the data:</b> <a href="/%s" download>the curated observations (CSV)</a>: platform, category, observation, status, market and plan, conditions, source URL and capture time. My interpretations are not in the file.</p></section>' % CSV_REL)
 
@@ -344,6 +369,8 @@ def render_csv(c):
     for o in sorted((o for o in c.obs.values() if o['public']), key=lambda o: (order[o['platform']], o['id'])):
         mp = '; '.join(x for x in [o['market'], o['eligibility'], o['plan']] if x)
         conds = ' '.join(x for x in [o['conditions']] + [cf['note'] for cf in o['conflicts']] if x)
+        if o.get('reconciliation'):
+            conds += ' Reconciliation: ' + recon_text(o['reconciliation'])
         if o['status'] == 'not_found':
             urls = [c.sources[s]['final_url'] for s in o['reviewed_sources']]
         else:

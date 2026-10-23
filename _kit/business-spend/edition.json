@@ -1,15 +1,30 @@
 {
   "edition": "001",
   "status": "draft",
-  "readiness": "Draft with material evidence gaps",
+  "readiness": "Ready for editorial review",
   "timezone": "America/Toronto",
   "collection_started_at": "2026-10-23T10:39:00-04:00",
-  "collection_ended_at": "2026-10-23T10:48:57-04:00",
-  "collection_methods": ["server fetch (curl), no JavaScript, no cookies"],
-  "browser_observation": {"status": "not_checked", "note": "No browser observation has been made for this edition. Items that need a real browser are listed in CHROME_HANDOFF.md."},
+  "collection_ended_at": "2026-10-23T14:10:58-04:00",
+  "collection_methods": [
+    "server fetch (curl), no JavaScript, no cookies: 10:39 a.m. to 10:48 a.m., and the Airwallex fee schedule at 2:10 p.m.",
+    "browser pass (Claude in Chrome, normal profile, not signed in to any provider; nothing submitted): 2026-10-23T12:00:24-04:00 to 2026-10-23T12:14:36-04:00"
+  ],
+  "browser_observation": {
+    "status": "complete",
+    "note": "Browser pass of 23 October 2026, 12:00 p.m. to 12:14 p.m. Toronto time: customer-visible pages, the six enquiry journeys to their first screen, FINTRAC and Bank of Canada registries, and the reconciliation of the ten differences. Package: business-spend-browser-pass-2026-10-23 (34 captures; screenshots held privately, hashes in sources.json)."
+  },
   "published_at": null,
   "modified_at": null,
   "canonical": "https://helpmemarketing.com/business-spend-index",
-  "relationship_disclosure": {"status": "complete", "text": "Neither I nor Help Me Marketing has a commercial relationship with Venn, Float, Ramp, Loop, Keep or Airwallex.", "confirmed_by": "Ankit Kumar (founder), wording supplied in the build session", "confirmed_on": "2026-10-23"},
-  "approvals": {"editorial": null, "relationship_disclosure": "2026-10-23: founder supplied and confirmed the disclosure wording", "publication": null}
+  "relationship_disclosure": {
+    "status": "complete",
+    "text": "Neither I nor Help Me Marketing has a commercial relationship with Venn, Float, Ramp, Loop, Keep or Airwallex.",
+    "confirmed_by": "Ankit Kumar (founder), wording supplied in the build session",
+    "confirmed_on": "2026-10-23"
+  },
+  "approvals": {
+    "editorial": null,
+    "relationship_disclosure": "2026-10-23: founder supplied and confirmed the disclosure wording",
+    "publication": null
+  }
 }

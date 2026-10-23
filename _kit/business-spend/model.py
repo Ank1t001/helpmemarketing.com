@@ -24,10 +24,13 @@ CATEGORIES = {
     # cross-border layer (each checked on its own)
     'xb_card_spending', 'xb_fx', 'xb_accounts', 'xb_transfers',
     # regulatory statements as published (never a safety conclusion)
-    'registration', 'funds_holding',
+    'registration', 'funds_holding', 'registry_entry',
     # marketing execution
     'positioning', 'proof', 'case_study', 'journey', 'page_quality',
 }
+RECON_CLASSES = {'A', 'B', 'C', 'D', 'B and D'}
+RECON_LABEL = {'A': 'Explained by different products or conditions', 'B': 'Rendered page and page code differ',
+               'C': 'Unresolved difference in the same context', 'D': 'Insufficient evidence to decide'}
 METHODS = {'server_fetch', 'browser', 'manual_document_review'}
 ISO_OFFSET = re.compile(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?[+-]\d{2}:\d{2}$')
 SRC_ID = re.compile(r'^S-[A-Z]{3}-[A-Z0-9-]+$')
@@ -152,7 +155,7 @@ def check_observation(o, codes, sources):
         if len(ref.get('excerpt', '')) > 400:
             errs.append('%s: excerpt from %s is over 400 characters' % (oid, sid))
         times.append(sources[sid]['fetched_at'])
-        if sources[sid]['platform'] != o['platform']:
+        if sources[sid]['platform'] != o['platform'] and '*' not in sources[sid].get('covers', []) and o['platform'] not in sources[sid].get('covers', []):
             errs.append('%s: cites a source from another platform (%s)' % (oid, sid))
     times += [sources[sid]['fetched_at'] for sid in o.get('reviewed_sources', []) if sid in sources]
     if o['observed_at'] is not None:
@@ -167,6 +170,18 @@ def check_observation(o, codes, sources):
     for c in o['conflicts']:
         if not c.get('note'):
             errs.append('%s: conflict without a note' % oid)
+    rec = o.get('reconciliation')
+    if rec is not None:
+        if rec.get('class') not in RECON_CLASSES:
+            errs.append('%s: reconciliation class must be one of %s' % (oid, sorted(RECON_CLASSES)))
+        elif not rec.get('note') or not rec.get('topic'):
+            errs.append('%s: reconciliation needs a topic and a note' % oid)
+        else:
+            open_ = any(x in rec['class'] for x in ('C', 'D'))
+            if open_ and o['status'] != 'conflicting':
+                errs.append('%s: class %s leaves the difference open, so the status stays Conflicting' % (oid, rec['class']))
+            if not open_ and o['status'] == 'conflicting':
+                errs.append('%s: class %s explains the difference, so the status cannot be Conflicting' % (oid, rec['class']))
     return errs
 
 

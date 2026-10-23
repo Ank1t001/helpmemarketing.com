@@ -48,13 +48,18 @@ class KitTests(unittest.TestCase):
                 self.assertIsNone(o['amount'], o['id'])
         rows = {r[0]: r for r in csv.reader(io.StringIO(self.csv))}
         self.assertEqual(rows['O-FLT-11'][5], 'Not found in reviewed sources')
-        self.assertEqual(rows['O-LOP-15'][10], '')  # not checked: no capture time is invented
+        for o in self.c.obs.values():
+            if o['status'] == 'not_checked':
+                self.assertIsNone(o['observed_at'], o['id'])  # no capture time is invented
         self.assertIn('Not found in reviewed sources', self.page)
 
     def test_conditions_and_conflicts_render(self):
         self.assertIn('capped at $5,000 a month', self.page)
         self.assertIn('1% only above $25k monthly spend per card program', self.page)
-        self.assertGreaterEqual(self.page.count('Unresolved difference:'), 10)
+        self.assertEqual(self.page.count('Unresolved difference:'), sum(len(o['conflicts']) for o in self.c.obs.values()))
+        for o in self.c.obs.values():
+            if o['status'] == 'conflicting':
+                self.assertTrue(o['conflicts'], o['id'])
 
     def test_draft_head(self):
         self.assertIn('<meta name="robots" content="noindex, follow">', self.page)
@@ -72,6 +77,25 @@ class KitTests(unittest.TestCase):
         self.assertIsNone(self.c.edition['approvals']['editorial'])
         self.assertIsNone(self.c.edition['approvals']['publication'])
         self.assertIn('<meta name="robots" content="noindex, follow">', self.page)
+
+    def test_ten_differences_reconciled(self):
+        rec = {o['id']: o['reconciliation']['class'] for o in self.c.obs.values() if o.get('reconciliation')}
+        self.assertEqual(rec, {'O-VEN-04': 'C', 'O-VEN-11': 'C', 'O-VEN-15': 'B', 'O-FLT-03': 'A', 'O-LOP-04': 'C',
+                               'O-KEP-08': 'A', 'O-AWX-01': 'D', 'O-AWX-04': 'B and D', 'O-AWX-07': 'A', 'O-AWX-12': 'A'})
+        for oid, cls in rec.items():
+            self.assertEqual(self.c.obs[oid]['status'] == 'conflicting', 'C' in cls or 'D' in cls, oid)
+            self.assertIn('href="#ev-%s"' % oid, self.page[self.page.index('id="bs-recon"'):])
+
+    def test_browser_sources_are_attested_not_invented(self):
+        browser = [s for s in self.c.sources.values() if s['method'] == 'browser']
+        self.assertEqual(len(browser), 34)
+        for s in browser:
+            self.assertIsNone(s['http_status'])
+            self.assertTrue(s['screenshot'].endswith('.png'))
+            self.assertTrue(s['fetched_at'].startswith('2026-10-23T12:'))
+        for s in browser:
+            self.assertNotIn(s['screenshot'], self.page)  # screenshots stay private
+        self.assertIn('html[data-theme="dark"] .app :focus-visible{outline:2px solid var(--cta)', self.page)
 
     def test_csv_formula_escaping(self):
         self.assertEqual(build.csv_safe('=SUM(A1)'), "'=SUM(A1)")

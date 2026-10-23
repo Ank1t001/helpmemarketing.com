@@ -94,19 +94,19 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The cards page offers 1% cashback with no caps; the pricing page footnote caps cashback on two of the four plans.",
+   "statement": "The cards page says 1% cashback with no tiers, thresholds or caps; the pricing footnote limits cashback to the first $5,000 CAD of card spend a month on Essentials and $25,000 CAD on Plus, unlimited on Pro and Custom. Both statements are visible in a browser.",
    "amount": 1,
    "units": "% cashback on card spend",
    "currency": null,
-   "conditions": "Pricing footnote: cashback applies to the first $5,000 CAD of card spend a month on Essentials and $25,000 CAD on Plus; unlimited on Pro and Custom.",
+   "conditions": "Same card, market, transaction type and currency (CAD or CAD equivalent). The two statements agree for Pro and Custom only. The sign-up page also shows an unqualified \"1% Cashback\" badge.",
    "sources": [
     {
      "source_id": "S-VEN-CARDS",
      "excerpt": "Earn 1% cashback on all transactions and save 3% on USD spend with no fx fees"
     },
     {
-     "source_id": "S-VEN-CARDS",
-     "excerpt": "no tiers, thresholds, or caps"
+     "source_id": "S-VEN-BROWSER-CARDS-NO-CAPS",
+     "excerpt": "Earned on every dollar, paid out monthly - no tiers, thresholds, or caps."
     },
     {
      "source_id": "S-VEN-PRICING",
@@ -115,11 +115,15 @@
     {
      "source_id": "S-VEN-PRICING",
      "excerpt": "is unlimited on the Pro plan and Custom plan"
+    },
+    {
+     "source_id": "S-VEN-BROWSER-PRICING-CASHBACK-FOOTNOTE",
+     "excerpt": "Cashback is limited to card spend on the first $5,000 CAD/month"
     }
    ],
    "status": "conflicting",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:39:58-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:08:31-04:00",
    "conflicts": [
     {
      "with": null,
@@ -127,7 +131,12 @@
     }
    ],
    "interpretation": "A reader who sees only the cards page could take the 1% as uncapped on every plan.",
-   "public": true
+   "public": true,
+   "reconciliation": {
+    "class": "C",
+    "topic": "Venn cashback caps",
+    "note": "Same product, market, transaction and currency, both visible. For Essentials and Plus the two statements cannot both hold."
+   }
   },
   {
    "id": "O-VEN-05",
@@ -340,36 +349,45 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The number of supported countries and currencies is stated three different ways across the site and help centre.",
+   "statement": "The number of currencies Venn says it can send differs for the same action: 36 in the homepage FAQ and 36+ on the transfers page, 33 in a help article dated 12 August 2025. The country figures (180+ and 200+) are lower bounds and do not conflict.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": null,
+   "conditions": "The homepage line \"200+ countries in 30+ currencies\" is in the page code; the browser pass did not establish whether it is visible. The dated help article was not treated as replaced by the undated pages.",
    "sources": [
     {
      "source_id": "S-VEN-HOME",
-     "excerpt": "200+ countries in 30+ currencies"
+     "excerpt": "Venn supports 36 different currencies for sending money out of your account"
+    },
+    {
+     "source_id": "S-VEN-BROWSER-TRANSFERS-COVERAGE",
+     "excerpt": "Coverage to 180+ countries and 36+ currencies"
     },
     {
      "source_id": "S-VEN-TRANSFERS",
-     "excerpt": "180+ countries and 36+ currencies"
+     "excerpt": "200+ countries and 30+ currencies"
     },
     {
-     "source_id": "S-VEN-HELP-CURRENCIES",
-     "excerpt": "33 different currencies"
+     "source_id": "S-VEN-BROWSER-HELP-CURRENCIES",
+     "excerpt": "We support a total of 33 different currencies for you to send money out of your account"
     }
    ],
    "status": "conflicting",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:39:59-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:09:26-04:00",
    "conflicts": [
     {
      "with": null,
-     "note": "200+ countries and 30+ currencies (homepage), 180+ countries and 36+ currencies (transfers page), 33 currencies to send (help article)."
+     "note": "36 currencies to send (homepage FAQ, transfers page) and 33 (help article, 12 August 2025)."
     }
    ],
    "interpretation": "None of the three is wrong on its own terms, but a buyer comparing coverage cannot tell which one is current.",
-   "public": true
+   "public": true,
+   "reconciliation": {
+    "class": "C",
+    "topic": "Venn send currencies",
+    "note": "The \"+\" country figures are compatible lower bounds. The exact send-currency counts (36 and 33) differ for the same action."
+   }
   },
   {
    "id": "O-VEN-12",
@@ -473,11 +491,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Customer counts differ on the same site: 15,000+ businesses, 4,000+ Canadian businesses and more than 15,000 Canadian businesses.",
+   "statement": "The customer counts visible on the homepage agree at 15,000+. A fourth figure, \"Supporting 4,000+ Canadian businesses\", is in the page code, inside a banner set not to display.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": null,
+   "conditions": "The server fetch at 10:39 a.m. read all the figures as text. The browser pass at 12:08 p.m. found the 4,000+ banner set not to display at any width (computed CSS); no screenshot of the homepage was supplied.",
    "sources": [
     {
      "source_id": "S-VEN-HOME",
@@ -485,24 +503,24 @@
     },
     {
      "source_id": "S-VEN-HOME",
-     "excerpt": "Supporting 4,000+ Canadian businesses"
+     "excerpt": "more than 15,000 Canadian businesses"
     },
     {
      "source_id": "S-VEN-HOME",
-     "excerpt": "more than 15,000 Canadian businesses"
+     "excerpt": "Supporting 4,000+ Canadian businesses"
     }
    ],
-   "status": "conflicting",
+   "status": "published",
    "method": "server_fetch",
    "observed_at": "2026-10-23T10:39:00-04:00",
-   "conflicts": [
-    {
-     "with": null,
-     "note": "Three customer counts on one homepage: 15,000+, 4,000+ Canadian and more than 15,000 Canadian."
-    }
-   ],
+   "conflicts": [],
    "interpretation": null,
-   "public": true
+   "public": true,
+   "reconciliation": {
+    "class": "B",
+    "topic": "Venn customer counts",
+    "note": "The 4,000+ figure is in the page code but not rendered; the visible counts agree."
+   }
   },
   {
    "id": "O-VEN-16",
@@ -567,23 +585,62 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The sign-up page asks for email and password and promises a five-minute start; the full application steps run in a JavaScript app that a server fetch cannot read.",
+   "statement": "\"Open a free account\" leads to a sign-up screen: Google or Microsoft sign-in, or email, password and password confirmation, then \"Create account\". It says \"No personal credit check or guarantee\" and \"Get started in 5 minutes\". No eligibility or Quebec note on this screen.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "Server fetch only; the steps after the first screen are not checked.",
+   "conditions": "Stopped before \"Create account\". The next step creates an account, so later steps were not observed.",
    "sources": [
     {
      "source_id": "S-VEN-JOURNEY",
      "excerpt": "Get started in 5 minutes"
+    },
+    {
+     "source_id": "S-VEN-BROWSER-SIGNUP",
+     "excerpt": "No personal credit check or guarantee."
+    },
+    {
+     "source_id": "S-VEN-BROWSER-SIGNUP",
+     "excerpt": "Create account"
     }
    ],
    "status": "published",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:00-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:09:42-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
+  },
+  {
+   "id": "O-VEN-19",
+   "platform": "venn",
+   "product": null,
+   "layer": "product",
+   "category": "registry_entry",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Registry entries as displayed on 23 October 2026. Registration is not an endorsement, a licence or a safety rating; both registries say so.",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "sources": [
+    {
+     "source_id": "S-VEN-BROWSER-REGISTRY-FINTRAC-2",
+     "excerpt": "Venn Software Inc. M22941967"
+    },
+    {
+     "source_id": "S-RMP-BROWSER-REGISTRY-BOC-PSP",
+     "excerpt": "Venn Software Inc."
+    }
+   ],
+   "status": "published",
+   "statement": "Venn Software Inc.: registered with FINTRAC as a money services business (M22941967, registered 30 August 2022, expiry 12 November 2027) and listed on the Bank of Canada registry of payment service providers.",
+   "observed_at": "2026-10-23T12:14:31-04:00",
+   "method": "browser"
   },
   {
    "id": "O-FLT-01",
@@ -664,32 +721,36 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The cards page says the cards are accepted wherever Visa or Mastercard is accepted, while the legal pages describe a Visa card.",
+   "statement": "The cards page says the cards are \"Accepted anywhere Visa or Mastercard is welcome\". Its disclosures name two cards: the Float Visa Card, issued by Float Financial Solutions Inc., and the Float Mastercard USD Card, issued by Thread Bank, Member FDIC. The Mastercard reference matches the USD card.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": null,
+   "conditions": "Float Charge's network is not stated separately. My server reading at 10:40 a.m. missed the USD card disclosure, which was on the same page.",
    "sources": [
     {
      "source_id": "S-FLT-CARDS",
      "excerpt": "Accepted anywhere Visa or Mastercard is welcome"
     },
     {
-     "source_id": "S-FLT-LEGAL",
-     "excerpt": "Cards are issued by Float Financial Solutions Inc. under license by Visa"
-    }
-   ],
-   "status": "conflicting",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:03-04:00",
-   "conflicts": [
+     "source_id": "S-FLT-CARDS",
+     "excerpt": "The Float Mastercard® USD Card is issued by Thread Bank, Member FDIC"
+    },
     {
-     "with": "O-FLT-02",
-     "note": "Marketing copy mentions Visa or Mastercard acceptance; the agreement names Visa only. A browser check of the card artwork and agreement list is needed."
+     "source_id": "S-FLT-BROWSER-CARDS-ISSUER-DISCLOSURES",
+     "excerpt": "The Float Mastercard USD Card is issued by Thread Bank, Member FDIC"
     }
    ],
+   "status": "published",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:00:58-04:00",
+   "conflicts": [],
    "interpretation": null,
-   "public": true
+   "public": true,
+   "reconciliation": {
+    "class": "A",
+    "topic": "Float card network",
+    "note": "Two different cards: a CAD Visa card and a USD Mastercard."
+   }
   },
   {
    "id": "O-FLT-04",
@@ -890,19 +951,19 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Business accounts hold CAD and USD with routing details for EFT, ACH and wires. The CAD interest rate appears as an unfilled placeholder in the served page; the legal page gives 2.5% CAD and 2.75% USD.",
+   "statement": "Business accounts hold CAD and USD with routing details for EFT, ACH and wires. In a browser the page says \"Earn 2.5% in a CDIC insured business account\"; the legal page gives 2.5% CAD and 2.75% USD as standard variable rates.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "The placeholder may be filled by JavaScript in a browser; a Chrome check is listed.",
+   "conditions": "The served page code holds a template placeholder for the CAD rate; it fills when the page loads and is not visible to visitors.",
    "sources": [
     {
      "source_id": "S-FLT-ACCOUNTS",
      "excerpt": "Float Business Accounts let you receive and store business funds with account routing details for EFT, ACH and wire transfers."
     },
     {
-     "source_id": "S-FLT-ACCOUNTS",
-     "excerpt": "{{interest-rate}}"
+     "source_id": "S-FLT-BROWSER-BUSINESS-ACCOUNTS-RENDERED-RATE",
+     "excerpt": "Earn 2.5% in a CDIC insured business account with zero lockups and zero fees.*"
     },
     {
      "source_id": "S-FLT-LEGAL",
@@ -910,8 +971,8 @@
     }
    ],
    "status": "published",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:03-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:00:24-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
@@ -1010,11 +1071,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Two template placeholders appear unfilled in the served pages: the CAD interest rate and the customer count.",
+   "statement": "Two template placeholders in the served page code, the CAD interest rate and the customer count, fill when the page loads: a browser shows \"2.5%\" and \"TRUSTED BY 10,000+ COMPANIES\". They are not visible defects.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "Server fetch; a browser may fill them. Listed for a Chrome check.",
+   "conditions": "My server reading at 10:39 a.m. recorded the placeholders as text; the browser pass shows what visitors see.",
    "sources": [
     {
      "source_id": "S-FLT-HOME",
@@ -1023,11 +1084,19 @@
     {
      "source_id": "S-FLT-HOME",
      "excerpt": "{{customer-count}}"
+    },
+    {
+     "source_id": "S-FLT-BROWSER-HOME",
+     "excerpt": "TRUSTED BY 10,000+ COMPANIES"
+    },
+    {
+     "source_id": "S-FLT-BROWSER-BUSINESS-ACCOUNTS-RENDERED-RATE",
+     "excerpt": "Earn 2.5% in a CDIC insured business account"
     }
    ],
    "status": "published",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:39:00-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:00:41-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
@@ -1068,23 +1137,97 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The demo request starts with a work email; the form states that submitting the email opts the visitor in to marketing emails.",
+   "statement": "\"See a demo\" leads to a Book a Demo form with eight required fields (first and last name, work email, job title, phone, company size, current monthly card spend, product interest), an optional referral code and \"How did you hear about us\". The consent line says submitting lets Float contact you; nothing says what happens after booking.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "Not submitted. Later steps not checked.",
+   "conditions": "Stopped before \"Book a Demo\". The homepage email box (\"Use Float for free\") is a separate start route with the marketing opt-in line; my server reading had combined the two.",
    "sources": [
     {
-     "source_id": "S-FLT-JOURNEY",
+     "source_id": "S-FLT-BROWSER-DEMO-FIELDS",
+     "excerpt": "Current monthly credit card spend*"
+    },
+    {
+     "source_id": "S-FLT-BROWSER-DEMO-SUBMIT",
+     "excerpt": "By submitting this form you consent to Float contacting you."
+    },
+    {
+     "source_id": "S-FLT-HOME",
      "excerpt": "By submitting your email, you agree to opt in to marketing emails"
     }
    ],
    "status": "published",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:04-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:10:08-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
+  },
+  {
+   "id": "O-FLT-17",
+   "platform": "float",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_accounts",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": 3.5,
+   "units": "% maximum promotional interest",
+   "currency": null,
+   "conditions": "The badge carries no condition on the page; the conditions are in the promotion terms on the legal page.",
+   "conflicts": [],
+   "interpretation": "The badge leads with the promotional maximum; the standard rate is the one in the page text.",
+   "public": true,
+   "sources": [
+    {
+     "source_id": "S-FLT-BROWSER-BUSINESS-ACCOUNTS-RENDERED-RATE",
+     "excerpt": "Up to 3.5% interest"
+    },
+    {
+     "source_id": "S-FLT-LEGAL",
+     "excerpt": "allowing eligible customers to earn up to 3.5% annualized interest on qualifying new balances held in their Float account above their established baseline balance"
+    },
+    {
+     "source_id": "S-FLT-LEGAL",
+     "excerpt": "Window 2: Opt in between October 19 to December 31, 2026"
+    }
+   ],
+   "status": "published",
+   "statement": "An image badge on the business accounts page says \"Up to 3.5% interest\" beside text saying 2.5%. Float's promotion terms explain the 3.5%: an extra 1% for 12 months on qualifying new balances above a baseline, for eligible customers who opt in during an enrolment window (the current one runs 19 October to 31 December 2026).",
+   "observed_at": "2026-10-23T12:00:24-04:00",
+   "method": "browser"
+  },
+  {
+   "id": "O-FLT-18",
+   "platform": "float",
+   "product": null,
+   "layer": "product",
+   "category": "registry_entry",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Registry entries as displayed on 23 October 2026. The Bank of Canada screenshot shows 3 of the 6 filtered rows; the Float row was read from the page table. Registration is not an endorsement, a licence or a safety rating.",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "sources": [
+    {
+     "source_id": "S-AWX-BROWSER-REGISTRY-FINTRAC-1",
+     "excerpt": "Float Financial Solutions Inc. M23497654 Registered"
+    },
+    {
+     "source_id": "S-RMP-BROWSER-REGISTRY-BOC-PSP",
+     "excerpt": "Float Financial Solutions Inc."
+    }
+   ],
+   "status": "published",
+   "statement": "Float Financial Solutions Inc.: registered with FINTRAC as a money services business (M23497654, registered 8 June 2023, expiry 22 October 2027) and listed on the Bank of Canada registry of payment service providers.",
+   "observed_at": "2026-10-23T12:14:31-04:00",
+   "method": "browser"
   },
   {
    "id": "O-RMP-01",
@@ -1122,23 +1265,27 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The Canadian card agreement was not reached: the legal index returned an empty page to a server fetch, so whether the card is charge, credit or pre-funded is not confirmed.",
+   "statement": "The Canada Card Supplement (last updated 6 October 2026) says Peoples Trust Company issues Canadian Cards and that the Canadian affiliate must pay statements in full, by pre-authorised debit from its linked account. Canadian Cards are for a Canada-registered affiliate of a company that holds a Ramp account.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": null,
-   "sources": [],
-   "status": "not_found",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:14-04:00",
+   "conditions": "The supplement does not use the words \"charge card\". A server fetch of Ramp's legal pages returns only a script shell, so the text was read in a browser; the payment wording is in the page text, below the part shown in the screenshot.",
+   "sources": [
+    {
+     "source_id": "S-RMP-BROWSER-CANADA-CARD-SUPPLEMENT",
+     "excerpt": "Peoples Trust Company is the Issuer of Canadian Cards"
+    },
+    {
+     "source_id": "S-RMP-BROWSER-CANADA-CARD-SUPPLEMENT",
+     "excerpt": "Canadian Affiliate is responsible for timely payment in full of all Charges, Fees, Fines and other amounts owed"
+    }
+   ],
+   "status": "published",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:07:20-04:00",
    "conflicts": [],
    "interpretation": null,
-   "public": true,
-   "reviewed_sources": [
-    "S-RMP-LEGAL-INDEX",
-    "S-RMP-CARDS",
-    "S-RMP-PRICING"
-   ]
+   "public": true
   },
   {
    "id": "O-RMP-03",
@@ -1215,11 +1362,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "A Canadian cashback or rewards rate was not found; the pricing FAQ mentions paying for Ramp Plus with \"the rewards you earn\".",
+   "statement": "No Canadian rewards rate is published. The pricing page mentions paying for Ramp Plus with \"the rewards you earn\".",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": null,
+   "conditions": "The browser pass also read the Rewards Terms (last updated 22 September 2026): the Canada schedule excludes non-CAD purchases and says points accrue at a rate determined by Ramp. No capture file was supplied for that page.",
    "sources": [
     {
      "source_id": "S-RMP-PRICING",
@@ -1227,15 +1374,16 @@
     }
    ],
    "status": "not_found",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:13-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:07:20-04:00",
    "conflicts": [],
    "interpretation": "Rewards are implied but their rate and conditions for Canada are not stated on the pages reviewed.",
    "public": true,
    "reviewed_sources": [
     "S-RMP-HOME",
     "S-RMP-CARDS",
-    "S-RMP-PRICING"
+    "S-RMP-PRICING",
+    "S-RMP-BROWSER-CANADA-CARD-SUPPLEMENT"
    ]
   },
   {
@@ -1274,11 +1422,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The homepage promises CAD and USD spending without the FX markup; the global page says transactions that need conversion stay subject to exchange rates and fees.",
-   "amount": null,
-   "units": null,
+   "statement": "The homepage promises CAD and USD spending without the FX markup; the global page says conversions stay subject to exchange rates and fees; the Canada Card Supplement caps the currency conversion margin at 3% for charges outside the settlement currency.",
+   "amount": 3,
+   "units": "% maximum conversion margin (card terms)",
    "currency": null,
-   "conditions": "The no-markup line applies to spending in the card currency (CAD on CAD cards, USD on USD cards).",
+   "conditions": "The no-markup line covers spending in the card currency; the margin applies to charges in another currency. Read from the page text in a browser.",
    "sources": [
     {
      "source_id": "S-RMP-HOME",
@@ -1287,11 +1435,15 @@
     {
      "source_id": "S-RMP-GLOBAL",
      "excerpt": "Transactions that require currency conversion remain subject to applicable exchange rates and fees"
+    },
+    {
+     "source_id": "S-RMP-BROWSER-CANADA-CARD-SUPPLEMENT",
+     "excerpt": "will not exceed three percent (3%)"
     }
    ],
    "status": "published",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:13-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:07:20-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
@@ -1484,20 +1636,24 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The Canadian homepage links mostly to US pages; Canadian-specific pages exist for cards, expenses, pricing, global and payables.",
+   "statement": "The Canadian homepage (\"Canada, meet Ramp.\") cites 85,000 customers worldwide, and its header \"See a demo\" link points to a page outside the Canadian site (ramp.com/see-a-demo).",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "Based on the links in the served homepage; a browser check of navigation is listed.",
+   "conditions": "The consent banner was left unanswered during the browser capture.",
    "sources": [
     {
      "source_id": "S-RMP-HOME",
-     "excerpt": "USD cards are virtual only"
+     "excerpt": "Canada, meet Ramp."
+    },
+    {
+     "source_id": "S-RMP-BROWSER-EN-CA-HOME",
+     "excerpt": "Already trusted by 85,000 customers worldwide."
     }
    ],
    "status": "published",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:39:01-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:10:36-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
@@ -1511,23 +1667,62 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Canadian businesses submit an email to be contacted by the team and need a Business Number; sign-up starts with a work email.",
+   "statement": "\"Get started\" leads to a Canadian sign-up screen (\"Get started with Ramp Canada. Apply for Ramp's corporate card\") with one email field and \"Continue application\". The eligibility list (entity, Business Number, Canadian bank account) is on the cards page, not on this screen.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "Not submitted. The sign-up page is a JavaScript app; later steps not checked.",
+   "conditions": "Stopped before \"Continue application\".",
    "sources": [
     {
      "source_id": "S-RMP-CARDS",
      "excerpt": "Canadian businesses can submit their emails"
+    },
+    {
+     "source_id": "S-RMP-BROWSER-SIGNUP",
+     "excerpt": "Get started with Ramp Canada."
+    },
+    {
+     "source_id": "S-RMP-BROWSER-SIGNUP",
+     "excerpt": "Continue application"
     }
    ],
    "status": "published",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:12-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:10:36-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
+  },
+  {
+   "id": "O-RMP-16",
+   "platform": "ramp",
+   "product": null,
+   "layer": "product",
+   "category": "registry_entry",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Registry entries as displayed on 23 October 2026. Registration is not an endorsement, a licence or a safety rating.",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "sources": [
+    {
+     "source_id": "S-VEN-BROWSER-REGISTRY-FINTRAC-2",
+     "excerpt": "Ramp Business Canada Corporation N300001293"
+    },
+    {
+     "source_id": "S-RMP-BROWSER-REGISTRY-BOC-PSP",
+     "excerpt": "Ramp Business Canada Corporation | Ramp Business Corporation"
+    }
+   ],
+   "status": "published",
+   "statement": "Ramp Business Canada Corporation: registered with FINTRAC as a money services business (N300001293, registered 5 August 2026, expiry 5 August 2028). The Bank of Canada registry of payment service providers lists both Ramp Business Canada Corporation (Canada) and Ramp Business Corporation (United States). The Ramp footer names Ramp Business Corporation; the Canada Card Supplement names Ramp Business Canada Corporation.",
+   "observed_at": "2026-10-23T12:14:31-04:00",
+   "method": "browser"
   },
   {
    "id": "O-LOP-01",
@@ -1596,7 +1791,7 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Virtual cards across functions and currencies, and a set number of free physical cards by plan (2 or 10 on the pricing page).",
+   "statement": "Virtual cards across functions and currencies, and a set number of free physical cards by plan (2, 10 or 50 on the pricing page).",
    "amount": null,
    "units": null,
    "currency": null,
@@ -1609,6 +1804,10 @@
     {
      "source_id": "S-LOP-PRICING",
      "excerpt": "10 free physical cards"
+    },
+    {
+     "source_id": "S-LOP-PRICING",
+     "excerpt": "50 free physical cards"
     }
    ],
    "status": "published",
@@ -1627,7 +1826,7 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The cards page says rewards are earned on all spend with no tiers; the earn-rate table gives Basic-plan points on CAD only (USD, EUR and GBP not eligible) and rates that rise by plan.",
+   "statement": "The cards page says \"Get rewarded on all spend\" and \"Transparent earning with no tiers\". On the pricing page, Basic earns points on CAD card spend only, Plus earns 2x on CAD and 1x on USD, EUR and GBP, and Power 2x on all card spend.",
    "amount": null,
    "units": "points per dollar",
    "currency": null,
@@ -1638,33 +1837,34 @@
      "excerpt": "Get rewarded on all spend"
     },
     {
-     "source_id": "S-LOP-CARDS",
+     "source_id": "S-LOP-BROWSER-CARDS-REWARDS",
      "excerpt": "Transparent earning with no tiers"
-    },
-    {
-     "source_id": "S-LOP-PRICING",
-     "excerpt": "Earn 1x points on CAD Card Spend"
     },
     {
      "source_id": "S-LOP-PRICING",
      "excerpt": "Earn 2x points on CAD Card Spend and 1x on USD, EUR and GBP Card Spend"
     },
     {
-     "source_id": "S-LOP-PRICING",
-     "excerpt": "Earn 2x points on all Card Spend"
+     "source_id": "S-LOP-BROWSER-PRICING-YEARLY-DEFAULT",
+     "excerpt": "Earn 1x points on CAD Card Spend"
     }
    ],
    "status": "conflicting",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:16-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:01:55-04:00",
    "conflicts": [
     {
      "with": null,
-     "note": "\"All spend\" and \"no tiers\" on the cards page; plan-based rates and foreign-currency exclusions on Basic in the pricing page and reward terms."
+     "note": "\"Rewarded on all spend\" on the cards page; on the Basic plan, non-CAD card spend earns no points."
     }
    ],
    "interpretation": null,
-   "public": true
+   "public": true,
+   "reconciliation": {
+    "class": "C",
+    "topic": "Loop rewards",
+    "note": "\"No tiers\" can be read as no spend-volume tiers, which fits. \"Rewarded on all spend\" does not hold for non-CAD spend on Basic, within the same card and market."
+   }
   },
   {
    "id": "O-LOP-05",
@@ -1675,24 +1875,28 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Basic $0, Plus $79 a month and Power $299 a month, with annual-billing discounts.",
+   "statement": "Basic $0, Plus $79 and Power $299 a month billed monthly. The pricing page opens on the yearly view: $71 and $250 a month, billed annually.",
    "amount": null,
    "units": null,
    "currency": "CAD",
    "conditions": null,
    "sources": [
     {
-     "source_id": "S-LOP-PRICING",
-     "excerpt": "$79"
+     "source_id": "S-LOP-BROWSER-PRICING-MONTHLY",
+     "excerpt": "$79/mo"
     },
     {
      "source_id": "S-LOP-PRICING",
      "excerpt": "$299"
+    },
+    {
+     "source_id": "S-LOP-PRICING",
+     "excerpt": "$71"
     }
    ],
    "status": "published",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:16-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:02:02-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
@@ -1958,11 +2162,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Placeholder \"Lorem ipsum\" text appears in the served homepage and case-study page.",
+   "statement": "Placeholder \"Lorem ipsum\" text is in the served code of the homepage and the Bells of Steel case study, inside elements set not to display. A browser does not show it, so it is not a visible defect.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "A browser may not display it; listed for a Chrome check.",
+   "conditions": "Visibility was established by the browser pass at 12:01 p.m. from the page text and computed CSS (zero size); no screenshot of these two pages was supplied.",
    "sources": [
     {
      "source_id": "S-LOP-HOME",
@@ -1989,18 +2193,62 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Not checked: the \"explore product\" page returned only a JavaScript shell to the server fetch (28 characters of text), so the journey was not observed.",
+   "statement": "\"Open Account\" leads to a sign-up form (full name, legal business name, email, mobile phone, or Google sign-up). A panel lists the two steps that follow: business information (CRA ID, structure, website) and identity (date of birth and government ID). \"See a Demo\" opens an interactive product tour.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "Attempted by server fetch at https://www.bankonloop.com/en-ca/explore-product. Needs a browser check up to the first form screen.",
-   "sources": [],
-   "status": "not_checked",
-   "method": "server_fetch",
-   "observed_at": null,
+   "conditions": "Stopped before \"Get started\". The page gives two time estimates (\"About 2 minutes\" and \"as little as 10 minutes\"); neither was used to judge the journey length.",
+   "sources": [
+    {
+     "source_id": "S-LOP-BROWSER-SIGNUP",
+     "excerpt": "Legal Business Name"
+    },
+    {
+     "source_id": "S-LOP-BROWSER-SIGNUP-IDENTITY-STEP",
+     "excerpt": "We securely confirm your identity with information such as your date of birth and government ID."
+    },
+    {
+     "source_id": "S-LOP-BROWSER-PRODUCT-TOUR",
+     "excerpt": "Ready to apply? Get Started"
+    }
+   ],
+   "status": "published",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:11:36-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
+  },
+  {
+   "id": "O-LOP-16",
+   "platform": "loop",
+   "product": null,
+   "layer": "product",
+   "category": "registry_entry",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Registry entries as displayed on 23 October 2026. The Bank of Canada screenshot shows 3 of the 6 filtered rows; the Loop row was read from the page table. Registration is not an endorsement, a licence or a safety rating.",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "sources": [
+    {
+     "source_id": "S-VEN-BROWSER-REGISTRY-FINTRAC-2",
+     "excerpt": "Loop Payments Inc. M22489771"
+    },
+    {
+     "source_id": "S-RMP-BROWSER-REGISTRY-BOC-PSP",
+     "excerpt": "Loop Payments Inc."
+    }
+   ],
+   "status": "published",
+   "statement": "Loop Payments Inc.: registered with FINTRAC as a money services business (M22489771, registered 15 March 2022, expiry 22 January 2028) and listed on the Bank of Canada registry of payment service providers.",
+   "observed_at": "2026-10-23T12:14:31-04:00",
+   "method": "browser"
   },
   {
    "id": "O-KEP-01",
@@ -2069,7 +2317,7 @@
    "amount": null,
    "units": "points per dollar",
    "currency": null,
-   "conditions": "Rates depend on plan: Core 1x base and 4x international; Plus 1.5x base, 3x dining and international, 5x Keep Travel.",
+   "conditions": "Rates depend on plan: Core 1x base and 4x international; Plus and Max 1.5x base, 3x dining and international, 5x Keep Travel. The card page comparison table gives 1.5x, 3x and 5x without naming the plan.",
    "sources": [
     {
      "source_id": "S-KEP-CARDS",
@@ -2086,11 +2334,19 @@
     {
      "source_id": "S-KEP-PRICING",
      "excerpt": "1.5x base, 3x dining & international, 5x Keep Travel"
+    },
+    {
+     "source_id": "S-KEP-BROWSER-CARD-COMPARISON-FX-ROW",
+     "excerpt": "1.5x on all purchases, 3x on FX & dining, 5x on travel"
+    },
+    {
+     "source_id": "S-KEP-BROWSER-CARD-COMPARISON-FX-ROW",
+     "excerpt": "1.5x on all purchases, 3x on FX & dining, 5x on travel"
     }
    ],
    "status": "published",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:25-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:03:07-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
@@ -2141,26 +2397,34 @@
   {
    "id": "O-KEP-05",
    "platform": "keep",
-   "product": null,
+   "product": "Self-serve sign-up route (app.trykeep.com/get-started)",
    "layer": "product",
    "category": "availability",
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "New applications were closed when checked: the \"Get started\" link led to a page saying Keep is not accepting new applications.",
+   "statement": "Every start button found (homepage, card page and pricing) leads to one sign-up route. In a browser it opened a page saying \"We're not accepting new applications at this time\", with log-in offered to existing customers. The message names no product.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "Server observation of a redirect; not confirmed in a browser.",
+   "conditions": "Applies to the self-serve sign-up route. No separate application route for financing or banking was found, so this does not show that every Keep product is unavailable. The homepage still says applications do not affect the credit score.",
    "sources": [
     {
      "source_id": "S-KEP-JOURNEY",
      "excerpt": "We're not accepting new applications at this time"
+    },
+    {
+     "source_id": "S-KEP-BROWSER-APPLICATIONS-CLOSED",
+     "excerpt": "Already have a Keep account? You can log in to access your account."
+    },
+    {
+     "source_id": "S-KEP-BROWSER-HOME-GET-STARTED",
+     "excerpt": "Applications do not impact your credit score"
     }
    ],
    "status": "explicitly_unavailable",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:27-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:02:38-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
@@ -2201,20 +2465,24 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The card agreement sets a 3% foreign currency conversion fee; this fee was not found on the card, pricing or FAQ pages reviewed.",
+   "statement": "The card agreement sets a 3% foreign currency conversion fee. I did not find it on the card page, the pricing page or the FAQ; on the card page comparison table, the row \"Foreign exchange (FX) Fees\" shows reward rates in the Keep column instead of a fee.",
    "amount": 3,
    "units": "% card conversion fee",
    "currency": null,
-   "conditions": "Pages reviewed for a matching statement: card page, pricing page, FAQ.",
+   "conditions": "Pages reviewed for the fee: card page, pricing page, FAQ (including collapsed answers, in a browser).",
    "sources": [
     {
      "source_id": "S-KEP-LEGAL-CARD",
      "excerpt": "The foreign currency conversion fee is 3%"
+    },
+    {
+     "source_id": "S-KEP-BROWSER-CARD-COMPARISON-FX-ROW",
+     "excerpt": "Foreign exchange (FX) Fees | 1.5x on all purchases, 3x on FX & dining, 5x on travel"
     }
    ],
    "status": "published",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:26-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:03:07-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
@@ -2228,7 +2496,7 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The pricing page lists \"FX fee 0%\" under banking, which is separate from the card's 3% conversion fee in the agreement.",
+   "statement": "The pricing page lists \"FX fee 0%\" for all three plans in its Banking section, next to multi-currency accounts and wires. The card agreement sets a 3% conversion fee on card purchases in a foreign currency.",
    "amount": null,
    "units": null,
    "currency": null,
@@ -2239,21 +2507,25 @@
      "excerpt": "FX fee 0%"
     },
     {
+     "source_id": "S-KEP-BROWSER-PRICING-BANKING-FX-FEE",
+     "excerpt": "Banking | FX fee | 0% | 0% | 0%"
+    },
+    {
      "source_id": "S-KEP-LEGAL-CARD",
      "excerpt": "The foreign currency conversion fee is 3%"
     }
    ],
-   "status": "conflicting",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:26-04:00",
-   "conflicts": [
-    {
-     "with": "O-KEP-07",
-     "note": "A 0% FX line on pricing (banking) next to a 3% card conversion fee in the agreement; a buyer may read the 0% as covering card purchases."
-    }
-   ],
-   "interpretation": null,
-   "public": true
+   "status": "published",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:03:29-04:00",
+   "conflicts": [],
+   "interpretation": "Different transactions, but a reader comparing card costs on the card page sees reward rates where a fee would be.",
+   "public": true,
+   "reconciliation": {
+    "class": "A",
+    "topic": "Keep banking and card FX",
+    "note": "Account currency conversion and card purchases in a foreign currency are different transactions. The card page FX row shows reward rates, not the 3% card fee."
+   }
   },
   {
    "id": "O-KEP-09",
@@ -2426,6 +2698,37 @@
    "public": true
   },
   {
+   "id": "O-KEP-15",
+   "platform": "keep",
+   "product": null,
+   "layer": "product",
+   "category": "registry_entry",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Registry entries as displayed on 23 October 2026. The Bank of Canada screenshot shows 3 of the 6 filtered rows; the Keep row was read from the page table. Registration is not an endorsement, a licence or a safety rating.",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "sources": [
+    {
+     "source_id": "S-AWX-BROWSER-REGISTRY-FINTRAC-1",
+     "excerpt": "Keep Technologies Corp. M21992030 Registered"
+    },
+    {
+     "source_id": "S-RMP-BROWSER-REGISTRY-BOC-PSP",
+     "excerpt": "Keep Technologies Corp."
+    }
+   ],
+   "status": "published",
+   "statement": "Keep Technologies Corp.: registered with FINTRAC as a money services business (M21992030, registered 21 December 2021, expiry 25 April 2028) and listed on the Bank of Canada registry of payment service providers. The Keep pages reviewed did not show these numbers.",
+   "observed_at": "2026-10-23T12:14:31-04:00",
+   "method": "browser"
+  },
+  {
    "id": "O-AWX-01",
    "platform": "airwallex",
    "product": "Airwallex Borderless Card",
@@ -2438,7 +2741,7 @@
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": null,
+   "conditions": "No terms, eligibility or product page for the credit line was found on the pricing page, the card terms, the cardholder terms or the fee schedule.",
    "sources": [
     {
      "source_id": "S-AWX-CARD-TERMS",
@@ -2447,11 +2750,15 @@
     {
      "source_id": "S-AWX-PRICING",
      "excerpt": "Credit line for corporate cards"
+    },
+    {
+     "source_id": "S-AWX-BROWSER-PRICING-REBATES-CREDIT-LINE",
+     "excerpt": "Credit line for corporate cards"
     }
    ],
    "status": "conflicting",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:48:55-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:04:19-04:00",
    "conflicts": [
     {
      "with": null,
@@ -2459,7 +2766,12 @@
     }
    ],
    "interpretation": null,
-   "public": true
+   "public": true,
+   "reconciliation": {
+    "class": "D",
+    "topic": "Airwallex card model",
+    "note": "The credit line may be a separate product; not enough is published to place it against the card terms."
+   }
   },
   {
    "id": "O-AWX-02",
@@ -2524,36 +2836,45 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Three cashback statements: 2% in the cards page title, 1% with no cap in its body, and \"up to 1%\" on local CAD spend on pricing.",
+   "statement": "Every visible cashback statement says 1%: \"earn 1% cashback\" and \"Every eligible transaction earns 1% cashback, with no cap\". The pricing page says \"Up to 1% cash rebates on local CAD spend\", subject to terms. A 2% figure appears only in the page title, which shows in browser tabs, search results and link previews, not on the page.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "Pricing footnote: terms and conditions apply. The rebate terms were not found on the pages reviewed.",
+   "conditions": "Pricing footnote: terms and conditions apply. The rebate terms were not found on the card terms or the fee schedule.",
    "sources": [
-    {
-     "source_id": "S-AWX-CARDS",
-     "excerpt": "Multi-Currency Business Cards: 2% Cashback & No FX Fees"
-    },
     {
      "source_id": "S-AWX-CARDS",
      "excerpt": "Every eligible transaction earns 1% cashback, with no cap"
     },
     {
-     "source_id": "S-AWX-PRICING",
+     "source_id": "S-AWX-BROWSER-CARDS-HERO",
+     "excerpt": "earn 1% cashback"
+    },
+    {
+     "source_id": "S-AWX-CARDS",
+     "excerpt": "Multi-Currency Business Cards: 2% Cashback & No FX Fees"
+    },
+    {
+     "source_id": "S-AWX-BROWSER-PRICING-REBATES-CREDIT-LINE",
      "excerpt": "Up to 1% cash rebates on local CAD spend"
     }
    ],
    "status": "conflicting",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:28-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:04:19-04:00",
    "conflicts": [
     {
      "with": null,
-     "note": "2% (page title), 1% with no cap (body), up to 1% on local CAD spend (pricing)."
+     "note": "Whether \"every eligible transaction\" (cards page) means \"local CAD spend\" (pricing) cannot be settled without the rebate terms."
     }
    ],
    "interpretation": null,
-   "public": true
+   "public": true,
+   "reconciliation": {
+    "class": "B and D",
+    "topic": "Airwallex cashback rate",
+    "note": "2% against 1% is a page-title figure against the rendered page (B). 1% \"with no cap\" against \"up to 1% on local CAD spend\" needs the rebate terms (D)."
+   }
   },
   {
    "id": "O-AWX-05",
@@ -2616,42 +2937,50 @@
   {
    "id": "O-AWX-07",
    "platform": "airwallex",
-   "product": null,
+   "product": "Airwallex Borderless Card",
    "layer": "cross_border",
    "category": "xb_card_spending",
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The cards page says no foreign transaction fees and conversion at the interbank rate; the card terms add an automatic conversion fee when the wallet lacks the currency.",
-   "amount": null,
-   "units": null,
+   "statement": "The cards page says \"No foreign transaction fees, conversions at the interbank rate\", which covers spending from a currency you hold. When the wallet does not hold the currency, the card terms add an automatic conversion fee; the fee schedule (last updated 19 October 2026) lists it at 1.00%.",
+   "amount": 1.0,
+   "units": "% automatic conversion fee when the currency is not held",
    "currency": null,
-   "conditions": "The fee level for automatic card conversion was not found on the pages reviewed.",
+   "conditions": "The fee schedule lists the fee under FX conversion services; it is matched to the card terms by its name.",
    "sources": [
     {
      "source_id": "S-AWX-CARDS",
      "excerpt": "No foreign transaction fees, conversions at the interbank rate"
     },
     {
-     "source_id": "S-AWX-CARDS",
-     "excerpt": "If you don't hold a currency, we auto-convert from your primary balance"
-    },
-    {
      "source_id": "S-AWX-CARD-TERMS",
      "excerpt": "at the prevailing FX Exchange Rate plus an automatic conversion fee"
-    }
-   ],
-   "status": "conflicting",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:48:55-04:00",
-   "conflicts": [
+    },
     {
-     "with": null,
-     "note": "\"Conversions at the interbank rate\" on the cards page; \"plus an automatic conversion fee\" in the card terms."
+     "source_id": "S-AWX-FEE-SCHEDULE",
+     "excerpt": "Auto Conversion Fee 1.00%"
+    },
+    {
+     "source_id": "S-AWX-FEE-SCHEDULE",
+     "excerpt": "Last updated: 19 October 2026"
+    },
+    {
+     "source_id": "S-AWX-BROWSER-FEE-SCHEDULE-AUTO-CONVERSION",
+     "excerpt": "Auto Conversion Fee | 1.00%"
     }
    ],
+   "status": "published",
+   "method": "browser",
+   "observed_at": "2026-10-23T14:10:58-04:00",
+   "conflicts": [],
    "interpretation": null,
-   "public": true
+   "public": true,
+   "reconciliation": {
+    "class": "A",
+    "topic": "Airwallex card FX",
+    "note": "The no-fee statement covers spending from a held balance; the fee applies to automatic conversion when the currency is not held."
+   }
   },
   {
    "id": "O-AWX-08",
@@ -2786,11 +3115,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Two customer counts on the same homepage: \"over 200,000 businesses\" and \"600,000+\".",
+   "statement": "The homepage says \"Trusted by over 200,000 businesses\" and \"Serving 600,000+ business\", the second \"Directly or through our platform customers\". The 600,000 figure states that it includes indirect customers; the basis of the 200,000 figure is not stated.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": null,
+   "conditions": "Neither figure says whether it is global or Canadian.",
    "sources": [
     {
      "source_id": "S-AWX-HOME",
@@ -2799,19 +3128,23 @@
     {
      "source_id": "S-AWX-HOME",
      "excerpt": "Serving 600,000+ business"
-    }
-   ],
-   "status": "conflicting",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:39:02-04:00",
-   "conflicts": [
+    },
     {
-     "with": null,
-     "note": "200,000 and 600,000 on one page; neither says whether it is global or Canadian."
+     "source_id": "S-AWX-BROWSER-HOME-600K",
+     "excerpt": "Directly or through our platform customers"
     }
    ],
+   "status": "published",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:05:49-04:00",
+   "conflicts": [],
    "interpretation": null,
-   "public": true
+   "public": true,
+   "reconciliation": {
+    "class": "A",
+    "topic": "Airwallex customer counts",
+    "note": "Different stated bases: the 600,000 figure includes customers served through platforms."
+   }
   },
   {
    "id": "O-AWX-13",
@@ -2853,18 +3186,58 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Not checked: the sign-up page returned only a JavaScript shell to the server fetch (11 characters of text), so the journey was not observed.",
+   "statement": "\"Get started\" leads to a sign-up screen with one field, \"What's your business email?\", and a line saying that continuing agrees to receive Airwallex's marketing communications.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "Attempted by server fetch at https://www.airwallex.com/en-ca/signup. Needs a browser check up to the first form screen.",
-   "sources": [],
-   "status": "not_checked",
-   "method": "server_fetch",
-   "observed_at": null,
+   "conditions": "Stopped before \"Get started\". The \"See a demo\" form was not opened.",
+   "sources": [
+    {
+     "source_id": "S-AWX-BROWSER-SIGNUP",
+     "excerpt": "What's your business email?"
+    },
+    {
+     "source_id": "S-AWX-BROWSER-SIGNUP",
+     "excerpt": "By continuing, you agree to receive Airwallex's marketing communications."
+    }
+   ],
+   "status": "published",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:12:01-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
+  },
+  {
+   "id": "O-AWX-15",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "product",
+   "category": "registry_entry",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Registry entries as displayed on 23 October 2026. An applicant is not registered; neither status is an endorsement, a licence or a safety rating.",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "sources": [
+    {
+     "source_id": "S-AWX-BROWSER-REGISTRY-FINTRAC-1",
+     "excerpt": "Airwallex (Canada) International Payments Limited M19395067 Registered"
+    },
+    {
+     "source_id": "S-AWX-BROWSER-REGISTRY-BOC-APPLICANTS-AIRWALLEX",
+     "excerpt": "Airwallex (Canada) International Payments Limited | Airwallex | Canada | 2024-11-01"
+    }
+   ],
+   "status": "published",
+   "statement": "Airwallex (Canada) International Payments Limited: registered with FINTRAC as a money services business (M19395067, registered 25 June 2019, expiry 16 July 2028). It is not on the Bank of Canada registry of payment service providers; it is on the Bank of Canada list of applicants, with an application date of 1 November 2024, which matches Airwallex's own \"pending registration\" statement.",
+   "observed_at": "2026-10-23T12:14:36-04:00",
+   "method": "browser"
   }
  ]
 }

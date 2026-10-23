@@ -2,9 +2,13 @@
 """Checks for the Business Cards & Spend Management Index kit.
 
   python3 validate.py                 input and output checks (build.py runs these too)
-  python3 validate.py --raw DIR       also confirm every excerpt is in its private capture
-                                      and every capture hash matches (DIR holds the raw
+  python3 validate.py --raw DIR       also confirm every server-fetch excerpt is in its private
+                                      capture and every capture hash matches (DIR holds the raw
                                       captures and their fetch_log.jsonl; it is never in the repo)
+  python3 validate.py --raw DIR --browser SHOTS_DIR
+                                      also confirm every browser capture's screenshot hash
+                                      (browser excerpts come from the page text in Chrome and
+                                      are attested by the capture manifest, not by a text file)
 
 Exit status is 0 only when every check passes.
 """
@@ -343,6 +347,8 @@ def check_raw(c, raw):
             log[(x['platform'], x['role'])] = x
     texts = {}
     for sid, s in c.sources.items():
+        if s['method'] == 'browser':
+            continue
         x = log.get((s['platform'], s['role']))
         if not x:
             errs.append('%s: no private capture in %s; request it in the handoff' % (sid, raw))
@@ -365,12 +371,29 @@ def check_raw(c, raw):
     return errs
 
 
+def check_browser(c, shots):
+    errs = []
+    for sid, s in c.sources.items():
+        if s['method'] != 'browser':
+            continue
+        fp = os.path.join(shots, s.get('screenshot') or '')
+        if not os.path.isfile(fp):
+            errs.append('%s: screenshot %s not in %s' % (sid, s.get('screenshot'), shots))
+            continue
+        with open(fp, 'rb') as f:
+            if hashlib.sha256(f.read()).hexdigest() != s['sha256']:
+                errs.append('%s: screenshot hash does not match sources.json' % sid)
+    return errs
+
+
 def main(argv):
     import build
     page, csvtext, c = build.render()
     errs = check_outputs(c, page, csvtext)
     if '--raw' in argv:
         errs += check_raw(c, argv[argv.index('--raw') + 1])
+    if '--browser' in argv:
+        errs += check_browser(c, argv[argv.index('--browser') + 1])
     if errs:
         print('\n'.join(errs))
         print('FAIL: %d problems' % len(errs))
@@ -379,7 +402,7 @@ def main(argv):
     by = {k: sum(1 for o in c.obs.values() if o['status'] == k) for k in model.STATUSES}
     print('PASS: %d sources, %d observations (%s), %d unresolved conflicts%s' % (
         len(c.sources), len(c.obs), ', '.join('%s %d' % (model.STATUSES[k], v) for k, v in by.items()), n_conf,
-        '; excerpts and hashes checked against private captures' if '--raw' in argv else '; private captures not checked (pass --raw DIR)'))
+        ('; excerpts and hashes checked against private captures' + ('; browser screenshot hashes checked' if '--browser' in argv else '')) if '--raw' in argv else '; private captures not checked (pass --raw DIR)'))
     return 0
 
 

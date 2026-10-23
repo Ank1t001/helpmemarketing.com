@@ -152,11 +152,17 @@ def ingest_browser(path, files_dir, replace):
         if not data:
             need.append('line %d: file %s is empty' % (n, m['screenshot']))
             continue
-        rec = {'id': model.source_id(codes.get(m['platform'], 'XXX'), 'browser-' + m['role']), 'platform': m['platform'], 'role': 'browser-' + m['role'],
-               'requested_url': m['url'], 'final_url': m['final_url'], 'http_status': None, 'content_type': None, 'bytes': len(data),
-               'sha256': hashlib.sha256(data).hexdigest(), 'fetched_at': m['captured_at'], 'title': m['title'], 'method': 'browser',
-               'method_detail': 'Chrome, logged out, %s, %s; %s' % (m['country'], m['plan_or_version'], m['sanitisation_note']),
-               'screenshot': os.path.basename(m['screenshot'])}
+        stem = os.path.splitext(os.path.basename(m['screenshot']))[0]
+        if stem.startswith(m['platform'] + '-'):
+            stem = stem[len(m['platform']) + 1:]
+        role = 'browser-' + stem
+        rec = {'id': model.source_id(codes.get(m['platform'], 'XXX'), role), 'platform': m['platform'], 'role': role,
+               'page_role': m['role'], 'requested_url': m['url'], 'final_url': m['final_url'], 'http_status': None, 'content_type': None,
+               'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest(), 'fetched_at': m['captured_at'], 'title': m['title'],
+               'method': 'browser', 'method_detail': 'Chrome, not signed in to the provider; %s; %s; %s' % (m['country'], m['plan_or_version'], m['sanitisation_note']),
+               'screenshot': os.path.basename(m['screenshot']), 'manifest_excerpt': m['excerpt']}
+        if m['role'] == 'registry':
+            rec['covers'] = ['*']  # a public registry page lists entities for several platforms
         e = model.check_source(rec, codes)
         if e:
             need += ['line %d: %s' % (n, x) for x in e]

@@ -8,6 +8,9 @@
 .msi.msi .hero-act .btn{margin-right:12px}
 .msi.msi .card .dek,.msi.msi .sec-head .dek,.msi.msi section>.dek,.msi.msi .pnote,.msi.msi .note p,.msi.msi .plat dd,.msi.msi .tests dd{max-width:72ch}
 .msi.msi .note.take{border-left-color:var(--cta);margin-top:var(--s4)}
+/* Dark theme focus ring (2026-10-23 browser pass): the global :focus-visible outline resolves to the legacy navy here (about 1.05:1 on Obsidian); Signal Orange meets 3:1 on every dark surface. */
+html[data-theme="dark"] .app :focus-visible{outline:2px solid var(--cta);outline-offset:2px}
+html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:3px}
 .msi.msi .note.take>.lbl{color:var(--cta-text,var(--cta))}
 .msi.msi .note.gap{border-left-style:dashed}
 .msi.msi .q{display:block;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:4px}
@@ -18,7 +21,7 @@
 .msi.msi .st.st-conflicting{color:var(--text);border-style:dashed}
 .msi.msi .st.st-explicitly_unavailable{color:var(--text)}
 .msi.msi .cell-sub{display:block;white-space:normal;font-size:12.5px}
-.msi.msi .tw[tabindex]:focus-visible{outline:2px solid var(--cta);outline-offset:2px}
+.msi.msi .tw[tabindex]:focus-visible,.msi.msi summary:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
 .msi.msi table{font-size:13.5px}
 .msi.msi .bs td{white-space:normal;min-width:8.5em;vertical-align:top}
 .msi.msi .bs td.brandcell{min-width:7em}

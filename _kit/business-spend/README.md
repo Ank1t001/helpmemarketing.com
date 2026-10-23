@@ -33,6 +33,10 @@ How six platforms (Venn, Float, Ramp, Loop, Keep, Airwallex, in that order) expl
 - **Not found in reviewed sources**: the pages reviewed (listed in `reviewed_sources`) did not establish it.
 - **Not checked**: no valid check was completed (for example a page that returned only a JavaScript shell). No sources, no capture time.
 - **Conflicting**: relevant sources differ and the difference is unresolved. Needs a conflict note.
+
+A reconciled difference carries `reconciliation` (`class` A, B, C, D or "B and D", `topic`, `note`): A different products or conditions, B rendered page and page code differ, C unresolved in the same context, D insufficient evidence. Classes with C or D keep the status Conflicting; A and B cannot be Conflicting. `model.py` enforces this.
+
+Browser captures (method `browser`) cite a sanitised screenshot by hash; their excerpts come from the page text in Chrome and are attested by the capture manifest. Registry captures carry `covers: ["*"]` so any platform's registry entry can cite them.
 - **Explicitly unavailable**: an applicable source says it is not available.
 
 Missing values are `null`, never `0` or an empty string.
@@ -43,6 +47,7 @@ Missing values are `null`, never `0` or an empty string.
 python3 build.py                     # write the page and the CSV
 python3 build.py --check             # PASS only if both match a fresh build
 python3 validate.py --raw RAW_DIR    # also check excerpts and hashes against private captures
+python3 validate.py --raw RAW_DIR --browser SHOTS_DIR   # and the browser screenshots' hashes
 python3 -m unittest tests.test_kit
 ```
 

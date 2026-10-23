@@ -2,6 +2,20 @@
 
 Edition 001 was collected by server fetch only (23 October 2026, 10:39 a.m. to 10:48 a.m. Toronto time; no JavaScript, no cookies). The items below need a real browser. None of them may be described as checked until the files listed here arrive and `ingest.py browser` accepts them.
 
+## Status (updated 23 October 2026, after the browser pass)
+
+The browser pass of 23 October 2026, 12:00 p.m. to 12:14 p.m. Toronto time (package `business-spend-browser-pass-2026-10-23`, 34 captures) covered items 1 to 15 below. Its captures are in `sources.json` (`S-<CODE>-BROWSER-...`, method `browser`, screenshot hashes only), and the observations it changed carry the browser sources. The ten differences it reconciled carry a `reconciliation` class (A to D) and are listed on the page under "How the reported differences were reconciled". Screenshots are held privately outside the repository; check them with `validate.py --raw RAW_DIR --browser SHOTS_DIR`.
+
+Still open after the pass:
+
+- Venn: what the homepage line "200+ countries in 30+ currencies" shows to visitors (in the page code; visibility not established).
+- Float: the network of Float Charge (not stated separately); what happens after a demo is booked.
+- Ramp: no Canadian rewards rate is published (a finding, not a gap to close); the Rewards Terms page was read in the browser without a capture file; a server fetch of Ramp legal pages returns only a script shell (13 characters), so any future text evidence for them needs a browser capture.
+- Airwallex: the terms for the "Credit line for corporate cards" (class D); the rebate terms and what "eligible" covers (class D); the demo booking form (not opened).
+- Loop: the product tour beyond its first screen.
+- Not possible without an account or a submission: any step after the first screen of the six journeys.
+- The browser pass used a normal Chrome profile (not signed in to the providers) and checked mobile in a 390px frame; my own checks cover real keyboard focus and real mobile viewports.
+
 ## Rules for every capture
 
 - Logged out, in a clean Chrome profile, from Canada. Note the province you appear to be in if a page asks.
@@ -21,7 +35,7 @@ Edition 001 was collected by server fetch only (23 October 2026, 10:39 a.m. to 1
 
 Ingest with `python3 ingest.py browser manifest.jsonl FILES_DIR`. If anything is missing, unsanitised or undated, it prints a handoff request and writes nothing. Screenshots stay in private storage; only hashes and metadata enter `sources.json`. Publish a screenshot only after a separate decision on rights and context, with a caption giving provider, page, capture date and what it shows.
 
-## Items to capture
+## Items captured in the browser pass (kept for the next edition)
 
 | # | Platform | What to check | Page to start from | Observation(s) |
 |---|---|---|---|---|
@@ -51,6 +65,6 @@ Ingest with `python3 ingest.py browser manifest.jsonl FILES_DIR`. If anything is
 ## Publication blockers (not browser items)
 
 - Relationship disclosure: resolved 2026-10-23. The founder confirmed: "Neither I nor Help Me Marketing has a commercial relationship with Venn, Float, Ramp, Loop, Keep or Airwallex." Recorded in `edition.json` and shown in the method section.
-- Ten unresolved conflicts (status Conflicting). Each needs a browser check, a provider clarification, or a decision to keep it shown as an unresolved difference.
+- Five open differences after reconciliation: Venn cashback caps (C), Venn send currencies (C), Loop rewards on Basic (C), Airwallex cashback (B and D), Airwallex credit line (D). Each stays shown as an unresolved difference unless the owner decides otherwise or the provider clarifies.
 - Owner's editorial review and explicit release instruction. Approvals in `edition.json` are entered by hand from the owner's instruction; nothing in the kit sets them.
 - Forms script: `research_business_spend` is added to the source in `docs/HMM_Forms_AppsScript.gs` but not deployed. Until the owner pastes the updated script into the Apps Script editor and deploys a new version (Deploy, Manage deployments, edit, New version), leads from this page are saved normally but the Source column omits the entry. Check with `testLeadSources` in the editor after deploying; it writes no row.
