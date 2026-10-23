@@ -36,9 +36,14 @@ BANNED = [r'\bleverag', r'\butili[sz]e', r'\bempower', r'\bunlock', r'\bsupercha
           r'\bpremium\b', r'\bjust\b',
           # editorial boundaries for this Index
           r'\bhides?\b', r'\bhidden\b', r'\bmislead', r'\bnon-compliant\b', r'\bsafest\b', r'\bwinner\b', r'\bbest card\b', r'\bcheapest\b',
-          r'\bconverts better\b', r'\b(?:marketing|overall|numerical|platform) score\b', r'\bstar rating\b', r'\bwe\b', r'\bour\b', r'\bus\b']
+          r'\bconverts better\b', r'\bconfus', r'\blost (?:sales|customers|conversions|revenue)\b', r'\bdeliberate', r'\b(?:marketing|overall|numerical|platform) score\b', r'\bstar rating\b', r'\bwe\b', r'\bour\b', r'\bus\b']
 # "US" (the country) is allowed: the "us" pattern is matched case-sensitively.
 TAKE_LABEL = 'What this means for your marketing team'
+QUESTION_ANSWERS = ('Answered', 'Answered on another page', 'Partly answered', 'Left unresolved')
+TEST_FIELDS = ('id', 'title', 'finding', 'observation', 'evidence', 'question', 'reading', 'hypothesis', 'change', 'comparable',
+               'measure', 'guardrail', 'limitation')
+CHAIN = ['Observed evidence', 'Customer question', 'My interpretation', 'Testable hypothesis', 'Measurement']
+LEGEND = ['What the sources say', 'My reading', TAKE_LABEL, 'Proposed test, not a result']
 
 
 def norm(s):
@@ -137,9 +142,21 @@ def check_inputs(c):
         if not p:
             errs.append('%s: no platform narrative' % pid)
             continue
-        for k in ('positioning', 'offer', 'explanation', 'proof', 'journey', 'observation', 'missing'):
+        for k in ('audience', 'problem', 'benefit', 'offer', 'proof', 'question', 'observation', 'missing', 'ev'):
             if k not in p:
                 errs.append('%s: narrative missing %s' % (pid, k))
+        q = p.get('question') or {}
+        if not q.get('text') or not q.get('detail') or q.get('answer') not in QUESTION_ANSWERS:
+            errs.append('%s: the customer question needs text, detail and an answer from %s' % (pid, QUESTION_ANSWERS))
+        for k in ('audience', 'problem', 'benefit', 'offer', 'proof'):
+            ids = (p.get('ev') or {}).get(k) or []
+            if not ids:
+                errs.append('%s.%s: every messaging line needs its observation ids' % (pid, k))
+            for i in ids:
+                if i not in c.obs or c.obs[i]['platform'] != pid:
+                    errs.append('%s.%s: bad evidence id %s' % (pid, k, i))
+                elif c.obs[i]['status'] in ('not_checked',):
+                    errs.append('%s.%s: %s was not checked' % (pid, k, i))
         if not p.get('take') and not p.get('missing'):
             errs.append('%s: needs a takeaway or a labelled evidence placeholder' % pid)
         for k, _ in c.n['compare']['product_columns'] + c.n['compare']['xb_columns'] + c.n['compare']['spend_columns']:
@@ -162,7 +179,7 @@ def check_inputs(c):
         if not r:
             errs.append('journeys: no row for %s' % pid)
             continue
-        for k, _ in jn['columns']:
+        for k in [k for k, _ in jn['columns']] + ['dest', 'stop']:
             if not r.get(k):
                 errs.append('journeys.%s: %s is empty' % (pid, k))
         for i in r.get('ids', []):
@@ -190,14 +207,27 @@ def check_inputs(c):
     if len(tests) != 3:
         errs.append('tests: exactly three')
     fids = {x['id'] for x in f}
+    tids = [t.get('id') for t in tests]
+    if tids != ['T1', 'T2', 'T3']:
+        errs.append('tests: ids T1, T2, T3 in order')
     for t in tests:
-        for k in ('title', 'finding', 'example', 'uncertainty', 'change', 'measure', 'guardrail', 'comparison', 'limitation'):
+        for k in TEST_FIELDS:
             if not t.get(k):
                 errs.append('test %s: missing %s' % (t.get('title'), k))
         if t.get('finding') not in fids:
             errs.append('test %s: tied to an unknown finding' % t.get('title'))
-        if re.search(r'\d+\s*%|uplift|baseline of', ' '.join(str(t.get(k, '')) for k in ('measure', 'comparison', 'change')), re.I):
+        for i in t.get('evidence', []):
+            if i not in c.obs:
+                errs.append('test %s: unknown observation %s' % (t.get('title'), i))
+        if re.search(r'\d+\s*%|uplift|baseline of', ' '.join(str(t.get(k, '')) for k in ('measure', 'comparable', 'change', 'hypothesis')), re.I):
             errs.append('test %s: no invented baselines or uplift' % t.get('title'))
+    for it in f:
+        if not it.get('reading') or not it.get('analysis') or it.get('test') not in tids:
+            errs.append('findings: %s needs my reading, links to its analysis and its test' % it.get('id'))
+    if [s for s in c.n.get('chain', {}).get('steps', [])] != CHAIN:
+        errs.append('narrative: the reasoning chain is %s' % ' > '.join(CHAIN))
+    if [l for l, _ in c.n.get('legend', [])] != LEGEND:
+        errs.append('narrative: the reading guide labels are %s' % LEGEND)
     for where, s in [('findings.take', c.n['findings']['take']), ('patterns.take', c.n['patterns']['take'])] + [('%s.take' % k, v.get('take') or '') for k, v in c.n['platforms'].items()]:
         if s:
             n = len([x for x in re.split(r'(?<=[.?!])\s+', s.strip()) if x])
@@ -329,8 +359,8 @@ def check_outputs(c, page, csvtext, extra_paths=()):
             errs.append('page: %s has no takeaway or placeholder' % pid)
     if body.count('What this means for your marketing team') < 8:
         errs.append('page: expected a takeaway after each platform, after the findings and after the patterns')
-    if body.count('<ol class="tests"><li>') != 1 or body.count('<dt>Observed example</dt>') != 3:
-        errs.append('page: exactly three tests')
+    if body.count('<ol class="tests"><li') != 1 or body.count('<dt>Testable hypothesis</dt>') != 3 or body.count('Proposed test, not a result</span><b>Test ') != 3:
+        errs.append('page: exactly three tests, each with its hypothesis')
     for o in c.obs.values():
         if 'id="ev-%s"' % o['id'] not in body:
             errs.append('page: observation %s not rendered' % o['id'])
@@ -343,14 +373,32 @@ def check_outputs(c, page, csvtext, extra_paths=()):
             errs.append('page: the confirmed relationship disclosure must appear once, with no pending placeholder')
     elif 'Relationship disclosure pending' not in body:
         errs.append('page: a pending relationship disclosure must show its placeholder')
-    views = ['bs-overview', 'bs-compare', 'bs-messaging', 'bs-journeys', 'bs-lessons']
+    import build  # late import: build imports this module
+    views = [v for _, v in build.view_order(c)]
     nav = body[body.index('class="ri-nav bs-views"'):]
     nav = nav[:nav.index('</nav>')]
     if [h[1:] for h in re.findall(r'href="(#[^"]+)"', nav)] != views:
-        errs.append('page: the section nav lists the five views in order')
+        errs.append('page: the section nav lists the views in order (%s)' % ', '.join(views))
+    if ('bs-social' in views) != bool(getattr(c, 'social', None)) or ('id="bs-social"' in body) != bool(getattr(c, 'social', None)):
+        errs.append('page: a social view appears only with a reviewed social module')
+    if 'class="bs-tablist"' not in nav or len(re.findall(r'<a href="#bs-[a-z]+" id="bs-tab-[a-z]+">', nav)) != len(views):
+        errs.append('page: the nav holds one tab link per view inside .bs-tablist')
+    if '<script data-bsi-tabs>' not in page or 'data-bsi-views' in page:
+        errs.append('page: the tab script is present and the old scroll spy is gone')
     for v in views:
         if '<section id="%s" class="bs-view"' % v not in body:
             errs.append('page: view %s missing' % v)
+        sec = body[body.index('<section id="%s"' % v):]
+        nxt = re.search(r'<section id="[^"]+" class="bs-view"', sec[1:])
+        ends = [i for i in ((nxt.start() + 1) if nxt else -1, sec.find('<section id="bs-help"')) if i > 0]
+        sec = sec[:min(ends)] if ends else sec
+        if '<p class="bs-next">' not in sec:
+            errs.append('page: view %s has no next-view link' % v)
+        if ' hidden' in sec[:sec.index('>')]:
+            errs.append('page: view %s is hidden in the HTML (only the script hides views)' % v)
+    for label in LEGEND:
+        if html_escape(label) not in body:
+            errs.append('page: reading guide label missing: %s' % label)
     if 'data-review-cta="research_business_spend"' not in body or 'entry=research_business_spend#contact-form' not in body:
         errs.append('page: review CTA must carry entry research_business_spend')
     rows = list(csv.reader(io.StringIO(csvtext)))

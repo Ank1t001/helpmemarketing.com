@@ -14,6 +14,7 @@ sys.path.insert(0, KIT)
 
 import build  # noqa: E402
 import model  # noqa: E402
+import social  # noqa: E402
 import validate  # noqa: E402
 
 
@@ -107,7 +108,7 @@ class KitTests(unittest.TestCase):
     def test_spend_management_context_for_all_six(self):
         body = self.page[self.page.index('id="bs-spend-h"'):]
         body = body[:body.index('</table>')]
-        self.assertEqual(body.count('<tr><td class="brandcell">'), 6)
+        self.assertEqual(body.count('<tr id="bs-spend-'), 6)
         for label in ('Card limits and controls', 'Approvals', 'Receipts and expenses', 'Accounting connections'):
             self.assertIn(label, body)
         cats = {(o['platform'], o['category']) for o in self.c.obs.values()}
@@ -144,7 +145,7 @@ class KitTests(unittest.TestCase):
         hub, hi = release.new_hub(before['hmm-index.html'], '2026-10-23')
         sm, si = release.new_sitemap(before['sitemap.xml'], '2026-10-23')
         self.assertEqual(hi + si, [])
-        self.assertEqual(hub.count('href="/business-spend-index"'), 1)
+        self.assertEqual(hub.count('href="/business-spend-index"'), 2)  # artwork link and read link, as on the other cards
         self.assertNotIn('edition-001', sm)  # snapshots stay out of the sitemap
         self.assertIn('Not scheduled', hub)
         after = {f: open(os.path.join(model.ROOT, f), encoding='utf-8').read() for f in before}
@@ -160,8 +161,8 @@ class KitTests(unittest.TestCase):
         body = self.page[self.page.index('REPORT BODY START'):]
         pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-compare', 'bs-messaging', 'bs-journeys', 'bs-lessons')]
         self.assertEqual(pos, sorted(pos))
-        self.assertEqual(body.count('class="note reading"'), 6 + 4)  # six platforms, four examples
-        self.assertEqual(body.count('Proposed test, not a result'), 3)
+        self.assertEqual(body.count('class="note reading"'), 6 + 4 + 1)  # six platforms, four examples, the journey reading
+        self.assertEqual(body.count('Proposed test, not a result</span><b>Test '), 3)
         self.assertEqual(body.count('What this means for your marketing team'), 8 + 1)  # takeaways retained, plus the legend entry
         self.assertIn('id="bs-journey-table"', body)
         self.assertNotIn('Next step observed', body)
@@ -222,6 +223,159 @@ class KitTests(unittest.TestCase):
             self.assertIn('HANDOFF REQUEST', r.stdout)
         finally:
             shutil.rmtree(tmp)
+
+
+    # ----- 2026-10-23 update: true tabs, panel content, reasoning chain, social module, archive status -----
+
+    def test_tabs_markup_script_and_print(self):
+        body = self.page[self.page.index('REPORT BODY START'):]
+        nav = body[body.index('class="ri-nav bs-views"'):]
+        nav = nav[:nav.index('</nav>')]
+        self.assertIn('<div class="bs-tablist">', nav)
+        for k in ('overview', 'compare', 'messaging', 'journeys', 'lessons'):
+            self.assertIn('<a href="#bs-%s" id="bs-tab-%s">' % (k, k), nav)
+        self.assertNotIn('bs-social', body)                 # no social view until a reviewed module exists
+        self.assertNotIn('role="tab', body)                  # roles come from the script: without it the page is a plain reading order
+        self.assertNotRegex(body, r'<section id="bs-[a-z]+" class="bs-view"[^>]* hidden')
+        self.assertEqual(body.count('<p class="bs-next">'), 5)
+        script = self.page[self.page.index('<script data-bsi-tabs>'):]
+        script = script[:script.index('</script>')]
+        for needle in ("'tablist'", "'tab'", "'tabpanel'", 'aria-selected', 'aria-controls', 'aria-labelledby', 'ArrowRight', 'ArrowLeft',
+                       "'Home'", "'End'", 'pushState', 'replaceState', 'popstate', 'hashchange', 'scrollRestoration', "p.tagName === 'DETAILS'", 'av.hidden'):
+            self.assertIn(needle, script)
+        self.assertIn('@media print{\n.msi.msi .bs-view[hidden]{display:block!important}', self.page)
+        self.assertNotIn('data-bsi-views', self.page)
+        self.assertNotIn('onclick', self.page)
+
+    def test_reasoning_chain_and_reading_guide(self):
+        body = self.page[self.page.index('REPORT BODY START'):]
+        self.assertIn('<ol class="chain-steps"><li>Observed evidence</li><li>Customer question</li><li>My interpretation</li><li>Testable hypothesis</li><li>Measurement</li></ol>', body)
+        for label in ('What the sources say', 'My reading', 'What this means for your marketing team', 'Proposed test, not a result'):
+            self.assertIn('<dt>%s</dt>' % label, body)
+        for t in self.c.n['tests']['items']:
+            li = body[body.index('<li id="bs-%s">' % t['id'].lower()):]
+            li = li[:li.index('</li>')]
+            dts = [x for x in __import__('re').findall(r'<dt>([^<]+)</dt>', li)]
+            self.assertEqual(dts, ['Observed evidence', 'Customer question', 'My interpretation', 'Testable hypothesis', 'One change',
+                                   'What stays comparable', 'Primary measurement', 'Guardrail', 'When the result would be inconclusive'])
+            self.assertTrue(t['evidence'])
+        for f in self.c.n['findings']['items']:
+            blk = body[body.index('<div class="find" id="bs-%s">' % f['id'].lower()):]
+            blk = blk[:blk.index('</dl>')]
+            self.assertIn('href="#bs-%s"' % f['test'].lower(), blk)
+            for _, anchor in f['analysis']:
+                self.assertIn('href="#%s"' % anchor, blk)
+                self.assertIn('id="%s"' % anchor, body)
+
+    def test_messaging_fields_trace_to_evidence(self):
+        body = self.page[self.page.index('REPORT BODY START'):]
+        for pid in self.c.order:
+            blk = body[body.index('id="bs-p-%s"' % pid):]
+            blk = blk[:blk.index('<details')]
+            for label in ('Audience named', 'Problem emphasised', 'Promised benefit', 'Offer and its conditions', 'Proof supplied'):
+                self.assertIn('<dt>%s</dt>' % label, blk)
+            self.assertIn('<b>Customer question:</b>', blk)
+            for anchor in ('bs-prod-%s', 'bs-xb-%s', 'bs-spend-%s', 'bs-jt-%s'):
+                self.assertIn('href="#%s"' % (anchor % pid), blk)
+            for ids in self.c.n['platforms'][pid]['ev'].values():
+                for i in ids:
+                    self.assertEqual(self.c.obs[i]['platform'], pid)
+        new = ['O-VEN-23', 'O-FLT-23', 'O-RMP-21', 'O-LOP-21', 'O-KEP-20', 'O-AWX-20']
+        for i in new:
+            o = self.c.obs[i]
+            self.assertEqual(o['category'], 'positioning')
+            self.assertTrue(all(r['source_id'].endswith('-HOME') for r in o['sources']))
+            self.assertEqual(o['observed_at'], self.c.sources[o['sources'][0]['source_id']]['fetched_at'])
+
+    def test_eligibility_kept_apart_from_wider_availability(self):
+        body = self.page[self.page.index('id="bs-prod-h"'):]
+        body = body[:body.index('</table>')]
+        self.assertIn('Who can apply from Canada', body)
+        self.assertIn('Self-serve sign-up route closed to new applicants when checked', body)
+        self.assertIn('availability in other countries is not assessed', self.page)
+
+    def test_hub_wording_and_card_artwork(self):
+        import release
+        hub = open(os.path.join(model.ROOT, 'hmm-index.html'), encoding='utf-8').read()
+        new, issues = release.new_hub(hub, '2026-10-23')
+        self.assertEqual(issues, [])
+        self.assertIn('<title>The HMM Index: Marketing Research | HelpMeMarketing</title>', new)
+        self.assertNotIn('Instagram Benchmarks', new)
+        self.assertIn('Sources accompany the observations, with my interpretation labelled separately.', new)
+        self.assertEqual(new.count('Monthly</p>'), hub.count('Monthly</p>'))   # the Instagram studies keep their cadence
+        self.assertIn('Not scheduled', new)
+        self.assertIn('/assets/index/business-spend/hero.webp', new)
+        for f in ('hero.webp', 'hero-704.webp'):
+            self.assertTrue(os.path.exists(os.path.join(model.ROOT, 'assets/index/business-spend', f)))
+        desc = __import__('re').search(r'<meta name="description" content="([^"]+)"', new).group(1)
+        self.assertTrue(70 <= len(desc) <= 158, len(desc))
+
+    def test_archive_storage_status_is_not_overstated(self):
+        a = self.c.edition['evidence_archive']
+        self.assertEqual(a['sha256'], '735b0ac51676bd02c253ee1a29b0e0b460c75497ef4430247cb0070c2cd781ab')
+        st = a['storage']
+        self.assertTrue(st['reference_supplied'])
+        self.assertFalse(st['stored_copy_retrieved'])
+        self.assertFalse(st['stored_copy_hash_verified'])
+        self.assertNotIn('temporary storage', json.dumps(a))
+        for root, _, files in os.walk(KIT):
+            for f in files:
+                if f.endswith(('.json', '.md', '.py', '.html')):
+                    with open(os.path.join(root, f), encoding='utf-8', errors='replace') as fh:
+                        self.assertNotIn('libfile_' + '8a18', fh.read(), f)   # the private storage reference never enters the repo
+        self.assertNotIn('libfile', self.page)
+
+
+def _fixture():
+    """Synthetic data for the social checks only. Nothing here is an observation."""
+    acct = {'platform': 'loop', 'channel': 'instagram', 'handle': 'example_handle', 'url': 'https://example.invalid/example_handle',
+            'verified': True, 'verification': 'fixture', 'scope': 'canada', 'logged_in': False, 'coverage': 'complete',
+            'coverage_note': 'fixture', 'earliest_reached': '2026-07-01', 'posts_in_window': 1}
+    post = {'id': 'P-1', 'platform': 'loop', 'channel': 'instagram', 'account': 'example_handle', 'url': 'https://example.invalid/p/1',
+            'published_on': '2026-08-01', 'date_method': 'post_page_timestamp', 'captured_at': '2026-11-01T10:00:00-04:00', 'scope': 'canada',
+            'relation': 'original', 'format': 'image', 'topic': 'offer', 'question': 'q', 'product': 'card', 'geography': 'Canada',
+            'hook': 'h', 'proof': None, 'cta': None, 'inspected': 'image and caption', 'inspection': 'cover_and_caption', 'capture_ref': 'C-1',
+            'metrics': {'likes': None, 'comments': 3, 'views': None, 'captured_at': '2026-11-01T10:00:00-04:00'}}
+    return {'status': 'draft', 'approved': None, 'window': dict(social.WINDOW), 'accounts': [acct], 'posts': [post], 'gallery': [], 'summary': []}
+
+
+class SocialModuleTests(unittest.TestCase):
+    def test_window_is_fixed_at_ninety_days(self):
+        self.assertEqual(social.WINDOW, {'start': '2026-07-25', 'end': '2026-10-22', 'tz': 'America/Toronto', 'days': 90})
+        self.assertEqual(social.window_text(), '25 July to 22 October 2026, Toronto time (90 days)')
+        self.assertIsNone(social.load_reviewed())   # nothing collected: no social view
+
+    def test_good_fixture_passes(self):
+        self.assertEqual(social.check(_fixture()), [])
+
+    def test_rules(self):
+        def errs(mut):
+            s = _fixture(); mut(s); return ' | '.join(social.check(s))
+        self.assertIn('window must be exactly', errs(lambda s: s['window'].update(start='2026-07-24')))
+        self.assertIn('out of scope', errs(lambda s: s['accounts'][0].update(channel='x')))
+        self.assertIn('outside 2026-07-25 to 2026-10-22', errs(lambda s: s['posts'][0].update(published_on='2026-10-23')))
+        self.assertIn('watched', errs(lambda s: s['posts'][0].update(format='video')))
+        self.assertIn('every slide', errs(lambda s: s['posts'][0].update(format='carousel')))
+        self.assertIn('metric views missing', errs(lambda s: s['posts'][0]['metrics'].pop('views')))
+        self.assertIn('private or session material', errs(lambda s: s['posts'][0].update(capture_ref='sessionid=abc')))
+        self.assertIn('unverified', errs(lambda s: s['accounts'][0].update(verified=False)))
+        self.assertIn('logged in', errs(lambda s: s['accounts'][0].update(logged_in=None)))
+        self.assertIn('past the window start', errs(lambda s: s['accounts'][0].update(earliest_reached='2026-08-01')))
+        self.assertIn('no post count', errs(lambda s: s['accounts'][0].update(coverage='blocked')))
+        self.assertIn('owner approval', errs(lambda s: s.update(status='reviewed')))
+        self.assertIn('complete inventory', errs(lambda s: (s['accounts'][0].update(coverage='partial'), s['summary'].append({'text': 't', 'frequency': 2}))))
+
+    def test_reviewed_module_adds_a_sixth_view(self):
+        s = _fixture()
+        s.update(status='reviewed', approved='fixture', view={'title': 'Social content', 'dek': 'fixture'}, scope_note='fixture', selection='fixture',
+                 collection={'text': 'fixture', 'note': 'fixture'})
+        c = build.Ctx()
+        c.social = s
+        body = build.body(c)
+        self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-compare', 'bs-messaging', 'bs-journeys', 'bs-social', 'bs-lessons'])
+        self.assertIn('<a href="#bs-social" id="bs-tab-social">Social content</a>', body)
+        self.assertIn('<b>Social posts</b> 25 July to 22 October 2026', body)
+        self.assertIn('<b>Websites observed</b> 23 October 2026', body)
 
 
 if __name__ == '__main__':

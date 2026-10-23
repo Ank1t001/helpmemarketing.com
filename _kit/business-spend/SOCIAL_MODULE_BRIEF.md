@@ -1,58 +1,79 @@
 # Collection brief: social content module (planned, not collected)
 
-Status, 24 October 2026: planned additional research module for the Business Cards & Spend Management Index. Nothing has been collected. The page has no social tab and must not get one until this module is collected, ingested, reviewed and approved by the owner. No examples are to be written before the evidence exists.
+Status, 23 October 2026: planned additional research module for the Business Cards & Spend Management Index. Nothing has been collected. The page has no social tab and gets one only when this module is collected, ingested, validated (`social.py`), reviewed and approved by the owner. No example, summary or count is written before the evidence exists. The Chrome steps are in `CHROME_HANDOFF.md`, section "Social module".
 
 ## Question
 
-How do the same six providers (Venn, Float, Ramp, Loop, Keep, Airwallex) present their cards, spend tools and cross-border offers in their own social posts, and do those posts carry the conditions and proof that their web pages carry? The module extends the page's existing lessons (conditions beside the offer, the basis behind a figure, what happens next). It does not rank accounts, compare reach or claim anything about business performance.
-
-## Accounts
-
-Candidate accounts are those each provider links from its own website. They come from the server captures of 23 October 2026 (homepage and other captured pages; IDs are in `sources.json`). A candidate becomes a verified account only when the collector confirms, logged out, that the handle resolves, the profile names the provider, and the profile links back to the provider's site.
-
-| Provider | Instagram | LinkedIn | X | YouTube | Facebook | Linked from | Notes to resolve |
-|---|---|---|---|---|---|---|---|
-| Venn | instagram.com/tryvault | linkedin.com/company/vennca | twitter.com/venncanada | youtube.com/@venncanada | none linked | S-VEN-HOME and 7 other Venn pages | The Instagram handle does not contain "venn". Confirm the profile is Venn's before including it; if it is not, record Instagram as "no account linked from the site". |
-| Float | instagram.com/floatfinancialofficial | linkedin.com/company/floatfinancial | x.com/float_financial | youtube.com/@floatfinancial | facebook.com/floatfinancial | S-FLT-HOME (raw HTML; the links sit in markup my text extraction missed) | Confirm each in a browser. |
-| Ramp | none linked | linkedin.com/company/ramp | x.com/tryramp | none linked | facebook.com/rampcard | S-RMP-HOME and 5 other Canadian pages | These are Ramp's global accounts, linked from the Canadian site. Record posts as global; mark a post Canada-specific only if the post itself says so. |
-| Loop | instagram.com/bankonloop | linkedin.com/company/loop-financial | none (the only X link is a third-party post in a testimonial) | none linked | none linked | S-LOP-HOME and 11 other Loop pages | |
-| Keep | instagram.com/keep_hq | ca.linkedin.com/company/trykeep | none linked | none linked | facebook.com/p/Keep-100080028222444 | S-KEP-HOME and 7 other Keep pages | Keep's self-serve sign-up was closed when checked; posting may also have changed. Record what is there. |
-| Airwallex | none linked | linkedin.com/company/airwallex | twitter.com/airwallex | none linked | facebook.com/airwallex | S-AWX-HOME and 11 other Airwallex pages | Global accounts linked from the Canadian site; same rule as Ramp. |
-
-Do not add accounts found by searching (employee profiles, regional accounts not linked from the site, fan or partner accounts). If the owner wants a Canadian regional account that is not linked from the site, that is a separate decision recorded here before collection.
-
-## Channels
-
-Instagram, LinkedIn, X, YouTube and Facebook, only where the provider links an account (table above). No TikTok or Threads account is linked by any of the six. Paid ads (Meta Ad Library, LinkedIn ads, Google Ads Transparency) are out of scope for this module.
+How do the same six providers (Venn, Float, Ramp, Loop, Keep, Airwallex) present their cards, spend tools and cross-border offers in their own Instagram and LinkedIn posts, and do those posts carry the conditions and proof that their web pages carry? The module follows the page's chain: observed evidence, customer question, my interpretation, testable hypothesis, measurement. It does not rank accounts, compare reach, claim paid promotion, or say anything about leads, revenue or business results.
 
 ## Observation window (fixed)
 
-Proposed: posts published from 24 July 2026, 00:00, to 23 October 2026, 23:59:59, Toronto time (92 days, ending on the day the edition 001 pages were captured). The owner confirms or changes the window before collection; once collection starts it does not move.
+**25 July through 22 October 2026, inclusive, America/Toronto. This is 90 complete calendar days. Do not silently move this window.**
 
-- Collect once, within 14 days after the window closes, and record the actual capture time of every post. Posts deleted before collection cannot be seen; say so in the method.
-- A post belongs to the window by its published date in Toronto time. Where a platform shows only a relative date ("3w"), record the absolute date from the post's own page or its ID, and the method used.
+- A post belongs to the window by its publication date in Toronto time. Record how the date was established: `visible_date`, `post_page_timestamp` (the date in the post page's own time element) or `relative_date_converted` (a "3w"-style date converted on the collection day; say so).
+- The website observation dates (23 October 2026, 10:39 a.m. to 2:33 p.m.) stay unchanged. The page shows the social collection dates separately ("Social posts 25 July to 22 October 2026"), and the method states both.
+- Record the actual capture time of every post and of every set of visible metrics.
 
-## Coverage rules
+## Channels and accounts
 
-- Logged out only, in a clean browser profile, from Canada. No accounts, logins, cookies, follow requests, likes, comments, messages, form submissions or ad clicks.
-- If a channel shows posts only after login (often LinkedIn and X), record that channel as "Not checked: login required" with a capture of the prompt, and do not work around it.
-- Every post in the window on each checked account is recorded, including reposts and pinned posts dated inside the window. Pinned posts dated outside it are excluded and noted. Stories, live streams and archived posts are excluded (they cannot be read completely when logged out).
-- Record the coverage per account: the earliest post date reached, whether the feed reached past the window start, and how many posts were in the window. A count is complete only if the feed reached past the window start.
-- Rate limits, blocks or challenges are recorded once and not retried.
+Official company Instagram and LinkedIn accounts only. Not X, YouTube, Facebook, TikTok or Threads; not founder, executive or employee accounts; not partner, regional fan or reseller accounts.
+
+Verification, in this order:
+
+1. Prefer the account the provider links from its own website (the candidates below come from the server captures of 23 October 2026).
+2. Cross-check identity: the profile names the provider, and the profile's link points to the provider's domain.
+3. Label scope: `canada` when the account presents itself as the provider's Canadian account, `global` when it is the company's worldwide account (Ramp and Airwallex link global accounts from their Canadian sites), `unclear` otherwise. A post is Canada-specific only if the post itself says so.
+4. If identity stays uncertain, record the account as `unverified` and collect nothing from it.
+
+| Provider | Instagram candidate | LinkedIn candidate | Linked from | To resolve |
+|---|---|---|---|---|
+| Venn | instagram.com/tryvault | linkedin.com/company/vennca | S-VEN-HOME and 7 other Venn pages | Do not assume `@tryvault` is Venn: the handle does not contain the brand. Verify the profile name and its link to venn.ca; otherwise record Instagram as `unverified`. |
+| Float | instagram.com/floatfinancialofficial | linkedin.com/company/floatfinancial | S-FLT-HOME (raw HTML) | Verify both. |
+| Ramp | none linked | linkedin.com/company/ramp | S-RMP-HOME and 5 other Canadian pages | Global account: label `global`. No Instagram is linked: record `no_account` unless a profile is linked from ramp.com itself. |
+| Loop | instagram.com/bankonloop | linkedin.com/company/loop-financial | S-LOP-HOME and 11 other Loop pages | Verify both. |
+| Keep | instagram.com/keep_hq | ca.linkedin.com/company/trykeep | S-KEP-HOME and 7 other Keep pages | Keep's self-serve sign-up route was closed when checked; record what is posted, without inferring why. |
+| Airwallex | none linked | linkedin.com/company/airwallex | S-AWX-HOME and 11 other Airwallex pages | Global account: label `global`. No Instagram linked: record `no_account` unless a profile is linked from airwallex.com itself. |
+
+## Collection
+
+- Public posts may be viewed in the owner's normal signed-in Chrome. Record for each account whether the browser was signed in to that platform (`logged_in` true or false).
+- **Never export cookies, share login tokens, automate private account access or bypass restrictions. Do not start paid collection without an approved budget.** No scrapers, no follow requests, likes, comments, messages, form submissions or ad clicks.
+- A rate limit, block or challenge is recorded once (`blocked`) and not retried. Blocked is not inactive: it means "not seen", never "no posts".
+- If collection cannot proceed, the code work stands on its own and the page shows no social content.
+
+## Coverage
+
+- Preferred: a complete inventory of the window for each verified account, reading the feed past 25 July 2026 (record `earliest_reached`). A count is complete only if the feed reached past the window start.
+- Owned posts, reposts and collaborator posts are recorded separately (`relation`: original, repost, collaboration).
+- Otherwise: a labelled partial sample (`partial`), with no posting frequency and no topic proportions for that account.
+- Excluded: Stories, live streams, deleted posts, private content and ad libraries (Meta Ad Library, LinkedIn ads). Pinned posts dated outside the window are excluded and noted.
+- No claims about paid promotion, boosting or distribution.
 
 ## What to record for each post
 
-`platform`, `account`, `post_url`, `published_at` (with offset), `captured_at` (with offset), `format` (image, carousel, video, text, link, document), `caption_excerpt` (up to 300 characters, quoted exactly), `topic` (codebook below), `offer_conditions_present` (yes, no, not applicable), `proof_basis_present` (yes, no, not applicable), `cta_destination` (URL or none), `canada_specific` (yes, no, unclear) and, only where publicly displayed, the visible like, comment, view or repost counts with the capture time. Counts are recorded as displayed, never compared as performance or used to rank accounts.
+`id`, `platform` (provider), `channel`, `account` (the verified handle), `url` (permanent URL or post ID), `published_on` and `date_method`, `captured_at` (with offset), `scope` (account geographic scope), `relation`, `format` (image, carousel, video, text, link, document), `topic`, `question` (the customer question the post addresses), `product` and `geography`, `hook` (the opening line or frame, quoted short), `proof` (what supports the claim, or null), `cta` (destination or null), `inspected` (what was actually looked at), `inspection` (`cover_and_caption`, `all_slides`, `watched_in_full` or `partial`), `capture_ref` (the screenshot file in the private archive) and `metrics`.
 
-Topic codebook (one primary topic per post): offer (rewards, FX, pricing, credit or limits), product feature, proof (customer story or figure), eligibility or next step, company or culture (hiring, team, events), partnership or media, regulatory or trust statement, other. Two people should be able to code the same post the same way; record any post that does not fit.
+Topic codebook (one primary topic): offer (rewards, FX, pricing, credit or limits), product feature, proof (customer story or figure), eligibility or next step, company or culture, partnership or media, regulatory or trust statement, other.
 
-## Evidence requirements
+## Inspection rules
 
-- One screenshot per post showing the post, its date and its caption (sanitised: no logged-in UI, no personal data of commenters), plus one screenshot per account of the profile header and the grid or feed at the window start.
-- A capture manifest in the existing `ingest.py browser` format, one line per screenshot, with real capture times. Missing or unsanitised files stop the ingest with a handoff request.
-- Raw captures go into a private archive with a sha256 recorded in `edition.json`, like the edition 001 evidence archive. Nothing raw is committed: the repository is public.
-- Observations use the existing statuses: Published, Not found in reviewed sources, Not checked, Conflicting, Explicitly unavailable. "No posts in the window" is a finding only when coverage is complete.
+- A cover and caption support analysis of the cover and caption only.
+- A video is analysed only after it is watched; a carousel only after every slide is inspected. Anything less is labelled `partial` and cannot carry a gallery example.
+- Full captions are not reproduced on the page; short quoted phrases only.
 
-## Publication rule
+## Metrics
 
-The module appears on the page only after it is collected, ingested, validated and reviewed, and the owner approves it. Until then, the page does not mention social findings and shows no empty tab. Any finding must name its denominator (accounts and posts covered) and its window.
+- Recorded per platform, as displayed (Instagram: likes, comments, views; LinkedIn: reactions, comments, reposts), with their own capture time and the post's age at capture. A metric that is not shown is recorded as `null`, never left out or set to zero.
+- No ranking by likes, no "best performing", no engagement rates with inconsistent denominators, no leads or revenue. The method discloses that older posts have had longer to collect responses.
+
+## Evidence and storage
+
+- One sanitised screenshot per post (post, date and caption; no signed-in UI, account names of the viewer, notifications, commenter names or faces of private individuals), plus one per account of the profile header and the feed at the window start.
+- A capture manifest in the existing `ingest.py browser` format, with real capture times; missing or unsanitised files stop the ingest with a handoff request.
+- Raw captures go into a separate, versioned private archive (`business-spend-index-edition-001-social-evidence-v1.zip`) with its own manifest and sha256, recorded in `social.json`. The edition 001 evidence archive is not modified. Raw captures, private storage references, session material and personal information never enter this public repository, the page or the CSV.
+
+## Validation and publication
+
+`social.py` enforces the window, channels, verification, coverage labels, required fields, the inspection rules, explicit nulls for missing metrics, per-platform metric names and the absence of session material. The page gets a "Social content" view (`#bs-social`) only when `social.json` has status `reviewed`, the owner's approval is recorded in it by hand, and the checks pass. The view then shows: a scope and coverage note, a compact cross-brand summary, and a curated gallery with stated selection criteria (one strong example per provider where supported, a second only for a distinct lesson). Each example carries the image, credit and link, date and platform, the observed message, my reading and a takeaway. Images are self-hosted under `/assets/index/business-spend/social/` after sanitising; they are never hotlinked.
+
+If the module gives stronger evidence than one of the three current tests, at most one test is replaced, with the reason recorded.

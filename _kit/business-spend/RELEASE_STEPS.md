@@ -4,7 +4,7 @@ Status on 24 October 2026 (after the five-view reorganisation): draft on `stagin
 
 ## Before release (owner decisions and inputs)
 
-1. **Evidence archive**: store `business-spend-index-edition-001-evidence.zip` (sha256 `735b0ac51676bd02c253ee1a29b0e0b460c75497ef4430247cb0070c2cd781ab`) in a private location and send the location. I record it in `edition.json` (`evidence_archive.location`, `location_status: stored`) only after validating the stored copy with `validate.py --archive`.
+1. **Evidence archive** (`business-spend-index-edition-001-evidence.zip`, sha256 `735b0ac51676bd02c253ee1a29b0e0b460c75497ef4430247cb0070c2cd781ab`): the owner has supplied a private storage reference (status `reference_supplied`). Still to do: retrieve the stored copy and run `validate.py --archive` on it. Only then set `storage.stored_copy_retrieved`, `storage.stored_copy_hash_verified` and `location_status: stored`. The reference itself never goes in this repository.
 2. **Editorial review** of the staging page, including the three Conflicting items and two Not determined items, which stay shown as they are unless you decide otherwise.
 3. **Hub wording**: approve or edit the seven wording changes in `release.py` `HUB_EDITS` (listed in the dry-run report). They broaden only wording that implied every Index studies Instagram or refreshes monthly; the three Instagram studies keep their methods, monthly schedule, card labels and dates. Also choose a text-only hub card or supply a 1056x591 hero image pair.
 4. **Optional captures** R1 and R2 in `CHROME_HANDOFF.md`. Without R1 the page keeps the bounded Ramp rewards wording; without R2 the Ramp card model and conversion margin stay omitted with the limitation stated (decision of 24 October 2026).

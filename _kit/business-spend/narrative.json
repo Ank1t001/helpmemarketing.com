@@ -3,7 +3,7 @@
   "kicker": "The HMM Index · Business finance",
   "title": "Business Cards & Spend Management Index",
   "subtitle": "How six platforms explain spending controls, rewards and cross-border business payments.",
-  "scope": "This Index examines how six platforms explain business cards, spend management and cross-border payments to Canadian businesses. It uses dated public sources and evaluates communication and enquiry journeys. It does not test product performance, assess regulatory compliance or recommend a provider for your business.",
+  "scope": "An independent comparative marketing case study of how six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses. It reads dated public sources and the first screen of each application journey. It does not test product performance, assess regulatory compliance or recommend a provider for your business.",
   "action": {
    "label": "Explore the comparison",
    "href": "#bs-compare"
@@ -11,7 +11,7 @@
   "draft_note": "Draft for editorial review. This edition is not published."
  },
  "findings": {
-  "dek": "Three things a Canadian business reading these sites would run into, each linked to the wording behind it. They describe how the offers are explained, not how the products perform.",
+  "dek": "The three findings with the strongest support across the six. Each starts from what the sources say, names the customer question it raises, gives my reading, and links to the analysis and the test that follow from it.",
   "items": [
    {
     "id": "F1",
@@ -26,7 +26,23 @@
      "O-FLT-05",
      "O-KEP-03",
      "O-RMP-05"
-    ]
+    ],
+    "reading": "A reader who meets the rate on one page and its condition on another has to connect the two to know what they would earn.",
+    "analysis": [
+     [
+      "Rewards in Compare products",
+      "bs-prod"
+     ],
+     [
+      "Venn",
+      "bs-p-venn"
+     ],
+     [
+      "Loop",
+      "bs-p-loop"
+     ]
+    ],
+    "test": "T1"
    },
    {
     "id": "F2",
@@ -41,7 +57,15 @@
      "O-AWX-07",
      "O-FLT-08",
      "O-RMP-07"
-    ]
+    ],
+    "reading": "A general \"no FX fee\" line answers the question only for the case it covers; the other cases are priced on other pages or in the terms.",
+    "analysis": [
+     [
+      "Cross-border context in Compare products",
+      "bs-xb"
+     ]
+    ],
+    "test": "T2"
    },
    {
     "id": "F3",
@@ -58,7 +82,19 @@
      "O-FLT-16",
      "O-AWX-14",
      "O-KEP-05"
-    ]
+    ],
+    "reading": "At most first screens, whether you qualify and what follows was on another page or not stated before the next step. This is a reading of six first screens, not of how many people start or finish an application.",
+    "analysis": [
+     [
+      "First-screen table in Application journeys",
+      "bs-journey-table"
+     ],
+     [
+      "Ramp's eligibility example",
+      "bs-e3"
+     ]
+    ],
+    "test": "T3"
    }
   ],
   "take": "When a headline offer and its condition live on different pages, or a form says nothing about what comes next, the reader has to fill the gap. Ask your team to list every place your main offer appears and check that its condition travels with it, and to read your first form as a stranger would."
@@ -85,6 +121,10 @@
    [
     "plans",
     "Plans"
+   ],
+   [
+    "eligibility",
+    "Who can apply from Canada"
    ]
   ],
   "xb_columns": [
@@ -193,6 +233,12 @@
      "ids": [
       "O-VEN-22"
      ]
+    },
+    "eligibility": {
+     "text": "Not offered to businesses in Quebec",
+     "ids": [
+      "O-VEN-07"
+     ]
     }
    },
    "float": {
@@ -286,6 +332,14 @@
      "ids": [
       "O-FLT-22"
      ]
+    },
+    "eligibility": {
+     "text": "Pre-funded card without underwriting",
+     "sub": "Float Charge credit subject to eligibility criteria",
+     "ids": [
+      "O-FLT-01",
+      "O-FLT-07"
+     ]
     }
    },
    "ramp": {
@@ -370,6 +424,13 @@
      "sub": "NetSuite, Sage Intacct and more on Plus",
      "ids": [
       "O-RMP-20"
+     ]
+    },
+    "eligibility": {
+     "text": "A Canadian, US or UK-registered entity with a Business Number and a Canadian bank account",
+     "sub": "Canadian Cards: a Canada-registered affiliate",
+     "ids": [
+      "O-RMP-04"
      ]
     }
    },
@@ -458,6 +519,13 @@
      "text": "QuickBooks, Xero",
      "ids": [
       "O-LOP-20"
+     ]
+    },
+    "eligibility": {
+     "text": "Not offered to sole proprietors residing in Quebec",
+     "sub": "Applying said not to affect the personal credit score",
+     "ids": [
+      "O-LOP-06"
      ]
     }
    },
@@ -548,6 +616,14 @@
      "ids": [
       "O-KEP-19"
      ]
+    },
+    "eligibility": {
+     "text": "Self-serve sign-up route closed to new applicants when checked",
+     "sub": "Accepting an offer may lead to a hard inquiry",
+     "ids": [
+      "O-KEP-05",
+      "O-KEP-06"
+     ]
     }
    },
    "airwallex": {
@@ -635,10 +711,16 @@
      "ids": [
       "O-AWX-19"
      ]
+    },
+    "eligibility": {
+     "text": "Business use; not for sole proprietors in Quebec",
+     "ids": [
+      "O-AWX-06"
+     ]
     }
    }
   },
-  "note": "Plan prices are monthly, in Canadian dollars, as published; some are billed annually or per user. A row is not a quote, and the lowest advertised FX rate may not apply to every payment type. Peoples Trust Company issues four of the six cards (Venn, Ramp, Keep, Airwallex); how each card is funded or repaid differs, as the first column shows. This edition does not compare FX costs: a fair comparison would need the same currencies, amount, timing, plan and fees.",
+  "note": "Plan prices are monthly, in Canadian dollars, as published; some are billed annually or per user. A row is not a quote, and the lowest advertised FX rate may not apply to every payment type. Peoples Trust Company issues four of the six cards (Venn, Ramp, Keep, Airwallex); how each card is funded or repaid differs, as the first column shows. This edition does not compare FX costs: a fair comparison would need the same currencies, amount, timing, plan and fees. The \"Who can apply from Canada\" column covers applying from Canada only; availability in other countries is not assessed, and worldwide figures in the proof are labelled as worldwide where the source says so.",
   "spend_columns": [
    [
     "limits",
@@ -711,36 +793,88 @@
  },
  "platforms": {
   "venn": {
-   "positioning": "Canadian business banking with accounts, cards and transfers in one place, for businesses outside Quebec.",
    "offer": "1% cashback, no FX fee from matching-currency balances, and plans from $0. The cards page says the cashback has no caps; the pricing footnote says it is earned only on the first $5,000 of card spend a month on Essentials and the first $25,000 on Plus.",
-   "explanation": "The funding model is clear in the agreement (funds must be in the account first). The FX fee by plan is on pricing and in the agreement, separate from the no-FX-fee line on the cards page. The number of currencies you can send is given as 36 on two pages and 33 in a help article.",
    "proof": "The visible homepage counts agree at 15,000+ (a 4,000+ figure is in the page code but set not to display). The Flow case study reports time saved without figures. The transfers page claims FX rates up to 2.75% cheaper than banks, with no basis I could find.",
-   "journey": "\"Open a free account\" leads to a sign-up screen asking for email, password and password confirmation (or Google or Microsoft sign-in). It says \"No personal credit check or guarantee\" and \"Get started in 5 minutes\". The next step creates an account, so I stopped there.",
    "observation": "The cashback statement on the cards page and the footnote on pricing cannot both be read literally for Essentials and Plus customers.",
    "missing": [
     "Steps after account creation (needs an account)"
    ],
-   "take": "Your cards page and your pricing page are read as one offer. Ask your team whether a visitor who sees only your highest-traffic page would know which spend earns the reward on each plan."
+   "take": "Your cards page and your pricing page are read as one offer. Ask your team whether a visitor who sees only your highest-traffic page would know which spend earns the reward on each plan.",
+   "audience": "Canadian businesses: \"business banking built for Canada\". The site says Venn is not available to businesses in Quebec.",
+   "problem": "Cost against the banks: the transfers page says \"FX rates up to 2.75% cheaper than the banks\".",
+   "benefit": "Accounts, corporate cards with 1% cashback, free local transfers and low FX.",
+   "question": {
+    "text": "Will I earn 1% on all my card spend?",
+    "answer": "Left unresolved",
+    "detail": "The cards page says the cashback has no caps; the pricing footnote limits the eligible spend on Essentials and Plus. Both are published and they disagree."
+   },
+   "ev": {
+    "audience": [
+     "O-VEN-23",
+     "O-VEN-07"
+    ],
+    "problem": [
+     "O-VEN-16"
+    ],
+    "benefit": [
+     "O-VEN-23"
+    ],
+    "offer": [
+     "O-VEN-04",
+     "O-VEN-05",
+     "O-VEN-08"
+    ],
+    "proof": [
+     "O-VEN-15",
+     "O-VEN-17",
+     "O-VEN-16"
+    ]
+   }
   },
   "float": {
-   "positioning": "Corporate cards and spend software for Canadian companies, with a pre-funded card for any business and short-term credit for those that qualify.",
-   "offer": "Up to 1% cashback, 0.25% FX, USD cards without foreign transaction fees, account interest of 2.5% (up to 3.5% in a promotion) and credit up to $3M+ subject to eligibility.",
-   "explanation": "The two card models are named and separated, and the cards page names both cards behind its Visa or Mastercard line: a CAD Visa card and a USD Mastercard. The cashback threshold is a pricing footnote. An image badge says \"Up to 3.5% interest\"; the condition, a 12-month promotion on new balances above a baseline, is in the legal terms. The Payments page prices transfers: EFT and ACH free, wires $20, international payments at the exchange rate plus a 1.5% markup, with global wires on Professional and above.",
+   "offer": "Up to 1% cashback, 0.25% FX, USD cards without foreign transaction fees, account interest of 2.5% (up to 3.5% in a promotion) and credit up to $3M+ subject to eligibility. The 1% applies above $25k of monthly spending per card program (pricing footnote); the 3.5% is a 12-month promotion on new balances above a baseline (promotion terms).",
    "proof": "The Impact Kitchen story reports more than 100 hours a year saved. \"Save up to 90% on FX\" carries no basis I could find.",
-   "journey": "\"See a demo\" leads to a Book a Demo form with eight questions marked required, including monthly card spend and product interest, a referral code marked optional, and a \"How did you hear about us\" question whose required status was not recorded. A reCAPTCHA check sits on the form. The consent line says submitting lets Float contact you; nothing says what happens after booking.",
    "observation": "Both \"up to\" figures, cashback and interest, lead with the best case; the condition for each is on another page (a pricing footnote and the promotion terms).",
    "missing": [
     "Network for Float Charge",
     "What happens after a demo is booked"
    ],
-   "take": "An \"up to\" figure invites the question \"up to, if what?\". A practical test: put the condition for each \"up to\" figure on the same screen as the figure, and measure qualified demo requests against questions about rates."
+   "take": "An \"up to\" figure invites the question \"up to, if what?\". A practical test: put the condition for each \"up to\" figure on the same screen as the figure, and measure qualified demo requests against questions about rates.",
+   "audience": "Canadian businesses: \"Built in Canada, for Canada.\"",
+   "problem": "Manual finance work: the product menu calls expense management \"The end of manual expense work.\"",
+   "benefit": "Business accounts, corporate cards, payments and spend management from one provider.",
+   "question": {
+    "text": "What do I earn below $25k a month of card spend?",
+    "answer": "Left unresolved",
+    "detail": "The pricing footnote says 1% applies above $25k a month per card program; the rate below that threshold was not on the pages I reviewed."
+   },
+   "ev": {
+    "audience": [
+     "O-FLT-23"
+    ],
+    "problem": [
+     "O-FLT-23"
+    ],
+    "benefit": [
+     "O-FLT-23"
+    ],
+    "offer": [
+     "O-FLT-05",
+     "O-FLT-09",
+     "O-FLT-08",
+     "O-FLT-10",
+     "O-FLT-17",
+     "O-FLT-07"
+    ],
+    "proof": [
+     "O-FLT-15",
+     "O-FLT-09"
+    ]
+   }
   },
   "ramp": {
-   "positioning": "A spend platform with Canadian cards, eligibility for Canadian, US or UK-registered entities, and global proof.",
-   "offer": "Free and Plus plans, CAD and USD cards, and CAD or USD spend without the FX markup.",
-   "explanation": "Eligibility is stated clearly on the cards page, and the opening of the Canada Card Supplement limits Canadian Cards to Canada-registered affiliates. The card model and repayment terms were not established from a retained capture, so they are not reported. A Canadian rewards rate was not found in the reviewed sources. I found no Canadian multi-currency account or transfer fees on the Canadian pages.",
+   "offer": "Free and Plus plans, CAD and USD cards, and CAD or USD spend without the FX markup; the global page says conversions stay subject to applicable exchange rates and fees. A Canadian rewards rate was not found in the reviewed sources.",
    "proof": "85,000 customers worldwide, a receipt figure labelled as internal data, and quotes from large brands. None of the proof is specific to Canada.",
-   "journey": "\"Get started\" leads to a Canadian sign-up screen with one email field and \"Continue application\"; the eligibility list is not repeated there. The header \"See a demo\" link goes to a page outside the Canadian site.",
    "observation": "The Canadian pages pair Canadian eligibility rules with worldwide proof (85,000 customers) and a header demo link that leaves the Canadian site.",
    "missing": [
     "Card model and repayment terms (Canada Card Supplement, capture request R2)",
@@ -748,39 +882,120 @@
     "Transfer fees",
     "Steps after the email (needs an application)"
    ],
-   "take": "When a regional page borrows global proof and links, the buyer has to work out which parts apply to them. Ask your team to mark every claim on your regional page as local or global, and test labelling global figures as such."
+   "take": "When a regional page borrows global proof and links, the buyer has to work out which parts apply to them. Ask your team to mark every claim on your regional page as local or global, and test labelling global figures as such.",
+   "audience": "Canadian businesses (\"Canada, meet Ramp.\"), with eligibility open to Canadian, US or UK-registered entities.",
+   "problem": "Controlling spend in advance: a homepage section is headed \"Control spend before it happens.\"",
+   "benefit": "Cards, expenses and bill payments for Canadian businesses.",
+   "question": {
+    "text": "Do I qualify?",
+    "answer": "Answered on another page",
+    "detail": "The cards page lists the entity, Business Number and bank account required; the sign-up screen asks for an email and does not repeat the list."
+   },
+   "ev": {
+    "audience": [
+     "O-RMP-21",
+     "O-RMP-04"
+    ],
+    "problem": [
+     "O-RMP-21"
+    ],
+    "benefit": [
+     "O-RMP-21"
+    ],
+    "offer": [
+     "O-RMP-06",
+     "O-RMP-03",
+     "O-RMP-07",
+     "O-RMP-05"
+    ],
+    "proof": [
+     "O-RMP-13",
+     "O-RMP-14"
+    ]
+   }
   },
   "loop": {
-   "positioning": "Cross-border finance for Canadian businesses, presented as \"Canada's first no-FX credit card\" with global accounts and payments.",
-   "offer": "No FX fee in four currencies, points on card spend, free payments for now, and credit up to $1M.",
-   "explanation": "The four-currency limit and the 1.5% fee outside it are in the card agreement; the pricing page states the four currencies. The cards page says rewards come on all spend with no tiers; on the Basic plan, the earn-rate table lists USD, EUR and GBP spend as not eligible and does not mention other currencies. The pricing page opens on yearly prices ($71 and $250 a month billed annually).",
+   "offer": "No FX fee in four currencies, points on card spend, free payments for now, and credit up to $1M. A 1.5% fee applies to card purchases in other currencies, and on the Basic plan the earn-rate table lists USD, EUR and GBP spend as not eligible for points.",
    "proof": "The Bells of Steel case study labels its $10,000 saving as Loop's calculation. The homepage averages ($40,000 and 12 hours) and the \"first\" claim carry no basis I could find.",
-   "journey": "\"Open Account\" leads to a sign-up form (name, legal business name, email, mobile phone) with a panel listing the two steps that follow: business information, including the CRA ID, and identity, with date of birth and government ID. \"See a Demo\" opens an interactive product tour.",
    "observation": "The same site shows both a labelled estimate and unlabelled averages, which makes the difference easy to see.",
    "missing": [
     "Steps after the first form (needs a submission)"
    ],
-   "take": "Where your proof states its basis, a buyer can weigh it; where it does not, they have to trust it. Ask your team which three figures on your homepage could be challenged, and add the source line to each."
+   "take": "Where your proof states its basis, a buyer can weigh it; where it does not, they have to trust it. Ask your team which three figures on your homepage could be challenged, and add the source line to each.",
+   "audience": "Canadian businesses that work across borders: \"Global Banking for Canadian Businesses\".",
+   "problem": "Bank fees on foreign currency: a homepage section is headed \"Loop vs The Banks\", and the card is called \"Canada's first no-FX credit card\".",
+   "benefit": "FX-free credit cards, free international transfers and global accounts.",
+   "question": {
+    "text": "What happens after I open an account?",
+    "answer": "Answered",
+    "detail": "A panel on the sign-up screen lists the two steps that follow and what they need: business information (CRA ID, structure, website) and identity (date of birth, government ID)."
+   },
+   "ev": {
+    "audience": [
+     "O-LOP-21"
+    ],
+    "problem": [
+     "O-LOP-21",
+     "O-LOP-12"
+    ],
+    "benefit": [
+     "O-LOP-21"
+    ],
+    "offer": [
+     "O-LOP-07",
+     "O-LOP-04",
+     "O-LOP-10",
+     "O-LOP-01"
+    ],
+    "proof": [
+     "O-LOP-13",
+     "O-LOP-12"
+    ]
+   }
   },
   "keep": {
-   "positioning": "An all-in-one corporate card and banking product for Canadian companies, called \"Canada's #1\" in the page title.",
-   "offer": "Points with up to 56 fee-free days, multi-currency accounts in five currencies, and 90-day trials on plans from $79 a month.",
-   "explanation": "Reward rates depend on plan, and the plan table shows them; the card page comparison gives the top-tier rates without naming the plan. The card agreement sets a 3% card conversion fee that I did not find on the card, pricing or FAQ pages, and the card page comparison row for FX fees shows reward rates in Keep's column.",
+   "offer": "Points with up to 56 fee-free days, multi-currency accounts in five currencies, and 90-day trials on plans from $79 a month. The card agreement sets a 3% card conversion fee that I did not find on the card, pricing or FAQ pages.",
    "proof": "\"Trusted by 5,000+ Canadian Companies\" and \"Canada's #1\", with no basis for the ranking on the pages I reviewed. No case study was found.",
-   "journey": "Every start button found leads to one sign-up route, which showed \"We're not accepting new applications at this time\" and offered log-in to existing customers. The message names no product.",
    "observation": "The marketing pages still present the offer, start buttons and \"Applications do not impact your credit score\", while the one sign-up route they lead to says applications are closed.",
    "missing": [
     "A case study",
     "Whether the closed sign-up route affects every Keep product"
    ],
-   "take": "If a journey is paused, the pages that send people to it are the first thing they see. Ask your team what a visitor who clicks your main button today actually reaches, and whether the page they leave from says so."
+   "take": "If a journey is paused, the pages that send people to it are the first thing they see. Ask your team what a visitor who clicks your main button today actually reaches, and whether the page they leave from says so.",
+   "audience": "Any business, in the headline (\"All-in-one banking for any business\"); the site also says 5,000+ Canadian companies use it.",
+   "problem": "Limits and manual expenses: the card is promised with \"higher limits\" and \"expenses that do themselves\".",
+   "benefit": "A business card with higher limits, automated expenses and capital to grow.",
+   "question": {
+    "text": "Can I apply today?",
+    "answer": "Partly answered",
+    "detail": "The marketing pages show start buttons and \"Applications do not impact your credit score\"; the self-serve sign-up route they lead to says new applications are closed. The message names no product."
+   },
+   "ev": {
+    "audience": [
+     "O-KEP-20",
+     "O-KEP-12"
+    ],
+    "problem": [
+     "O-KEP-20"
+    ],
+    "benefit": [
+     "O-KEP-20"
+    ],
+    "offer": [
+     "O-KEP-03",
+     "O-KEP-04",
+     "O-KEP-09",
+     "O-KEP-07"
+    ],
+    "proof": [
+     "O-KEP-12",
+     "O-KEP-13"
+    ]
+   }
   },
   "airwallex": {
-   "positioning": "A global financial platform for Canadian businesses expanding abroad: accounts in 20+ currencies, transfers and multi-currency cards.",
    "offer": "1% cashback on card spend, no foreign transaction fee from a held currency, transfers with $0 fees on local rails, and plans from $0.",
-   "explanation": "Pricing states FX at 0.5% above interbank for major currencies and SWIFT fees. The no-fee card line covers spending from a currency you hold; when the wallet does not hold it, the card terms add an automatic conversion fee. The fee schedule lists an Auto Conversion Fee of 1.00% under FX conversion services without saying whether it applies to card purchases. The visible pages say 1% cashback; the pricing page says up to 1% on local CAD spend, and the rebate terms were not found.",
    "proof": "The homepage gives 200,000 and 600,000+ businesses; the 600,000 figure says it includes customers served through platforms. The Adaria story is Canadian and reports qualitative outcomes.",
-   "journey": "\"Get started\" leads to one business email field; continuing agrees to receive marketing communications. The demo form was not opened.",
    "observation": "The page title says 2% cashback while every visible statement says 1%. Search engines and link previews may use page titles and social metadata, so a figure there can reach buyers who never see the page.",
    "missing": [
     "Cashback (rebate) terms and what \"eligible\" covers",
@@ -788,7 +1003,36 @@
     "The automatic conversion fee level for card purchases",
     "The demo booking form (not opened)"
    ],
-   "take": "Page titles and social metadata can travel further than the page itself. Ask your team whether every title and preview description on your site states the same offer as the page it leads to."
+   "take": "Page titles and social metadata can travel further than the page itself. Ask your team whether every title and preview description on your site states the same offer as the page it leads to.",
+   "audience": "\"Global businesses\", with a homepage section on gaining \"a competitive edge in the Canadian market\".",
+   "problem": "Running finance across countries: the homepage covers payments, treasury and spend for businesses operating locally and globally.",
+   "benefit": "Payments, treasury and spend managed in one platform.",
+   "question": {
+    "text": "Is the cashback 1% or 2%?",
+    "answer": "Partly answered",
+    "detail": "Every visible statement says 1%; the 2% figure appears only in the page's title metadata, and the rebate terms were not found."
+   },
+   "ev": {
+    "audience": [
+     "O-AWX-20"
+    ],
+    "problem": [
+     "O-AWX-20"
+    ],
+    "benefit": [
+     "O-AWX-20"
+    ],
+    "offer": [
+     "O-AWX-04",
+     "O-AWX-07",
+     "O-AWX-10",
+     "O-AWX-05"
+    ],
+    "proof": [
+     "O-AWX-12",
+     "O-AWX-13"
+    ]
+   }
   }
  },
  "patterns": {
@@ -830,40 +1074,69 @@
   "take": "Buyers of financial products look for the basis behind a number and for the plan that includes the feature they need. Ask your team which figure on your site a careful buyer would question first, and whether each feature page says which plan includes it."
  },
  "tests": {
-  "dek": "Three tests a marketing team could run on its own pages, each tied to a finding above. They are proposals to discuss, not results, and none needs a provider's internal data.",
+  "dek": "Three tests a marketing team could run on its own pages, each tied to a finding above and laid out in the same chain: observed evidence, customer question, my interpretation, hypothesis, measurement. They are proposals to discuss, not results, and none needs a provider's internal data.",
   "items": [
    {
+    "id": "T1",
     "title": "Put the reward condition beside the rate",
     "finding": "F1",
-    "example": "Venn's cards page says its cashback has no caps while its pricing footnote limits the eligible card spend on two plans; Loop's cards page says rewards on all spend while its earn-rate table lists USD, EUR and GBP spend as not eligible on Basic.",
-    "uncertainty": "Will I earn the advertised rate on my plan and at my spend level?",
-    "change": "Show the cap, threshold or plan condition in the same block as the headline rate on the card page. Keep the rate, the design, the button and the terms the same.",
-    "measure": "Qualified applications or demo requests (meeting your eligibility rules) per visitor to the card page.",
+    "observation": "Venn's cards page says its cashback has no tiers, thresholds or caps, while its pricing footnote limits the eligible card spend on Essentials and Plus. Loop's cards page says rewards come on all spend, while its earn-rate table lists USD, EUR and GBP spend as not eligible on Basic.",
+    "evidence": [
+     "O-VEN-04",
+     "O-LOP-04"
+    ],
+    "question": "Will I earn the advertised rate on my plan and at my spend level?",
+    "reading": "When the rate and its condition sit on different pages, a reader of either page sees only part of the offer.",
+    "hypothesis": "With the condition beside the rate, readers can check it before applying, so the version with the condition will produce at least as many qualified applications per card-page visitor, with fewer rewards questions from new customers.",
+    "change": "Show the cap, threshold or plan condition in the same block as the headline rate on the card page.",
+    "comparable": "The rate, the terms, the design and the button stay the same. Split card-page traffic at random, with the same traffic sources, the same attribution window and the same definition of a qualified application in both versions.",
+    "measure": "Qualified applications (meeting your eligibility rules) per visitor to the card page. Count button clicks separately.",
     "guardrail": "Rewards questions to sales and support in the first 30 days after sign-up, and plan mix.",
-    "comparison": "A randomised split of card-page traffic with the same sources, the same attribution window and the same definition of a qualified application. Count button clicks separately from qualified applications.",
-    "limitation": "If rewards are not a main reason buyers choose you, or traffic is too small to separate the two versions, the result will be inconclusive. Legal review of the wording comes first."
+    "limitation": "Inconclusive if rewards are not a main reason buyers choose you, if traffic is too small to separate the two versions, or if pricing or rewards change during the test. Legal review of the wording comes first."
    },
    {
+    "id": "T2",
     "title": "Say which transactions a \"no FX fee\" claim covers",
     "finding": "F2",
-    "example": "All six platforms' no-fee statements covered specific cases (a matching balance, four currencies, a USD card), with other conversions priced elsewhere.",
-    "uncertainty": "Will I pay to convert when I buy in a currency I do not hold?",
-    "change": "Replace a general \"no FX fees\" line with one that names the case, followed by one line saying what applies otherwise. Keep the page layout, offer and button the same.",
+    "observation": "All six platforms published a no-FX-fee statement that covered a specific case, such as a matching-currency balance, four currencies or a USD card, and each site or its terms prices other conversions elsewhere. Keep's pricing page lists an FX fee of 0% for banking while its card agreement sets a 3% card conversion fee.",
+    "evidence": [
+     "O-VEN-08",
+     "O-LOP-07",
+     "O-KEP-08",
+     "O-AWX-07",
+     "O-FLT-08",
+     "O-RMP-07"
+    ],
+    "question": "Will I pay to convert when I buy in a currency I do not hold?",
+    "reading": "A general line answers that question only for the case it covers; the reader has to find the other cases in pricing or the terms.",
+    "hypothesis": "A line that names the covered transaction, followed by one line on what applies otherwise, will produce at least as many completed applications from the FX or cards page, with fewer FX questions and disputed charges after sign-up.",
+    "change": "Replace a general \"no FX fees\" line with one that names the case it covers, followed by one line saying what applies otherwise.",
+    "comparable": "The page layout, offer, fees, terms and button stay the same. Split traffic at random with the same audiences and attribution window; if traffic is low, run the versions in matched consecutive periods and record the dates.",
     "measure": "Completed applications from the FX or cards page.",
     "guardrail": "FX-related support questions and disputed charges in the first 60 days after sign-up.",
-    "comparison": "A randomised split with the same audiences and attribution window; if traffic is low, run the versions in matched consecutive periods and record the dates.",
-    "limitation": "Required disclosures stay in place; this changes the summary, not the terms. Seasonal travel or trade cycles can swamp the difference."
+    "limitation": "Inconclusive if seasonal travel or trade cycles swamp the difference, or if fees change during the test. Required disclosures stay in place; this changes the summary, not the terms."
    },
    {
+    "id": "T3",
     "title": "State eligibility and the next step before the form",
     "finding": "F3",
-    "example": "Loop's sign-up lists the two steps ahead and the documents they need; Ramp's eligibility rules sit on its card page rather than its sign-up screen; the other first screens asked for contact or account details without saying what follows.",
-    "uncertainty": "Do I qualify, and what happens after I give my email?",
-    "change": "Add a short \"Before you start\" list above the first form field: who can apply, what you need, which provinces are served, and what happens after submitting. Keep the form fields and verification steps the same.",
-    "measure": "The share of form starts that become qualified applications.",
+    "observation": "Loop's sign-up lists the two steps ahead and what they need. Ramp's eligibility rules sit on its cards page rather than its sign-up screen. The Venn, Float and Airwallex first screens asked for contact or account details without saying what follows, and Keep's route was closed.",
+    "evidence": [
+     "O-LOP-15",
+     "O-RMP-04",
+     "O-RMP-15",
+     "O-VEN-18",
+     "O-FLT-16",
+     "O-AWX-14"
+    ],
+    "question": "Do I qualify, and what happens after I give my details?",
+    "reading": "At most first screens the answer to either question was on another page or not stated before the next step.",
+    "hypothesis": "A short \"Before you start\" list above the first field will raise the share of form starts that become qualified applications, without reducing the number of qualified applications.",
+    "change": "Add a short \"Before you start\" list above the first form field: who can apply, what you need, which provinces are served, and what happens after submitting.",
+    "comparable": "The form fields, verification steps, traffic sources and the definition of a qualified application stay the same. Split traffic at random with consistent audiences.",
+    "measure": "The share of form starts that become qualified applications. Report clicks, form starts, submissions and qualified applications as separate numbers.",
     "guardrail": "Total form starts and completed submissions from eligible businesses, so the list does not turn away people who qualify.",
-    "comparison": "A randomised split with consistent audiences; report clicks, form starts, submissions and qualified applications as separate numbers.",
-    "limitation": "If eligibility rules change during the test, or most traffic is already qualified, the result will not separate the two versions. Never remove necessary identity or eligibility checks."
+    "limitation": "Inconclusive if eligibility rules change during the test or most traffic is already qualified. Never remove necessary identity or eligibility checks."
    }
   ]
  },
@@ -904,14 +1177,14 @@
  },
  "help": {
   "heading": "If you market a financial product",
-  "body": "I can read your own pages the way this Index reads these six: how the offer, its conditions, the proof and the next step come across to a buyer. This is a free review of your marketing by Help Me Marketing. It is not a card application, and it is not financial, legal or regulatory advice.",
+  "body": "I can read your own messaging and application journey the way this case study reads these six: how the offer, its conditions, the proof and the next step come across to a buyer. This is a free review of your marketing by Help Me Marketing. It is not advice on which card or platform to choose, and it is not financial, legal or regulatory advice.",
   "button": "Get my free marketing review",
   "entry": "research_business_spend"
  },
  "views": {
   "overview": {
    "title": "Overview",
-   "dek": "This page is two things: a reference for comparing how six providers describe their business cards, spend tools and cross-border payments, and my independent case study of how they market them. Every product fact links to its source; my readings and the tests I propose are marked as such."
+   "dek": "This page serves two kinds of reader. If you are comparing card and spend platforms, it sets out what six providers publish, each fact linked to its source. If you market a product, it is my independent case study of how they explain it: the offer, the proof and the path to applying. None of the six is a client, and I have no view of their internal strategy or results."
   },
   "compare": {
    "title": "Compare products",
@@ -919,59 +1192,73 @@
   },
   "messaging": {
    "title": "Messaging & offers",
-   "dek": "How each provider presents its offer: who it speaks to, what it promises, where the conditions sit and what proof it gives."
+   "dek": "For each platform: who the pages speak to, the problem they emphasise, the benefit they promise, the offer and its conditions, the proof they supply, and one customer question the pages answer or leave open."
   },
   "journeys": {
    "title": "Application journeys",
-   "dek": "What happens when a Canadian business clicks each provider's main start button, observed in a browser up to the first screen. Nothing was submitted and no account was created."
+   "dek": "What happens when a Canadian business clicks each provider's main start button, observed in a browser up to the first screen. Nothing was submitted, no account was created and no application was tested past that screen."
   },
   "lessons": {
    "title": "Lessons & tests",
-   "dek": "Patterns across the six, and three tests a marketing team could run on its own pages."
+   "dek": "Patterns across the six, and three tests a marketing team could run on its own pages. Each test follows the same chain as the rest of the page."
   }
  },
  "journeys": {
   "columns": [
    [
     "start",
-    "Start button and destination"
+    "Starting page and button"
    ],
    [
     "asks",
-    "What the first screen asks for"
+    "Information asked for"
    ],
    [
-    "shown",
-    "Eligibility or next steps shown"
+    "elig",
+    "Eligibility shown"
    ],
    [
-    "stop",
-    "Where observation stopped"
+    "next",
+    "Next step explained"
+   ],
+   [
+    "limit",
+    "Availability limitation"
    ]
   ],
   "rows": {
    "venn": {
-    "start": "\"Open a free account\" to app.venn.ca/signup",
+    "start": "Homepage, \"Open a free account\"",
+    "dest": "app.venn.ca/signup",
     "asks": "Google or Microsoft sign-in, or email, password and password confirmation",
-    "shown": "\"No personal credit check or guarantee\" and \"Get started in 5 minutes\"; no eligibility or Quebec note on this screen",
+    "elig": "\"No personal credit check or guarantee\"; no eligibility list",
+    "next": "\"Get started in 5 minutes\"; the steps after the account is created are not described",
+    "limit": "None on this screen; elsewhere the site says Venn is not available in Quebec",
     "stop": "Before \"Create account\" (creates an account)",
     "ids": [
-     "O-VEN-18"
+     "O-VEN-18",
+     "O-VEN-07"
     ]
    },
    "float": {
-    "start": "\"See a demo\" to floatfinancial.com/demo",
+    "start": "Homepage, \"See a demo\"",
+    "dest": "floatfinancial.com/demo",
     "asks": "Eight questions marked required, a referral code marked optional, \"How did you hear about us\" (required status not recorded); a reCAPTCHA check",
-    "shown": "Consent to be contacted; nothing on what happens after booking",
+    "elig": "None shown",
+    "next": "Consent to be contacted; nothing on what happens after booking",
+    "limit": "None shown",
     "stop": "Before \"Book a Demo\"",
     "ids": [
      "O-FLT-16"
     ]
    },
    "ramp": {
-    "start": "\"Get started\" to ramp.com/en-ca/signup",
+    "start": "Canadian homepage, \"Get started\"",
+    "dest": "ramp.com/en-ca/signup",
     "asks": "One email field",
-    "shown": "\"Apply for Ramp's corporate card\"; the eligibility list is on the cards page, not this screen",
+    "elig": "Not on this screen; the cards page lists entity, Business Number and Canadian bank account",
+    "next": "The heading \"Apply for Ramp's corporate card\"; no later steps listed",
+    "limit": "None on this screen",
     "stop": "Before \"Continue application\"",
     "ids": [
      "O-RMP-15",
@@ -979,51 +1266,92 @@
     ]
    },
    "loop": {
-    "start": "\"Open Account\" to go.bankonloop.com/signup",
+    "start": "Canadian homepage, header \"Open Account\"",
+    "dest": "go.bankonloop.com/signup",
     "asks": "Full name, legal business name, email, mobile phone (or Google sign-up)",
-    "shown": "A panel listing the next steps: business information (CRA ID, structure, website) and identity (date of birth, government ID)",
+    "elig": "None beyond the information each step asks for",
+    "next": "A panel lists the next two steps: business information (CRA ID, structure, website) and identity (date of birth, government ID)",
+    "limit": "None on this screen; elsewhere the card is said not to be available to Quebec sole proprietors",
     "stop": "Before \"Get started\"",
     "ids": [
-     "O-LOP-15"
+     "O-LOP-15",
+     "O-LOP-06"
     ]
    },
    "keep": {
-    "start": "Every start button found leads to app.trykeep.com/applications-closed",
-    "asks": "Nothing: the page offers log-in to existing customers",
-    "shown": "\"We're not accepting new applications at this time\"; no product named",
+    "start": "Homepage, card page and pricing: every start button found",
+    "dest": "app.trykeep.com/get-started, which redirected to app.trykeep.com/applications-closed",
+    "asks": "Nothing; log-in is offered to existing customers",
+    "elig": "Not applicable",
+    "next": "\"We're not accepting new applications at this time\"; no product named",
+    "limit": "The self-serve sign-up route was closed to new applicants when checked",
     "stop": "Closed-applications page",
     "ids": [
      "O-KEP-05"
     ]
    },
    "airwallex": {
-    "start": "\"Get started\" to airwallex.com/en-ca/signup",
+    "start": "Canadian homepage, \"Get started\"",
+    "dest": "airwallex.com/en-ca/signup",
     "asks": "One business email field",
-    "shown": "Continuing agrees to receive marketing communications",
+    "elig": "None shown",
+    "next": "Continuing agrees to receive marketing communications; no later steps listed",
+    "limit": "None on this screen; elsewhere card use is said not to be for Quebec sole proprietors",
     "stop": "Before \"Get started\"",
     "ids": [
-     "O-AWX-14"
+     "O-AWX-14",
+     "O-AWX-06"
     ]
    }
   },
-  "note": "Observed in a browser on 23 October 2026 between 12:09 p.m. and 12:12 p.m. Toronto time (Keep at 12:02 p.m.), from a normal Chrome profile not signed in to any provider. A progress indicator or time estimate was not used to judge journey length."
+  "note": "Observed in a browser on 23 October 2026 between 12:09 p.m. and 12:12 p.m. Toronto time (Keep at 12:02 p.m.), from a normal Chrome profile not signed in to any provider. Each journey was followed to its first screen only: no form was submitted, no account was created and no application was tested past that screen. A progress indicator or time estimate was not used to judge journey length. Ramp's header \"See a demo\" link leads to a page outside the Canadian site.",
+  "reading": "Loop's sign-up was the only first screen that described what comes next. At the other five, a prospective customer would find eligibility, if at all, on another page (Ramp's cards page, Venn's Quebec note) or not before the next step, and Keep's route was closed. This reads six first screens; it says nothing about how many people start, abandon or finish an application.",
+  "test": "Test 3 under Lessons & tests turns this into a proposal: state who can apply and what happens next above the first form field, and measure the share of form starts that become qualified applications."
  },
  "legend": [
   [
-   "Sourced fact",
-   "Tables, the \"What the sources say\" lists and the evidence lists. Each fact links to the page it came from; a status label marks anything that is not a plain published fact."
+   "What the sources say",
+   "Tables, platform facts and evidence lists. Each fact links to the page it came from and its capture time; a status label marks anything that is not a plain published fact."
   ],
   [
    "My reading",
-   "Interpretation, kept apart from the facts: findings, editorial observations, patterns and lines marked \"My reading\"."
+   "My interpretation, kept apart from the sources: findings, readings and patterns. A reading can be wrong even where the sources are right."
   ],
   [
    "What this means for your marketing team",
-   "A short lesson drawn from a section's evidence, with one question or test."
+   "A short lesson drawn from a section's evidence, with one question or test and the measure to watch."
   ],
   [
-   "Proposed test",
-   "An experiment a team could run on its own pages. A proposal, not a result."
+   "Proposed test, not a result",
+   "An experiment a team could run on its own pages, with a hypothesis and a measure. None has been run."
   ]
- ]
+ ],
+ "about": [
+  [
+   "What is compared",
+   "What six providers publish about their business cards, cross-border payments and spend tools, and how their pages and first application screens explain them."
+  ],
+  [
+   "Why these six",
+   "I selected them as a comparison set: each markets business cards or spend management to Canadian businesses. It is a selected cohort, not the six largest or best, and not a complete survey of the market."
+  ],
+  [
+   "The Canadian context",
+   "Product facts come from Canadian pages or terms that apply to Canadian businesses. Three of the six state Quebec exclusions (Venn for all Quebec businesses, Loop and Airwallex for Quebec sole proprietors). Ramp's customer count is worldwide, and Airwallex's figures do not say whether they are global or Canadian; both are labelled that way."
+  ],
+  [
+   "What it can and cannot establish",
+   "It can establish what a public page said at a recorded time, and where two statements differ. It cannot establish how the products perform, what customers understand or do, how well any provider's marketing works, why a provider wrote what it did, or whether anything complies with regulation."
+  ]
+ ],
+ "chain": {
+  "steps": [
+   "Observed evidence",
+   "Customer question",
+   "My interpretation",
+   "Testable hypothesis",
+   "Measurement"
+  ],
+  "note": "Every conclusion on this page follows that order. From public pages I do not infer a provider's intent, what customers understood, any effect on conversions, revenue or acquisition efficiency, paid distribution, or non-compliance, and I give no baselines or uplift figures."
+ }
 }

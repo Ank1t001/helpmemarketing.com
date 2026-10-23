@@ -32,7 +32,15 @@
     "sha256": "735b0ac51676bd02c253ee1a29b0e0b460c75497ef4430247cb0070c2cd781ab",
     "bytes": 11701970,
     "contents": "98 sources: 64 server captures (HTML gzip, extracted text, links, fetch log) and 34 sanitised browser screenshots with the browser-pass manifest; ARCHIVE_MANIFEST.json maps every source ID to its files and hashes",
-    "location_status": "not_established",
-    "location_note": "Delivered to the owner in the build session on 23 October 2026. It is not in this repository, which is public, or in the deployment. Until the owner stores it in a named private location (recommended: Google Drive, HMM Indexes / Business Spend Index evidence) and records that location here, the underlying evidence exists only in that delivered copy and in the build session's temporary storage."
+    "location_status": "reference_supplied",
+    "location_note": "The owner reports that a copy of this archive is stored in a private file store and supplied a private storage reference. The reference is kept out of this repository, which is public, and out of the deployment. A storage reference supplied is not a stored copy retrieved, and a stored copy retrieved is not a hash verified: neither step has been performed. Record them here only after the stored copy is retrieved and validate.py --archive passes on it. This archive is never modified; new social evidence goes in a separate, versioned archive with its own manifest and hash.",
+    "storage": {
+      "reference_supplied": true,
+      "reference_kept_private": true,
+      "stored_copy_retrieved": false,
+      "stored_copy_hash_verified": false,
+      "retrieved_on": null,
+      "verified_on": null
+    }
   }
 }

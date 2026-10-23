@@ -34,32 +34,59 @@ SITEMAP = 'sitemap.xml'
 URL = 'https://helpmemarketing.com/business-spend-index'
 MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-# Hub wording that would no longer be true once a non-Instagram, unscheduled study is listed.
-# These are editorial proposals: the dry-run report lists them for the owner's approval.
-HUB_EDITS = [
-    # 1. Title (in <title>, og:title and twitter:title): "Instagram Benchmarks" implied every Index is an Instagram study.
-    ('The HMM Index: Instagram Benchmarks', 'The HMM Index: Marketing Benchmarks'),
-    # 2. Description (meta, og, twitter and the CollectionPage): keeps the three Instagram studies and their monthly
-    #    refresh, and adds the one-time business card study instead of implying it is Instagram and monthly too.
-    ('Public Instagram benchmarks for Canadian private real estate, Ontario hair loss clinics and Ontario med spas. Built from public posts and refreshed monthly.',
-     'Monthly Instagram benchmarks for Canadian private real estate, Ontario hair loss clinics and med spas, plus a one-time study of six business card platforms.'),
-    # 3. Hero subtitle: the Instagram method and schedule stay, scoped to the Instagram indexes.
-    ('<p class="hero-subtitle">Public benchmarks of what actually works on Instagram, one category at a time. Each edition is built from public posts, refreshed on a schedule, and every claim links to the post it came from.</p>',
-     '<p class="hero-subtitle">Public benchmarks, one category at a time. The Instagram indexes are built from public posts and refreshed on a schedule; the business card index is a one-time reading of public web pages. Every claim links to the post or page it came from.</p>'),
-    # 4. Section heading: the count changes from three to four (a count, not a method change).
-    ('<h2 class="section-heading">Three categories, <em>benchmarked</em>.</h2>',
-     '<h2 class="section-heading">Four categories, <em>benchmarked</em>.</h2>'),
-    # 5 to 7. How it works: each sentence said or implied that every edition reads Instagram posts.
-    ('<li><h3>Public data only</h3><p>I read what each business posts publicly on Instagram. No private data, no paid panels.</p></li>',
-     '<li><h3>Public data only</h3><p>I read what each business publishes: public Instagram posts for the Instagram indexes, public web pages and enquiry journeys for the business card index. No private data, no paid panels.</p></li>'),
-    ('<li><h3>Measured the same way</h3><p>Every account in an edition is read on the same public signals, such as likes, comments and recorded plays, so the comparison is consistent.</p></li>',
-     '<li><h3>Measured the same way</h3><p>Everything in an edition is read on the same signals, such as likes, comments and recorded plays on Instagram, or the same checklist of pages for each business card platform, so the comparison is consistent.</p></li>'),
-    ('<li><h3>Linked to the source</h3><p>Every claim points to the post behind it, so you can check it yourself.</p></li>',
-     '<li><h3>Linked to the source</h3><p>Every claim points to the post or page behind it, so you can check it yourself.</p></li>'),
-]
+# Hub wording that would no longer be true once a non-Instagram, unscheduled study is listed (owner's brief of 23 October 2026:
+# umbrella title "The HMM Index: Marketing Research", the suggested description and source statement). Editorial proposals:
+# the dry-run report lists every one, before and after, for the owner's approval. The cards' methods, dates and
+# "Monthly" labels are not touched, nothing implies the studies share metrics, and nothing promises recurring updates.
+OLD_DESC = 'Public Instagram benchmarks for Canadian private real estate, Ontario hair loss clinics and Ontario med spas. Built from public posts and refreshed monthly.'
+SOCIAL_DESC = ('Independent research into how brands explain their products, publish content and guide prospective customers. '
+               'Explore studies across real estate, hair loss, med spas and business spending.')   # 188 characters: social previews (200 max)
+META_DESC = ('Independent research into how brands explain products, publish content and guide customers, '
+             'across real estate, hair loss, med spas and business spending.')                    # 156 characters: meta description (158 max)
+
+
+def bs_sources():
+    """What the business card study reads, so the hub never calls it website-only once a reviewed social module exists."""
+    import social
+    if social.load_reviewed():
+        return 'public web pages, the first screen of each application journey and official Instagram and LinkedIn posts'
+    return 'public web pages and the first screen of each application journey'
+
+
+def hub_edits():
+    return [
+        # 1. Title (in <title>, og:title and twitter:title): "Instagram Benchmarks" implied every study is an Instagram study.
+        ('The HMM Index: Instagram Benchmarks', 'The HMM Index: Marketing Research'),
+        # 2. Meta description: the owner's suggested description, shortened by two words to fit 158 characters.
+        ('<meta name="description" content="%s">' % OLD_DESC, '<meta name="description" content="%s">' % META_DESC),
+        # 3 and 4. Social descriptions (og and twitter): the owner's suggested description in full.
+        ('<meta property="og:description" content="%s">' % OLD_DESC, '<meta property="og:description" content="%s">' % SOCIAL_DESC),
+        ('<meta name="twitter:description" content="%s">' % OLD_DESC, '<meta name="twitter:description" content="%s">' % SOCIAL_DESC),
+        # 5. CollectionPage description (JSON-LD): the same full description.
+        ('"description":"%s"' % OLD_DESC, '"description":"%s"' % SOCIAL_DESC),
+        # 6. Hero subtitle: no single method or schedule is claimed for every study.
+        ('<p class="hero-subtitle">Public benchmarks of what actually works on Instagram, one category at a time. Each edition is built from public posts, refreshed on a schedule, and every claim links to the post it came from.</p>',
+         '<p class="hero-subtitle">Independent research, one category at a time, into how brands explain their products, publish content and guide prospective customers. Each study states its own method and update schedule.</p>'),
+        # 7. Section heading: four studies, and "benchmarked" no longer fits a study that is not a benchmark.
+        ('<h2 class="section-heading">Three categories, <em>benchmarked</em>.</h2>',
+         '<h2 class="section-heading">Four categories, <em>researched</em>.</h2>'),
+        # 8 to 10. How it works: each sentence said or implied that every study reads Instagram posts on the same signals.
+        ('<li><h3>Public data only</h3><p>I read what each business posts publicly on Instagram. No private data, no paid panels.</p></li>',
+         '<li><h3>Public data only</h3><p>I read what each business publishes: public Instagram posts for the Instagram studies, and %s for the business card study. No private data, no paid panels.</p></li>' % bs_sources()),
+        ('<li><h3>Measured the same way</h3><p>Every account in an edition is read on the same public signals, such as likes, comments and recorded plays, so the comparison is consistent.</p></li>',
+         '<li><h3>Consistent within each study</h3><p>Within a study, every business is read on the same signals: likes, comments and recorded plays for the Instagram studies, and the same checklist of pages and first screens for the business card study. The signals differ between studies, so their figures are not compared with each other.</p></li>'),
+        ('<li><h3>Linked to the source</h3><p>Every claim points to the post behind it, so you can check it yourself.</p></li>',
+         '<li><h3>Linked to the source</h3><p>Sources accompany the observations, with my interpretation labelled separately.</p></li>'),
+    ]
+
+
+HUB_EDITS = hub_edits()
 
 
 def plain(h):
+    m = re.match(r'<meta (?:name|property)="([^"]+)" content="([^"]*)">$', h)
+    if m:
+        return '%s: %s' % (m.group(1), m.group(2))
     h = h.replace('</h3><p>', ': ')
     t = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', h)).strip()
     return re.sub(r'\s+([.,;:])', r'\1', t)
@@ -70,21 +97,25 @@ def hub_date(day):
     return '%s %d, %d' % (MONTHS[m - 1], d, y)
 
 
+CARD_SENTENCE = 'How six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses.'
+
+
 def hub_card(day):
     return ('      <article class="wk-tool ix-card">\n'
+            '        <a class="wk-tool-shot" href="/business-spend-index" tabindex="-1" aria-hidden="true"><img src="/assets/index/business-spend/hero.webp" alt="" width="1056" height="591" loading="lazy" decoding="async"></a>\n'
             '        <div class="wk-tool-body">\n'
             '          <p class="wk-tool-kind">Comparison &middot; Canada &middot; One edition</p>\n'
             '          <h3 class="wk-tool-title">Business Cards &amp; Spend Management Index</h3>\n'
-            '          <p class="wk-tool-who">How six platforms explain spending controls, rewards and cross-border business payments to Canadian businesses. A reading of public pages, not a ranking or a recommendation.</p>\n'
+            '          <p class="wk-tool-who">%s An independent case study from dated public sources, not a ranking or a recommendation.</p>\n'
             '          <dl class="ix-dates"><div><dt>Last updated</dt><dd>%s</dd></div><div><dt>Next update</dt><dd>Not scheduled</dd></div></dl>\n'
             '          <div class="wk-tool-links"><a class="wk-tool-cta" href="/business-spend-index">Read the Business Cards &amp; Spend Management Index &rarr;</a></div>\n'
             '        </div>\n'
-            '      </article>\n' % hub_date(day))
+            '      </article>\n' % (CARD_SENTENCE, hub_date(day)))
 
 
 def new_hub(text, day):
     issues = []
-    for old, new in HUB_EDITS:
+    for old, new in hub_edits():
         n = text.count(old)
         if n == 0:
             issues.append('hub: expected text not found (the hub changed?): %s' % old[:70])
@@ -99,7 +130,7 @@ def new_hub(text, day):
         issues.append('hub: CollectionPage hasPart not found')
     else:
         part = json.dumps({'@type': 'WebPage', 'name': 'Business Cards & Spend Management Index',
-                           'description': 'How six platforms explain spending controls, rewards and cross-border business payments to Canadian businesses.',
+                           'description': CARD_SENTENCE,
                            'url': URL}, ensure_ascii=False, separators=(',', ':'))
         text = text[:m.end(1)] + ',' + part + text[m.end(1):]
     return text, issues
@@ -182,12 +213,12 @@ def dry_run(out, day):
     for rel, text in files.items():
         lines.append('- `%s` (%d bytes)%s' % (rel, len(text.encode()), ', new' if not os.path.exists(os.path.join(model.ROOT, rel)) else ''))
     lines += ['', '## Hub wording changes that need the owner\'s approval', '',
-              'Only wording that implied every Index studies Instagram or refreshes monthly is broadened; each Instagram study keeps its method and monthly schedule, and the three existing cards, their dates and their "Monthly" labels are unchanged.', '']
+              'The umbrella title, description and source statement follow the owner\'s brief of 23 October 2026. Only wording that implied every study reads Instagram, shares the same signals or refreshes monthly is broadened; the three existing cards, their methods, dates and "Monthly" labels are unchanged, and nothing promises recurring updates for the business card study.', '']
     hub_now = read(HUB)
-    for i, (old, new) in enumerate(HUB_EDITS, 1):
+    for i, (old, new) in enumerate(hub_edits(), 1):
         lines += ['%d. Applies in %d place%s on /hmm-index.' % (i, hub_now.count(old), '' if hub_now.count(old) == 1 else 's'),
                   '   - was: %s' % plain(old), '   - now: %s' % plain(new)]
-    lines += ['', 'The hub card has no image: no 1056x591 hero exists for this Index. Approve a text-only card or supply an image.', '']
+    lines += ['', 'The new card uses `/assets/index/business-spend/hero.webp` (1056x591, with a 704x394 variant), rendered from `artwork.html` in the Med Spa card pattern: text and outline shapes only, no provider screenshots or logos.', '']
     with open(os.path.join(out, 'DRYRUN_REPORT.md'), 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
     print('\n'.join(lines))

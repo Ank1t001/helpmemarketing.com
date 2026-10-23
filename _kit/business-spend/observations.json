@@ -732,6 +732,37 @@
    "method": "server_fetch"
   },
   {
+   "id": "O-VEN-23",
+   "platform": "venn",
+   "product": null,
+   "layer": "marketing",
+   "category": "positioning",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The homepage headline addresses Canadian businesses and presents Venn as business banking; the line below lists accounts, cards with 1% cashback, free local transfers and low FX.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-HOME",
+     "excerpt": "Venn is business banking built for Canada"
+    },
+    {
+     "source_id": "S-VEN-HOME",
+     "excerpt": "corporate cards with 1% cashback, free local transfers, and low FX"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:00-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
    "id": "O-FLT-01",
    "platform": "float",
    "product": null,
@@ -1459,6 +1490,41 @@
    "method": "server_fetch"
   },
   {
+   "id": "O-FLT-23",
+   "platform": "float",
+   "product": null,
+   "layer": "marketing",
+   "category": "positioning",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The homepage headline is about finance and growth; the line below lists business accounts, corporate cards, payments and spend management, \"Built in Canada, for Canada\". The product menu describes expense management as \"The end of manual expense work.\"",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-FLT-HOME",
+     "excerpt": "When finance flows, business grows"
+    },
+    {
+     "source_id": "S-FLT-HOME",
+     "excerpt": "Business accounts, corporate cards, payments and spend management. Built in Canada, for Canada."
+    },
+    {
+     "source_id": "S-FLT-HOME",
+     "excerpt": "The end of manual expense work."
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:00-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
    "id": "O-RMP-01",
    "platform": "ramp",
    "product": "Ramp Visa Business Card",
@@ -2055,6 +2121,41 @@
    "statement": "QuickBooks Online and Xero on the free plan; NetSuite, Sage Intacct and others on Plus.",
    "observed_at": "2026-10-23T10:40:13-04:00",
    "method": "server_fetch"
+  },
+  {
+   "id": "O-RMP-21",
+   "platform": "ramp",
+   "product": null,
+   "layer": "marketing",
+   "category": "positioning",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The Canadian homepage introduces Ramp to Canada and lists cards, expenses and bill payments for Canadian businesses; a later section heads its controls \"Control spend before it happens.\"",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-RMP-HOME",
+     "excerpt": "Canada, meet Ramp."
+    },
+    {
+     "source_id": "S-RMP-HOME",
+     "excerpt": "Cards, expenses, and bill payments for Canadian businesses."
+    },
+    {
+     "source_id": "S-RMP-HOME",
+     "excerpt": "Control spend before it happens."
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:01-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
   },
   {
    "id": "O-LOP-01",
@@ -2695,6 +2796,41 @@
    "method": "server_fetch"
   },
   {
+   "id": "O-LOP-21",
+   "platform": "loop",
+   "product": null,
+   "layer": "marketing",
+   "category": "positioning",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The homepage headline addresses Canadian businesses with global banking; the line below lists FX-free credit cards, free international transfers and global accounts. A section is headed \"Loop vs The Banks\".",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-LOP-HOME",
+     "excerpt": "Global Banking for Canadian Businesses"
+    },
+    {
+     "source_id": "S-LOP-HOME",
+     "excerpt": "FX-free credit cards, free international transfers, and global accounts with CDIC protection."
+    },
+    {
+     "source_id": "S-LOP-HOME",
+     "excerpt": "Loop vs The Banks"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:01-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
    "id": "O-KEP-01",
    "platform": "keep",
    "product": "Keep Business Credit Mastercard",
@@ -3292,6 +3428,37 @@
    "statement": "QuickBooks integration and CSV exports.",
    "observed_at": "2026-10-23T10:40:25-04:00",
    "method": "server_fetch"
+  },
+  {
+   "id": "O-KEP-20",
+   "platform": "keep",
+   "product": null,
+   "layer": "marketing",
+   "category": "positioning",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The homepage headline offers all-in-one banking \"for any business\"; the line below promises a card with higher limits, expenses that do themselves and capital to grow.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Captured while Keep showed new applicants a closed-applications page (O-KEP-05).",
+   "sources": [
+    {
+     "source_id": "S-KEP-HOME",
+     "excerpt": "All-in-one banking for any business"
+    },
+    {
+     "source_id": "S-KEP-HOME",
+     "excerpt": "A smarter business card with higher limits, expenses that do themselves, and the capital to grow."
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:01-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
   },
   {
    "id": "O-AWX-01",
@@ -3909,6 +4076,41 @@
    "statement": "Xero and QuickBooks sync on Explore; NetSuite and Microsoft Dynamics 365 Business Central on Grow.",
    "observed_at": "2026-10-23T10:40:28-04:00",
    "method": "server_fetch"
+  },
+  {
+   "id": "O-AWX-20",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "marketing",
+   "category": "positioning",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The Canadian homepage headline addresses \"global businesses\"; the line below covers payments, treasury and spend, and a section speaks to competing in the Canadian market.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-AWX-HOME",
+     "excerpt": "The intelligent financial platform for global businesses"
+    },
+    {
+     "source_id": "S-AWX-HOME",
+     "excerpt": "Manage payments, treasury, and spend with AI-native financial infrastructure and software."
+    },
+    {
+     "source_id": "S-AWX-HOME",
+     "excerpt": "Gain a competitive edge in the Canadian market with Airwallex"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:02-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
   }
  ]
 }

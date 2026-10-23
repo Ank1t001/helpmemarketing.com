@@ -15,7 +15,18 @@
 .msi.msi .bs-view .sub>h3{margin-bottom:var(--s2)}
 .msi.msi [id^="bs-"],.msi.msi [id^="ev-"]{scroll-margin-top:140px}
 .msi.msi h4.t{font-size:18px;line-height:1.3;margin:0 0 var(--s2);letter-spacing:-.012em;font-weight:650;text-transform:none;color:var(--text)}
-.msi.msi .ri-nav a[aria-current="true"]{color:var(--text);background:var(--bg-raise)}
+.msi.msi .bs-views{display:block}
+.msi.msi .bs-tablist{display:flex;flex-wrap:wrap;gap:var(--s2)}
+/* Tabs (2026-10-23): the selected view carries a Signal Orange underline as well as the raised background, so the state does not rest on a faint surface change. */
+.msi.msi .bs-tablist a[aria-selected="true"]{color:var(--text);background:var(--bg-raise);box-shadow:inset 0 -2px 0 var(--cta)}
+.msi.msi .bs-tablist a:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
+.msi.msi .bs-view[hidden]{display:none}
+/* The shell defers off-screen sections (content-visibility, REC-205), which makes a no-JavaScript anchor jump land short. With tabs, hidden views already cost nothing, so the views render normally. */
+.msi.msi .wrap>section.bs-view{content-visibility:visible}
+.msi.msi .bs-views.is-tabs~.bs-view{border-top:0;padding-top:24px}
+.msi.msi .bs-view[role="tabpanel"]:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:6px;border-radius:4px}
+.msi.msi .bs-next{margin:var(--s6) 0 0;font-size:14px}
+.msi.msi .bs-next a{color:var(--cta-text,var(--cta));font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .msi.msi .ktag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary);margin:0 0 10px}
 .msi.msi .ktag.fact{margin-top:4px}
 .msi.msi .ktag.test{display:block;margin-bottom:6px}
@@ -31,10 +42,25 @@
 .msi.msi .legend .kind-1{border-left:3px solid var(--text-muted)}
 .msi.msi .legend .kind-2{border-left:3px solid var(--cta)}
 .msi.msi .legend .kind-3{border-left:3px dotted var(--text-muted)}
-.msi.msi #bs-journey-table td{min-width:10em;overflow-wrap:anywhere}
+.msi.msi #bs-journey-table table{table-layout:fixed;width:100%}
+.msi.msi #bs-journey-table td{min-width:0;overflow-wrap:anywhere}
+.msi.msi #bs-journey-table td.brandcell{width:14%}
+.msi.msi .cell-sub a{color:var(--cta-text,var(--cta));text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
 /* Dark theme focus ring (2026-10-23 browser pass): the global :focus-visible outline resolves to the legacy navy here (about 1.05:1 on Obsidian); Signal Orange meets 3:1 on every dark surface. */
 html[data-theme="dark"] .app :focus-visible{outline:2px solid var(--cta);outline-offset:2px}
 html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:3px}
+/* Reasoning chain and study card (2026-10-23): Observed evidence, Customer question, My interpretation, Testable hypothesis, Measurement. */
+.msi.msi .chain-steps{display:flex;flex-wrap:wrap;gap:6px 0;list-style:none;margin:8px 0 12px;padding:0;font-size:14px;font-weight:600;color:var(--text)}
+.msi.msi .chain-steps li:not(:last-child)::after{content:"\2192";content:"\2192" / "";margin:0 10px;color:var(--text-tertiary);font-weight:400}
+.msi.msi h4.t.chain-h{margin-top:var(--s5)}
+.msi.msi dl.chain dd{max-width:72ch}
+.msi.msi .bs-about .legend .kind{border-left:3px solid var(--border-strong)}
+.msi.msi .find .evlinks,.msi.msi dd .evlinks{display:inline}
+.msi.msi .plat .ans{color:var(--text)}
+.msi.msi .test-ptr{border-left:3px dotted var(--text-muted);margin-top:var(--s4)}
+.msi.msi .dlinks a,.msi.msi dl.chain a,.msi.msi .plat dd a,.msi.msi .tests dd a,.msi.msi .tests .evlinks a,.msi.msi .test-ptr a{color:var(--cta-text,var(--cta));text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.msi.msi figure.soc{margin:var(--s4) 0 0;display:grid;grid-template-columns:minmax(0,220px) 1fr;gap:16px}
+.msi.msi figure.soc img{width:100%;height:auto;border-radius:var(--r1)}
 .msi.msi .note.take>.lbl{color:var(--cta-text,var(--cta))}
 .msi.msi .note.gap{border-left-style:dashed}
 .msi.msi .q{display:block;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:4px}
@@ -66,9 +92,9 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
 .msi.msi .ex .kind{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary)}
 .msi.msi .plat{margin-top:var(--s5)}
 .msi.msi .plat h3{margin-bottom:var(--s2)}
-.msi.msi .plat dl,.msi.msi .tests dl{display:grid;grid-template-columns:minmax(10em,13em) 1fr;gap:10px 18px;margin:var(--s3) 0}
-.msi.msi .plat dt,.msi.msi .tests dt{color:var(--text-tertiary);font-size:13px;font-weight:600}
-.msi.msi .plat dd,.msi.msi .tests dd{margin:0;color:var(--text)}
+.msi.msi .plat dl,.msi.msi .tests dl,.msi.msi dl.chain{display:grid;grid-template-columns:minmax(10em,13em) 1fr;gap:10px 18px;margin:var(--s3) 0}
+.msi.msi .plat dt,.msi.msi .tests dt,.msi.msi dl.chain dt{color:var(--text-tertiary);font-size:13px;font-weight:600}
+.msi.msi .plat dd,.msi.msi .tests dd,.msi.msi dl.chain dd{margin:0;color:var(--text)}
 .msi.msi .tests>li{margin-bottom:var(--s5)}
 .msi.msi .tests>li>b{font-size:16px}
 .msi.msi .statdefs{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:12px 0}
@@ -80,15 +106,16 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
 .msi.msi #bs-help .btn{margin-top:16px}
 .msi.msi footer{margin-top:32px}
 @media(max-width:720px){
+.msi.msi figure.soc{grid-template-columns:1fr}
 .msi.msi .livebar{margin-bottom:0}
 .msi.msi .card .note.take{background:none;border:0;border-left:3px solid var(--cta);border-radius:0;padding:2px 0 2px 12px}
-.msi.msi .plat dl,.msi.msi .tests dl{grid-template-columns:1fr;gap:2px}
-.msi.msi .plat dd,.msi.msi .tests dd{margin-bottom:10px}
+.msi.msi .plat dl,.msi.msi .tests dl,.msi.msi dl.chain{grid-template-columns:1fr;gap:2px}
+.msi.msi .plat dd,.msi.msi .tests dd,.msi.msi dl.chain dd{margin-bottom:10px}
 }
 @media(max-width:900px){
-.msi.msi .ri-nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.msi.msi .ri-nav::-webkit-scrollbar{display:none}
-.msi.msi .ri-nav a{flex:none;white-space:nowrap}
+.msi.msi .bs-views{padding:8px}
+.msi.msi .bs-tablist{gap:6px}
+.msi.msi .bs-tablist a{padding:6px 12px}
 .msi.msi .tw.cards{overflow:visible;border:0;background:none;border-radius:0}
 .msi.msi .tw.cards table,.msi.msi .tw.cards tbody,.msi.msi .tw.cards tr,.msi.msi .tw.cards td{display:block;width:auto;min-width:0}
 .msi.msi .tw.cards thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -97,32 +124,109 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
 .msi.msi .tw.cards td.brandcell{grid-column:1/-1;font-size:16px}
 .msi.msi .tw.cards td[data-label]::before{content:attr(data-label);display:block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:2px}
 }
+@media print{
+.msi.msi .bs-view[hidden]{display:block!important}
+.msi.msi .bs-views,.msi.msi .bs-next{display:none!important}
+.msi.msi .bs-views.is-tabs~.bs-view+.bs-view{border-top:1px solid var(--border-strong);padding-top:24px}
+}
 </style>
-<script data-bsi-views>
-/* Section nav: marks the view in view with aria-current. Content and links work without it. */
-document.addEventListener('DOMContentLoaded', function () {
-  var links = Array.prototype.slice.call(document.querySelectorAll('.bs-views a'));
-  var views = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
-  if (!('IntersectionObserver' in window) || views.some(function (v) { return !v; })) return;
-  function mark(id) { links.forEach(function (a) { if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); }); }
-  var seen = {};
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) { seen[e.target.id] = e.isIntersecting; });
-    for (var i = 0; i < views.length; i++) { if (seen[views[i].id]) { mark(views[i].id); return; } }
-  }, { rootMargin: '-140px 0px -55% 0px' });
-  views.forEach(function (v) { io.observe(v); });
-});
-</script>
-<script data-bsi-open>
-/* Evidence links point inside closed <details>: open the one that holds the target, so the link lands on the quoted wording. Without JavaScript the browser still jumps to it where details auto-expand. */
-(function(){
-  function open(){
-    var id = location.hash && location.hash.slice(1); if (!id) return;
-    var el = document.getElementById(id); if (!el) return;
-    for (var p = el.parentNode; p; p = p.parentNode) { if (p.tagName === 'DETAILS') p.open = true; }
+<script data-bsi-tabs>
+/* Views as tabs (2026-10-23). Without JavaScript every view shows in reading order and the links jump to it. With it, one view shows at a time: the links become an ARIA tablist (arrow keys, Home, End), the address keeps the view (#bs-compare), Back and Forward restore it, and any link to an id inside a view (a section, an evidence item, a closed expander) opens that view and the expanders around the target. Print shows every view. */
+(function () {
+  var d = document, tabs = [], panels = [], nav = null;
+  function viewOf(el) { for (var p = el; p && p.nodeType === 1; p = p.parentNode) { if (p.classList.contains('bs-view')) return p; } return null; }
+  function openAround(el) { for (var p = el; p && p.nodeType === 1; p = p.parentNode) { if (p.tagName === 'DETAILS') p.open = true; } }
+  function target(hash) {
+    var id = (hash || '').replace(/^#/, '');
+    try { id = decodeURIComponent(id); } catch (e) {}
+    return id ? d.getElementById(id) : null;
   }
-  window.addEventListener('hashchange', open);
-  document.addEventListener('DOMContentLoaded', open);
+  function focusable(el) {
+    if (!el.hasAttribute('tabindex') && !/^(A|BUTTON|INPUT|SELECT|TEXTAREA|SUMMARY)$/.test(el.tagName)) el.setAttribute('tabindex', '-1');
+    try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); }
+  }
+  function show(panel) {
+    panels.forEach(function (p, i) {
+      var on = p === panel;
+      p.hidden = !on;
+      tabs[i].setAttribute('aria-selected', on ? 'true' : 'false');
+      tabs[i].tabIndex = on ? 0 : -1;
+    });
+  }
+  function above(el) { return el.getBoundingClientRect().top < nav.getBoundingClientRect().bottom; }
+  /* Instant, not the site's smooth scrolling: the view changes under the scroll, and two smooth scrolls would cut each other short. */
+  function jump(el) { try { el.scrollIntoView({ block: 'start', behavior: 'instant' }); } catch (e) { el.scrollIntoView(); } }
+  function go(hash, how) {
+    var el = target(hash), panel = el && viewOf(el);
+    if (!tabs.length) { if (el) openAround(el); return; }
+    if (el && !panel) return;            /* outside the views, such as the review box: the browser handles it */
+    if (!panel) { panel = panels[0]; el = null; }
+    show(panel);
+    if (el && el !== panel) openAround(el);
+    if (how === 'tab' || how === 'key' || !el) { if (above(panel)) jump(panel); }
+    else jump(el);
+    var a = d.activeElement, av = a && a !== d.body && viewOf(a);
+    if (how === 'link') focusable(el || panel);
+    else if (av && av.hidden) focusable(el || tabs[panels.indexOf(panel)]);
+  }
+  function activate(i, how) {
+    var h = '#' + panels[i].id;
+    if (location.hash !== h) { if (how === 'key') history.replaceState(null, '', h); else history.pushState(null, '', h); }
+    go(h, how);
+  }
+  d.addEventListener('DOMContentLoaded', function () {
+    nav = d.querySelector('.bs-views');
+    var list = nav && nav.querySelector('.bs-tablist');
+    if (list && window.history && history.pushState) {
+      tabs = Array.prototype.slice.call(list.querySelectorAll('a[href^="#"]'));
+      panels = tabs.map(function (a) { return d.getElementById(a.getAttribute('href').slice(1)); });
+      if (!tabs.length || panels.some(function (p) { return !p; })) { tabs = []; panels = []; }
+    }
+    if (tabs.length) {
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      list.setAttribute('role', 'tablist');
+      list.setAttribute('aria-label', 'Views of this research');
+      tabs.forEach(function (a, i) {
+        var p = panels[i];
+        a.setAttribute('role', 'tab');
+        a.setAttribute('aria-controls', p.id);
+        p.setAttribute('role', 'tabpanel');
+        p.setAttribute('aria-labelledby', a.id);
+        p.tabIndex = 0;
+        a.addEventListener('click', function (e) {
+          if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          e.preventDefault(); activate(i, 'tab'); a.focus();
+        });
+      });
+      list.addEventListener('keydown', function (e) {
+        var i = tabs.indexOf(e.target), n = -1;
+        if (i < 0) return;
+        if (e.key === 'ArrowRight') n = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') n = 0;
+        else if (e.key === 'End') n = tabs.length - 1;
+        else if (e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); activate(i, 'tab'); return; }
+        if (n < 0) return;
+        e.preventDefault(); tabs[n].focus(); activate(n, 'key');
+      });
+      nav.classList.add('is-tabs');
+      d.addEventListener('click', function (e) {
+        if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        var a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a || tabs.indexOf(a) >= 0) return;
+        var h = a.getAttribute('href'), el = target(h), panel = el && viewOf(el);
+        if (!panel) return;
+        e.preventDefault();
+        show(panel);
+        if (el !== panel) openAround(el);
+        if (location.hash !== h) location.hash = h;
+        go(h, 'link');
+      });
+    }
+    go(location.hash, 'load');
+    window.addEventListener('popstate', function () { go(location.hash, 'pop'); });
+    window.addEventListener('hashchange', function () { go(location.hash, 'pop'); });
+  });
 })();
 document.addEventListener('DOMContentLoaded', function () {
   function push(o){ try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(o); } catch (e) {} }
