@@ -47,14 +47,14 @@ class KitTests(unittest.TestCase):
             if o['status'] in ('not_found', 'not_checked'):
                 self.assertIsNone(o['amount'], o['id'])
         rows = {r[0]: r for r in csv.reader(io.StringIO(self.csv))}
-        self.assertEqual(rows['O-FLT-11'][5], 'Not found in reviewed sources')
+        self.assertEqual(rows['O-RMP-08'][5], 'Not found in reviewed sources')
         for o in self.c.obs.values():
             if o['status'] == 'not_checked':
                 self.assertIsNone(o['observed_at'], o['id'])  # no capture time is invented
         self.assertIn('Not found in reviewed sources', self.page)
 
     def test_conditions_and_conflicts_render(self):
-        self.assertIn('capped at $5,000 a month', self.page)
+        self.assertIn('earned on the first $5,000 (Essentials)', self.page)
         self.assertIn('1% only above $25k monthly spend per card program', self.page)
         self.assertEqual(self.page.count('Unresolved difference:'), sum(len(o['conflicts']) for o in self.c.obs.values()))
         for o in self.c.obs.values():
@@ -83,8 +83,11 @@ class KitTests(unittest.TestCase):
         self.assertEqual(rec, {'O-VEN-04': 'C', 'O-VEN-11': 'C', 'O-VEN-15': 'B', 'O-FLT-03': 'A', 'O-LOP-04': 'C',
                                'O-KEP-08': 'A', 'O-AWX-01': 'D', 'O-AWX-04': 'B and D', 'O-AWX-07': 'A', 'O-AWX-12': 'A'})
         for oid, cls in rec.items():
-            self.assertEqual(self.c.obs[oid]['status'] == 'conflicting', 'C' in cls or 'D' in cls, oid)
+            # evidence status and reconciliation are separate: only class C is Conflicting
+            self.assertEqual(self.c.obs[oid]['status'] == 'conflicting', 'C' in cls, oid)
             self.assertIn('href="#ev-%s"' % oid, self.page[self.page.index('id="bs-recon"'):])
+        self.assertNotEqual(self.c.obs['O-AWX-01']['status'], 'conflicting')
+        self.assertIn('st-undetermined', self.page)
 
     def test_browser_sources_are_attested_not_invented(self):
         browser = [s for s in self.c.sources.values() if s['method'] == 'browser']
@@ -96,6 +99,30 @@ class KitTests(unittest.TestCase):
         for s in browser:
             self.assertNotIn(s['screenshot'], self.page)  # screenshots stay private
         self.assertIn('html[data-theme="dark"] .app :focus-visible{outline:2px solid var(--cta)', self.page)
+
+    def test_spend_management_context_for_all_six(self):
+        body = self.page[self.page.index('id="bs-spend-h"'):]
+        body = body[:body.index('</table>')]
+        self.assertEqual(body.count('<tr><td class="brandcell">'), 6)
+        for label in ('Card limits and controls', 'Approvals', 'Receipts and expenses', 'Accounting connections'):
+            self.assertIn(label, body)
+        cats = {(o['platform'], o['category']) for o in self.c.obs.values()}
+        for pid in self.c.order:
+            for cat in ('spend_controls', 'approvals', 'expense_workflow', 'accounting'):
+                self.assertIn((pid, cat), cats)
+
+    def test_editorial_corrections(self):
+        self.assertIn('earned on the first $5,000 (Essentials) or $25,000 (Plus) of card spend a month', self.page)
+        self.assertNotIn('capped at $5,000', self.page)
+        self.assertIsNone(self.c.obs['O-AWX-07']['amount'])
+        self.assertIn('does not say whether that rate applies to card transactions', self.page)
+        self.assertIn('No search result or link preview was observed', self.page)
+        self.assertEqual(self.c.obs['O-FLT-11']['status'], 'published')
+        self.assertTrue(self.c.obs['O-FLT-11']['observed_at'].startswith('2026-10-23T14:33'))
+        self.assertIn('reCAPTCHA', self.c.obs['O-FLT-16']['statement'])
+        self.assertEqual([f['id'] for f in self.c.n['findings']['items']][2], 'F3')
+        self.assertIn('first screen', self.c.n['findings']['items'][2]['title'])
+        self.assertNotIn('Registry', ' '.join(p['title'] for p in self.c.n['patterns']['items']))
 
     def test_csv_formula_escaping(self):
         self.assertEqual(build.csv_safe('=SUM(A1)'), "'=SUM(A1)")
@@ -109,7 +136,7 @@ class KitTests(unittest.TestCase):
     def test_model_rejects_zero_for_missing_and_uncited_facts(self):
         codes, _ = model.platform_codes()
         sources = self.c.sources
-        o = dict(self.c.obs['O-FLT-11'], amount=0, units='%')
+        o = dict(self.c.obs['O-RMP-08'], amount=0, units='%')
         self.assertTrue(any('not-found item cannot carry an amount' in e for e in model.check_observation(o, codes, sources)))
         o = dict(self.c.obs['O-VEN-02'], sources=[])
         self.assertTrue(any('needs at least one source' in e for e in model.check_observation(o, codes, sources)))

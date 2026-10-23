@@ -9,9 +9,10 @@ The browser pass of 23 October 2026, 12:00 p.m. to 12:14 p.m. Toronto time (pack
 Still open after the pass:
 
 - Venn: what the homepage line "200+ countries in 30+ currencies" shows to visitors (in the page code; visibility not established).
-- Float: the network of Float Charge (not stated separately); what happens after a demo is booked.
+- Float: the network of Float Charge (not stated separately); what happens after a demo is booked; whether the demo form's "How did you hear about us" question is required. Transfer pricing is now from the Payments page (server fetch, 23 October 2026, 2:33 p.m.; not seen in a browser).
 - Ramp: no Canadian rewards rate is published (a finding, not a gap to close); the Rewards Terms page was read in the browser without a capture file; a server fetch of Ramp legal pages returns only a script shell (13 characters), so any future text evidence for them needs a browser capture.
-- Airwallex: the terms for the "Credit line for corporate cards" (class D); the rebate terms and what "eligible" covers (class D); the demo booking form (not opened).
+- Airwallex: the terms for the "Credit line for corporate cards" (class D); the rebate terms and what "eligible" covers (class D); whether the fee schedule's 1.00% Auto Conversion Fee applies to card purchases; the demo booking form (not opened).
+- Loop: whether the Basic plan earns points on card spend in currencies other than CAD, USD, EUR and GBP (the earn-rate table does not list them).
 - Loop: the product tour beyond its first screen.
 - Not possible without an account or a submission: any step after the first screen of the six journeys.
 - The browser pass used a normal Chrome profile (not signed in to the providers) and checked mobile in a 390px frame; my own checks cover real keyboard focus and real mobile viewports.
@@ -65,6 +66,6 @@ Ingest with `python3 ingest.py browser manifest.jsonl FILES_DIR`. If anything is
 ## Publication blockers (not browser items)
 
 - Relationship disclosure: resolved 2026-10-23. The founder confirmed: "Neither I nor Help Me Marketing has a commercial relationship with Venn, Float, Ramp, Loop, Keep or Airwallex." Recorded in `edition.json` and shown in the method section.
-- Five open differences after reconciliation: Venn cashback caps (C), Venn send currencies (C), Loop rewards on Basic (C), Airwallex cashback (B and D), Airwallex credit line (D). Each stays shown as an unresolved difference unless the owner decides otherwise or the provider clarifies.
+- Three unresolved differences (class C, status Conflicting): Venn cashback spend limits, Venn send currencies, Loop rewards on Basic. Two items not determined (class D): Airwallex cashback eligibility and the Airwallex credit line. Each stays shown as it is unless the owner decides otherwise or the provider clarifies.
 - Owner's editorial review and explicit release instruction. Approvals in `edition.json` are entered by hand from the owner's instruction; nothing in the kit sets them.
 - Forms script: `research_business_spend` is added to the source in `docs/HMM_Forms_AppsScript.gs` but not deployed. Until the owner pastes the updated script into the Apps Script editor and deploys a new version (Deploy, Manage deployments, edit, New version), leads from this page are saved normally but the Source column omits the entry. Check with `testLeadSources` in the editor after deploying; it writes no row.

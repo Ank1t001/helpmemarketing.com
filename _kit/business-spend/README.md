@@ -34,7 +34,7 @@ How six platforms (Venn, Float, Ramp, Loop, Keep, Airwallex, in that order) expl
 - **Not checked**: no valid check was completed (for example a page that returned only a JavaScript shell). No sources, no capture time.
 - **Conflicting**: relevant sources differ and the difference is unresolved. Needs a conflict note.
 
-A reconciled difference carries `reconciliation` (`class` A, B, C, D or "B and D", `topic`, `note`): A different products or conditions, B rendered page and page code differ, C unresolved in the same context, D insufficient evidence. Classes with C or D keep the status Conflicting; A and B cannot be Conflicting. `model.py` enforces this.
+A reconciled difference carries `reconciliation` (`class` A, B, C, D or "B and D", `topic`, `note`): A different products or conditions, B rendered page and page code differ, C unresolved in the same context, D insufficient evidence. Evidence status and reconciliation class are separate: only a class C difference (unresolved in the same context) has the status Conflicting; A, B and D never set it. A class D item keeps the evidence status of its statements and shows a separate "Not determined" tag. Conflict records sit only on Conflicting items; open questions go in conditions. `model.py` enforces this.
 
 Browser captures (method `browser`) cite a sanitised screenshot by hash; their excerpts come from the page text in Chrome and are attested by the capture manifest. Registry captures carry `covers: ["*"]` so any platform's registry entry can cite them.
 - **Explicitly unavailable**: an applicable source says it is not available.
@@ -63,3 +63,7 @@ python3 -m unittest tests.test_kit
 ## Release (not done for edition 001)
 
 Before release: the Chrome items, a decision on each conflict, the owner's review and explicit instruction, the deployed forms script with `research_business_spend`. Then set `status` to published and the approvals from the owner's instruction, add the page to `sitemap.xml` and the hub, and add `datePublished` and `dateModified` from the recorded production deployment (the Real Estate and Hair Loss Index rules in `CLAUDE.md`). Keep a fixed snapshot for each published edition.
+
+## Evidence storage
+
+The kit holds hashes, not the evidence. The underlying captures (64 server captures and 34 sanitised browser screenshots, with the browser-pass manifest) are in one private archive, `business-spend-index-edition-001-evidence.zip`, recorded in `edition.json` under `evidence_archive` with its sha256. `ARCHIVE_MANIFEST.json` inside it maps every source ID to its files. The archive must never be committed here: this repository is public. `edition.json` `evidence_archive.location_status` stays `not_established` until the owner stores the archive in a named private location and records it. Check a stored copy with `python3 validate.py --raw RAW_DIR --browser SHOTS_DIR --archive EVIDENCE_ZIP` (or extract the archive and point `--raw` and `--browser` at its folders).

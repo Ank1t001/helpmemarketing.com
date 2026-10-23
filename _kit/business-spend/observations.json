@@ -94,11 +94,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The cards page says 1% cashback with no tiers, thresholds or caps; the pricing footnote limits cashback to the first $5,000 CAD of card spend a month on Essentials and $25,000 CAD on Plus, unlimited on Pro and Custom. Both statements are visible in a browser.",
+   "statement": "The cards page says 1% cashback with no tiers, thresholds or caps. The pricing footnote says cashback is earned only on the first $5,000 CAD of card spend a month on Essentials and the first $25,000 CAD on Plus, with no such limit on Pro and Custom. Both statements are visible in a browser.",
    "amount": 1,
-   "units": "% cashback on card spend",
+   "units": "% cashback on eligible card spend",
    "currency": null,
-   "conditions": "Same card, market, transaction type and currency (CAD or CAD equivalent). The two statements agree for Pro and Custom only. The sign-up page also shows an unqualified \"1% Cashback\" badge.",
+   "conditions": "The $5,000 and $25,000 figures are limits on monthly card spend that earns cashback, not on the cashback amount. Same card, market, transaction type and currency (CAD or CAD equivalent). The two statements agree for Pro and Custom only. The sign-up page also shows an unqualified \"1% Cashback\" badge.",
    "sources": [
     {
      "source_id": "S-VEN-CARDS",
@@ -127,15 +127,15 @@
    "conflicts": [
     {
      "with": null,
-     "note": "The cards page says \"no tiers, thresholds, or caps\"; the pricing footnote sets monthly caps on Essentials and Plus."
+     "note": "The cards page says \"no tiers, thresholds, or caps\"; the pricing footnote limits the card spend that earns cashback on Essentials and Plus."
     }
    ],
-   "interpretation": "A reader who sees only the cards page could take the 1% as uncapped on every plan.",
+   "interpretation": "A reader who sees only the cards page could expect every dollar of card spend to earn 1% on every plan.",
    "public": true,
    "reconciliation": {
     "class": "C",
-    "topic": "Venn cashback caps",
-    "note": "Same product, market, transaction and currency, both visible. For Essentials and Plus the two statements cannot both hold."
+    "topic": "Venn cashback spend limits",
+    "note": "Same product, market, transaction and currency, both visible. For Essentials and Plus, \"no thresholds or caps\" and a monthly limit on eligible card spend cannot both hold."
    }
   },
   {
@@ -190,7 +190,7 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Daily, weekly, monthly or annual limits on any card or team, and receipt sync to QuickBooks or Xero.",
+   "statement": "Daily, weekly, monthly or annual limits on any card or team, category blocks, and cards that lock when a receipt or memo is missing.",
    "amount": null,
    "units": null,
    "currency": null,
@@ -201,8 +201,8 @@
      "excerpt": "Daily, weekly, monthly, or annual limits on any card or team."
     },
     {
-     "source_id": "S-VEN-CARDS",
-     "excerpt": "sync every receipt to QuickBooks or Xero"
+     "source_id": "S-VEN-SPEND",
+     "excerpt": "A receipt or memo required on every purchase, with cards auto-locked when rules aren't met."
     }
    ],
    "status": "published",
@@ -643,6 +643,95 @@
    "method": "browser"
   },
   {
+   "id": "O-VEN-20",
+   "platform": "venn",
+   "product": null,
+   "layer": "product",
+   "category": "approvals",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Which plan includes multi-step payment approvals is shown on the pricing page; the transfers page does not name a plan.",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-VEN-TRANSFERS",
+     "excerpt": "Approval workflows by role, department, or dollar threshold"
+    },
+    {
+     "source_id": "S-VEN-CASE",
+     "excerpt": "limits per card and approval workflows for larger transactions"
+    },
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "+ multi-step payment approvals, spend policies, custom roles"
+    }
+   ],
+   "statement": "Approval workflows by role, department or dollar threshold, including approvals for larger transactions; multi-step payment approvals are listed as a plan feature.",
+   "observed_at": "2026-10-23T10:40:00-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-VEN-21",
+   "platform": "venn",
+   "product": null,
+   "layer": "product",
+   "category": "expense_workflow",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-VEN-SPEND",
+     "excerpt": "Instant SMS or email prompts to cardholders to upload a receipt after every purchase."
+    }
+   ],
+   "statement": "Cardholders get an SMS or email prompt for a receipt after every purchase; receipts are matched to transactions.",
+   "observed_at": "2026-10-23T10:39:57-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-VEN-22",
+   "platform": "venn",
+   "product": null,
+   "layer": "product",
+   "category": "accounting",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-VEN-SPEND",
+     "excerpt": "Transactions and receipts sync directly to QuickBooks and Xero"
+    }
+   ],
+   "statement": "Transactions and receipts sync to QuickBooks and Xero.",
+   "observed_at": "2026-10-23T10:39:57-04:00",
+   "method": "server_fetch"
+  },
+  {
    "id": "O-FLT-01",
    "platform": "float",
    "product": null,
@@ -823,20 +912,24 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Essentials at $0 per user a month; Professional \"starts at $100/mo\" with the first 10 users included; Enterprise is custom.",
+   "statement": "Essentials at $0 per user a month; Professional \"starts at $100/mo\" with the first 10 users included (pricing page), described on the Payments page as starting at $10 per user a month; Enterprise is custom.",
    "amount": null,
    "units": null,
    "currency": "CAD",
-   "conditions": null,
+   "conditions": "The two Professional prices are consistent: $10 per user with the first 10 users included at $100 a month.",
    "sources": [
     {
      "source_id": "S-FLT-PRICING",
      "excerpt": "starts at $100/mo and includes your first 10 users"
+    },
+    {
+     "source_id": "S-FLT-PAYMENTS",
+     "excerpt": "Professional starts at $10/user/month"
     }
    ],
    "status": "published",
    "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:02-04:00",
+   "observed_at": "2026-10-23T14:33:12-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
@@ -916,15 +1009,19 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The pricing page lists 0.25% FX rates on Essentials; the FX page says \"Save up to 90% on FX\" and that rates are from the previous day, not real time.",
+   "statement": "Float FX converts between CAD and USD at 0.25%; the FX page says \"Save up to 90% on FX\" and that rates are from the previous day, not real time.",
    "amount": 0.25,
    "units": "% FX rate (Essentials)",
    "currency": null,
-   "conditions": "The basis for \"up to 90%\" was not found on the page reviewed.",
+   "conditions": "The 0.25% applies to CAD and USD conversion. International payments in other currencies carry a 1.5% markup (Payments page). The basis for \"up to 90%\" was not found on the page reviewed.",
    "sources": [
     {
      "source_id": "S-FLT-PRICING",
      "excerpt": "0.25% FX"
+    },
+    {
+     "source_id": "S-FLT-FX",
+     "excerpt": "Float FX gives Canadian businesses access to instant currency conversion between CAD and USD at market leading rates of 0.25%."
     },
     {
      "source_id": "S-FLT-FX",
@@ -985,24 +1082,36 @@
    "category": "xb_transfers",
    "market": "Canada",
    "eligibility": null,
-   "plan": null,
-   "statement": "Transfer pricing was not found on the pages reviewed.",
-   "amount": null,
-   "units": null,
+   "plan": "Global wires: Professional and above",
+   "statement": "The Payments page says EFT and ACH payments are free and wires are $20, and international payments go out in 21 currencies at \"a competitive exchange rate plus a 1.5% markup\". Global wires are on Professional and above.",
+   "amount": 20,
+   "units": "dollars per wire (currency not stated)",
    "currency": null,
-   "conditions": null,
-   "sources": [],
-   "status": "not_found",
+   "conditions": "Captured by server fetch at 2:33 p.m., later than the rest of the edition. Read with the pricing page (\"Bill payments via wire, and no-fee EFT and ACH\", no wire amount), which it does not contradict. The 1.5% markup applies to international payments; the 0.25% FX rate is for CAD and USD conversion (see FX conversion).",
+   "sources": [
+    {
+     "source_id": "S-FLT-PAYMENTS",
+     "excerpt": "EFT and ACH payments are free and wires are $20."
+    },
+    {
+     "source_id": "S-FLT-PAYMENTS",
+     "excerpt": "You get a competitive exchange rate plus a 1.5% markup"
+    },
+    {
+     "source_id": "S-FLT-PAYMENTS",
+     "excerpt": "Global wires and Float Intelligence coding sit on Professional and above."
+    },
+    {
+     "source_id": "S-FLT-PAYMENTS",
+     "excerpt": "21 currencies, including: AED"
+    }
+   ],
+   "status": "published",
    "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:02-04:00",
+   "observed_at": "2026-10-23T14:33:12-04:00",
    "conflicts": [],
    "interpretation": null,
-   "public": true,
-   "reviewed_sources": [
-    "S-FLT-PRICING",
-    "S-FLT-ACCOUNTS",
-    "S-FLT-FX"
-   ]
+   "public": true
   },
   {
    "id": "O-FLT-12",
@@ -1137,11 +1246,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "\"See a demo\" leads to a Book a Demo form with eight required fields (first and last name, work email, job title, phone, company size, current monthly card spend, product interest), an optional referral code and \"How did you hear about us\". The consent line says submitting lets Float contact you; nothing says what happens after booking.",
+   "statement": "\"See a demo\" leads to a Book a Demo form with eight questions marked required (first and last name, work email, job title, phone, company size, current monthly card spend, product interest), a referral code marked optional, and a \"How did you hear about us\" question whose required status was not recorded. The form uses a reCAPTCHA check. The consent line says submitting lets Float contact you; nothing says what happens after booking.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "Stopped before \"Book a Demo\". The homepage email box (\"Use Float for free\") is a separate start route with the marketing opt-in line; my server reading had combined the two.",
+   "conditions": "Stopped before \"Book a Demo\". The homepage email box (\"Use Float for free\") is a separate start route with the marketing opt-in line.",
    "sources": [
     {
      "source_id": "S-FLT-BROWSER-DEMO-FIELDS",
@@ -1228,6 +1337,126 @@
    "statement": "Float Financial Solutions Inc.: registered with FINTRAC as a money services business (M23497654, registered 8 June 2023, expiry 22 October 2027) and listed on the Bank of Canada registry of payment service providers.",
    "observed_at": "2026-10-23T12:14:31-04:00",
    "method": "browser"
+  },
+  {
+   "id": "O-FLT-19",
+   "platform": "float",
+   "product": null,
+   "layer": "product",
+   "category": "spend_controls",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": "Essentials (free)",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-FLT-PRICING",
+     "excerpt": "Up to 20 physical & unlimited virtual cards with custom limits and controls"
+    }
+   ],
+   "statement": "Cards with custom limits and controls; the free plan includes up to 20 physical cards and unlimited virtual cards.",
+   "observed_at": "2026-10-23T10:40:02-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-FLT-20",
+   "platform": "float",
+   "product": null,
+   "layer": "product",
+   "category": "approvals",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-FLT-SPEND",
+     "excerpt": "Employees make a spend request and Float automatically sends it to their managers for approval."
+    },
+    {
+     "source_id": "S-FLT-PAYMENTS",
+     "excerpt": "anything over an amount you choose routes to a second approver"
+    }
+   ],
+   "statement": "Spend requests go to managers for approval, and payments over an amount you choose route to a second approver.",
+   "observed_at": "2026-10-23T14:33:12-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-FLT-21",
+   "platform": "float",
+   "product": null,
+   "layer": "product",
+   "category": "expense_workflow",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-FLT-SPEND",
+     "excerpt": "Float captures receipts, auto-codes transactions and syncs all spend directly to QuickBooks, Xero or NetSuite."
+    }
+   ],
+   "statement": "Receipts are captured and transactions auto-coded across cards, reimbursements and bills.",
+   "observed_at": "2026-10-23T10:40:01-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-FLT-22",
+   "platform": "float",
+   "product": null,
+   "layer": "product",
+   "category": "accounting",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "The expense management page lists NetSuite without a plan; the pricing page places it on Professional. The plan for Sage Intacct is not stated.",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-FLT-PRICING",
+     "excerpt": "Accounting sync with QBO, Xero or custom exports"
+    },
+    {
+     "source_id": "S-FLT-PRICING",
+     "excerpt": "Advanced accounting integration with NetSuite"
+    },
+    {
+     "source_id": "S-FLT-PAYMENTS",
+     "excerpt": "QuickBooks Online, Xero, Sage Intacct and NetSuite."
+    }
+   ],
+   "statement": "QuickBooks Online and Xero sync (or custom exports) on the free plan; NetSuite is listed as an advanced integration on Professional. The Payments page also names Sage Intacct.",
+   "observed_at": "2026-10-23T14:33:12-04:00",
+   "method": "server_fetch"
   },
   {
    "id": "O-RMP-01",
@@ -1725,6 +1954,118 @@
    "method": "browser"
   },
   {
+   "id": "O-RMP-17",
+   "platform": "ramp",
+   "product": null,
+   "layer": "product",
+   "category": "spend_controls",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-RMP-SPEND",
+     "excerpt": "Set submission requirements, enforce limits and block transactions from risky merchants or categories before spend happens."
+    }
+   ],
+   "statement": "Submission requirements, limits, and blocks on risky merchants or categories, applied before spend happens.",
+   "observed_at": "2026-10-23T10:40:12-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-RMP-18",
+   "platform": "ramp",
+   "product": null,
+   "layer": "product",
+   "category": "approvals",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-RMP-SPEND",
+     "excerpt": "Set approval rules so requests reach the right reviewer before employees spend"
+    }
+   ],
+   "statement": "Approval rules route spend requests to a reviewer before employees spend.",
+   "observed_at": "2026-10-23T10:40:12-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-RMP-19",
+   "platform": "ramp",
+   "product": null,
+   "layer": "product",
+   "category": "expense_workflow",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-RMP-SPEND",
+     "excerpt": "As soon as employees spend, Ramp can match receipts to the transaction and apply configured accounting fields."
+    }
+   ],
+   "statement": "Receipts are matched to transactions as employees spend, with accounting fields applied.",
+   "observed_at": "2026-10-23T10:40:12-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-RMP-20",
+   "platform": "ramp",
+   "product": null,
+   "layer": "product",
+   "category": "accounting",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Plan placement as shown in the pricing page columns; the Canadian expense management page lists the same systems without a plan.",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-RMP-PRICING",
+     "excerpt": "QuickBooks Online and Xero integrations"
+    },
+    {
+     "source_id": "S-RMP-PRICING",
+     "excerpt": "NetSuite, Sage Intacct, and more integrations"
+    }
+   ],
+   "statement": "QuickBooks Online and Xero on the free plan; NetSuite, Sage Intacct and others on Plus.",
+   "observed_at": "2026-10-23T10:40:13-04:00",
+   "method": "server_fetch"
+  },
+  {
    "id": "O-LOP-01",
    "platform": "loop",
    "product": "Loop Global VISA Card",
@@ -1826,11 +2167,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The cards page says \"Get rewarded on all spend\" and \"Transparent earning with no tiers\". On the pricing page, Basic earns points on CAD card spend only, Plus earns 2x on CAD and 1x on USD, EUR and GBP, and Power 2x on all card spend.",
+   "statement": "The cards page says \"Get rewarded on all spend\" and \"Transparent earning with no tiers\". On the pricing page, Basic earns 1x points on CAD card spend, Plus 2x on CAD and 1x on USD, EUR and GBP, and Power 2x on all card spend. The reward terms' earn-rate table lists USD, EUR and GBP spend as not eligible on Basic.",
    "amount": null,
    "units": "points per dollar",
    "currency": null,
-   "conditions": "Basic: 1 point per CAD, foreign-currency spend not eligible. Plus: 2 per CAD and 1 per USD, EUR or GBP. Power: 2 on all card spend.",
+   "conditions": "The earn-rate table covers CAD, USD, EUR and GBP only. Whether Basic earns points on card spend in other currencies is not stated.",
    "sources": [
     {
      "source_id": "S-LOP-CARDS",
@@ -1841,12 +2182,16 @@
      "excerpt": "Transparent earning with no tiers"
     },
     {
+     "source_id": "S-LOP-BROWSER-PRICING-YEARLY-DEFAULT",
+     "excerpt": "Earn 1x points on CAD Card Spend"
+    },
+    {
      "source_id": "S-LOP-PRICING",
      "excerpt": "Earn 2x points on CAD Card Spend and 1x on USD, EUR and GBP Card Spend"
     },
     {
-     "source_id": "S-LOP-BROWSER-PRICING-YEARLY-DEFAULT",
-     "excerpt": "Earn 1x points on CAD Card Spend"
+     "source_id": "S-LOP-LEGAL-REWARDS",
+     "excerpt": "1 USD not eligible 1 point 2 points"
     }
    ],
    "status": "conflicting",
@@ -1855,15 +2200,15 @@
    "conflicts": [
     {
      "with": null,
-     "note": "\"Rewarded on all spend\" on the cards page; on the Basic plan, non-CAD card spend earns no points."
+     "note": "\"Rewarded on all spend\" on the cards page; on Basic, the earn-rate table lists USD, EUR and GBP card spend as not eligible."
     }
    ],
    "interpretation": null,
    "public": true,
    "reconciliation": {
     "class": "C",
-    "topic": "Loop rewards",
-    "note": "\"No tiers\" can be read as no spend-volume tiers, which fits. \"Rewarded on all spend\" does not hold for non-CAD spend on Basic, within the same card and market."
+    "topic": "Loop rewards on Basic",
+    "note": "\"No tiers\" can be read as no spend-volume tiers, which fits. \"Rewarded on all spend\" does not hold for USD, EUR and GBP spend on Basic, within the same card and market. Other currencies are not addressed."
    }
   },
   {
@@ -2249,6 +2594,114 @@
    "statement": "Loop Payments Inc.: registered with FINTRAC as a money services business (M22489771, registered 15 March 2022, expiry 22 January 2028) and listed on the Bank of Canada registry of payment service providers.",
    "observed_at": "2026-10-23T12:14:31-04:00",
    "method": "browser"
+  },
+  {
+   "id": "O-LOP-17",
+   "platform": "loop",
+   "product": null,
+   "layer": "product",
+   "category": "spend_controls",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-LOP-CARDS",
+     "excerpt": "flexible internal controls that are customizable to your own internal policies"
+    }
+   ],
+   "statement": "Internal controls customisable to company policy are described; the types of card limit (per period, per category) are not specified.",
+   "observed_at": "2026-10-23T10:40:15-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-LOP-18",
+   "platform": "loop",
+   "product": null,
+   "layer": "product",
+   "category": "approvals",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-LOP-SPEND",
+     "excerpt": "Set up unlimited approval flows and custom rules."
+    }
+   ],
+   "statement": "Unlimited approval flows and custom rules.",
+   "observed_at": "2026-10-23T10:40:16-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-LOP-19",
+   "platform": "loop",
+   "product": null,
+   "layer": "product",
+   "category": "expense_workflow",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-LOP-SPEND",
+     "excerpt": "OCR technology automatically matches your receipts to your transactions via SMS"
+    }
+   ],
+   "statement": "Receipts sent by SMS are matched to transactions by OCR.",
+   "observed_at": "2026-10-23T10:40:16-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-LOP-20",
+   "platform": "loop",
+   "product": null,
+   "layer": "product",
+   "category": "accounting",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-LOP-CARDS",
+     "excerpt": "Integrate with Quickbooks and Xero for seamless reconciliation"
+    }
+   ],
+   "statement": "QuickBooks and Xero integration.",
+   "observed_at": "2026-10-23T10:40:15-04:00",
+   "method": "server_fetch"
   },
   {
    "id": "O-KEP-01",
@@ -2729,6 +3182,119 @@
    "method": "browser"
   },
   {
+   "id": "O-KEP-16",
+   "platform": "keep",
+   "product": null,
+   "layer": "product",
+   "category": "spend_controls",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-KEP-FAQ",
+     "excerpt": "set daily, weekly, or monthly spending limits on your cards"
+    }
+   ],
+   "statement": "Daily, weekly or monthly spending limits on each card.",
+   "observed_at": "2026-10-23T10:40:25-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-KEP-17",
+   "platform": "keep",
+   "product": null,
+   "layer": "product",
+   "category": "approvals",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "not_found",
+   "sources": [
+    {
+     "source_id": "S-KEP-CARDS",
+     "excerpt": "You set the rules once instead of approving purchases one at a time."
+    }
+   ],
+   "statement": "An approval workflow was not described on the pages reviewed; the card page says you set the rules once \"instead of approving purchases one at a time\".",
+   "reviewed_sources": [
+    "S-KEP-CARDS",
+    "S-KEP-PRICING",
+    "S-KEP-FAQ"
+   ],
+   "observed_at": "2026-10-23T10:40:25-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-KEP-18",
+   "platform": "keep",
+   "product": null,
+   "layer": "product",
+   "category": "expense_workflow",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-KEP-CARDS",
+     "excerpt": "Your team texts or emails a photo and Keep matches it to the transaction automatically."
+    }
+   ],
+   "statement": "Receipts texted or emailed as photos are matched to transactions.",
+   "observed_at": "2026-10-23T10:40:24-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-KEP-19",
+   "platform": "keep",
+   "product": null,
+   "layer": "product",
+   "category": "accounting",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-KEP-FAQ",
+     "excerpt": "We integrate with Quickbooks and provide CSV exports."
+    }
+   ],
+   "statement": "QuickBooks integration and CSV exports.",
+   "observed_at": "2026-10-23T10:40:25-04:00",
+   "method": "server_fetch"
+  },
+  {
    "id": "O-AWX-01",
    "platform": "airwallex",
    "product": "Airwallex Borderless Card",
@@ -2737,11 +3303,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The card terms say the card spends the wallet balance and \"is not a credit card\"; the pricing page also lists a credit line for corporate cards.",
+   "statement": "The card terms say the card spends the wallet balance and \"is not a credit card\". The pricing page also lists \"Credit line for corporate cards\".",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "No terms, eligibility or product page for the credit line was found on the pricing page, the card terms, the cardholder terms or the fee schedule.",
+   "conditions": "No terms, eligibility or product page for the credit line was found on the pricing page, the card terms, the cardholder terms or the fee schedule, so whether it is a separate product is not determined.",
    "sources": [
     {
      "source_id": "S-AWX-CARD-TERMS",
@@ -2756,21 +3322,16 @@
      "excerpt": "Credit line for corporate cards"
     }
    ],
-   "status": "conflicting",
+   "status": "published",
    "method": "browser",
    "observed_at": "2026-10-23T12:04:19-04:00",
-   "conflicts": [
-    {
-     "with": null,
-     "note": "Debit-from-balance in the card terms; a credit line in the plan list. They may be two products; the terms for the credit line were not found."
-    }
-   ],
+   "conflicts": [],
    "interpretation": null,
    "public": true,
    "reconciliation": {
     "class": "D",
-    "topic": "Airwallex card model",
-    "note": "The credit line may be a separate product; not enough is published to place it against the card terms."
+    "topic": "Airwallex card model and credit line",
+    "note": "Not enough is published to place the credit line against the card terms. Each statement is published; how they relate is not determined."
    }
   },
   {
@@ -2836,11 +3397,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Every visible cashback statement says 1%: \"earn 1% cashback\" and \"Every eligible transaction earns 1% cashback, with no cap\". The pricing page says \"Up to 1% cash rebates on local CAD spend\", subject to terms. A 2% figure appears only in the page title, which shows in browser tabs, search results and link previews, not on the page.",
+   "statement": "Every visible cashback statement says 1%: \"earn 1% cashback\" and \"Every eligible transaction earns 1% cashback, with no cap\". The pricing page says \"Up to 1% cash rebates on local CAD spend\", subject to terms. A 2% figure appears only in the page title and social title (og:title), metadata that search engines and link previews may use; it is not on the visible page.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "Pricing footnote: terms and conditions apply. The rebate terms were not found on the card terms or the fee schedule.",
+   "conditions": "No search result or link preview was observed; the 2% is a metadata finding. Whether \"every eligible transaction\" means \"local CAD spend\" is not determined: the rebate terms were not found on the card terms or the fee schedule.",
    "sources": [
     {
      "source_id": "S-AWX-CARDS",
@@ -2859,21 +3420,16 @@
      "excerpt": "Up to 1% cash rebates on local CAD spend"
     }
    ],
-   "status": "conflicting",
+   "status": "published",
    "method": "browser",
    "observed_at": "2026-10-23T12:04:19-04:00",
-   "conflicts": [
-    {
-     "with": null,
-     "note": "Whether \"every eligible transaction\" (cards page) means \"local CAD spend\" (pricing) cannot be settled without the rebate terms."
-    }
-   ],
+   "conflicts": [],
    "interpretation": null,
    "public": true,
    "reconciliation": {
     "class": "B and D",
     "topic": "Airwallex cashback rate",
-    "note": "2% against 1% is a page-title figure against the rendered page (B). 1% \"with no cap\" against \"up to 1% on local CAD spend\" needs the rebate terms (D)."
+    "note": "2% against 1% is page metadata against the rendered page (B). 1% \"with no cap\" against \"up to 1% on local CAD spend\" needs the rebate terms (D)."
    }
   },
   {
@@ -2943,11 +3499,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The cards page says \"No foreign transaction fees, conversions at the interbank rate\", which covers spending from a currency you hold. When the wallet does not hold the currency, the card terms add an automatic conversion fee; the fee schedule (last updated 19 October 2026) lists it at 1.00%.",
-   "amount": 1.0,
-   "units": "% automatic conversion fee when the currency is not held",
+   "statement": "The cards page says \"No foreign transaction fees, conversions at the interbank rate\", which covers spending from a currency you hold. When the wallet does not hold the currency, the card terms add an automatic conversion fee. The fee schedule (last updated 19 October 2026) lists an Auto Conversion Fee of 1.00% under FX conversion services; it does not say whether that rate applies to card transactions.",
+   "amount": null,
+   "units": null,
    "currency": null,
-   "conditions": "The fee schedule lists the fee under FX conversion services; it is matched to the card terms by its name.",
+   "conditions": "The fee level for card transactions is not confirmed: the 1.00% line is matched to the card terms by its name only. The card terms also describe purchases in other Visa currencies converted by Visa and then by Airwallex, with no fee level stated.",
    "sources": [
     {
      "source_id": "S-AWX-CARDS",
@@ -2979,7 +3535,7 @@
    "reconciliation": {
     "class": "A",
     "topic": "Airwallex card FX",
-    "note": "The no-fee statement covers spending from a held balance; the fee applies to automatic conversion when the currency is not held."
+    "note": "The no-fee statement covers spending from a held balance; the card terms add an automatic conversion fee when the currency is not held. The applicable fee level for cards is not confirmed."
    }
   },
   {
@@ -3238,6 +3794,122 @@
    "statement": "Airwallex (Canada) International Payments Limited: registered with FINTRAC as a money services business (M19395067, registered 25 June 2019, expiry 16 July 2028). It is not on the Bank of Canada registry of payment service providers; it is on the Bank of Canada list of applicants, with an application date of 1 November 2024, which matches Airwallex's own \"pending registration\" statement.",
    "observed_at": "2026-10-23T12:14:36-04:00",
    "method": "browser"
+  },
+  {
+   "id": "O-AWX-16",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "product",
+   "category": "spend_controls",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": "Explore (free)",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-AWX-PRICING",
+     "excerpt": "Advanced card controls to limit spend and freeze/cancel cards"
+    }
+   ],
+   "statement": "Card controls to limit spend and freeze or cancel cards.",
+   "observed_at": "2026-10-23T10:40:28-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-AWX-17",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "product",
+   "category": "approvals",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": "Multi-conditional approvals: Grow",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-AWX-SPEND",
+     "excerpt": "Flagged expenses are sent to the right approver with policy context for approval or denial."
+    },
+    {
+     "source_id": "S-AWX-PRICING",
+     "excerpt": "Customizable, multi-conditional approvals"
+    }
+   ],
+   "statement": "Flagged expenses go to an approver; customisable, multi-conditional approvals are listed on the Grow plan.",
+   "observed_at": "2026-10-23T10:40:28-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-AWX-18",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "product",
+   "category": "expense_workflow",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-AWX-SPEND",
+     "excerpt": "Employees snap or forward receipts, and AI automatically extracts the merchant, amount, date, and tax."
+    }
+   ],
+   "statement": "Receipts are snapped or forwarded; the merchant, amount, date and tax are extracted automatically.",
+   "observed_at": "2026-10-23T10:40:28-04:00",
+   "method": "server_fetch"
+  },
+  {
+   "id": "O-AWX-19",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "product",
+   "category": "accounting",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Plan placement as listed under \"Explore includes:\" and \"Everything in Explore, plus:\" on the pricing page.",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "status": "published",
+   "sources": [
+    {
+     "source_id": "S-AWX-PRICING",
+     "excerpt": "Sync bank feeds, expenses, and bills with Xero and QuickBooks"
+    },
+    {
+     "source_id": "S-AWX-PRICING",
+     "excerpt": "Sync bank feeds, expenses, and bills with Netsuite and Dynamics 365 Business Central"
+    }
+   ],
+   "statement": "Xero and QuickBooks sync on Explore; NetSuite and Microsoft Dynamics 365 Business Central on Grow.",
+   "observed_at": "2026-10-23T10:40:28-04:00",
+   "method": "server_fetch"
   }
  ]
 }

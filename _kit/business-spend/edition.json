@@ -4,9 +4,9 @@
   "readiness": "Ready for editorial review",
   "timezone": "America/Toronto",
   "collection_started_at": "2026-10-23T10:39:00-04:00",
-  "collection_ended_at": "2026-10-23T14:10:58-04:00",
+  "collection_ended_at": "2026-10-23T14:33:12-04:00",
   "collection_methods": [
-    "server fetch (curl), no JavaScript, no cookies: 10:39 a.m. to 10:48 a.m., and the Airwallex fee schedule at 2:10 p.m.",
+    "server fetch (curl), no JavaScript, no cookies: 10:39 a.m. to 10:48 a.m., the Airwallex fee schedule at 2:10 p.m. and the Float Payments page at 2:33 p.m.",
     "browser pass (Claude in Chrome, normal profile, not signed in to any provider; nothing submitted): 2026-10-23T12:00:24-04:00 to 2026-10-23T12:14:36-04:00"
   ],
   "browser_observation": {
@@ -26,5 +26,13 @@
     "editorial": null,
     "relationship_disclosure": "2026-10-23: founder supplied and confirmed the disclosure wording",
     "publication": null
+  },
+  "evidence_archive": {
+    "file": "business-spend-index-edition-001-evidence.zip",
+    "sha256": "735b0ac51676bd02c253ee1a29b0e0b460c75497ef4430247cb0070c2cd781ab",
+    "bytes": 11701970,
+    "contents": "98 sources: 64 server captures (HTML gzip, extracted text, links, fetch log) and 34 sanitised browser screenshots with the browser-pass manifest; ARCHIVE_MANIFEST.json maps every source ID to its files and hashes",
+    "location_status": "not_established",
+    "location_note": "Delivered to the owner in the build session on 23 October 2026. It is not in this repository, which is public, or in the deployment. Until the owner stores it in a named private location (recommended: Google Drive, HMM Indexes / Business Spend Index evidence) and records that location here, the underlying evidence exists only in that delivered copy and in the build session's temporary storage."
   }
 }

@@ -31,7 +31,8 @@ CAT_LABEL = {
     'xb_accounts': 'Multi-currency accounts', 'xb_transfers': 'Transfers', 'registration': 'Registration as stated',
     'funds_holding': 'Where funds are held, as stated', 'positioning': 'Positioning', 'proof': 'Proof',
     'case_study': 'Case study', 'journey': 'Application or demo journey', 'page_quality': 'Page rendering',
-    'registry_entry': 'Registry entry (checked by me)',
+    'registry_entry': 'Registry entry (checked by me)', 'approvals': 'Approvals', 'expense_workflow': 'Receipts and expenses',
+    'accounting': 'Accounting connections',
 }
 LAYER_LABEL = {'product': 'Product context', 'cross_border': 'Cross-border context', 'marketing': 'Marketing execution'}
 METHOD_LABEL = {'server_fetch': 'server fetch, no JavaScript', 'browser': 'browser capture (Chrome)', 'manual_document_review': 'document review'}
@@ -119,6 +120,8 @@ def cell(c, pid, key, label):
             body += '<span class="cell-sub">%s</span>' % E(spec['sub'])
         cls = ''
         tag = status_tag(status)
+    if any('D' in (c.obs[i].get('reconciliation') or {}).get('class', '') for i in ids):
+        tag += '<span class="st st-undetermined">Not determined</span>'
     return '<td%s data-label="%s">%s%s</td>' % (cls, E(label), body, tag)
 
 
@@ -137,7 +140,7 @@ def table(c, title, cols, tid):
 
 def compare_sources(c):
     items = []
-    cols = c.n['compare']['product_columns'] + c.n['compare']['xb_columns']
+    cols = c.n['compare']['product_columns'] + c.n['compare']['xb_columns'] + c.n['compare']['spend_columns']
     for pid in c.order:
         parts = []
         for k, l in cols:
@@ -247,7 +250,8 @@ def body(c):
     out.append('<section id="bs-compare"><div class="sec-head"><h2>The six platforms at a glance</h2><p class="dek">%s</p></div>' % E(cp['dek']))
     out.append(table(c, 'Product context', cp['product_columns'], 'bs-prod'))
     out.append(table(c, 'Cross-border context', cp['xb_columns'], 'bs-xb'))
-    out.append('<p class="pnote"><b>Reading the table.</b> %s An entry with a status label is not a plain published fact; <a href="#bs-statuses">what each status means</a>.</p>' % E(cp['note']))
+    out.append(table(c, 'Spend-management context', cp['spend_columns'], 'bs-spend'))
+    out.append('<p class="pnote"><b>Reading the table.</b> %s An entry with a status label is not a plain published fact; <a href="#bs-statuses">what each status means</a>. &ldquo;Not determined&rdquo; is not a status: it marks two published statements whose relationship the evidence cannot settle (<a href="#bs-recon">reconciliation</a> class D).</p>' % E(cp['note']))
     out.append(compare_sources(c))
     out.append('<p class="pnote dlinks"><b>Download the data:</b> <a href="/%s" download>every observation with its source (CSV)</a>.</p></section>' % CSV_REL)
 

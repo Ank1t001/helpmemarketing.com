@@ -5,6 +5,9 @@
   python3 validate.py --raw DIR       also confirm every server-fetch excerpt is in its private
                                       capture and every capture hash matches (DIR holds the raw
                                       captures and their fetch_log.jsonl; it is never in the repo)
+  python3 validate.py --raw DIR --browser SHOTS_DIR --archive EVIDENCE_ZIP
+                                      also confirm the private archive is the one recorded in
+                                      edition.json and holds every source's files with matching hashes
   python3 validate.py --raw DIR --browser SHOTS_DIR
                                       also confirm every browser capture's screenshot hash
                                       (browser excerpts come from the page text in Chrome and
@@ -139,7 +142,7 @@ def check_inputs(c):
                 errs.append('%s: narrative missing %s' % (pid, k))
         if not p.get('take') and not p.get('missing'):
             errs.append('%s: needs a takeaway or a labelled evidence placeholder' % pid)
-        for k, _ in c.n['compare']['product_columns'] + c.n['compare']['xb_columns']:
+        for k, _ in c.n['compare']['product_columns'] + c.n['compare']['xb_columns'] + c.n['compare']['spend_columns']:
             spec = c.n['compare']['rows'].get(pid, {}).get(k)
             if spec is None:
                 errs.append('%s: comparison cell %s missing' % (pid, k))
@@ -386,6 +389,35 @@ def check_browser(c, shots):
     return errs
 
 
+def check_archive(c, path):
+    """The private archive must be the one recorded in edition.json and hold every source's files."""
+    import zipfile
+    errs = []
+    rec = c.edition.get('evidence_archive') or {}
+    with open(path, 'rb') as f:
+        if hashlib.sha256(f.read()).hexdigest() != rec.get('sha256'):
+            errs.append('archive: sha256 differs from edition.json evidence_archive')
+    with zipfile.ZipFile(path) as z:
+        names = z.namelist()
+        top = names[0].split('/')[0]
+        man = json.loads(z.read(top + '/ARCHIVE_MANIFEST.json'))
+        mapped = {m['source_id']: m for m in man['sources']}
+        for sid, s in c.sources.items():
+            m = mapped.get(sid)
+            if not m:
+                errs.append('archive: %s has no files in the archive' % sid)
+                continue
+            for f in m['files']:
+                if top + '/' + f not in names:
+                    errs.append('archive: %s missing %s' % (sid, f))
+            data = z.read(top + '/' + m['files'][0])
+            if s['method'] != 'browser':
+                data = gzip.decompress(data)
+            if hashlib.sha256(data).hexdigest() != s['sha256']:
+                errs.append('archive: %s hash does not match sources.json' % sid)
+    return errs
+
+
 def main(argv):
     import build
     page, csvtext, c = build.render()
@@ -394,6 +426,8 @@ def main(argv):
         errs += check_raw(c, argv[argv.index('--raw') + 1])
     if '--browser' in argv:
         errs += check_browser(c, argv[argv.index('--browser') + 1])
+    if '--archive' in argv:
+        errs += check_archive(c, argv[argv.index('--archive') + 1])
     if errs:
         print('\n'.join(errs))
         print('FAIL: %d problems' % len(errs))
@@ -402,7 +436,7 @@ def main(argv):
     by = {k: sum(1 for o in c.obs.values() if o['status'] == k) for k in model.STATUSES}
     print('PASS: %d sources, %d observations (%s), %d unresolved conflicts%s' % (
         len(c.sources), len(c.obs), ', '.join('%s %d' % (model.STATUSES[k], v) for k, v in by.items()), n_conf,
-        ('; excerpts and hashes checked against private captures' + ('; browser screenshot hashes checked' if '--browser' in argv else '')) if '--raw' in argv else '; private captures not checked (pass --raw DIR)'))
+        ('; excerpts and hashes checked against private captures' + ('; browser screenshot hashes checked' if '--browser' in argv else '') + ('; evidence archive checked' if '--archive' in argv else '')) if '--raw' in argv else '; private captures not checked (pass --raw DIR)'))
     return 0
 
 

@@ -26,6 +26,8 @@ CATEGORIES = {
     # regulatory statements as published (never a safety conclusion)
     'registration', 'funds_holding', 'registry_entry',
     # marketing execution
+    # spend-management context
+    'approvals', 'expense_workflow', 'accounting',
     'positioning', 'proof', 'case_study', 'journey', 'page_quality',
 }
 RECON_CLASSES = {'A', 'B', 'C', 'D', 'B and D'}
@@ -140,6 +142,8 @@ def check_observation(o, codes, sources):
         for sid in o.get('reviewed_sources', []):
             if sid not in sources:
                 errs.append('%s: reviewed source %s not in sources.json' % (oid, sid))
+    if o['conflicts'] and o['status'] != 'conflicting':
+        errs.append('%s: conflict records belong only on Conflicting items; put open questions in conditions' % oid)
     if o['status'] == 'conflicting' and not o['conflicts']:
         errs.append('%s: conflicting status without a conflict record' % oid)
     if o['status'] == 'not_found' and o['amount'] is not None:
@@ -177,11 +181,12 @@ def check_observation(o, codes, sources):
         elif not rec.get('note') or not rec.get('topic'):
             errs.append('%s: reconciliation needs a topic and a note' % oid)
         else:
-            open_ = any(x in rec['class'] for x in ('C', 'D'))
-            if open_ and o['status'] != 'conflicting':
-                errs.append('%s: class %s leaves the difference open, so the status stays Conflicting' % (oid, rec['class']))
-            if not open_ and o['status'] == 'conflicting':
-                errs.append('%s: class %s explains the difference, so the status cannot be Conflicting' % (oid, rec['class']))
+            # Evidence status and reconciliation are separate: only a class C difference (unresolved in the
+            # same context) is Conflicting. Class D (insufficient evidence) never sets the status by itself.
+            if 'C' in rec['class'] and o['status'] != 'conflicting':
+                errs.append('%s: class %s is an unresolved difference, so the status is Conflicting' % (oid, rec['class']))
+            if 'C' not in rec['class'] and o['status'] == 'conflicting':
+                errs.append('%s: class %s does not establish a conflict; use the evidence status of the statements' % (oid, rec['class']))
     return errs
 
 

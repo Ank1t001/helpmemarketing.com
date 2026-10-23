@@ -539,6 +539,21 @@
    "manifest_excerpt": "By submitting this form you consent to Float contacting you. | Book a Demo"
   },
   {
+   "id": "S-FLT-PAYMENTS",
+   "platform": "float",
+   "role": "payments",
+   "requested_url": "https://floatfinancial.com/payments",
+   "final_url": "https://floatfinancial.com/payments",
+   "http_status": 200,
+   "content_type": "text/html; charset=utf-8",
+   "bytes": 600663,
+   "sha256": "11a5165f8dc50896e21f5ffd036de78208db13d05d541dae500b2d4bd69ccdf9",
+   "fetched_at": "2026-10-23T14:33:12-04:00",
+   "title": "Payments  for Canadian Businesses | Float Financial",
+   "method": "server_fetch",
+   "method_detail": "server fetch (curl), no JavaScript, no cookies"
+  },
+  {
    "id": "S-RMP-HOME",
    "platform": "ramp",
    "role": "home",
