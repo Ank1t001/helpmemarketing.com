@@ -1,13 +1,13 @@
 # Release steps: Business Cards & Spend Management Index, edition 001
 
-Status on 24 October 2026: draft on `staging-business-spend`, `noindex`, not merged. Every step below waits for the owner's approval. The release dry run (`python3 release.py --dry-run OUTDIR --release-date YYYY-MM-DD`) renders all of it outside the repository and passes its checks; the only closed gate is the owner's approval.
+Status on 24 October 2026 (after the five-view reorganisation): draft on `staging-business-spend`, `noindex`, not merged. Every step below waits for the owner's approval. The release dry run (`python3 release.py --dry-run OUTDIR --release-date YYYY-MM-DD`) renders all of it outside the repository and passes its checks; the only closed gate is the owner's approval.
 
 ## Before release (owner decisions and inputs)
 
 1. **Evidence archive**: store `business-spend-index-edition-001-evidence.zip` (sha256 `735b0ac51676bd02c253ee1a29b0e0b460c75497ef4430247cb0070c2cd781ab`) in a private location and send the location. I record it in `edition.json` (`evidence_archive.location`, `location_status: stored`) only after validating the stored copy with `validate.py --archive`.
 2. **Editorial review** of the staging page, including the three Conflicting items and two Not determined items, which stay shown as they are unless you decide otherwise.
-3. **Hub wording**: approve or edit the seven wording changes in `release.py` `HUB_EDITS` (listed in the dry-run report), and choose a text-only hub card or supply a 1056x591 hero image pair.
-4. **Optional captures** R1 and R2 in `CHROME_HANDOFF.md` (Ramp rewards terms; full Ramp card supplement). Without R1 the page keeps the bounded Ramp wording.
+3. **Hub wording**: approve or edit the seven wording changes in `release.py` `HUB_EDITS` (listed in the dry-run report). They broaden only wording that implied every Index studies Instagram or refreshes monthly; the three Instagram studies keep their methods, monthly schedule, card labels and dates. Also choose a text-only hub card or supply a 1056x591 hero image pair.
+4. **Optional captures** R1 and R2 in `CHROME_HANDOFF.md`. Without R1 the page keeps the bounded Ramp rewards wording; without R2 the Ramp card model and conversion margin stay omitted with the limitation stated (decision of 24 October 2026).
 5. **Forms script**: deploy `research_business_spend` using the steps in `CHROME_HANDOFF.md` and send the version number. Not a hard blocker (leads are saved either way), but attribution needs it.
 
 ## Release (after the owner's explicit instruction)
@@ -25,3 +25,5 @@ Status on 24 October 2026: draft on `staging-business-spend`, `noindex`, not mer
 13. Verify production: `/business-spend-index` (200, index), `/business-spend-index/edition-001` (200, noindex), `/business-spend-index.html` (308), `/hmm-index`, `/sitemap.xml`, `/_kit/business-spend/README.md` (404), and the review button reaching `/contact?intent=review&entry=research_business_spend`.
 
 Not part of this release unless asked: requesting indexing, submitting the sitemap, IndexNow, any scheduled refresh.
+
+The social content module is separate: `SOCIAL_MODULE_BRIEF.md`. It is not part of this release and adds no tab until it is collected and approved.

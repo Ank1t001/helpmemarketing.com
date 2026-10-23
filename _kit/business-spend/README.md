@@ -16,7 +16,7 @@ How six platforms (Venn, Float, Ramp, Loop, Keep, Airwallex, in that order) expl
 | `platforms.json` | The six platforms, their order, code and Canadian starting URL. |
 | `sources.json` | One record per capture: stable ID `S-<CODE>-<ROLE>`, URL, final URL, HTTP status, sha256 of the captured bytes, capture time, method. No page content. |
 | `observations.json` | One record per claim: stable ID `O-<CODE>-NN`, platform, product, layer (product, cross_border, marketing), category, market, eligibility, plan, statement, amount, units, currency, conditions, cited sources with short excerpts, status, method, observed_at, conflicts, interpretation (my reading, kept apart from the statement), public flag. |
-| `narrative.json` | Findings, comparison cells, examples, the five-question reading per platform with its takeaway, patterns, the three tests, method text and the help section. Every finding, example, pattern and table cell names the observation IDs it rests on. |
+| `narrative.json` | The five views (Overview, Compare products, Messaging & offers, Application journeys, Lessons & tests), the content-type legend, the journey table, findings, comparison cells, examples, the five-question reading per platform with its takeaway, patterns, the three tests, method text and the help section. Every finding, example, pattern and table cell names the observation IDs it rests on. |
 | `site_shell.html` | The site head, nav and footer, copied from `/medspa-index` (the shared `.msi` styles), with four tokens. |
 | `page_head.html` | Page-scoped CSS and two small scripts (open the details that hold an evidence link target; push `review_cta_click`). |
 | `build.py` | Renders the page and CSV. Reads no clock. `--check` fails if the committed outputs differ from a fresh build. |
@@ -25,6 +25,7 @@ How six platforms (Venn, Float, Ramp, Loop, Keep, Airwallex, in that order) expl
 | `ingest.py` | Idempotent ingestion: `sources` (fetch log), `observations` (records by ID), `browser` (Chrome captures with a manifest). Changed records need `--replace`; missing files produce a handoff request and no write. |
 | `release.py` | Release preparation. `--dry-run OUTDIR --release-date YYYY-MM-DD` renders the live page, the edition snapshot, the hub and the sitemap outside the repository and reports open gates; `--apply` writes them only after `edition.json` records the owner's release instruction. Steps in `RELEASE_STEPS.md`. |
 | `collect.py` | The bounded server fetcher used for edition 001. Its output directory is private storage. |
+| `SOCIAL_MODULE_BRIEF.md` | Collection brief for the planned social content module (accounts linked from each provider's site, fixed window, coverage and evidence rules). Not collected; nothing on the page. |
 | `CHROME_HANDOFF.md` | Browser checks still needed, the manifest format and the publication blockers. |
 | `tests/test_kit.py` | Unit tests. |
 

@@ -1494,24 +1494,15 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The Canada Card Supplement (last updated 6 October 2026) says Peoples Trust Company issues Canadian Cards and that the Canadian affiliate must pay statements in full, by pre-authorised debit from its linked account. Canadian Cards are for a Canada-registered affiliate of a company that holds a Ramp account.",
+   "statement": "Not checked: Ramp's Canadian card model and repayment terms were not established from a retained capture.",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "The supplement does not use the words \"charge card\". A server fetch of Ramp's legal pages returns only a script shell, so the text was read in a browser; the payment wording is in the page text, below the part shown in the screenshot.",
-   "sources": [
-    {
-     "source_id": "S-RMP-BROWSER-CANADA-CARD-SUPPLEMENT",
-     "excerpt": "Peoples Trust Company is the Issuer of Canadian Cards"
-    },
-    {
-     "source_id": "S-RMP-BROWSER-CANADA-CARD-SUPPLEMENT",
-     "excerpt": "Canadian Affiliate is responsible for timely payment in full of all Charges, Fees, Fines and other amounts owed"
-    }
-   ],
-   "status": "published",
+   "conditions": "A browser pass on 23 October 2026 read the payment terms of the Canada Card Supplement, but the retained screenshot shows only its opening section (issuer and who may request Canadian Cards), and a server fetch of the page returns only a script shell. The payment terms are therefore not reported. Capture request R2 in CHROME_HANDOFF.md.",
+   "sources": [],
+   "status": "not_checked",
    "method": "browser",
-   "observed_at": "2026-10-23T12:07:20-04:00",
+   "observed_at": null,
    "conflicts": [],
    "interpretation": null,
    "public": true
@@ -1556,7 +1547,7 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Eligibility asks for at least one Canadian, US or UK-registered entity, a Business Number and a linked Canadian bank account, underwritten on the business with no personal guarantee.",
+   "statement": "Eligibility asks for at least one Canadian, US or UK-registered entity, a Business Number and a linked Canadian bank account, underwritten on the business with no personal guarantee. The Canada Card Supplement limits Canadian Cards to a Canada-registered affiliate of a company that holds a Ramp account.",
    "amount": null,
    "units": null,
    "currency": null,
@@ -1573,11 +1564,15 @@
     {
      "source_id": "S-RMP-CARDS",
      "excerpt": "no personal guarantee"
+    },
+    {
+     "source_id": "S-RMP-BROWSER-CANADA-CARD-SUPPLEMENT",
+     "excerpt": "Peoples Trust Company is the Issuer of Canadian Cards"
     }
    ],
    "status": "published",
-   "method": "server_fetch",
-   "observed_at": "2026-10-23T10:40:12-04:00",
+   "method": "browser",
+   "observed_at": "2026-10-23T12:07:20-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
@@ -1651,11 +1646,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "The homepage promises CAD and USD spending without the FX markup; the global page says conversions stay subject to exchange rates and fees; the Canada Card Supplement caps the currency conversion margin at 3% for charges outside the settlement currency.",
-   "amount": 3,
-   "units": "% maximum conversion margin (card terms)",
+   "statement": "The homepage promises CAD and USD spending without the FX markup; the global page says conversions stay subject to applicable exchange rates and fees.",
+   "amount": null,
+   "units": null,
    "currency": null,
-   "conditions": "The no-markup line covers spending in the card currency; the margin applies to charges in another currency. Read from the page text in a browser.",
+   "conditions": "The no-markup line applies to spending in the card currency. A conversion margin for other currencies was read in a browser in the Canada Card Supplement but not captured, so it is not reported (capture request R2).",
    "sources": [
     {
      "source_id": "S-RMP-HOME",
@@ -1664,15 +1659,11 @@
     {
      "source_id": "S-RMP-GLOBAL",
      "excerpt": "Transactions that require currency conversion remain subject to applicable exchange rates and fees"
-    },
-    {
-     "source_id": "S-RMP-BROWSER-CANADA-CARD-SUPPLEMENT",
-     "excerpt": "will not exceed three percent (3%)"
     }
    ],
    "status": "published",
-   "method": "browser",
-   "observed_at": "2026-10-23T12:07:20-04:00",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:13-04:00",
    "conflicts": [],
    "interpretation": null,
    "public": true
@@ -2721,6 +2712,14 @@
     {
      "source_id": "S-KEP-LEGAL-CARD",
      "excerpt": "This card is a charge card issued by Peoples Trust Company under licence from Mastercard"
+    },
+    {
+     "source_id": "S-KEP-LEGAL-CARD",
+     "excerpt": "Your minimum payment is 100% of the Outstanding Balance owing"
+    },
+    {
+     "source_id": "S-KEP-LEGAL-CARD",
+     "excerpt": "There are no interest charges for this card, annual or otherwise"
     }
    ],
    "status": "published",

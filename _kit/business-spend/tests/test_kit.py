@@ -156,6 +156,23 @@ class KitTests(unittest.TestCase):
         self.assertNotIn('non-CAD', o['statement'] + (o['conditions'] or '') + (o['interpretation'] or ''))
         self.assertNotIn('non-CAD', self.page)
 
+    def test_five_views_and_content_kinds(self):
+        body = self.page[self.page.index('REPORT BODY START'):]
+        pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-compare', 'bs-messaging', 'bs-journeys', 'bs-lessons')]
+        self.assertEqual(pos, sorted(pos))
+        self.assertEqual(body.count('class="note reading"'), 6 + 4)  # six platforms, four examples
+        self.assertEqual(body.count('Proposed test, not a result'), 3)
+        self.assertEqual(body.count('What this means for your marketing team'), 8 + 1)  # takeaways retained, plus the legend entry
+        self.assertIn('id="bs-journey-table"', body)
+        self.assertNotIn('Next step observed', body)
+
+    def test_ramp_uncaptured_terms_omitted(self):
+        self.assertEqual(self.c.obs['O-RMP-02']['status'], 'not_checked')
+        self.assertIsNone(self.c.obs['O-RMP-07']['amount'])
+        for phrase in ('three percent', 'margin up to 3%', 'pre-authorised debit (Canadian'):
+            self.assertNotIn(phrase, self.page)
+        self.assertNotIn('S-RMP-BROWSER-CANADA-CARD-SUPPLEMENT', [r['source_id'] for r in self.c.obs['O-RMP-07']['sources']])
+
     def test_csv_formula_escaping(self):
         self.assertEqual(build.csv_safe('=SUM(A1)'), "'=SUM(A1)")
         self.assertEqual(build.csv_safe('+ Platform fee'), "'+ Platform fee")

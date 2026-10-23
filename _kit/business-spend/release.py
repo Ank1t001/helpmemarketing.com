@@ -37,25 +37,32 @@ MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Augus
 # Hub wording that would no longer be true once a non-Instagram, unscheduled study is listed.
 # These are editorial proposals: the dry-run report lists them for the owner's approval.
 HUB_EDITS = [
-    ('<title>The HMM Index: Instagram Benchmarks | HelpMeMarketing</title>',
-     '<title>The HMM Index: Original Marketing Research | HelpMeMarketing</title>'),
+    # 1. Title (in <title>, og:title and twitter:title): "Instagram Benchmarks" implied every Index is an Instagram study.
+    ('The HMM Index: Instagram Benchmarks', 'The HMM Index: Marketing Benchmarks'),
+    # 2. Description (meta, og, twitter and the CollectionPage): keeps the three Instagram studies and their monthly
+    #    refresh, and adds the one-time business card study instead of implying it is Instagram and monthly too.
     ('Public Instagram benchmarks for Canadian private real estate, Ontario hair loss clinics and Ontario med spas. Built from public posts and refreshed monthly.',
-     'Original marketing research by Ankit Kumar: Instagram benchmarks for three Canadian categories and how six business card platforms explain their offers.'),
+     'Monthly Instagram benchmarks for Canadian private real estate, Ontario hair loss clinics and med spas, plus a one-time study of six business card platforms.'),
+    # 3. Hero subtitle: the Instagram method and schedule stay, scoped to the Instagram indexes.
     ('<p class="hero-subtitle">Public benchmarks of what actually works on Instagram, one category at a time. Each edition is built from public posts, refreshed on a schedule, and every claim links to the post it came from.</p>',
-     '<p class="hero-subtitle">Public research on how businesses market themselves, one category at a time. Each edition is built from public sources, and every claim links to where it came from.</p>'),
+     '<p class="hero-subtitle">Public benchmarks, one category at a time. The Instagram indexes are built from public posts and refreshed on a schedule; the business card index is a one-time reading of public web pages. Every claim links to the post or page it came from.</p>'),
+    # 4. Section heading: the count changes from three to four (a count, not a method change).
     ('<h2 class="section-heading">Three categories, <em>benchmarked</em>.</h2>',
      '<h2 class="section-heading">Four categories, <em>benchmarked</em>.</h2>'),
+    # 5 to 7. How it works: each sentence said or implied that every edition reads Instagram posts.
     ('<li><h3>Public data only</h3><p>I read what each business posts publicly on Instagram. No private data, no paid panels.</p></li>',
-     '<li><h3>Public data only</h3><p>I read what each business publishes: public Instagram posts for three indexes, public web pages and enquiry journeys for the business cards index. No private data, no paid panels.</p></li>'),
+     '<li><h3>Public data only</h3><p>I read what each business publishes: public Instagram posts for the Instagram indexes, public web pages and enquiry journeys for the business card index. No private data, no paid panels.</p></li>'),
     ('<li><h3>Measured the same way</h3><p>Every account in an edition is read on the same public signals, such as likes, comments and recorded plays, so the comparison is consistent.</p></li>',
-     '<li><h3>Measured the same way</h3><p>Everything in an edition is read the same way, such as likes, comments and recorded plays on Instagram, or the same checklist of pages for each platform, so the comparison is consistent.</p></li>'),
+     '<li><h3>Measured the same way</h3><p>Everything in an edition is read on the same signals, such as likes, comments and recorded plays on Instagram, or the same checklist of pages for each business card platform, so the comparison is consistent.</p></li>'),
     ('<li><h3>Linked to the source</h3><p>Every claim points to the post behind it, so you can check it yourself.</p></li>',
      '<li><h3>Linked to the source</h3><p>Every claim points to the post or page behind it, so you can check it yourself.</p></li>'),
 ]
 
 
 def plain(h):
-    return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', h)).strip()
+    h = h.replace('</h3><p>', ': ')
+    t = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', h)).strip()
+    return re.sub(r'\s+([.,;:])', r'\1', t)
 
 
 def hub_date(day):
@@ -174,9 +181,12 @@ def dry_run(out, day):
     lines += ['', '## Files a release would write', '']
     for rel, text in files.items():
         lines.append('- `%s` (%d bytes)%s' % (rel, len(text.encode()), ', new' if not os.path.exists(os.path.join(model.ROOT, rel)) else ''))
-    lines += ['', '## Hub wording changes that need the owner\'s approval', '']
-    for old, new in HUB_EDITS:
-        lines += ['- was: %s' % plain(old), '  now: %s' % plain(new)]
+    lines += ['', '## Hub wording changes that need the owner\'s approval', '',
+              'Only wording that implied every Index studies Instagram or refreshes monthly is broadened; each Instagram study keeps its method and monthly schedule, and the three existing cards, their dates and their "Monthly" labels are unchanged.', '']
+    hub_now = read(HUB)
+    for i, (old, new) in enumerate(HUB_EDITS, 1):
+        lines += ['%d. Applies in %d place%s on /hmm-index.' % (i, hub_now.count(old), '' if hub_now.count(old) == 1 else 's'),
+                  '   - was: %s' % plain(old), '   - now: %s' % plain(new)]
     lines += ['', 'The hub card has no image: no 1056x591 hero exists for this Index. Approve a text-only card or supply an image.', '']
     with open(os.path.join(out, 'DRYRUN_REPORT.md'), 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')

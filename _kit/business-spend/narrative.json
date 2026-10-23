@@ -32,7 +32,7 @@
     "id": "F2",
     "question": "Does \"no FX fee\" mean I never pay to convert?",
     "title": "Every \"no FX fee\" claim described one kind of transaction",
-    "body": "All six platforms published a statement of no FX fee, no FX markup or a 0% FX fee. Each covered a specific case, such as spending from a balance in the same currency, four approved currencies or a USD card, and each site or its terms describes a fee, rate or margin for other conversions: for example an automatic conversion fee in Airwallex's card terms and a margin of up to 3% in Ramp's Canadian card terms. Keep's pricing page lists an FX fee of 0% for banking, while its card agreement sets a 3% card conversion fee.",
+    "body": "All six platforms published a statement of no FX fee, no FX markup or a 0% FX fee. Each covered a specific case, such as spending from a balance in the same currency, four approved currencies or a USD card, and each site or its terms describes a fee, rate or margin for other conversions: for example an automatic conversion fee in Airwallex's card terms, and a note on Ramp's global page that conversions stay subject to exchange rates and fees. Keep's pricing page lists an FX fee of 0% for banking, while its card agreement sets a 3% card conversion fee.",
     "denominator": "6 of 6 platforms; card spending, FX conversion and transfers were checked separately for each.",
     "evidence": [
      "O-VEN-08",
@@ -290,8 +290,7 @@
    },
    "ramp": {
     "model": {
-     "text": "Statements paid in full",
-     "sub": "By pre-authorised debit (Canadian card terms, 6 Oct 2026)",
+     "text": null,
      "ids": [
       "O-RMP-02"
      ]
@@ -324,7 +323,7 @@
     },
     "xb_card": {
      "text": "CAD and USD spend without the FX markup",
-     "sub": "Other currencies: margin up to 3% (card terms)",
+     "sub": "Conversions stay subject to exchange rates and fees",
      "ids": [
       "O-RMP-07"
      ]
@@ -739,12 +738,13 @@
   "ramp": {
    "positioning": "A spend platform with Canadian cards, eligibility for Canadian, US or UK-registered entities, and global proof.",
    "offer": "Free and Plus plans, CAD and USD cards, and CAD or USD spend without the FX markup.",
-   "explanation": "Eligibility is stated clearly on the cards page. The Canadian card terms say statements are paid in full by pre-authorised debit and cap the conversion margin at 3% for other currencies. A Canadian rewards rate was not found in the reviewed sources. I found no Canadian multi-currency account or transfer fees on the Canadian pages.",
+   "explanation": "Eligibility is stated clearly on the cards page, and the opening of the Canada Card Supplement limits Canadian Cards to Canada-registered affiliates. The card model and repayment terms were not established from a retained capture, so they are not reported. A Canadian rewards rate was not found in the reviewed sources. I found no Canadian multi-currency account or transfer fees on the Canadian pages.",
    "proof": "85,000 customers worldwide, a receipt figure labelled as internal data, and quotes from large brands. None of the proof is specific to Canada.",
    "journey": "\"Get started\" leads to a Canadian sign-up screen with one email field and \"Continue application\"; the eligibility list is not repeated there. The header \"See a demo\" link goes to a page outside the Canadian site.",
-   "observation": "The Canadian pages pair Canadian card terms and eligibility rules with worldwide proof (85,000 customers) and a header demo link that leaves the Canadian site.",
+   "observation": "The Canadian pages pair Canadian eligibility rules with worldwide proof (85,000 customers) and a header demo link that leaves the Canadian site.",
    "missing": [
-    "Ramp's Rewards Terms (Canadian schedule), not captured in this edition",
+    "Card model and repayment terms (Canada Card Supplement, capture request R2)",
+    "Ramp's Rewards Terms (Canadian schedule), capture request R1",
     "Transfer fees",
     "Steps after the email (needs an application)"
    ],
@@ -907,5 +907,123 @@
   "body": "I can read your own pages the way this Index reads these six: how the offer, its conditions, the proof and the next step come across to a buyer. This is a free review of your marketing by Help Me Marketing. It is not a card application, and it is not financial, legal or regulatory advice.",
   "button": "Get my free marketing review",
   "entry": "research_business_spend"
- }
+ },
+ "views": {
+  "overview": {
+   "title": "Overview",
+   "dek": "This page is two things: a reference for comparing how six providers describe their business cards, spend tools and cross-border payments, and my independent case study of how they market them. Every product fact links to its source; my readings and the tests I propose are marked as such."
+  },
+  "compare": {
+   "title": "Compare products",
+   "dek": "What each provider publishes about its cards, cross-border payments and spend tools, as captured on 23 October 2026. These are the providers' own statements, not tested features."
+  },
+  "messaging": {
+   "title": "Messaging & offers",
+   "dek": "How each provider presents its offer: who it speaks to, what it promises, where the conditions sit and what proof it gives."
+  },
+  "journeys": {
+   "title": "Application journeys",
+   "dek": "What happens when a Canadian business clicks each provider's main start button, observed in a browser up to the first screen. Nothing was submitted and no account was created."
+  },
+  "lessons": {
+   "title": "Lessons & tests",
+   "dek": "Patterns across the six, and three tests a marketing team could run on its own pages."
+  }
+ },
+ "journeys": {
+  "columns": [
+   [
+    "start",
+    "Start button and destination"
+   ],
+   [
+    "asks",
+    "What the first screen asks for"
+   ],
+   [
+    "shown",
+    "Eligibility or next steps shown"
+   ],
+   [
+    "stop",
+    "Where observation stopped"
+   ]
+  ],
+  "rows": {
+   "venn": {
+    "start": "\"Open a free account\" to app.venn.ca/signup",
+    "asks": "Google or Microsoft sign-in, or email, password and password confirmation",
+    "shown": "\"No personal credit check or guarantee\" and \"Get started in 5 minutes\"; no eligibility or Quebec note on this screen",
+    "stop": "Before \"Create account\" (creates an account)",
+    "ids": [
+     "O-VEN-18"
+    ]
+   },
+   "float": {
+    "start": "\"See a demo\" to floatfinancial.com/demo",
+    "asks": "Eight questions marked required, a referral code marked optional, \"How did you hear about us\" (required status not recorded); a reCAPTCHA check",
+    "shown": "Consent to be contacted; nothing on what happens after booking",
+    "stop": "Before \"Book a Demo\"",
+    "ids": [
+     "O-FLT-16"
+    ]
+   },
+   "ramp": {
+    "start": "\"Get started\" to ramp.com/en-ca/signup",
+    "asks": "One email field",
+    "shown": "\"Apply for Ramp's corporate card\"; the eligibility list is on the cards page, not this screen",
+    "stop": "Before \"Continue application\"",
+    "ids": [
+     "O-RMP-15",
+     "O-RMP-04"
+    ]
+   },
+   "loop": {
+    "start": "\"Open Account\" to go.bankonloop.com/signup",
+    "asks": "Full name, legal business name, email, mobile phone (or Google sign-up)",
+    "shown": "A panel listing the next steps: business information (CRA ID, structure, website) and identity (date of birth, government ID)",
+    "stop": "Before \"Get started\"",
+    "ids": [
+     "O-LOP-15"
+    ]
+   },
+   "keep": {
+    "start": "Every start button found leads to app.trykeep.com/applications-closed",
+    "asks": "Nothing: the page offers log-in to existing customers",
+    "shown": "\"We're not accepting new applications at this time\"; no product named",
+    "stop": "Closed-applications page",
+    "ids": [
+     "O-KEP-05"
+    ]
+   },
+   "airwallex": {
+    "start": "\"Get started\" to airwallex.com/en-ca/signup",
+    "asks": "One business email field",
+    "shown": "Continuing agrees to receive marketing communications",
+    "stop": "Before \"Get started\"",
+    "ids": [
+     "O-AWX-14"
+    ]
+   }
+  },
+  "note": "Observed in a browser on 23 October 2026 between 12:09 p.m. and 12:12 p.m. Toronto time (Keep at 12:02 p.m.), from a normal Chrome profile not signed in to any provider. A progress indicator or time estimate was not used to judge journey length."
+ },
+ "legend": [
+  [
+   "Sourced fact",
+   "Tables, the \"What the sources say\" lists and the evidence lists. Each fact links to the page it came from; a status label marks anything that is not a plain published fact."
+  ],
+  [
+   "My reading",
+   "Interpretation, kept apart from the facts: findings, editorial observations, patterns and lines marked \"My reading\"."
+  ],
+  [
+   "What this means for your marketing team",
+   "A short lesson drawn from a section's evidence, with one question or test."
+  ],
+  [
+   "Proposed test",
+   "An experiment a team could run on its own pages. A proposal, not a result."
+  ]
+ ]
 }

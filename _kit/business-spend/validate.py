@@ -156,6 +156,20 @@ def check_inputs(c):
                 errs.append('%s.%s: a filled cell needs evidence' % (pid, k))
             if spec.get('text') is not None and spec.get('ids') and all(c.obs[i]['status'] in ('not_found', 'not_checked') for i in spec['ids'] if i in c.obs):
                 errs.append('%s.%s: text given but the evidence is not found or not checked' % (pid, k))
+    jn = c.n.get('journeys', {})
+    for pid in EXPECTED_ORDER:
+        r = jn.get('rows', {}).get(pid)
+        if not r:
+            errs.append('journeys: no row for %s' % pid)
+            continue
+        for k, _ in jn['columns']:
+            if not r.get(k):
+                errs.append('journeys.%s: %s is empty' % (pid, k))
+        for i in r.get('ids', []):
+            if i not in c.obs or c.obs[i]['platform'] != pid:
+                errs.append('journeys.%s: bad evidence id %s' % (pid, i))
+        if not any(c.obs.get(i, {}).get('category') in ('journey', 'availability') for i in r.get('ids', [])):
+            errs.append('journeys.%s: needs a journey observation' % pid)
     f = c.n['findings']['items']
     if not 1 <= len(f) <= 3:
         errs.append('findings: one to three')
@@ -329,6 +343,14 @@ def check_outputs(c, page, csvtext, extra_paths=()):
             errs.append('page: the confirmed relationship disclosure must appear once, with no pending placeholder')
     elif 'Relationship disclosure pending' not in body:
         errs.append('page: a pending relationship disclosure must show its placeholder')
+    views = ['bs-overview', 'bs-compare', 'bs-messaging', 'bs-journeys', 'bs-lessons']
+    nav = body[body.index('class="ri-nav bs-views"'):]
+    nav = nav[:nav.index('</nav>')]
+    if [h[1:] for h in re.findall(r'href="(#[^"]+)"', nav)] != views:
+        errs.append('page: the section nav lists the five views in order')
+    for v in views:
+        if '<section id="%s" class="bs-view"' % v not in body:
+            errs.append('page: view %s missing' % v)
     if 'data-review-cta="research_business_spend"' not in body or 'entry=research_business_spend#contact-form' not in body:
         errs.append('page: review CTA must carry entry research_business_spend')
     rows = list(csv.reader(io.StringIO(csvtext)))
