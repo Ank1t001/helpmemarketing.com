@@ -23,6 +23,7 @@ How six platforms (Venn, Float, Ramp, Loop, Keep, Airwallex, in that order) expl
 | `validate.py` | Input and output checks; `--raw DIR` also checks every excerpt against the private capture and every capture hash. |
 | `model.py` | The shared evidence rules (statuses, categories, IDs, timestamps, traceability). |
 | `ingest.py` | Idempotent ingestion: `sources` (fetch log), `observations` (records by ID), `browser` (Chrome captures with a manifest). Changed records need `--replace`; missing files produce a handoff request and no write. |
+| `release.py` | Release preparation. `--dry-run OUTDIR --release-date YYYY-MM-DD` renders the live page, the edition snapshot, the hub and the sitemap outside the repository and reports open gates; `--apply` writes them only after `edition.json` records the owner's release instruction. Steps in `RELEASE_STEPS.md`. |
 | `collect.py` | The bounded server fetcher used for edition 001. Its output directory is private storage. |
 | `CHROME_HANDOFF.md` | Browser checks still needed, the manifest format and the publication blockers. |
 | `tests/test_kit.py` | Unit tests. |

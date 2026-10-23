@@ -10,12 +10,41 @@ Still open after the pass:
 
 - Venn: what the homepage line "200+ countries in 30+ currencies" shows to visitors (in the page code; visibility not established).
 - Float: the network of Float Charge (not stated separately); what happens after a demo is booked; whether the demo form's "How did you hear about us" question is required. Transfer pricing is now from the Payments page (server fetch, 23 October 2026, 2:33 p.m.; not seen in a browser).
-- Ramp: no Canadian rewards rate is published (a finding, not a gap to close); the Rewards Terms page was read in the browser without a capture file; a server fetch of Ramp legal pages returns only a script shell (13 characters), so any future text evidence for them needs a browser capture.
+- Ramp: a Canadian rewards rate was not found in the reviewed sources. The Rewards Terms page was read in the browser on 23 October without a capture file, so its Canadian conditions were removed from the page (24 October correction); capture it with item R1 below if they should be reported. The Canada Card Supplement screenshot shows only the top of the page; the payment-in-full and 3% margin wording used on the page were read from the page text in that session (item R2 adds a full capture). A server fetch of Ramp legal pages returns only a script shell (13 characters).
 - Airwallex: the terms for the "Credit line for corporate cards" (class D); the rebate terms and what "eligible" covers (class D); whether the fee schedule's 1.00% Auto Conversion Fee applies to card purchases; the demo booking form (not opened).
 - Loop: whether the Basic plan earns points on card spend in currencies other than CAD, USD, EUR and GBP (the earn-rate table does not list them).
 - Loop: the product tour beyond its first screen.
 - Not possible without an account or a submission: any step after the first screen of the six journeys.
 - The browser pass used a normal Chrome profile (not signed in to the providers) and checked mobile in a 390px frame; my own checks cover real keyboard focus and real mobile viewports.
+
+## Open capture requests (release review, 24 October 2026)
+
+| # | What to capture | Start from | Observation |
+|---|---|---|---|
+| R1 | Ramp Rewards Terms, logged out, from Canada: full-page screenshots that show "Last Updated", Section 1.3 (Qualified Purchases) and the Canada Regional Schedule in full, plus any stated earn rate for Canada. Copy the visible text of the Canada schedule into a `.txt` file beside the screenshots. If no Canadian rate or schedule is visible, capture the page anyway and say so. | https://ramp.com/legal/customer-terms/services-terms/rewards-terms | O-RMP-05 |
+| R2 | Ramp Canada Card Supplement: full-page screenshots covering "Last Updated", Section 1 (Canadian Card Program), the statement and payment sections (payment in full, pre-authorised debit) and the currency conversion clause ("will not exceed three percent (3%)"). Copy the visible text into a `.txt` file. | https://ramp.com/legal/customer-terms/services-terms/canada-payment-card-supplement | O-RMP-02, O-RMP-07 |
+
+Manifest lines use the format below with `platform` `ramp` and `role` `legal-rewards` (R1) or `legal-canada-card` (R2); list the observation IDs in `observations`. Until R1 arrives, the page says only: "A Canadian rewards rate was not found in the reviewed sources."
+
+## Forms script: deploy `research_business_spend` (founder, in Chrome; nothing on the website changes)
+
+The website half is already in the branch (`contact.html` accepts `entry=research_business_spend` and sends it as `entry_point`). The forms script must also allow it, or leads from this page are saved without the entry in the Source column (they are still saved). Do this before or at release; order does not matter for safety.
+
+1. Open the "HMM | Contact Us" Google Sheet, then Extensions → Apps Script, signed in as the script owner.
+2. Deploy → Manage deployments. Note the active web app deployment's version number and confirm its URL is the `/exec` URL that `/contact` uses (`AKfycbzeefYK.../exec`). Close the dialog without changes.
+3. In `Code.gs`, find function `leadSource_`. On the line that starts `if (/^(home_hero|home_final|home_journey|work_final|`, change `research_(hub|gta_medspa|gta_medspa_help)|direct)` to `research_(hub|gta_medspa|gta_medspa_help|business_spend)|direct)`. The whole line must then read:
+   `  if (/^(home_hero|home_final|home_journey|work_final|industry_(healthcare|finance|dtc|saas)_(hero|final)|research_(hub|gta_medspa|gta_medspa_help|business_spend)|direct)$/.test(entry)) parts.push('entry ' + entry);`
+   If that line in the editor differs from the repository version (`docs/HMM_Forms_AppsScript.gs`, line 219) in any other way, stop and send me the editor's line; do not paste the whole file, which would overwrite any change made only in the editor.
+4. In function `testLeadSources`, add `'research_business_spend', ` after `'research_gta_medspa_help', ` in the list.
+5. Save (Ctrl+S).
+6. Choose `testLeadSources` in the function menu and press Run. It writes no row, sends no email and skips Turnstile. In the Execution log, confirm these lines:
+   - `research_business_spend -> contact form | free review | entry research_business_spend`
+   - `not_a_real_entry -> contact form | free review` (no entry part)
+   - the other entries unchanged.
+7. Deploy → Manage deployments → the pencil on the existing web app deployment → Version: New version → description `research_business_spend entry` → Deploy. Do not choose New deployment (that makes a new URL). Confirm the URL is unchanged and the version number went up by one.
+8. Send me: the execution log lines from step 6 (a screenshot with no personal data), the new version number and the deploy time (Toronto). I record them; I do not submit a lead.
+
+What stays unverified until a real enquiry: the stored Source value in the Leads tab. The first review request sent from the published page should read `contact form | free review | entry research_business_spend | ...` in the Source column. Do not create a test lead to check it.
 
 ## Rules for every capture
 

@@ -18,7 +18,7 @@
     "question": "Is the advertised reward what I would earn?",
     "title": "Reward rates and their conditions were often stated in different places",
     "body": "Five of the six platforms published a reward rate. At two, visible statements on different pages did not agree for some plans: Venn's cards page says its cashback has no tiers, thresholds or caps, while its pricing footnote says cashback is earned only on the first $5,000 of card spend a month on Essentials and the first $25,000 on Plus; Loop's cards page says rewards come on all spend, while its earn-rate table lists USD, EUR and GBP spend as not eligible on the Basic plan. Airwallex's visible pages say 1%; a 2% figure appears only in the page's title metadata. Float and Keep publish their conditions on the pricing page.",
-    "denominator": "5 platforms that published a reward rate. Ramp publishes Canadian rewards terms but no rate.",
+    "denominator": "5 platforms that published a reward rate. For Ramp, a Canadian rewards rate was not found in the reviewed sources.",
     "evidence": [
      "O-VEN-04",
      "O-LOP-04",
@@ -739,12 +739,12 @@
   "ramp": {
    "positioning": "A spend platform with Canadian cards, eligibility for Canadian, US or UK-registered entities, and global proof.",
    "offer": "Free and Plus plans, CAD and USD cards, and CAD or USD spend without the FX markup.",
-   "explanation": "Eligibility is stated clearly on the cards page. The Canadian card terms say statements are paid in full by pre-authorised debit and cap the conversion margin at 3% for other currencies. The Canadian rewards terms exclude non-CAD purchases and give no rate. I found no Canadian multi-currency account or transfer fees on the Canadian pages.",
+   "explanation": "Eligibility is stated clearly on the cards page. The Canadian card terms say statements are paid in full by pre-authorised debit and cap the conversion margin at 3% for other currencies. A Canadian rewards rate was not found in the reviewed sources. I found no Canadian multi-currency account or transfer fees on the Canadian pages.",
    "proof": "85,000 customers worldwide, a receipt figure labelled as internal data, and quotes from large brands. None of the proof is specific to Canada.",
    "journey": "\"Get started\" leads to a Canadian sign-up screen with one email field and \"Continue application\"; the eligibility list is not repeated there. The header \"See a demo\" link goes to a page outside the Canadian site.",
    "observation": "The Canadian pages pair Canadian card terms and eligibility rules with worldwide proof (85,000 customers) and a header demo link that leaves the Canadian site.",
    "missing": [
-    "A published Canadian rewards rate",
+    "Ramp's Rewards Terms (Canadian schedule), not captured in this edition",
     "Transfer fees",
     "Steps after the email (needs an application)"
    ],

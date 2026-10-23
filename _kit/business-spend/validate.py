@@ -247,8 +247,9 @@ def build_csv():
     return build.CSV_REL
 
 
-def check_outputs(c, page, csvtext):
+def check_outputs(c, page, csvtext, extra_paths=()):
     errs = []
+    mode = getattr(c, 'mode', 'draft')
     s = _Scan()
     s.feed(page)
     body = page[page.index('REPORT BODY START'):page.index('REPORT BODY END')]
@@ -259,10 +260,25 @@ def check_outputs(c, page, csvtext):
         errs.append('page: duplicate ids %s' % dup)
     if s.styles:
         errs.append('page: %d inline style attributes' % s.styles)
-    if s.canonical != [c.edition['canonical']]:
-        errs.append('page: canonical must be %s' % c.edition['canonical'])
-    if c.edition['status'] == 'draft' and (len(s.robots) != 1 or 'noindex' not in s.robots[0]):
-        errs.append('page: a draft carries exactly one noindex robots tag')
+    want = c.edition['canonical'] + ('/edition-%s' % c.edition['edition'] if mode == 'snapshot' else '')
+    if s.canonical != [want]:
+        errs.append('page: canonical must be %s' % want)
+    if len(s.robots) != 1:
+        errs.append('page: exactly one robots tag')
+    elif mode in ('draft', 'snapshot') and s.robots[0] != 'noindex, follow':
+        errs.append('page: a %s carries noindex, follow' % mode)
+    elif mode == 'release' and ('noindex' in s.robots[0] or not s.robots[0].startswith('index, follow')):
+        errs.append('page: the release page is index, follow')
+    if mode == 'draft' and ('id="bs-cite"' in page or 'class="draft-flag"' not in page):
+        errs.append('page: a draft shows the Draft label and no citation card')
+    if mode in ('release', 'snapshot'):
+        snap = '/business-spend-index/edition-%s' % c.edition['edition']
+        if 'class="draft-flag"' in page or 'Not yet published' in page:
+            errs.append('page: a published page carries no draft label')
+        if 'id="bs-cite"' not in page or 'id="bs-editions"' not in page or 'href="%s"' % snap not in page:
+            errs.append('page: a published page carries the citation card, edition history and the snapshot link')
+    if mode == 'snapshot' and '<!-- Snapshot of edition %s as first published.' % c.edition['edition'] not in page:
+        errs.append('page: the snapshot carries its header comment')
     types = []
     for raw in s.jsonld:
         try:
@@ -271,7 +287,8 @@ def check_outputs(c, page, csvtext):
             errs.append('page: JSON-LD does not parse (%s)' % e)
     if sorted(types) != ['Article', 'BreadcrumbList']:
         errs.append('page: JSON-LD types %s (expected Article and BreadcrumbList only)' % types)
-    for bad in ('Product', 'Offer', 'Review', 'AggregateRating', 'FAQPage', 'datePublished', 'dateModified'):
+    banned = ('Product', 'Offer', 'Review', 'AggregateRating', 'FAQPage', 'datePublished') + (('dateModified',) if mode == 'draft' else ())
+    for bad in banned:
         if any(bad in raw for raw in s.jsonld):
             errs.append('page: JSON-LD contains %s' % bad)
     art = [json.loads(r) for r in s.jsonld if '"Article"' in r]
@@ -289,7 +306,7 @@ def check_outputs(c, page, csvtext):
             if path.endswith('.html'):
                 errs.append('page: link with .html suffix %s' % h)
             target = os.path.join(model.ROOT, path.lstrip('/'))
-            if path not in ('/', '', '/' + build_csv()) and not (os.path.exists(target) or os.path.exists(target + '.html')):
+            if path not in ('/', '', '/' + build_csv()) and path not in extra_paths and not (os.path.exists(target) or os.path.exists(target + '.html')):
                 errs.append('page: internal link target missing %s' % h)
     for pid in EXPECTED_ORDER:
         block = body[body.index('id="bs-p-%s"' % pid):]

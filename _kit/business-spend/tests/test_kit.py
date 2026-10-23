@@ -62,12 +62,16 @@ class KitTests(unittest.TestCase):
                 self.assertTrue(o['conflicts'], o['id'])
 
     def test_draft_head(self):
+        if self.c.mode != 'draft':
+            self.skipTest('edition is published')
         self.assertIn('<meta name="robots" content="noindex, follow">', self.page)
         self.assertIn('<link rel="canonical" href="https://helpmemarketing.com/business-spend-index">', self.page)
         self.assertNotIn('datePublished', self.page)
         self.assertEqual(self.page.count('<h1>'), 1)
 
     def test_relationship_disclosure_is_confirmed_and_draft_stays(self):
+        if self.c.mode != 'draft':
+            self.skipTest('edition is published')
         rel = self.c.edition['relationship_disclosure']
         self.assertEqual(rel['status'], 'complete')
         self.assertEqual(rel['text'], 'Neither I nor Help Me Marketing has a commercial relationship with Venn, Float, Ramp, Loop, Keep or Airwallex.')
@@ -123,6 +127,34 @@ class KitTests(unittest.TestCase):
         self.assertEqual([f['id'] for f in self.c.n['findings']['items']][2], 'F3')
         self.assertIn('first screen', self.c.n['findings']['items'][2]['title'])
         self.assertNotIn('Registry', ' '.join(p['title'] for p in self.c.n['patterns']['items']))
+
+    def test_release_dry_run_renders_without_touching_the_repo(self):
+        import release
+        before = {f: open(os.path.join(model.ROOT, f), encoding='utf-8').read() for f in ('hmm-index.html', 'sitemap.xml', 'business-spend-index.html')}
+        c, gate, live, snap, csvtext, errs = release.render_all('2026-10-23', strict=False)
+        self.assertEqual(errs, [])
+        self.assertEqual(csvtext, self.csv)
+        self.assertEqual(live[live.index('REPORT BODY START'):], snap[snap.index('REPORT BODY START'):])
+        self.assertIn('content="index, follow', live)
+        self.assertIn('<meta name="robots" content="noindex, follow">', snap)
+        self.assertIn('href="https://helpmemarketing.com/business-spend-index/edition-001"', snap)
+        self.assertNotIn('datePublished', live + snap)
+        if self.c.edition['status'] == 'draft':
+            self.assertTrue(any('approvals' in g for g in gate))  # the gate stays closed until the owner records it
+        hub, hi = release.new_hub(before['hmm-index.html'], '2026-10-23')
+        sm, si = release.new_sitemap(before['sitemap.xml'], '2026-10-23')
+        self.assertEqual(hi + si, [])
+        self.assertEqual(hub.count('href="/business-spend-index"'), 1)
+        self.assertNotIn('edition-001', sm)  # snapshots stay out of the sitemap
+        self.assertIn('Not scheduled', hub)
+        after = {f: open(os.path.join(model.ROOT, f), encoding='utf-8').read() for f in before}
+        self.assertEqual(before, after)
+
+    def test_ramp_rewards_bounded(self):
+        o = self.c.obs['O-RMP-05']
+        self.assertTrue(o['statement'].startswith('A Canadian rewards rate was not found in the reviewed sources.'))
+        self.assertNotIn('non-CAD', o['statement'] + (o['conditions'] or '') + (o['interpretation'] or ''))
+        self.assertNotIn('non-CAD', self.page)
 
     def test_csv_formula_escaping(self):
         self.assertEqual(build.csv_safe('=SUM(A1)'), "'=SUM(A1)")

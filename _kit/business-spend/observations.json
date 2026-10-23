@@ -1591,11 +1591,11 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "No Canadian rewards rate is published. The pricing page mentions paying for Ramp Plus with \"the rewards you earn\".",
+   "statement": "A Canadian rewards rate was not found in the reviewed sources. The pricing page mentions paying for Ramp Plus with \"the rewards you earn\".",
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "The browser pass also read the Rewards Terms (last updated 22 September 2026): the Canada schedule excludes non-CAD purchases and says points accrue at a rate determined by Ramp. No capture file was supplied for that page.",
+   "conditions": "Ramp's Rewards Terms were not captured in this edition, so no Canadian reward conditions are reported here. A browser capture is requested in CHROME_HANDOFF.md.",
    "sources": [
     {
      "source_id": "S-RMP-PRICING",
@@ -1606,7 +1606,7 @@
    "method": "browser",
    "observed_at": "2026-10-23T12:07:20-04:00",
    "conflicts": [],
-   "interpretation": "Rewards are implied but their rate and conditions for Canada are not stated on the pages reviewed.",
+   "interpretation": "Rewards are mentioned on the pricing page, but a Canadian rate was not found in the reviewed sources.",
    "public": true,
    "reviewed_sources": [
     "S-RMP-HOME",
