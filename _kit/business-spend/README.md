@@ -27,6 +27,7 @@ How six platforms (Venn, Float, Ramp, Loop, Keep, Airwallex, in that order) expl
 | `collect.py` | The bounded server fetcher used for edition 001. Its output directory is private storage. |
 | `SOCIAL_MODULE_BRIEF.md` | Collection brief for the planned social content module (official Instagram and LinkedIn accounts, the fixed window 25 July to 22 October 2026, verification, coverage, per-post fields, inspection and metrics rules). Not collected; nothing on the page. |
 | `social.py` | Schema and checks for a future `social.json` (window, channels, verification, coverage labels, required fields, explicit nulls for missing metrics, no session material) and the renderer for the Social content view. `load_reviewed()` returns nothing until `social.json` is reviewed and approved by hand, so the page has no social tab today. |
+| `social_package_template/` | Starting point for the social collection: twelve account rows (website-linked candidates, none verified), empty posts and manifest, and a field guide. Copied outside the repository and filled in Chrome; `python3 social.py check DIR` and `python3 social.py ingest DIR` (writes a draft `social.json`, screenshot hashes only). |
 | `artwork.html` | Source of the hub card artwork (`/assets/index/business-spend/hero.webp` and `hero-704.webp`), rendered by Playwright at 1056x591. Text and outline shapes only. |
 | `CHROME_HANDOFF.md` | Browser checks still needed, the manifest format and the publication blockers. |
 | `tests/test_kit.py` | Unit tests. |

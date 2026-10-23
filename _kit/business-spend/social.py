@@ -216,3 +216,110 @@ def panel_html(c):
                        '<div class="note take"><span class="lbl">What this means for your marketing team</span><p>%s</p></div>' % E(g['take'])))
     gallery = '<div class="sub" id="bs-social-gallery"><h3>Selected posts</h3><p class="dek">%s</p>%s</div>' % (E(s['selection']), ''.join(gal))
     return cov + summary + gallery
+
+
+# ---------- Collection package: check and ingest (CHROME_HANDOFF.md, steps S1 to S6) ----------
+# A package folder holds accounts.json, posts.json, manifest-social.jsonl and screenshots/. Nothing in it is
+# committed: the check reads it where it lies, and ingest writes only social.json (status draft, screenshot
+# hashes, no images). A draft never adds a tab to the page.
+
+MANIFEST_FIELDS = ('platform', 'channel', 'role', 'account', 'url', 'captured_at', 'logged_in', 'screenshot', 'sanitised', 'sanitisation_note')
+
+
+def _read_package(d):
+    import hashlib
+    errs, out = [], {}
+    for name in ('accounts.json', 'posts.json'):
+        p = os.path.join(d, name)
+        if not os.path.exists(p):
+            errs.append('package: %s missing' % name)
+            out[name] = []
+            continue
+        with open(p, encoding='utf-8') as f:
+            out[name] = json.load(f)
+    man = []
+    p = os.path.join(d, 'manifest-social.jsonl')
+    if not os.path.exists(p):
+        errs.append('package: manifest-social.jsonl missing')
+    else:
+        with open(p, encoding='utf-8') as f:
+            for n, line in enumerate(f, 1):
+                if line.strip():
+                    try:
+                        man.append(json.loads(line))
+                    except ValueError:
+                        errs.append('manifest line %d: not JSON' % n)
+    shots = {}
+    for m in man:
+        for k in MANIFEST_FIELDS:
+            if k not in m:
+                errs.append('manifest %s: missing %s' % (m.get('screenshot', '?'), k))
+        if m.get('role') not in ('social-account', 'social-post', 'social-block'):
+            errs.append('manifest %s: role must be social-account, social-post or social-block' % m.get('screenshot'))
+        if m.get('sanitised') is not True:
+            errs.append('manifest %s: not marked sanitised; send sanitised files only' % m.get('screenshot'))
+        if not isinstance(m.get('logged_in'), bool):
+            errs.append('manifest %s: logged_in must be true or false' % m.get('screenshot'))
+        try:
+            datetime.fromisoformat(m.get('captured_at') or '')
+        except ValueError:
+            errs.append('manifest %s: captured_at must be an ISO time with offset' % m.get('screenshot'))
+        f = os.path.join(d, 'screenshots', m.get('screenshot') or '')
+        if not m.get('screenshot') or not os.path.isfile(f):
+            errs.append('manifest %s: file not in screenshots/' % m.get('screenshot'))
+        else:
+            with open(f, 'rb') as fh:
+                shots[m['screenshot']] = hashlib.sha256(fh.read()).hexdigest()
+    for p in out['posts.json']:
+        ref = p.get('capture_ref')
+        if ref not in shots:
+            errs.append('post %s: capture_ref %r is not a manifest screenshot' % (p.get('id'), ref))
+    for a in out['accounts.json']:
+        if a.get('coverage') in ('complete', 'partial', 'blocked') and not any(
+                m.get('role') in ('social-account', 'social-block') and m.get('platform') == a.get('platform') and m.get('channel') == a.get('channel') for m in man):
+            errs.append('account %s/%s: needs a profile (or block) screenshot in the manifest' % (a.get('platform'), a.get('channel')))
+    have = {(a.get('platform'), a.get('channel')) for a in out['accounts.json']}
+    for pl in PLATFORMS:
+        for ch in CHANNELS:
+            if (pl, ch) not in have:
+                errs.append('accounts.json: no row for %s/%s (record no_account, unverified or blocked rather than leaving it out)' % (pl, ch))
+    return out, man, shots, errs
+
+
+def package_to_module(d):
+    out, man, shots, errs = _read_package(d)
+    s = {'status': 'draft', 'approved': None, 'window': dict(WINDOW), 'accounts': out['accounts.json'], 'posts': out['posts.json'],
+         'gallery': [], 'summary': [], 'screenshots': [{'file': k, 'sha256': v} for k, v in sorted(shots.items())],
+         'collection': {'started_at': min((m['captured_at'] for m in man if m.get('captured_at')), default=None),
+                        'ended_at': max((m['captured_at'] for m in man if m.get('captured_at')), default=None)}}
+    errs += check(s)
+    return s, errs
+
+
+def main(argv):
+    if len(argv) != 3 or argv[1] not in ('check', 'ingest'):
+        print('usage: python3 social.py check|ingest PACKAGE_DIR')
+        return 2
+    s, errs = package_to_module(argv[2])
+    if errs:
+        print('HANDOFF REQUEST (nothing was written):\n  ' + '\n  '.join(errs))
+        return 1
+    n = len(s['posts'])
+    if argv[1] == 'check':
+        print('PASS: %d accounts, %d posts, %d screenshots; window %s' % (len(s['accounts']), n, len(s['screenshots']), window_text()))
+        return 0
+    if os.path.exists(PATH):
+        with open(PATH, encoding='utf-8') as f:
+            if json.load(f).get('status') == 'reviewed':
+                print('Refused: social.json is already reviewed; a new collection goes in a new, versioned module.')
+                return 1
+    with open(PATH, 'w', encoding='utf-8') as f:
+        json.dump(s, f, indent=1, ensure_ascii=False)
+        f.write('\n')
+    print('Wrote social.json (status draft: no tab on the page). %d posts. Review, add the gallery and summary, then record approval by hand.' % n)
+    return 0
+
+
+if __name__ == '__main__':
+    import sys
+    sys.exit(main(sys.argv))

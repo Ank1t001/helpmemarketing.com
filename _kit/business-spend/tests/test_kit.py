@@ -377,6 +377,60 @@ class SocialModuleTests(unittest.TestCase):
         self.assertIn('<b>Social posts</b> 25 July to 22 October 2026', body)
         self.assertIn('<b>Websites observed</b> 23 October 2026', body)
 
+    def test_template_package_is_refused_until_filled(self):
+        tpl = os.path.join(KIT, 'social_package_template')
+        s, errs = social.package_to_module(tpl)
+        self.assertTrue(any('logged in' in e for e in errs))
+        self.assertEqual(len(s['accounts']), 12)
+        self.assertTrue(all(a['verified'] is False for a in s['accounts']))   # nothing pre-verified
+        self.assertEqual(s['posts'], [])
+
+    def test_filled_package_checks_and_ingests_as_draft(self):
+        d = tempfile.mkdtemp()
+        try:
+            os.makedirs(os.path.join(d, 'screenshots'))
+            accts = []
+            for pl in social.PLATFORMS:
+                for ch in social.CHANNELS:
+                    accts.append({'platform': pl, 'channel': ch, 'handle': None, 'url': None, 'verified': False, 'verification': 'fixture',
+                                  'scope': 'unclear', 'logged_in': False, 'coverage': 'no_account', 'coverage_note': 'fixture',
+                                  'earliest_reached': None, 'posts_in_window': None})
+            a = _fixture()['accounts'][0]
+            accts = [x for x in accts if (x['platform'], x['channel']) != ('loop', 'instagram')] + [a]
+            post = _fixture()['posts'][0]
+            post['capture_ref'] = 'loop-ig-1.png'
+            man = [{'platform': 'loop', 'channel': 'instagram', 'role': 'social-account', 'account': 'example_handle', 'url': 'https://example.invalid/x',
+                    'captured_at': '2026-11-01T10:00:00-04:00', 'logged_in': False, 'screenshot': 'loop-ig-profile.png', 'sanitised': True, 'sanitisation_note': 'fixture'},
+                   {'platform': 'loop', 'channel': 'instagram', 'role': 'social-post', 'account': 'example_handle', 'url': post['url'],
+                    'captured_at': '2026-11-01T10:01:00-04:00', 'logged_in': False, 'screenshot': 'loop-ig-1.png', 'sanitised': True, 'sanitisation_note': 'fixture',
+                    'published_on': post['published_on']}]
+            for m in man:
+                with open(os.path.join(d, 'screenshots', m['screenshot']), 'wb') as f:
+                    f.write(b'fixture')
+            with open(os.path.join(d, 'accounts.json'), 'w') as f:
+                json.dump(accts, f)
+            with open(os.path.join(d, 'posts.json'), 'w') as f:
+                json.dump([post], f)
+            with open(os.path.join(d, 'manifest-social.jsonl'), 'w') as f:
+                f.write('\n'.join(json.dumps(m) for m in man))
+            s, errs = social.package_to_module(d)
+            self.assertEqual(errs, [])
+            self.assertEqual(s['status'], 'draft')
+            self.assertEqual(len(s['screenshots']), 2)
+            out = os.path.join(d, 'social.json')
+            old, social.PATH = social.PATH, out
+            try:
+                self.assertEqual(social.main(['social.py', 'ingest', d]), 0)
+                social.PATH = out
+                self.assertIsNone(social.load_reviewed())        # a draft adds no view
+            finally:
+                social.PATH = old
+            os.remove(os.path.join(d, 'screenshots', 'loop-ig-1.png'))
+            self.assertTrue(any('capture_ref' in e or 'not in screenshots' in e for e in social.package_to_module(d)[1]))
+        finally:
+            shutil.rmtree(d)
+
 
 if __name__ == '__main__':
     unittest.main()
+

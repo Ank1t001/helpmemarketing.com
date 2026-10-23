@@ -46,7 +46,9 @@ These steps differ from the website rules below in one way: public posts may be 
 
 `posts.json`, one object per post: `id`, `platform`, `channel`, `account`, `url`, `published_on` (YYYY-MM-DD, Toronto), `date_method` (visible_date, post_page_timestamp or relative_date_converted), `captured_at` (with offset), `scope`, `relation` (original, repost or collaboration), `format` (image, carousel, video, text, link or document), `topic` (codebook in the brief), `question` (the customer question the post addresses, in your words), `product`, `geography`, `hook` (opening line, short quote), `proof` (or null), `cta` (destination or null), `inspected` (what you looked at), `inspection` (cover_and_caption, all_slides, watched_in_full or partial), `capture_ref` (the screenshot file name), `metrics` (`{"likes": 12, "comments": null, "views": null, "captured_at": "..."}` on Instagram; `reactions`, `comments`, `reposts` on LinkedIn).
 
-`manifest-social.jsonl` uses the manifest format below with `role` `social-account` or `social-post`, plus `channel`, `account`, `logged_in` and, for posts, `published_on`.
+`manifest-social.jsonl` uses the manifest format below with `role` `social-account`, `social-post` or `social-block`, plus `channel`, `account`, `logged_in` and, for posts, `published_on`.
+
+**Start from `social_package_template/`** (copy it outside the repository): it holds the twelve account rows pre-filled with the website-linked candidates (none verified), empty `posts.json` and manifest, and a README with every field. Before sending, run `python3 social.py check /path/to/package`: it prints a handoff request and writes nothing until the package is complete. Status 23 October 2026: not started; this session had no access to the owner's Chrome.
 
 ## Forms script: deploy `research_business_spend` (founder, in Chrome; nothing on the website changes)
 
