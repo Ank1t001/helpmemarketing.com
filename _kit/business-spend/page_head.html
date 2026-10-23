@@ -1,0 +1,89 @@
+<style>
+/* Business Cards & Spend Management Index (draft, edition 001): page-scoped rules on top of the shared .msi block. Spec: Design System note "Business Cards & Spend Management Index" (2026-10-23). */
+.msi.msi header{grid-template-columns:1fr;max-width:860px}
+.msi.msi header::after{display:none}
+.msi.msi header .scope{max-width:72ch;color:var(--text-muted);margin:0}
+.msi.msi .livebar .draft-flag{border:1px solid var(--border-strong);border-radius:100px;padding:2px 10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:11.5px;color:var(--text)}
+.msi.msi .hero-act{margin:0}
+.msi.msi .hero-act .btn{margin-right:12px}
+.msi.msi .card .dek,.msi.msi .sec-head .dek,.msi.msi section>.dek,.msi.msi .pnote,.msi.msi .note p,.msi.msi .plat dd,.msi.msi .tests dd{max-width:72ch}
+.msi.msi .note.take{border-left-color:var(--cta);margin-top:var(--s4)}
+.msi.msi .note.take>.lbl{color:var(--cta-text,var(--cta))}
+.msi.msi .note.gap{border-left-style:dashed}
+.msi.msi .q{display:block;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:4px}
+.msi.msi .find+.find{margin-top:var(--s5);padding-top:var(--s5);border-top:1px solid var(--border)}
+.msi.msi .evlinks{font-size:13px;color:var(--text-muted)}
+.msi.msi .evlinks a,.msi.msi .evlist a,.msi.msi .grid2 .card a,.msi.msi #bs-help .dek a,.msi.msi .dlinks a{color:var(--cta-text,var(--cta));text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.msi.msi .st{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--border-strong);border-radius:100px;padding:1px 8px;margin:4px 0 0;color:var(--text-muted);white-space:nowrap}
+.msi.msi .st.st-conflicting{color:var(--text);border-style:dashed}
+.msi.msi .st.st-explicitly_unavailable{color:var(--text)}
+.msi.msi .cell-sub{display:block;white-space:normal;font-size:12.5px}
+.msi.msi .tw[tabindex]:focus-visible{outline:2px solid var(--cta);outline-offset:2px}
+.msi.msi table{font-size:13.5px}
+.msi.msi .bs td{white-space:normal;min-width:8.5em;vertical-align:top}
+.msi.msi .bs td.brandcell{min-width:7em}
+.msi.msi .bs td.miss{color:var(--text-tertiary)}
+.msi.msi .tblock+.tblock{margin-top:var(--s5)}
+.msi.msi .tblock h3{margin-bottom:var(--s2)}
+.msi.msi details.srcs{margin-top:16px}
+.msi.msi .evlist{list-style:none;margin:0;padding:0}
+.msi.msi .evlist>li{padding:12px 0;border-top:1px solid var(--border);font-size:14px}
+.msi.msi .evlist>li:first-child{border-top:0}
+.msi.msi .evlist>li:target{outline:2px solid var(--cta);outline-offset:4px;border-radius:4px}
+.msi.msi .evlist .cat{font-weight:700;color:var(--text)}
+.msi.msi .evlist blockquote{margin:6px 0;padding:0 0 0 12px;border-left:2px solid var(--border-strong);color:var(--text-muted);font-style:normal}
+.msi.msi .evlist .src{display:block;font-size:12.5px;color:var(--text-tertiary)}
+.msi.msi .evlist .interp{display:block;margin-top:4px;color:var(--text-muted)}
+.msi.msi .ex{margin-top:var(--s4)}
+.msi.msi .ex .kind{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary)}
+.msi.msi .plat{margin-top:var(--s5)}
+.msi.msi .plat h3{margin-bottom:var(--s2)}
+.msi.msi .plat dl,.msi.msi .tests dl{display:grid;grid-template-columns:minmax(10em,13em) 1fr;gap:10px 18px;margin:var(--s3) 0}
+.msi.msi .plat dt,.msi.msi .tests dt{color:var(--text-tertiary);font-size:13px;font-weight:600}
+.msi.msi .plat dd,.msi.msi .tests dd{margin:0;color:var(--text)}
+.msi.msi .tests>li{margin-bottom:var(--s5)}
+.msi.msi .tests>li>b{font-size:16px}
+.msi.msi .statdefs{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:12px 0}
+.msi.msi .statdefs dt{font-weight:700}
+.msi.msi .statdefs dd{margin:0}
+.msi.msi #bs-method .grid2{margin:24px 0 16px;align-items:stretch}
+.msi.msi #bs-method .grid2>.card{margin:0}
+.msi.msi #bs-help .btn{margin-top:16px}
+.msi.msi footer{margin-top:32px}
+@media(max-width:720px){
+.msi.msi .livebar{margin-bottom:0}
+.msi.msi .card .note.take{background:none;border:0;border-left:3px solid var(--cta);border-radius:0;padding:2px 0 2px 12px}
+.msi.msi .plat dl,.msi.msi .tests dl{grid-template-columns:1fr;gap:2px}
+.msi.msi .plat dd,.msi.msi .tests dd{margin-bottom:10px}
+}
+@media(max-width:900px){
+.msi.msi .ri-nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.msi.msi .ri-nav::-webkit-scrollbar{display:none}
+.msi.msi .ri-nav a{flex:none;white-space:nowrap}
+.msi.msi .tw.cards{overflow:visible;border:0;background:none;border-radius:0}
+.msi.msi .tw.cards table,.msi.msi .tw.cards tbody,.msi.msi .tw.cards tr,.msi.msi .tw.cards td{display:block;width:auto;min-width:0}
+.msi.msi .tw.cards thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.msi.msi .tw.cards tr{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px 16px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--r2);padding:16px;margin-bottom:12px}
+.msi.msi .tw.cards td{padding:0;border:0;text-align:left;white-space:normal}
+.msi.msi .tw.cards td.brandcell{grid-column:1/-1;font-size:16px}
+.msi.msi .tw.cards td[data-label]::before{content:attr(data-label);display:block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:2px}
+}
+</style>
+<script data-bsi-open>
+/* Evidence links point inside closed <details>: open the one that holds the target, so the link lands on the quoted wording. Without JavaScript the browser still jumps to it where details auto-expand. */
+(function(){
+  function open(){
+    var id = location.hash && location.hash.slice(1); if (!id) return;
+    var el = document.getElementById(id); if (!el) return;
+    for (var p = el.parentNode; p; p = p.parentNode) { if (p.tagName === 'DETAILS') p.open = true; }
+  }
+  window.addEventListener('hashchange', open);
+  document.addEventListener('DOMContentLoaded', open);
+})();
+document.addEventListener('DOMContentLoaded', function () {
+  function push(o){ try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(o); } catch (e) {} }
+  document.querySelectorAll('[data-review-cta^="research_"]').forEach(function (a) {
+    a.addEventListener('click', function () { push({ event: 'review_cta_click', entry_point: a.getAttribute('data-review-cta') }); });
+  });
+});
+</script>

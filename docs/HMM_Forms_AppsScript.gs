@@ -216,7 +216,7 @@ function leadSource_(form, d) {
   if (form === 'audit-help') return /^fast$/.test(pick_(d, 'client_signal')) ? 'marketing audit | signal fast' : 'marketing audit';
   var parts = ['contact form', pick_(d, 'contact_intent') === 'review' ? 'free review' : 'general'];
   var entry = pick_(d, 'entry_point');
-  if (/^(home_hero|home_final|home_journey|work_final|industry_(healthcare|finance|dtc|saas)_(hero|final)|research_(hub|gta_medspa|gta_medspa_help)|direct)$/.test(entry)) parts.push('entry ' + entry);
+  if (/^(home_hero|home_final|home_journey|work_final|industry_(healthcare|finance|dtc|saas)_(hero|final)|research_(hub|gta_medspa|gta_medspa_help|business_spend)|direct)$/.test(entry)) parts.push('entry ' + entry);
   ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) {
     var v = pick_(d, k).replace(/[^\w.\-]/g, '').slice(0, 60);
     if (v) parts.push(k.replace('utm_', '') + ' ' + v);
@@ -523,7 +523,7 @@ function testRouting() {
 // Logs the Source text each review link would produce. Writes no row, sends no email and skips Turnstile,
 // so it is safe to run on the production script at any time. An unknown entry must show no "entry" part.
 function testLeadSources() {
-  ['research_hub', 'research_gta_medspa', 'research_gta_medspa_help', 'home_hero', 'direct', 'not_a_real_entry'].forEach(function (entry) {
+  ['research_hub', 'research_gta_medspa', 'research_gta_medspa_help', 'research_business_spend', 'home_hero', 'direct', 'not_a_real_entry'].forEach(function (entry) {
     Logger.log(entry + ' -> ' + leadSource_('contact', { contact_intent: 'review', entry_point: entry }));
   });
 }

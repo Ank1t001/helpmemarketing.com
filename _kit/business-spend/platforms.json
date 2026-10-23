@@ -1,0 +1,11 @@
+{
+  "order": ["venn", "float", "ramp", "loop", "keep", "airwallex"],
+  "platforms": {
+    "venn": {"code": "VEN", "name": "Venn", "legal_entity_as_published": "Venn Software Inc.", "canadian_homepage": "https://www.venn.ca/"},
+    "float": {"code": "FLT", "name": "Float", "legal_entity_as_published": "Float Financial Solutions Inc.", "canadian_homepage": "https://floatfinancial.com/"},
+    "ramp": {"code": "RMP", "name": "Ramp", "legal_entity_as_published": "Ramp Business Corporation", "canadian_homepage": "https://ramp.com/en-ca"},
+    "loop": {"code": "LOP", "name": "Loop", "legal_entity_as_published": "Loop Financial Inc.", "canadian_homepage": "https://www.bankonloop.com/en-ca"},
+    "keep": {"code": "KEP", "name": "Keep", "legal_entity_as_published": null, "canadian_homepage": "https://www.trykeep.com/"},
+    "airwallex": {"code": "AWX", "name": "Airwallex", "legal_entity_as_published": "Airwallex (Canada) International Payments Limited", "canadian_homepage": "https://www.airwallex.com/en-ca"}
+  }
+}

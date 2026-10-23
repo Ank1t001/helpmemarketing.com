@@ -1,0 +1,15 @@
+{
+  "edition": "001",
+  "status": "draft",
+  "readiness": "Draft with material evidence gaps",
+  "timezone": "America/Toronto",
+  "collection_started_at": "2026-10-23T10:39:00-04:00",
+  "collection_ended_at": "2026-10-23T10:48:57-04:00",
+  "collection_methods": ["server fetch (curl), no JavaScript, no cookies"],
+  "browser_observation": {"status": "not_checked", "note": "No browser observation has been made for this edition. Items that need a real browser are listed in CHROME_HANDOFF.md."},
+  "published_at": null,
+  "modified_at": null,
+  "canonical": "https://helpmemarketing.com/business-spend-index",
+  "relationship_disclosure": {"status": "not_established", "note": "Whether Help Me Marketing or Ankit Kumar has any commercial connection (client, affiliate, referral, sponsorship, investment, paid account) with any of the six providers has not been confirmed. Publication is blocked until it is."},
+  "approvals": {"editorial": null, "relationship_disclosure": null, "publication": null}
+}

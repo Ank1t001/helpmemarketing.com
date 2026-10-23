@@ -1,0 +1,2870 @@
+{
+ "observations": [
+  {
+   "id": "O-VEN-01",
+   "platform": "venn",
+   "product": "Venn Mastercard Charge Card",
+   "layer": "product",
+   "category": "card_model",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The cardholder agreement describes a charge card that spends funds already in the card account, with 0% interest and a minimum payment of 100% of the balance.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-LEGAL-CARD",
+     "excerpt": "Funds must be available in your Card Account prior to using the Card"
+    },
+    {
+     "source_id": "S-VEN-LEGAL-CARD",
+     "excerpt": "Your minimum payment is 100% of the outstanding balance owing"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:59-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-02",
+   "platform": "venn",
+   "product": "Venn Mastercard Charge Card",
+   "layer": "product",
+   "category": "network_issuer",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The card is a Mastercard issued by Peoples Trust Company.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-CARDS",
+     "excerpt": "Venn Mastercard Charge Card is issued by Peoples Trust Company"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:57-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-03",
+   "platform": "venn",
+   "product": "Venn Mastercard Charge Card",
+   "layer": "product",
+   "category": "card_format",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Virtual and physical cards, with limits and category restrictions.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-CARDS",
+     "excerpt": "Create unlimited virtual or physical cards, set spending limits, and restrict categories."
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:57-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-04",
+   "platform": "venn",
+   "product": "Venn Mastercard Charge Card",
+   "layer": "product",
+   "category": "rewards",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The cards page offers 1% cashback with no caps; the pricing page footnote caps cashback on two of the four plans.",
+   "amount": 1,
+   "units": "% cashback on card spend",
+   "currency": null,
+   "conditions": "Pricing footnote: cashback applies to the first $5,000 CAD of card spend a month on Essentials and $25,000 CAD on Plus; unlimited on Pro and Custom.",
+   "sources": [
+    {
+     "source_id": "S-VEN-CARDS",
+     "excerpt": "Earn 1% cashback on all transactions and save 3% on USD spend with no fx fees"
+    },
+    {
+     "source_id": "S-VEN-CARDS",
+     "excerpt": "no tiers, thresholds, or caps"
+    },
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "Cashback is limited to card spend on the first $5,000 CAD/month"
+    },
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "is unlimited on the Pro plan and Custom plan"
+    }
+   ],
+   "status": "conflicting",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:58-04:00",
+   "conflicts": [
+    {
+     "with": null,
+     "note": "The cards page says \"no tiers, thresholds, or caps\"; the pricing footnote sets monthly caps on Essentials and Plus."
+    }
+   ],
+   "interpretation": "A reader who sees only the cards page could take the 1% as uncapped on every plan.",
+   "public": true
+  },
+  {
+   "id": "O-VEN-05",
+   "platform": "venn",
+   "product": null,
+   "layer": "product",
+   "category": "plans",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Four plans: Essentials $0 a month (up to 3 users), Plus $40, Pro $100 and Custom, with a 14-day trial.",
+   "amount": null,
+   "units": null,
+   "currency": "CAD",
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "$0/mo"
+    },
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "Up to 3 users"
+    },
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "$40/mo"
+    },
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "$100/mo"
+    },
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "Risk Free. 14-Day trial!"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:58-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-06",
+   "platform": "venn",
+   "product": null,
+   "layer": "product",
+   "category": "spend_controls",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Daily, weekly, monthly or annual limits on any card or team, and receipt sync to QuickBooks or Xero.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-CARDS",
+     "excerpt": "Daily, weekly, monthly, or annual limits on any card or team."
+    },
+    {
+     "source_id": "S-VEN-CARDS",
+     "excerpt": "sync every receipt to QuickBooks or Xero"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:57-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-07",
+   "platform": "venn",
+   "product": null,
+   "layer": "product",
+   "category": "availability",
+   "market": "Canada",
+   "eligibility": "Businesses in Quebec",
+   "plan": null,
+   "statement": "Venn states that it is not available to businesses in Quebec.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-HOME",
+     "excerpt": "Venn is currently not available to businesses in Quebec"
+    }
+   ],
+   "status": "explicitly_unavailable",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:00-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-08",
+   "platform": "venn",
+   "product": "Venn Mastercard Charge Card",
+   "layer": "cross_border",
+   "category": "xb_card_spending",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Card spending in CAD, USD, EUR or GBP from a matching-currency account carries no FX fee; the agreement sets a Foreign Exchange Service Fee of 0.45% to 0.25% by plan for transactions in a currency other than Canadian dollars.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "No-fee claim is scoped to spending from a matching-currency balance; otherwise the plan FX fee applies on top of the Mastercard rate.",
+   "sources": [
+    {
+     "source_id": "S-VEN-CARDS",
+     "excerpt": "No FX fees when spending local from your CAD/USD/EUR/GBP account"
+    },
+    {
+     "source_id": "S-VEN-LEGAL-CARD",
+     "excerpt": "0.45-0.25%†. Varies by plan."
+    },
+    {
+     "source_id": "S-VEN-LEGAL-CARD",
+     "excerpt": "the foreign exchange service fee we assess when you complete transactions in a currency other than Canadian dollars"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:59-04:00",
+   "conflicts": [],
+   "interpretation": "The \"no FX fees\" line describes same-currency settlement, not every foreign purchase.",
+   "public": true
+  },
+  {
+   "id": "O-VEN-09",
+   "platform": "venn",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_fx",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Published FX rate by plan: 0.45% on Essentials, 0.35% on Plus, 0.25% on Pro.",
+   "amount": 0.45,
+   "units": "% FX rate (Essentials; lower on paid plans)",
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "0.45% FX rate"
+    },
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "0.35% FX rate"
+    },
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "0.25% FX rate"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:58-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-10",
+   "platform": "venn",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_accounts",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Accounts receive money in four currencies (CAD, USD, GBP, EUR); balances are held at Bank of Montreal.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-HELP-CURRENCIES",
+     "excerpt": "4 different currencies namely CAD, USD, GBP and EUR to receive money into your account"
+    },
+    {
+     "source_id": "S-VEN-HOME",
+     "excerpt": "Venn Account Balances are held at Bank of Montreal"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:59-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-11",
+   "platform": "venn",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_transfers",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The number of supported countries and currencies is stated three different ways across the site and help centre.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-HOME",
+     "excerpt": "200+ countries in 30+ currencies"
+    },
+    {
+     "source_id": "S-VEN-TRANSFERS",
+     "excerpt": "180+ countries and 36+ currencies"
+    },
+    {
+     "source_id": "S-VEN-HELP-CURRENCIES",
+     "excerpt": "33 different currencies"
+    }
+   ],
+   "status": "conflicting",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:59-04:00",
+   "conflicts": [
+    {
+     "with": null,
+     "note": "200+ countries and 30+ currencies (homepage), 180+ countries and 36+ currencies (transfers page), 33 currencies to send (help article)."
+    }
+   ],
+   "interpretation": "None of the three is wrong on its own terms, but a buyer comparing coverage cannot tell which one is current.",
+   "public": true
+  },
+  {
+   "id": "O-VEN-12",
+   "platform": "venn",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_transfers",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Transfer fees by plan: $2 per local transfer and $10 per international wire on Essentials; free local transfers on Plus and Pro, with wires at $8 and $6.",
+   "amount": null,
+   "units": null,
+   "currency": "CAD",
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "$2 per local transfer (EFT, ACH, SEPA)"
+    },
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "$10 per international wire"
+    },
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "$8 per international wire"
+    },
+    {
+     "source_id": "S-VEN-PRICING",
+     "excerpt": "$6 per international wire"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:58-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-13",
+   "platform": "venn",
+   "product": null,
+   "layer": "product",
+   "category": "registration",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Venn Software Inc. states it is registered with FINTRAC as a money service business (M22941967).",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-HOME",
+     "excerpt": "is registered as a money service business with the Financial Transactions and Reports Analysis Centre of Canada (FINTRAC) under registration number M22941967"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:00-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-14",
+   "platform": "venn",
+   "product": null,
+   "layer": "product",
+   "category": "funds_holding",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Account balances are said to be held at Bank of Montreal, a CDIC member, and eligible for CDIC deposit insurance up to applicable limits.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-HOME",
+     "excerpt": "Venn Account Balances are held at Bank of Montreal"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:00-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-15",
+   "platform": "venn",
+   "product": null,
+   "layer": "marketing",
+   "category": "proof",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Customer counts differ on the same site: 15,000+ businesses, 4,000+ Canadian businesses and more than 15,000 Canadian businesses.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-VEN-HOME",
+     "excerpt": "Join 15,000+ businesses using Venn"
+    },
+    {
+     "source_id": "S-VEN-HOME",
+     "excerpt": "Supporting 4,000+ Canadian businesses"
+    },
+    {
+     "source_id": "S-VEN-HOME",
+     "excerpt": "more than 15,000 Canadian businesses"
+    }
+   ],
+   "status": "conflicting",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:00-04:00",
+   "conflicts": [
+    {
+     "with": null,
+     "note": "Three customer counts on one homepage: 15,000+, 4,000+ Canadian and more than 15,000 Canadian."
+    }
+   ],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-16",
+   "platform": "venn",
+   "product": null,
+   "layer": "marketing",
+   "category": "positioning",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Transfers are positioned on savings against banks.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "No basis for the comparison was found on the page reviewed.",
+   "sources": [
+    {
+     "source_id": "S-VEN-TRANSFERS",
+     "excerpt": "FX rates up to 2.75% cheaper than the banks"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:58-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-17",
+   "platform": "venn",
+   "product": null,
+   "layer": "marketing",
+   "category": "case_study",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The Flow case study reports time saved in qualitative terms.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Outcome attributed to the customer story; no figure or method given.",
+   "sources": [
+    {
+     "source_id": "S-VEN-CASE",
+     "excerpt": "Hours saved every week"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:00-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-VEN-18",
+   "platform": "venn",
+   "product": null,
+   "layer": "marketing",
+   "category": "journey",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The sign-up page asks for email and password and promises a five-minute start; the full application steps run in a JavaScript app that a server fetch cannot read.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Server fetch only; the steps after the first screen are not checked.",
+   "sources": [
+    {
+     "source_id": "S-VEN-JOURNEY",
+     "excerpt": "Get started in 5 minutes"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:00-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-01",
+   "platform": "float",
+   "product": null,
+   "layer": "product",
+   "category": "card_model",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Two card models: a pre-funded card limited to the Float balance, with no underwriting, and Float Charge, an unsecured credit product with 15- or 30-day terms.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Float Charge is \"Subject to terms, eligibility criteria and caps\".",
+   "sources": [
+    {
+     "source_id": "S-FLT-CARDS",
+     "excerpt": "spend is limited to available Float balance"
+    },
+    {
+     "source_id": "S-FLT-CARDS",
+     "excerpt": "no underwriting or eligibility requirements"
+    },
+    {
+     "source_id": "S-FLT-CARDS",
+     "excerpt": "up to 30-day repayment terms"
+    },
+    {
+     "source_id": "S-FLT-CARDS-CHARGE",
+     "excerpt": "Interest-free, unsecured credit"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:01-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-02",
+   "platform": "float",
+   "product": "Float Visa Card",
+   "layer": "product",
+   "category": "network_issuer",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The legal page names a Visa card issued by Float Financial Solutions Inc. under licence from Visa.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-FLT-LEGAL",
+     "excerpt": "Cards are issued by Float Financial Solutions Inc. under license by Visa"
+    },
+    {
+     "source_id": "S-FLT-CARDS-CHARGE",
+     "excerpt": "The Float Visa Card is issued by Float Financial Solutions Inc. pursuant to a licence from Visa International"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:03-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-03",
+   "platform": "float",
+   "product": null,
+   "layer": "product",
+   "category": "network_issuer",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The cards page says the cards are accepted wherever Visa or Mastercard is accepted, while the legal pages describe a Visa card.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-FLT-CARDS",
+     "excerpt": "Accepted anywhere Visa or Mastercard is welcome"
+    },
+    {
+     "source_id": "S-FLT-LEGAL",
+     "excerpt": "Cards are issued by Float Financial Solutions Inc. under license by Visa"
+    }
+   ],
+   "status": "conflicting",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:03-04:00",
+   "conflicts": [
+    {
+     "with": "O-FLT-02",
+     "note": "Marketing copy mentions Visa or Mastercard acceptance; the agreement names Visa only. A browser check of the card artwork and agreement list is needed."
+    }
+   ],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-04",
+   "platform": "float",
+   "product": null,
+   "layer": "product",
+   "category": "card_format",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Up to 20 physical cards and unlimited virtual cards on the free plan; more physical cards need the Professional plan.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-FLT-PRICING",
+     "excerpt": "Up to 20 physical & unlimited virtual cards with custom limits and controls"
+    },
+    {
+     "source_id": "S-FLT-PRICING",
+     "excerpt": "To issue more than twenty physical cards move to Professional plan."
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:02-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-05",
+   "platform": "float",
+   "product": null,
+   "layer": "product",
+   "category": "rewards",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "\"Up to 1% cashback\" appears across the site; the pricing footnote sets the condition: 1% only above $25k of monthly spending per card program.",
+   "amount": 1,
+   "units": "% cashback (maximum)",
+   "currency": null,
+   "conditions": "1% applies with over $25k in monthly spending per card program (USD, CAD). The rate below that threshold was not found on the pages reviewed.",
+   "sources": [
+    {
+     "source_id": "S-FLT-HOME",
+     "excerpt": "Up to 1% cashback"
+    },
+    {
+     "source_id": "S-FLT-PRICING",
+     "excerpt": "1% with over $25k in monthly spending per card program"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:02-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-06",
+   "platform": "float",
+   "product": null,
+   "layer": "product",
+   "category": "plans",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Essentials at $0 per user a month; Professional \"starts at $100/mo\" with the first 10 users included; Enterprise is custom.",
+   "amount": null,
+   "units": null,
+   "currency": "CAD",
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-FLT-PRICING",
+     "excerpt": "starts at $100/mo and includes your first 10 users"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:02-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-07",
+   "platform": "float",
+   "product": "Float Charge",
+   "layer": "product",
+   "category": "eligibility",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Float Charge credit is offered \"up to $3M+\" subject to terms, eligibility criteria and caps, with no personal guarantee mentioned on the homepage.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-FLT-CARDS",
+     "excerpt": "Apply for unsecured, 15-day or 30-day credit terms with high limits (up to $3M+)"
+    },
+    {
+     "source_id": "S-FLT-CARDS",
+     "excerpt": "Subject to terms, eligibility criteria and caps"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:00-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-08",
+   "platform": "float",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_card_spending",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "USD cards are promoted with no foreign transaction fees and no USD account required; the agreement says the Visa conversion rate can include a margin, markup, spread or other adjustment.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "No foreign transaction fee is not the same as no conversion markup when a purchase is converted.",
+   "sources": [
+    {
+     "source_id": "S-FLT-FX",
+     "excerpt": "No foreign transaction fees"
+    },
+    {
+     "source_id": "S-FLT-FX",
+     "excerpt": "no USD account required"
+    },
+    {
+     "source_id": "S-FLT-LEGAL",
+     "excerpt": "any margin, markup, spread or other adjustment"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:03-04:00",
+   "conflicts": [],
+   "interpretation": "The claim is scoped to USD cards; the agreement covers conversion separately.",
+   "public": true
+  },
+  {
+   "id": "O-FLT-09",
+   "platform": "float",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_fx",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The pricing page lists 0.25% FX rates on Essentials; the FX page says \"Save up to 90% on FX\" and that rates are from the previous day, not real time.",
+   "amount": 0.25,
+   "units": "% FX rate (Essentials)",
+   "currency": null,
+   "conditions": "The basis for \"up to 90%\" was not found on the page reviewed.",
+   "sources": [
+    {
+     "source_id": "S-FLT-PRICING",
+     "excerpt": "0.25% FX"
+    },
+    {
+     "source_id": "S-FLT-FX",
+     "excerpt": "Save up to 90% on FX"
+    },
+    {
+     "source_id": "S-FLT-FX",
+     "excerpt": "FX rates are from the previous day and not real-time"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:02-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-10",
+   "platform": "float",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_accounts",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Business accounts hold CAD and USD with routing details for EFT, ACH and wires. The CAD interest rate appears as an unfilled placeholder in the served page; the legal page gives 2.5% CAD and 2.75% USD.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "The placeholder may be filled by JavaScript in a browser; a Chrome check is listed.",
+   "sources": [
+    {
+     "source_id": "S-FLT-ACCOUNTS",
+     "excerpt": "Float Business Accounts let you receive and store business funds with account routing details for EFT, ACH and wire transfers."
+    },
+    {
+     "source_id": "S-FLT-ACCOUNTS",
+     "excerpt": "{{interest-rate}}"
+    },
+    {
+     "source_id": "S-FLT-LEGAL",
+     "excerpt": "Float’s standard interest rate is currently 2.5% annualized for CAD and 2.75% for USD, variable, and may change at any time."
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:03-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-11",
+   "platform": "float",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_transfers",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Transfer pricing was not found on the pages reviewed.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [],
+   "status": "not_found",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:02-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "reviewed_sources": [
+    "S-FLT-PRICING",
+    "S-FLT-ACCOUNTS",
+    "S-FLT-FX"
+   ]
+  },
+  {
+   "id": "O-FLT-12",
+   "platform": "float",
+   "product": null,
+   "layer": "product",
+   "category": "registration",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Float states it is registered with FINTRAC as a money services business (M23497654) and as a payment service provider under the Retail Payment Activities Act.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-FLT-HOME",
+     "excerpt": "registered with FINTRAC as a money services business (M23497654)"
+    },
+    {
+     "source_id": "S-FLT-ACCOUNTS",
+     "excerpt": "a payment services provider registered under the RPAA"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:02-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-13",
+   "platform": "float",
+   "product": null,
+   "layer": "product",
+   "category": "funds_holding",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Funds are said to be held in trust at CDIC member institutions and eligible for CDIC deposit insurance, subject to eligibility and limits.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-FLT-CARDS-CHARGE",
+     "excerpt": "are held in trust in one or more segregated accounts at one or more Canadian financial institutions that are members of the Canada Deposit Insurance Corporation"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:01-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-14",
+   "platform": "float",
+   "product": null,
+   "layer": "marketing",
+   "category": "page_quality",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Two template placeholders appear unfilled in the served pages: the CAD interest rate and the customer count.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Server fetch; a browser may fill them. Listed for a Chrome check.",
+   "sources": [
+    {
+     "source_id": "S-FLT-HOME",
+     "excerpt": "{{interest-rate}}"
+    },
+    {
+     "source_id": "S-FLT-HOME",
+     "excerpt": "{{customer-count}}"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:00-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-15",
+   "platform": "float",
+   "product": null,
+   "layer": "marketing",
+   "category": "case_study",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The Impact Kitchen story reports more than 100 hours a year saved.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Outcome attributed to the customer story; method not stated.",
+   "sources": [
+    {
+     "source_id": "S-FLT-CASE",
+     "excerpt": "100+ hours a year"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:03-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-FLT-16",
+   "platform": "float",
+   "product": null,
+   "layer": "marketing",
+   "category": "journey",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The demo request starts with a work email; the form states that submitting the email opts the visitor in to marketing emails.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Not submitted. Later steps not checked.",
+   "sources": [
+    {
+     "source_id": "S-FLT-JOURNEY",
+     "excerpt": "By submitting your email, you agree to opt in to marketing emails"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:04-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-RMP-01",
+   "platform": "ramp",
+   "product": "Ramp Visa Business Card",
+   "layer": "product",
+   "category": "network_issuer",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Ramp Visa business cards are issued in Canada by Peoples Trust Company.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-RMP-CARDS",
+     "excerpt": "Ramp Visa Business Cards are issued in Canada by Peoples Trust Company"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:12-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-RMP-02",
+   "platform": "ramp",
+   "product": "Ramp Visa Business Card",
+   "layer": "product",
+   "category": "card_model",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The Canadian card agreement was not reached: the legal index returned an empty page to a server fetch, so whether the card is charge, credit or pre-funded is not confirmed.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [],
+   "status": "not_found",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:14-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "reviewed_sources": [
+    "S-RMP-LEGAL-INDEX",
+    "S-RMP-CARDS",
+    "S-RMP-PRICING"
+   ]
+  },
+  {
+   "id": "O-RMP-03",
+   "platform": "ramp",
+   "product": null,
+   "layer": "product",
+   "category": "card_format",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "CAD cards are physical and virtual; USD cards are virtual only.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-RMP-CARDS",
+     "excerpt": "Give your team unlimited physical and virtual cards with individual limits."
+    },
+    {
+     "source_id": "S-RMP-HOME",
+     "excerpt": "USD cards are virtual only"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:12-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-RMP-04",
+   "platform": "ramp",
+   "product": null,
+   "layer": "product",
+   "category": "eligibility",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Eligibility asks for at least one Canadian, US or UK-registered entity, a Business Number and a linked Canadian bank account, underwritten on the business with no personal guarantee.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-RMP-CARDS",
+     "excerpt": "at least one Canadian, US, or UK-registered entity"
+    },
+    {
+     "source_id": "S-RMP-CARDS",
+     "excerpt": "Business Number (BN)"
+    },
+    {
+     "source_id": "S-RMP-CARDS",
+     "excerpt": "no personal guarantee"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:12-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-RMP-05",
+   "platform": "ramp",
+   "product": null,
+   "layer": "product",
+   "category": "rewards",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "A Canadian cashback or rewards rate was not found; the pricing FAQ mentions paying for Ramp Plus with \"the rewards you earn\".",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-RMP-PRICING",
+     "excerpt": "the rewards you earn"
+    }
+   ],
+   "status": "not_found",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:13-04:00",
+   "conflicts": [],
+   "interpretation": "Rewards are implied but their rate and conditions for Canada are not stated on the pages reviewed.",
+   "public": true,
+   "reviewed_sources": [
+    "S-RMP-HOME",
+    "S-RMP-CARDS",
+    "S-RMP-PRICING"
+   ]
+  },
+  {
+   "id": "O-RMP-06",
+   "platform": "ramp",
+   "product": null,
+   "layer": "product",
+   "category": "plans",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Free at CA$0 per user a month; Plus at CA$15 per user a month plus a platform fee based on team size, billed annually.",
+   "amount": null,
+   "units": null,
+   "currency": "CAD",
+   "conditions": "Plus platform fee amount not stated on the page reviewed.",
+   "sources": [
+    {
+     "source_id": "S-RMP-PRICING",
+     "excerpt": "+ Platform fee based on team size"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:13-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-RMP-07",
+   "platform": "ramp",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_card_spending",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The homepage promises CAD and USD spending without the FX markup; the global page says transactions that need conversion stay subject to exchange rates and fees.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "The no-markup line applies to spending in the card currency (CAD on CAD cards, USD on USD cards).",
+   "sources": [
+    {
+     "source_id": "S-RMP-HOME",
+     "excerpt": "Spend in CAD and USD without the FX markup"
+    },
+    {
+     "source_id": "S-RMP-GLOBAL",
+     "excerpt": "Transactions that require currency conversion remain subject to applicable exchange rates and fees"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:13-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-RMP-08",
+   "platform": "ramp",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_fx",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "A Canadian FX conversion rate or markup was not published on the pages reviewed.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [],
+   "status": "not_found",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:13-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "reviewed_sources": [
+    "S-RMP-HOME",
+    "S-RMP-PRICING",
+    "S-RMP-GLOBAL"
+   ]
+  },
+  {
+   "id": "O-RMP-09",
+   "platform": "ramp",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_accounts",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "A Canadian multi-currency account was not found on the pages reviewed; local card issuing in 30+ countries is for eligible multinational setups and some programs need a US entity.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-RMP-GLOBAL",
+     "excerpt": "some programs require a US entity"
+    }
+   ],
+   "status": "not_found",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:13-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "reviewed_sources": [
+    "S-RMP-HOME",
+    "S-RMP-GLOBAL",
+    "S-RMP-PRICING"
+   ]
+  },
+  {
+   "id": "O-RMP-10",
+   "platform": "ramp",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_transfers",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Transfer fees were not found on the pages reviewed.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [],
+   "status": "not_found",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:14-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "reviewed_sources": [
+    "S-RMP-PAYABLES",
+    "S-RMP-GLOBAL",
+    "S-RMP-PRICING"
+   ]
+  },
+  {
+   "id": "O-RMP-11",
+   "platform": "ramp",
+   "product": null,
+   "layer": "product",
+   "category": "registration",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Ramp Business Corporation states it is registered as a Payment Service Provider with the Bank of Canada.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-RMP-HOME",
+     "excerpt": "Ramp Business Corporation is registered as a Payment Service Provider with the Bank of Canada"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:01-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-RMP-12",
+   "platform": "ramp",
+   "product": null,
+   "layer": "product",
+   "category": "funds_holding",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The card balance is stated as not insured by CDIC. The Canadian pricing footer also carries US deposit disclosures (FDIC).",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-RMP-HOME",
+     "excerpt": "Card Balance not insured by the Canada Deposit Insurance Corporation"
+    },
+    {
+     "source_id": "S-RMP-PRICING",
+     "excerpt": "Bank deposit services provided by First Internet Bank of Indiana, Member FDIC"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:13-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-RMP-13",
+   "platform": "ramp",
+   "product": null,
+   "layer": "marketing",
+   "category": "proof",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Proof is global: 85,000 customers worldwide, receipt-capture figures labelled as internal Ramp data, and quotes from large brands.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "The receipt figure is labelled as internal data; customer count is worldwide, not Canadian.",
+   "sources": [
+    {
+     "source_id": "S-RMP-HOME",
+     "excerpt": "85,000 customers"
+    },
+    {
+     "source_id": "S-RMP-CARDS",
+     "excerpt": "70%+ of transactions have receipts within 24 hours"
+    },
+    {
+     "source_id": "S-RMP-CARDS",
+     "excerpt": "internal Ramp data"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:12-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-RMP-14",
+   "platform": "ramp",
+   "product": null,
+   "layer": "marketing",
+   "category": "positioning",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The Canadian homepage links mostly to US pages; Canadian-specific pages exist for cards, expenses, pricing, global and payables.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Based on the links in the served homepage; a browser check of navigation is listed.",
+   "sources": [
+    {
+     "source_id": "S-RMP-HOME",
+     "excerpt": "USD cards are virtual only"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:01-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-RMP-15",
+   "platform": "ramp",
+   "product": null,
+   "layer": "marketing",
+   "category": "journey",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Canadian businesses submit an email to be contacted by the team and need a Business Number; sign-up starts with a work email.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Not submitted. The sign-up page is a JavaScript app; later steps not checked.",
+   "sources": [
+    {
+     "source_id": "S-RMP-CARDS",
+     "excerpt": "Canadian businesses can submit their emails"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:12-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-01",
+   "platform": "loop",
+   "product": "Loop Global VISA Card",
+   "layer": "product",
+   "category": "card_model",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Card purchases are drawn under a credit facility (the Loop Card-based Credit Facility); limits up to $1M are promoted.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-LOP-LEGAL-CARD",
+     "excerpt": "Loop Card-based Credit Facility"
+    },
+    {
+     "source_id": "S-LOP-HOME",
+     "excerpt": "Grow faster with access up to $1M in capital"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:43:39-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-02",
+   "platform": "loop",
+   "product": "Loop Global VISA Card",
+   "layer": "product",
+   "category": "network_issuer",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The Loop Global Visa Card is issued by Equitable Bank.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-LOP-LEGAL-CARD",
+     "excerpt": "Equitable Bank (\"EQ\") is the Issuer of your Loop VISA Card"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:43:39-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-03",
+   "platform": "loop",
+   "product": null,
+   "layer": "product",
+   "category": "card_format",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Virtual cards across functions and currencies, and a set number of free physical cards by plan (2 or 10 on the pricing page).",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-LOP-CARDS",
+     "excerpt": "Create virtual cards for spend across multiple functions and currencies"
+    },
+    {
+     "source_id": "S-LOP-PRICING",
+     "excerpt": "10 free physical cards"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:16-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-04",
+   "platform": "loop",
+   "product": null,
+   "layer": "product",
+   "category": "rewards",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The cards page says rewards are earned on all spend with no tiers; the earn-rate table gives Basic-plan points on CAD only (USD, EUR and GBP not eligible) and rates that rise by plan.",
+   "amount": null,
+   "units": "points per dollar",
+   "currency": null,
+   "conditions": "Basic: 1 point per CAD, foreign-currency spend not eligible. Plus: 2 per CAD and 1 per USD, EUR or GBP. Power: 2 on all card spend.",
+   "sources": [
+    {
+     "source_id": "S-LOP-CARDS",
+     "excerpt": "Get rewarded on all spend"
+    },
+    {
+     "source_id": "S-LOP-CARDS",
+     "excerpt": "Transparent earning with no tiers"
+    },
+    {
+     "source_id": "S-LOP-PRICING",
+     "excerpt": "Earn 1x points on CAD Card Spend"
+    },
+    {
+     "source_id": "S-LOP-PRICING",
+     "excerpt": "Earn 2x points on CAD Card Spend and 1x on USD, EUR and GBP Card Spend"
+    },
+    {
+     "source_id": "S-LOP-PRICING",
+     "excerpt": "Earn 2x points on all Card Spend"
+    }
+   ],
+   "status": "conflicting",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:16-04:00",
+   "conflicts": [
+    {
+     "with": null,
+     "note": "\"All spend\" and \"no tiers\" on the cards page; plan-based rates and foreign-currency exclusions on Basic in the pricing page and reward terms."
+    }
+   ],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-05",
+   "platform": "loop",
+   "product": null,
+   "layer": "product",
+   "category": "plans",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Basic $0, Plus $79 a month and Power $299 a month, with annual-billing discounts.",
+   "amount": null,
+   "units": null,
+   "currency": "CAD",
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-LOP-PRICING",
+     "excerpt": "$79"
+    },
+    {
+     "source_id": "S-LOP-PRICING",
+     "excerpt": "$299"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:16-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-06",
+   "platform": "loop",
+   "product": null,
+   "layer": "product",
+   "category": "eligibility",
+   "market": "Canada",
+   "eligibility": "Sole proprietors residing in Quebec excluded",
+   "plan": null,
+   "statement": "The card is not available to sole proprietors residing in Quebec; applying is said not to affect the personal credit score.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-LOP-LEGAL-CARD",
+     "excerpt": "not available for use by sole proprietors residing in Quebec"
+    },
+    {
+     "source_id": "S-LOP-CARDS",
+     "excerpt": "Applying won't affect your personal score"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:43:39-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-07",
+   "platform": "loop",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_card_spending",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "No FX fees on purchases in CAD, USD, EUR and GBP; a 1.5% Foreign Currency Exchange Fee applies to other currencies.",
+   "amount": 1.5,
+   "units": "% fee outside the four approved currencies",
+   "currency": null,
+   "conditions": "The no-FX line covers four approved currencies only.",
+   "sources": [
+    {
+     "source_id": "S-LOP-PRICING",
+     "excerpt": "0% FX fees on USD, GBP, EUR, CAD purchases"
+    },
+    {
+     "source_id": "S-LOP-LEGAL-CARD",
+     "excerpt": "A Foreign Currency Exchange Fee equal to 1.5% of the Transaction Amount"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:43:39-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-08",
+   "platform": "loop",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_fx",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "FX conversion pricing by plan: 0.47% on Basic, 0.27% on Plus and 0.12% on Power.",
+   "amount": 0.47,
+   "units": "% FX (Basic; lower on paid plans)",
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-LOP-PRICING",
+     "excerpt": "0.47%"
+    },
+    {
+     "source_id": "S-LOP-PRICING",
+     "excerpt": "0.27%"
+    },
+    {
+     "source_id": "S-LOP-PRICING",
+     "excerpt": "0.12%"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:16-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-09",
+   "platform": "loop",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_accounts",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Global accounts; USD accounts are provided by Lincoln Savings Bank (FDIC) and eligible CAD deposits held in trust are described as CDIC protected.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-LOP-PRICING",
+     "excerpt": "Loop US Dollar Business Accounts are provided and issued by Lincoln Savings Bank, Member FDIC"
+    },
+    {
+     "source_id": "S-LOP-HOME",
+     "excerpt": "Eligible CAD deposits held at CDIC member institutions and properly recorded in trust are protected up to $100,000 per depositor, per insurance category."
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:16-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-10",
+   "platform": "loop",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_transfers",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "International payments are described as free, with a note that a small wire fee may be added in the future.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-LOP-HOME",
+     "excerpt": "We may add a small wire transfer fee in the future"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:01-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-11",
+   "platform": "loop",
+   "product": null,
+   "layer": "product",
+   "category": "registration",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Loop Payments states it is registered with FINTRAC as a money service business and supervised by the Bank of Canada as a payment service provider under the RPAA.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-LOP-LEGAL-ACCOUNTS",
+     "excerpt": "Loop Payments is registered with FINTRAC as a money service business"
+    },
+    {
+     "source_id": "S-LOP-LEGAL-ACCOUNTS",
+     "excerpt": "Loop Payments is supervised by the Bank of Canada as a payment service provider (PSP) under the Retail Payment Activities Act (RPAA)"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:43:40-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-12",
+   "platform": "loop",
+   "product": null,
+   "layer": "marketing",
+   "category": "proof",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Savings claims are published without a visible basis: \"Canada's first no-FX credit card\", an average 2.5% saving, and $40,000 and 12 hours saved a year.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "No method or source for the averages was found on the pages reviewed.",
+   "sources": [
+    {
+     "source_id": "S-LOP-CARDS",
+     "excerpt": "Canada's first no-FX credit card"
+    },
+    {
+     "source_id": "S-LOP-CARDS",
+     "excerpt": "save an average of 2.5%"
+    },
+    {
+     "source_id": "S-LOP-HOME",
+     "excerpt": "Businesses save an average of $40,000 annually and 12 hours weekly"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:15-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-13",
+   "platform": "loop",
+   "product": null,
+   "layer": "marketing",
+   "category": "case_study",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The Bells of Steel case study labels its $10,000 saving as Loop's own calculation.",
+   "amount": 10000,
+   "units": "CAD a year (Loop estimate)",
+   "currency": "CAD",
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-LOP-CASE",
+     "excerpt": "$10,000 CAD in Annual Savings"
+    },
+    {
+     "source_id": "S-LOP-CASE",
+     "excerpt": "we calculate that Bells of Steel would be incurring approximately $10,000 CAD in incremental fees without Loop products"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:17-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-14",
+   "platform": "loop",
+   "product": null,
+   "layer": "marketing",
+   "category": "page_quality",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Placeholder \"Lorem ipsum\" text appears in the served homepage and case-study page.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "A browser may not display it; listed for a Chrome check.",
+   "sources": [
+    {
+     "source_id": "S-LOP-HOME",
+     "excerpt": "Lorem ipsum"
+    },
+    {
+     "source_id": "S-LOP-CASE",
+     "excerpt": "Lorem ipsum"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:17-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-LOP-15",
+   "platform": "loop",
+   "product": null,
+   "layer": "marketing",
+   "category": "journey",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Not checked: the \"explore product\" page returned only a JavaScript shell to the server fetch (28 characters of text), so the journey was not observed.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Attempted by server fetch at https://www.bankonloop.com/en-ca/explore-product. Needs a browser check up to the first form screen.",
+   "sources": [],
+   "status": "not_checked",
+   "method": "server_fetch",
+   "observed_at": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-KEP-01",
+   "platform": "keep",
+   "product": "Keep Business Credit Mastercard",
+   "layer": "product",
+   "category": "card_model",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "A Mastercard charge card issued by Peoples Trust Company, paid in full (minimum payment 100%), with no interest.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-KEP-LEGAL-CARD",
+     "excerpt": "This card is a charge card issued by Peoples Trust Company under licence from Mastercard"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:26-04:00",
+   "conflicts": [],
+   "interpretation": "The product name says \"Credit\"; the agreement says charge card.",
+   "public": true
+  },
+  {
+   "id": "O-KEP-02",
+   "platform": "keep",
+   "product": "Keep Business Credit Mastercard",
+   "layer": "product",
+   "category": "network_issuer",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Mastercard, issued by Peoples Trust Company.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-KEP-LEGAL-CARD",
+     "excerpt": "This card is a charge card issued by Peoples Trust Company under licence from Mastercard"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:26-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-KEP-03",
+   "platform": "keep",
+   "product": null,
+   "layer": "product",
+   "category": "rewards",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The card page leads with the top-tier rates (5x Keep Travel, 3x dining and international, 1.5x everything else); the entry plan earns 1x base and 4x on international spend.",
+   "amount": null,
+   "units": "points per dollar",
+   "currency": null,
+   "conditions": "Rates depend on plan: Core 1x base and 4x international; Plus 1.5x base, 3x dining and international, 5x Keep Travel.",
+   "sources": [
+    {
+     "source_id": "S-KEP-CARDS",
+     "excerpt": "5x Keep Travel"
+    },
+    {
+     "source_id": "S-KEP-CARDS",
+     "excerpt": "with no annual cap"
+    },
+    {
+     "source_id": "S-KEP-PRICING",
+     "excerpt": "1x rewards, 4x on international spend"
+    },
+    {
+     "source_id": "S-KEP-PRICING",
+     "excerpt": "1.5x base, 3x dining & international, 5x Keep Travel"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:25-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-KEP-04",
+   "platform": "keep",
+   "product": null,
+   "layer": "product",
+   "category": "plans",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Core $79, Plus $119 and Max $199 a month, with 90-day trials; fee-free days rise from up to 31 to up to 56 by plan.",
+   "amount": null,
+   "units": null,
+   "currency": "CAD",
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-KEP-PRICING",
+     "excerpt": "$79 per month"
+    },
+    {
+     "source_id": "S-KEP-PRICING",
+     "excerpt": "$119 per month"
+    },
+    {
+     "source_id": "S-KEP-PRICING",
+     "excerpt": "$199 per month"
+    },
+    {
+     "source_id": "S-KEP-PRICING",
+     "excerpt": "Up to 31 fee-free days"
+    },
+    {
+     "source_id": "S-KEP-PRICING",
+     "excerpt": "Up to 56 fee-free days"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:25-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-KEP-05",
+   "platform": "keep",
+   "product": null,
+   "layer": "product",
+   "category": "availability",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "New applications were closed when checked: the \"Get started\" link led to a page saying Keep is not accepting new applications.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Server observation of a redirect; not confirmed in a browser.",
+   "sources": [
+    {
+     "source_id": "S-KEP-JOURNEY",
+     "excerpt": "We're not accepting new applications at this time"
+    }
+   ],
+   "status": "explicitly_unavailable",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:27-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-KEP-06",
+   "platform": "keep",
+   "product": null,
+   "layer": "product",
+   "category": "eligibility",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Applying does not affect the credit score, but accepting an offer may result in a hard inquiry.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-KEP-HOME",
+     "excerpt": "accepting an offer may result in a hard inquiry"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:01-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-KEP-07",
+   "platform": "keep",
+   "product": "Keep Business Credit Mastercard",
+   "layer": "cross_border",
+   "category": "xb_card_spending",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The card agreement sets a 3% foreign currency conversion fee; this fee was not found on the card, pricing or FAQ pages reviewed.",
+   "amount": 3,
+   "units": "% card conversion fee",
+   "currency": null,
+   "conditions": "Pages reviewed for a matching statement: card page, pricing page, FAQ.",
+   "sources": [
+    {
+     "source_id": "S-KEP-LEGAL-CARD",
+     "excerpt": "The foreign currency conversion fee is 3%"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:26-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-KEP-08",
+   "platform": "keep",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_fx",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The pricing page lists \"FX fee 0%\" under banking, which is separate from the card's 3% conversion fee in the agreement.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-KEP-PRICING",
+     "excerpt": "FX fee 0%"
+    },
+    {
+     "source_id": "S-KEP-LEGAL-CARD",
+     "excerpt": "The foreign currency conversion fee is 3%"
+    }
+   ],
+   "status": "conflicting",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:26-04:00",
+   "conflicts": [
+    {
+     "with": "O-KEP-07",
+     "note": "A 0% FX line on pricing (banking) next to a 3% card conversion fee in the agreement; a buyer may read the 0% as covering card purchases."
+    }
+   ],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-KEP-09",
+   "platform": "keep",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_accounts",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Multi-currency accounts in CAD, USD, GBP, EUR and MXN.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-KEP-PRICING",
+     "excerpt": "Multi-currency accounts CAD, USD, GBP, EUR, and MXN"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:25-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-KEP-10",
+   "platform": "keep",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_transfers",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Payments to over 100 countries; one free international wire a month on Plus.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-KEP-PRICING",
+     "excerpt": "Send payments to over 100 countries"
+    },
+    {
+     "source_id": "S-KEP-PRICING",
+     "excerpt": "1 free international wire/mo"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:25-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-KEP-11",
+   "platform": "keep",
+   "product": null,
+   "layer": "product",
+   "category": "registration",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The business accounts agreement describes Keep as a payment service provider. A FINTRAC or Bank of Canada registration number was not found on the pages reviewed.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-KEP-LEGAL-ACCOUNTS",
+     "excerpt": "Keep is a Payment Service Provider"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:26-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-KEP-12",
+   "platform": "keep",
+   "product": null,
+   "layer": "marketing",
+   "category": "proof",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The page title calls the card \"Canada's #1\"; the basis was not found. The site says 5,000+ Canadian companies use it.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "No basis for \"#1\" on the pages reviewed.",
+   "sources": [
+    {
+     "source_id": "S-KEP-HOME",
+     "excerpt": "Canada's #1 All-In-One Corporate Credit Card"
+    },
+    {
+     "source_id": "S-KEP-HOME",
+     "excerpt": "Trusted by 5,000+ Canadian Companies"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:01-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-KEP-13",
+   "platform": "keep",
+   "product": null,
+   "layer": "marketing",
+   "category": "case_study",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "A Keep case study was not located in the pages reviewed.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [],
+   "status": "not_found",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:25-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true,
+   "reviewed_sources": [
+    "S-KEP-HOME",
+    "S-KEP-CARDS",
+    "S-KEP-FAQ"
+   ]
+  },
+  {
+   "id": "O-KEP-14",
+   "platform": "keep",
+   "product": null,
+   "layer": "product",
+   "category": "card_format",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "All plans include unlimited virtual and physical cards.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-KEP-PRICING",
+     "excerpt": "All plans include unlimited virtual and physical cards"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:25-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-01",
+   "platform": "airwallex",
+   "product": "Airwallex Borderless Card",
+   "layer": "product",
+   "category": "card_model",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The card terms say the card spends the wallet balance and \"is not a credit card\"; the pricing page also lists a credit line for corporate cards.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-AWX-CARD-TERMS",
+     "excerpt": "The Card is not a credit card"
+    },
+    {
+     "source_id": "S-AWX-PRICING",
+     "excerpt": "Credit line for corporate cards"
+    }
+   ],
+   "status": "conflicting",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:48:55-04:00",
+   "conflicts": [
+    {
+     "with": null,
+     "note": "Debit-from-balance in the card terms; a credit line in the plan list. They may be two products; the terms for the credit line were not found."
+    }
+   ],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-02",
+   "platform": "airwallex",
+   "product": "Airwallex Borderless Card",
+   "layer": "product",
+   "category": "network_issuer",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The Airwallex Borderless Card is a Visa issued by Peoples Trust Company.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-AWX-HOME",
+     "excerpt": "The Airwallex Borderless Card is issued by Peoples Trust Company pursuant to license by Visa"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:02-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-03",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "product",
+   "category": "card_format",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Company cards are virtual only; employee cards can be virtual or physical.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-AWX-CARDS",
+     "excerpt": "Company cards are virtual only; employee cards can be virtual or physical"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:27-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-04",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "product",
+   "category": "rewards",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Three cashback statements: 2% in the cards page title, 1% with no cap in its body, and \"up to 1%\" on local CAD spend on pricing.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Pricing footnote: terms and conditions apply. The rebate terms were not found on the pages reviewed.",
+   "sources": [
+    {
+     "source_id": "S-AWX-CARDS",
+     "excerpt": "Multi-Currency Business Cards: 2% Cashback & No FX Fees"
+    },
+    {
+     "source_id": "S-AWX-CARDS",
+     "excerpt": "Every eligible transaction earns 1% cashback, with no cap"
+    },
+    {
+     "source_id": "S-AWX-PRICING",
+     "excerpt": "Up to 1% cash rebates on local CAD spend"
+    }
+   ],
+   "status": "conflicting",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:28-04:00",
+   "conflicts": [
+    {
+     "with": null,
+     "note": "2% (page title), 1% with no cap (body), up to 1% on local CAD spend (pricing)."
+    }
+   ],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-05",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "product",
+   "category": "plans",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Explore at $0 per user a month (up to 10 free Spend users); Grow at $12 per user a month plus a platform fee; Accelerate higher.",
+   "amount": null,
+   "units": null,
+   "currency": "CAD",
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-AWX-PRICING",
+     "excerpt": "$12 per user/month"
+    },
+    {
+     "source_id": "S-AWX-PRICING",
+     "excerpt": "+ platform fee based on team size"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:28-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-06",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "product",
+   "category": "eligibility",
+   "market": "Canada",
+   "eligibility": "Sole proprietors in Quebec excluded",
+   "plan": null,
+   "statement": "Card use is for business purposes and not for sole proprietors in Quebec.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-AWX-CARD-AGREEMENT",
+     "excerpt": "you are not a sole proprietor in the province of Quebec"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:48:55-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-07",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_card_spending",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The cards page says no foreign transaction fees and conversion at the interbank rate; the card terms add an automatic conversion fee when the wallet lacks the currency.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "The fee level for automatic card conversion was not found on the pages reviewed.",
+   "sources": [
+    {
+     "source_id": "S-AWX-CARDS",
+     "excerpt": "No foreign transaction fees, conversions at the interbank rate"
+    },
+    {
+     "source_id": "S-AWX-CARDS",
+     "excerpt": "If you don't hold a currency, we auto-convert from your primary balance"
+    },
+    {
+     "source_id": "S-AWX-CARD-TERMS",
+     "excerpt": "at the prevailing FX Exchange Rate plus an automatic conversion fee"
+    }
+   ],
+   "status": "conflicting",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:48:55-04:00",
+   "conflicts": [
+    {
+     "with": null,
+     "note": "\"Conversions at the interbank rate\" on the cards page; \"plus an automatic conversion fee\" in the card terms."
+    }
+   ],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-08",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_fx",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "FX conversions are priced at 0.5% above interbank for major currencies and 1% for others.",
+   "amount": 0.5,
+   "units": "% above interbank (major currencies)",
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-AWX-PRICING",
+     "excerpt": "0.5% above interbank rates for major currencies"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:28-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-09",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_accounts",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Local accounts in 20+ currencies, with $0 monthly fees; funds are said to be held with Tier-1 Canadian financial institutions.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-AWX-HOME",
+     "excerpt": "Open multi-currency accounts to receive funds in 20+ currencies"
+    },
+    {
+     "source_id": "S-AWX-ACCOUNTS",
+     "excerpt": "held securely with Tier-1 Canadian financial institutions"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:28-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-10",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "cross_border",
+   "category": "xb_transfers",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Transfers are promoted with $0 transaction fees; pricing lists SWIFT transfers at $20 to $35, and the transfers page says a markup and transfer fees may apply.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "$0 applies where Airwallex can use its local network; SWIFT transfers are priced separately.",
+   "sources": [
+    {
+     "source_id": "S-AWX-TRANSFERS",
+     "excerpt": "with $0 transaction fees"
+    },
+    {
+     "source_id": "S-AWX-PRICING",
+     "excerpt": "$20-$35/ transfer (SHA and OUR)"
+    },
+    {
+     "source_id": "S-AWX-TRANSFERS",
+     "excerpt": "We may charge a mark-up on the conversion plus transfer fees"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:40:29-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-11",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "product",
+   "category": "registration",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Airwallex (Canada) states it is registered with FINTRAC as a money services business (M19395067) and is pending registration as a payment service provider with the Bank of Canada.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-AWX-HOME",
+     "excerpt": "registered as a Money Services Business (MSB Registration No. M19395067) with FINTRAC"
+    },
+    {
+     "source_id": "S-AWX-HOME",
+     "excerpt": "is pending registration as a Payment Service Provider with the Bank of Canada"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:02-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-12",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "marketing",
+   "category": "proof",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Two customer counts on the same homepage: \"over 200,000 businesses\" and \"600,000+\".",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-AWX-HOME",
+     "excerpt": "Trusted by over 200,000 businesses"
+    },
+    {
+     "source_id": "S-AWX-HOME",
+     "excerpt": "Serving 600,000+ business"
+    }
+   ],
+   "status": "conflicting",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:39:02-04:00",
+   "conflicts": [
+    {
+     "with": null,
+     "note": "200,000 and 600,000 on one page; neither says whether it is global or Canadian."
+    }
+   ],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-13",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "marketing",
+   "category": "case_study",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "The Adaria Vending Services story (a Canadian company expanding to the US) names Venn and Wise as tools it used before; outcomes are qualitative, such as cards issued in under 24 hours.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": null,
+   "sources": [
+    {
+     "source_id": "S-AWX-CASE-STUDY",
+     "excerpt": "including Wise (formerly TransferWise) and Venn"
+    },
+    {
+     "source_id": "S-AWX-CASE-STUDY",
+     "excerpt": "in under 24 hours"
+    }
+   ],
+   "status": "published",
+   "method": "server_fetch",
+   "observed_at": "2026-10-23T10:48:57-04:00",
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  },
+  {
+   "id": "O-AWX-14",
+   "platform": "airwallex",
+   "product": null,
+   "layer": "marketing",
+   "category": "journey",
+   "market": "Canada",
+   "eligibility": null,
+   "plan": null,
+   "statement": "Not checked: the sign-up page returned only a JavaScript shell to the server fetch (11 characters of text), so the journey was not observed.",
+   "amount": null,
+   "units": null,
+   "currency": null,
+   "conditions": "Attempted by server fetch at https://www.airwallex.com/en-ca/signup. Needs a browser check up to the first form screen.",
+   "sources": [],
+   "status": "not_checked",
+   "method": "server_fetch",
+   "observed_at": null,
+   "conflicts": [],
+   "interpretation": null,
+   "public": true
+  }
+ ]
+}

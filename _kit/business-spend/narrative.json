@@ -1,0 +1,750 @@
+{
+ "hero": {
+  "kicker": "The HMM Index · Business finance",
+  "title": "Business Cards & Spend Management Index",
+  "subtitle": "How six platforms explain spending controls, rewards and cross-border business payments.",
+  "scope": "This Index examines how six platforms explain business cards, spend management and cross-border payments to Canadian businesses. It uses dated public sources and evaluates communication and enquiry journeys. It does not test product performance, assess regulatory compliance or recommend a provider for your business.",
+  "action": {
+   "label": "Explore the comparison",
+   "href": "#bs-compare"
+  },
+  "draft_note": "Draft for editorial review. This edition is not published. Items waiting for a browser check or for the relationship disclosure are labelled where they appear."
+ },
+ "findings": {
+  "dek": "Three things a Canadian business reading these sites would run into, each linked to the wording behind it. They describe how the offers are explained, not how the products perform.",
+  "items": [
+   {
+    "id": "F1",
+    "question": "Is the advertised reward what I would earn?",
+    "title": "Reward rates and their conditions were often stated in different places",
+    "body": "Five of the six platforms published a reward rate. At three of them (Venn, Loop and Airwallex) the statements on different pages did not agree: a cards page promising no caps or tiers next to a pricing footnote with plan caps, or three different cashback figures for one card. At the other two (Float and Keep) the qualifying condition was published on the pricing page.",
+    "denominator": "5 platforms that published a reward rate. Ramp did not publish a Canadian rate on the pages I reviewed.",
+    "evidence": [
+     "O-VEN-04",
+     "O-LOP-04",
+     "O-AWX-04",
+     "O-FLT-05",
+     "O-KEP-03",
+     "O-RMP-05"
+    ]
+   },
+   {
+    "id": "F2",
+    "question": "Does \"no FX fee\" mean I never pay to convert?",
+    "title": "Every \"no FX fee\" claim described one kind of transaction",
+    "body": "All six platforms published a statement of no FX fee, no FX markup or a 0% FX fee. Each one covered a specific case, such as spending from a balance in the same currency, four approved currencies or a USD card, and each site or its terms also described a fee, rate or markup for other conversions. Keep's pricing page lists an FX fee of 0% for banking while its card agreement sets a 3% card conversion fee.",
+    "denominator": "6 of 6 platforms; card spending, FX conversion and transfers were checked separately for each.",
+    "evidence": [
+     "O-VEN-08",
+     "O-LOP-07",
+     "O-KEP-08",
+     "O-AWX-07",
+     "O-FLT-08",
+     "O-RMP-07"
+    ]
+   },
+   {
+    "id": "F3",
+    "question": "What kind of card is this, really?",
+    "title": "Four cards share one issuer, but the way you fund them differs",
+    "body": "Peoples Trust Company issues the Venn, Ramp, Keep and Airwallex cards. Behind that shared issuer the models differ: Venn's card spends money already in the account, Keep's is a charge card paid in full, Airwallex's terms say its card spends the wallet balance and is not a credit card while its pricing lists a credit line, Float offers both a pre-funded card and short-term credit, and Loop's purchases draw on a credit facility. I could not confirm Ramp's card model for Canada.",
+    "denominator": "6 platforms; card model confirmed for 5.",
+    "evidence": [
+     "O-VEN-01",
+     "O-KEP-01",
+     "O-AWX-01",
+     "O-FLT-01",
+     "O-LOP-01",
+     "O-RMP-02"
+    ]
+   }
+  ],
+  "take": "When a headline offer and its condition live on different pages, the reader has to put them back together. Ask your team to list every place your main offer appears (ads, landing pages, pricing, terms) and check that the condition travels with the rate each time."
+ },
+ "compare": {
+  "dek": "One row per platform, in two parts. The status shows how firm each entry is; conditions stay with the fact they qualify. On a phone each platform becomes a card.",
+  "product_columns": [
+   [
+    "model",
+    "Card model and funding"
+   ],
+   [
+    "issuer",
+    "Network and issuer"
+   ],
+   [
+    "format",
+    "Card formats"
+   ],
+   [
+    "rewards",
+    "Rewards as published"
+   ],
+   [
+    "plans",
+    "Plans"
+   ]
+  ],
+  "xb_columns": [
+   [
+    "xb_card",
+    "Card spending in another currency"
+   ],
+   [
+    "xb_fx",
+    "FX conversion"
+   ],
+   [
+    "xb_accounts",
+    "Multi-currency accounts"
+   ],
+   [
+    "xb_transfers",
+    "Transfers"
+   ]
+  ],
+  "rows": {
+   "venn": {
+    "model": {
+     "text": "Pre-funded charge card",
+     "sub": "Spends funds already in the card account; 0% interest",
+     "ids": [
+      "O-VEN-01"
+     ]
+    },
+    "issuer": {
+     "text": "Mastercard, Peoples Trust Company",
+     "ids": [
+      "O-VEN-02"
+     ]
+    },
+    "format": {
+     "text": "Virtual and physical",
+     "ids": [
+      "O-VEN-03"
+     ]
+    },
+    "rewards": {
+     "text": "1% cashback",
+     "sub": "Cards page: no caps. Pricing: capped at $5,000 a month (Essentials) and $25,000 (Plus)",
+     "ids": [
+      "O-VEN-04"
+     ]
+    },
+    "plans": {
+     "text": "$0, $40, $100 a month, Custom",
+     "sub": "Essentials up to 3 users",
+     "ids": [
+      "O-VEN-05"
+     ]
+    },
+    "xb_card": {
+     "text": "No FX fee from a matching CAD, USD, EUR or GBP balance",
+     "sub": "Otherwise a 0.45% to 0.25% fee by plan",
+     "ids": [
+      "O-VEN-08"
+     ]
+    },
+    "xb_fx": {
+     "text": "0.45% / 0.35% / 0.25% by plan",
+     "ids": [
+      "O-VEN-09"
+     ]
+    },
+    "xb_accounts": {
+     "text": "Receive in CAD, USD, GBP, EUR",
+     "sub": "Balances held at Bank of Montreal",
+     "ids": [
+      "O-VEN-10"
+     ]
+    },
+    "xb_transfers": {
+     "text": "$2 local, $10 wire (Essentials)",
+     "sub": "Coverage stated three ways: 200+, 180+ countries; 30+, 36+, 33 currencies",
+     "ids": [
+      "O-VEN-12",
+      "O-VEN-11"
+     ]
+    }
+   },
+   "float": {
+    "model": {
+     "text": "Pre-funded card, or Float Charge credit",
+     "sub": "Charge: unsecured, 15- or 30-day terms, subject to eligibility",
+     "ids": [
+      "O-FLT-01"
+     ]
+    },
+    "issuer": {
+     "text": "Visa, Float Financial Solutions Inc.",
+     "sub": "Cards page also mentions Mastercard acceptance",
+     "ids": [
+      "O-FLT-02",
+      "O-FLT-03"
+     ]
+    },
+    "format": {
+     "text": "Up to 20 physical, unlimited virtual (free plan)",
+     "ids": [
+      "O-FLT-04"
+     ]
+    },
+    "rewards": {
+     "text": "Up to 1% cashback",
+     "sub": "1% only above $25k monthly spend per card program",
+     "ids": [
+      "O-FLT-05"
+     ]
+    },
+    "plans": {
+     "text": "$0; Professional from $100 a month; Enterprise",
+     "ids": [
+      "O-FLT-06"
+     ]
+    },
+    "xb_card": {
+     "text": "No foreign transaction fees on USD cards",
+     "sub": "Visa conversion rate may include a markup",
+     "ids": [
+      "O-FLT-08"
+     ]
+    },
+    "xb_fx": {
+     "text": "0.25% (Essentials)",
+     "sub": "Rates from the previous day",
+     "ids": [
+      "O-FLT-09"
+     ]
+    },
+    "xb_accounts": {
+     "text": "CAD and USD business accounts",
+     "sub": "CAD rate shown as an unfilled placeholder",
+     "ids": [
+      "O-FLT-10"
+     ]
+    },
+    "xb_transfers": {
+     "text": null,
+     "ids": [
+      "O-FLT-11"
+     ]
+    }
+   },
+   "ramp": {
+    "model": {
+     "text": null,
+     "ids": [
+      "O-RMP-02"
+     ]
+    },
+    "issuer": {
+     "text": "Visa, Peoples Trust Company",
+     "ids": [
+      "O-RMP-01"
+     ]
+    },
+    "format": {
+     "text": "CAD physical and virtual",
+     "sub": "USD cards virtual only",
+     "ids": [
+      "O-RMP-03"
+     ]
+    },
+    "rewards": {
+     "text": null,
+     "ids": [
+      "O-RMP-05"
+     ]
+    },
+    "plans": {
+     "text": "Free; Plus CA$15 per user a month",
+     "sub": "Plus adds a platform fee by team size",
+     "ids": [
+      "O-RMP-06"
+     ]
+    },
+    "xb_card": {
+     "text": "CAD and USD spend without the FX markup",
+     "sub": "Conversions stay subject to exchange rates and fees",
+     "ids": [
+      "O-RMP-07"
+     ]
+    },
+    "xb_fx": {
+     "text": null,
+     "ids": [
+      "O-RMP-08"
+     ]
+    },
+    "xb_accounts": {
+     "text": null,
+     "ids": [
+      "O-RMP-09"
+     ]
+    },
+    "xb_transfers": {
+     "text": null,
+     "ids": [
+      "O-RMP-10"
+     ]
+    }
+   },
+   "loop": {
+    "model": {
+     "text": "Credit facility",
+     "sub": "Limits up to $1M promoted",
+     "ids": [
+      "O-LOP-01"
+     ]
+    },
+    "issuer": {
+     "text": "Visa, Equitable Bank",
+     "ids": [
+      "O-LOP-02"
+     ]
+    },
+    "format": {
+     "text": "Virtual and physical",
+     "sub": "Free physical cards by plan (2 or 10)",
+     "ids": [
+      "O-LOP-03"
+     ]
+    },
+    "rewards": {
+     "text": "Points by plan",
+     "sub": "Cards page: all spend, no tiers. Basic plan: CAD spend only",
+     "ids": [
+      "O-LOP-04"
+     ]
+    },
+    "plans": {
+     "text": "$0, $79, $299 a month",
+     "ids": [
+      "O-LOP-05"
+     ]
+    },
+    "xb_card": {
+     "text": "No FX fee in CAD, USD, EUR, GBP",
+     "sub": "1.5% fee in other currencies",
+     "ids": [
+      "O-LOP-07"
+     ]
+    },
+    "xb_fx": {
+     "text": "0.47% / 0.27% / 0.12% by plan",
+     "ids": [
+      "O-LOP-08"
+     ]
+    },
+    "xb_accounts": {
+     "text": "Global accounts",
+     "sub": "USD via Lincoln Savings Bank; CAD in trust",
+     "ids": [
+      "O-LOP-09"
+     ]
+    },
+    "xb_transfers": {
+     "text": "Free for now",
+     "sub": "A small wire fee may be added",
+     "ids": [
+      "O-LOP-10"
+     ]
+    }
+   },
+   "keep": {
+    "model": {
+     "text": "Charge card, paid in full",
+     "sub": "Named Business Credit Mastercard",
+     "ids": [
+      "O-KEP-01"
+     ]
+    },
+    "issuer": {
+     "text": "Mastercard, Peoples Trust Company",
+     "ids": [
+      "O-KEP-02"
+     ]
+    },
+    "format": {
+     "text": "Virtual and physical",
+     "sub": "Unlimited on all plans",
+     "ids": [
+      "O-KEP-14"
+     ]
+    },
+    "rewards": {
+     "text": "Points by plan",
+     "sub": "Core: 1x, 4x international. Top tiers: up to 5x",
+     "ids": [
+      "O-KEP-03"
+     ]
+    },
+    "plans": {
+     "text": "$79, $119, $199 a month",
+     "sub": "New applications closed when checked",
+     "ids": [
+      "O-KEP-04",
+      "O-KEP-05"
+     ]
+    },
+    "xb_card": {
+     "text": "3% card conversion fee (agreement)",
+     "ids": [
+      "O-KEP-07"
+     ]
+    },
+    "xb_fx": {
+     "text": "FX fee 0% listed for banking",
+     "sub": "Separate from the 3% card fee",
+     "ids": [
+      "O-KEP-08"
+     ]
+    },
+    "xb_accounts": {
+     "text": "CAD, USD, GBP, EUR, MXN",
+     "ids": [
+      "O-KEP-09"
+     ]
+    },
+    "xb_transfers": {
+     "text": "Over 100 countries",
+     "sub": "1 free wire a month on Plus",
+     "ids": [
+      "O-KEP-10"
+     ]
+    }
+   },
+   "airwallex": {
+    "model": {
+     "text": "Spends the wallet balance",
+     "sub": "Terms: not a credit card. Pricing also lists a credit line",
+     "ids": [
+      "O-AWX-01"
+     ]
+    },
+    "issuer": {
+     "text": "Visa, Peoples Trust Company",
+     "ids": [
+      "O-AWX-02"
+     ]
+    },
+    "format": {
+     "text": "Company cards virtual; employee cards virtual or physical",
+     "ids": [
+      "O-AWX-03"
+     ]
+    },
+    "rewards": {
+     "text": "2%, 1% or up to 1%",
+     "sub": "Title, body and pricing differ",
+     "ids": [
+      "O-AWX-04"
+     ]
+    },
+    "plans": {
+     "text": "$0; Grow $12 per user a month",
+     "sub": "Grow adds a platform fee",
+     "ids": [
+      "O-AWX-05"
+     ]
+    },
+    "xb_card": {
+     "text": "No foreign transaction fees",
+     "sub": "Terms: automatic conversion fee if the currency is not held",
+     "ids": [
+      "O-AWX-07"
+     ]
+    },
+    "xb_fx": {
+     "text": "0.5% above interbank (major), 1% others",
+     "ids": [
+      "O-AWX-08"
+     ]
+    },
+    "xb_accounts": {
+     "text": "20+ currencies",
+     "ids": [
+      "O-AWX-09"
+     ]
+    },
+    "xb_transfers": {
+     "text": "$0 on local rails",
+     "sub": "SWIFT $20 to $35",
+     "ids": [
+      "O-AWX-10"
+     ]
+    }
+   }
+  },
+  "note": "Plan prices are monthly, in Canadian dollars, as published; some are billed annually or per user. A row is not a quote, and the lowest advertised FX rate may not apply to every payment type. This edition does not compare FX costs: a fair comparison would need the same currencies, amount, timing, plan and fees."
+ },
+ "examples": {
+  "dek": "Four observed examples of how an offer, proof or next step was explained. They are examples to learn from, not winning platforms.",
+  "items": [
+   {
+    "id": "E1",
+    "platform": "loop",
+    "kind": "Proof",
+    "title": "A savings figure labelled as the provider's own estimate",
+    "body": "The Bells of Steel case study presents $10,000 a year in savings and says in the text that Loop calculated it. The same site's homepage averages ($40,000 and 12 hours a year) carry no basis I could find, so the labelled figure stands out.",
+    "lesson": "A reader can weigh a number when they know who calculated it and how.",
+    "evidence": [
+     "O-LOP-13",
+     "O-LOP-12"
+    ]
+   },
+   {
+    "id": "E2",
+    "platform": "float",
+    "kind": "Offer explanation",
+    "title": "\"Up to\" with the threshold in a numbered footnote",
+    "body": "Float's pages say \"Up to 1% cashback\". The pricing page footnote gives the condition: 1% applies above $25k of monthly spending per card program. The rate below that threshold was not on the pages I reviewed.",
+    "lesson": "\"Up to\" signals a condition; the footnote states it, but only on the pricing page.",
+    "evidence": [
+     "O-FLT-05"
+    ]
+   },
+   {
+    "id": "E3",
+    "platform": "ramp",
+    "kind": "Enquiry design",
+    "title": "Eligibility stated before the first step",
+    "body": "Ramp's Canadian card page lists what a business needs: a Canadian, US or UK-registered entity, a Business Number and a linked Canadian bank account, underwritten on the business with no personal guarantee. It also says Canadian businesses submit an email to be contacted.",
+    "lesson": "A reader can tell whether they qualify, and what happens next, before giving an email.",
+    "evidence": [
+     "O-RMP-04",
+     "O-RMP-15"
+    ]
+   },
+   {
+    "id": "E4",
+    "platform": "airwallex",
+    "kind": "Positioning",
+    "title": "A competitor named inside a customer story",
+    "body": "Airwallex's Adaria Vending Services story, about a Canadian company expanding into the US, names Venn and Wise as tools the company used before. The outcomes it reports are qualitative, such as cards issued in under 24 hours.",
+    "lesson": "Naming the prior setup makes the switch concrete; the outcome is still the provider's account of its customer.",
+    "evidence": [
+     "O-AWX-13"
+    ]
+   }
+  ]
+ },
+ "platforms": {
+  "venn": {
+   "positioning": "Canadian business banking with accounts, cards and transfers in one place, for businesses outside Quebec.",
+   "offer": "1% cashback, no FX fee from matching-currency balances, and plans from $0. The cards page says the cashback has no caps; the pricing footnote caps it on Essentials and Plus.",
+   "explanation": "The funding model is clear in the agreement (funds must be in the account first). The FX fee by plan is on pricing and in the agreement, separate from the no-FX-fee line on the cards page.",
+   "proof": "Customer counts differ on the homepage (15,000+, 4,000+ Canadian, more than 15,000 Canadian). The Flow case study reports time saved without figures.",
+   "journey": "Sign-up asks for email and password and promises a five-minute start. The steps after that run in an app I did not observe.",
+   "observation": "The cashback statement on the cards page and the footnote on pricing cannot both be read literally for Essentials and Plus customers.",
+   "missing": [
+    "Application steps after the first screen (browser check)"
+   ],
+   "take": "Your cards page and your pricing page are read as one offer. Ask your team whether a visitor who sees only your highest-traffic page would come away with the right picture of caps and plan limits."
+  },
+  "float": {
+   "positioning": "Corporate cards and spend software for Canadian companies, with a pre-funded card for any business and short-term credit for those that qualify.",
+   "offer": "Up to 1% cashback, 0.25% FX, USD cards without foreign transaction fees, and credit up to $3M+ subject to eligibility.",
+   "explanation": "The two card models are named and separated. The cashback threshold is a pricing footnote. The CAD interest rate and customer count appear as unfilled template placeholders in the served pages.",
+   "proof": "The Impact Kitchen story reports more than 100 hours a year saved. \"Save up to 90% on FX\" carries no basis I could find.",
+   "journey": "The demo request starts with a work email and states that submitting it opts the visitor in to marketing emails.",
+   "observation": "The cards page refers to Visa or Mastercard acceptance while the agreements describe a Visa card; this needs a browser check before it is reported.",
+   "missing": [
+    "Rendered values of the two template placeholders (browser check)",
+    "Transfer pricing",
+    "Network for Float Charge"
+   ],
+   "take": "A placeholder that fails to fill, such as an interest rate, removes the number a buyer came to compare. A practical test: load your key pages with scripts blocked and slow, and check that every number a buyer needs still shows."
+  },
+  "ramp": {
+   "positioning": "A spend platform with Canadian cards, eligibility for Canadian, US or UK-registered entities, and global proof.",
+   "offer": "Free and Plus plans, CAD and USD cards, and CAD or USD spend without the FX markup.",
+   "explanation": "Eligibility is stated clearly. I could not confirm the card model, a Canadian rewards rate, an FX rate, a Canadian multi-currency account or transfer fees on the Canadian pages I reviewed, and the Canadian homepage links mostly to US pages.",
+   "proof": "85,000 customers worldwide, a receipt figure labelled as internal data, and quotes from large brands. None of the proof is specific to Canada.",
+   "journey": "Canadian businesses submit an email to be contacted; the page says a Business Number is needed. Sign-up is a JavaScript app I did not observe.",
+   "observation": "The Canadian disclosures (Peoples Trust issuer, Bank of Canada registration, card balance not CDIC insured) are specific, while the pricing footer also carries US deposit disclosures.",
+   "missing": [
+    "Canadian card agreement and card model",
+    "Canadian rewards rate",
+    "FX and transfer pricing",
+    "Sign-up steps (browser check)"
+   ],
+   "take": "When a regional page borrows global proof and links, the buyer has to work out which parts apply to them. Ask your team to mark every claim on your regional page as local or global, and test labelling global figures as such."
+  },
+  "loop": {
+   "positioning": "Cross-border finance for Canadian businesses, presented as \"Canada's first no-FX credit card\" with global accounts and payments.",
+   "offer": "No FX fee in four currencies, points on card spend, free payments for now, and credit up to $1M.",
+   "explanation": "The four-currency limit and the 1.5% fee outside it are in the card agreement; the pricing page states the four currencies. The cards page says rewards come on all spend with no tiers; the earn-rate table excludes foreign-currency spend on Basic.",
+   "proof": "The Bells of Steel case study labels its $10,000 saving as Loop's calculation. The homepage averages ($40,000 and 12 hours) and the \"first\" claim carry no basis I could find.",
+   "journey": "The product tour page is a JavaScript page that a server fetch could not read.",
+   "observation": "The same site shows both a labelled estimate and unlabelled averages, which makes the difference easy to see.",
+   "missing": [
+    "Product tour and application steps (browser check)",
+    "Whether the \"Lorem ipsum\" text is visible to visitors"
+   ],
+   "take": "Where your proof states its basis, a buyer can weigh it; where it does not, they have to trust it. Ask your team which three figures on your homepage could be challenged, and add the source line to each."
+  },
+  "keep": {
+   "positioning": "An all-in-one corporate card and banking product for Canadian companies, called \"Canada's #1\" in the page title.",
+   "offer": "Points with up to 56 fee-free days, multi-currency accounts in five currencies, and 90-day trials on plans from $79 a month.",
+   "explanation": "Reward rates depend on plan, and the plan table shows them. The card agreement sets a 3% card conversion fee that I did not find on the card, pricing or FAQ pages; the pricing page shows an FX fee of 0% under banking.",
+   "proof": "\"Trusted by 5,000+ Canadian Companies\" and \"Canada's #1\", with no basis for the ranking on the pages I reviewed. No case study was found.",
+   "journey": "The \"Get started\" link led to a page saying Keep is not accepting new applications (server observation, to confirm in a browser).",
+   "observation": "The marketing pages still present the offer and a start button while the application page says applications are closed.",
+   "missing": [
+    "Browser confirmation that applications are closed",
+    "A FINTRAC or Bank of Canada registration number",
+    "A case study"
+   ],
+   "take": "If a journey is paused, the pages that send people to it are the first thing they see. Ask your team what a visitor who clicks your main button today actually reaches, and whether the page they leave from says so."
+  },
+  "airwallex": {
+   "positioning": "A global financial platform for Canadian businesses expanding abroad: accounts in 20+ currencies, transfers and multi-currency cards.",
+   "offer": "Cashback on card spend, no foreign transaction fees, transfers with $0 fees on local rails, and plans from $0.",
+   "explanation": "Pricing states FX at 0.5% above interbank for major currencies and SWIFT fees. The cards page says conversions are at the interbank rate; the card terms add an automatic conversion fee when the wallet does not hold the currency. Cashback appears as 2%, 1% and up to 1%.",
+   "proof": "Customer counts of 200,000 and 600,000+ appear on the same homepage. The Adaria story is Canadian and reports qualitative outcomes.",
+   "journey": "Sign-up is a JavaScript app that a server fetch could not read.",
+   "observation": "The pricing page is the most complete statement of FX and transfer charges in this group; the cards page summary does not match it.",
+   "missing": [
+    "Sign-up steps (browser check)",
+    "Cashback terms and the rate that applies",
+    "The automatic card conversion fee level",
+    "Terms for the credit line"
+   ],
+   "take": "When the page title, the body and the pricing page each give a different number, the reader keeps the one they saw first. A practical test: make the title and the first line match the pricing page, and measure qualified sign-ups against support questions about rewards."
+  }
+ },
+ "patterns": {
+  "dek": "Patterns that hold across the group, with the platforms that support them and the exceptions. None shows cause and effect.",
+  "items": [
+   {
+    "title": "Figures often appeared without their basis",
+    "body": "Every platform published a customer count or savings figure. Two homepages gave different customer counts on the same page (Venn and Airwallex). Savings and ranking claims without a stated basis appeared at Venn, Float, Loop and Keep.",
+    "exceptions": "Loop's case study labels its estimate; Ramp labels its receipt figure as internal data.",
+    "denominator": "6 of 6 published such a figure; 2 of 6 had conflicting counts on one page.",
+    "evidence": [
+     "O-VEN-15",
+     "O-AWX-12",
+     "O-LOP-12",
+     "O-KEP-12",
+     "O-FLT-09",
+     "O-VEN-16",
+     "O-LOP-13",
+     "O-RMP-13"
+    ]
+   },
+   {
+    "title": "The first step was usually an email, and observation stopped soon after",
+    "body": "Venn, Float and Ramp started with an email (with a password at Venn and a marketing opt-in statement at Float). Keep's start link led to a closed-applications page. Loop's and Airwallex's journeys are JavaScript apps a server fetch could not read.",
+    "exceptions": "Ramp states eligibility before the email.",
+    "denominator": "6 platforms; 4 first screens readable by server fetch; 0 observed in a browser.",
+    "evidence": [
+     "O-VEN-18",
+     "O-FLT-16",
+     "O-RMP-15",
+     "O-KEP-05",
+     "O-LOP-15",
+     "O-AWX-14"
+    ]
+   },
+   {
+    "title": "Regulatory status was described in each provider's own words",
+    "body": "Five platforms published a FINTRAC money services business registration or a Bank of Canada payment service provider statement, in different forms: registered, supervised or pending. Keep's accounts agreement calls Keep a payment service provider; I did not find a registration number. These are the providers' statements, not an endorsement or a safety rating.",
+    "exceptions": null,
+    "denominator": "6 platforms; registry entries were not checked against the FINTRAC or Bank of Canada registries in this edition.",
+    "evidence": [
+     "O-VEN-13",
+     "O-FLT-12",
+     "O-RMP-11",
+     "O-LOP-11",
+     "O-KEP-11",
+     "O-AWX-11"
+    ]
+   }
+  ],
+  "take": "Buyers of financial products look for the basis behind a number and the next step before they commit. Ask your team which figure on your site a careful buyer would question first, and what they see right after your main button."
+ },
+ "tests": {
+  "dek": "Three tests a marketing team could run on its own pages, each tied to a finding above. They are proposals to discuss, not results, and none needs a provider's internal data.",
+  "items": [
+   {
+    "title": "Put the reward condition beside the rate",
+    "finding": "F1",
+    "example": "Venn's cards page says 1% with no caps while its pricing footnote caps it by plan; Airwallex's title, body and pricing give three figures.",
+    "uncertainty": "Will I earn the advertised rate on my plan and at my spend level?",
+    "change": "Show the cap, threshold or plan condition in the same block as the headline rate on the card page. Keep the rate, the design, the button and the terms the same.",
+    "measure": "Qualified applications or demo requests (meeting your eligibility rules) per visitor to the card page.",
+    "guardrail": "Rewards questions to sales and support in the first 30 days after sign-up, and plan mix.",
+    "comparison": "A randomised split of card-page traffic with the same sources, the same attribution window and the same definition of a qualified application. Count button clicks separately from qualified applications.",
+    "limitation": "If rewards are not a main reason buyers choose you, or traffic is too small to separate the two versions, the result will be inconclusive. Legal review of the wording comes first."
+   },
+   {
+    "title": "Say which transactions a \"no FX fee\" claim covers",
+    "finding": "F2",
+    "example": "All six platforms' no-fee statements covered specific cases (a matching balance, four currencies, a USD card), with other conversions priced elsewhere.",
+    "uncertainty": "Will I pay to convert when I buy in a currency I do not hold?",
+    "change": "Replace a general \"no FX fees\" line with one that names the case, followed by one line saying what applies otherwise. Keep the page layout, offer and button the same.",
+    "measure": "Completed applications from the FX or cards page.",
+    "guardrail": "FX-related support questions and disputed charges in the first 60 days after sign-up.",
+    "comparison": "A randomised split with the same audiences and attribution window; if traffic is low, run the versions in matched consecutive periods and record the dates.",
+    "limitation": "Required disclosures stay in place; this changes the summary, not the terms. Seasonal travel or trade cycles can swamp the difference."
+   },
+   {
+    "title": "State eligibility and the next step before the form",
+    "finding": "F3",
+    "example": "Ramp lists entity, Business Number and bank account requirements before the email; other journeys started with an email or a closed or unreadable page.",
+    "uncertainty": "Do I qualify, and what happens after I give my email?",
+    "change": "Add a short \"Before you start\" list above the first form field: who can apply, what you need, which provinces are served, and what happens after submitting. Keep the form fields and verification steps the same.",
+    "measure": "The share of form starts that become qualified applications.",
+    "guardrail": "Total form starts and completed submissions from eligible businesses, so the list does not turn away people who qualify.",
+    "comparison": "A randomised split with consistent audiences; report clicks, form starts, submissions and qualified applications as separate numbers.",
+    "limitation": "If eligibility rules change during the test, or most traffic is already qualified, the result will not separate the two versions. Never remove necessary identity or eligibility checks."
+   }
+  ]
+ },
+ "method": {
+  "selection": "The founder selected these six platforms as a comparison set of providers that market business cards and spend management to Canadian businesses. They are not presented as the largest, the most used or the best, and other providers exist.",
+  "dates": "Public pages were fetched on 23 October 2026 between 10:39 a.m. and 10:48 a.m. Toronto time. Every observation carries its own capture time.",
+  "public_only": "I read only public pages: no accounts, logins, cookies, forms submitted, credit checks or transactions. Pages were fetched by a server without running JavaScript, so content that loads only in a browser was not seen; those items are marked and listed for a browser check.",
+  "statuses": [
+   [
+    "Published",
+    "An applicable official source states it. This does not mean it was tested."
+   ],
+   [
+    "Not found in reviewed sources",
+    "The pages I reviewed did not establish it. It may exist elsewhere."
+   ],
+   [
+    "Not checked",
+    "No valid check was completed."
+   ],
+   [
+    "Conflicting",
+    "Relevant sources differ and the difference is unresolved."
+   ],
+   [
+    "Explicitly unavailable",
+    "An applicable source says it is not available."
+   ]
+  ],
+  "limitations": [
+   "Pages change. Every observation is dated to its capture and may no longer be current.",
+   "A server fetch does not run JavaScript. Values filled by scripts, and journeys built as apps, were not observed.",
+   "US and global pages were not used as Canadian facts. Where a Canadian page carried US disclosures, that is recorded as an observation about the page.",
+   "Regulatory statements are recorded as each provider published them. They were not checked against the FINTRAC or Bank of Canada registries and are not a compliance assessment.",
+   "This edition does not compare FX costs or product performance and does not recommend a provider."
+  ],
+  "relationship": {
+   "status": "pending",
+   "text": "Relationship disclosure pending. Before publication I will state here whether I or Help Me Marketing have any client, consulting, referral, affiliate, sponsorship or other commercial connection with any of the six providers."
+  },
+  "corrections": "If an observation is wrong or out of date, email Hello@helpmemarketing.com with the page and the correction. Confirmed corrections will be made with a dated note."
+ },
+ "help": {
+  "heading": "If you market a financial product",
+  "body": "I can read your own pages the way this Index reads these six: how the offer, its conditions, the proof and the next step come across to a buyer. This is a free review of your marketing by Help Me Marketing. It is not a card application, and it is not financial, legal or regulatory advice.",
+  "button": "Get my free marketing review",
+  "entry": "research_business_spend"
+ }
+}
