@@ -6,7 +6,7 @@ The whole `_kit/` folder is excluded from deployment by `.vercelignore`, so none
 
 ## What the Index is
 
-How six platforms (Venn, Float, Ramp, Loop, Keep, Airwallex, in that order) explain business cards, spend management and cross-border payments to Canadian businesses, read from dated public pages. It is a point-in-time reading of communication and enquiry journeys. It is not a product test, a compliance assessment, a ranking or a recommendation. Lending, investment, personal banking, crypto, payroll, SEO rankings, social posting and ad libraries are out of scope.
+How six platforms (Venn, Float, Ramp, Loop, Keep, Airwallex, in that order) explain business cards, spend management and cross-border payments to Canadian businesses, read from dated public pages. It is a point-in-time reading of communication and enquiry journeys. It is not a product test, a compliance assessment, a ranking or a recommendation. Lending, investment, personal banking, crypto, payroll, SEO rankings and ad libraries are out of scope; social content is limited to the official Instagram accounts in the Instagram content view.
 
 ## Files
 
@@ -25,8 +25,12 @@ How six platforms (Venn, Float, Ramp, Loop, Keep, Airwallex, in that order) expl
 | `ingest.py` | Idempotent ingestion: `sources` (fetch log), `observations` (records by ID), `browser` (Chrome captures with a manifest). Changed records need `--replace`; missing files produce a handoff request and no write. |
 | `release.py` | Release preparation. `--dry-run OUTDIR --release-date YYYY-MM-DD` renders the live page, the edition snapshot, the hub and the sitemap outside the repository and reports open gates; `--apply` writes them only after `edition.json` records the owner's release instruction. Steps in `RELEASE_STEPS.md`. |
 | `collect.py` | The bounded server fetcher used for edition 001. Its output directory is private storage. |
-| `SOCIAL_MODULE_BRIEF.md` | Collection brief for the planned social content module (official Instagram accounts only, the fixed window 25 July to 22 October 2026, verification, coverage, per-post fields, inspection and metrics rules). Not collected; nothing on the page. |
-| `social.py` | Schema and checks for a future `social.json` (window, channels, verification, coverage labels, required fields, explicit nulls for missing metrics, no session material) and the renderer for the Social content view. `load_reviewed()` returns nothing until `social.json` is reviewed and approved by hand, so the page has no social tab today. |
+| `SOCIAL_MODULE_BRIEF.md` | Collection brief for the Instagram module (official Instagram accounts only, the fixed window 25 July to 22 October 2026, verification, coverage, per-post fields, inspection and metrics rules). |
+| `SOCIAL_INGEST_NOTE.md` | Ingestion record of the Instagram package (27 October 2026): hash and checks, corrections to the collector's handoff, the clean derived summary, Ramp attribution (unresolved), images, and what remains before release. |
+| `social_derive.py` | Builds `social.json` from the private package (verifies the zip hash and SHA256SUMS, runs the checker and the secret check, derives publisher, collaboration, paid-partnership label, split metric times and attribution). Never hand-edit `social.json`. |
+| `social_narrative.json` | Editorial layer of the Instagram view: scope, coverage wording, patterns, the four examples and the tests note. |
+| `social_images.py` | Makes the two public image crops under `/assets/index/business-spend/social/` from sanitised screenshots and prints their provenance. |
+| `social.py` | Schema and checks for `social.json` and `social_narrative.json` (window, channel, verification, attribution, coverage wording, publisher and collaboration, explicit nulls, metric read times, targeted credential checks, example rules) and the renderer for the Instagram content view and its CSV. `load_module()` returns the module in status `review` or `reviewed`; `load_reviewed()` only once the owner's approval is recorded; `release_gate()` blocks release until then. |
 | `social_package_template/` | Starting point for the social collection: six account rows (website-linked Instagram candidates, none verified), empty posts and manifest, and a field guide. Copied outside the repository and filled in Chrome; `python3 social.py check DIR` and `python3 social.py ingest DIR` (writes a draft `social.json`, screenshot hashes only). |
 | `artwork.html` | Source of the hub card artwork (`/assets/index/business-spend/hero.webp` and `hero-704.webp`), rendered by Playwright at 1056x591. Text and outline shapes only. |
 | `CHROME_HANDOFF.md` | Browser checks still needed, the manifest format and the publication blockers. |

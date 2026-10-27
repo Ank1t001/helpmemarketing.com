@@ -13,6 +13,10 @@
                                       (browser excerpts come from the page text in Chrome and
                                       are attested by the capture manifest, not by a text file)
 
+  python3 validate.py --social-package PKG_DIR [--social-zip PKG_ZIP]
+                                      also confirm the Instagram records, quoted phrases and image
+                                      sources against the private Instagram evidence package
+
 Exit status is 0 only when every check passes.
 """
 import csv
@@ -240,6 +244,9 @@ def check_inputs(c):
         if piece not in m:
             errs.append('method.dates: does not match the edition collection times (%s)' % piece)
     errs += check_text(c)
+    if getattr(c, 'social', None) and getattr(c, 'mode', 'draft') != 'draft':
+        import social
+        errs += social.release_gate(c.social)
     return errs
 
 
@@ -289,6 +296,121 @@ class _Scan(HTMLParser):
 def build_csv():
     import build
     return build.CSV_REL
+
+
+def social_csv():
+    import social
+    return social.CSV_REL
+
+
+PRIVATE_MARKERS = ('reposts-index', 'captions_exact', 'manifest-social', 'social-evidence-v1.zip', 'libfile_', 'drive.google', 'scratchpad', '_vercel_share', '/_kit/')
+
+
+def check_social_outputs(c, body):
+    """The Instagram view against social.json: order, counts, labels, CSV and private material."""
+    import build
+    import social
+    s = c.social
+    errs = []
+    views = [v for _, v in build.view_order(c)]
+    if views.index('bs-social') != views.index('bs-messaging') + 1 or views.index('bs-journeys') != views.index('bs-social') + 1:
+        errs.append('social: the Instagram view sits after Messaging & offers and before Application journeys')
+    if '<a href="#bs-social" id="bs-tab-social">Instagram content</a>' not in body:
+        errs.append('social: the tab is labelled "Instagram content"')
+    sec = body[body.index('<section id="bs-social"'):body.index('<section id="bs-journeys"')]
+    review = 'For editorial review</span>' in sec
+    if (s['status'] == 'review' and getattr(c, 'mode', 'draft') == 'draft') != review:
+        errs.append('social: the editorial-review flag shows on the draft only, and only while approval is pending')
+    for pid in EXPECTED_ORDER:
+        a = next(x for x in s['accounts'] if x['platform'] == pid)
+        row = re.search(r'<tr id="bs-sc-%s">(.*?)</tr>' % pid, sec, re.S)
+        if not row:
+            errs.append('social: coverage row for %s missing' % pid)
+            continue
+        cnt = re.search(r'data-label="Posts in the window"><span class="cell-main">(\d+)</span>', row.group(1))
+        n = sum(1 for p in s['posts'] if p['platform'] == pid)
+        if not cnt or int(cnt.group(1)) != n or n != a['posts_in_window']:
+            errs.append('social: coverage count for %s does not match the %d records' % (pid, n))
+        if n == 0 and 'No in-window posts found in the reviewed' not in row.group(1):
+            errs.append('social: %s with no posts uses the agreed wording' % pid)
+        if a['attribution']['status'] == 'unresolved' and 'Attribution unresolved' not in row.group(1):
+            errs.append('social: %s attribution is labelled unresolved' % pid)
+        if a['scope'] == 'global' and 'do not show what is offered in Canada' not in row.group(1):
+            errs.append('social: %s is a global account and its row says so' % pid)
+    venn = 'The captured Venn website footer linked to @tryvault, while this study uses owner-confirmed @venn.ca with supporting profile evidence.'
+    if html_escape(venn) not in sec:
+        errs.append('social: the Venn website-link sentence is missing or altered')
+    if re.search(r'\binactive\b|\bdormant\b', sec, re.I):
+        errs.append('social: an account with no posts is never called inactive')
+    for ex in s['narrative']['examples']:
+        p = next(x for x in s['posts'] if x['id'] == ex['post'])
+        art = re.search(r'<article class="card ex soc-ex" id="bs-s%s">(.*?)</article>' % ex['id'][1:], sec, re.S)
+        if not art:
+            errs.append('social: example %s missing' % ex['id'])
+            continue
+        t = art.group(1)
+        if p['format'] == 'video' and social.VIDEO_LABEL not in t:
+            errs.append('social: example %s is a reel and carries "%s"' % (ex['id'], social.VIDEO_LABEL))
+        for need in ('What the evidence shows', 'My reading', 'What this means for your marketing team', 'Provenance for this example', html_escape(p['url'])):
+            if need not in t:
+                errs.append('social: example %s lacks %s' % (ex['id'], need))
+        if p.get('paid_label') and html_escape(p['paid_label']['text']) not in t and p['paid_label']['text'] not in t:
+            errs.append('social: example %s drops its paid-partnership label' % ex['id'])
+    if 'Proposed test, not a result</span><b>Test ' in sec:
+        errs.append('social: the Instagram view adds no test of its own')
+    for m in PRIVATE_MARKERS:
+        if m in sec:
+            errs.append('social: private material in the page (%s)' % m)
+    if social.secret_findings(sec):
+        errs.append('social: credential-like text in the page')
+    rows = list(csv.reader(io.StringIO(social.render_csv(s))))
+    head, data = rows[0], rows[1:]
+    if head != social.CSV_HEAD or len(data) != len(s['posts']):
+        errs.append('social csv: %d rows for %d posts' % (len(data), len(s['posts'])))
+    if len({r[head.index('post_url')] for r in data}) != len(data):
+        errs.append('social csv: duplicate post URLs')
+    for pid in EXPECTED_ORDER:
+        if sum(1 for r in data if r[0] == social.NAMES[pid]) != sum(1 for p in s['posts'] if p['platform'] == pid):
+            errs.append('social csv: %s count differs from the page' % pid)
+    for r in data:
+        for v in r:
+            if v[:1] in ('=', '+', '-', '@', '\t', '\r'):
+                errs.append('social csv: formula-like cell %r' % v[:20])
+        if any(k in ','.join(r) for k in ('Caption as seen', 'reposts')):
+            errs.append('social csv: captions and reposts stay out of the file')
+    return errs
+
+
+def check_social_package(c, pkg, zpath=None):
+    """Against the private Instagram package: quotes, image sources, record hashes and the package hash."""
+    import social
+    import social_derive
+    errs = []
+    s = c.social or json.load(open(social.PATH, encoding='utf-8'))
+    if zpath:
+        h = social_derive.sha(zpath)
+        if h != s['package']['sha256']:
+            errs.append('social package: zip sha256 %s is not the recorded %s' % (h, s['package']['sha256']))
+    with open(os.path.join(pkg, 'posts.json'), encoding='utf-8') as f:
+        caps = {p['id']: social_derive.caption_as_seen(p) for p in json.load(f)}
+    for p in s['posts']:
+        f = os.path.join(pkg, 'screenshots', p['capture_ref'])
+        if not os.path.exists(f) or social_derive.sha(f) != p['capture_sha256']:
+            errs.append('social package: capture for %s missing or changed' % p['id'])
+        if p['hook'] and p['hook'] not in caps.get(p['id'], ''):
+            errs.append('social package: hook for %s is not exact caption text' % p['id'])
+    n = social.load_narrative()
+    for ex in n['examples']:
+        cap = caps.get(ex['post'], '')
+        for x in ex['shows']:
+            if isinstance(x, dict) and 'q' in x and x['q'] not in cap:
+                errs.append('social package: example %s quote %r is not exact caption text' % (ex['id'], x['q'][:40]))
+        img = ex.get('image')
+        if img:
+            f = os.path.join(pkg, 'screenshots', img['from'])
+            if not os.path.exists(f) or social_derive.sha(f) != img['from_sha256']:
+                errs.append('social package: image source for %s missing or changed' % ex['id'])
+    return errs
 
 
 def check_outputs(c, page, csvtext, extra_paths=()):
@@ -350,7 +472,7 @@ def check_outputs(c, page, csvtext, extra_paths=()):
             if path.endswith('.html'):
                 errs.append('page: link with .html suffix %s' % h)
             target = os.path.join(model.ROOT, path.lstrip('/'))
-            if path not in ('/', '', '/' + build_csv()) and path not in extra_paths and not (os.path.exists(target) or os.path.exists(target + '.html')):
+            if path not in ('/', '', '/' + build_csv(), '/' + social_csv()) and path not in extra_paths and not (os.path.exists(target) or os.path.exists(target + '.html')):
                 errs.append('page: internal link target missing %s' % h)
     for pid in EXPECTED_ORDER:
         block = body[body.index('id="bs-p-%s"' % pid):]
@@ -380,7 +502,9 @@ def check_outputs(c, page, csvtext, extra_paths=()):
     if [h[1:] for h in re.findall(r'href="(#[^"]+)"', nav)] != views:
         errs.append('page: the section nav lists the views in order (%s)' % ', '.join(views))
     if ('bs-social' in views) != bool(getattr(c, 'social', None)) or ('id="bs-social"' in body) != bool(getattr(c, 'social', None)):
-        errs.append('page: a social view appears only with a reviewed social module')
+        errs.append('page: the Instagram view appears only with a derived module in review or reviewed')
+    if getattr(c, 'social', None):
+        errs += check_social_outputs(c, body)
     if 'class="bs-tablist"' not in nav or len(re.findall(r'<a href="#bs-[a-z]+" id="bs-tab-[a-z]+">', nav)) != len(views):
         errs.append('page: the nav holds one tab link per view inside .bs-tablist')
     if '<script data-bsi-tabs>' not in page or 'data-bsi-views' in page:
@@ -515,6 +639,9 @@ def main(argv):
         errs += check_browser(c, argv[argv.index('--browser') + 1])
     if '--archive' in argv:
         errs += check_archive(c, argv[argv.index('--archive') + 1])
+    if '--social-package' in argv:
+        errs += check_social_package(c, argv[argv.index('--social-package') + 1],
+                                     argv[argv.index('--social-zip') + 1] if '--social-zip' in argv else None)
     if errs:
         print('\n'.join(errs))
         print('FAIL: %d problems' % len(errs))
@@ -523,7 +650,9 @@ def main(argv):
     by = {k: sum(1 for o in c.obs.values() if o['status'] == k) for k in model.STATUSES}
     print('PASS: %d sources, %d observations (%s), %d unresolved conflicts%s' % (
         len(c.sources), len(c.obs), ', '.join('%s %d' % (model.STATUSES[k], v) for k, v in by.items()), n_conf,
-        ('; excerpts and hashes checked against private captures' + ('; browser screenshot hashes checked' if '--browser' in argv else '') + ('; evidence archive checked' if '--archive' in argv else '')) if '--raw' in argv else '; private captures not checked (pass --raw DIR)'))
+        ('; excerpts and hashes checked against private captures' + ('; browser screenshot hashes checked' if '--browser' in argv else '') + ('; evidence archive checked' if '--archive' in argv else '')) if '--raw' in argv else '; private captures not checked (pass --raw DIR)')
+        + (('; Instagram view: %d posts, status %s' % (len(c.social['posts']), c.social['status'])) if getattr(c, 'social', None) else '')
+        + (('; Instagram package checked (quotes, captures%s)' % (', zip hash' if '--social-zip' in argv else '')) if '--social-package' in argv else ''))
     return 0
 
 

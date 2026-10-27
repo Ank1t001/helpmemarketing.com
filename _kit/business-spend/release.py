@@ -158,6 +158,7 @@ def release_ctx(day):
     c.edition['status'] = 'published'
     c.edition['published_at'] = c.edition.get('published_at') or day
     c.release_date = day
+    c.mode = 'release'   # so validate.check_inputs applies the release gates (the Instagram approval among them)
     return c
 
 
@@ -249,8 +250,11 @@ def apply():
         print('Refused:\n' + '\n'.join(hi + si))
         return 1
     os.makedirs(os.path.join(model.ROOT, os.path.dirname(snap_rel)), exist_ok=True)
-    for rel, text in ((build.PAGE, live), (os.path.join(model.ROOT, snap_rel), snap), (os.path.join(model.ROOT, HUB), hub),
-                      (os.path.join(model.ROOT, SITEMAP), sm), (build.CSV_PATH, csvtext)):
+    out = [(build.PAGE, live), (os.path.join(model.ROOT, snap_rel), snap), (os.path.join(model.ROOT, HUB), hub),
+           (os.path.join(model.ROOT, SITEMAP), sm), (build.CSV_PATH, csvtext)]
+    if c.social:
+        out.append((build.SOCIAL_CSV_PATH, build.social.render_csv(c.social)))
+    for rel, text in out:
         with open(rel, 'w', encoding='utf-8') as f:
             f.write(text)
     print('Release files written. Review the diff, then commit.')

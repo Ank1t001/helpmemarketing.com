@@ -1,6 +1,6 @@
 # Collection brief: social content module (planned, not collected)
 
-Status, 23 October 2026: planned additional research module for the Business Cards & Spend Management Index. Nothing has been collected. The page has no social tab and gets one only when this module is collected, ingested, validated (`social.py`), reviewed and approved by the owner. No example, summary or count is written before the evidence exists. The Chrome steps are in `CHROME_HANDOFF.md`, section "Social module".
+Status, 27 October 2026: collected on 26 October 2026 (package `business-spend-index-edition-001-social-evidence-v1.zip`) and ingested on 27 October 2026 (`SOCIAL_INGEST_NOTE.md`). The "Instagram content" view (`#bs-social`, after Messaging & offers) is shown on the staging draft for editorial review only; release waits for the owner's approval, recorded by hand in `social.json`. Ramp's account attribution is unresolved. This brief stays the rulebook for the module; where the owner's ingestion brief of 27 October 2026 differs (examples may use reels read from cover and caption only, labelled "Cover and caption reviewed; video not watched."; the view is titled "Instagram content"), the later instruction applies.
 
 ## Question
 

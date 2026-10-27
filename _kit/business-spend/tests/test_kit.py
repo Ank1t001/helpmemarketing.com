@@ -3,6 +3,7 @@ import csv
 import io
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -159,11 +160,11 @@ class KitTests(unittest.TestCase):
 
     def test_five_views_and_content_kinds(self):
         body = self.page[self.page.index('REPORT BODY START'):]
-        pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-compare', 'bs-messaging', 'bs-journeys', 'bs-lessons')]
+        pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-compare', 'bs-messaging', 'bs-social', 'bs-journeys', 'bs-lessons')]
         self.assertEqual(pos, sorted(pos))
-        self.assertEqual(body.count('class="note reading"'), 6 + 4 + 1)  # six platforms, four examples, the journey reading
-        self.assertEqual(body.count('Proposed test, not a result</span><b>Test '), 3)
-        self.assertEqual(body.count('What this means for your marketing team'), 8 + 1)  # takeaways retained, plus the legend entry
+        self.assertEqual(body.count('class="note reading"'), 6 + 4 + 1 + 4)  # six platforms, four examples, the journey reading, four Instagram examples
+        self.assertEqual(body.count('Proposed test, not a result</span><b>Test '), 3)   # still exactly three tests
+        self.assertEqual(body.count('What this means for your marketing team'), 8 + 1 + 4)  # takeaways retained, the legend entry, four Instagram examples
         self.assertIn('id="bs-journey-table"', body)
         self.assertNotIn('Next step observed', body)
 
@@ -232,12 +233,12 @@ class KitTests(unittest.TestCase):
         nav = body[body.index('class="ri-nav bs-views"'):]
         nav = nav[:nav.index('</nav>')]
         self.assertIn('<div class="bs-tablist">', nav)
-        for k in ('overview', 'compare', 'messaging', 'journeys', 'lessons'):
+        for k in ('overview', 'compare', 'messaging', 'social', 'journeys', 'lessons'):
             self.assertIn('<a href="#bs-%s" id="bs-tab-%s">' % (k, k), nav)
-        self.assertNotIn('bs-social', body)                 # no social view until a reviewed module exists
+        self.assertEqual(re.findall(r'id="bs-tab-([a-z]+)"', nav), ['overview', 'compare', 'messaging', 'social', 'journeys', 'lessons'])
         self.assertNotIn('role="tab', body)                  # roles come from the script: without it the page is a plain reading order
         self.assertNotRegex(body, r'<section id="bs-[a-z]+" class="bs-view"[^>]* hidden')
-        self.assertEqual(body.count('<p class="bs-next">'), 5)
+        self.assertEqual(body.count('<p class="bs-next">'), 6)
         script = self.page[self.page.index('<script data-bsi-tabs>'):]
         script = script[:script.index('</script>')]
         for needle in ("'tablist'", "'tab'", "'tabpanel'", 'aria-selected', 'aria-controls', 'aria-labelledby', 'ArrowRight', 'ArrowLeft',
@@ -356,7 +357,9 @@ class SocialModuleTests(unittest.TestCase):
     def test_window_is_fixed_at_ninety_days(self):
         self.assertEqual(social.WINDOW, {'start': '2026-07-25', 'end': '2026-10-22', 'tz': 'America/Toronto', 'days': 90})
         self.assertEqual(social.window_text(), '25 July to 22 October 2026, Toronto time (90 days)')
-        self.assertIsNone(social.load_reviewed())   # nothing collected: no social view
+        self.assertIsNone(social.load_reviewed())   # in review: approval not recorded
+        m = social.load_module()
+        self.assertEqual((m['status'], m['approved']), ('review', None))
 
     def test_good_fixture_passes(self):
         self.assertEqual(social.check(_fixture()), [])
@@ -371,7 +374,11 @@ class SocialModuleTests(unittest.TestCase):
         self.assertIn('watched', errs(lambda s: s['posts'][0].update(format='video')))
         self.assertIn('every slide', errs(lambda s: s['posts'][0].update(format='carousel')))
         self.assertIn('metric views missing', errs(lambda s: s['posts'][0]['metrics'].pop('views')))
-        self.assertIn('private or session material', errs(lambda s: s['posts'][0].update(capture_ref='sessionid=abc')))
+        self.assertIn('credential-like', errs(lambda s: s['posts'][0].update(capture_ref='sessionid=abc123def456')))
+        self.assertIn('credential-like', errs(lambda s: s['posts'][0].update(hook='Authorization: Bearer abcdefghijklmnopqrstuvwxyz0123')))
+        self.assertIn('credential-like', errs(lambda s: s['posts'][0].update(hook='libfile_' + '0123456789abcdef01')))
+        self.assertIn('reposts cannot be dated', errs(lambda s: s['posts'][0].update(relation='repost')))
+        self.assertIn('displayed abbreviation', errs(lambda s: s['posts'][0]['metrics'].update(likes='about 11k')))
         self.assertIn('unverified', errs(lambda s: s['accounts'][0].update(verified=False)))
         self.assertIn('logged in', errs(lambda s: s['accounts'][0].update(logged_in=None)))
         self.assertIn('checked_at', errs(lambda s: s['accounts'][0].update(checked_at=None)))
@@ -380,17 +387,85 @@ class SocialModuleTests(unittest.TestCase):
         self.assertIn('owner approval', errs(lambda s: s.update(status='reviewed')))
         self.assertIn('complete inventory', errs(lambda s: (s['accounts'][0].update(coverage='partial'), s['summary'].append({'text': 't', 'frequency': 2}))))
 
-    def test_reviewed_module_adds_a_sixth_view(self):
-        s = _fixture()
-        s.update(status='reviewed', approved='fixture', view={'title': 'Social content', 'dek': 'fixture'}, scope_note='fixture', selection='fixture',
-                 collection={'text': 'fixture', 'note': 'fixture'})
+    def test_ordinary_words_are_not_credentials(self):
+        for text in ('stayed way past the last session', 'cookie jar', 'a token of thanks', 'password reset help article', 'Bearer of good news'):
+            self.assertEqual(social.secret_findings(text), [], text)
+        for text in ('sessionid=8a7f6e5d4c3b', 'Cookie: csrftoken=abc', 'eyJhbGciOiJIUzI1.eyJzdWIiOiIxMjM0NTY.SflKxwRJSMeKKF2QT4fw', 'https://drive.google.com/file/d/abc/view',
+                     'api_key=abcdef123456', 'x?_vercel_share=abcdefgh1234'):
+            self.assertTrue(social.secret_findings(text), text)
+
+    def test_instagram_view_sits_after_messaging_for_review(self):
         c = build.Ctx()
-        c.social = s
         body = build.body(c)
-        self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-compare', 'bs-messaging', 'bs-journeys', 'bs-social', 'bs-lessons'])
-        self.assertIn('<a href="#bs-social" id="bs-tab-social">Social content</a>', body)
-        self.assertIn('<b>Social posts</b> 25 July to 22 October 2026', body)
+        self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-compare', 'bs-messaging', 'bs-social', 'bs-journeys', 'bs-lessons'])
+        self.assertIn('<a href="#bs-social" id="bs-tab-social">Instagram content</a>', body)
+        self.assertIn('<b>Instagram posts</b> published 25 July to 22 October 2026; collected 26 October 2026', body)
         self.assertIn('<b>Websites observed</b> 23 October 2026', body)
+        sec = body[body.index('<section id="bs-social"'):body.index('<section id="bs-journeys"')]
+        self.assertIn('For editorial review', sec)
+        self.assertIn('The captured Venn website footer linked to @tryvault, while this study uses owner-confirmed @venn.ca with supporting profile evidence.', sec)
+        self.assertEqual(sec.count('No in-window posts found in the reviewed'), 3)
+        self.assertNotRegex(sec, r'(?i)\binactive\b')
+        self.assertEqual(sec.count(social.VIDEO_LABEL), 3)   # S1, S2 and S3 are reels (S4 is a carousel)
+        self.assertIn('Attribution unresolved', sec)
+        self.assertNotIn('ramp-ig-', sec)                       # no Ramp example while attribution is unresolved
+
+    def test_release_is_blocked_until_approval(self):
+        c = build.Ctx()
+        c.mode = 'release'
+        self.assertTrue(any('editorial review only' in e for e in validate.check_inputs(c)))
+        c.mode = 'draft'
+        self.assertFalse(any('editorial review only' in e for e in validate.check_inputs(c)))
+        self.assertTrue(social.release_gate({'status': 'review'}))
+        self.assertEqual(social.release_gate({'status': 'reviewed', 'approved': 'by hand'}), [])
+
+    def test_derived_records(self):
+        s = json.load(open(social.PATH, encoding='utf-8'))
+        self.assertEqual(s['status'], 'review')
+        self.assertIsNone(s['approved'])
+        self.assertEqual({a['platform']: a['posts_in_window'] for a in s['accounts']}, {'venn': 9, 'float': 0, 'ramp': 19, 'loop': 0, 'keep': 0, 'airwallex': 23})
+        self.assertEqual(s['totals']['formats'], {'video': 33, 'carousel': 10, 'image': 8})
+        self.assertEqual(s['totals']['inspection'], {'carousel/all_slides': 9, 'carousel/partial': 1, 'image/cover_and_caption': 8, 'video/partial': 33})
+        self.assertEqual(s['totals']['partially_inspected'], 34)
+        ramp = next(a for a in s['accounts'] if a['platform'] == 'ramp')
+        awx = next(a for a in s['accounts'] if a['platform'] == 'airwallex')
+        self.assertEqual((ramp['relations'], ramp['collaborations']['published_by_collaborator'], ramp['collaborations']['published_with_coauthor']), ({'original': 4, 'collaboration': 15}, 13, 2))
+        self.assertEqual(awx['relations'], {'original': 18, 'collaboration': 5})
+        self.assertEqual(ramp['attribution']['status'], 'unresolved')
+        self.assertEqual(s['collection']['post_records']['from'], '2026-10-26T21:45:38-04:00')
+        self.assertEqual(len({p['url'] for p in s['posts']}), 51)
+        for p in s['posts']:
+            self.assertNotIn('Caption as seen', p['inspected'])     # exact captions stay private
+            if p['metrics']['views'] is not None:
+                self.assertTrue(p['metrics']['views_captured_at'] and p['metrics']['views_source'])
+        self.assertEqual(next(p for p in s['posts'] if p['id'] == 'ramp-ig-DeLBKE-hlOg')['caption_restoration']['restored'], 'session')
+        self.assertEqual(next(p for p in s['posts'] if p['id'] == 'airwallex-ig-DeR-myVkbUa')['metrics']['comments'], None)
+        self.assertEqual(next(p for p in s['posts'] if p['id'] == 'ramp-ig-DexOf5RysxI')['metrics']['likes'], '11.1K')
+
+    def test_narrative_rules(self):
+        s = json.load(open(social.PATH, encoding='utf-8'))
+        n = social.load_narrative()
+        self.assertEqual(social.check_narrative(s, n, model.ROOT), [])
+        import copy
+
+        def errs(mut):
+            m = copy.deepcopy(n); mut(m); return ' | '.join(social.check_narrative(s, m, model.ROOT))
+        self.assertIn('attribution is unresolved', errs(lambda m: m['examples'][0].update(post='ramp-ig-DehBhI9G1w1')))
+        self.assertIn('partly inspected carousel', errs(lambda m: m['examples'][0].update(post='ramp-ig-DcRk2HjEpvT')))
+        self.assertIn('two or three sentences', errs(lambda m: m['examples'][0].update(take='One sentence only?')))
+        self.assertIn('text excerpt', errs(lambda m: m['examples'][0].pop('no_image_reason')))
+        self.assertIn('not a claim', errs(lambda m: m['examples'][0].update(reading='This was the best performing post.')))
+        self.assertIn('recorded hash', errs(lambda m: m['examples'][2]['image'].update(sha256='0' * 64)))
+        self.assertIn('Instagram content', errs(lambda m: m['view'].update(title='Social content')))
+
+    def test_instagram_csv(self):
+        s = social.load_module()
+        rows = list(csv.reader(io.StringIO(social.render_csv(s))))
+        self.assertEqual(rows[0], social.CSV_HEAD)
+        self.assertEqual(len(rows) - 1, 51)
+        self.assertFalse(any(v[:1] in '=+-@' for r in rows[1:] for v in r if v))
+        with open(os.path.join(model.ROOT, social.CSV_REL), encoding='utf-8') as f:
+            self.assertEqual(f.read(), social.render_csv(s))
 
     def test_template_package_is_refused_until_filled(self):
         tpl = os.path.join(KIT, 'social_package_template')

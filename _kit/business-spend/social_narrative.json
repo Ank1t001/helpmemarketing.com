@@ -1,0 +1,117 @@
+{
+ "view": {
+  "title": "Instagram content",
+  "dek": "What the six providers published on their official Instagram accounts between 25 July and 22 October 2026, read after the window closed. The posts are kept apart from the website evidence, which was captured on 23 October 2026 and has its own dates."
+ },
+ "review_flag": "This view is shown on the staging draft for editorial review. Editorial approval has not been recorded, and the release build stays blocked until the owner records it.",
+ "scope": [
+  ["Accounts", "The official company Instagram account of each of the six providers: four Canadian accounts (Venn, Float, Loop, Keep) and the global accounts of Ramp and Airwallex. No founder, employee, partner or reseller accounts, and no other social network."],
+  ["Window", "Posts published 25 July to 22 October 2026 inclusive, by their Toronto publication date (90 days). Each date comes from the post page's own timestamp."],
+  ["Collected", "26 October 2026, after the window closed: Float, Loop and Keep from 9:01 to 9:09 p.m., then Venn, Ramp and Airwallex, with post records from 9:45 to 10:15 p.m. Toronto time. The browser was signed in to Instagram; nothing was followed, liked or commented on."],
+  ["What \"complete\" means", "Every grid and Reels post that the account showed within the window at collection time, subject to the limits in each row below. A post deleted or hidden before 26 October would not be seen."],
+  ["What was inspected", "For the 33 reels, the cover frame, caption and header only: no video was played, so nothing here describes what a video says or shows after its cover. Nine carousels were read slide by slide; one was only partly captured and is not used as an example."],
+  ["Left out", "Reposts (Instagram does not show when a repost was made), Stories, highlights, live videos, the Tagged tab, ads and the @tryvault account. Displayed likes, comments and views were recorded with their read times but are not shown or compared: posts had different ages, and a collaboration's counts include another account's audience."]
+ ],
+ "coverage_dek": "One row per provider, in the page's usual order. A count of 0 means no in-window post was found on the surfaces reviewed; it says nothing about whether the provider is active elsewhere.",
+ "patterns_dek": "These observations describe this sample: three accounts with posts in one 90-day window, read from covers and captions. They do not show what the providers intend or what the posts achieved.",
+ "patterns": [
+  {
+   "title": "Venn's posts were mostly customer stories",
+   "body": "Six of Venn's nine posts tell a customer's story, about three customers: Spellbook (three posts), Queen's Commerce Society (two) and one other business. Two give customer figures in the caption, such as $25,000 saved in a year, and $1,300 in transaction fees and $1,000 in FX fees saved. The captions attribute the figures to the customer and do not say how they were calculated, which matches the website pattern \"Figures often appeared without their basis\".",
+   "denominator": "Venn: 9 posts, all published by @venn.ca; 7 reels read from cover and caption, 1 image, 1 carousel read slide by slide."
+  },
+  {
+   "title": "Rates, fees and eligibility rarely appeared",
+   "body": "Two of the 51 posts state a product rate, both from Venn: 1% cashback in a customer story, and an interest promotion of up to 3.50% with its main condition in the same caption. One more reports a customer's fee savings. No post states an FX fee, a plan price or who can apply for a card. On the websites, these were the main subjects of the three findings.",
+   "denominator": "51 posts from three accounts, captions and covers only for reels. A reel could state terms in its video; that was not checked."
+  },
+  {
+   "title": "Airwallex's account carried sponsorships, events and company life",
+   "body": "Of Airwallex's 23 posts, 14 cover sport sponsorships, events, podcasts and other media, and 6 cover the company, its staff and its own events. Three address a product or programme directly: a creator post about the corporate card, a case study about Arsenal's payments, and a call for nominations to Startup Finance 30. None is about Canada.",
+   "denominator": "Airwallex: 23 posts on a global account, 18 published by @airwallex and 5 collaborations."
+  },
+  {
+   "title": "Collaborations were common on the two global accounts",
+   "body": "On @airwallex, 5 of 23 posts are collaborations; 4 carry a paid-partnership label, 3 in the header and 1 in the caption only. On @tryramp, 15 of 19 are collaborations, 13 of them published by other accounts, and 4 carry Instagram's \"Paid partnership with tryramp\" label. The @tryramp figures describe the account only: who runs it is not confirmed by an official Ramp source.",
+   "denominator": "42 posts on the two global accounts. Labels as shown; nothing here says what was paid or to whom."
+  },
+  {
+   "title": "Three Canadian accounts had no posts in the window",
+   "body": "Float's newest post was dated 5 June 2026, Loop's 11 June 2026 and Keep's 17 July 2024. Of the four Canadian accounts, only Venn published in the window.",
+   "denominator": "4 Canadian accounts; grid and Reels surfaces reviewed (Keep's profile shows no Reels tab)."
+  }
+ ],
+ "selection": "Four posts, each showing a different way of presenting an offer or a next step, chosen for what they show about how a claim travels to Instagram: two from Venn and two from Airwallex. They are not ranked and were not chosen by displayed counts. Ramp's posts are not used as examples while the account's attribution is unresolved. For reels, only the cover and caption were reviewed, so each reading is limited to those.",
+ "examples": [
+  {
+   "id": "S1",
+   "post": "venn-ig-Dba905WFcDk",
+   "approach": "Customer story with a feature list",
+   "title": "A customer story that repeats the cashback rate",
+   "shows": ["The caption opens with ", {"q": "You know a tool is working when the team can't imagine running without it."}, " It then reports that a customer's general manager, after more than a year on Venn, was asked which features have become non-negotiable, and lists four. The last is ", {"q": "1% cashback that arrives in the account every month automatically"}, ". The caption names no plan, monthly spend limit or other condition for the rate."],
+   "website": ["Venn's cards page says its cashback has no tiers, thresholds or caps, while its pricing footnote limits cashback to card spend on the first $5,000 a month on Essentials and the first $25,000 on Plus (", {"a": "#ev-O-VEN-04", "t": "O-VEN-04"}, ", marked Conflicting; ", {"a": "#bs-f1", "t": "finding 1"}, "). The post is dated 30 July 2026; I cannot tell what the terms were on that date."],
+   "reading": "The rate reaches Instagram without the plan limit the pricing page sets on two plans. A reader on Essentials or Plus who meets the rate in this caption has the same open question as on the cards page: will all my spend earn it? The two sources were captured almost three months apart, so this is a repeat of the pattern, not proof of a conflict on 30 July.",
+   "take": "A rate quoted inside a customer story tends to lose its conditions. Hypothesis: naming the plan that earns the rate in posts that repeat it reduces rewards questions after sign-up. Measure rewards questions per new account in the first 60 days, for posts with and without the plan line.",
+   "no_image_reason": "The cover frame shows a person from behind and does not show the rate; the caption excerpt carries the point."
+  },
+  {
+   "id": "S2",
+   "post": "venn-ig-Db8eeMHEV9v",
+   "approach": "Promotion post with its condition",
+   "title": "A promotion that keeps the rate and its condition together",
+   "shows": ["The caption opens with ", {"q": "Want to see exactly how much your cash is earning?"}, " and announces Venn's Interest Boost with a tracking banner that shows ", {"q": "how much of your cash is earning the boosted rate (up to 3.50%) versus the standard rate"}, ". In the same caption it says the boost ", {"q": "applies to funds added above your pre-promo average monthly"}, " balance; the capture cuts the sentence off before its last word."],
+   "website": ["Compare ", {"a": "#bs-f1", "t": "finding 1"}, ", where Venn's cashback condition sat on a different page from the rate. This post is about a different offer, so it does not settle that finding."],
+   "reading": "Here the condition sits in the caption with the rate, the arrangement that test 1 proposes for card pages. The tracker the post describes also answers the reader's next question, how much of the balance qualifies. I did not watch the video, so I cannot say whether the video states the condition too.",
+   "take": "A promotional rate and its main condition fit in one caption. Hypothesis: a post that states both draws fewer \"does my balance qualify?\" questions than one that states the rate alone. Measure promotion questions per account opened through the post's link, against a rate-only version.",
+   "no_image_reason": "The cover frame is a small dashboard image with an account name blurred by the collector; it does not show the rate or the condition, so the caption excerpt is used instead."
+  },
+  {
+   "id": "S3",
+   "post": "airwallex-ig-Dcrv-4rhQEc",
+   "approach": "Creator partnership",
+   "title": "A creator post labelled as a paid partnership",
+   "shows": ["Published by the creator @thejoshvfx with @airwallex as collaborator; the header shows Instagram's \"Paid partnership\" label. The caption says ", {"q": "Managing my biz spend from anywhere is unmatched with @airwallex"}, " and ", {"q": "One corporate card, total control"}, ", then invites comments. It names no market, plan, fee or condition. The cover shows the creator at Oracle Park in San Francisco holding a card."],
+   "website": ["Airwallex's Canadian card pages state a 1% cashback rate, with conditions on the pricing page (", {"a": "#ev-O-AWX-04", "t": "O-AWX-04"}, "). This post is on the global account and does not show whether the card or its terms apply in Canada."],
+   "reading": "The benefit is in the creator's words, and the conditions are left to the brand's own pages. The disclosure is Instagram's label rather than a line in the caption. A reader outside the US cannot tell from the post where the card is offered.",
+   "take": "Creator posts can carry a benefit with no condition and no market. Question for your team: does each creator brief name the market served and the one condition a viewer most needs? Measure the share of enquiries from creator links that come from markets you serve.",
+   "image": {
+    "src": "/assets/index/business-spend/social/airwallex-thejoshvfx-2026-08-30.webp",
+    "width": 673,
+    "height": 600,
+    "alt": "Instagram post by thejoshvfx and airwallex, labelled Paid partnership. On the left, a man in a San Francisco Giants jersey holds up a black card in a baseball stadium. On the right, the caption: Managing my biz spend from anywhere is unmatched with @airwallex. One corporate card, total control. Dated August 30.",
+    "credit": "Post by @thejoshvfx with @airwallex, published 30 August 2026. Screenshot taken 26 October 2026, cropped, with the counts row covered.",
+    "from": "airwallex-post-2026-08-30-Dcrv-4rhQEc.png",
+    "from_sha256": "30b6be2321a63e89524eaebe87338879cbde54675dc7b395f211ddf28b42f340",
+    "crop": [412, 31, 1085, 631],
+    "covered": [758, 503, 1078, 539],
+    "sanitisation": "The collector hid the viewer's navigation, avatar, notifications, messages, comment box, comments and commenter names before capture. In this derivative the row of like, comment and share counts is covered with the panel's background colour; nothing else in the crop is changed.",
+    "sha256": "806b0a3afccd43556df721b144cdb6b4b19f9589ecfaa44a9a65621b7a935b19"
+   }
+  },
+  {
+   "id": "S4",
+   "post": "airwallex-ig-Db8jAJeDQ5J",
+   "approach": "Call to action with eligibility and a deadline",
+   "title": "A call to action that says who qualifies and by when",
+   "shows": ["All five slides were reviewed: a Startup Finance 30 cover with four judges, then one slide per judge. The caption names the judges and their companies, says the 30 will be chosen ", {"q": "against a published methodology"}, ", gives the deadline, ", {"q": "Nominations are now open until 13 September 2026"}, ", names who it is for, ", {"q": "If you lead finance at a venture-backed startup"}, ", and ends with a web address."],
+   "website": ["Compare ", {"a": "#bs-f3", "t": "finding 3"}, ": few first screens on the websites said who can apply or what happens next. This post is a nomination programme, not a product application, so it shows a way of writing eligibility, not how Airwallex presents card eligibility."],
+   "reading": "In one caption a reader learns who the programme is for, when it closes, who decides and where to go. Those are the questions finding 3 found most first screens left open, here for a much simpler offer.",
+   "take": "Question for your team: does each post that asks for a sign-up say who qualifies and the deadline before the link? Hypothesis: stating both raises the share of link clicks that become completed entries. Measure completed entries per link click, against a version without the eligibility line.",
+   "image": {
+    "src": "/assets/index/business-spend/social/airwallex-sf30-2026-08-12.webp",
+    "width": 815,
+    "height": 600,
+    "alt": "Instagram post by airwallex. On the left, the first slide: SF30, Startup Finance 30, an Airwallex program, with photos of four named finance chiefs from Notion, Airwallex, Vercel and Deel. On the right, the caption inviting nominations until 13 September 2026 from people who lead finance at a venture-backed startup, with the link airwallex.com/sf30. Dated August 12.",
+    "credit": "Post by @airwallex, published 12 August 2026 (first of five slides). Screenshot taken 26 October 2026, cropped, with the counts row covered.",
+    "from": "airwallex-post-2026-08-12-Db8jAJeDQ5J.png",
+    "from_sha256": "a06c0d5f4043a0da45f04eef321860b6eb8920c9e709d54bd3997eeb9614eaf4",
+    "crop": [341, 31, 1156, 631],
+    "covered": [828, 503, 1150, 539],
+    "sanitisation": "The collector hid the viewer's navigation, avatar, notifications, messages, comment box, comments and commenter names before capture. In this derivative the row of like, comment and share counts is covered with the panel's background colour; nothing else in the crop is changed.",
+    "sha256": "c13c1a176a27db7e6246aca1c41caa4c03dc4fdb9b2a92086ecb35363031dd0d"
+   }
+  }
+ ],
+ "tests_note": ["The Instagram evidence does not replace any of the three tests. Two Venn posts bear on ", {"a": "#bs-t1", "t": "test 1"}, " (one repeats a rate without its plan limit, one keeps a rate and its condition together) and one Airwallex post on ", {"a": "#bs-t3", "t": "test 3"}, ". None is a stronger basis than the website pages: the posts are a different surface, captured on a different date, and the reels were read from cover and caption only."],
+ "tests_decision": "Three tests unchanged (27 October 2026). Reason: no social observation gives stronger evidence than the website observations behind tests 1 to 3; the posts that bear on them are consistent with those tests and are linked from this view."
+}

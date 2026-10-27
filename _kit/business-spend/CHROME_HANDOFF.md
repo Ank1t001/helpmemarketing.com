@@ -16,7 +16,7 @@ Still open after the pass:
 - Loop: the product tour beyond its first screen.
 - Not possible without an account or a submission: any step after the first screen of the six journeys.
 - The browser pass used a normal Chrome profile (not signed in to the providers) and checked mobile in a 390px frame; my own checks cover real keyboard focus and real mobile viewports.
-- Social module (Instagram only, 25 July to 22 October 2026; LinkedIn dropped by the owner on 26 October 2026): not started. Steps S1 to S6 below.
+- Social module (Instagram only, 25 July to 22 October 2026; LinkedIn dropped by the owner on 26 October 2026): collected 26 October 2026 and ingested 27 October 2026 (`SOCIAL_INGEST_NOTE.md`). Open: Ramp's @tryramp attribution (no official Ramp source links it); a confirmation from Ramp or an official Ramp page linking the account would resolve it. No other collection is requested.
 
 ## Open capture requests (release review, 24 October 2026)
 

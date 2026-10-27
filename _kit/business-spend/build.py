@@ -23,6 +23,7 @@ import validate
 PAGE = os.path.join(model.ROOT, 'business-spend-index.html')
 CSV_REL = 'assets/index/business-spend/business-spend-index-edition-001-observations.csv'
 CSV_PATH = os.path.join(model.ROOT, CSV_REL)
+SOCIAL_CSV_PATH = os.path.join(model.ROOT, social.CSV_REL)
 SITE = 'https://helpmemarketing.com'
 
 CAT_LABEL = {
@@ -70,8 +71,9 @@ class Ctx:
         self.mode = 'draft' if self.edition['status'] == 'draft' else 'release'
         self.release_date = (self.edition.get('published_at') or '')[:10] or None
         self.date_modified = self.edition.get('modified_at')
-        # Social module: only a collected, validated and reviewed module adds a view (SOCIAL_MODULE_BRIEF.md).
-        self.social = social.load_reviewed()
+        # Instagram module: status review shows the view for editorial review (release stays blocked by
+        # validate.check_inputs); status reviewed, with the owner's approval recorded by hand, releases it.
+        self.social = social.load_module()
 
     def name(self, pid):
         return self.plats[pid]['name']
@@ -252,15 +254,17 @@ def cite_and_editions(c):
     start, end = ed['collection_started_at'], ed['collection_ended_at']
     snap = '/' + snapshot_url(c).split('.com/', 1)[1]
     return ('<div class="card" id="bs-cite"><h4>Cite this research</h4>'
-            '<p class="dek">Ankit Kumar, Help Me Marketing. <em>Business Cards &amp; Spend Management Index</em> (The HMM Index). Edition %s. Public pages captured %s. <a href="%s">%s</a></p>'
+            '<p class="dek">Ankit Kumar, Help Me Marketing. <em>Business Cards &amp; Spend Management Index</em> (The HMM Index). Edition %s. Public pages captured %s%s. <a href="%s">%s</a></p>'
             '<p class="dek m0">For a fixed version, cite the <a href="%s">edition %s snapshot</a>. <a href="#bs-editions">Edition history</a></p></div>'
             '<section id="bs-editions"><details class="ri-adv"><summary>Edition history</summary>'
             '<div class="tw" tabindex="0" role="region" aria-label="Edition history, scrolls sideways"><table><thead><tr><th scope="col">Edition</th><th scope="col">Dates</th><th scope="col">What it covered</th></tr></thead><tbody>'
             '<tr><td><b>%s</b> (this page)</td><td class="wrap-cell">Published %s. Public pages captured %s, %s to %s Toronto time. <a href="%s">Snapshot</a></td>'
-            '<td class="wrap-cell">First edition: how six selected platforms explain business cards, spend management and cross-border payments, read from public pages and enquiry journeys. No refresh is scheduled.</td></tr>'
+            '<td class="wrap-cell">First edition: how six selected platforms explain business cards, spend management and cross-border payments, read from public pages and enquiry journeys%s. No refresh is scheduled.</td></tr>'
             '</tbody></table></div><p class="pnote">This address shows the latest edition. Each published edition keeps a snapshot at a fixed address.</p></details></section>'
-            % (E(ed['edition']), long_date(start), E(ed['canonical']), E(ed['canonical']), snap, E(ed['edition']),
-               E(ed['edition']), E(iso_long(c.release_date)), long_date(start), toronto_time(start), toronto_time(end), snap))
+            % (E(ed['edition']), long_date(start), '; Instagram posts published 25 July to 22 October 2026, collected 26 October 2026' if c.social else '',
+               E(ed['canonical']), E(ed['canonical']), snap, E(ed['edition']),
+               E(ed['edition']), E(iso_long(c.release_date)), long_date(start), toronto_time(start), toronto_time(end), snap,
+               ', with official Instagram posts' if c.social else ''))
 
 
 VIEW_ORDER = [('overview', 'bs-overview'), ('compare', 'bs-compare'), ('messaging', 'bs-messaging'), ('journeys', 'bs-journeys'), ('lessons', 'bs-lessons')]
@@ -269,7 +273,7 @@ VIEW_ORDER = [('overview', 'bs-overview'), ('compare', 'bs-compare'), ('messagin
 def view_order(c):
     order = list(VIEW_ORDER)
     if c.social:
-        order.insert(4, ('social', 'bs-social'))
+        order.insert(3, ('social', 'bs-social'))   # after Messaging & offers, before Application journeys
     return order
 
 
@@ -294,7 +298,7 @@ def body(c):
     out.append('<header><p class="kicker">%s</p><h1>%s</h1><p class="lede">%s</p><p class="scope">%s</p>' % (E(h['kicker']), E(h['title']), E(h['subtitle']), E(h['scope'])))
     social_when = ''
     if c.social:
-        social_when = '<span><b>Social posts</b> %s</span>' % E(social.window_text(c.social))
+        social_when = social.byline_html(c.social)
     out.append('<div class="byline"><span><b>Websites observed</b> %s</span>%s<span>Research and analysis by <b><a href="/about">Ankit Kumar</a></b> &middot; Founder, <a href="/">HMM</a></span></div>' % (E(when), social_when))
     out.append('<div class="livebar">%s<span>Edition <b>%s</b></span><span>%s</span></div>' % (
         '<span class="draft-flag">Draft</span>' if draft else '', E(ed['edition']), 'Not yet published' if draft else 'Published <b>%s</b>' % E(iso_long(c.release_date))))
@@ -400,7 +404,13 @@ def body(c):
     out.append('<div id="bs-examples" class="sub"><h3>Selected communication examples</h3><p class="dek">%s</p>%s</div>' % (E(ex['dek']), exs))
     out.append(view_close('messaging'))
 
-    # ---------- 4. Application journeys ----------
+    # ---------- 4. Instagram content (only with a derived module in review or reviewed) ----------
+    if c.social:
+        out.append(view_open('social', 'bs-social'))
+        out.append(social.panel_html(c))
+        out.append(view_close('social'))
+
+    # ---------- 5. Application journeys ----------
     jn = n['journeys']
     out.append(view_open('journeys', 'bs-journeys'))
     head = ''.join('<th scope="col">%s</th>' % E(l) for _, l in jn['columns'])
@@ -418,12 +428,6 @@ def body(c):
     out.append(''.join(example_card(c, e, 'bs-e3') for e in e3))
     out.append('<div class="card test-ptr"><span class="ktag test">Proposed test, not a result</span><p class="dek m0">%s <a href="#bs-t3">Read test 3</a>.</p></div>' % E(jn['test']))
     out.append(view_close('journeys'))
-
-    # ---------- 5. Social content (only when a reviewed module exists) ----------
-    if c.social:
-        out.append(view_open('social', 'bs-social'))
-        out.append(social.panel_html(c))
-        out.append(view_close('social'))
 
     # ---------- 6. Lessons & tests ----------
     pt = n['patterns']
@@ -450,8 +454,9 @@ def body(c):
     href = '/contact?intent=review&amp;entry=%s#contact-form' % hp['entry']
     out.append('<section id="bs-help"><div class="sec-head"><h2>%s</h2></div><div class="card"><p class="dek m0">%s</p>'
                '<a class="btn btn-primary" href="%s" data-review-cta="%s">%s</a></div></section>' % (E(hp['heading']), E(hp['body']), href, hp['entry'], E(hp['button'])))
-    out.append('<footer><div class="about"><p><b>About this index.</b> The Business Cards &amp; Spend Management Index is part of <b>The HMM Index</b> by Help Me Marketing. Edition %s is an independent comparative marketing case study of how six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses, from public pages captured on %s. It is not a ranking, a product test or a recommendation.</p></div>'
-               '<div class="byline-block"><p>Company names are used to report their public pages and imply no relationship with Help Me Marketing.</p></div></footer>' % (E(ed['edition']), long_date(start)))
+    out.append('<footer><div class="about"><p><b>About this index.</b> The Business Cards &amp; Spend Management Index is part of <b>The HMM Index</b> by Help Me Marketing. Edition %s is an independent comparative marketing case study of how six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses, from public pages captured on %s%s. It is not a ranking, a product test or a recommendation.</p></div>'
+               '<div class="byline-block"><p>Company names are used to report their public pages and posts and imply no relationship with Help Me Marketing.</p></div></footer>' % (
+                   E(ed['edition']), long_date(start), ' and official Instagram posts published 25 July to 22 October 2026' if c.social else ''))
     out.append('</div>')
     out.append('<!-- ===== BUSINESS SPEND INDEX REPORT BODY END ===== -->')
     return '\n'.join(out)
@@ -564,9 +569,12 @@ def main(argv):
     errs = validate.check_outputs(c, page, csvtext)
     if errs:
         raise SystemExit('Output checks failed:\n' + '\n'.join(errs))
+    files = [(PAGE, page), (CSV_PATH, csvtext)]
+    if c.social:
+        files.append((SOCIAL_CSV_PATH, social.render_csv(c.social)))
     if '--check' in argv:
         bad = []
-        for path, text in ((PAGE, page), (CSV_PATH, csvtext)):
+        for path, text in files:
             try:
                 with open(path, encoding='utf-8') as f:
                     if f.read() != text:
@@ -576,14 +584,14 @@ def main(argv):
         if bad:
             print('Out of date: ' + ', '.join(os.path.relpath(b, model.ROOT) for b in bad))
             return 1
-        print('PASS: page and CSV match a fresh build')
+        print('PASS: page and CSV files match a fresh build')
         return 0
     os.makedirs(os.path.dirname(CSV_PATH), exist_ok=True)
-    with open(PAGE, 'w', encoding='utf-8') as f:
-        f.write(page)
-    with open(CSV_PATH, 'w', encoding='utf-8') as f:
-        f.write(csvtext)
-    print('Wrote %s (%d bytes) and %s (%d rows)' % (os.path.relpath(PAGE, model.ROOT), len(page.encode()), CSV_REL, csvtext.count('\n') - 1))
+    for path, text in files:
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(text)
+    print('Wrote %s (%d bytes) and %s (%d rows)%s' % (os.path.relpath(PAGE, model.ROOT), len(page.encode()), CSV_REL, csvtext.count('\n') - 1,
+          (' and %s (%d rows)' % (social.CSV_REL, files[2][1].count('\n') - 1)) if c.social else ''))
     return 0
 
 

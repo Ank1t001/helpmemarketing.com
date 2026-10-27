@@ -59,8 +59,15 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
 .msi.msi .plat .ans{color:var(--text)}
 .msi.msi .test-ptr{border-left:3px dotted var(--text-muted);margin-top:var(--s4)}
 .msi.msi .dlinks a,.msi.msi dl.chain a,.msi.msi .plat dd a,.msi.msi .tests dd a,.msi.msi .tests .evlinks a,.msi.msi .test-ptr a{color:var(--cta-text,var(--cta));text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
-.msi.msi figure.soc{margin:var(--s4) 0 0;display:grid;grid-template-columns:minmax(0,220px) 1fr;gap:16px}
-.msi.msi figure.soc img{width:100%;height:auto;border-radius:var(--r1)}
+.msi.msi .soc-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 24px;margin:12px 0 0}
+.msi.msi .soc-meta dt{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary)}
+.msi.msi .soc-meta dd{margin:2px 0 0;font-size:14px}
+.msi.msi .soc-meta a,.msi.msi .soc-ex .srcs a,.msi.msi #bs-social-coverage td a{color:var(--cta-text,var(--cta));text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.msi.msi figure.soc-shot{margin:var(--s4) 0 0;max-width:600px}
+.msi.msi figure.soc-shot img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:var(--r1)}
+.msi.msi figure.soc-shot figcaption{font-size:13px;color:var(--text-muted);margin-top:6px}
+.msi.msi .soc-ex>.ktag{margin-top:var(--s4)}
+.msi.msi .soc-review{margin:0 0 var(--s4)}
 .msi.msi .note.take>.lbl{color:var(--cta-text,var(--cta))}
 .msi.msi .note.gap{border-left-style:dashed}
 .msi.msi .q{display:block;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:4px}
@@ -106,7 +113,6 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
 .msi.msi #bs-help .btn{margin-top:16px}
 .msi.msi footer{margin-top:32px}
 @media(max-width:720px){
-.msi.msi figure.soc{grid-template-columns:1fr}
 .msi.msi .livebar{margin-bottom:0}
 .msi.msi .card .note.take{background:none;border:0;border-left:3px solid var(--cta);border-radius:0;padding:2px 0 2px 12px}
 .msi.msi .plat dl,.msi.msi .tests dl,.msi.msi dl.chain{grid-template-columns:1fr;gap:2px}
@@ -128,6 +134,7 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
 .msi.msi .bs-view[hidden]{display:block!important}
 .msi.msi .bs-views,.msi.msi .bs-next{display:none!important}
 .msi.msi .bs-views.is-tabs~.bs-view+.bs-view{border-top:1px solid var(--border-strong);padding-top:24px}
+.msi.msi figure.soc-shot,.msi.msi .soc-ex{break-inside:avoid}
 }
 </style>
 <script data-bsi-tabs>
