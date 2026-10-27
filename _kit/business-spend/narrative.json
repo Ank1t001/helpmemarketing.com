@@ -1173,7 +1173,13 @@
    "Regulatory statements and registry entries (FINTRAC and the Bank of Canada, checked on 23 October 2026) are recorded in each platform's evidence as supporting detail. They are not a compliance assessment, an endorsement or a safety rating.",
    "This edition does not compare FX costs or product performance and does not recommend a provider."
   ],
-  "corrections": "If an observation is wrong or out of date, email Hello@helpmemarketing.com with the page and the correction. Confirmed corrections will be made with a dated note."
+  "corrections": "If an observation is wrong or out of date, email Hello@helpmemarketing.com with the page and the correction. Confirmed corrections will be made with a dated note.",
+  "corrections_log": [
+   [
+    "27 October 2026",
+    "Loop's homepage time saving was given as a yearly figure. The homepage states \"Businesses save an average of $40,000 annually and 12 hours weekly\". Corrected in Loop's proof line, the Bells of Steel example and observation O-LOP-12."
+   ]
+  ]
  },
  "help": {
   "heading": "If you market a financial product",

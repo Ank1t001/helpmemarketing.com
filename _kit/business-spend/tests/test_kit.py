@@ -326,6 +326,16 @@ class KitTests(unittest.TestCase):
         self.assertNotIn('libfile', self.page)
 
 
+    def test_loop_correction_is_logged_and_propagated(self):
+        body = self.page[self.page.index('REPORT BODY START'):]
+        log = body[body.index('id="bs-corrections"'):]
+        log = log[:log.index('</details>')]
+        self.assertIn('<b>27 October 2026.</b>', log)
+        self.assertIn('12 hours weekly', log)
+        self.assertIn('O-LOP-12', log)
+        self.assertNotIn('12 hours a year', self.page + self.csv)
+        self.assertIn('Businesses save an average of $40,000 annually and 12 hours weekly', [s['excerpt'] for s in self.c.obs['O-LOP-12']['sources']])
+
 def _fixture():
     """Synthetic data for the social checks only. Nothing here is an observation."""
     acct = {'platform': 'loop', 'channel': 'instagram', 'handle': 'example_handle', 'url': 'https://example.invalid/example_handle',

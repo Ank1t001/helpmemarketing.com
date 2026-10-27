@@ -371,7 +371,10 @@ def body(c):
                '<p class="pnote">%d observations from %d captures of public pages (%d by server fetch, %d in a browser), six platforms, edition %s. Interpretations are marked &ldquo;My reading&rdquo; and kept apart from what each source states.</p></details>'
                % (E(m['selection']), E(m['dates']), E(m['public_only']), social_method, st, lim, nobs, nsrc, nsrc - nbr, nbr, E(ed['edition'])))
     out.append(recon_details(c))
-    out.append('<details class="ri-adv"><summary>Corrections</summary><p class="m0">%s</p></details>' % E(m['corrections']).replace('Hello@helpmemarketing.com', '<a href="mailto:Hello@helpmemarketing.com">Hello@helpmemarketing.com</a>'))
+    log = ''.join('<li><b>%s.</b> %s</li>' % (E(d), E(x)) for d, x in m.get('corrections_log', []))
+    out.append('<details class="ri-adv" id="bs-corrections"><summary>Corrections</summary><p class="m0">%s</p>%s</details>' % (
+        E(m['corrections']).replace('Hello@helpmemarketing.com', '<a href="mailto:Hello@helpmemarketing.com">Hello@helpmemarketing.com</a>'),
+        ('<ul class="dek corrections-log">%s</ul>' % log) if log else '<p class="pnote m0">No corrections recorded.</p>'))
     out.append('<p class="pnote dlinks"><b>Download the data:</b> <a href="/%s" download>the curated observations (CSV)</a>: platform, category, observation, status, market and plan, conditions, source URL and capture time. My interpretations are not in the file.</p></div>' % CSV_REL)
     out.append(view_close('overview'))
 
