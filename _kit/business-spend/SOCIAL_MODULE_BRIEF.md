@@ -20,7 +20,7 @@ Official company Instagram accounts only (owner decision, 27 October 2026: Linke
 
 Verification, in this order:
 
-1. Prefer the account the provider links from its own website (the candidates below come from the server captures of 23 October 2026).
+1. Prefer the account the provider links from its own website (the candidates below come from the server captures of 23 October 2026). The owner supplied the Ramp and Airwallex accounts on 27 October 2026; neither site links an Instagram account, so those two are owner-supplied candidates and need the same identity check.
 2. Cross-check identity: the profile names the provider, and the profile's link points to the provider's domain.
 3. Label scope: `canada` when the account presents itself as the provider's Canadian account, `global` when it is the company's worldwide account, `unclear` otherwise. A post is Canada-specific only if the post itself says so.
 4. If identity stays uncertain, record the account as `unverified` and collect nothing from it.
@@ -29,10 +29,10 @@ Verification, in this order:
 |---|---|---|---|
 | Venn | instagram.com/tryvault | S-VEN-HOME and 7 other Venn pages | Do not assume `@tryvault` is Venn: the handle does not contain the brand. Verify the profile name and its link to venn.ca; otherwise record Instagram as `unverified`. |
 | Float | instagram.com/floatfinancialofficial | S-FLT-HOME (raw HTML) | Verify. |
-| Ramp | none linked | S-RMP-HOME and 5 other Canadian pages | No Instagram is linked: record `no_account` unless a profile is linked from ramp.com itself; do not search for one. |
+| Ramp | instagram.com/tryramp (owner-supplied, 27 Oct 2026) | Not linked from ramp.com or ramp.com/en-ca (23 Oct captures; server fetch 26 Oct, 9:03 p.m.) | Verify the profile name and that it links to ramp.com. Probably the company's worldwide account: label `global` unless it presents itself as Canadian. |
 | Loop | instagram.com/bankonloop | S-LOP-HOME and 11 other Loop pages | Verify. |
 | Keep | instagram.com/keep_hq | S-KEP-HOME and 7 other Keep pages | Keep's self-serve sign-up route was closed when checked; record what is posted, without inferring why. |
-| Airwallex | none linked | S-AWX-HOME and 11 other Airwallex pages | No Instagram linked: record `no_account` unless a profile is linked from airwallex.com itself; do not search for one. |
+| Airwallex | instagram.com/airwallex (owner-supplied, 27 Oct 2026) | Not linked from airwallex.com or airwallex.com/en-ca (23 Oct captures; server fetch 26 Oct, 9:03 p.m.) | Verify the profile name and that it links to airwallex.com. Probably the company's worldwide account: label `global` unless it presents itself as Canadian. |
 
 ## Collection
 

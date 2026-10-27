@@ -30,14 +30,14 @@
  {
   "platform": "ramp",
   "channel": "instagram",
-  "handle": null,
-  "url": null,
+  "handle": "tryramp",
+  "url": "https://www.instagram.com/tryramp",
   "verified": false,
-  "verification": "Candidate only: no Instagram link found on the Canadian pages captured 23 Oct 2026. Fill in: profile name seen, the domain the profile links to, and the date checked.",
+  "verification": "Candidate supplied by the owner on 27 October 2026. Not linked from ramp.com or its Canadian pages (23 October captures; server fetch without JavaScript, 26 October 2026, 9:03 p.m. Toronto time). Fill in: profile name seen, the domain the profile links to (expected ramp.com), and the date checked.",
   "scope": "unclear",
   "logged_in": null,
   "coverage": "unverified",
-  "coverage_note": "Record no_account unless ramp.com itself links a profile; do not search for one.",
+  "coverage_note": "Owner-supplied account. If verified, label scope global unless the profile presents itself as Canadian; posts are global unless a post says it is about Canada.",
   "earliest_reached": null,
   "posts_in_window": null
  },
@@ -72,14 +72,14 @@
  {
   "platform": "airwallex",
   "channel": "instagram",
-  "handle": null,
-  "url": null,
+  "handle": "airwallex",
+  "url": "https://www.instagram.com/airwallex",
   "verified": false,
-  "verification": "Candidate only: no Instagram link found on the Canadian pages captured 23 Oct 2026. Fill in: profile name seen, the domain the profile links to, and the date checked.",
+  "verification": "Candidate supplied by the owner on 27 October 2026. Not linked from airwallex.com or its Canadian pages (23 October captures; server fetch without JavaScript, 26 October 2026, 9:03 p.m. Toronto time). Fill in: profile name seen, the domain the profile links to (expected airwallex.com), and the date checked.",
   "scope": "unclear",
   "logged_in": null,
   "coverage": "unverified",
-  "coverage_note": "Record no_account unless airwallex.com itself links a profile; do not search for one.",
+  "coverage_note": "Owner-supplied account. If verified, label scope global unless the profile presents itself as Canadian; posts are global unless a post says it is about Canada.",
   "earliest_reached": null,
   "posts_in_window": null
  }
