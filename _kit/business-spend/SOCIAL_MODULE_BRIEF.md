@@ -16,23 +16,25 @@ How do the same six providers (Venn, Float, Ramp, Loop, Keep, Airwallex) present
 
 ## Channels and accounts
 
-Official company Instagram accounts only (owner decision, 27 October 2026: LinkedIn is out of scope). Not LinkedIn, X, YouTube, Facebook, TikTok or Threads; not founder, executive or employee accounts; not partner, regional fan or reseller accounts.
+Official company Instagram accounts only (owner decision, 26 October 2026: LinkedIn is out of scope). Not LinkedIn, X, YouTube, Facebook, TikTok or Threads; not founder, executive or employee accounts; not partner, regional fan or reseller accounts.
 
 Verification, in this order:
 
-1. Prefer the account the provider links from its own website (the candidates below come from the server captures of 23 October 2026). The owner supplied the Ramp and Airwallex accounts on 27 October 2026; neither site links an Instagram account, so those two are owner-supplied candidates and need the same identity check.
+1. Prefer the account the provider links from its own website (the candidates below come from the server captures of 23 October 2026). The owner supplied the Ramp and Airwallex accounts on 26 October 2026; neither site links an Instagram account, so those two are owner-supplied candidates and need the same identity check.
 2. Cross-check identity: the profile names the provider, and the profile's link points to the provider's domain.
 3. Label scope: `canada` when the account presents itself as the provider's Canadian account, `global` when it is the company's worldwide account, `unclear` otherwise. A post is Canada-specific only if the post itself says so.
 4. If identity stays uncertain, record the account as `unverified` and collect nothing from it.
+5. Website links and owner-supplied handles are discovery leads, not proof: every account is verified on its own profile before any post is used. A missing Instagram link on a Canadian website does not show that the provider has no Instagram account; record `no_account` only when no official account can be identified.
+6. Do not attribute a global account's product terms or offers to Canada without supporting evidence, and never substitute a founder's or employee's profile for the company account.
 
 | Provider | Instagram candidate | Linked from | To resolve |
 |---|---|---|---|
-| Venn | instagram.com/tryvault | S-VEN-HOME and 7 other Venn pages | Do not assume `@tryvault` is Venn: the handle does not contain the brand. Verify the profile name and its link to venn.ca; otherwise record Instagram as `unverified`. |
+| Venn | instagram.com/tryvault | S-VEN-HOME and 7 other Venn pages | Do not assume `@tryvault` is Venn: the handle does not contain the brand. Lead only: Venn's homepage (S-VEN-HOME, 23 Oct) also links to www.tryvault.com and help.tryvault.com, so the tryvault name is used on Venn's own site. Verify the profile name and its link to venn.ca; otherwise record Instagram as `unverified`. |
 | Float | instagram.com/floatfinancialofficial | S-FLT-HOME (raw HTML) | Verify. |
-| Ramp | instagram.com/tryramp (owner-supplied, 27 Oct 2026) | Not linked from ramp.com or ramp.com/en-ca (23 Oct captures; server fetch 26 Oct, 9:03 p.m.) | Verify the profile name and that it links to ramp.com. Probably the company's worldwide account: label `global` unless it presents itself as Canadian. |
+| Ramp | instagram.com/tryramp (owner-supplied, 26 Oct 2026) | Not linked from ramp.com or ramp.com/en-ca (23 Oct captures; server fetch 26 Oct, 9:03 p.m.) | Verify the profile name and that it links to ramp.com. Probably the company's worldwide account: label `global` unless it presents itself as Canadian. |
 | Loop | instagram.com/bankonloop | S-LOP-HOME and 11 other Loop pages | Verify. |
 | Keep | instagram.com/keep_hq | S-KEP-HOME and 7 other Keep pages | Keep's self-serve sign-up route was closed when checked; record what is posted, without inferring why. |
-| Airwallex | instagram.com/airwallex (owner-supplied, 27 Oct 2026) | Not linked from airwallex.com or airwallex.com/en-ca (23 Oct captures; server fetch 26 Oct, 9:03 p.m.) | Verify the profile name and that it links to airwallex.com. Probably the company's worldwide account: label `global` unless it presents itself as Canadian. |
+| Airwallex | instagram.com/airwallex (owner-supplied, 26 Oct 2026) | Not linked from airwallex.com or airwallex.com/en-ca (23 Oct captures; server fetch 26 Oct, 9:03 p.m.) | Verify the profile name and that it links to airwallex.com. Probably the company's worldwide account: label `global` unless it presents itself as Canadian. |
 
 ## Collection
 

@@ -330,16 +330,19 @@ class KitTests(unittest.TestCase):
         body = self.page[self.page.index('REPORT BODY START'):]
         log = body[body.index('id="bs-corrections"'):]
         log = log[:log.index('</details>')]
-        self.assertIn('<b>27 October 2026.</b>', log)
+        self.assertIn('<b>26 October 2026.</b>', log)   # Toronto date of commit 9e020f1 (21:08 EDT)
         self.assertIn('12 hours weekly', log)
         self.assertIn('O-LOP-12', log)
-        self.assertNotIn('12 hours a year', self.page + self.csv)
+        outside = self.page.replace(log, '')
+        self.assertNotIn('12 hours a year', outside + self.csv)        # only the correction history may quote the old wording
+        self.assertNotIn('12 hours saved a year', outside + self.csv)
+        self.assertIn('Before this correction', log)
         self.assertIn('Businesses save an average of $40,000 annually and 12 hours weekly', [s['excerpt'] for s in self.c.obs['O-LOP-12']['sources']])
 
 def _fixture():
     """Synthetic data for the social checks only. Nothing here is an observation."""
     acct = {'platform': 'loop', 'channel': 'instagram', 'handle': 'example_handle', 'url': 'https://example.invalid/example_handle',
-            'verified': True, 'verification': 'fixture', 'scope': 'canada', 'logged_in': False, 'coverage': 'complete',
+            'verified': True, 'verification': 'fixture', 'scope': 'canada', 'logged_in': False, 'checked_at': '2026-11-01T09:55:00-04:00', 'coverage': 'complete',
             'coverage_note': 'fixture', 'earliest_reached': '2026-07-01', 'posts_in_window': 1}
     post = {'id': 'P-1', 'platform': 'loop', 'channel': 'instagram', 'account': 'example_handle', 'url': 'https://example.invalid/p/1',
             'published_on': '2026-08-01', 'date_method': 'post_page_timestamp', 'captured_at': '2026-11-01T10:00:00-04:00', 'scope': 'canada',
@@ -371,6 +374,7 @@ class SocialModuleTests(unittest.TestCase):
         self.assertIn('private or session material', errs(lambda s: s['posts'][0].update(capture_ref='sessionid=abc')))
         self.assertIn('unverified', errs(lambda s: s['accounts'][0].update(verified=False)))
         self.assertIn('logged in', errs(lambda s: s['accounts'][0].update(logged_in=None)))
+        self.assertIn('checked_at', errs(lambda s: s['accounts'][0].update(checked_at=None)))
         self.assertIn('past the window start', errs(lambda s: s['accounts'][0].update(earliest_reached='2026-08-01')))
         self.assertIn('no post count', errs(lambda s: s['accounts'][0].update(coverage='blocked')))
         self.assertIn('owner approval', errs(lambda s: s.update(status='reviewed')))
@@ -393,7 +397,7 @@ class SocialModuleTests(unittest.TestCase):
         s, errs = social.package_to_module(tpl)
         self.assertTrue(any('logged in' in e for e in errs))
         self.assertEqual(len(s['accounts']), 6)
-        self.assertEqual({x['channel'] for x in s['accounts']}, {'instagram'})   # LinkedIn out of scope (owner, 27 October 2026)
+        self.assertEqual({x['channel'] for x in s['accounts']}, {'instagram'})   # LinkedIn out of scope (owner, 26 October 2026)
         self.assertTrue(all(a['verified'] is False for a in s['accounts']))   # nothing pre-verified
         self.assertEqual(s['posts'], [])
 
@@ -405,7 +409,7 @@ class SocialModuleTests(unittest.TestCase):
             for pl in social.PLATFORMS:
                 for ch in social.CHANNELS:
                     accts.append({'platform': pl, 'channel': ch, 'handle': None, 'url': None, 'verified': False, 'verification': 'fixture',
-                                  'scope': 'unclear', 'logged_in': False, 'coverage': 'no_account', 'coverage_note': 'fixture',
+                                  'scope': 'unclear', 'logged_in': False, 'checked_at': '2026-11-01T09:50:00-04:00', 'coverage': 'no_account', 'coverage_note': 'fixture',
                                   'earliest_reached': None, 'posts_in_window': None})
             a = _fixture()['accounts'][0]
             accts = [x for x in accts if (x['platform'], x['channel']) != ('loop', 'instagram')] + [a]

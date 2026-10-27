@@ -1176,8 +1176,8 @@
   "corrections": "If an observation is wrong or out of date, email Hello@helpmemarketing.com with the page and the correction. Confirmed corrections will be made with a dated note.",
   "corrections_log": [
    [
-    "27 October 2026",
-    "Loop's homepage time saving was given as a yearly figure. The homepage states \"Businesses save an average of $40,000 annually and 12 hours weekly\". Corrected in Loop's proof line, the Bells of Steel example and observation O-LOP-12."
+    "26 October 2026",
+    "Loop's homepage time saving. Before this correction, the Bells of Steel example said \"$40,000 and 12 hours a year\", and observation O-LOP-12 and the downloadable observations CSV said \"$40,000 and 12 hours saved a year\"; Loop's proof line gave no unit. The homepage states \"Businesses save an average of $40,000 annually and 12 hours weekly\". Corrected in the Bells of Steel example, Loop's proof line, observation O-LOP-12 and the CSV."
    ]
   ]
  },

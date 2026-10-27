@@ -4,7 +4,7 @@ The page gets a "Social content" view only when _kit/business-spend/social.json 
 is "reviewed", the owner's approval is recorded in it by hand, and check() passes. Until then
 load_reviewed() returns None and the page shows no social tab, summary or example.
 
-Fixed rules (SOCIAL_MODULE_BRIEF.md): official company Instagram accounts only (LinkedIn dropped by the owner, 27 October 2026);
+Fixed rules (SOCIAL_MODULE_BRIEF.md): official company Instagram accounts only (LinkedIn dropped by the owner, 26 October 2026);
 posts published 25 July through 22 October 2026 inclusive, America/Toronto (90 complete days);
 the window never moves. Website observation dates are separate and unchanged.
 """
@@ -32,7 +32,7 @@ POST_FIELDS = ('id', 'platform', 'channel', 'account', 'url', 'published_on', 'd
                'format', 'topic', 'question', 'product', 'geography', 'hook', 'proof', 'cta', 'inspected', 'inspection',
                'capture_ref', 'metrics')
 METRICS = {'instagram': ('likes', 'comments', 'views')}
-ACCOUNT_FIELDS = ('platform', 'channel', 'handle', 'url', 'verified', 'verification', 'scope', 'logged_in', 'coverage',
+ACCOUNT_FIELDS = ('platform', 'channel', 'handle', 'url', 'verified', 'verification', 'scope', 'logged_in', 'checked_at', 'coverage',
                   'coverage_note', 'earliest_reached', 'posts_in_window')
 # Never in this public repository or the page (the brief, section "Collection").
 PRIVATE = re.compile(r'(cookie|session|token|bearer|sessionid|csrftoken|libfile_|authorization|password)', re.I)
@@ -85,6 +85,10 @@ def check(s, asset_root=None):
             errs.append('social account %s/%s: complete only if the feed was read past the window start' % (a.get('platform'), a.get('channel')))
         if a.get('verified') is not True and a.get('coverage') in ('complete', 'partial'):
             errs.append('social account %s/%s: posts from an unverified account cannot be used' % (a.get('platform'), a.get('channel')))
+        try:
+            datetime.fromisoformat(a.get('checked_at') or '')
+        except ValueError:
+            errs.append('social account %s/%s: record when the account was checked (checked_at, ISO time with offset)' % (a.get('platform'), a.get('channel')))
         if not isinstance(a.get('logged_in'), bool):
             errs.append('social account %s/%s: record whether the browser was logged in (true or false)' % (a.get('platform'), a.get('channel')))
         accts[(a.get('platform'), a.get('channel'))] = a
