@@ -4,7 +4,7 @@ The page gets a "Social content" view only when _kit/business-spend/social.json 
 is "reviewed", the owner's approval is recorded in it by hand, and check() passes. Until then
 load_reviewed() returns None and the page shows no social tab, summary or example.
 
-Fixed rules (SOCIAL_MODULE_BRIEF.md): official company Instagram and LinkedIn accounts only;
+Fixed rules (SOCIAL_MODULE_BRIEF.md): official company Instagram accounts only (LinkedIn dropped by the owner, 27 October 2026);
 posts published 25 July through 22 October 2026 inclusive, America/Toronto (90 complete days);
 the window never moves. Website observation dates are separate and unchanged.
 """
@@ -19,7 +19,7 @@ PATH = os.path.join(KIT, 'social.json')
 E = lambda s: html.escape(s, quote=True)
 
 WINDOW = {'start': '2026-07-25', 'end': '2026-10-22', 'tz': 'America/Toronto', 'days': 90}
-CHANNELS = {'instagram': 'Instagram', 'linkedin': 'LinkedIn'}
+CHANNELS = {'instagram': 'Instagram'}
 PLATFORMS = ('venn', 'float', 'ramp', 'loop', 'keep', 'airwallex')
 SCOPES = ('canada', 'global', 'unclear')
 COVERAGE = {'complete': 'Complete inventory', 'partial': 'Partial sample', 'blocked': 'Blocked (not the same as inactive)',
@@ -31,7 +31,7 @@ DATE_METHODS = ('visible_date', 'post_page_timestamp', 'relative_date_converted'
 POST_FIELDS = ('id', 'platform', 'channel', 'account', 'url', 'published_on', 'date_method', 'captured_at', 'scope', 'relation',
                'format', 'topic', 'question', 'product', 'geography', 'hook', 'proof', 'cta', 'inspected', 'inspection',
                'capture_ref', 'metrics')
-METRICS = {'instagram': ('likes', 'comments', 'views'), 'linkedin': ('reactions', 'comments', 'reposts')}
+METRICS = {'instagram': ('likes', 'comments', 'views')}
 ACCOUNT_FIELDS = ('platform', 'channel', 'handle', 'url', 'verified', 'verification', 'scope', 'logged_in', 'coverage',
                   'coverage_note', 'earliest_reached', 'posts_in_window')
 # Never in this public repository or the page (the brief, section "Collection").
@@ -72,7 +72,7 @@ def check(s, asset_root=None):
         if a.get('platform') not in PLATFORMS:
             errs.append('social account: unknown platform %r' % a.get('platform'))
         if a.get('channel') not in CHANNELS:
-            errs.append('social account %s: channel %r is out of scope (Instagram and LinkedIn only)' % (a.get('platform'), a.get('channel')))
+            errs.append('social account %s: channel %r is out of scope (Instagram only)' % (a.get('platform'), a.get('channel')))
         if a.get('scope') not in SCOPES:
             errs.append('social account %s/%s: scope must be one of %s' % (a.get('platform'), a.get('channel'), SCOPES))
         if a.get('coverage') not in COVERAGE:
@@ -181,7 +181,7 @@ def load_reviewed():
 
 
 def method_html(s):
-    return ('<h4 class="t">Social posts</h4><p class="dek">Official company Instagram and LinkedIn accounts only, posts published %s, collected %s. '
+    return ('<h4 class="t">Social posts</h4><p class="dek">Official company Instagram accounts only, posts published %s, collected %s. '
             'These dates are separate from the website observation dates above. %s</p>' % (E(window_text()), E(s['collection']['text']), E(s['collection']['note'])))
 
 
@@ -200,7 +200,7 @@ def panel_html(c):
                 CHANNELS[ch], E(COVERAGE[a['coverage']]), E(n), E(a['scope'].capitalize()), E(a['coverage_note'])))
         rows.append('<tr><td class="brandcell">%s</td>%s</tr>' % (E(c.name(pid)), ''.join(cells)))
     cov = ('<div class="tblock" id="bs-social-coverage"><p class="ktag fact">What the sources say</p><h3 id="bs-sc-h">Scope and coverage</h3><p class="dek">%s</p>'
-           '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-sc-h"><table class="bs"><thead><tr><th scope="col">Platform</th><th scope="col">Instagram</th><th scope="col">LinkedIn</th></tr></thead>'
+           '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-sc-h"><table class="bs"><thead><tr><th scope="col">Platform</th><th scope="col">Instagram</th></tr></thead>'
            '<tbody>%s</tbody></table></div></div>' % (E(s['scope_note']), ''.join(rows)))
     summ = ''.join('<li>%s</li>' % E(x['text']) for x in s.get('summary', []))
     summary = '<div class="sub" id="bs-social-summary"><h3>Across the six</h3><div class="card reading-card"><span class="ktag">My reading across the six</span><ul class="dek">%s</ul></div></div>' % summ

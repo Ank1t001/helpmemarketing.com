@@ -4,7 +4,7 @@ Status, 23 October 2026: planned additional research module for the Business Car
 
 ## Question
 
-How do the same six providers (Venn, Float, Ramp, Loop, Keep, Airwallex) present their cards, spend tools and cross-border offers in their own Instagram and LinkedIn posts, and do those posts carry the conditions and proof that their web pages carry? The module follows the page's chain: observed evidence, customer question, my interpretation, testable hypothesis, measurement. It does not rank accounts, compare reach, claim paid promotion, or say anything about leads, revenue or business results.
+How do the same six providers (Venn, Float, Ramp, Loop, Keep, Airwallex) present their cards, spend tools and cross-border offers in their own Instagram posts, and do those posts carry the conditions and proof that their web pages carry? The module follows the page's chain: observed evidence, customer question, my interpretation, testable hypothesis, measurement. It does not rank accounts, compare reach, claim paid promotion, or say anything about leads, revenue or business results.
 
 ## Observation window (fixed)
 
@@ -16,27 +16,27 @@ How do the same six providers (Venn, Float, Ramp, Loop, Keep, Airwallex) present
 
 ## Channels and accounts
 
-Official company Instagram and LinkedIn accounts only. Not X, YouTube, Facebook, TikTok or Threads; not founder, executive or employee accounts; not partner, regional fan or reseller accounts.
+Official company Instagram accounts only (owner decision, 27 October 2026: LinkedIn is out of scope). Not LinkedIn, X, YouTube, Facebook, TikTok or Threads; not founder, executive or employee accounts; not partner, regional fan or reseller accounts.
 
 Verification, in this order:
 
 1. Prefer the account the provider links from its own website (the candidates below come from the server captures of 23 October 2026).
 2. Cross-check identity: the profile names the provider, and the profile's link points to the provider's domain.
-3. Label scope: `canada` when the account presents itself as the provider's Canadian account, `global` when it is the company's worldwide account (Ramp and Airwallex link global accounts from their Canadian sites), `unclear` otherwise. A post is Canada-specific only if the post itself says so.
+3. Label scope: `canada` when the account presents itself as the provider's Canadian account, `global` when it is the company's worldwide account, `unclear` otherwise. A post is Canada-specific only if the post itself says so.
 4. If identity stays uncertain, record the account as `unverified` and collect nothing from it.
 
-| Provider | Instagram candidate | LinkedIn candidate | Linked from | To resolve |
-|---|---|---|---|---|
-| Venn | instagram.com/tryvault | linkedin.com/company/vennca | S-VEN-HOME and 7 other Venn pages | Do not assume `@tryvault` is Venn: the handle does not contain the brand. Verify the profile name and its link to venn.ca; otherwise record Instagram as `unverified`. |
-| Float | instagram.com/floatfinancialofficial | linkedin.com/company/floatfinancial | S-FLT-HOME (raw HTML) | Verify both. |
-| Ramp | none linked | linkedin.com/company/ramp | S-RMP-HOME and 5 other Canadian pages | Global account: label `global`. No Instagram is linked: record `no_account` unless a profile is linked from ramp.com itself. |
-| Loop | instagram.com/bankonloop | linkedin.com/company/loop-financial | S-LOP-HOME and 11 other Loop pages | Verify both. |
-| Keep | instagram.com/keep_hq | ca.linkedin.com/company/trykeep | S-KEP-HOME and 7 other Keep pages | Keep's self-serve sign-up route was closed when checked; record what is posted, without inferring why. |
-| Airwallex | none linked | linkedin.com/company/airwallex | S-AWX-HOME and 11 other Airwallex pages | Global account: label `global`. No Instagram linked: record `no_account` unless a profile is linked from airwallex.com itself. |
+| Provider | Instagram candidate | Linked from | To resolve |
+|---|---|---|---|
+| Venn | instagram.com/tryvault | S-VEN-HOME and 7 other Venn pages | Do not assume `@tryvault` is Venn: the handle does not contain the brand. Verify the profile name and its link to venn.ca; otherwise record Instagram as `unverified`. |
+| Float | instagram.com/floatfinancialofficial | S-FLT-HOME (raw HTML) | Verify. |
+| Ramp | none linked | S-RMP-HOME and 5 other Canadian pages | No Instagram is linked: record `no_account` unless a profile is linked from ramp.com itself; do not search for one. |
+| Loop | instagram.com/bankonloop | S-LOP-HOME and 11 other Loop pages | Verify. |
+| Keep | instagram.com/keep_hq | S-KEP-HOME and 7 other Keep pages | Keep's self-serve sign-up route was closed when checked; record what is posted, without inferring why. |
+| Airwallex | none linked | S-AWX-HOME and 11 other Airwallex pages | No Instagram linked: record `no_account` unless a profile is linked from airwallex.com itself; do not search for one. |
 
 ## Collection
 
-- Public posts may be viewed in the owner's normal signed-in Chrome. Record for each account whether the browser was signed in to that platform (`logged_in` true or false).
+- Public posts may be viewed in the owner's normal signed-in Chrome. Record for each account whether the browser was signed in to Instagram (`logged_in` true or false).
 - **Never export cookies, share login tokens, automate private account access or bypass restrictions. Do not start paid collection without an approved budget.** No scrapers, no follow requests, likes, comments, messages, form submissions or ad clicks.
 - A rate limit, block or challenge is recorded once (`blocked`) and not retried. Blocked is not inactive: it means "not seen", never "no posts".
 - If collection cannot proceed, the code work stands on its own and the page shows no social content.
@@ -46,7 +46,7 @@ Verification, in this order:
 - Preferred: a complete inventory of the window for each verified account, reading the feed past 25 July 2026 (record `earliest_reached`). A count is complete only if the feed reached past the window start.
 - Owned posts, reposts and collaborator posts are recorded separately (`relation`: original, repost, collaboration).
 - Otherwise: a labelled partial sample (`partial`), with no posting frequency and no topic proportions for that account.
-- Excluded: Stories, live streams, deleted posts, private content and ad libraries (Meta Ad Library, LinkedIn ads). Pinned posts dated outside the window are excluded and noted.
+- Excluded: Stories, live streams, deleted posts, private content and ad libraries (Meta Ad Library). Pinned posts dated outside the window are excluded and noted.
 - No claims about paid promotion, boosting or distribution.
 
 ## What to record for each post
@@ -63,7 +63,7 @@ Topic codebook (one primary topic): offer (rewards, FX, pricing, credit or limit
 
 ## Metrics
 
-- Recorded per platform, as displayed (Instagram: likes, comments, views; LinkedIn: reactions, comments, reposts), with their own capture time and the post's age at capture. A metric that is not shown is recorded as `null`, never left out or set to zero.
+- Recorded as displayed (likes, comments, views), with their own capture time and the post's age at capture. A metric that is not shown is recorded as `null`, never left out or set to zero.
 - No ranking by likes, no "best performing", no engagement rates with inconsistent denominators, no leads or revenue. The method discloses that older posts have had longer to collect responses.
 
 ## Evidence and storage
@@ -74,6 +74,6 @@ Topic codebook (one primary topic): offer (rewards, FX, pricing, credit or limit
 
 ## Validation and publication
 
-`social.py` enforces the window, channels, verification, coverage labels, required fields, the inspection rules, explicit nulls for missing metrics, per-platform metric names and the absence of session material. The page gets a "Social content" view (`#bs-social`) only when `social.json` has status `reviewed`, the owner's approval is recorded in it by hand, and the checks pass. The view then shows: a scope and coverage note, a compact cross-brand summary, and a curated gallery with stated selection criteria (one strong example per provider where supported, a second only for a distinct lesson). Each example carries the image, credit and link, date and platform, the observed message, my reading and a takeaway. Images are self-hosted under `/assets/index/business-spend/social/` after sanitising; they are never hotlinked.
+`social.py` enforces the window, the Instagram-only channel, verification, coverage labels, required fields, the inspection rules, explicit nulls for missing metrics, per-platform metric names and the absence of session material. The page gets a "Social content" view (`#bs-social`) only when `social.json` has status `reviewed`, the owner's approval is recorded in it by hand, and the checks pass. The view then shows: a scope and coverage note, a compact cross-brand summary, and a curated gallery with stated selection criteria (one strong example per provider where supported, a second only for a distinct lesson). Each example carries the image, credit and link, date and platform, the observed message, my reading and a takeaway. Images are self-hosted under `/assets/index/business-spend/social/` after sanitising; they are never hotlinked.
 
 If the module gives stronger evidence than one of the three current tests, at most one test is replaced, with the reason recorded.

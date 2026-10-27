@@ -49,7 +49,7 @@ def bs_sources():
     """What the business card study reads, so the hub never calls it website-only once a reviewed social module exists."""
     import social
     if social.load_reviewed():
-        return 'public web pages, the first screen of each application journey and official Instagram and LinkedIn posts'
+        return 'public web pages, the first screen of each application journey and official Instagram posts'
     return 'public web pages and the first screen of each application journey'
 
 

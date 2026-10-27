@@ -14,38 +14,10 @@
   "posts_in_window": null
  },
  {
-  "platform": "venn",
-  "channel": "linkedin",
-  "handle": "vennca",
-  "url": "https://www.linkedin.com/company/vennca/",
-  "verified": false,
-  "verification": "Candidate only: linked from venn.ca homepage (S-VEN-HOME). Fill in: profile name seen, the domain the profile links to, and the date checked.",
-  "scope": "unclear",
-  "logged_in": null,
-  "coverage": "unverified",
-  "coverage_note": "Verify name and link to venn.ca.",
-  "earliest_reached": null,
-  "posts_in_window": null
- },
- {
   "platform": "float",
   "channel": "instagram",
   "handle": "floatfinancialofficial",
   "url": "https://www.instagram.com/floatfinancialofficial/",
-  "verified": false,
-  "verification": "Candidate only: linked from floatfinancial.com homepage HTML (S-FLT-HOME). Fill in: profile name seen, the domain the profile links to, and the date checked.",
-  "scope": "unclear",
-  "logged_in": null,
-  "coverage": "unverified",
-  "coverage_note": "Verify.",
-  "earliest_reached": null,
-  "posts_in_window": null
- },
- {
-  "platform": "float",
-  "channel": "linkedin",
-  "handle": "floatfinancial",
-  "url": "https://www.linkedin.com/company/floatfinancial",
   "verified": false,
   "verification": "Candidate only: linked from floatfinancial.com homepage HTML (S-FLT-HOME). Fill in: profile name seen, the domain the profile links to, and the date checked.",
   "scope": "unclear",
@@ -70,38 +42,10 @@
   "posts_in_window": null
  },
  {
-  "platform": "ramp",
-  "channel": "linkedin",
-  "handle": "ramp",
-  "url": "https://www.linkedin.com/company/ramp",
-  "verified": false,
-  "verification": "Candidate only: linked from ramp.com/en-ca (S-RMP-HOME). Fill in: profile name seen, the domain the profile links to, and the date checked.",
-  "scope": "global",
-  "logged_in": null,
-  "coverage": "unverified",
-  "coverage_note": "Global company account: posts are global unless a post says it is about Canada.",
-  "earliest_reached": null,
-  "posts_in_window": null
- },
- {
   "platform": "loop",
   "channel": "instagram",
   "handle": "bankonloop",
   "url": "https://www.instagram.com/bankonloop/",
-  "verified": false,
-  "verification": "Candidate only: linked from bankonloop.com/en-ca (S-LOP-HOME). Fill in: profile name seen, the domain the profile links to, and the date checked.",
-  "scope": "unclear",
-  "logged_in": null,
-  "coverage": "unverified",
-  "coverage_note": "Verify.",
-  "earliest_reached": null,
-  "posts_in_window": null
- },
- {
-  "platform": "loop",
-  "channel": "linkedin",
-  "handle": "loop-financial",
-  "url": "https://www.linkedin.com/company/loop-financial/",
   "verified": false,
   "verification": "Candidate only: linked from bankonloop.com/en-ca (S-LOP-HOME). Fill in: profile name seen, the domain the profile links to, and the date checked.",
   "scope": "unclear",
@@ -126,20 +70,6 @@
   "posts_in_window": null
  },
  {
-  "platform": "keep",
-  "channel": "linkedin",
-  "handle": "trykeep",
-  "url": "https://ca.linkedin.com/company/trykeep",
-  "verified": false,
-  "verification": "Candidate only: linked from trykeep.com homepage (S-KEP-HOME). Fill in: profile name seen, the domain the profile links to, and the date checked.",
-  "scope": "unclear",
-  "logged_in": null,
-  "coverage": "unverified",
-  "coverage_note": "Verify.",
-  "earliest_reached": null,
-  "posts_in_window": null
- },
- {
   "platform": "airwallex",
   "channel": "instagram",
   "handle": null,
@@ -150,20 +80,6 @@
   "logged_in": null,
   "coverage": "unverified",
   "coverage_note": "Record no_account unless airwallex.com itself links a profile; do not search for one.",
-  "earliest_reached": null,
-  "posts_in_window": null
- },
- {
-  "platform": "airwallex",
-  "channel": "linkedin",
-  "handle": "airwallex",
-  "url": "https://www.linkedin.com/company/airwallex",
-  "verified": false,
-  "verification": "Candidate only: linked from airwallex.com/en-ca (S-AWX-HOME). Fill in: profile name seen, the domain the profile links to, and the date checked.",
-  "scope": "global",
-  "logged_in": null,
-  "coverage": "unverified",
-  "coverage_note": "Global company account: posts are global unless a post says it is about Canada.",
   "earliest_reached": null,
   "posts_in_window": null
  }

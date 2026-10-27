@@ -353,6 +353,7 @@ class SocialModuleTests(unittest.TestCase):
             s = _fixture(); mut(s); return ' | '.join(social.check(s))
         self.assertIn('window must be exactly', errs(lambda s: s['window'].update(start='2026-07-24')))
         self.assertIn('out of scope', errs(lambda s: s['accounts'][0].update(channel='x')))
+        self.assertIn('Instagram only', errs(lambda s: s['accounts'][0].update(channel='linkedin')))
         self.assertIn('outside 2026-07-25 to 2026-10-22', errs(lambda s: s['posts'][0].update(published_on='2026-10-23')))
         self.assertIn('watched', errs(lambda s: s['posts'][0].update(format='video')))
         self.assertIn('every slide', errs(lambda s: s['posts'][0].update(format='carousel')))
@@ -381,7 +382,8 @@ class SocialModuleTests(unittest.TestCase):
         tpl = os.path.join(KIT, 'social_package_template')
         s, errs = social.package_to_module(tpl)
         self.assertTrue(any('logged in' in e for e in errs))
-        self.assertEqual(len(s['accounts']), 12)
+        self.assertEqual(len(s['accounts']), 6)
+        self.assertEqual({x['channel'] for x in s['accounts']}, {'instagram'})   # LinkedIn out of scope (owner, 27 October 2026)
         self.assertTrue(all(a['verified'] is False for a in s['accounts']))   # nothing pre-verified
         self.assertEqual(s['posts'], [])
 
