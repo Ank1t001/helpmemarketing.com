@@ -1,7 +1,10 @@
 {
   "git": {
     "deploymentEnabled": {
-      "claude/*": false
+      "claude/*": false,
+      "staging-*": false,
+      "staging-gta": true,
+      "staging-hl": true
     }
   },
   "cleanUrls": true,
