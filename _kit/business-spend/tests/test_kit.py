@@ -19,6 +19,21 @@ import social  # noqa: E402
 import validate  # noqa: E402
 
 
+PRE_RELEASE = '6e643b3'   # the reviewed staging commit the owner approved on 27 October 2026 (before release.py --apply)
+
+
+def pre_release(rel):
+    """A repository file as it was before the release was applied (the input of release.new_hub and new_sitemap)."""
+    out = subprocess.run(['git', 'show', '%s:%s' % (PRE_RELEASE, rel)], cwd=model.ROOT, capture_output=True, text=True)
+    if out.returncode:
+        raise unittest.SkipTest('pre-release commit %s not available in this clone' % PRE_RELEASE)
+    return out.stdout
+
+
+def released(c):
+    return c.edition['status'] == 'published'
+
+
 class KitTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -143,8 +158,9 @@ class KitTests(unittest.TestCase):
         self.assertNotIn('datePublished', live + snap)
         if self.c.edition['status'] == 'draft':
             self.assertTrue(any('approvals' in g for g in gate))  # the gate stays closed until the owner records it
-        hub, hi = release.new_hub(before['hmm-index.html'], '2026-10-23')
-        sm, si = release.new_sitemap(before['sitemap.xml'], '2026-10-23')
+        src = {f: (pre_release(f) if released(self.c) else before[f]) for f in ('hmm-index.html', 'sitemap.xml')}
+        hub, hi = release.new_hub(src['hmm-index.html'], '2026-10-23')
+        sm, si = release.new_sitemap(src['sitemap.xml'], '2026-10-23')
         self.assertEqual(hi + si, [])
         self.assertEqual(hub.count('href="/business-spend-index"'), 2)  # artwork link and read link, as on the other cards
         self.assertNotIn('edition-001', sm)  # snapshots stay out of the sitemap
@@ -297,9 +313,14 @@ class KitTests(unittest.TestCase):
 
     def test_hub_wording_and_card_artwork(self):
         import release
-        hub = open(os.path.join(model.ROOT, 'hmm-index.html'), encoding='utf-8').read()
+        current = open(os.path.join(model.ROOT, 'hmm-index.html'), encoding='utf-8').read()
+        hub = pre_release('hmm-index.html') if released(self.c) else current
         new, issues = release.new_hub(hub, '2026-10-23')
         self.assertEqual(issues, [])
+        if released(self.c):
+            # the committed hub is exactly the release output for the recorded release date (Last updated may later
+            # move to the Toronto date of the production deployment, set in the metadata commit)
+            self.assertEqual(current, release.new_hub(hub, self.c.edition['published_at'])[0])
         self.assertIn('<title>The HMM Index: Marketing Research | HelpMeMarketing</title>', new)
         self.assertNotIn('Instagram Benchmarks', new)
         self.assertIn('Sources accompany the observations, with my interpretation labelled separately.', new)
@@ -361,9 +382,12 @@ class SocialModuleTests(unittest.TestCase):
     def test_window_is_fixed_at_ninety_days(self):
         self.assertEqual(social.WINDOW, {'start': '2026-07-25', 'end': '2026-10-22', 'tz': 'America/Toronto', 'days': 90})
         self.assertEqual(social.window_text(), '25 July to 22 October 2026, Toronto time (90 days)')
-        self.assertIsNone(social.load_reviewed())   # in review: approval not recorded
         m = social.load_module()
-        self.assertEqual((m['status'], m['approved']), ('review', None))
+        if m['status'] == 'review':
+            self.assertIsNone(social.load_reviewed())   # in review: approval not recorded
+            self.assertIsNone(m['approved'])
+        else:
+            self.assertEqual(social.load_reviewed()['status'], 'reviewed')   # approved by hand on 27 October 2026
 
     def test_good_fixture_passes(self):
         self.assertEqual(social.check(_fixture()), [])
@@ -406,7 +430,7 @@ class SocialModuleTests(unittest.TestCase):
         self.assertIn('<b>Instagram posts</b> published 25 July to 22 October 2026; collected 26 October 2026', body)
         self.assertIn('<b>Websites observed</b> 23 October 2026', body)
         sec = body[body.index('<section id="bs-social"'):body.index('<section id="bs-journeys"')]
-        self.assertIn('For editorial review', sec)
+        self.assertEqual('For editorial review' in sec, c.social['status'] == 'review')   # the flag shows only while approval is pending
         self.assertIn('The captured Venn website footer linked to @tryvault, while this study uses owner-confirmed @venn.ca with supporting profile evidence.', sec)
         self.assertEqual(sec.count('No in-window posts found in the reviewed'), 3)
         self.assertNotRegex(sec, r'(?i)\binactive\b')
@@ -416,17 +440,22 @@ class SocialModuleTests(unittest.TestCase):
 
     def test_release_is_blocked_until_approval(self):
         c = build.Ctx()
+        c.social = dict(c.social, status='review', approved=None)   # as it stood before the owner's approval
         c.mode = 'release'
         self.assertTrue(any('editorial review only' in e for e in validate.check_inputs(c)))
         c.mode = 'draft'
         self.assertFalse(any('editorial review only' in e for e in validate.check_inputs(c)))
+        c2 = build.Ctx()
+        if c2.social['status'] == 'reviewed':
+            self.assertTrue(c2.social['approved'].startswith('2026-10-27: owner instruction'))   # recorded by hand, never generated
+            self.assertEqual(social.release_gate(c2.social), [])
         self.assertTrue(social.release_gate({'status': 'review'}))
         self.assertEqual(social.release_gate({'status': 'reviewed', 'approved': 'by hand'}), [])
 
     def test_derived_records(self):
         s = json.load(open(social.PATH, encoding='utf-8'))
-        self.assertEqual(s['status'], 'review')
-        self.assertIsNone(s['approved'])
+        self.assertIn(s['status'], ('review', 'reviewed'))
+        self.assertEqual(bool(s['approved']), s['status'] == 'reviewed')
         self.assertEqual({a['platform']: a['posts_in_window'] for a in s['accounts']}, {'venn': 9, 'float': 0, 'ramp': 19, 'loop': 0, 'keep': 0, 'airwallex': 23})
         self.assertEqual(s['totals']['formats'], {'video': 33, 'carousel': 10, 'image': 8})
         self.assertEqual(s['totals']['inspection'], {'carousel/all_slides': 9, 'carousel/partial': 1, 'image/cover_and_caption': 8, 'video/partial': 33})

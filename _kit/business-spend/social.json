@@ -1,7 +1,7 @@
 {
- "status": "review",
- "approved": null,
- "review_note": "Shown on the staging draft for editorial review only. Editorial approval is not granted; the release build is blocked until the owner records it here by hand.",
+ "status": "reviewed",
+ "approved": "2026-10-27: owner instruction: \"I approve edition 001, the Instagram editorial content and the final hub wording for the Business Cards & Spend Management Index.\" Recorded by hand.",
+ "review_note": "Approved by the owner on 27 October 2026 (recorded by hand). Ramp's @tryramp attribution remains unresolved and is labelled as such.",
  "window": {
   "start": "2026-07-25",
   "end": "2026-10-22",

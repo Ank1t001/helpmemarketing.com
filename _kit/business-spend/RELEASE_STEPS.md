@@ -1,6 +1,8 @@
 # Release steps: Business Cards & Spend Management Index, edition 001
 
-Status on 24 October 2026 (after the five-view reorganisation): draft on `staging-business-spend`, `noindex`, not merged. Every step below waits for the owner's approval. The release dry run (`python3 release.py --dry-run OUTDIR --release-date YYYY-MM-DD`) renders all of it outside the repository and passes its checks; the only closed gate is the owner's approval.
+Status on 27 October 2026: **released.** The owner approved edition 001, the Instagram content and the final hub wording on 27 October 2026 (recorded in `edition.json` `approvals` and `social.json` `approved`), and instructed the ship of the reviewed staging commit `6e643b3` plus the release-generated changes. Steps 6 to 13 were followed; the record of the production deployment and `modified_at` is in `edition.json`. Steps 1 (stored archive copy) and 5 (forms script) remain open and are not release blockers. The text below is kept as the procedure for any later edition.
+
+Original status (24 October 2026): draft on `staging-business-spend`, `noindex`, not merged.
 
 ## Before release (owner decisions and inputs)
 
@@ -26,4 +28,4 @@ Status on 24 October 2026 (after the five-view reorganisation): draft on `stagin
 
 Not part of this release unless asked: requesting indexing, submitting the sitemap, IndexNow, any scheduled refresh.
 
-The social content module is separate: `SOCIAL_MODULE_BRIEF.md`. It is not part of this release and adds no tab until it is collected and approved.
+The Instagram content module (`SOCIAL_MODULE_BRIEF.md`, `SOCIAL_INGEST_NOTE.md`) was collected, ingested and approved with this release (27 October 2026). For a later edition it releases only when `social.json` is `reviewed` with the owner's approval recorded by hand; `validate.check_inputs` blocks the release otherwise.
