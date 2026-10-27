@@ -114,6 +114,10 @@
     },
     {
      "source_id": "S-VEN-PRICING",
+     "excerpt": "$25,000 CAD/month (or CAD equivalent) on the Plus plan"
+    },
+    {
+     "source_id": "S-VEN-PRICING",
      "excerpt": "is unlimited on the Pro plan and Custom plan"
     },
     {
@@ -2533,7 +2537,7 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "Savings claims are published without a visible basis: \"Canada's first no-FX credit card\", an average 2.5% saving, and $40,000 and 12 hours saved a year.",
+   "statement": "Savings claims are published without a visible basis: \"Canada's first no-FX credit card\", an average 2.5% saving, and averages of $40,000 a year and 12 hours a week saved.",
    "amount": null,
    "units": null,
    "currency": null,
