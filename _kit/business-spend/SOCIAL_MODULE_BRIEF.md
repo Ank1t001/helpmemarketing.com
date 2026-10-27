@@ -29,7 +29,7 @@ Verification, in this order:
 
 | Provider | Instagram candidate | Linked from | To resolve |
 |---|---|---|---|
-| Venn | instagram.com/tryvault | S-VEN-HOME and 7 other Venn pages | Do not assume `@tryvault` is Venn: the handle does not contain the brand. Lead only: Venn's homepage (S-VEN-HOME, 23 Oct) also links to www.tryvault.com and help.tryvault.com, so the tryvault name is used on Venn's own site. Verify the profile name and its link to venn.ca; otherwise record Instagram as `unverified`. |
+| Venn | instagram.com/venn.ca (owner-supplied, 26 Oct 2026) | Not linked from venn.ca: the site links instagram.com/tryvault instead (S-VEN-HOME and 7 other Venn pages, 23 Oct captures; still so in a server fetch 26 Oct, 9:34 p.m.). The homepage also links to www.tryvault.com and help.tryvault.com. | Verify @venn.ca's profile name and its link to venn.ca, and collect from it once verified. Check what @tryvault shows (name, link, whether it points to @venn.ca or looks inactive) and record it; do not collect from @tryvault unless the owner decides it is also in scope. |
 | Float | instagram.com/floatfinancialofficial | S-FLT-HOME (raw HTML) | Verify. |
 | Ramp | instagram.com/tryramp (owner-supplied, 26 Oct 2026) | Not linked from ramp.com or ramp.com/en-ca (23 Oct captures; server fetch 26 Oct, 9:03 p.m.) | Verify the profile name and that it links to ramp.com. Probably the company's worldwide account: label `global` unless it presents itself as Canadian. |
 | Loop | instagram.com/bankonloop | S-LOP-HOME and 11 other Loop pages | Verify. |
