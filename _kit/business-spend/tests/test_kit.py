@@ -303,6 +303,10 @@ class KitTests(unittest.TestCase):
         self.assertIn('<title>The HMM Index: Marketing Research | HelpMeMarketing</title>', new)
         self.assertNotIn('Instagram Benchmarks', new)
         self.assertIn('Sources accompany the observations, with my interpretation labelled separately.', new)
+        # owner's wording, 27 October 2026
+        self.assertIn('<li><h3>Public data only</h3><p>I review publicly available business content. The Instagram studies examine posts; the business card study examines websites, application and demo entry screens, and Instagram content. Each study explains its sources and access limitations.</p></li>', new)
+        self.assertIn('<li><h3>Consistent within each study</h3><p>Each study applies a shared checklist and records differences in coverage. The business card study separates product information, messaging, entry screens and Instagram observations. Missing evidence and unresolved account attribution are labelled. Figures from different studies are not compared.</p></li>', new)
+        self.assertIn('How six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses, alongside a review of selected Canadian and global Instagram accounts. An independent case study from dated public sources, not a ranking or recommendation.', new)
         self.assertEqual(new.count('Monthly</p>'), hub.count('Monthly</p>'))   # the Instagram studies keep their cadence
         self.assertIn('Not scheduled', new)
         self.assertIn('/assets/index/business-spend/hero.webp', new)

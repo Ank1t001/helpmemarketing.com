@@ -45,14 +45,6 @@ META_DESC = ('Independent research into how brands explain products, publish con
              'across real estate, hair loss, med spas and business spending.')                    # 156 characters: meta description (158 max)
 
 
-def bs_sources():
-    """What the business card study reads, so the hub never calls it website-only once a reviewed social module exists."""
-    import social
-    if social.load_reviewed():
-        return 'public web pages, the first screen of each application journey and official Instagram posts'
-    return 'public web pages and the first screen of each application journey'
-
-
 def hub_edits():
     return [
         # 1. Title (in <title>, og:title and twitter:title): "Instagram Benchmarks" implied every study is an Instagram study.
@@ -71,10 +63,11 @@ def hub_edits():
         ('<h2 class="section-heading">Three categories, <em>benchmarked</em>.</h2>',
          '<h2 class="section-heading">Four categories, <em>researched</em>.</h2>'),
         # 8 to 10. How it works: each sentence said or implied that every study reads Instagram posts on the same signals.
+        # Items 8 and 9: the owner's wording of 27 October 2026 (headings kept).
         ('<li><h3>Public data only</h3><p>I read what each business posts publicly on Instagram. No private data, no paid panels.</p></li>',
-         '<li><h3>Public data only</h3><p>I read what each business publishes: public Instagram posts for the Instagram studies, and %s for the business card study. No private data, no paid panels.</p></li>' % bs_sources()),
+         '<li><h3>Public data only</h3><p>I review publicly available business content. The Instagram studies examine posts; the business card study examines websites, application and demo entry screens, and Instagram content. Each study explains its sources and access limitations.</p></li>'),
         ('<li><h3>Measured the same way</h3><p>Every account in an edition is read on the same public signals, such as likes, comments and recorded plays, so the comparison is consistent.</p></li>',
-         '<li><h3>Consistent within each study</h3><p>Within a study, every business is read on the same signals: likes, comments and recorded plays for the Instagram studies, and the same checklist of pages and first screens for the business card study. The signals differ between studies, so their figures are not compared with each other.</p></li>'),
+         '<li><h3>Consistent within each study</h3><p>Each study applies a shared checklist and records differences in coverage. The business card study separates product information, messaging, entry screens and Instagram observations. Missing evidence and unresolved account attribution are labelled. Figures from different studies are not compared.</p></li>'),
         ('<li><h3>Linked to the source</h3><p>Every claim points to the post behind it, so you can check it yourself.</p></li>',
          '<li><h3>Linked to the source</h3><p>Sources accompany the observations, with my interpretation labelled separately.</p></li>'),
     ]
@@ -97,7 +90,9 @@ def hub_date(day):
     return '%s %d, %d' % (MONTHS[m - 1], d, y)
 
 
-CARD_SENTENCE = 'How six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses.'
+# Owner's wording, 27 October 2026 (card text; the first sentence is also the hub's JSON-LD description of the page).
+CARD_SENTENCE = ('How six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses, '
+                 'alongside a review of selected Canadian and global Instagram accounts.')
 
 
 def hub_card(day):
@@ -106,7 +101,7 @@ def hub_card(day):
             '        <div class="wk-tool-body">\n'
             '          <p class="wk-tool-kind">Comparison &middot; Canada &middot; One edition</p>\n'
             '          <h3 class="wk-tool-title">Business Cards &amp; Spend Management Index</h3>\n'
-            '          <p class="wk-tool-who">%s An independent case study from dated public sources, not a ranking or a recommendation.</p>\n'
+            '          <p class="wk-tool-who">%s An independent case study from dated public sources, not a ranking or recommendation.</p>\n'
             '          <dl class="ix-dates"><div><dt>Last updated</dt><dd>%s</dd></div><div><dt>Next update</dt><dd>Not scheduled</dd></div></dl>\n'
             '          <div class="wk-tool-links"><a class="wk-tool-cta" href="/business-spend-index">Read the Business Cards &amp; Spend Management Index &rarr;</a></div>\n'
             '        </div>\n'
