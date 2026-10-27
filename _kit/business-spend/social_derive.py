@@ -249,7 +249,9 @@ def derive(pkg, zpath):
                      'Displayed likes, comments and views were recorded with their own read times but are not shown or compared here: posts had different ages at collection, '
                      'and a collaboration\'s counts include the other account\'s audience.'),
         },
-        'totals': {'posts': len(out_posts), 'formats': dict(fmt), 'inspection': {'%s/%s' % k: v for k, v in sorted(insp.items())},
+        'totals': {'posts': len(out_posts),
+                   'attributed_posts': sum(1 for p in out_posts if ATTRIBUTION[p['platform']]['status'] != 'unresolved'),
+                   'unresolved_records': sum(1 for p in out_posts if ATTRIBUTION[p['platform']]['status'] == 'unresolved'), 'formats': dict(fmt), 'inspection': {'%s/%s' % k: v for k, v in sorted(insp.items())},
                    'partially_inspected': sum(1 for p in out_posts if p['inspection'] == 'partial'),
                    'by_platform': dict(counts), 'topics': dict(Counter(p['topic'] for p in out_posts))},
         'accounts': out_acc,
@@ -316,8 +318,8 @@ def main(argv):
         json.dump(s, f, indent=1, ensure_ascii=False)
         f.write('\n')
     t = s['totals']
-    print('Wrote social.json (status review, approval not recorded): %d posts %s; formats %s; partially inspected %d.' % (
-        t['posts'], t['by_platform'], t['formats'], t['partially_inspected']))
+    print('Wrote social.json (status review, approval not recorded): %d records (%d attributed posts, %d with unresolved provider attribution) %s; formats %s; partially inspected %d.' % (
+        t['posts'], t['attributed_posts'], t['unresolved_records'], t['by_platform'], t['formats'], t['partially_inspected']))
     return 0
 
 

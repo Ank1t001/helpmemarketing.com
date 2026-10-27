@@ -43,10 +43,12 @@ python3 validate.py --social-package PACKAGE_DIR --social-zip PACKAGE_ZIP   # qu
 |---|---|---|---|---|---|---|
 | Venn | @venn.ca | Canadian | Owner-confirmed; profile links venn.ca | 9 (7 reels, 1 carousel, 1 image) | 0 | Website footer captured linking @tryvault (excluded, not collected) |
 | Float | @floatfinancialofficial | Canadian | Linked from floatfinancial.com structured data | 0 | n/a | No in-window posts found in the reviewed grid and Reels surfaces; newest 5 June 2026 |
-| Ramp | @tryramp | Global | **Unresolved** | 19 (12 reels, 2 carousels, 5 images) | 15: 13 published by other accounts (billpaythemusical 5, tonyhawk 4, thekumarmethod 3, playbill 1), 2 by @tryramp with a co-author; 4 "Paid partnership with tryramp" labels | Reposts: 118 listed, excluded |
+| Ramp | @tryramp | Global | **Unresolved** | 19 records with unresolved provider attribution (12 reels, 2 carousels, 5 images) | 15: 13 published by other accounts (billpaythemusical 5, tonyhawk 4, thekumarmethod 3, playbill 1), 2 by @tryramp with a co-author; 4 "Paid partnership with tryramp" labels | Reposts: 118 listed, excluded |
 | Loop | @bankonloop | Canadian | Linked from the bankonloop.com footer | 0 | n/a | No in-window posts found in the reviewed grid and Reels surfaces; newest 11 June 2026 |
 | Keep | @keep_hq | Canadian | Linked from the trykeep.com footer | 0 | n/a | No in-window posts found in the reviewed grid (no Reels tab); newest 17 July 2024 |
 | Airwallex | @airwallex | Global | Owner-supplied; profile names Airwallex and links airwallex.com | 23 (14 reels, 7 carousels, 2 images) | 5: 4 published by other accounts (dysonheppell 2, thejoshvfx 1, crystallimlange 1), 1 by @airwallex with co-authors; 4 paid-partnership labels (3 header, 1 caption only) | Reposts: 12 listed (tab says 15), excluded |
+
+Totals: 51 records = 32 attributed posts (Venn 9, Airwallex 23) + 19 @tryramp records with unresolved provider attribution. The page, the CSV (`provider_attribution` column) and `social.json` (`totals.attributed_posts`, `totals.unresolved_records`) keep the two apart; findings about providers use the 32.
 
 Window 25 July to 22 October 2026, Toronto dates, by each post page's timestamp. Grid and Reels duplicates removed by shortcode (51 unique URLs). `earliest_reached` comes from post IDs, not opened pages. Four reposts duplicate coded collaboration posts (3 Ramp, 1 Airwallex); reposts are not counted, so nothing is double counted.
 
@@ -68,6 +70,13 @@ Result: **unresolved**. The 19 records are kept, counted and listed, labelled un
 
 Two derivatives under `/assets/index/business-spend/social/`, made by `social_images.py` from sanitised post screenshots (sources' hashes checked against `social.json`): a minimal crop of the post (media, header with its paid-partnership label, caption), with the counts row covered in the panel's background colour so the image does not invite a comparison of counts. Crop box, covered area, source file and hash, output hash, alt text and credit are recorded in `social_narrative.json` and shown in each example's provenance. The two Venn examples use caption excerpts: their cover frames do not show the point (one shows a person from behind; one is a small dashboard image with a blurred account name).
 
+## Editorial pass (27 October 2026, owner's instruction)
+
+- Venn example of 30 July: Venn's plan limits were captured on 23 October; whether any applied on 30 July was not established. The example says so beside the analysis and no longer presents the October limits as missing from the July caption.
+- Ramp: still unresolved; Ramp was not contacted and nothing was recollected. The 19 records are labelled "records with unresolved provider attribution" in the table, the download and every total, apart from the 32 attributed posts.
+- Airwallex creator example: statements about a missing market or condition are limited to the caption and cover; the video was not watched. `social.check_narrative` now refuses whole-post claims on reels that were not watched.
+- Relationship disclosure: confirmed by the owner on 23 October 2026 and kept on the page; no longer listed as open.
+
 ## Three tests
 
 Unchanged. No social observation gives stronger evidence than the website observations behind tests 1 to 3: the posts are a different surface, captured on a different date, and reels were read from cover and caption only. The view links two Venn posts to test 1 and one Airwallex post to test 3.
@@ -76,4 +85,4 @@ Unchanged. No social observation gives stronger evidence than the website observ
 
 - The owner's editorial review of the Instagram view, then approval recorded by hand in `social.json` (`status: reviewed`, `approved`).
 - A decision on Ramp attribution (or leave it unresolved, as the page states).
-- The existing release requirements in `RELEASE_STEPS.md` (relationship disclosure, edition approvals, hub wording).
+- The existing release requirements in `RELEASE_STEPS.md`: the edition approvals and the owner's approval of the hub wording.

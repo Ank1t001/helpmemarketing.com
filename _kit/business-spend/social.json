@@ -41,6 +41,8 @@
  },
  "totals": {
   "posts": 51,
+  "attributed_posts": 32,
+  "unresolved_records": 19,
   "formats": {
    "carousel": 10,
    "video": 33,

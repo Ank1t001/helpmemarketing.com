@@ -54,6 +54,9 @@ METRIC_META = ('captured_at', 'likes_comments_captured_at', 'views_captured_at',
 ACCOUNT_FIELDS = ('platform', 'channel', 'handle', 'url', 'verified', 'verification', 'scope', 'logged_in', 'checked_at', 'coverage',
                   'coverage_note', 'earliest_reached', 'posts_in_window')
 VIDEO_LABEL = 'Cover and caption reviewed; video not watched.'
+UNRESOLVED_LABEL = 'records with unresolved provider attribution'
+# Claims about a whole reel that only its caption and cover support (the video was not watched).
+WHOLE_POST = re.compile(r"\b(?:the|this) (?:post|reel|video) (?:names no|does not (?:say|state|name|mention)|doesn't|omits|leaves out|says nothing)|\bfrom the (?:post|reel)\b", re.I)
 BANNED = re.compile(r'(best[- ]performing|top[- ]performing|\bviral\b|went viral|engagement rate|outperform|paid promotion|\bboosted post|\bboosting\b|lead generation|\brevenue\b|\bconversions?\b|\binactive\b|\bdormant\b|\bstrategy\b|\btargeting\b|\bad spend\b)', re.I)
 
 # Credential patterns only (owner's instruction, 27 October 2026). Ordinary words such as "session", "cookie" or
@@ -294,6 +297,11 @@ def check_narrative(s, n, asset_root=None):
         m = BANNED.search(_editorial_text(ex['shows']) + _editorial_text(ex.get('website', [])))
         if m:
             errs.append('social example %s: %r is not a claim this module can make' % (ex.get('id'), m.group(0)))
+        if p['format'] == 'video' and p['inspection'] != 'watched_in_full':
+            ed = ' '.join([ex.get('reading', ''), ex.get('take', ''), _editorial_text(ex['shows']), _editorial_text(ex.get('website', []))])
+            m = WHOLE_POST.search(ed)
+            if m:
+                errs.append('social example %s: the video was not watched, so %r overstates what the post omits (limit it to the caption and cover)' % (ex.get('id'), m.group(0)))
         img = ex.get('image')
         if img:
             for k in ('src', 'width', 'height', 'alt', 'credit', 'from', 'from_sha256', 'crop', 'sanitisation', 'sha256'):
@@ -398,8 +406,10 @@ def _collab_text(p):
 def method_html(s):
     c = s['collection']
     return ('<h4 class="t">Instagram posts</h4><p class="dek">Official company Instagram accounts only, posts published %s, collected on %s, '
-            'after the window closed. These dates are separate from the website observation dates above. %s</p>'
-            % (E(window_text()), E(c['text']), E(c['note'])))
+            'after the window closed. These dates are separate from the website observation dates above. %s %s</p>'
+            % (E(window_text()), E(c['text']), E(c['note']), E(
+                '%d records were counted: %d attributed posts and %d @tryramp records with unresolved provider attribution, which are listed and labelled but carry no conclusion about Ramp.'
+                % (len(s['posts']), attributed_count(s), len(s['posts']) - attributed_count(s)))))
 
 
 def byline_html(s):
@@ -412,10 +422,12 @@ def coverage_rows(s, order):
         a = next(x for x in s['accounts'] if x['platform'] == pid)
         mine = [p for p in s['posts'] if p['platform'] == pid]
         n = a['posts_in_window']
+        unresolved = a['attribution']['status'] == 'unresolved'
         if n:
             fm = ', '.join('%d %s' % (v, {'video': 'reels', 'carousel': 'carousels', 'image': 'images'}[k] if v != 1 else {'video': 'reel', 'carousel': 'carousel', 'image': 'image'}[k])
                            for k, v in sorted(a['formats'].items(), key=lambda kv: ['video', 'carousel', 'image'].index(kv[0])))
-            count = '<span class="cell-main">%d</span><span class="cell-sub">%s</span>' % (n, E(fm))
+            kind = UNRESOLVED_LABEL if unresolved else 'attributed posts'
+            count = '<span class="cell-main">%d</span><span class="cell-sub">%s; %s</span>' % (n, E(kind), E(fm))
         else:
             count = '<span class="cell-main">0</span><span class="cell-sub">%s</span>' % E(a['no_posts_text'])
         cb = a['collaborations']
@@ -437,7 +449,7 @@ def coverage_rows(s, order):
         if pid == 'venn':
             lim.append(a['attribution']['website_link'])
         if pid == 'ramp':
-            lim.append('The profile links tonystockprotrader.com, a campaign site that names Ramp as its operator; ramp.com links no Instagram account. These posts are counted and listed but no conclusion about Ramp rests on them.')
+            lim.append('The profile links tonystockprotrader.com, a campaign site that names Ramp as its operator; ramp.com links no Instagram account. These 19 records are counted and listed apart from the attributed posts, and no conclusion about Ramp rests on them.')
         if a['scope'] == 'global':
             lim.append('A global account: its posts do not show what is offered in Canada or on what terms.')
         if n:
@@ -451,10 +463,11 @@ def coverage_rows(s, order):
         if ex:
             lim.append('Reposts excluded (%d listed; their repost dates are not shown).' % ex['listed_in_index'])
         lim.append('Checked %s, %s Toronto time; feed read back to %s (date from a post ID).' % (long_day(a['checked_at']), clock(a['checked_at']), long_day(a['earliest_reached'])))
-        rows.append('<tr id="bs-sc-%s"><td class="brandcell">%s<span class="cell-sub"><a href="%s" rel="noopener nofollow" target="_blank">@%s</a></span></td>'
+        rows.append('<tr id="bs-sc-%s"><td class="brandcell">%s<span class="cell-sub"><a href="%s" rel="noopener nofollow" target="_blank">@%s</a></span>%s</td>'
                     '<td data-label="Scope">%s</td><td data-label="Posts in the window">%s</td><td data-label="Collaborations">%s</td>'
                     '<td data-label="Identity and limits" class="wrap-cell">%s</td></tr>'
-                    % (pid, E(NAMES[pid]), E(a['url']), E(a['handle']), E(SCOPE_LABEL[a['scope']]), count, col, E(' '.join(lim))))
+                    % (pid, E(NAMES[pid]), E(a['url']), E(a['handle']), '<span class="cell-sub">Attribution unresolved</span>' if unresolved else '',
+                       E(SCOPE_LABEL[a['scope']]), count, col, E(' '.join(lim))))
     return rows
 
 
@@ -506,8 +519,8 @@ def panel_html(c):
     out.append('<div class="tblock" id="bs-social-coverage"><p class="ktag fact">What the evidence shows</p><h3 id="bs-sc-h">Accounts and coverage</h3><p class="dek">%s</p>'
                '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-sc-h"><table class="bs"><caption class="sr-only">Instagram accounts, posts published 25 July to 22 October 2026</caption>'
                '<thead><tr><th scope="col">Provider and account</th><th scope="col">Scope</th><th scope="col">Posts in the window</th><th scope="col">Collaborations</th><th scope="col">Identity and limits</th></tr></thead>'
-               '<tbody>\n%s\n</tbody></table></div><p class="pnote dlinks"><b>Download the data:</b> <a href="/%s" download>the %d counted posts (CSV)</a>: provider, account, publisher, collaboration and paid-partnership label, Toronto publication date, format, what was inspected, topic and link. Captions, displayed counts and reposts are not in the file.</p></div>'
-               % (E(n['coverage_dek']), '\n'.join(coverage_rows(s, c.order)), CSV_REL, len(s['posts'])))
+               '<tbody>\n%s\n</tbody></table></div><p class="pnote dlinks"><b>Download the data:</b> <a href="/%s" download>all %d records (CSV)</a>: %d attributed posts and %d @tryramp records with unresolved provider attribution, marked in the provider_attribution column. Each row gives the provider, account, publisher, collaboration and paid-partnership label, Toronto publication date, format, what was inspected, topic and link. Captions, displayed counts and reposts are not in the file.</p></div>'
+               % (E(n['coverage_dek']), '\n'.join(coverage_rows(s, c.order)), CSV_REL, len(s['posts']), attributed_count(s), len(s['posts']) - attributed_count(s)))
     pts = ''.join('<p class="dek"><b>%s.</b> %s <b>Denominator:</b> %s</p>' % (E(x['title']), E(x['body']), E(x['denominator'])) for x in n['patterns'])
     out.append('<div class="sub" id="bs-social-patterns"><h3>What the posts show across the sample</h3><p class="dek">%s</p><div class="card reading-card"><span class="ktag">My reading across the accounts</span>%s</div></div>'
                % (E(n['patterns_dek']), pts))
@@ -517,8 +530,14 @@ def panel_html(c):
     return '\n'.join(out)
 
 
-CSV_HEAD = ['provider', 'account_handle', 'account_scope', 'account_attribution', 'post_url', 'published_by_handle', 'relation', 'collaboration',
+CSV_HEAD = ['provider', 'provider_attribution', 'account_handle', 'account_scope', 'account_attribution', 'post_url', 'published_by_handle', 'relation', 'collaboration',
             'paid_partnership_label', 'published_on_toronto', 'date_method', 'format', 'inspection', 'what_was_inspected', 'topic', 'post_record_read_at']
+
+
+def attributed_count(s):
+    """Posts from accounts whose provider attribution is established (records on an unresolved account are counted apart)."""
+    bad = {a['platform'] for a in s['accounts'] if a.get('attribution', {}).get('status') == 'unresolved'}
+    return sum(1 for p in s['posts'] if p['platform'] not in bad)
 
 
 def render_csv(s):
@@ -529,7 +548,7 @@ def render_csv(s):
     accts = {a['platform']: a for a in s['accounts']}
     for p in sorted(s['posts'], key=lambda p: (order[p['platform']], p['published_on'], p['id'])):
         a = accts[p['platform']]
-        w.writerow([NAMES[p['platform']], p['account'], SCOPE_LABEL[a['scope']], a['attribution']['label'], p['url'], p['publisher'],
+        w.writerow([NAMES[p['platform']], 'unresolved provider attribution' if a['attribution']['status'] == 'unresolved' else 'attributed', p['account'], SCOPE_LABEL[a['scope']], a['attribution']['label'], p['url'], p['publisher'],
                     p['relation'], {'published_by_collaborator': 'published by the collaborating account', 'published_with_coauthor': 'published by the account with a co-author', None: ''}[p['collaboration']],
                     (p['paid_label']['text'] + ' (' + p['paid_label']['where'] + ')') if p['paid_label'] else '', p['published_on'], p['date_method'].replace('_', ' '),
                     FORMAT_LABEL[p['format']], p['inspection_label'], p['topic'], p['captured_at']])

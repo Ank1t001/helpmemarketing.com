@@ -457,6 +457,30 @@ class SocialModuleTests(unittest.TestCase):
         self.assertIn('not a claim', errs(lambda m: m['examples'][0].update(reading='This was the best performing post.')))
         self.assertIn('recorded hash', errs(lambda m: m['examples'][2]['image'].update(sha256='0' * 64)))
         self.assertIn('Instagram content', errs(lambda m: m['view'].update(title='Social content')))
+        # a reel read from cover and caption cannot carry a claim about the whole post
+        self.assertIn('overstates', errs(lambda m: m['examples'][2].update(reading='A reader cannot tell from the post where the card is offered.')))
+        self.assertIn('overstates', errs(lambda m: m['examples'][2].update(reading='The post names no market. Second sentence.')))
+
+    def test_editorial_pass_2026_10_27(self):
+        n = social.load_narrative()
+        ex = {e['id']: e for e in n['examples']}
+        web = social._editorial_text(ex['S1']['website'])
+        self.assertIn('Those are October terms', web)
+        self.assertIn('Whether any plan limit applied on 30 July 2026', web)
+        self.assertIn('was not established', ex['S1']['reading'])          # the date limit sits beside the analysis
+        self.assertNotIn('the plan limit the pricing page sets', ex['S1']['reading'])
+        self.assertIn('The video was not watched', social._editorial_text(ex['S3']['shows']))
+        self.assertIn('caption or cover', ex['S3']['reading'])
+        s = social.load_module()
+        self.assertEqual((s['totals']['attributed_posts'], s['totals']['unresolved_records']), (32, 19))
+        self.assertEqual(social.attributed_count(s), 32)
+        rows = list(csv.reader(io.StringIO(social.render_csv(s))))
+        pa = rows[0].index('provider_attribution')
+        self.assertEqual(sum(1 for r in rows[1:] if r[pa] == 'unresolved provider attribution'), 19)
+        self.assertTrue(all(r[pa] == 'unresolved provider attribution' for r in rows[1:] if r[0] == 'Ramp'))
+        ed = json.load(open(os.path.join(KIT, 'edition.json'), encoding='utf-8'))
+        self.assertEqual(ed['relationship_disclosure']['status'], 'complete')   # confirmed by the owner, not an open question
+        self.assertNotIn('relationship disclosure', open(os.path.join(KIT, 'SOCIAL_INGEST_NOTE.md'), encoding='utf-8').read().split('## Still needed before release')[1].lower())
 
     def test_instagram_csv(self):
         s = social.load_module()

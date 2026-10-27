@@ -372,6 +372,23 @@ def check_social_outputs(c, body):
     for pid in EXPECTED_ORDER:
         if sum(1 for r in data if r[0] == social.NAMES[pid]) != sum(1 for p in s['posts'] if p['platform'] == pid):
             errs.append('social csv: %s count differs from the page' % pid)
+    att = social.attributed_count(s)
+    unres = len(s['posts']) - att
+    pa = head.index('provider_attribution')
+    if sum(1 for r in data if r[pa] == 'attributed') != att or sum(1 for r in data if r[pa] == 'unresolved provider attribution') != unres:
+        errs.append('social csv: provider_attribution must mark %d attributed posts and %d unresolved records' % (att, unres))
+    unresolved_pl = {a['platform'] for a in s['accounts'] if a['attribution']['status'] == 'unresolved'}
+    for r in data:
+        if (r[pa] == 'attributed') == (next(k for k, v in social.NAMES.items() if v == r[0]) in unresolved_pl):
+            errs.append('social csv: provider_attribution does not match the account for %s' % r[head.index('post_url')])
+    if unres:
+        for need in ('%d attributed posts' % att, '%d @tryramp records with unresolved provider attribution' % unres):
+            if need not in sec:
+                errs.append('social: totals must separate attributed posts from unresolved records (%r missing)' % need)
+        for pid in unresolved_pl:
+            row = re.search(r'<tr id="bs-sc-%s">(.*?)</tr>' % pid, sec, re.S)
+            if row and (social.UNRESOLVED_LABEL not in row.group(1) or 'Attribution unresolved</span>' not in row.group(1)):
+                errs.append('social: the %s row labels its records as unresolved' % pid)
     for r in data:
         for v in r:
             if v[:1] in ('=', '+', '-', '@', '\t', '\r'):
