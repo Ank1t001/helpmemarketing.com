@@ -556,8 +556,9 @@ def render(c=None, mode=None, strict=True):
     with open(os.path.join(model.KIT, 'page_head.html'), encoding='utf-8') as f:
         page_head = f.read().rstrip('\n')
     if c.mode == 'snapshot':
+        fixes = ''.join(' Metadata fix, %s' % f for f in c.edition.get('snapshot_metadata_fixes', []))
         page_head += ('\n<!-- Snapshot of edition %s as first published. Research content in this snapshot is never rewritten; '
-                      'record any later metadata fix in this comment. -->' % c.edition['edition'])
+                      'record any later metadata fix in this comment.%s -->' % (c.edition['edition'], fixes))
     page = (shell.replace('{{HEAD_META}}', meta).replace('{{JSONLD}}', jsonld(c, desc))
             .replace('{{PAGE_HEAD}}', page_head).replace('{{BODY}}', body(c)))
     assert not any(t in page for t in ('{{HEAD_META}}', '{{JSONLD}}', '{{PAGE_HEAD}}', '{{BODY}}'))
