@@ -499,13 +499,15 @@ def example_html(s, ex, n_id):
         prov.append('No image: %s' % E(ex['no_image_reason']))
     prov.append('Quoted phrases are exact text from the caption as captured; the full caption is not reproduced.')
     prov.append('Displayed likes, comments and views were recorded but are not shown or compared.')
-    return ('<article class="card ex soc-ex" id="%s"><span class="kind">%s &middot; %s</span><h4 class="t">%s</h4><dl class="soc-meta">%s</dl>%s'
-            '<p class="ktag fact">What the evidence shows</p><p class="dek">%s</p>%s'
+    # With an image, the screenshot and its text sit side by side on wider screens (design review, 2026-10-27).
+    text = ('<p class="ktag fact">What the evidence shows</p><p class="dek">%s</p>%s'
             '<div class="note reading"><span class="lbl">My reading</span><p>%s</p></div>'
             '<div class="note take"><span class="lbl">What this means for your marketing team</span><p>%s</p></div>'
+            % (_rich(ex['shows']), web, E(ex['reading']), E(ex['take'])))
+    main = ('<div class="soc-body">%s<div class="soc-text">%s</div></div>' % (fig, text)) if fig else text
+    return ('<article class="card ex soc-ex" id="%s"><span class="kind">%s &middot; %s</span><h4 class="t">%s</h4><dl class="soc-meta">%s</dl>%s'
             '<details class="ri-adv srcs"><summary>Provenance for this example</summary><ul class="dek">%s</ul></details></article>'
-            % (n_id, E(ex['approach']), E(NAMES[p['platform']]), E(ex['title']), meta, fig, _rich(ex['shows']), web,
-               E(ex['reading']), E(ex['take']), ''.join('<li>%s</li>' % x for x in prov)))
+            % (n_id, E(ex['approach']), E(NAMES[p['platform']]), E(ex['title']), meta, main, ''.join('<li>%s</li>' % x for x in prov)))
 
 
 def panel_html(c):
@@ -514,8 +516,11 @@ def panel_html(c):
     out = []
     if s['status'] == 'review' and getattr(c, 'mode', 'draft') == 'draft':
         out.append('<div class="note gap soc-review"><span class="lbl">For editorial review</span><p>%s</p></div>' % E(n['review_flag']))
-    scope = ''.join('<div class="kind"><dt>%s</dt><dd>%s</dd></div>' % (E(a), E(b)) for a, b in n['scope'])
-    out.append('<div class="card bs-about" id="bs-social-scope"><h3>Scope of the Instagram reading</h3><dl class="legend">%s</dl></div>' % scope)
+    kinds = ['<div class="kind"><dt>%s</dt><dd>%s</dd></div>' % (E(a), E(b)) for a, b in n['scope']]
+    # The first three facts stay in view; the rest sit in one expander so the findings come sooner (design review, 2026-10-27).
+    more = ('<details class="ri-adv srcs soc-scope-more"><summary>Scope and limits: collection, completeness, inspection and what was left out</summary><dl class="legend">%s</dl></details>'
+            % ''.join(kinds[3:])) if len(kinds) > 3 else ''
+    out.append('<div class="card bs-about" id="bs-social-scope"><h3>Scope of the Instagram reading</h3><dl class="legend soc-scope-key">%s</dl>%s</div>' % (''.join(kinds[:3]), more))
     out.append('<div class="tblock" id="bs-social-coverage"><p class="ktag fact">What the evidence shows</p><h3 id="bs-sc-h">Accounts and coverage</h3><p class="dek">%s</p>'
                '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-sc-h"><table class="bs"><caption class="sr-only">Instagram accounts, posts published 25 July to 22 October 2026</caption>'
                '<thead><tr><th scope="col">Provider and account</th><th scope="col">Scope</th><th scope="col">Posts in the window</th><th scope="col">Collaborations</th><th scope="col">Identity and limits</th></tr></thead>'

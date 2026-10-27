@@ -1,11 +1,11 @@
 <style>
 /* Business Cards & Spend Management Index (draft, edition 001): page-scoped rules on top of the shared .msi block. Spec: Design System note "Business Cards & Spend Management Index" (2026-10-23). */
-.msi.msi header{grid-template-columns:1fr;max-width:860px}
-.msi.msi header::after{display:none}
-.msi.msi header .scope{max-width:72ch;color:var(--text-muted);margin:0}
+/* Hero in the Med Spa Index layout (2026-10-27): text left, title card right, no glow; the card hides on phones. */
+.msi.msi header{background:none}
+.msi.msi header::after{content:"";grid-column:2;grid-row:1/span 5;width:100%;aspect-ratio:1056/591;border-radius:16px;background:url(/assets/index/business-spend/hero.webp) center/cover no-repeat;border:1px solid var(--border)}
+@media(max-width:720px){.msi.msi header::after{display:none}}
+@media print{.msi.msi header{display:block}.msi.msi header::after{display:none}}
 .msi.msi .livebar .draft-flag{border:1px solid var(--border-strong);border-radius:100px;padding:2px 10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:11.5px;color:var(--text)}
-.msi.msi .hero-act{margin:0}
-.msi.msi .hero-act .btn{margin-right:12px}
 .msi.msi .card .dek,.msi.msi .sec-head .dek,.msi.msi section>.dek,.msi.msi .pnote,.msi.msi .note p,.msi.msi .plat dd,.msi.msi .tests dd{max-width:72ch}
 .msi.msi .note.take{border-left-color:var(--cta);margin-top:var(--s4)}
 /* Five views (2026-10-24): Overview, Compare products, Messaging & offers, Application journeys, Lessons & tests. Facts, my reading and proposed tests are labelled and styled apart. */
@@ -172,6 +172,21 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
 .msi.msi .bs-view figure.soc-shot figcaption{font-size:12.5px;line-height:1.5}
 .msi.msi .bs-view .tests>li>b{font-size:18px;font-weight:650;letter-spacing:-.012em;line-height:1.3;color:var(--text)}
 .msi.msi .wrap>footer p{font-size:13.5px;line-height:1.55}
+/* Design review fixes (2026-10-27): table headings wrap so wide tables fit the page; a gap between a reading note and the line after it; status pills wrap on phones. */
+.msi.msi .tw table.bs th{white-space:normal}
+.msi.msi .bs-view.bs-view .note.reading+p{margin-top:var(--s4)}
+@media(max-width:720px){.msi.msi .st{white-space:normal;max-width:100%}}
+@media(min-width:901px){.msi.msi .tw{background:linear-gradient(90deg,var(--bg-elevated) 30%,transparent) left center/40px 100% no-repeat local,linear-gradient(270deg,var(--bg-elevated) 30%,transparent) right center/40px 100% no-repeat local,radial-gradient(farthest-side at 0 50%,rgba(var(--ink-rgb,255,255,255),.3),transparent) left center/16px 100% no-repeat scroll,radial-gradient(farthest-side at 100% 50%,rgba(var(--ink-rgb,255,255,255),.3),transparent) right center/16px 100% no-repeat scroll,var(--bg-elevated)}}
+.msi.msi .bs-jump{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:var(--s4) 0}
+.msi.msi .bs-jump span{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);margin-right:4px}
+.msi.msi .bs-jump a{font-size:13.5px;font-weight:600;color:var(--text);text-decoration:none;border:1px solid var(--border-strong);border-radius:100px;padding:4px 12px;background:var(--bg-elevated)}
+.msi.msi .bs-jump a:hover{border-color:var(--cta);color:var(--cta-text,var(--cta))}
+.msi.msi .bs-jump a:focus-visible{outline:2px solid var(--cta);outline-offset:2px}
+@media print{.msi.msi .bs-jump{display:none}}
+@media(min-width:901px){.msi.msi .soc-body{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:var(--s5);align-items:start}
+.msi.msi .soc-body figure.soc-shot{margin:0}
+.msi.msi .soc-text>:first-child{margin-top:0}}
+.msi.msi .soc-body+details{margin-top:var(--s4)}
 </style>
 <script data-bsi-tabs>
 /* Views as tabs (2026-10-23). Without JavaScript every view shows in reading order and the links jump to it. With it, one view shows at a time: the links become an ARIA tablist (arrow keys, Home, End), the address keeps the view (#bs-compare), Back and Forward restore it, and any link to an id inside a view (a section, an evidence item, a closed expander) opens that view and the expanders around the target. Print shows every view. */
