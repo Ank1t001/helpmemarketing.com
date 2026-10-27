@@ -136,6 +136,25 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
 .msi.msi .bs-views.is-tabs~.bs-view+.bs-view{border-top:1px solid var(--border-strong);padding-top:24px}
 .msi.msi figure.soc-shot,.msi.msi .soc-ex{break-inside:avoid}
 }
+/* Spacing rhythm (2026-10-27): one scale for every view (.bs-view.bs-view outranks the older .sub, .tblock+.tblock and details rules). View heading to first block 24px; between major blocks 32px (24px at 720px and below); cards in a stack 16px; heading or intro to its content 16px; a note under its table 12px, a download line under its details 16px. Design System note "Business Spend Index spacing rhythm". */
+.msi.msi .ktag.fact{display:block}
+.msi.msi .bs-view.bs-view>*+*{margin-top:var(--s6)}
+.msi.msi .bs-view.bs-view>.sec-head{margin-bottom:var(--s5)}
+.msi.msi .bs-view.bs-view>.sec-head+*,.msi.msi .bs-view.bs-view>.ktag+*,.msi.msi .tblock>.ktag:first-child{margin-top:0}
+.msi.msi .bs-view.bs-view>.tblock+.pnote,.msi.msi .tblock>.tw+.pnote{margin-top:var(--s3)}
+.msi.msi .bs-view.bs-view>.pnote.dlinks,.msi.msi .sub>details+.pnote{margin-top:var(--s4)}
+.msi.msi .sub>.card,.msi.msi .sub>.plat,.msi.msi .sub>.ex{margin-top:var(--s4);margin-bottom:0}
+.msi.msi .bs-view.bs-view>.card,.msi.msi .grid2>.card{margin-bottom:0}
+.msi.msi .tblock>h3+.tw,.msi.msi .sub>h3+.note,.msi.msi .sub>h3+.card{margin-top:var(--s4)}
+.msi.msi .sub>details{margin-top:var(--s3)}
+.msi.msi .sub>details:first-child{margin-top:0}
+.msi.msi .bs-view.bs-view>.bs-next{margin-top:var(--s6)}
+@media(max-width:720px){
+.msi.msi .bs-view.bs-view>*+*,.msi.msi .bs-view.bs-view>.bs-next{margin-top:var(--s5)}
+.msi.msi .bs-view.bs-view>.sec-head+*,.msi.msi .bs-view.bs-view>.ktag+*{margin-top:0}
+.msi.msi .bs-view.bs-view>.tblock+.pnote{margin-top:var(--s3)}
+.msi.msi .bs-view.bs-view>.pnote.dlinks{margin-top:var(--s4)}
+}
 </style>
 <script data-bsi-tabs>
 /* Views as tabs (2026-10-23). Without JavaScript every view shows in reading order and the links jump to it. With it, one view shows at a time: the links become an ARIA tablist (arrow keys, Home, End), the address keeps the view (#bs-compare), Back and Forward restore it, and any link to an id inside a view (a section, an evidence item, a closed expander) opens that view and the expanders around the target. Print shows every view. */
