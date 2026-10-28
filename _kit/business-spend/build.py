@@ -301,7 +301,7 @@ def body(c):
     out.append('<p class="bs-provs">%s</p>' % ' &middot; '.join(E(c.name(pid)) for pid in c.order))
     out.append('<p class="bs-meta">%sBy <a href="/about">Ankit Kumar</a> &middot; Edition %s &middot; %s</p>' % (
         '<span class="draft-flag">Draft</span> ' if draft else '', E(ed['edition']), 'Not yet published' if draft else 'Published %s' % E(iso_long(c.release_date))))
-    out.append('<p class="bs-note">%s <a href="#bs-scope">%s<span aria-hidden="true"> &#8599;</span></a></p>' % (E(h['note']), E(h['scope_link'])))
+    out.append('<p class="bs-note">%s <a href="#bs-scope">%s</a></p>' % (E(h['note']), E(h['scope_link'])))
     if draft:
         out.append('<p class="pnote">%s</p>' % E(h['draft_note']))
     out.append('</header>')
@@ -368,7 +368,7 @@ def body(c):
     if not draft:
         out.append(cite_and_editions(c))
     social_method = social.method_html(c.social) if c.social else ''
-    out.append('<div id="bs-method" class="sub"><details class="ri-adv srcs" id="bs-scope"><summary>Scope &amp; sources: how this research was done</summary>'
+    out.append('<div id="bs-method" class="sub"><details class="ri-adv srcs" id="bs-scope"><summary>Scope and sources: how this research was done</summary>'
                '<h4 class="t">Scope</h4><p class="dek">%s</p><h4 class="t">Selection</h4><p class="dek">%s</p><h4 class="t">Dates</h4><p class="dek">Websites observed %s. %s</p><h4 class="t">Public sources only</h4><p class="dek">%s</p>%s'
                '<h4 class="t" id="bs-statuses">What each status means</h4><dl class="statdefs">%s</dl><h4 class="t">Limitations</h4><ul class="dek">%s</ul>'
                '<p class="pnote">%d observations from %d captures of public pages (%d by server fetch, %d in a browser), six platforms, edition %s. Interpretations are marked &ldquo;My reading&rdquo; and kept apart from what each source states.</p></details>'
