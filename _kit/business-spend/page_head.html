@@ -199,7 +199,6 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
 .msi.msi .bs-finds .find>*{margin:0}
 .msi.msi .bs-finds .find>*+*{margin-top:var(--s2)}
 .msi.msi .bs-finds .bs-ftitle{font-family:'Fraunces',Georgia,serif;font-size:24px;font-weight:400;letter-spacing:-.01em;line-height:1.25;color:var(--text);max-width:40ch}
-.msi.msi .bs-finds .bs-fnum{display:block;font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--cta-text,var(--cta));margin-bottom:6px}
 .msi.msi .bs-finds .bs-fread b{color:var(--text);font-weight:650}
 .msi.msi .bs-finds .bs-fgo{margin-top:var(--s3);font-size:14.5px}
 .msi.msi .bs-finds .bs-fgo a{color:var(--cta-text,var(--cta));font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
@@ -223,16 +222,19 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
 .msi.msi .bs-view.bs-view .bs-research details.bs-rd{margin:0}
 @media(max-width:720px){.msi.msi .bs-finds .bs-ftitle{font-size:21px}}
 @media print{.msi.msi details.bs-rd,.msi.msi details.bs-fdetail{display:block}}
-/* Findings with key figures (2026-10-28): three columns with thin dividers from 901px, stacked below; the evidence expander is a quiet grey text link. */
-.msi.msi .bs-finds .bs-fig{margin:0}
-.msi.msi .bs-finds .bs-fig .bs-fnum{display:block;margin-bottom:4px}
-.msi.msi .bs-finds .bs-fig b{display:block;font-family:'Fraunces',Georgia,serif;font-size:44px;font-weight:400;line-height:1.05;letter-spacing:-.02em;color:var(--text)}
-.msi.msi .bs-finds .bs-fig>span:last-child{display:block;margin-top:4px;font-size:13.5px;line-height:1.45;color:var(--text-muted);max-width:32ch}
-.msi.msi .bs-finds .find>.bs-ftitle{margin-top:var(--s4);font-size:21px}
-.msi.msi .bs-finds details.bs-fdetail>summary{padding:2px 0;font-size:13px;font-weight:500;color:var(--text-muted);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;border:0}
-.msi.msi .bs-finds details.bs-fdetail>summary::after{content:none}
+/* Findings (2026-10-28, founder): the headline leads; the count is a small supporting line; quiet chevron disclosure; three columns with thin dividers from 901px. */
+.msi.msi .bs-finds .find>.bs-ftitle{font-size:24px;margin:0}
+.msi.msi .bs-finds .bs-fig{margin-top:var(--s2);font-size:13.5px;line-height:1.45;color:var(--text-muted)}
+.msi.msi .bs-finds .bs-fig b{font-weight:650;color:var(--text)}
+.msi.msi .bs-finds .find>.dek{margin-top:var(--s3)}
+.msi.msi .bs-finds details.bs-fdetail>summary{display:inline-flex;align-items:center;gap:8px;padding:2px 0;font-size:13px;font-weight:500;color:var(--text-muted);border:0;text-decoration:none}
+.msi.msi .bs-finds details.bs-fdetail>summary:hover{color:var(--text)}
+.msi.msi .bs-finds details.bs-fdetail>summary::after{content:"";width:6px;height:6px;border:0;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;border-radius:0;background:none;transform:rotate(45deg) translateY(-2px);flex:none}
+.msi.msi .bs-finds details.bs-fdetail[open]>summary::after{transform:rotate(225deg) translateY(-1px)}
 .msi.msi .bs-finds details.bs-fdetail dl.chain{grid-template-columns:1fr;gap:2px}
 .msi.msi .bs-finds details.bs-fdetail dl.chain dd{margin-bottom:10px}
+/* Focus rings (2026-10-28): when a link or tab moves focus to a whole section, the ring shows only for keyboard users; links and controls keep their rings. */
+html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 @media(min-width:901px){
 .msi.msi .bs-finds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--border)}
 .msi.msi .bs-finds .find,.msi.msi .bs-finds .find+.find{display:flex;flex-direction:column;padding:var(--s5) var(--s5) var(--s5);border-bottom:0;border-left:1px solid var(--border)}
@@ -252,8 +254,12 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
     try { id = decodeURIComponent(id); } catch (e) {}
     return id ? d.getElementById(id) : null;
   }
+  var kbd = false;
+  d.addEventListener('keydown', function (e) { if (!e.altKey && !e.ctrlKey && !e.metaKey) kbd = true; }, true);
+  d.addEventListener('pointerdown', function () { kbd = false; }, true);
   function focusable(el) {
     if (!el.hasAttribute('tabindex') && !/^(A|BUTTON|INPUT|SELECT|TEXTAREA|SUMMARY)$/.test(el.tagName)) el.setAttribute('tabindex', '-1');
+    if (el.getAttribute('tabindex') === '-1') el.classList.toggle('bs-pfocus', !kbd);
     try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); }
   }
   function show(panel) {

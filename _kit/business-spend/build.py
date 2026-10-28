@@ -360,10 +360,10 @@ def body(c):
                       E(it['title']), E(it['body']), E(it['denominator']), ev_links(c, it['evidence']).replace('<p class="evlinks">', '<span class="evlinks">').replace('</p>', '</span>'),
                       E(it['question']), E(it['reading']), an, t['id'].lower(), t['id'][1:], E(t['title'])))
         # Key figure first (2026-10-28): the count comes from the finding's denominator; validate.py checks they agree.
-        items.append('<div class="find" id="bs-%s"><p class="bs-fig"><span class="bs-fnum">%d</span><b>%s</b> <span>%s</span></p>'
-                     '<h3 class="bs-ftitle">%s</h3><p class="dek">%s</p>'
+        # Headline first, then the count as a supporting line with its own denominator (founder, 2026-10-28).
+        items.append('<div class="find" id="bs-%s"><h3 class="bs-ftitle">%s</h3><p class="bs-fig"><b>%s</b> %s</p><p class="dek">%s</p>'
                      '<p class="bs-fgo"><a href="#%s">%s<span aria-hidden="true"> &rarr;</span></a></p>%s</div>' % (
-                         it['id'].lower(), k, E(it['figure']), E(it['figure_label']), E(it['short_title']), E(it['summary']), it['explore'][1], E(it['explore'][0]), detail))
+                         it['id'].lower(), E(it['short_title']), E(it['figure']), E(it['figure_label']), E(it['summary']), it['explore'][1], E(it['explore'][0]), detail))
     out.append('<div id="bs-findings" class="bs-finds">%s</div>' % ''.join(items))
     out.append(take(f['take']))
     m = n['method']
