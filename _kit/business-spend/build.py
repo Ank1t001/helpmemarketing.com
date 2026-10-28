@@ -352,16 +352,18 @@ def body(c):
     for k, it in enumerate(f['items'], 1):
         t = tests[it['test']]
         an = ', '.join('<a href="#%s">%s</a>' % (a[1], E(a[0])) for a in it['analysis'])
-        detail = ('<details class="bs-fdetail"><summary>Evidence and qualifications</summary><p class="dek fdetail-t">%s</p><dl class="chain">'
+        detail = ('<details class="bs-fdetail"><summary>Evidence for this finding</summary><p class="dek fdetail-t">%s</p><dl class="chain">'
                   '<dt>What the sources say</dt><dd>%s <b>Denominator:</b> %s %s</dd>'
                   '<dt>Customer question</dt><dd>&ldquo;%s&rdquo;</dd>'
                   '<dt>My reading</dt><dd>%s</dd>'
                   '<dt>Analysis and test</dt><dd class="dlinks">%s. Proposed test, not a result: <a href="#bs-%s">test %s, %s</a>.</dd></dl></details>' % (
                       E(it['title']), E(it['body']), E(it['denominator']), ev_links(c, it['evidence']).replace('<p class="evlinks">', '<span class="evlinks">').replace('</p>', '</span>'),
                       E(it['question']), E(it['reading']), an, t['id'].lower(), t['id'][1:], E(t['title'])))
-        items.append('<div class="find" id="bs-%s"><h3 class="bs-ftitle"><span class="bs-fnum">%d</span> %s</h3><p class="dek">%s</p>'
+        # Key figure first (2026-10-28): the count comes from the finding's denominator; validate.py checks they agree.
+        items.append('<div class="find" id="bs-%s"><p class="bs-fig"><span class="bs-fnum">%d</span><b>%s</b> <span>%s</span></p>'
+                     '<h3 class="bs-ftitle">%s</h3><p class="dek">%s</p>'
                      '<p class="bs-fgo"><a href="#%s">%s<span aria-hidden="true"> &rarr;</span></a></p>%s</div>' % (
-                         it['id'].lower(), k, E(it['short_title']), E(it['summary']), it['explore'][1], E(it['explore'][0]), detail))
+                         it['id'].lower(), k, E(it['figure']), E(it['figure_label']), E(it['short_title']), E(it['summary']), it['explore'][1], E(it['explore'][0]), detail))
     out.append('<div id="bs-findings" class="bs-finds">%s</div>' % ''.join(items))
     out.append(take(f['take']))
     m = n['method']

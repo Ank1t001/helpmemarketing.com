@@ -226,6 +226,10 @@ def check_inputs(c):
         if re.search(r'\d+\s*%|uplift|baseline of', ' '.join(str(t.get(k, '')) for k in ('measure', 'comparable', 'change', 'hypothesis')), re.I):
             errs.append('test %s: no invented baselines or uplift' % t.get('title'))
     for it in f:
+        # The Overview figure ("X of N") must use the finding's own denominator and not exceed it.
+        fig = re.fullmatch(r'(\d+) of (\d+)', it.get('figure', ''))
+        if not fig or int(fig.group(1)) > int(fig.group(2)) or not re.match(r'(\d+ of )?%s\b' % fig.group(2), it.get('denominator', '')):
+            errs.append('findings: %s figure %r does not match its denominator' % (it.get('id'), it.get('figure')))
         if not it.get('reading') or not it.get('analysis') or it.get('test') not in tids:
             errs.append('findings: %s needs my reading, links to its analysis and its test' % it.get('id'))
     if [s for s in c.n.get('chain', {}).get('steps', [])] != CHAIN:

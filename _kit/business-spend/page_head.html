@@ -223,6 +223,23 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
 .msi.msi .bs-view.bs-view .bs-research details.bs-rd{margin:0}
 @media(max-width:720px){.msi.msi .bs-finds .bs-ftitle{font-size:21px}}
 @media print{.msi.msi details.bs-rd,.msi.msi details.bs-fdetail{display:block}}
+/* Findings with key figures (2026-10-28): three columns with thin dividers from 901px, stacked below; the evidence expander is a quiet grey text link. */
+.msi.msi .bs-finds .bs-fig{margin:0}
+.msi.msi .bs-finds .bs-fig .bs-fnum{display:block;margin-bottom:4px}
+.msi.msi .bs-finds .bs-fig b{display:block;font-family:'Fraunces',Georgia,serif;font-size:44px;font-weight:400;line-height:1.05;letter-spacing:-.02em;color:var(--text)}
+.msi.msi .bs-finds .bs-fig>span:last-child{display:block;margin-top:4px;font-size:13.5px;line-height:1.45;color:var(--text-muted);max-width:32ch}
+.msi.msi .bs-finds .find>.bs-ftitle{margin-top:var(--s4);font-size:21px}
+.msi.msi .bs-finds details.bs-fdetail>summary{padding:2px 0;font-size:13px;font-weight:500;color:var(--text-muted);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;border:0}
+.msi.msi .bs-finds details.bs-fdetail>summary::after{content:none}
+.msi.msi .bs-finds details.bs-fdetail dl.chain{grid-template-columns:1fr;gap:2px}
+.msi.msi .bs-finds details.bs-fdetail dl.chain dd{margin-bottom:10px}
+@media(min-width:901px){
+.msi.msi .bs-finds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--border)}
+.msi.msi .bs-finds .find,.msi.msi .bs-finds .find+.find{display:flex;flex-direction:column;padding:var(--s5) var(--s5) var(--s5);border-bottom:0;border-left:1px solid var(--border)}
+.msi.msi .bs-finds .find:first-child{padding-left:0;border-left:0}
+.msi.msi .bs-finds .find:last-child{padding-right:0}
+.msi.msi .bs-finds .find>.bs-fgo{margin-top:auto;padding-top:var(--s3)}
+}
 </style>
 <script data-bsi-tabs>
 /* Views as tabs (2026-10-23). Without JavaScript every view shows in reading order and the links jump to it. With it, one view shows at a time: the links become an ARIA tablist (arrow keys, Home, End), the address keeps the view (#bs-compare), Back and Forward restore it, and any link to an id inside a view (a section, an evidence item, a closed expander) opens that view and the expanders around the target. Print shows every view. */

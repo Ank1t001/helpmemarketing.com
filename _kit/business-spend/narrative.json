@@ -44,7 +44,9 @@
     "explore": [
      "Compare rewards",
      "bs-prod"
-    ]
+    ],
+    "figure": "2 of 5",
+    "figure_label": "platforms with a published reward rate had statements that did not agree"
    },
    {
     "id": "F2",
@@ -73,7 +75,9 @@
     "explore": [
      "Compare FX conditions",
      "bs-xb"
-    ]
+    ],
+    "figure": "6 of 6",
+    "figure_label": "platforms limited the no-FX-fee claim to a specific situation"
    },
    {
     "id": "F3",
@@ -108,7 +112,9 @@
     "explore": [
      "See the first screens",
      "bs-journey-table"
-    ]
+    ],
+    "figure": "1 of 6",
+    "figure_label": "first screens listed the steps ahead"
    }
   ],
   "take": "Open your main offer page and follow its button. Can a new customer understand the conditions and what happens next without searching elsewhere?"
