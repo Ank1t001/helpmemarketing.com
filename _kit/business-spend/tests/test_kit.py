@@ -427,8 +427,9 @@ class SocialModuleTests(unittest.TestCase):
         body = build.body(c)
         self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-compare', 'bs-messaging', 'bs-social', 'bs-journeys', 'bs-lessons'])
         self.assertIn('<a href="#bs-social" id="bs-tab-social">Instagram content</a>', body)
-        self.assertIn('<b>Instagram posts</b> published 25 July to 22 October 2026; collected 26 October 2026', body)
-        self.assertIn('<b>Websites observed</b> 23 October 2026', body)
+        self.assertIn('Official company Instagram accounts only, posts published 25 July to 22 October 2026', body)
+        self.assertNotIn('<b>Instagram posts</b>', body.split('</header>')[0])  # dates live in Scope & sources, not the hero (2026-10-28)
+        self.assertIn('Websites observed 23 October 2026, 10:39 a.m. to 2:33 p.m. Toronto time.', body)
         sec = body[body.index('<section id="bs-social"'):body.index('<section id="bs-journeys"')]
         self.assertEqual('For editorial review' in sec, c.social['status'] == 'review')   # the flag shows only while approval is pending
         self.assertIn('The captured Venn website footer linked to @tryvault, while this study uses owner-confirmed @venn.ca with supporting profile evidence.', sec)

@@ -1,9 +1,11 @@
 {
  "hero": {
-  "kicker": "The HMM Index · Business finance",
+  "kicker": "The HMM Index",
   "title": "Business Cards & Spend Management Index",
   "subtitle": "How six platforms explain spending controls, rewards and cross-border business payments.",
-  "lede": "How six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses. An independent marketing case study from dated public sources and the first screen of each application journey; it does not test product performance, assess regulatory compliance or recommend a provider.",
+  "lede": "Compare six platforms’ products, offers and marketing, with my analysis of how they explain their value to Canadian businesses.",
+  "note": "Independent research, not a product recommendation.",
+  "scope_link": "Scope & sources",
   "draft_note": "Draft for editorial review. This edition is not published."
  },
  "findings": {
@@ -1137,6 +1139,7 @@
   ]
  },
  "method": {
+  "scope": "An independent comparative marketing case study of how six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses. It reads dated public sources and the first screen of each application journey. It does not test product performance, assess regulatory compliance or recommend a provider for your business.",
   "selection": "The founder selected these six platforms as a comparison set of providers that market business cards and spend management to Canadian businesses. They are not presented as the largest, the most used or the best, and other providers exist.",
   "dates": "Public pages were fetched by a server on 23 October 2026 from 10:39 a.m. to 10:48 a.m. Toronto time, a browser pass checked them from 12:00 p.m. to 12:14 p.m., and two more pages were fetched later the same day: the Airwallex fee schedule at 2:10 p.m. and the Float Payments page at 2:33 p.m. Every observation carries its own capture time.",
   "public_only": "I read only public pages: no accounts, logins, forms submitted, credit checks or transactions. A server fetch does not run JavaScript, so a browser pass then checked what visitors see, followed each enquiry journey to its first screen and looked up the FINTRAC and Bank of Canada registries. Where the two differed, the page reports what a visitor sees and keeps the server reading in the evidence.",
