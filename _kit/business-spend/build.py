@@ -124,14 +124,34 @@ def cell(c, pid, key, label):
         cls = ' class="miss"'
         tag = ''
     else:
-        body = '<span class="cell-main">%s</span>' % E(spec['text'])
+        restr = spec.get('restriction') if status == 'explicitly_unavailable' else None
+        mark = lambda t: ' cell-restr' if restr and t == restr else ''
+        body = '<span class="cell-main%s">%s</span>' % (mark(spec['text']), E(spec['text']))
         if spec.get('sub'):
-            body += '<span class="cell-sub">%s</span>' % E(spec['sub'])
+            body += '<span class="cell-sub%s">%s</span>' % (mark(spec['sub']), E(spec['sub']))
         cls = ''
-        tag = status_tag(status)
+        # A restriction the cell already states is set in bold instead of repeated as a label.
+        tag = '' if restr and restr in (spec['text'], spec.get('sub')) else table_tag(status, spec)
     if any('D' in (c.obs[i].get('reconciliation') or {}).get('class', '') for i in ids):
-        tag += '<span class="st st-undetermined">Not determined</span>'
+        tag += '<span class="st st-undetermined">%s</span>' % E(TABLE_LABEL['undetermined'])
     return '<td%s data-label="%s">%s%s</td>' % (cls, E(label), body, tag)
+
+
+# Plain wording beside a claim in the comparison tables (founder, 2026-10-28). The formal status names stay in
+# "What each status means", the evidence records and the CSV; "Explicitly unavailable" shows the exact restriction.
+TABLE_LABEL = {'conflicting': 'Published pages disagree', 'undetermined': 'Could not confirm how these statements fit together'}
+
+
+def table_tag(status, spec):
+    if status == 'explicitly_unavailable':
+        return '<span class="st st-explicitly_unavailable">%s</span>' % E(spec['restriction'])
+    if status in TABLE_LABEL:
+        return '<span class="st st-%s">%s</span>' % (status, E(TABLE_LABEL[status]))
+    return status_tag(status)
+
+
+def compare_columns(cp):
+    return cp['plan_columns'] + cp['card_columns'] + cp['xb_columns'] + cp['spend_columns']
 
 
 def table(c, title, cols, tid):
@@ -149,7 +169,7 @@ def table(c, title, cols, tid):
 
 def compare_sources(c):
     items = []
-    cols = c.n['compare']['product_columns'] + c.n['compare']['xb_columns'] + c.n['compare']['spend_columns']
+    cols = compare_columns(c.n['compare'])
     for pid in c.order:
         parts = []
         for k, l in cols:
@@ -227,9 +247,9 @@ def platform_block(c, pid):
     times = sorted({o['observed_at'] for o in obs if o['observed_at']}, key=model.parse_ts)
     pages = sorted({s for o in obs for s in [r['source_id'] for r in o['sources']] + o.get('reviewed_sources', [])})
     dl = ''.join('<dt>%s</dt><dd>%s <span class="evlinks">(%s)</span></dd>' % (E(l), E(p[k]), id_links(p['ev'][k])) for k, l in PLAT_ROWS)
-    links = ('<p class="pnote dlinks"><b>Product details:</b> %s&rsquo;s <a href="#bs-prod-%s">product</a>, <a href="#bs-xb-%s">cross-border</a> and '
-             '<a href="#bs-spend-%s">spend-management</a> rows in Compare products, and its <a href="#bs-jt-%s">first screen</a> in Application journeys.</p>'
-             % (E(c.name(pid)), pid, pid, pid, pid))
+    links = ('<p class="pnote dlinks"><b>Product details:</b> %s&rsquo;s <a href="#bs-prod-%s">cards, rewards and plans</a>, <a href="#bs-cards-%s">card details and eligibility</a>, '
+             '<a href="#bs-xb-%s">currency and payments</a> and <a href="#bs-spend-%s">spending controls</a> rows in Compare products, and its <a href="#bs-jt-%s">first screen</a> in Application journeys.</p>'
+             % (E(c.name(pid)), pid, pid, pid, pid, pid))
     q = p['question']
     reading = ('<div class="note reading"><span class="lbl">My reading</span><p><b>Customer question:</b> &ldquo;%s&rdquo; <b class="ans">%s.</b> %s</p><p>%s</p></div>'
                % (E(q['text']), E(q['answer']), E(q['detail']), E(p['observation'])))
@@ -412,11 +432,17 @@ def body(c):
     # ---------- 2. Compare products ----------
     cp = n['compare']
     out.append(view_open('compare', 'bs-compare'))
+    # Founder brief (2026-10-28): observation date and three jump links first, the essential reading notes above the tables,
+    # the product table split in two, plain section names; the fuller explanation and the source records stay below.
+    out.append('<p class="bs-cmp-when"><b>Website observations: %s.</b> %s</p>' % (long_date(start), E(cp['observed_line'])))
+    out.append('<p class="bs-cmp-jump"><a href="#bs-prod">Cards, rewards &amp; plans</a> &middot; <a href="#bs-xb">Currency &amp; payments</a> &middot; <a href="#bs-spend">Spending controls</a></p>')
+    out.append('<p class="bs-cmp-ess">%s</p>' % E(cp['essentials']))
     out.append('<p class="ktag fact">What the sources say</p>')
-    out.append(table(c, 'Product context', cp['product_columns'], 'bs-prod'))
-    out.append(table(c, 'Cross-border context', cp['xb_columns'], 'bs-xb'))
-    out.append(table(c, 'Spend-management context', cp['spend_columns'], 'bs-spend'))
-    out.append('<p class="pnote"><b>Reading the tables.</b> %s An entry with a status label is not a plain published fact; <a href="#bs-statuses">what each status means</a>. &ldquo;Not determined&rdquo; is not a status: it marks two published statements whose relationship the evidence cannot settle (<a href="#bs-recon">reconciliation</a> class D).</p>' % E(cp['note']))
+    out.append(table(c, 'Cards, rewards & plans', cp['plan_columns'], 'bs-prod'))
+    out.append(table(c, 'Card details & eligibility', cp['card_columns'], 'bs-cards'))
+    out.append(table(c, 'Currency & payments', cp['xb_columns'], 'bs-xb'))
+    out.append(table(c, 'Spending controls', cp['spend_columns'], 'bs-spend'))
+    out.append('<p class="pnote"><b>Reading the tables.</b> %s A label beside an entry means it is not a plain published fact: &ldquo;Published pages disagree&rdquo; is the status Conflicting, and a restriction set in bold (such as &ldquo;Not offered to businesses in Quebec&rdquo;) is the status Explicitly unavailable. &ldquo;Not checked&rdquo; and &ldquo;Not found in reviewed sources&rdquo; do not mean a feature is unavailable; <a href="#bs-statuses">what each status means</a>. &ldquo;Could not confirm how these statements fit together&rdquo; is not a status: it marks two published statements whose relationship the evidence cannot settle (<a href="#bs-recon">reconciliation</a> class D).</p>' % E(cp['note']))
     out.append(compare_sources(c))
     out.append('<p class="pnote dlinks"><b>Download the data:</b> <a href="/%s" download>every observation with its source (CSV)</a>.</p>' % CSV_REL)
     out.append(view_close('compare'))

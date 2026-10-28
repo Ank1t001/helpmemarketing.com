@@ -242,6 +242,21 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-finds .find:last-child{padding-right:0}
 .msi.msi .bs-finds .find>.bs-fgo{margin-top:auto;padding-top:var(--s3)}
 }
+/* Compare products (founder brief, 2026-10-28): observation line, plain jump links and the essential reading notes above the tables; lighter row shading, sentence-case headings and readable conditions. */
+.msi.msi #bs-compare .bs-cmp-when,.msi.msi #bs-compare .bs-cmp-jump,.msi.msi #bs-compare .bs-cmp-ess{max-width:72ch;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
+.msi.msi .bs-view.bs-view>.bs-cmp-when{margin-top:var(--s4)}
+.msi.msi .bs-view.bs-view>.bs-cmp-jump,.msi.msi .bs-view.bs-view>.bs-cmp-ess{margin-top:var(--s3)}
+.msi.msi #bs-compare .bs-cmp-when b{color:var(--text);font-weight:650}
+.msi.msi #bs-compare .bs-cmp-jump a{color:var(--cta-text,var(--cta));font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.msi.msi #bs-compare .bs-cmp-ess{color:var(--text)}
+@media(min-width:901px){
+.msi.msi #bs-compare table.bs th{font-size:13px;font-weight:650;letter-spacing:0;text-transform:none;color:var(--text);vertical-align:bottom}
+.msi.msi #bs-compare table.bs tbody tr:nth-child(even) td{background:rgba(var(--ink-rgb,255,255,255),.025)}
+.msi.msi #bs-compare table.bs tbody td{border-top-color:rgba(var(--ink-rgb,255,255,255),.06)}
+.msi.msi #bs-compare table.bs .cell-sub{font-size:13px;line-height:1.5}
+}
+.msi.msi #bs-compare .st{text-transform:none;letter-spacing:0;font-size:12px;font-weight:600}
+.msi.msi #bs-compare .cell-restr{font-weight:650;color:var(--text)}
 </style>
 <script data-bsi-tabs>
 /* Views as tabs (2026-10-23). Without JavaScript every view shows in reading order and the links jump to it. With it, one view shows at a time: the links become an ARIA tablist (arrow keys, Home, End), the address keeps the view (#bs-compare), Back and Forward restore it, and any link to an id inside a view (a section, an evidence item, a closed expander) opens that view and the expanders around the target. Print shows every view. */

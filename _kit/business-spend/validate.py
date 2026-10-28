@@ -163,11 +163,14 @@ def check_inputs(c):
                     errs.append('%s.%s: %s was not checked' % (pid, k, i))
         if not p.get('take') and not p.get('missing'):
             errs.append('%s: needs a takeaway or a labelled evidence placeholder' % pid)
-        for k, _ in c.n['compare']['product_columns'] + c.n['compare']['xb_columns'] + c.n['compare']['spend_columns']:
+        for k, _ in c.n['compare']['plan_columns'] + c.n['compare']['card_columns'] + c.n['compare']['xb_columns'] + c.n['compare']['spend_columns']:
             spec = c.n['compare']['rows'].get(pid, {}).get(k)
             if spec is None:
                 errs.append('%s: comparison cell %s missing' % (pid, k))
                 continue
+            sts = [c.obs[i]['status'] for i in spec.get('ids', []) if i in c.obs]
+            if spec.get('text') is not None and 'explicitly_unavailable' in sts and 'conflicting' not in sts and not spec.get('restriction'):
+                errs.append('%s.%s: an explicitly unavailable entry needs its exact restriction for the table label' % (pid, k))
             for i in spec.get('ids', []):
                 if i not in c.obs:
                     errs.append('%s.%s: unknown observation %s' % (pid, k, i))

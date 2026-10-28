@@ -305,9 +305,9 @@ class KitTests(unittest.TestCase):
             self.assertEqual(o['observed_at'], self.c.sources[o['sources'][0]['source_id']]['fetched_at'])
 
     def test_eligibility_kept_apart_from_wider_availability(self):
-        body = self.page[self.page.index('id="bs-prod-h"'):]
+        body = self.page[self.page.index('id="bs-cards-h"'):]
         body = body[:body.index('</table>')]
-        self.assertIn('Who can apply from Canada', body)
+        self.assertIn('Published eligibility and application restrictions', body)
         self.assertIn('Self-serve sign-up route closed to new applicants when checked', body)
         self.assertIn('availability in other countries is not assessed', self.page)
 

@@ -65,7 +65,7 @@
     "reading": "A general \"no FX fee\" line answers the question only for the case it covers; the other cases are priced on other pages or in the terms.",
     "analysis": [
      [
-      "Cross-border context in Compare products",
+      "Currency & payments in Compare products",
       "bs-xb"
      ]
     ],
@@ -121,30 +121,32 @@
  },
  "compare": {
   "dek": "One row per platform, in three parts. The status shows how firm each entry is; conditions stay with the fact they qualify. On a phone each platform becomes a card.",
-  "product_columns": [
+  "plan_columns": [
    [
     "model",
-    "Card model and funding"
+    "How the card is funded or repaid"
    ],
+   [
+    "rewards",
+    "Rewards and conditions"
+   ],
+   [
+    "plans",
+    "Plan prices"
+   ]
+  ],
+  "card_columns": [
    [
     "issuer",
     "Network and issuer"
    ],
    [
     "format",
-    "Card formats"
-   ],
-   [
-    "rewards",
-    "Rewards as published"
-   ],
-   [
-    "plans",
-    "Plans"
+    "Physical and virtual cards"
    ],
    [
     "eligibility",
-    "Who can apply from Canada"
+    "Published eligibility and application restrictions"
    ]
   ],
   "xb_columns": [
@@ -258,7 +260,8 @@
      "text": "Not offered to businesses in Quebec",
      "ids": [
       "O-VEN-07"
-     ]
+     ],
+     "restriction": "Not offered to businesses in Quebec"
     }
    },
    "float": {
@@ -583,7 +586,8 @@
      "ids": [
       "O-KEP-04",
       "O-KEP-05"
-     ]
+     ],
+     "restriction": "Self-serve sign-up closed when checked"
     },
     "xb_card": {
      "text": "3% card conversion fee (agreement)",
@@ -643,7 +647,8 @@
      "ids": [
       "O-KEP-05",
       "O-KEP-06"
-     ]
+     ],
+     "restriction": "Self-serve sign-up route closed to new applicants when checked"
     }
    },
    "airwallex": {
@@ -740,7 +745,7 @@
     }
    }
   },
-  "note": "Plan prices are monthly, in Canadian dollars, as published; some are billed annually or per user. A row is not a quote, and the lowest advertised FX rate may not apply to every payment type. Peoples Trust Company issues four of the six cards (Venn, Ramp, Keep, Airwallex); how each card is funded or repaid differs, as the first column shows. This edition does not compare FX costs: a fair comparison would need the same currencies, amount, timing, plan and fees. The \"Who can apply from Canada\" column covers applying from Canada only; availability in other countries is not assessed, and worldwide figures in the proof are labelled as worldwide where the source says so.",
+  "note": "Plan prices are monthly, in Canadian dollars, as published; some are billed annually or per user. A row is not a quote, and the lowest advertised FX rate may not apply to every payment type. Peoples Trust Company issues four of the six cards (Venn, Ramp, Keep, Airwallex); how each card is funded or repaid differs, as the first column shows. This edition does not compare FX costs: a fair comparison would need the same currencies, amount, timing, plan and fees. The \"Published eligibility and application restrictions\" column covers applying from Canada only; availability in other countries is not assessed, and worldwide figures in the proof are labelled as worldwide where the source says so.",
   "spend_columns": [
    [
     "limits",
@@ -758,7 +763,9 @@
     "accounting",
     "Accounting connections"
    ]
-  ]
+  ],
+  "observed_line": "I reviewed the published information; I did not test the products.",
+  "essentials": "Prices are in Canadian dollars unless stated otherwise. Check whether each price is per user, billed annually or includes an additional platform fee. Currency fees cover different transactions, so the lowest percentage is not necessarily the lowest cost."
  },
  "examples": {
   "dek": "Four observed examples of how an offer, proof or next step was explained. They are examples to learn from, not winning platforms.",
@@ -1217,7 +1224,7 @@
   },
   "compare": {
    "title": "Compare products",
-   "dek": "What each provider publishes about its cards, cross-border payments and spend tools, as captured on 23 October 2026. These are the providers' own statements, not tested features."
+   "dek": "See what each platform says about its cards, fees and spending tools. Conditions sit beside the claims they apply to."
   },
   "messaging": {
    "title": "Messaging & offers",
