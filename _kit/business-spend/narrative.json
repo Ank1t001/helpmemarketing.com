@@ -4,8 +4,6 @@
   "title": "Business Cards & Spend Management Index",
   "subtitle": "How six platforms explain spending controls, rewards and cross-border business payments.",
   "lede": "Compare what six platforms publish about their products, and explore my analysis of their messaging, Instagram content and application entry screens.",
-  "note": "Independent marketing research. Not a product recommendation.",
-  "scope_link": "Scope and sources",
   "draft_note": "Draft for editorial review. This edition is not published."
  },
  "findings": {
@@ -40,7 +38,13 @@
       "bs-p-loop"
      ]
     ],
-    "test": "T1"
+    "test": "T1",
+    "short_title": "You sometimes need two pages to understand the reward",
+    "summary": "Venn and Loop published reward statements that did not agree for some plans. A business owner needs the rate and its conditions together to understand which spending qualifies.",
+    "explore": [
+     "Compare rewards",
+     "bs-prod"
+    ]
    },
    {
     "id": "F2",
@@ -63,7 +67,13 @@
       "bs-xb"
      ]
     ],
-    "test": "T2"
+    "test": "T2",
+    "short_title": "“No FX fee” doesn’t cover every transaction",
+    "summary": "All six platforms used a no-FX-fee claim for a specific situation. What you pay can depend on the currency, the balance you hold and the transaction.",
+    "explore": [
+     "Compare FX conditions",
+     "bs-xb"
+    ]
    },
    {
     "id": "F3",
@@ -92,10 +102,16 @@
       "bs-e3"
      ]
     ],
-    "test": "T3"
+    "test": "T3",
+    "short_title": "Most first screens didn’t explain what happens next",
+    "summary": "Only Loop’s first screen listed the steps ahead. The six routes served different purposes, including account sign-ups, a card application and a demo request. Keep’s self-serve application route was closed when checked.",
+    "explore": [
+     "See the first screens",
+     "bs-journey-table"
+    ]
    }
   ],
-  "take": "When a headline offer and its condition live on different pages, or a form says nothing about what comes next, the reader has to fill the gap. Ask your team to list every place your main offer appears and check that its condition travels with it, and to read your first form as a stranger would."
+  "take": "Open your main offer page and follow its button. Can a new customer understand the conditions and what happens next without searching elsewhere?"
  },
  "compare": {
   "dek": "One row per platform, in three parts. The status shows how firm each entry is; conditions stay with the fact they qualify. On a phone each platform becomes a card.",
@@ -1189,7 +1205,9 @@
  "views": {
   "overview": {
    "title": "Overview",
-   "dek": "This page serves two kinds of reader. If you are comparing card and spend platforms, it sets out what six providers publish, each fact linked to its source. If you market a product, it is my independent case study of how they explain it: the offer, the proof and the path to applying. None of the six is a client, and I have no view of their internal strategy or results."
+   "dek": "I reviewed six platforms’ websites to see how they explain their offers and what happens when someone clicks to apply. These three things stood out.",
+   "about_intro": "This page serves two kinds of reader. If you are comparing card and spend platforms, it sets out what six providers publish, each fact linked to its source. If you market a product, it is my independent case study of how they explain it: the offer, the proof and the path to applying. None of the six is a client, and I have no view of their internal strategy or results.",
+   "heading": "What stood out"
   },
   "compare": {
    "title": "Compare products",

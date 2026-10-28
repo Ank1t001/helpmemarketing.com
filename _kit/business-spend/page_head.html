@@ -117,7 +117,6 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
 .msi.msi .statdefs dd{margin:0}
 .msi.msi #bs-method .grid2{margin:24px 0 16px;align-items:stretch}
 .msi.msi #bs-method .grid2>.card{margin:0}
-.msi.msi #bs-cite{margin-bottom:16px}
 .msi.msi #bs-help .btn{margin-top:16px}
 .msi.msi footer{margin-top:32px}
 @media(max-width:720px){
@@ -194,6 +193,36 @@ html body .app a.btn:focus-visible{outline:2px solid var(--cta-text,var(--cta));
 .msi.msi .soc-body figure.soc-shot{margin:0}
 .msi.msi .soc-text>:first-child{margin-top:0}}
 .msi.msi .soc-body+details{margin-top:var(--s4)}
+/* Overview, findings first (founder brief, 2026-10-28): three findings as editorial blocks with thin dividers, one highlighted takeaway, then the research details as plain expanders. */
+.msi.msi .bs-finds{border-top:1px solid var(--border)}
+.msi.msi .bs-finds .find{padding:var(--s5) 0;border-bottom:1px solid var(--border)}
+.msi.msi .bs-finds .find>*{margin:0}
+.msi.msi .bs-finds .find>*+*{margin-top:var(--s2)}
+.msi.msi .bs-finds .bs-ftitle{font-family:'Fraunces',Georgia,serif;font-size:24px;font-weight:400;letter-spacing:-.01em;line-height:1.25;color:var(--text);max-width:40ch}
+.msi.msi .bs-finds .bs-fnum{display:block;font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--cta-text,var(--cta));margin-bottom:6px}
+.msi.msi .bs-finds .bs-fread b{color:var(--text);font-weight:650}
+.msi.msi .bs-finds .bs-fgo{margin-top:var(--s3);font-size:14.5px}
+.msi.msi .bs-finds .bs-fgo a{color:var(--cta-text,var(--cta));font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.msi.msi .bs-finds details.bs-fdetail{margin-top:var(--s3);border:0;padding:0;background:none}
+.msi.msi .bs-finds details.bs-fdetail>summary{padding:4px 0;font-size:13.5px;font-weight:600;color:var(--text-muted);justify-content:flex-start}
+.msi.msi .bs-finds details.bs-fdetail>summary::after{width:20px;height:20px;font-size:15px}
+.msi.msi .bs-finds details.bs-fdetail .fdetail-t{margin:var(--s2) 0;font-weight:600;color:var(--text)}
+.msi.msi .bs-research .bs-author{margin:0 0 var(--s4);font-size:15px;line-height:1.6;color:var(--text-muted)}
+.msi.msi .bs-research .bs-author a{color:var(--text);font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.msi.msi .bs-research details.bs-rd{margin:0;background:none;border:0;border-top:1px solid var(--border);border-radius:0;padding:0}
+.msi.msi .bs-research>details.bs-rd:last-of-type,.msi.msi .bs-research #bs-method{border-bottom:0}
+.msi.msi .bs-research>details.bs-rd:last-of-type{border-bottom:1px solid var(--border)}
+.msi.msi .bs-research details.bs-rd>summary{padding:16px 0}
+.msi.msi .bs-research details.bs-rd[open]{padding-bottom:var(--s5)}
+.msi.msi .bs-research details.bs-rd>.dek:first-of-type{margin-top:0}
+.msi.msi .bs-research .pnote.dlinks{margin-top:var(--s4)}
+.msi.msi .bs-finds .find+.find{margin-top:0;padding-top:var(--s5);border-top:0}
+.msi.msi .bs-finds .find>p{max-width:72ch}
+.msi.msi .bs-view details.bs-rd>summary,.msi.msi .bs-view details.bs-fdetail>summary{margin:0}
+.msi.msi .bs-view details.bs-fdetail[open]>summary{border-bottom:0}
+.msi.msi .bs-view.bs-view .bs-research details.bs-rd{margin:0}
+@media(max-width:720px){.msi.msi .bs-finds .bs-ftitle{font-size:21px}}
+@media print{.msi.msi details.bs-rd,.msi.msi details.bs-fdetail{display:block}}
 </style>
 <script data-bsi-tabs>
 /* Views as tabs (2026-10-23). Without JavaScript every view shows in reading order and the links jump to it. With it, one view shows at a time: the links become an ARIA tablist (arrow keys, Home, End), the address keeps the view (#bs-compare), Back and Forward restore it, and any link to an id inside a view (a section, an evidence item, a closed expander) opens that view and the expanders around the target. Print shows every view. */
