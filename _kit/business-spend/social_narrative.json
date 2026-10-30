@@ -1,7 +1,8 @@
 {
  "view": {
-  "title": "Social Media Content",
-  "dek": "This edition reviews Instagram content only. It covers official company accounts; posts on a global account do not show what is offered in Canada."
+  "title": "Social Media Strategy",
+  "dek": "How each brand positions itself, promotes its products and uses creative content, alongside the visible engagement recorded on 26 October 2026.",
+  "scope": "Instagram only. Analysis of public content, not internal strategy."
  },
  "review_flag": "This view is shown on the staging draft for editorial review. Editorial approval has not been recorded, and the release build stays blocked until the owner records it.",
  "scope": [
@@ -31,7 +32,7 @@
   ],
   [
    "Left out",
-   "Reposts (Instagram does not show when a repost was made), Stories, highlights, live videos, the Tagged tab, ads and the @tryvault account. Displayed likes, comments and views were recorded with their read times but are not shown or compared: posts had different ages, and a collaboration's counts include another account's audience."
+   "Reposts (Instagram does not show when a repost was made), Stories, highlights, live videos, the Tagged tab, ads and the @tryvault account. Displayed likes, comments and views were recorded with their read times; since 30 October 2026 likes and comments are compared only within each brand, with their limits stated."
   ]
  ],
  "coverage_dek": "One row per provider, in the page's usual order: 51 records in all, 32 attributed posts and 19 @tryramp records with unresolved provider attribution. A count of 0 means no in-window post was found on the surfaces reviewed; it says nothing about whether the provider is active elsewhere.",
@@ -265,16 +266,132 @@
  "coverage_none": "No in-window posts were found on the reviewed Float, Loop and Keep accounts. That says nothing about their activity elsewhere.",
  "selection_short": "Four posts, chosen for how they present an offer or a next step, not for likes or views.",
  "why": [
-  "Two Venn posts bear on ",
+  "These are readings of public posts, not causes. The website tests are in ",
   {
    "a": "#bs-t1",
-   "t": "test 1"
+   "t": "Lessons"
   },
-  ": one repeats a rate without naming a plan, and one keeps a rate and its condition together. The Airwallex nominations post bears on ",
-  {
-   "a": "#bs-t3",
-   "t": "test 3"
+  "."
+ ],
+ "strategy": {
+  "positioning_q": "What does the reviewed content suggest this brand wants to be known for?",
+  "positioning": [
+   {
+    "pid": "venn",
+    "audience": "Canadian startups, small businesses and a student organisation, shown through named customers",
+    "message": "Banking that saves teams time and fees, told through customer results",
+    "tone": "Direct and problem-first (“Five weeks.”)"
+   },
+   {
+    "pid": "float",
+    "audience": "No in-window posts found in the reviewed surfaces",
+    "message": "Not assessed",
+    "tone": "Not assessed"
+   },
+   {
+    "pid": "ramp",
+    "audience": "19 records on @tryramp, whose link to Ramp is unresolved, so not assessed for Ramp",
+    "message": "Not assessed",
+    "tone": "Not assessed"
+   },
+   {
+    "pid": "loop",
+    "audience": "No in-window posts found in the reviewed surfaces",
+    "message": "Not assessed",
+    "tone": "Not assessed"
+   },
+   {
+    "pid": "keep",
+    "audience": "No in-window posts found in the reviewed surfaces",
+    "message": "Not assessed",
+    "tone": "Not assessed"
+   },
+   {
+    "pid": "airwallex",
+    "audience": "Founders, finance leaders and global businesses, plus sports fans through sponsorships (a global account)",
+    "message": "A global brand linked to elite sport, founders and big ambitions",
+    "tone": "Celebratory and event-led"
+   }
+  ],
+  "positioning_note": "Read from the 32 attributed posts (Venn 9, Airwallex 23), not from website copy. A global account does not show what is offered in Canada.",
+  "product_q": "How do the posts turn product features into reasons to care?",
+  "product": [
+   {
+    "pid": "venn",
+    "products": "Mobile app, business account payments, reimbursements, cards with cashback, the Interest Boost promotion",
+    "benefit": "Concrete use cases: reimbursements cut from five weeks to under a week; fewer steps to send ACH, wire and e-Transfer payments; banking from a phone",
+    "proof": "Customer stories with figures stated in the captions ($25,000 saved; $1,300 in fees) and the company’s own user counts. None of these figures was verified."
+   },
+   {
+    "pid": "float",
+    "products": "Not assessed",
+    "benefit": "Not assessed",
+    "proof": "No in-window posts found in the reviewed surfaces"
+   },
+   {
+    "pid": "ramp",
+    "products": "Not assessed",
+    "benefit": "Not assessed",
+    "proof": "Not assessed while @tryramp’s attribution is unresolved"
+   },
+   {
+    "pid": "loop",
+    "products": "Not assessed",
+    "benefit": "Not assessed",
+    "proof": "No in-window posts found in the reviewed surfaces"
+   },
+   {
+    "pid": "keep",
+    "products": "Not assessed",
+    "benefit": "Not assessed",
+    "proof": "No in-window posts found in the reviewed surfaces"
+   },
+   {
+    "pid": "airwallex",
+    "products": "4 of 23 posts name a specific product: a corporate card (creator post), multi-currency accounts and payments (Arsenal), business accounts and cards (Giants), AgentOS (an event recap)",
+    "benefit": "One use case: Arsenal giving fans one payment experience in their own currencies. Most posts name no product benefit.",
+    "proof": "One customer case study (Arsenal), one creator endorsement labelled Paid partnership, and event figures"
+   }
+  ],
+  "feature_vs_use": "Venn’s 27 August reel turns a feature, reimbursements, into a use case: students at Queen’s University waited five weeks to get their own money back, and under a week after the switch, according to the caption.",
+  "creative_q": "What approaches does each brand use to communicate?",
+  "creative_note": "Theme is what a post is about, format is image, carousel or video, and approach is how the message is delivered. More variety is not better in itself.",
+  "engagement_q": "Which themes received the strongest typical visible response within each brand?",
+  "engagement_intro": "Visible interactions are likes plus comments. Views are reported separately. Each brand is compared only with itself, never ranked against the other.",
+  "engagement": {
+   "venn": {
+    "theme": "Customer stories, a median of 4 from 6 posts. The other two themes have one or two posts each, too few to compare. All counts are small (3 to 12), so a difference of a few interactions is not a pattern.",
+    "post": "12 likes + comments on the 20 August customer story about Queen’s Commerce Society."
+   },
+   "airwallex": {
+    "theme": "Partnerships, a median of 237 from 6 usable posts. Two of those six were published with collaborators; without them the median is 75 from 4 posts, close to Culture or community (66 from 5).",
+    "post": "887 likes + comments on the 8 October Race Lab client-event carousel. Two creator posts showed abbreviated likes (1.5K and 1.2K); they are kept as displayed and left out of the medians."
+   }
   },
-  " as a way of saying who qualifies and by when. The posts were published on different dates from the website evidence, so they add to it rather than replace it."
- ]
+  "engagement_rules": [
+   "Counts are lifetime counts read once, on 26 October 2026. Older posts had more time to collect interactions, so these figures are not age-adjusted performance.",
+   "A count shown abbreviated (such as 1.5K) is approximate and is not turned into an exact number. A missing count is not zero.",
+   "These are not engagement rates. They do not show reach, saves, shares, leads or sales.",
+   "A Paid partnership label does not show whether a post’s distribution was paid for.",
+   "Views were recorded for reels only and are not added to interactions."
+  ],
+  "suggests_q": "What the reviewed posts suggest, with a test for each.",
+  "suggests": [
+   {
+    "observed": "6 of Venn’s 9 posts are customer stories that name a problem and a result, such as reimbursement time.",
+    "reading": "The account leans on customer proof more than product claims. One story repeats the 1% cashback rate without naming a plan.",
+    "test": "When a story mentions a rate, name the plan it applies to, and track rewards questions from new accounts (see test 1 in Lessons)."
+   },
+   {
+    "observed": "14 of Airwallex’s 23 posts are partnerships or company events, and 4 of 23 name a specific product.",
+    "reading": "The global account builds an association with sport, founders and events more than it explains products. Public posts cannot show whether that works for Airwallex.",
+    "test": "In sponsorship posts, add one line naming a product and the markets it serves, then compare profile link clicks with similar posts that do not, using the account’s own analytics."
+   },
+   {
+    "observed": "Within Airwallex, partnership posts had the highest median likes + comments (237 from 6), but the median falls to 75 from 4 without collaborations.",
+    "reading": "Co-authors’ audiences and post age may explain more of the difference than the theme. Public counts cannot separate them.",
+    "test": "Read counts at the same age after posting and keep collaborations apart before comparing themes."
+   }
+  ]
+ }
 }

@@ -182,23 +182,66 @@ class KitTests(unittest.TestCase):
         body = self.page[self.page.index('REPORT BODY START'):]
         pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons')]
         self.assertEqual(pos, sorted(pos))
-        self.assertEqual(body.count('class="note reading"'), 6 + 1 + 1)  # six provider evidence expanders, the journey reading, why the social examples matter
+        self.assertEqual(body.count('class="note reading"'), 6 + 1)  # six provider evidence expanders, the journey reading
         self.assertEqual(body.count('Proposed test, not a result</span><h3 class="bs-ttitle">Test '), 3)   # still exactly three tests
         self.assertEqual(body.count('What this means for your marketing team'), 1)  # the reading-guide entry only (2026-10-30, final: no takeaway boxes)
         self.assertIn('id="bs-journey-table"', body)
         self.assertNotIn('Next step observed', body)
+
+    def test_case_study_title_and_social_analysis(self):
+        # Founder brief (2026-10-30, case study): title, metadata, Social Media Strategy computed from the recorded counts.
+        body = self.page[self.page.index('REPORT BODY START'):]
+        t = 'How Six Business Finance Brands Market Their Products'
+        self.assertIn('<h1>%s</h1><p class="bs-subtitle">A marketing case study</p>' % t, body)
+        self.assertIn('<title>%s</title>' % t, self.page)
+        self.assertIn('<meta property="og:title" content="%s">' % t, self.page)
+        self.assertIn('"headline":"%s"' % t, self.page)
+        self.assertIn('<p class="kicker">The HMM Index</p>', body)
+        s = self.c.social
+        self.assertEqual(social.metric('1.5K'), (None, 'approximate'))
+        self.assertEqual(social.metric(None), (None, 'missing'))
+        self.assertEqual(social.metric(0), (0, 'exact'))
+        a = {r['theme']: r for r in social.engagement(s, 'airwallex')}
+        self.assertEqual((a['partnership']['posts'], a['partnership']['usable'], a['partnership']['median'], a['partnership']['median_solo']), (7, 6, 237, 75))
+        self.assertEqual((a['company_events']['usable'], a['company_events']['median']), (6, 50))
+        v = {r['theme']: r for r in social.engagement(s, 'venn')}
+        self.assertEqual((v['customer_story']['posts'], v['customer_story']['median']), (6, 4))
+        self.assertEqual(sum(r['posts'] for r in social.engagement(s, 'airwallex')), 23)
+        self.assertEqual(sum(r['posts'] for r in social.engagement(s, 'venn')), 9)
+        rows = list(csv.reader(io.StringIO(social.render_analysis_csv(s))))
+        self.assertEqual(len(rows) - 1, 32)
+        self.assertFalse(any(r[1] == 'Ramp' for r in rows[1:]))
+        approx = [r for r in rows[1:] if r[rows[0].index('interactions_state')] == 'approximate']
+        self.assertEqual(len(approx), 2)
+        self.assertTrue(all(r[rows[0].index('likes_plus_comments')] == '' for r in approx))
+        for r in rows[1:]:
+            if r[rows[0].index('format')] == 'video':
+                self.assertEqual(r[rows[0].index('approach_inspected')], 'no')
+
+    def test_analysis_rules_on_synthetic_posts(self):
+        # Synthetic fixture only, never published: medians ignore missing and abbreviated counts.
+        s = {'analysis': {'guide': {'themes': [['t', 'T', ''], ['u', 'U', '']]}, 'posts': [
+            {'post': 'a', 'theme': 't'}, {'post': 'b', 'theme': 't'}, {'post': 'c', 'theme': 't'}, {'post': 'd', 'theme': 'u'}]},
+             'posts': [{'id': 'a', 'platform': 'x', 'relation': 'original', 'metrics': {'likes': 10, 'comments': 0}},
+                       {'id': 'b', 'platform': 'x', 'relation': 'collaboration', 'metrics': {'likes': '2.1K', 'comments': 5}},
+                       {'id': 'c', 'platform': 'x', 'relation': 'original', 'metrics': {'likes': 4, 'comments': None}},
+                       {'id': 'd', 'platform': 'x', 'relation': 'original', 'metrics': {'likes': 1, 'comments': 1}}]}
+        r = {x['theme']: x for x in social.engagement(s, 'x')}
+        self.assertEqual((r['t']['posts'], r['t']['usable'], r['t']['median'], r['t']['collab']), (3, 1, 10, 1))
+        self.assertEqual(r['u']['median'], 2)
 
     def test_final_layout_tabs_and_sources(self):
         # Founder brief (2026-10-30, final): plain tabs, one Sources & evidence view holding the research trail.
         body = self.page[self.page.index('REPORT BODY START'):]
         ov, so, msg, cmp_, jr, ls = (validate.view_html(body, v) for v in ('bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'))
         ref = validate.view_html(body, 'bs-sources')
-        self.assertIn('<h2 id="bs-overview-h">Inside this index</h2>', ov)
+        self.assertIn('<h2 id="bs-overview-h">Inside this case study</h2>', ov)
         self.assertEqual(re.findall(r'<a class="bs-gcard" href="#(bs-[a-z]+)"', ov), ['bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'])
         self.assertNotIn('class="find"', ov)
         self.assertIn('Later follow-up: Airwallex only, checked 30 October 2026', ov)
         self.assertEqual(msg.count('Website observations: 23 October 2026'), 1)
-        self.assertIn('These are interpretations, not direct quotations or statements of the providers’ internal strategies.', msg)
+        self.assertIn('These are my interpretations of the reviewed pages, not direct quotations or statements of the providers’ internal strategies.', msg)
+        self.assertIn('<th scope="col">Main website message</th>', msg)
         self.assertEqual(len(re.findall(r'<tr id="bs-msg-[a-z]+">', msg)), 6)
         self.assertEqual(msg.count('<div class="card ex">'), 2)
         self.assertIn('Two observed examples', msg)
@@ -206,7 +249,8 @@ class KitTests(unittest.TestCase):
         fu = ref[ref.index('id="bs-p-airwallex"'):]
         self.assertIn('checked 30 October 2026', fu[:fu.index('</details>')])
         self.assertIn('<h2 id="bs-journeys-h">Customer Journey</h2>', jr)
-        self.assertEqual(len(re.findall(r'<tr id="bs-js-[a-z]+">', jr)), 6)
+        self.assertEqual(len(re.findall(r'<tr id="bs-js-[a-z]+">', jr)), 5)   # social discovery belongs to Social Media Strategy (2026-10-30, case study)
+        self.assertNotIn('id="bs-js-discover"', jr)
         self.assertEqual(re.findall(r'<th scope="col"[^>]*>([^<]+)</th>', jr[:jr.index('</thead>')]), ['Stage', 'Venn', 'Float', 'Ramp', 'Loop', 'Keep', 'Airwallex'])
         self.assertIn('id="bs-journey-table"', jr)
         self.assertIn('href="#bs-t3">See the test: explain the next step before the form', jr)
@@ -472,8 +516,8 @@ class SocialModuleTests(unittest.TestCase):
         c = build.Ctx()
         body = build.body(c)
         self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'])
-        self.assertIn('<a href="#bs-social" id="bs-tab-social">Social Media Content</a>', body)
-        self.assertIn('This edition reviews Instagram content only.', body)
+        self.assertIn('<a href="#bs-social" id="bs-tab-social">Social Media Strategy</a>', body)
+        self.assertIn('Instagram only. Analysis of public content, not internal strategy.', body)
         self.assertIn('Official company Instagram accounts only, posts published 25 July to 22 October 2026', body)
         self.assertNotIn('<b>Instagram posts</b>', body.split('</header>')[0])  # dates live in Scope & sources, not the hero (2026-10-28)
         self.assertIn('Websites observed 23 October 2026, 10:39 a.m. to 2:33 p.m. Toronto time.', body)
@@ -481,7 +525,7 @@ class SocialModuleTests(unittest.TestCase):
         sec = tab + validate.view_html(body, 'bs-sources')
         self.assertEqual('For editorial review' in tab, c.social['status'] == 'review')   # the flag shows only while approval is pending
         self.assertIn('The captured Venn website footer linked to @tryvault, while this study uses owner-confirmed @venn.ca with supporting profile evidence.', sec)
-        self.assertEqual(sec.count('No in-window posts found in the reviewed'), 3)
+        self.assertEqual(sec.count('No in-window posts found in the reviewed'), 3 + 3 + 3 + 3)   # accounts table, positioning, product positioning, coverage assessment
         self.assertNotRegex(sec, r'(?i)\binactive\b')
         self.assertEqual(tab.count(social.VIDEO_LABEL), 3)   # S1, S2 and S3 are reels (S4 is a carousel)
         self.assertIn('Attribution unresolved', sec)
@@ -538,7 +582,7 @@ class SocialModuleTests(unittest.TestCase):
         self.assertIn('text excerpt', errs(lambda m: m['examples'][0].pop('no_image_reason')))
         self.assertIn('not a claim', errs(lambda m: m['examples'][0].update(reading='This was the best performing post.')))
         self.assertIn('recorded hash', errs(lambda m: m['examples'][2]['image'].update(sha256='0' * 64)))
-        self.assertIn('Social Media Content', errs(lambda m: m['view'].update(title='Social content')))
+        self.assertIn('Social Media Strategy', errs(lambda m: m['view'].update(title='Social content')))
         # a reel read from cover and caption cannot carry a claim about the whole post
         self.assertIn('overstates', errs(lambda m: m['examples'][2].update(reading='A reader cannot tell from the post where the card is offered.')))
         self.assertIn('overstates', errs(lambda m: m['examples'][2].update(reading='The post names no market. Second sentence.')))

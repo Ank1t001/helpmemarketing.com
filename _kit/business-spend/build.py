@@ -269,7 +269,7 @@ def platform_block(c, pid):
     pages = sorted({s for o in obs for s in [r['source_id'] for r in o['sources']] + o.get('reviewed_sources', [])})
     dl = ''.join('<dt>%s</dt><dd>%s <span class="evlinks">(%s)</span></dd>' % (E(l), E(p[k]), id_links(p['ev'][k])) for k, l in PLAT_ROWS)
     links = ('<p class="pnote dlinks"><b>Product details:</b> %s&rsquo;s <a href="#bs-prod-%s">cards, rewards and costs</a>, <a href="#bs-xb-%s">currency fees</a> and '
-             '<a href="#bs-spend-%s">spending controls</a> rows in Compare Products, and its <a href="#bs-jt-%s">first screen</a> in Application Journey.</p>'
+             '<a href="#bs-spend-%s">spending controls</a> rows in Product Comparison, and its <a href="#bs-jt-%s">first screen</a> in Customer Journey.</p>'
              % (E(c.name(pid)), pid, pid, pid, pid))
     q = p['question']
     reading = ('<div class="note reading"><span class="lbl">My reading</span><p><b>Customer question:</b> &ldquo;%s&rdquo; <b class="ans">%s.</b> %s</p><p>%s</p></div>'
@@ -312,7 +312,7 @@ def cite_and_editions(c):
     start, end = ed['collection_started_at'], ed['collection_ended_at']
     snap = '/' + snapshot_url(c).split('.com/', 1)[1]
     html = ('<div class="card" id="bs-cite"><h4>Cite this research</h4>'
-            '<p class="dek">Ankit Kumar, Help Me Marketing. <em>Business Cards &amp; Spend Management Index</em> (The HMM Index). Edition %s. Public pages captured %s%s. <a href="%s">%s</a></p>'
+            '<p class="dek">Ankit Kumar, Help Me Marketing. <em>How Six Business Finance Brands Market Their Products</em>, a marketing case study in The HMM Index. Edition %s, first published as the Business Cards &amp; Spend Management Index. Public pages captured %s%s. <a href="%s">%s</a></p>'
             '<p class="dek m0">For a fixed version, cite the <a href="%s">edition %s snapshot</a>. <a href="#bs-editions">Edition history</a></p></div>'
             '<section id="bs-editions"><details class="ri-adv"><summary>Edition history</summary>'
             '<div class="tw" tabindex="0" role="region" aria-label="Edition history, scrolls sideways"><table><thead><tr><th scope="col">Edition</th><th scope="col">Dates</th><th scope="col">What it covered</th></tr></thead><tbody>'
@@ -370,7 +370,7 @@ def sources_view(c, views, start, end, draft):
     m = n['method']
     when = '%s, %s to %s Toronto time' % (long_date(start), toronto_time(start), toronto_time(end))
     parts = []
-    toc = [('bs-ref-scope', 'Scope, dates and coverage'), ('bs-ref-web', 'Website evidence by provider'), ('bs-ref-social', 'Social accounts, posts and attribution'),
+    toc = [('bs-ref-scope', 'Scope, dates and coverage'), ('bs-ref-web', 'Website evidence by provider'), ('bs-ref-social', 'Social accounts, posts, classifications and engagement'),
            ('bs-ref-journey', 'Customer-journey evidence'), ('bs-ref-tests', 'Findings and full test specifications'), ('bs-ref-status', 'Status definitions and reconciliation'),
            ('bs-ref-images', 'Image provenance'), ('bs-ref-author', 'Author and relationship disclosure'), ('bs-cite', 'Citation'),
            ('bs-editions', 'Edition history and corrections'), ('bs-ref-downloads', 'Downloads')]
@@ -418,7 +418,7 @@ def sources_view(c, views, start, end, draft):
                 for e in n['examples']['items'] if e.get('place') == 'messaging')))
     # 3. Social accounts, posts and attribution
     if c.social:
-        sec('bs-ref-social', 'Social accounts, posts and attribution', social.reference_html(c))
+        sec('bs-ref-social', 'Social accounts, posts, classifications and engagement', social.reference_html(c) + (social.analysis_reference_html(c.social) if c.social.get('analysis') else ''))
     # 4. Customer-journey evidence
     jn = n['journeys']
     jlabels = [('start', 'Starting page and button'), ('dest', 'Destination'), ('asks', 'Fields asked for'), ('elig', 'Eligibility shown'),
@@ -507,10 +507,14 @@ def sources_view(c, views, start, end, draft):
     else:
         sec('bs-editions', 'Edition history and corrections', corr)
     # 11. Downloads
-    sec('bs-ref-downloads', 'Downloads',
-        '<ul class="dek dlinks"><li><a href="/%s" download>Website observations from 23 October 2026 (CSV)</a>: platform, category, observation, status, market and plan, conditions, source URL and capture time. My interpretations and the Airwallex follow-up of 30 October 2026 are not in the file.</li>%s</ul>' % (
-            CSV_REL, ('<li><a href="/%s" download>Instagram records (CSV)</a>: all %d records, %d attributed posts and %d @tryramp records with unresolved provider attribution, marked in the provider_attribution column. Captions, displayed counts and reposts are not in the file.</li>' % (
-                social.CSV_REL, len(c.social['posts']), social.attributed_count(c.social), len(c.social['posts']) - social.attributed_count(c.social))) if c.social else ''))
+    dl = ['<li><a href="/%s" download>Website observations from 23 October 2026 (CSV)</a>: platform, category, observation, status, market and plan, conditions, source URL and capture time. My interpretations and the Airwallex follow-up of 30 October 2026 are not in the file.</li>' % CSV_REL]
+    if c.social:
+        dl.append('<li><a href="/%s" download>Instagram records (CSV)</a>: all %d records, %d attributed posts and %d @tryramp records with unresolved provider attribution, marked in the provider_attribution column. Captions, displayed counts and reposts are not in the file.</li>' % (
+            social.CSV_REL, len(c.social['posts']), social.attributed_count(c.social), len(c.social['posts']) - social.attributed_count(c.social)))
+        if c.social.get('analysis'):
+            dl.append('<li><a href="/%s" download>Social analysis, version 1 (CSV)</a>: one row per attributed post (%d), with the primary theme, secondary tags, format, creative approach and whether it was inspected, audience, product and benefit, the basis for each classification, likes and comments as displayed with their state (exact, approximate or missing) and read time, and views where recorded. Captions, comment text and commenter names are not in the file. The two files above keep their meaning and columns.</li>' % (
+                social.ANALYSIS_CSV_REL, len(c.social['analysis']['posts'])))
+    sec('bs-ref-downloads', 'Downloads', '<ul class="dek dlinks">%s</ul>' % ''.join(dl))
     parts.append(back.replace('bs-ref-back', 'bs-ref-back bs-ref-back-end') + '</section>')
     return '\n'.join(parts)
 
@@ -524,7 +528,7 @@ def body(c):
     out = ['<!-- ===== BUSINESS SPEND INDEX REPORT BODY START ===== generated by _kit/business-spend/build.py; edit the kit, not this page ===== -->', '<div class="wrap">']
     # Hero (founder brief, 2026-10-28): kicker, title, one line on what to compare, the six providers, one metadata line and one note.
     # Capture times and the scope paragraph live in "Scope & sources" (the methodology), not here.
-    out.append('<header><p class="kicker">%s</p><h1>%s</h1><p class="lede">%s</p>' % (E(h['kicker']), E(h['title']), E(h['lede'])))
+    out.append('<header><p class="kicker">%s</p><h1>%s</h1><p class="bs-subtitle">%s</p><p class="lede">%s</p>' % (E(h['kicker']), E(h['title']), E(h['subtitle']), E(h['lede'])))
     out.append('<p class="bs-provs">%s</p>' % ' &middot; '.join(E(c.name(pid)) for pid in c.order))
     out.append('<p class="bs-meta">%sBy <a href="/about">Ankit Kumar</a> &middot; Edition %s &middot; %s</p>' % (
         '<span class="draft-flag">Draft</span> ' if draft else '', E(ed['edition']), 'Not yet published' if draft else 'Last Updated %s' % E(short_date(c.date_modified or c.release_date))))
@@ -566,7 +570,7 @@ def body(c):
         k, ICONS[icon], E(views[k]['title'] if k in views else t), E(desc)) for k, t, desc, icon in vo['guide'] if k != 'social' or c.social)
     V['overview'] = (view_open('overview', 'bs-overview')
                      + '<p class="bs-provs bs-ov-provs">%s</p>' % ' &middot; '.join(plain(pid) for pid in c.order)
-                     + '<nav class="bs-guide" aria-label="Sections of this index">%s</nav>' % guide
+                     + '<nav class="bs-guide" aria-label="Sections of this case study">%s</nav>' % guide
                      + '<div class="bs-ov-scope"><p class="dek">%s</p><p class="bs-ov-dates">Website observations: %s%s. %s.</p></div>' % (
                          E(vo['scope_line']), long_date(start),
                          ' &middot; Instagram posts published 25 July to 22 October 2026' if c.social else '',
@@ -575,19 +579,19 @@ def body(c):
 
     # ---------- Social Media Content ----------
     if c.social:
-        V['social'] = view_open('social', 'bs-social') + social.main_html(c) + view_close('social')
+        V['social'] = view_open('social', 'bs-social') + social.strategy_html(c) + view_close('social')
 
     # ---------- Messaging & Offers ----------
     ex = n['examples']
     vm = views['messaging']
-    mrows = ''.join('<tr id="bs-msg-%s"><td class="brandcell">%s</td><td data-label="Main message">%s</td><td data-label="What stood out">%s</td></tr>\n' % (
+    mrows = ''.join('<tr id="bs-msg-%s"><td class="brandcell">%s</td><td data-label="Main website message">%s</td><td data-label="What stood out">%s</td></tr>\n' % (
         pid, plain(pid), E(n['platforms'][pid]['main_message']), E(n['platforms'][pid]['stood_out'])) for pid in c.order)
     exs = ''.join(example_card(c, e, evidence=False) for e in ex['items'] if e.get('place') == 'messaging')
     V['messaging'] = (view_open('messaging', 'bs-messaging')
                       + '<p class="bs-obs">%s</p>' % E(vm['observed'])
                       + '<div class="tblock" id="bs-msg-table"><p class="ktag">My reading</p><h3 id="bs-msg-h">%s</h3><p class="bs-tnote">%s</p>'
                         '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-msg-h"><table class="bs"><caption class="sr-only">My reading of each platform&rsquo;s main message, from pages observed on 23 October 2026</caption>'
-                        '<thead><tr><th scope="col">Platform</th><th scope="col">Main message</th><th scope="col">What stood out</th></tr></thead><tbody>\n%s</tbody></table></div></div>'
+                        '<thead><tr><th scope="col">Brand</th><th scope="col">Main website message</th><th scope="col">What stood out</th></tr></thead><tbody>\n%s</tbody></table></div></div>'
                         % (E(vm['table_title']), E(vm['table_note']), mrows)
                       + '<div id="bs-examples" class="sub"><h3>Selected examples</h3><p class="dek">%s</p>%s</div>' % (E(ex['dek']), exs)
                       + view_close('messaging'))
@@ -652,7 +656,7 @@ def body(c):
     href = '/contact?intent=review&amp;entry=%s#contact-form' % hp['entry']
     out.append('<section id="bs-help"><div class="sec-head"><h2>%s</h2></div><div class="card"><p class="dek m0">%s</p>'
                '<a class="btn btn-primary" href="%s" data-review-cta="%s">%s</a></div></section>' % (E(hp['heading']), E(hp['body']), href, hp['entry'], E(hp['button'])))
-    out.append('<footer><div class="about"><p><b>About this index.</b> The Business Cards &amp; Spend Management Index is part of <b>The HMM Index</b> by Help Me Marketing. Edition %s is an independent comparative marketing case study of how six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses, from public pages captured on %s%s. It is not a ranking, a product test or a recommendation.</p></div>'
+    out.append('<footer><div class="about"><p><b>About this case study.</b> It is part of <b>The HMM Index</b> by Help Me Marketing. Edition %s, first published as the Business Cards &amp; Spend Management Index, is an independent comparative marketing case study of how six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses, from public pages captured on %s%s. It is not a ranking, a product test or a recommendation.</p></div>'
                '<div class="byline-block"><p>Company names are used to report their public pages and posts and imply no relationship with Help Me Marketing.</p></div></footer>' % (
                    E(ed['edition']), long_date(start), ' and official Instagram posts published 25 July to 22 October 2026' if c.social else ''))
     out.append('</div>')
@@ -662,9 +666,10 @@ def body(c):
 
 def head_meta(c):
     ed, h = c.edition, c.n['hero']
-    title = 'Business Cards & Spend Management Index | HelpMeMarketing'
-    og = 'Business Cards & Spend Management Index'
-    desc = 'An independent comparative marketing case study of how six platforms explain spend controls, rewards and cross-border payments to Canadian businesses.'
+    # Title from 2026-10-30 (founder): the case-study title. 53 characters, so no brand suffix (the budget is 60).
+    title = h['title']
+    og = h['title']
+    desc = 'A marketing case study of how Venn, Float, Ramp, Loop, Keep and Airwallex explain their offers, publish social content and guide customers.'
     robots = {'draft': 'noindex, follow', 'snapshot': 'noindex, follow',
               'release': 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'}[c.mode]
     url = snapshot_url(c) if c.mode == 'snapshot' else ed['canonical']
@@ -679,7 +684,7 @@ def head_meta(c):
         '<meta property="og:type" content="article">',
         '<meta property="og:site_name" content="HelpMeMarketing">',
         '<meta property="og:title" content="%s">' % E(og),
-        '<meta property="og:description" content="%s">' % E(h['subtitle']),
+        '<meta property="og:description" content="%s">' % E(h['lede']),
         '<meta property="og:url" content="%s">' % url,
         '<meta property="og:image" content="%s/og-image.jpg">' % SITE,
         '<meta property="og:image:width" content="1200">',
@@ -688,7 +693,7 @@ def head_meta(c):
         '<meta property="article:author" content="Ankit Kumar">',
         '<meta name="twitter:card" content="summary_large_image">',
         '<meta name="twitter:title" content="%s">' % E(og),
-        '<meta name="twitter:description" content="%s">' % E(h['subtitle']),
+        '<meta name="twitter:description" content="%s">' % E(h['lede']),
         '<meta name="twitter:image" content="%s/og-image.jpg">' % SITE,
     ]
     return '\n'.join(lines), title, desc
@@ -771,6 +776,8 @@ def main(argv):
     files = [(PAGE, page), (CSV_PATH, csvtext)]
     if c.social:
         files.append((SOCIAL_CSV_PATH, social.render_csv(c.social)))
+        if c.social.get('analysis'):
+            files.append((os.path.join(model.ROOT, social.ANALYSIS_CSV_REL), social.render_analysis_csv(c.social)))
     if '--check' in argv:
         bad = []
         for path, text in files:

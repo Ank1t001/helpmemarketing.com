@@ -1,9 +1,9 @@
 {
  "hero": {
   "kicker": "The HMM Index",
-  "title": "Business Cards & Spend Management Index",
-  "subtitle": "How six platforms explain spending controls, rewards and cross-border business payments.",
-  "lede": "Compare what six platforms publish about their products, and explore my analysis of their messaging, Instagram content and application entry screens.",
+  "title": "How Six Business Finance Brands Market Their Products",
+  "subtitle": "A marketing case study",
+  "lede": "How Venn, Float, Ramp, Loop, Keep and Airwallex explain their offers, publish social content and guide customers.",
   "draft_note": "Draft for editorial review. This edition is not published."
  },
  "findings": {
@@ -26,7 +26,7 @@
     "reading": "A reader who meets the rate on one page and its condition on another has to connect the two to know what they would earn.",
     "analysis": [
      [
-      "Rewards in Compare Products",
+      "Rewards in Product Comparison",
       "bs-prod"
      ],
      [
@@ -66,7 +66,7 @@
     "reading": "A general \"no FX fee\" line answers the question only for the case it covers; the other cases are priced on other pages or in the terms.",
     "analysis": [
      [
-      "Currency fees in Compare Products",
+      "Currency fees in Product Comparison",
       "bs-xb"
      ]
     ],
@@ -100,7 +100,7 @@
     "reading": "At most first screens, whether you qualify and what follows was on another page or not stated before the next step. This is a reading of six first screens, not of how many people start or finish an application.",
     "analysis": [
      [
-      "First-screen table in Application Journey",
+      "First-screen table in Customer Journey",
       "bs-journey-table"
      ],
      [
@@ -1013,7 +1013,7 @@
     ]
    },
    "main_message": "Lower-cost banking across borders.",
-   "stood_out": "Its case study labels a savings estimate, while homepage averages lack a basis I could find."
+   "stood_out": "Its case study labels a savings estimate, while some homepage averages lack a visible basis in the reviewed sources."
   },
   "keep": {
    "offer": "Points with up to 56 fee-free days, multi-currency accounts in five currencies, and 90-day trials on plans from $79 a month. The card agreement sets a 3% card conversion fee that I did not find on the card, pricing or FAQ pages.",
@@ -1264,32 +1264,32 @@
    "title": "Overview",
    "dek": "A look at how six platforms present their products, publish social content and guide people towards getting started.",
    "about_intro": "This page serves two kinds of reader. If you are comparing card and spend platforms, it sets out what six providers publish, each fact linked to its source. If you market a product, it is my independent case study of how they explain it: the offer, the proof and the path to applying. None of the six is a client, and I have no view of their internal strategy or results.",
-   "heading": "Inside this index",
+   "heading": "Inside this case study",
    "observed": "Website observations: 23 October 2026",
    "scope_line": "Independent marketing research from dated public sources. Not a product recommendation.",
    "guide": [
     [
      "social",
-     "Social Media Content",
-     "What they post and how they explain their offers.",
+     "Social Media Strategy",
+     "How brands position themselves, what they create and how people respond.",
      "post"
     ],
     [
      "messaging",
-     "Messaging & Offers",
-     "What they promise and how they support it.",
+     "Website Messaging",
+     "What their websites promise and how they support it.",
      "bubble"
     ],
     [
      "compare",
-     "Compare Products",
+     "Product Comparison",
      "Cards, rewards, fees and the conditions that matter.",
      "grid"
     ],
     [
      "journeys",
      "Customer Journey",
-     "What happens after someone shows interest, and which steps are explained.",
+     "What happens after someone clicks, and which steps are explained.",
      "steps"
     ],
     [
@@ -1301,21 +1301,21 @@
    ]
   },
   "compare": {
-   "title": "Compare Products",
+   "title": "Product Comparison",
    "dek": "Compare what each platform publishes about its cards, rewards, fees and spending tools."
   },
   "messaging": {
-   "title": "Messaging & Offers",
-   "dek": "How each brand explains its value, and where the message needs more detail.",
+   "title": "Website Messaging",
+   "dek": "What each website promises, how it supports the offer and what needs explaining better.",
    "observed": "Website observations: 23 October 2026",
    "table_title": "My reading of the reviewed pages",
-   "table_note": "These are interpretations, not direct quotations or statements of the providers’ internal strategies.",
+   "table_note": "These are my interpretations of the reviewed pages, not direct quotations or statements of the providers’ internal strategies.",
    "evidence_title": "Evidence by provider",
    "evidence_dek": "The sources behind each reading: who the pages speak to, the problem, the benefit, the offer and its conditions, the proof, one customer question, missing evidence, and every observation with its exact wording, page and capture time."
   },
   "journeys": {
    "title": "Customer Journey",
-   "dek": "A public view of the customer journey. Websites, selected Instagram content and first entry screens were reviewed. Later stages are included only where public sources explain them."
+   "dek": "Websites and first entry screens were reviewed. Later stages are included only where public sources explain them."
   },
   "lessons": {
    "title": "Lessons",
@@ -1323,7 +1323,7 @@
   },
   "sources": {
    "title": "Sources & evidence",
-   "dek": "The full research trail for this index: dates and coverage, the evidence behind each tab, test specifications, definitions, disclosure, citation and downloads. Conditions and uncertainty that matter stay in the tabs themselves."
+   "dek": "The full research trail for this case study: dates and coverage, the evidence behind each tab, test specifications, definitions, disclosure, citation and downloads. Conditions and uncertainty that matter stay in the tabs themselves."
   }
  },
  "journeys": {
@@ -1575,39 +1575,34 @@
   ],
   "cautions": [
    "A published feature is not evidence that customers used it.",
-   "A social post is not evidence that a customer saw it.",
-   "A published verification process is not evidence that I completed it."
+   "A published verification process is not evidence that I completed it.",
+   "Social discovery is covered in Social Media Strategy."
   ],
   "stages": [
    [
-    "discover",
-    "Discovers the brand",
-    "What the reviewed social content introduces or promises."
-   ],
-   [
     "visit",
     "Visits the website",
-    "How the offer, conditions and reasons to trust it are explained."
+    "Understands the offer and conditions."
    ],
    [
     "first",
     "Takes the first step",
-    "Where the main button leads and what it asks for."
+    "Clicks to sign up, apply or request a demo."
    ],
    [
     "verify",
     "Completes verification",
-    "What is publicly explained about eligibility, documents and approval."
+    "Provides required information and documents."
    ],
    [
     "start",
     "Starts using the product",
-    "What is required to fund an account, activate a card or make a first transaction."
+    "Funds an account, activates a card or makes a first transaction, where applicable."
    ],
    [
     "keep",
     "Keeps using it",
-    "What the provider describes about ongoing spending, payments and expenses."
+    "Uses ongoing payments, cards or expense tools."
    ]
   ],
   "stage_notes": {
@@ -1615,50 +1610,6 @@
    "keep": "How customers actually use the product over time was not reviewed."
   },
   "cells": {
-   "discover": {
-    "venn": [
-     [
-      "observed",
-      "9 posts in the window, including a customer story that repeats the 1% cashback rate.",
-      []
-     ]
-    ],
-    "float": [
-     [
-      "observed",
-      "No in-window posts found on the reviewed account.",
-      []
-     ]
-    ],
-    "ramp": [
-     [
-      "observed",
-      "19 records on @tryramp, whose link to Ramp is unresolved, so they are not used here.",
-      []
-     ]
-    ],
-    "loop": [
-     [
-      "observed",
-      "No in-window posts found on the reviewed account.",
-      []
-     ]
-    ],
-    "keep": [
-     [
-      "observed",
-      "No in-window posts found on the reviewed account.",
-      []
-     ]
-    ],
-    "airwallex": [
-     [
-      "observed",
-      "23 posts on its global account, including a paid creator partnership and a programme nomination call.",
-      []
-     ]
-    ]
-   },
    "visit": {
     "venn": [
      [

@@ -28,6 +28,8 @@ KIT = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(KIT))
 PATH = os.path.join(KIT, 'social.json')
 NARRATIVE = os.path.join(KIT, 'social_narrative.json')
+ANALYSIS = os.path.join(KIT, 'social_analysis.json')
+ANALYSIS_CSV_REL = 'assets/index/business-spend/business-spend-index-social-analysis-v1.csv'
 CSV_REL = 'assets/index/business-spend/business-spend-index-edition-001-instagram-posts.csv'
 IMG_DIR = '/assets/index/business-spend/social/'
 E = lambda s: html.escape(s, quote=True)
@@ -260,10 +262,10 @@ def check_narrative(s, n, asset_root=None):
     errs = []
     posts = {p['id']: p for p in s.get('posts', [])}
     accts = {a['platform']: a for a in s.get('accounts', [])}
-    if n.get('view', {}).get('title') != 'Social Media Content':
-        errs.append('social narrative: the view is titled "Social Media Content" (renamed 2026-10-30)')
-    if 'This edition reviews Instagram content only.' not in n.get('view', {}).get('dek', ''):
-        errs.append('social narrative: the view must say that this edition reviews Instagram content only')
+    if n.get('view', {}).get('title') != 'Social Media Strategy':
+        errs.append('social narrative: the view is titled "Social Media Strategy" (renamed 2026-10-30, case study)')
+    if 'Instagram only.' not in n.get('view', {}).get('scope', ''):
+        errs.append('social narrative: the view must say that it covers Instagram only')
     per = {}
     for ex in n.get('examples', []):
         p = posts.get(ex.get('post'))
@@ -357,6 +359,12 @@ def _load(path=None, npath=None):
     s = dict(s)
     s['narrative'] = n
     s['view'] = n['view']
+    if os.path.exists(ANALYSIS):
+        with open(ANALYSIS, encoding='utf-8') as f:
+            s['analysis'] = json.load(f)
+        errs = check_analysis(s)
+        if errs:
+            raise SystemExit('social_analysis.json fails its checks:\n  ' + '\n  '.join(errs))
     return s
 
 
@@ -409,7 +417,7 @@ def method_html(s):
     c = s['collection']
     return ('<h4 class="t">Instagram posts</h4><p class="dek">Official company Instagram accounts only, posts published %s, collected on %s, '
             'after the window closed. These dates are separate from the website observation dates above. %s %s</p>'
-            % (E(window_text()), E(c['text']), E(c['note']), E(
+            % (E(window_text()), E(c['text']), E(c['note'].split(' Displayed likes, comments and views')[0] + ' Displayed likes, comments and views were recorded with their own read times. Since 30 October 2026 likes and comments are compared only within each brand, in Social Media Strategy, with the limits stated there: posts had different ages at collection, and a collaboration\'s counts include the other account\'s audience.'), E(
                 '%d records were counted: %d attributed posts and %d @tryramp records with unresolved provider attribution, which are listed and labelled but carry no conclusion about Ramp.'
                 % (len(s['posts']), attributed_count(s), len(s['posts']) - attributed_count(s)))))
 
@@ -587,7 +595,7 @@ def reference_html(c):
             ('What the evidence shows', _rich(ex['shows'])),
             ('Website evidence', _rich(ex['website']) if ex.get('website') else 'None linked'),
             ('My reading in full', E(ex['reading'])),
-            ('Post record', 'Record %s, read %s, %s Toronto time, from the post page. Screenshot %s in the private evidence archive (sha256 %s&hellip;). What was looked at: %s Quoted phrases are exact caption text; the full caption is not reproduced. Displayed likes, comments and views were recorded but are not shown or compared.' % (
+            ('Post record', 'Record %s, read %s, %s Toronto time, from the post page. Screenshot %s in the private evidence archive (sha256 %s&hellip;). What was looked at: %s Quoted phrases are exact caption text; the full caption is not reproduced. Likes and comments as displayed are listed under post-level classifications.' % (
                 E(p['id']), E(long_day(p['captured_at'])), E(clock(p['captured_at'])), E(p['capture_ref']), E((p['capture_sha256'] or '')[:16]), E(p['inspected']))),
             ('Original', '<a href="%s" rel="noopener nofollow" target="_blank">View the post on Instagram<span class="sr-only"> (opens in a new tab)</span></a>' % E(p['url'])),
         ))
@@ -741,3 +749,241 @@ def main(argv):
 if __name__ == '__main__':
     import sys
     sys.exit(main(sys.argv))
+
+
+
+# ---------- Social Media Strategy analysis (founder brief, 2026-10-30, case study) ----------
+# Classification of the 32 attributed posts in social_analysis.json; counts come only from the recorded metrics.
+
+def metric(v):
+    """A displayed count as (value, state): exact integers only; '1.5K' stays approximate; None is missing, never zero."""
+    if v is None:
+        return None, 'missing'
+    if isinstance(v, int) or re.fullmatch(r'\d+', str(v)):
+        return int(v), 'exact'
+    return None, 'approximate'
+
+
+def interactions(p):
+    l, ls = metric(p['metrics']['likes'])
+    c, cs = metric(p['metrics']['comments'])
+    if ls == cs == 'exact':
+        return l + c, 'exact'
+    return None, 'approximate' if 'approximate' in (ls, cs) else 'missing'
+
+
+def _median(xs):
+    xs = sorted(xs)
+    if not xs:
+        return None
+    m = len(xs) // 2
+    return xs[m] if len(xs) % 2 else (xs[m - 1] + xs[m]) / 2
+
+
+def check_analysis(s):
+    a = s['analysis']
+    errs = []
+    ids = [p['id'] for p in s['posts'] if p['attribution'] != 'unresolved']
+    got = [c['post'] for c in a['posts']]
+    if sorted(got) != sorted(ids) or len(set(got)) != len(got):
+        errs.append('analysis: one classification per attributed post (%d expected, %d given)' % (len(ids), len(got)))
+    themes = {k for k, _, _ in a['guide']['themes']}
+    P = {p['id']: p for p in s['posts']}
+    for c in a['posts']:
+        if c['theme'] not in themes:
+            errs.append('analysis: %s has an unknown theme %s' % (c['post'], c['theme']))
+        p = P.get(c['post'])
+        if p and p['format'] == 'video' and c['approach_inspected']:
+            errs.append('analysis: %s is a video that was not watched; its creative approach cannot be established' % c['post'])
+        if p and p['format'] != 'video' and p['inspection'] == 'partial' and c['approach_inspected']:
+            errs.append('analysis: %s was partly inspected' % c['post'])
+    return errs
+
+
+def analysis_rows(s):
+    a = s['analysis']
+    P = {p['id']: p for p in s['posts']}
+    return [(c, P[c['post']]) for c in a['posts']]
+
+
+def theme_label(s, k):
+    return {t: l for t, l, _ in s['analysis']['guide']['themes']}[k]
+
+
+def engagement(s, pid):
+    """Per theme: posts, usable posts, median likes + comments (all and without collaborations), collaborations."""
+    rows = [(c, p) for c, p in analysis_rows(s) if p['platform'] == pid]
+    out = []
+    for k, label, _ in s['analysis']['guide']['themes']:
+        r = [(c, p) for c, p in rows if c['theme'] == k]
+        if not r:
+            continue
+        vals = [(interactions(p)[0], p) for _, p in r]
+        usable = [v for v, _ in vals if v is not None]
+        solo = [v for v, p in vals if v is not None and p['relation'] != 'collaboration']
+        out.append({'theme': k, 'label': label, 'posts': len(r), 'usable': len(usable), 'median': _median(usable), 'median_solo': _median(solo),
+                    'solo_usable': len(solo), 'collab': sum(1 for _, p in r if p['relation'] == 'collaboration'), 'values': sorted(usable)})
+    return out
+
+
+def _num(x):
+    return '' if x is None else (('%d' % x) if float(x).is_integer() else ('%.1f' % x))
+
+
+def _bar(n, total, width=160):
+    w = 0 if not total else max(2, round(width * n / total))
+    return ('<svg class="soc-bar" viewBox="0 0 %d 10" width="%d" height="10" aria-hidden="true" focusable="false"><rect width="%d" height="10" rx="2"/></svg>' % (width, width, w))
+
+
+def strategy_html(c):
+    """The Social Media Strategy tab: positioning, product positioning, creative strategy, engagement by theme, what this suggests."""
+    s = c.social
+    n = s['narrative']
+    st = n['strategy']
+    out = []
+    if s['status'] == 'review' and getattr(c, 'mode', 'draft') == 'draft':
+        out.append('<div class="note gap soc-review"><span class="lbl">For editorial review</span><p>%s</p></div>' % E(n['review_flag']))
+    out.append('<div class="bs-soc-cov" id="bs-social-scope-short"><p class="bs-obs">%s</p><p class="dek">Posts published %s. %s</p><p class="dek">%s</p></div>'
+               % (E(n['view']['scope']), E(window_text()), E(n['coverage_note']), E(n['coverage_none'])))
+    head = lambda i, t, q: '<h3><span class="soc-n">%d</span>%s</h3><p class="dek soc-q">%s</p>' % (i, E(t), E(q))
+    # 1. Brand positioning
+    rows = ''.join('<tr><td class="brandcell">%s</td><td data-label="Audience suggested by the posts">%s</td><td data-label="Main message">%s</td><td data-label="Tone">%s</td></tr>' % (
+        E(NAMES[r['pid']]), E(r['audience']), E(r['message']), E(r['tone'])) for r in st['positioning'])
+    out.append('<div class="sub soc-sec" id="bs-soc-positioning">%s<p class="ktag">My reading of the reviewed posts</p>'
+               '<div class="tw cards" tabindex="0" role="region" aria-label="Brand positioning on Instagram"><table class="bs"><thead><tr><th scope="col">Brand</th><th scope="col">Audience suggested by the posts</th><th scope="col">Main message</th><th scope="col">Tone</th></tr></thead><tbody>%s</tbody></table></div>'
+               '<p class="pnote">%s</p></div>' % (head(1, 'Brand positioning', st['positioning_q']), rows, E(st['positioning_note'])))
+    # 2. Product positioning
+    rows = ''.join('<tr><td class="brandcell">%s</td><td data-label="Products emphasised">%s</td><td data-label="Customer benefit or use case">%s</td><td data-label="Proof used">%s</td></tr>' % (
+        E(NAMES[r['pid']]), E(r['products']), E(r['benefit']), E(r['proof'])) for r in st['product'])
+    out.append('<div class="sub soc-sec" id="bs-soc-product">%s<div class="tw cards" tabindex="0" role="region" aria-label="Product positioning on Instagram"><table class="bs"><thead><tr><th scope="col">Brand</th><th scope="col">Products emphasised</th><th scope="col">Customer benefit or use case</th><th scope="col">Proof used</th></tr></thead><tbody>%s</tbody></table></div>'
+               '<p class="dek soc-fu"><b>Feature or use case?</b> %s</p></div>' % (head(2, 'Product positioning', st['product_q']), rows, E(st['feature_vs_use'])))
+    # 3. Creative strategy: theme mix, format mix, approaches, examples
+    blocks = []
+    for pid in ('venn', 'airwallex'):
+        rr = [(cl, p) for cl, p in analysis_rows(s) if p['platform'] == pid]
+        tot = len(rr)
+        th = ''
+        for k, label, _ in s['analysis']['guide']['themes']:
+            k_n = sum(1 for cl, _ in rr if cl['theme'] == k)
+            if k_n:
+                th += '<li><span class="soc-bl">%s</span>%s<span class="soc-bv">%d of %d</span></li>' % (E(label), _bar(k_n, tot), k_n, tot)
+        fm = {}
+        for _, p in rr:
+            fm[p['format']] = fm.get(p['format'], 0) + 1
+        fmt = ', '.join('%d %s' % (v, {'video': 'videos (reels)', 'carousel': 'carousels', 'image': 'images'}[k] if v != 1 else {'video': 'video (reel)', 'carousel': 'carousel', 'image': 'image'}[k])
+                        for k, v in sorted(fm.items(), key=lambda kv: ['video', 'carousel', 'image'].index(kv[0])))
+        insp = [cl for cl, _ in rr if cl['approach_inspected']]
+        appr = {}
+        for cl in insp:
+            key = cl['approach'].split(':')[0]
+            appr[key] = appr.get(key, 0) + 1
+        ap = '; '.join('%s (%d)' % (E(k), v) for k, v in sorted(appr.items(), key=lambda kv: -kv[1]))
+        blocks.append('<div class="soc-mix"><h4 class="t">%s <span class="soc-den">%d attributed posts</span></h4><p class="pnote m0">Primary theme</p><ul class="soc-bars">%s</ul>'
+                      '<p class="dek"><b>Format:</b> %s.</p><p class="dek"><b>Creative approach:</b> established for %d of %d posts, the ones whose full creative was inspected: %s. The other %d are reels that were not watched, so their approach is not established.</p></div>'
+                      % (E(NAMES[pid]), tot, th, fmt, len(insp), tot, ap, tot - len(insp)))
+    exs = []
+    for ex in n['examples']:
+        p = next(x for x in s['posts'] if x['id'] == ex['post'])
+        cl = next(x for x in s['analysis']['posts'] if x['post'] == p['id'])
+        img = ex.get('image')
+        fig = ('<figure class="soc-shot"><img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async"><figcaption>%s</figcaption></figure>'
+               % (E(img['src']), E(img['alt']), img['width'], img['height'], E(img['credit']))) if img else ''
+        approach = cl['approach'] if cl['approach_inspected'] else FORMAT_LABEL[p['format']]
+        text = ('<p class="pnote soc-tags">%s &middot; %s</p><p class="dek">%s</p><p class="dek"><b>My reading:</b> %s</p><p class="pnote bs-soc-lim"><b>Limits:</b> %s %s</p>'
+                % (E(theme_label(s, cl['theme'])), E(approach), E(ex['observed']), E(ex['reading_short']), E(p['inspection_label']), E(ex['limitation'])))
+        main = ('<div class="soc-body">%s<div class="soc-text">%s</div></div>' % (fig, text)) if fig else text
+        exs.append('<article class="card ex soc-ex" id="bs-s%s"><p class="kind">%s &middot; %s</p><h4 class="t">%s</h4>%s</article>'
+                   % (ex['id'][1:].lower(), E(NAMES[p['platform']]), E(long_day(p['published_on'])), E(ex['title']), main))
+    out.append('<div class="sub soc-sec" id="bs-soc-creative">%s<div class="soc-mixes">%s</div><p class="pnote">%s</p>'
+               '<div id="bs-social-examples"><h4 class="t">Selected posts</h4><p class="dek">%s</p>%s</div></div>'
+               % (head(3, 'Creative strategy', st['creative_q']), ''.join(blocks), E(st['creative_note']), E(n['selection_short']), ''.join(exs)))
+    # 4. Engagement by theme, within each brand
+    eng = []
+    for pid in ('venn', 'airwallex'):
+        rows = ''
+        for r in engagement(s, pid):
+            lim = r['usable'] < 3
+            med = _num(r['median']) if r['median'] is not None else 'None usable'
+            if lim and r['usable']:
+                med = 'Too few for a pattern: %s' % ', '.join(str(v) for v in r['values'])
+            solo = ''
+            if r['collab']:
+                solo = '<span class="cell-sub">%d collaboration%s in this theme; without them: %s</span>' % (
+                    r['collab'], '' if r['collab'] == 1 else 's', ('median %s from %d posts' % (_num(r['median_solo']), r['solo_usable'])) if r['solo_usable'] >= 3 else
+                    ('%s' % (', '.join(str(v) for v in sorted(v for v, p in [(interactions(p)[0], p) for cl, p in analysis_rows(s) if p['platform'] == pid and cl['theme'] == r['theme'] and p['relation'] != 'collaboration'] if v is not None)) or 'no usable posts')))
+            rows += '<tr><th scope="row" class="brandcell">%s</th><td data-label="Posts in theme">%d</td><td data-label="Posts with usable counts">%d</td><td data-label="Median visible likes + comments">%s%s</td></tr>' % (
+                E(r['label']), r['posts'], r['usable'], E(med), solo)
+        top = st['engagement'][pid]
+        eng.append('<div class="soc-eng" id="bs-soc-eng-%s"><h4 class="t" id="bs-soc-eng-%s-h">%s</h4><div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-soc-eng-%s-h"><table class="bs">'
+                   '<thead><tr><th scope="col">Theme</th><th scope="col">Posts in theme</th><th scope="col">Posts with usable counts</th><th scope="col">Median visible likes + comments</th></tr></thead><tbody>%s</tbody></table></div>'
+                   '<p class="dek"><b>Theme with the highest median:</b> %s</p><p class="dek"><b>Single post with the highest count:</b> %s</p></div>'
+                   % (pid, pid, E(NAMES[pid]), pid, rows, E(top['theme']), E(top['post'])))
+    out.append('<div class="sub soc-sec" id="bs-soc-engagement">%s<p class="dek">%s</p>%s<ul class="pnote soc-rules">%s</ul></div>'
+               % (head(4, 'Engagement by theme', st['engagement_q']), E(st['engagement_intro']), ''.join(eng), ''.join('<li>%s</li>' % E(x) for x in st['engagement_rules'])))
+    # 5. What this suggests
+    items = ''.join('<li><dl class="bs-tmain"><dt>What I observed</dt><dd>%s</dd><dt>My reading</dt><dd>%s</dd><dt>A possible test</dt><dd>%s</dd></dl></li>' % (
+        E(x['observed']), E(x['reading']), E(x['test'])) for x in st['suggests'])
+    out.append('<div class="sub soc-sec" id="bs-social-tests">%s<ol class="soc-sug">%s</ol><p class="pnote dlinks">%s</p></div>'
+               % (head(5, 'What this suggests', st['suggests_q']), items, _rich(n['why'])))
+    return '\n'.join(out)
+
+
+def analysis_reference_html(s):
+    """Sources & evidence: coverage assessment, classification guide, post-level classifications and engagement inputs."""
+    a = s['analysis']
+    g = a['guide']
+    cov = []
+    for pid in PLATFORMS:
+        mine = [p for p in s['posts'] if p['platform'] == pid]
+        if not mine:
+            cov.append('<tr><td class="brandcell">%s</td><td data-label="Posts" colspan="6">No in-window posts found in the reviewed surfaces.</td></tr>' % E(NAMES[pid]))
+            continue
+        car = [p for p in mine if p['format'] == 'carousel']
+        vids = [p for p in mine if p['format'] == 'video']
+        st = [interactions(p)[1] for p in mine]
+        views = [metric(p['metrics']['views'])[1] for p in vids]
+        att = 'Unresolved' if any(p['attribution'] == 'unresolved' for p in mine) else 'Attributed'
+        cov.append('<tr><td class="brandcell">%s</td><td data-label="Attribution">%s</td><td data-label="Posts">%d</td><td data-label="Carousels fully opened">%d of %d</td>'
+                   '<td data-label="Videos watched">0 of %d</td><td data-label="Likes + comments">%d exact, %d approximate, %d missing</td><td data-label="Views (reels)">%d exact, %d approximate, %d missing</td></tr>'
+                   % (E(NAMES[pid]), att, len(mine), sum(1 for p in car if p['inspection'] == 'all_slides'), len(car), len(vids),
+                      st.count('exact'), st.count('approximate'), st.count('missing'), views.count('exact'), views.count('approximate'), views.count('missing')))
+    themes = ''.join('<dt>%s</dt><dd>%s</dd>' % (E(l), E(d)) for _, l, d in g['themes'])
+    rules = ''.join('<li>%s</li>' % E(v) for v in a['metrics_rules'].values())
+    rows = []
+    for cl, p in analysis_rows(s):
+        v, state = interactions(p)
+        rows.append('<tr><td class="brandcell">%s<span class="cell-sub">%s</span></td><td data-label="Post"><a href="%s" rel="noopener nofollow" target="_blank">%s<span class="sr-only"> (opens in a new tab)</span></a><span class="cell-sub">%s</span></td>'
+                    '<td data-label="Theme">%s%s</td><td data-label="Format and approach">%s<span class="cell-sub">%s</span></td><td data-label="Publisher">%s</td>'
+                    '<td data-label="Likes, comments">%s, %s<span class="cell-sub">%s</span></td><td data-label="Basis">%s</td></tr>' % (
+                        E(NAMES[p['platform']]), E(long_day(p['published_on'])), E(p['url']), E(p['shortcode']), E(p['inspection_label']),
+                        E(theme_label(s, cl['theme'])), ('<span class="cell-sub">Also: %s</span>' % E(', '.join(x.replace('_', ' ') for x in cl['secondary']))) if cl['secondary'] else '',
+                        E(FORMAT_LABEL[p['format']]), E(cl['approach']), _collab_text(p),
+                        E(str(p['metrics']['likes'])) if p['metrics']['likes'] is not None else 'missing', E(str(p['metrics']['comments'])) if p['metrics']['comments'] is not None else 'missing',
+                        {'exact': 'sum %d' % v if v is not None else '', 'approximate': 'approximate, excluded', 'missing': 'missing, excluded'}[state], E(cl['basis'])))
+    return ('<div id="bs-soc-coverage"><h4 class="t">Coverage assessment</h4><p class="dek">%s</p>'
+            '<div class="tw" tabindex="0" role="region" aria-label="Social evidence coverage"><table class="bs"><thead><tr><th scope="col">Brand</th><th scope="col">Attribution</th><th scope="col">Posts</th><th scope="col">Carousels fully opened</th><th scope="col">Videos watched</th><th scope="col">Likes + comments</th><th scope="col">Views (reels)</th></tr></thead><tbody>%s</tbody></table></div></div>'
+            '<div id="bs-soc-guide"><h4 class="t">Classification guide</h4><p class="dek">%s %s</p><dl class="chain">%s</dl><p class="dek"><b>Format.</b> %s <b>Creative approach.</b> %s <b>Other fields.</b> %s %s</p></div>'
+            '<div id="bs-soc-metrics"><h4 class="t">Engagement definitions and metric dates</h4><ul class="dek">%s</ul><p class="dek">Likes and comments were read from each post page during the second collection pass, 26 October 2026, 9:45 p.m. to 10:15 p.m. Toronto time; each record keeps its own read time in the downloads. Views were read from each account&rsquo;s Reels tab at 10:15 p.m. No later metric snapshot was taken. Comments were counted, not read: no comment text is analysed.</p></div>'
+            '<div id="bs-soc-classified"><h4 class="t">Post-level classifications (%d attributed posts)</h4><div class="tw" tabindex="0" role="region" aria-label="Post classifications, scrolls sideways"><table class="bs soc-cl"><thead><tr><th scope="col">Brand and date</th><th scope="col">Post and inspection</th><th scope="col">Theme</th><th scope="col">Format and approach</th><th scope="col">Publisher</th><th scope="col">Likes, comments as displayed</th><th scope="col">Basis</th></tr></thead><tbody>%s</tbody></table></div></div>'
+            % (E(a['basis']), ''.join(cov), E(g['unit']), E(g['theme']), themes, E(g['format']), E(g['approach']), E(g['other_fields']), E(g['unclear']), rules, len(rows), ''.join(rows)))
+
+
+ANALYSIS_HEAD = ['post_id', 'provider', 'account', 'post_url', 'published_on_toronto', 'publisher', 'relation', 'collaboration', 'paid_partnership_label', 'format', 'inspection',
+                 'primary_theme', 'secondary_tags', 'creative_approach', 'approach_inspected', 'audience_suggested', 'product', 'benefit', 'classification_basis',
+                 'likes_displayed', 'comments_displayed', 'interactions_state', 'likes_plus_comments', 'counts_read_at', 'views_displayed', 'views_state', 'views_read_from']
+
+
+def render_analysis_csv(s):
+    buf = io.StringIO()
+    w = csv.writer(buf, lineterminator='\n')
+    w.writerow(ANALYSIS_HEAD)
+    for cl, p in analysis_rows(s):
+        v, state = interactions(p)
+        m = p['metrics']
+        w.writerow([p['id'], NAMES[p['platform']], p['account'], p['url'], p['published_on'], p['publisher'], p['relation'], p['collaboration'] or '',
+                    'yes' if p.get('paid_label') else 'no', p['format'], p['inspection'], theme_label(s, cl['theme']), '; '.join(cl['secondary']), cl['approach'],
+                    'yes' if cl['approach_inspected'] else 'no', cl['audience'], cl['product'], cl['benefit'], cl['basis'],
+                    '' if m['likes'] is None else m['likes'], '' if m['comments'] is None else m['comments'], state, '' if v is None else v,
+                    m.get('likes_comments_captured_at') or p['captured_at'], '' if m['views'] is None else m['views'], metric(m['views'])[1] if p['format'] == 'video' else 'not applicable',
+                    'Reels tab' if m['views'] is not None else ''])
+    return buf.getvalue()

@@ -1,0 +1,470 @@
+{
+ "version": "1.0",
+ "created": "2026-10-30",
+ "basis": "Classified on 30 October 2026 from the inspected evidence recorded on 26 October 2026: captions, headers, cover frames, images and, where opened, every carousel slide. No video was played. No new collection was made.",
+ "guide": {
+  "unit": "One record per unique attributed post (post ID and URL from social.json). The 19 @tryramp records are not classified while their provider attribution is unresolved.",
+  "theme": "One primary theme per post, from what the caption and inspected visuals are about. Primary themes are mutually exclusive and sum to the brand’s post count. Secondary tags may overlap and never change primary counts.",
+  "themes": [
+   [
+    "product_education",
+    "Product education",
+    "Explains what a product does or how to use it."
+   ],
+   [
+    "customer_story",
+    "Customer stories",
+    "A named customer’s situation, switch or result."
+   ],
+   [
+    "promotion",
+    "Promotions",
+    "A time-limited offer, rate, contest or entry call."
+   ],
+   [
+    "partnership",
+    "Partnerships",
+    "Sponsorships and creator partnerships, where the partner is the subject."
+   ],
+   [
+    "company_events",
+    "Company news and events",
+    "Events the brand hosts or attends, launches and appearances."
+   ],
+   [
+    "culture_community",
+    "Culture or community",
+    "Team life and community programmes, such as awards or founder cohorts."
+   ],
+   [
+    "business_education",
+    "Business education",
+    "Ideas or advice for business readers, not about the brand’s product."
+   ]
+  ],
+  "format": "Image, carousel or video, as recorded at collection.",
+  "approach": "How the message is delivered. Recorded only where the full creative was inspected (images and fully opened carousels). For videos it is “Not established: video not watched”; a cover frame does not show how a video is made.",
+  "other_fields": "Audience suggested by the content, product promoted, customer problem or benefit, proof, call to action and the opening line of the caption (not a verified video hook). Proof, call to action and the caption opening are taken from the existing post records; this file adds the classification and its basis.",
+  "unclear": "Where the evidence does not support a label, the field says so."
+ },
+ "metrics_rules": {
+  "interactions": "Visible likes plus comments, only when both counts are present and exact.",
+  "approximate": "A count shown abbreviated (such as 1.5K) is kept as displayed and treated as approximate; it is excluded from medians.",
+  "missing": "A missing count is not zero; the post is excluded from medians.",
+  "views": "Views were read from each account’s Reels tab at a separate time and are reported separately, never added to interactions.",
+  "age": "Counts are lifetime counts at collection. Older posts had more time to collect interactions, so they are not age-normalised.",
+  "paid": "A paid-partnership label does not show whether distribution was paid for; paid distribution is unknown.",
+  "pattern": "A theme with fewer than three usable posts is shown descriptively and not treated as a pattern. Three or more posts still do not establish reliability."
+ },
+ "posts": [
+  {
+   "post": "venn-ig-DbV1GBioK7e",
+   "theme": "product_education",
+   "secondary": [
+    "company_milestone"
+   ],
+   "approach": "Feature slides: four slides, one feature each, with short headlines",
+   "approach_inspected": true,
+   "audience": "Businesses banking with Venn",
+   "product": "Venn mobile app",
+   "benefit": "Banking tasks from a phone: transfers, cards, receipts",
+   "basis": "Caption announces the app; each slide names one feature."
+  },
+  {
+   "post": "venn-ig-Dba905WFcDk",
+   "theme": "customer_story",
+   "secondary": [],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Small business teams",
+   "product": "Virtual cards, receipt reminders, team card, 1% cashback",
+   "benefit": "Spend tools a team relies on daily",
+   "basis": "Caption reports a named customer’s general manager listing features."
+  },
+  {
+   "post": "venn-ig-Dbs4o31gNwm",
+   "theme": "customer_story",
+   "secondary": [],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Startups",
+   "product": "Business account with approval controls",
+   "benefit": "Faster banking basics, such as a bank letter",
+   "basis": "Caption tells Spellbook’s switch to Venn."
+  },
+  {
+   "post": "venn-ig-Db8eeMHEV9v",
+   "theme": "promotion",
+   "secondary": [
+    "product_education"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Businesses holding cash balances",
+   "product": "Interest Boost promotion, with a tracking banner",
+   "benefit": "Seeing how much cash earns the boosted rate",
+   "basis": "Caption announces a time-limited rate with its condition and deadline."
+  },
+  {
+   "post": "venn-ig-Db-6ZTdkm1o",
+   "theme": "customer_story",
+   "secondary": [],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Startup finance teams",
+   "product": "Business account and approvals",
+   "benefit": "Money and time saved",
+   "basis": "Caption quotes Spellbook’s VP of Finance with a savings figure."
+  },
+  {
+   "post": "venn-ig-DcL5FguFGv6",
+   "theme": "customer_story",
+   "secondary": [],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Startups",
+   "product": "Business account payments (ACH, wire, e-Transfer)",
+   "benefit": "Fewer steps to move money",
+   "basis": "Caption contrasts Spellbook’s old bank with Venn."
+  },
+  {
+   "post": "venn-ig-DcOdMd8oMR-",
+   "theme": "product_education",
+   "secondary": [
+    "company_milestone"
+   ],
+   "approach": "Text-led graphic: user milestone stated on the image",
+   "approach_inspected": true,
+   "audience": "Businesses banking with Venn",
+   "product": "Venn mobile app",
+   "benefit": "Banking from a phone",
+   "basis": "Caption and image state 5,000+ app users and list app tasks."
+  },
+  {
+   "post": "venn-ig-DcRCHJOCjRZ",
+   "theme": "customer_story",
+   "secondary": [],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Student organisations and small teams",
+   "product": "Business account, FX, cards, reimbursements",
+   "benefit": "Faster reimbursements and lower fees",
+   "basis": "Caption gives Queen’s Commerce Society figures."
+  },
+  {
+   "post": "venn-ig-DcjEYFvgAJV",
+   "theme": "customer_story",
+   "secondary": [],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Organisations that reimburse people",
+   "product": "Reimbursements",
+   "benefit": "Reimbursement time cut from five weeks to under a week",
+   "basis": "Caption tells the Queen’s Commerce Society story."
+  },
+  {
+   "post": "airwallex-ig-DbTXNiWnXeJ",
+   "theme": "partnership",
+   "secondary": [
+    "sport"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Motorsport fans",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Caption celebrates a McLaren F1 win as a partner."
+  },
+  {
+   "post": "airwallex-ig-DbaD6RJDRf5",
+   "theme": "company_events",
+   "secondary": [
+    "sport"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Founders and creators",
+   "product": "Platform described generally",
+   "benefit": "“One setup that covers everything your business needs”",
+   "basis": "Caption describes a founders’ day at Oracle Park."
+  },
+  {
+   "post": "airwallex-ig-Dbl2eTKAsfQ",
+   "theme": "partnership",
+   "secondary": [
+    "sport"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Rugby fans in New Zealand",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Caption congratulates a sponsored rugby team; co-authored post."
+  },
+  {
+   "post": "airwallex-ig-Db8jAJeDQ5J",
+   "theme": "culture_community",
+   "secondary": [
+    "programme"
+   ],
+   "approach": "Designed slides: programme cover, then one slide per judge",
+   "approach_inspected": true,
+   "audience": "Finance leaders at venture-backed startups",
+   "product": "Startup Finance 30 programme (not a product)",
+   "benefit": "Recognition for finance leaders",
+   "basis": "Caption and slides invite nominations with a deadline."
+  },
+  {
+   "post": "airwallex-ig-DcS90igk82q",
+   "theme": "partnership",
+   "secondary": [
+    "sport"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Football fans",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Caption marks the Arsenal partnership at the season start."
+  },
+  {
+   "post": "airwallex-ig-DcfKTPtDY1O",
+   "theme": "company_events",
+   "secondary": [
+    "media"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Australian businesses",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Caption describes a podcast appearance at a cafe takeover."
+  },
+  {
+   "post": "airwallex-ig-DcifgrKH3FT",
+   "theme": "culture_community",
+   "secondary": [
+    "team"
+   ],
+   "approach": "Photo carousel: staff photos",
+   "approach_inspected": true,
+   "audience": "Prospective employees",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Caption tells an engineer’s story; link to the full piece."
+  },
+  {
+   "post": "airwallex-ig-DckdYfnjoaA",
+   "theme": "culture_community",
+   "secondary": [
+    "programme"
+   ],
+   "approach": "Photo carousel: cohort group photos",
+   "approach_inspected": true,
+   "audience": "Australian founders",
+   "product": "Latitude 37 founder programme (not a product)",
+   "benefit": "Equity-free funding and connections for a cohort",
+   "basis": "Caption announces the first programme cohort."
+  },
+  {
+   "post": "airwallex-ig-Dcrv-4rhQEc",
+   "theme": "partnership",
+   "secondary": [
+    "creator",
+    "product_mention"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Business owners who follow the creator",
+   "product": "Corporate card",
+   "benefit": "“One corporate card, total control”",
+   "basis": "Creator post labelled Paid partnership; caption endorses the card."
+  },
+  {
+   "post": "airwallex-ig-DdDtsdwzd8J",
+   "theme": "promotion",
+   "secondary": [
+    "creator",
+    "sport"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Australian sports fans and business owners",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Creator post labelled Paid partnership invites entries for a Grand Final experience."
+  },
+  {
+   "post": "airwallex-ig-DdIgy8SFQyl",
+   "theme": "business_education",
+   "secondary": [
+    "media"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Marketers and founders",
+   "product": "None named (podcast)",
+   "benefit": "A view on AI and brand building",
+   "basis": "Caption summarises a podcast discussion."
+  },
+  {
+   "post": "airwallex-ig-DdN-arvztB4",
+   "theme": "promotion",
+   "secondary": [
+    "creator",
+    "sport"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Australian sports fans and business owners",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Creator post invites contest entries; caption marks it as a paid partnership."
+  },
+  {
+   "post": "airwallex-ig-DdWxfd2DN19",
+   "theme": "culture_community",
+   "secondary": [
+    "team"
+   ],
+   "approach": "Photo carousel: staff at a charity run",
+   "approach_inspected": true,
+   "audience": "Prospective employees and the local community",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Caption describes the San Francisco team at a corporate run."
+  },
+  {
+   "post": "airwallex-ig-DdmAkDeFw9Y",
+   "theme": "company_events",
+   "secondary": [
+    "sport"
+   ],
+   "approach": "Text-led event graphic: date, time and place",
+   "approach_inspected": true,
+   "audience": "People in San Francisco",
+   "product": "None named",
+   "benefit": "A free community event",
+   "basis": "Image and caption invite people to a tailgate."
+  },
+  {
+   "post": "airwallex-ig-Dd_RQzPjTa7",
+   "theme": "customer_story",
+   "secondary": [
+    "sport",
+    "product_mention"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Global businesses taking payments",
+   "product": "Multi-currency accounts and payment acceptance",
+   "benefit": "One payment experience for fans in their own currencies",
+   "basis": "Caption introduces the Arsenal case study."
+  },
+  {
+   "post": "airwallex-ig-Dd_wnO-DLcT",
+   "theme": "culture_community",
+   "secondary": [
+    "team",
+    "sport"
+   ],
+   "approach": "Photo carousel: staff at a ballpark",
+   "approach_inspected": true,
+   "audience": "Prospective employees",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Caption describes a team day with baseball alumni."
+  },
+  {
+   "post": "airwallex-ig-DePPHLOl2cq",
+   "theme": "company_events",
+   "secondary": [
+    "sport"
+   ],
+   "approach": "Photo carousel: client event",
+   "approach_inspected": true,
+   "audience": "Clients and partners",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Caption describes a client event with an F1 driver."
+  },
+  {
+   "post": "airwallex-ig-DeS2nsqDHhh",
+   "theme": "partnership",
+   "secondary": [
+    "sport"
+   ],
+   "approach": "Single photo: logo on a driver’s helmet",
+   "approach_inspected": true,
+   "audience": "Motorsport fans",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Caption marks the brand’s place on a driver’s helmet."
+  },
+  {
+   "post": "airwallex-ig-DeR-myVkbUa",
+   "theme": "company_events",
+   "secondary": [
+    "product_mention"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Australian finance and business leaders",
+   "product": "Company event; names a product (AgentOS)",
+   "benefit": "None stated in the caption",
+   "basis": "Caption recaps the SHIFT event."
+  },
+  {
+   "post": "airwallex-ig-DeWOFBfBqQ0",
+   "theme": "partnership",
+   "secondary": [
+    "creator",
+    "sport"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Followers of the creator",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Creator post labelled Paid partnership from the Singapore Grand Prix."
+  },
+  {
+   "post": "airwallex-ig-DeYR3AhjgGm",
+   "theme": "company_events",
+   "secondary": [
+    "sport"
+   ],
+   "approach": "Photo carousel: hospitality suite",
+   "approach_inspected": true,
+   "audience": "Clients, prospects and partners",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Caption describes Grand Prix hospitality and talks."
+  },
+  {
+   "post": "airwallex-ig-DerrpMtiLyT",
+   "theme": "partnership",
+   "secondary": [
+    "sport",
+    "product_mention"
+   ],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Baseball fans in San Francisco",
+   "product": "Business accounts and corporate cards (named)",
+   "benefit": "None stated",
+   "basis": "Caption closes a season as the Giants’ sponsor and names products."
+  },
+  {
+   "post": "airwallex-ig-DezQZwBiY6q",
+   "theme": "company_events",
+   "secondary": [],
+   "approach": "Not established: video not watched",
+   "approach_inspected": false,
+   "audience": "Payments and finance industry",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Caption summarises a trade-show presence with event figures."
+  }
+ ]
+}

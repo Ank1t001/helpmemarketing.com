@@ -365,6 +365,11 @@ def social_csv():
     return social.CSV_REL
 
 
+def social_analysis_csv():
+    import social
+    return social.ANALYSIS_CSV_REL
+
+
 def view_html(body, vid):
     """One view's markup, from its section to the next section, whatever the tab order."""
     a = body.index('<section id="%s"' % vid)
@@ -382,9 +387,9 @@ def check_social_outputs(c, body):
     errs = []
     views = [v for _, v in build.view_order(c)]
     if views != ['bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons']:
-        errs.append('social: tab order is Overview, Social Media Content, Messaging & Offers, Compare Products, Application Journey, Lessons')
-    if '<a href="#bs-social" id="bs-tab-social">Social Media Content</a>' not in body or 'This edition reviews Instagram content only.' not in body:
-        errs.append('social: the tab is labelled "Social Media Content" and the view says it reviews Instagram content only')
+        errs.append('social: tab order is Overview, Social Media Strategy, Website Messaging, Product Comparison, Customer Journey, Lessons')
+    if '<a href="#bs-social" id="bs-tab-social">Social Media Strategy</a>' not in body or 'Instagram only. Analysis of public content, not internal strategy.' not in body:
+        errs.append('social: the tab is labelled "Social Media Strategy" and the view says it covers Instagram only')
     sec = view_html(body, 'bs-social')
     ref = view_html(body, 'bs-sources') if '<section id="bs-sources"' in body else ''
     tab = sec
@@ -549,7 +554,8 @@ def check_outputs(c, page, csvtext, extra_paths=()):
         errs.append('page: JSON-LD types %s (expected Article and BreadcrumbList only)' % types)
     banned = ('Product', 'Offer', 'Review', 'AggregateRating', 'FAQPage', 'datePublished') + (('dateModified',) if mode == 'draft' else ())
     for bad in banned:
-        if any(bad in raw for raw in s.jsonld):
+        # a schema type or key, not a word in a title ("Products" is fine; "@type":"Product" is not)
+        if any(re.search(r'"%s"' % re.escape(bad), raw) for raw in s.jsonld):
             errs.append('page: JSON-LD contains %s' % bad)
     art = [json.loads(r) for r in s.jsonld if '"Article"' in r]
     if art and art[0]['headline'] != c.n['hero']['title']:
@@ -566,7 +572,7 @@ def check_outputs(c, page, csvtext, extra_paths=()):
             if path.endswith('.html'):
                 errs.append('page: link with .html suffix %s' % h)
             target = os.path.join(model.ROOT, path.lstrip('/'))
-            if path not in ('/', '', '/' + build_csv(), '/' + social_csv()) and path not in extra_paths and not (os.path.exists(target) or os.path.exists(target + '.html')):
+            if path not in ('/', '', '/' + build_csv(), '/' + social_csv(), '/' + social_analysis_csv()) and path not in extra_paths and not (os.path.exists(target) or os.path.exists(target + '.html')):
                 errs.append('page: internal link target missing %s' % h)
     msg = view_html(body, 'bs-messaging')
     refv = view_html(body, 'bs-sources') if '<section id="bs-sources"' in body else ''
