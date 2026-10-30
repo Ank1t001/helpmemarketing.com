@@ -52,7 +52,7 @@
 .msi.msi .legend .kind-3{border-left:3px dotted var(--text-muted)}
 .msi.msi #bs-journey-table table{table-layout:fixed;width:100%}
 .msi.msi #bs-journey-table td{min-width:0;overflow-wrap:anywhere}
-.msi.msi #bs-journey-table td.brandcell{width:14%}
+.msi.msi #bs-journey-table td.brandcell{width:22%}
 .msi.msi .cell-sub a{color:var(--cta-text,var(--cta));text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
 /* Dark theme focus ring (2026-10-23 browser pass): the global :focus-visible outline resolves to the legacy navy here (about 1.05:1 on Obsidian); Signal Orange meets 3:1 on every dark surface. */
 html[data-theme="dark"] .app :focus-visible{outline:2px solid var(--cta);outline-offset:2px}
@@ -259,16 +259,16 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 /* Compare products, shorter (founder brief, 2026-10-30): three compact tables, each with an optional quiet details expander; sources and how to read them in one expander at the bottom. */
 .msi.msi .bs-view.bs-view>.bs-cmp-sec{margin-top:var(--s6)}
 .msi.msi .bs-cmp-sec>.tblock>h3{margin:0 0 var(--s3)}
-.msi.msi #bs-compare details.bs-more{margin:var(--s3) 0 0;padding:0;border:0;background:none;border-radius:0}
-.msi.msi #bs-compare details.bs-more>summary{display:inline-flex;align-items:center;gap:8px;margin:0;padding:4px 0;font-size:14px;font-weight:600;color:var(--text-muted);border:0}
-.msi.msi #bs-compare details.bs-more>summary:hover{color:var(--text)}
-.msi.msi #bs-compare details.bs-more>summary::after{content:"";width:6px;height:6px;border:0;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;border-radius:0;background:none;transform:rotate(45deg) translateY(-2px);flex:none}
-.msi.msi #bs-compare details.bs-more[open]>summary::after{transform:rotate(225deg) translateY(-1px)}
-.msi.msi #bs-compare details.bs-more[open]>summary{margin-bottom:var(--s3);border:0}
+.msi.msi .bs-view details.bs-more{margin:var(--s3) 0 0;padding:0;border:0;background:none;border-radius:0}
+.msi.msi .bs-view details.bs-more>summary{display:inline-flex;align-items:center;gap:8px;margin:0;padding:4px 0;font-size:14px;font-weight:600;color:var(--text-muted);border:0}
+.msi.msi .bs-view details.bs-more>summary:hover{color:var(--text)}
+.msi.msi .bs-view details.bs-more>summary::after{content:"";width:6px;height:6px;border:0;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;border-radius:0;background:none;transform:rotate(45deg) translateY(-2px);flex:none}
+.msi.msi .bs-view details.bs-more[open]>summary::after{transform:rotate(225deg) translateY(-1px)}
+.msi.msi .bs-view details.bs-more[open]>summary{margin-bottom:var(--s3);border:0}
 .msi.msi .bs-view.bs-view>details.bs-cmp-read{margin-top:var(--s6);padding-top:var(--s3);border-top:1px solid var(--border)}
 .msi.msi #bs-compare details.bs-cmp-read>.dek{max-width:72ch}
 .msi.msi #bs-compare a.st{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;color:var(--text-muted)}
-@media print{.msi.msi #bs-compare details.bs-more{display:block}}
+@media print{.msi.msi .bs-view details.bs-more{display:block}}
 /* Plain and short (founder brief, 2026-10-30, second): restriction lines beside the provider, one note under each table heading, dated follow-up links, the Overview observation line. */
 .msi.msi .bs-view.bs-view>.bs-obs{margin-top:var(--s3);font-size:14.5px;font-weight:650;color:var(--text)}
 .msi.msi .bs-cmp-sec .bs-tnote{margin:0 0 var(--s3);max-width:72ch;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
@@ -277,6 +277,30 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi #bs-compare a.bs-fu{display:block;margin-top:4px;font-size:12.5px;color:var(--text-muted);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
 .msi.msi #bs-compare td.brandcell{min-width:10em}
 @media(max-width:900px){.msi.msi .tw.cards td.brandcell .bs-restr{font-size:13.5px}}
+/* Messaging, Application journeys and Lessons, shorter (founder brief, 2026-10-30, third): one reading table, provider evidence and first-screen evidence in expanders, tests as stacked blocks with thin dividers. */
+.msi.msi .bs-view .tblock>.bs-tnote{margin:0 0 var(--s3);max-width:72ch;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
+.msi.msi #bs-msg-table{margin-top:var(--s5)}
+.msi.msi #bs-msg-table>h3{margin:var(--s2) 0 var(--s2)}
+.msi.msi #bs-msg-table td.brandcell{width:16%}
+.msi.msi #bs-msg-table table{table-layout:fixed;width:100%}
+.msi.msi #bs-msg-table td{min-width:0;overflow-wrap:anywhere}
+.msi.msi #bs-platforms details.plat{margin:var(--s3) 0 0;padding-top:var(--s3);border-top:1px solid var(--border)}
+.msi.msi #bs-platforms details.plat>summary{font-size:15px;color:var(--text)}
+.msi.msi #bs-platforms details.plat>h4.t{margin-top:var(--s4)}
+.msi.msi #bs-jt-evidence,.msi.msi #bs-patterns{margin-top:var(--s5);padding-top:var(--s3);border-top:1px solid var(--border)}
+.msi.msi #bs-jt-evidence>h4.t{margin-top:var(--s4)}
+.msi.msi .bs-tlink{margin-top:var(--s3);font-size:15px;font-weight:600}
+.msi.msi #bs-tests{margin-top:var(--s4)}
+.msi.msi #bs-tests .tests{list-style:none;margin:0;padding:0}
+.msi.msi #bs-tests .tests>li{border-left:0;padding:var(--s4) 0 0;margin:0 0 var(--s4);border-top:1px solid var(--border)}
+.msi.msi #bs-tests .tests>li:first-child{border-top:0;padding-top:0}
+.msi.msi .bs-view h3.bs-ttitle{margin:var(--s2) 0 0;font-size:18px;font-weight:650;letter-spacing:-.012em;line-height:1.3;color:var(--text)}
+.msi.msi #bs-tests dl.bs-tmain{margin:var(--s3) 0 var(--s2)}
+.msi.msi #bs-tests dl.bs-tmain dd{font-size:15.5px}
+.msi.msi #bs-tests .bs-datanote{margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--border)}
+@media(min-width:901px){.msi.msi #bs-msg-table th:first-child{width:16%}.msi.msi #bs-journey-table th:first-child{width:22%}}
+@media(max-width:900px){.msi.msi #bs-journey-table td.brandcell,.msi.msi #bs-msg-table td.brandcell{width:auto}}
+.msi.msi .bs-fu-note{border-left:2px solid var(--border-strong);padding-left:12px}
 </style>
 <script data-bsi-tabs>
 /* Views as tabs (2026-10-23). Without JavaScript every view shows in reading order and the links jump to it. With it, one view shows at a time: the links become an ARIA tablist (arrow keys, Home, End), the address keeps the view (#bs-compare), Back and Forward restore it, and any link to an id inside a view (a section, an evidence item, a closed expander) opens that view and the expanders around the target. Print shows every view. */
@@ -375,8 +399,12 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
         e.preventDefault();
         show(panel);
         if (el !== panel) openAround(el);
+        /* The hash change scrolls natively; made instant here so the site's smooth scrolling does not animate over the jump (long jumps inside an expander, 2026-10-30). */
+        var root = d.documentElement, sb = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
         if (location.hash !== h) location.hash = h;
         go(h, 'link');
+        root.style.scrollBehavior = sb;
       });
     }
     go(location.hash, 'load');

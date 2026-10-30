@@ -792,19 +792,20 @@
   "currency_note": "Fees cover different transactions and conditions. These figures are not a like-for-like cost comparison."
  },
  "examples": {
-  "dek": "Four observed examples of how an offer, proof or next step was explained. They are examples to learn from, not winning platforms.",
+  "dek": "Two observed examples of how proof was explained. They are examples to learn from, not winning platforms.",
   "items": [
    {
     "id": "E1",
     "platform": "loop",
     "kind": "Proof",
-    "title": "A savings figure labelled as the provider's own estimate",
-    "body": "The Bells of Steel case study presents $10,000 a year in savings and says in the text that Loop calculated it. The same site's homepage averages ($40,000 a year and 12 hours a week) carry no basis I could find, so the labelled figure stands out.",
-    "lesson": "A reader can weigh a number when they know who calculated it and how.",
+    "title": "Loop names who calculated its savings figure",
+    "body": "The Bells of Steel case study reports $10,000 a year in savings and says in the text that Loop calculated the figure.",
+    "lesson": "Identifying who calculated a figure gives a reader context; it does not make the figure independently verified or show the full method.",
     "evidence": [
      "O-LOP-13",
      "O-LOP-12"
-    ]
+    ],
+    "place": "messaging"
    },
    {
     "id": "E2",
@@ -815,7 +816,8 @@
     "lesson": "\"Up to\" signals a condition; the footnote states it, but only on the pricing page.",
     "evidence": [
      "O-FLT-05"
-    ]
+    ],
+    "place": "evidence:float"
    },
    {
     "id": "E3",
@@ -827,18 +829,20 @@
     "evidence": [
      "O-RMP-04",
      "O-RMP-15"
-    ]
+    ],
+    "place": "journeys"
    },
    {
     "id": "E4",
     "platform": "airwallex",
     "kind": "Positioning",
-    "title": "A competitor named inside a customer story",
-    "body": "Airwallex's Adaria Vending Services story, about a Canadian company expanding into the US, names Venn and Wise as tools the company used before. The outcomes it reports are qualitative, such as cards issued in under 24 hours.",
-    "lesson": "Naming the prior setup makes the switch concrete; the outcome is still the provider's account of its customer.",
+    "title": "Airwallex names the tools a customer used before",
+    "body": "The Adaria Vending Services case study names Venn and Wise as tools the company used before Airwallex. The outcomes it reports, such as cards issued in under 24 hours, are qualitative.",
+    "lesson": "Naming the earlier tools makes the change concrete; the outcomes are the provider’s own account in its case study.",
     "evidence": [
      "O-AWX-13"
-    ]
+    ],
+    "place": "messaging"
    }
   ]
  },
@@ -850,7 +854,6 @@
    "missing": [
     "Steps after account creation (needs an account)"
    ],
-   "take": "Your cards page and your pricing page are read as one offer. Ask your team whether a visitor who sees only your highest-traffic page would know which spend earns the reward on each plan.",
    "audience": "Canadian businesses: \"business banking built for Canada\". The site says Venn is not available to businesses in Quebec.",
    "problem": "Cost against the banks: the transfers page says \"FX rates up to 2.75% cheaper than the banks\".",
    "benefit": "Accounts, corporate cards with 1% cashback, free local transfers and low FX.",
@@ -880,7 +883,9 @@
      "O-VEN-17",
      "O-VEN-16"
     ]
-   }
+   },
+   "main_message": "Business banking built for Canada, with lower costs.",
+   "stood_out": "The cashback claim and pricing limits need to agree."
   },
   "float": {
    "offer": "Up to 1% cashback, 0.25% FX, USD cards without foreign transaction fees, account interest of 2.5% (up to 3.5% in a promotion) and credit up to $3M+ subject to eligibility. The 1% applies above $25k of monthly spending per card program (pricing footnote); the 3.5% is a 12-month promotion on new balances above a baseline (promotion terms).",
@@ -888,9 +893,8 @@
    "observation": "Both \"up to\" figures, cashback and interest, lead with the best case; the condition for each is on another page (a pricing footnote and the promotion terms).",
    "missing": [
     "Network for Float Charge",
-    "What happens after a demo is booked"
+    "What happens after a demo request"
    ],
-   "take": "An \"up to\" figure invites the question \"up to, if what?\". A practical test: put the condition for each \"up to\" figure on the same screen as the figure, and measure qualified demo requests against questions about rates.",
    "audience": "Canadian businesses: \"Built in Canada, for Canada.\"",
    "problem": "Manual finance work: the product menu calls expense management \"The end of manual expense work.\"",
    "benefit": "Business accounts, corporate cards, payments and spend management from one provider.",
@@ -921,19 +925,20 @@
      "O-FLT-15",
      "O-FLT-09"
     ]
-   }
+   },
+   "main_message": "Less manual finance work in one platform.",
+   "stood_out": "The headline rates need their spending and promotion conditions beside them."
   },
   "ramp": {
    "offer": "Free and Plus plans, CAD and USD cards, and CAD or USD spend without the FX markup; the global page says conversions stay subject to applicable exchange rates and fees. A Canadian rewards rate was not found in the reviewed sources.",
    "proof": "85,000 customers worldwide, a receipt figure labelled as internal data, and quotes from large brands. None of the proof is specific to Canada.",
    "observation": "The Canadian pages pair Canadian eligibility rules with worldwide proof (85,000 customers) and a header demo link that leaves the Canadian site.",
    "missing": [
-    "Card model and repayment terms (Canada Card Supplement, capture request R2)",
-    "Ramp's Rewards Terms (Canadian schedule), capture request R1",
+    "Card model and repayment terms: Ramp’s Canada Card Supplement was not captured in this edition",
+    "Ramp’s Rewards Terms for Canada: not captured in this edition",
     "Transfer fees",
     "Steps after the email (needs an application)"
    ],
-   "take": "When a regional page borrows global proof and links, the buyer has to work out which parts apply to them. Ask your team to mark every claim on your regional page as local or global, and test labelling global figures as such.",
    "audience": "Canadian businesses (\"Canada, meet Ramp.\"), with eligibility open to Canadian, US or UK-registered entities.",
    "problem": "Controlling spend in advance: a homepage section is headed \"Control spend before it happens.\"",
    "benefit": "Cards, expenses and bill payments for Canadian businesses.",
@@ -963,7 +968,9 @@
      "O-RMP-13",
      "O-RMP-14"
     ]
-   }
+   },
+   "main_message": "Control spending before it happens.",
+   "stood_out": "Canadian eligibility and worldwide customer proof need clear labels."
   },
   "loop": {
    "offer": "No FX fee in four currencies, points on card spend, free payments for now, and credit up to $1M. A 1.5% fee applies to card purchases in other currencies, and on the Basic plan the earn-rate table lists USD, EUR and GBP spend as not eligible for points.",
@@ -972,7 +979,6 @@
    "missing": [
     "Steps after the first form (needs a submission)"
    ],
-   "take": "Where your proof states its basis, a buyer can weigh it; where it does not, they have to trust it. Ask your team which three figures on your homepage could be challenged, and add the source line to each.",
    "audience": "Canadian businesses that work across borders: \"Global Banking for Canadian Businesses\".",
    "problem": "Bank fees on foreign currency: a homepage section is headed \"Loop vs The Banks\", and the card is called \"Canada's first no-FX credit card\".",
    "benefit": "FX-free credit cards, free international transfers and global accounts.",
@@ -1002,7 +1008,9 @@
      "O-LOP-13",
      "O-LOP-12"
     ]
-   }
+   },
+   "main_message": "Lower-cost banking across borders.",
+   "stood_out": "Its case study labels a savings estimate, while homepage averages lack a basis I could find."
   },
   "keep": {
    "offer": "Points with up to 56 fee-free days, multi-currency accounts in five currencies, and 90-day trials on plans from $79 a month. The card agreement sets a 3% card conversion fee that I did not find on the card, pricing or FAQ pages.",
@@ -1012,7 +1020,6 @@
     "A case study",
     "Whether the closed sign-up route affects every Keep product"
    ],
-   "take": "If a journey is paused, the pages that send people to it are the first thing they see. Ask your team what a visitor who clicks your main button today actually reaches, and whether the page they leave from says so.",
    "audience": "Any business, in the headline (\"All-in-one banking for any business\"); the site also says 5,000+ Canadian companies use it.",
    "problem": "Limits and manual expenses: the card is promised with \"higher limits\" and \"expenses that do themselves\".",
    "benefit": "A business card with higher limits, automated expenses and capital to grow.",
@@ -1042,7 +1049,9 @@
      "O-KEP-12",
      "O-KEP-13"
     ]
-   }
+   },
+   "main_message": "Higher limits and less expense admin.",
+   "stood_out": "Start buttons led to a closed application route when checked."
   },
   "airwallex": {
    "offer": "1% cashback on card spend, no foreign transaction fee from a held currency, transfers with $0 fees on local rails, and plans from $0.",
@@ -1052,9 +1061,8 @@
     "Cashback (rebate) terms and what \"eligible\" covers",
     "Terms for the credit line",
     "The automatic conversion fee level for card purchases",
-    "The demo booking form (not opened)"
+    "The demo request form (not opened)"
    ],
-   "take": "Page titles and social metadata can travel further than the page itself. Ask your team whether every title and preview description on your site states the same offer as the page it leads to.",
    "audience": "\"Global businesses\", with a homepage section on gaining \"a competitive edge in the Canadian market\".",
    "problem": "Running finance across countries: the homepage covers payments, treasury and spend for businesses operating locally and globally.",
    "benefit": "Payments, treasury and spend managed in one platform.",
@@ -1083,7 +1091,9 @@
      "O-AWX-12",
      "O-AWX-13"
     ]
-   }
+   },
+   "main_message": "Manage payments and spending across countries.",
+   "stood_out": "Cashback wording and linked terms need clarification."
   }
  },
  "patterns": {
@@ -1122,14 +1132,14 @@
     ]
    }
   ],
-  "take": "Buyers of financial products look for the basis behind a number and for the plan that includes the feature they need. Ask your team which figure on your site a careful buyer would question first, and whether each feature page says which plan includes it."
+  "title": "Other observations"
  },
  "tests": {
-  "dek": "Three tests a marketing team could run on its own pages, each tied to a finding above and laid out in the same chain: observed evidence, customer question, my interpretation, hypothesis, measurement. They are proposals to discuss, not results, and none needs a provider's internal data.",
+  "dek": "Three changes to test on your own website. These are proposals, not proven results.",
   "items": [
    {
     "id": "T1",
-    "title": "Put the reward condition beside the rate",
+    "title": "Put the condition beside the reward",
     "finding": "F1",
     "observation": "Venn's cards page says its cashback has no tiers, thresholds or caps, while its pricing footnote limits the eligible card spend on Essentials and Plus. Loop's cards page says rewards come on all spend, while its earn-rate table lists USD, EUR and GBP spend as not eligible on Basic.",
     "evidence": [
@@ -1143,11 +1153,13 @@
     "comparable": "The rate, the terms, the design and the button stay the same. Split card-page traffic at random, with the same traffic sources, the same attribution window and the same definition of a qualified application in both versions.",
     "measure": "Qualified applications (meeting your eligibility rules) per visitor to the card page. Count button clicks separately.",
     "guardrail": "Rewards questions to sales and support in the first 30 days after sign-up, and plan mix.",
-    "limitation": "Inconclusive if rewards are not a main reason buyers choose you, if traffic is too small to separate the two versions, or if pricing or rewards change during the test. Legal review of the wording comes first."
+    "limitation": "Inconclusive if rewards are not a main reason buyers choose you, if traffic is too small to separate the two versions, or if pricing or rewards change during the test. Legal review of the wording comes first.",
+    "change_short": "Show the spending threshold, cap or plan restriction beside the reward rate.",
+    "measure_short": "Qualified applications per page visitor, alongside reward-related questions."
    },
    {
     "id": "T2",
-    "title": "Say which transactions a \"no FX fee\" claim covers",
+    "title": "Explain what “no FX fee” covers",
     "finding": "F2",
     "observation": "All six platforms published a no-FX-fee statement that covered a specific case, such as a matching-currency balance, four currencies or a USD card, and each site or its terms prices other conversions elsewhere. Keep's pricing page lists an FX fee of 0% for banking while its card agreement sets a 3% card conversion fee.",
     "evidence": [
@@ -1162,14 +1174,16 @@
     "reading": "A general line answers that question only for the case it covers; the reader has to find the other cases in pricing or the terms.",
     "hypothesis": "A line that names the covered transaction, followed by one line on what applies otherwise, will produce at least as many completed applications from the FX or cards page, with fewer FX questions and disputed charges after sign-up.",
     "change": "Replace a general \"no FX fees\" line with one that names the case it covers, followed by one line saying what applies otherwise.",
-    "comparable": "The page layout, offer, fees, terms and button stay the same. Split traffic at random with the same audiences and attribution window; if traffic is low, run the versions in matched consecutive periods and record the dates.",
-    "measure": "Completed applications from the FX or cards page.",
+    "comparable": "The page layout, offer, fees, terms and button stay the same. Split traffic at random with the same audiences, the same visitor definition and the same attribution window. If traffic is too low to split, matched consecutive periods give a directional reading only: timing, traffic mix and other changes can affect the result, so they are not equivalent to random assignment. Record the dates.",
+    "measure": "Completed applications per visitor to the FX or cards page. Report the application count and the visitor count as well as the rate, with the same visitor definition and attribution window in both versions.",
     "guardrail": "FX-related support questions and disputed charges in the first 60 days after sign-up.",
-    "limitation": "Inconclusive if seasonal travel or trade cycles swamp the difference, or if fees change during the test. Required disclosures stay in place; this changes the summary, not the terms."
+    "limitation": "Inconclusive if seasonal travel or trade cycles swamp the difference, or if fees change during the test. Required disclosures stay in place; this changes the summary, not the terms.",
+    "change_short": "Name the transaction covered and explain what applies otherwise.",
+    "measure_short": "Completed applications per page visitor, alongside FX questions and disputed charges."
    },
    {
     "id": "T3",
-    "title": "State eligibility and the next step before the form",
+    "title": "Explain the next step before the form",
     "finding": "F3",
     "observation": "Loop's sign-up lists the two steps ahead and what they need. Ramp's eligibility rules sit on its cards page rather than its sign-up screen. The Venn, Float and Airwallex first screens asked for contact or account details without saying what follows, and Keep's route was closed.",
     "evidence": [
@@ -1185,11 +1199,14 @@
     "hypothesis": "A short \"Before you start\" list above the first field will raise the share of form starts that become qualified applications, without reducing the number of qualified applications.",
     "change": "Add a short \"Before you start\" list above the first form field: who can apply, what you need, which provinces are served, and what happens after submitting.",
     "comparable": "The form fields, verification steps, traffic sources and the definition of a qualified application stay the same. Split traffic at random with consistent audiences.",
-    "measure": "The share of form starts that become qualified applications. Report clicks, form starts, submissions and qualified applications as separate numbers.",
-    "guardrail": "Total form starts and completed submissions from eligible businesses, so the list does not turn away people who qualify.",
-    "limitation": "Inconclusive if eligibility rules change during the test or most traffic is already qualified. Never remove necessary identity or eligibility checks."
+    "measure": "Qualified applications per visitor and per form start, and total qualified applications. Report clicks, form starts, submissions and qualified applications as separate numbers. A higher qualification rate alone is not enough: if total qualified applications fall, the list is turning away businesses that would have qualified.",
+    "guardrail": "Eligible visitors who start the form, and total qualified applications.",
+    "limitation": "Inconclusive if eligibility rules change during the test or most traffic is already qualified. Never remove necessary identity or eligibility checks.",
+    "change_short": "State who can apply, what they need and what happens after submitting.",
+    "measure_short": "Qualified applications per visitor and per form start. Track total qualified applications too."
    }
-  ]
+  ],
+  "data_note": "Run these tests using your own website and application data. This research uses public evidence only; measuring a result needs your own traffic and application records, and no baselines, sample sizes or uplift have been established here."
  },
  "method": {
   "scope": "An independent comparative marketing case study of how six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses. It reads dated public sources and the first screen of each application journey. It does not test product performance, assess regulatory compliance or recommend a provider for your business.",
@@ -1253,15 +1270,21 @@
   },
   "messaging": {
    "title": "Messaging & offers",
-   "dek": "For each platform: who the pages speak to, the problem they emphasise, the benefit they promise, the offer and its conditions, the proof they supply, and one customer question the pages answer or leave open."
+   "dek": "How each brand explains its value, and where the message needs more detail.",
+   "observed": "Website observations: 23 October 2026",
+   "table_title": "My reading of the reviewed pages",
+   "table_note": "These are interpretations, not direct quotations or statements of the providers’ internal strategies.",
+   "evidence_title": "Evidence by provider",
+   "evidence_dek": "The sources behind each reading: who the pages speak to, the problem, the benefit, the offer and its conditions, the proof, one customer question, missing evidence, and every observation with its exact wording, page and capture time."
   },
   "journeys": {
    "title": "Application journeys",
-   "dek": "What happens when a Canadian business clicks each provider's main start button, observed in a browser up to the first screen. Nothing was submitted, no account was created and no application was tested past that screen."
+   "dek": "I followed each main start button to the first screen. I did not submit forms or create accounts. Checked 23 October 2026.",
+   "heading": "What happens after you click?"
   },
   "lessons": {
    "title": "Lessons & tests",
-   "dek": "Patterns across the six, and three tests a marketing team could run on its own pages. Each test follows the same chain as the rest of the page."
+   "dek": "Three changes to test on your own website. These are proposals, not proven results."
   }
  },
  "journeys": {
@@ -1299,6 +1322,18 @@
     "ids": [
      "O-VEN-18",
      "O-VEN-07"
+    ],
+    "leads": "Account creation",
+    "asks_short": "Sign-in or email and password",
+    "tells": "Gives a time estimate, but does not describe later steps.",
+    "restrictions": [
+     [
+      "Elsewhere on the site",
+      "Not available to businesses in Quebec.",
+      [
+       "O-VEN-07"
+      ]
+     ]
     ]
    },
    "float": {
@@ -1306,12 +1341,16 @@
     "dest": "floatfinancial.com/demo",
     "asks": "Eight questions marked required, a referral code marked optional, \"How did you hear about us\" (required status not recorded); a reCAPTCHA check",
     "elig": "None shown",
-    "next": "Consent to be contacted; nothing on what happens after booking",
+    "next": "Consent to be contacted; nothing on what happens after a demo request",
     "limit": "None shown",
     "stop": "Before \"Book a Demo\"",
     "ids": [
      "O-FLT-16"
-    ]
+    ],
+    "leads": "Demo request",
+    "asks_short": "Eight required questions, plus other fields",
+    "tells": "Does not explain what happens after the request.",
+    "restrictions": []
    },
    "ramp": {
     "start": "Canadian homepage, \"Get started\"",
@@ -1324,6 +1363,18 @@
     "ids": [
      "O-RMP-15",
      "O-RMP-04"
+    ],
+    "leads": "Card application",
+    "asks_short": "Email",
+    "tells": "Does not list later steps.",
+    "restrictions": [
+     [
+      "On the card page, not this screen",
+      "Eligibility asks for at least one Canadian, US or UK-registered entity, a Business Number and a linked Canadian bank account.",
+      [
+       "O-RMP-04"
+      ]
+     ]
     ]
    },
    "loop": {
@@ -1337,6 +1388,18 @@
     "ids": [
      "O-LOP-15",
      "O-LOP-06"
+    ],
+    "leads": "Account sign-up",
+    "asks_short": "Contact and business details, or Google sign-up",
+    "tells": "Lists the business-information and identity steps ahead.",
+    "restrictions": [
+     [
+      "Elsewhere on the site",
+      "The card is not available to sole proprietors residing in Quebec.",
+      [
+       "O-LOP-06"
+      ]
+     ]
     ]
    },
    "keep": {
@@ -1349,6 +1412,18 @@
     "stop": "Closed-applications page",
     "ids": [
      "O-KEP-05"
+    ],
+    "leads": "Closed application page",
+    "asks_short": "No application fields",
+    "tells": "Says new applications are closed on this route.",
+    "restrictions": [
+     [
+      "Scope",
+      "Seen on the self-serve sign-up route its start buttons led to; the message names no product.",
+      [
+       "O-KEP-05"
+      ]
+     ]
     ]
    },
    "airwallex": {
@@ -1362,12 +1437,38 @@
     "ids": [
      "O-AWX-14",
      "O-AWX-06"
+    ],
+    "leads": "Account sign-up",
+    "asks_short": "Business email",
+    "tells": "Does not list later steps.",
+    "restrictions": [
+     [
+      "Elsewhere on the site",
+      "Card use is not for Quebec sole proprietors.",
+      [
+       "O-AWX-06"
+      ]
+     ]
     ]
    }
   },
-  "note": "Observed in a browser on 23 October 2026 between 12:09 p.m. and 12:12 p.m. Toronto time (Keep at 12:02 p.m.), from a normal Chrome profile not signed in to any provider. Each journey was followed to its first screen only: no form was submitted, no account was created and no application was tested past that screen. A progress indicator or time estimate was not used to judge journey length. Ramp's header \"See a demo\" link leads to a page outside the Canadian site.",
-  "reading": "Loop's sign-up was the only first screen that described what comes next. At the other five, a prospective customer would find eligibility, if at all, on another page (Ramp's cards page, Venn's Quebec note) or not before the next step, and Keep's route was closed. This reads six first screens; it says nothing about how many people start, abandon or finish an application.",
-  "test": "Test 3 under Lessons & tests turns this into a proposal: state who can apply and what happens next above the first form field, and measure the share of form starts that become qualified applications."
+  "note": "Observed in a browser on 23 October 2026 between 12:09 p.m. and 12:12 p.m. Toronto time (Keep at 12:02 p.m.), from a normal Chrome profile not signed in to any provider. I followed each journey to its first screen only: no form was submitted and no account was created, so this does not show how long a full application takes or how many people start, abandon or finish one. Ramp’s header “See a demo” link leads to a page outside the Canadian site.",
+  "reading": "Only Loop’s first screen listed the steps ahead. That helps explain the process, but this review does not show whether more people completed it.",
+  "table_columns": [
+   [
+    "leads",
+    "Where the button leads"
+   ],
+   [
+    "asks_short",
+    "What it asks for"
+   ],
+   [
+    "tells",
+    "What it tells you next"
+   ]
+  ],
+  "test_link": "See the test: explain the next step before the form"
  },
  "legend": [
   [

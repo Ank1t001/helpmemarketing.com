@@ -195,8 +195,10 @@ def check_inputs(c):
                     errs.append('%s.%s: bad evidence id %s' % (pid, k, i))
                 elif c.obs[i]['status'] in ('not_checked',):
                     errs.append('%s.%s: %s was not checked' % (pid, k, i))
-        if not p.get('take') and not p.get('missing'):
-            errs.append('%s: needs a takeaway or a labelled evidence placeholder' % pid)
+        if not p.get('main_message') or not p.get('stood_out'):
+            errs.append('%s: the Messaging table needs a main message and what stood out' % pid)
+        if re.search(r'capture request|\bR[12]\b', ' '.join(p.get('missing', []))):
+            errs.append('%s: describe missing evidence in plain language, not internal capture codes' % pid)
         cp_ = c.n['compare']
         for k, _ in cp_['cost_columns'] + cp_['card_columns'] + cp_['fee_columns'] + cp_['acct_columns'] + cp_['spend_columns']:
             spec = c.n['compare']['rows'].get(pid, {}).get(k)
@@ -230,12 +232,15 @@ def check_inputs(c):
         if not r:
             errs.append('journeys: no row for %s' % pid)
             continue
-        for k in [k for k, _ in jn['columns']] + ['dest', 'stop']:
+        for k in [k for k, _ in jn['columns']] + [k for k, _ in jn['table_columns']] + ['dest', 'stop']:
             if not r.get(k):
                 errs.append('journeys.%s: %s is empty' % (pid, k))
         for i in r.get('ids', []):
             if i not in c.obs or c.obs[i]['platform'] != pid:
                 errs.append('journeys.%s: bad evidence id %s' % (pid, i))
+        for lbl, txt, ids in r.get('restrictions', []):
+            if not lbl or not txt or not ids or any(i not in c.obs or c.obs[i]['platform'] != pid for i in ids):
+                errs.append('journeys.%s: restriction line %r needs a label and its own evidence' % (pid, txt))
         if not any(c.obs.get(i, {}).get('category') in ('journey', 'availability') for i in r.get('ids', [])):
             errs.append('journeys.%s: needs a journey observation' % pid)
     f = c.n['findings']['items']
@@ -252,6 +257,11 @@ def check_inputs(c):
                 errs.append('%s: %s has no denominator' % (block, it.get('id', it.get('title'))))
     if len(c.n['examples']['items']) > 4:
         errs.append('examples: at most four')
+    places = [e.get('place') for e in c.n['examples']['items']]
+    if places.count('messaging') != 2 or places.count('journeys') != 1 or any(not (x in ('messaging', 'journeys') or str(x).startswith('evidence:')) for x in places):
+        errs.append('examples: two in Messaging, one in the journey evidence, any other in a provider evidence expander')
+    if not re.match(r'(One|Two|Three|Four) observed example', c.n['examples']['dek']) or ['One', 'Two', 'Three', 'Four'].index(c.n['examples']['dek'].split()[0]) + 1 != places.count('messaging'):
+        errs.append('examples: the dek count matches the examples shown')
     if not 2 <= len(c.n['patterns']['items']) <= 3:
         errs.append('patterns: two or three')
     tests = c.n['tests']['items']
@@ -262,7 +272,7 @@ def check_inputs(c):
     if tids != ['T1', 'T2', 'T3']:
         errs.append('tests: ids T1, T2, T3 in order')
     for t in tests:
-        for k in TEST_FIELDS:
+        for k in TEST_FIELDS + ('change_short', 'measure_short'):
             if not t.get(k):
                 errs.append('test %s: missing %s' % (t.get('title'), k))
         if t.get('finding') not in fids:
@@ -283,7 +293,7 @@ def check_inputs(c):
         errs.append('narrative: the reasoning chain is %s' % ' > '.join(CHAIN))
     if [l for l, _ in c.n.get('legend', [])] != LEGEND:
         errs.append('narrative: the reading guide labels are %s' % LEGEND)
-    for where, s in [('findings.take', c.n['findings']['take']), ('patterns.take', c.n['patterns']['take'])] + [('%s.take' % k, v.get('take') or '') for k, v in c.n['platforms'].items()]:
+    for where, s in [('findings.take', c.n['findings']['take'])]:
         if s:
             n = len([x for x in re.split(r'(?<=[.?!])\s+', s.strip()) if x])
             if not 2 <= n <= 3:
@@ -364,11 +374,11 @@ def check_social_outputs(c, body):
     s = c.social
     errs = []
     views = [v for _, v in build.view_order(c)]
-    if views.index('bs-social') != views.index('bs-messaging') + 1 or views.index('bs-journeys') != views.index('bs-social') + 1:
-        errs.append('social: the Instagram view sits after Messaging & offers and before Application journeys')
+    if views[-1] != 'bs-social' or views.index('bs-journeys') != views.index('bs-messaging') + 1 or views.index('bs-lessons') != views.index('bs-journeys') + 1:
+        errs.append('social: Messaging & offers, Application journeys and Lessons & tests read in sequence, with Social Media Content last')
     if '<a href="#bs-social" id="bs-tab-social">Social Media Content</a>' not in body or 'This edition reviews Instagram content only.' not in body:
         errs.append('social: the tab is labelled "Social Media Content" and the view says it reviews Instagram content only')
-    sec = body[body.index('<section id="bs-social"'):body.index('<section id="bs-journeys"')]
+    sec = body[body.index('<section id="bs-social"'):body.index('<section id="bs-help"')]
     review = 'For editorial review</span>' in sec
     if (s['status'] == 'review' and getattr(c, 'mode', 'draft') == 'draft') != review:
         errs.append('social: the editorial-review flag shows on the draft only, and only while approval is pending')
@@ -407,7 +417,7 @@ def check_social_outputs(c, body):
                 errs.append('social: example %s lacks %s' % (ex['id'], need))
         if p.get('paid_label') and html_escape(p['paid_label']['text']) not in t and p['paid_label']['text'] not in t:
             errs.append('social: example %s drops its paid-partnership label' % ex['id'])
-    if 'Proposed test, not a result</span><b>Test ' in sec:
+    if 'Proposed test, not a result</span><h3 class="bs-ttitle">Test ' in sec:
         errs.append('social: the Instagram view adds no test of its own')
     for m in PRIVATE_MARKERS:
         if m in sec:
@@ -542,14 +552,15 @@ def check_outputs(c, page, csvtext, extra_paths=()):
             target = os.path.join(model.ROOT, path.lstrip('/'))
             if path not in ('/', '', '/' + build_csv(), '/' + social_csv()) and path not in extra_paths and not (os.path.exists(target) or os.path.exists(target + '.html')):
                 errs.append('page: internal link target missing %s' % h)
+    msg = body[body.index('<section id="bs-messaging"'):body.index('<section id="bs-journeys"')]
     for pid in EXPECTED_ORDER:
-        block = body[body.index('id="bs-p-%s"' % pid):]
-        block = block[:block.index('</details>')]
-        if TAKE_LABEL not in block:
-            errs.append('page: %s has no takeaway or placeholder' % pid)
-    if body.count('What this means for your marketing team') < 8:
-        errs.append('page: expected a takeaway after each platform, after the findings and after the patterns')
-    if body.count('<ol class="tests"><li') != 1 or body.count('<dt>Testable hypothesis</dt>') != 3 or body.count('Proposed test, not a result</span><b>Test ') != 3:
+        if '<details class="bs-more plat" id="bs-p-%s">' % pid not in msg or 'id="bs-msg-%s"' % pid not in msg:
+            errs.append('page: %s needs a Messaging table row and an evidence expander' % pid)
+    if TAKE_LABEL in msg or re.search(r'capture request|\bR[12]\b', body, re.I) or msg.count(html_escape(c.n['views']['messaging']['observed'])) != 1:
+        errs.append('page: Messaging carries no takeaway boxes or capture codes, and the observation date once')
+    if 'booked' in body or 'after booking' in body:
+        errs.append('page: a demo request is not a booked meeting')
+    if body.count('<ol class="tests"><li') != 1 or body.count('<dt>Testable hypothesis</dt>') != 3 or body.count('Proposed test, not a result</span><h3 class="bs-ttitle">Test ') != 3:
         errs.append('page: exactly three tests, each with its hypothesis')
     for o in c.obs.values():
         if 'id="ev-%s"' % o['id'] not in body:

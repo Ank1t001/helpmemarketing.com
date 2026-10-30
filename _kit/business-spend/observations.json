@@ -1281,7 +1281,7 @@
    "market": "Canada",
    "eligibility": null,
    "plan": null,
-   "statement": "\"See a demo\" leads to a Book a Demo form with eight questions marked required (first and last name, work email, job title, phone, company size, current monthly card spend, product interest), a referral code marked optional, and a \"How did you hear about us\" question whose required status was not recorded. The form uses a reCAPTCHA check. The consent line says submitting lets Float contact you; nothing says what happens after booking.",
+   "statement": "\"See a demo\" leads to a Book a Demo form with eight questions marked required (first and last name, work email, job title, phone, company size, current monthly card spend, product interest), a referral code marked optional, and a \"How did you hear about us\" question whose required status was not recorded. The form uses a reCAPTCHA check. The consent line says submitting lets Float contact you; nothing says what happens after a demo request.",
    "amount": null,
    "units": null,
    "currency": null,
@@ -1568,7 +1568,7 @@
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "A browser pass on 23 October 2026 read the payment terms of the Canada Card Supplement, but the retained screenshot shows only its opening section (issuer and who may request Canadian Cards), and a server fetch of the page returns only a script shell. The payment terms are therefore not reported. Capture request R2 in CHROME_HANDOFF.md.",
+   "conditions": "A browser pass on 23 October 2026 read the payment terms of the Canada Card Supplement, but the retained screenshot shows only its opening section (issuer and who may request Canadian Cards), and a server fetch of the page returns only a script shell. The payment terms are therefore not reported.",
    "sources": [],
    "status": "not_checked",
    "method": "browser",
@@ -1720,7 +1720,7 @@
    "amount": null,
    "units": null,
    "currency": null,
-   "conditions": "The no-markup line applies to spending in the card currency. A conversion margin for other currencies was read in a browser in the Canada Card Supplement but not captured, so it is not reported (capture request R2).",
+   "conditions": "The no-markup line applies to spending in the card currency. A conversion margin for other currencies was read in a browser in the Canada Card Supplement but not captured, so it is not reported.",
    "sources": [
     {
      "source_id": "S-RMP-HOME",

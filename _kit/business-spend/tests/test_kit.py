@@ -180,13 +180,41 @@ class KitTests(unittest.TestCase):
 
     def test_five_views_and_content_kinds(self):
         body = self.page[self.page.index('REPORT BODY START'):]
-        pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-compare', 'bs-messaging', 'bs-social', 'bs-journeys', 'bs-lessons')]
+        pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-compare', 'bs-messaging', 'bs-journeys', 'bs-lessons', 'bs-social')]
         self.assertEqual(pos, sorted(pos))
-        self.assertEqual(body.count('class="note reading"'), 6 + 4 + 1 + 4)  # six platforms, four examples, the journey reading, four Instagram examples
-        self.assertEqual(body.count('Proposed test, not a result</span><b>Test '), 3)   # still exactly three tests
-        self.assertEqual(body.count('What this means for your marketing team'), 8 + 1 + 4)  # takeaways retained, the legend entry, four Instagram examples
+        self.assertEqual(body.count('class="note reading"'), 6 + 1 + 4)  # six provider evidence expanders, the journey reading, four Instagram examples
+        self.assertEqual(body.count('Proposed test, not a result</span><h3 class="bs-ttitle">Test '), 3)   # still exactly three tests
+        self.assertEqual(body.count('What this means for your marketing team'), 1 + 1 + 4)  # the Overview takeaway, the legend entry, four Instagram examples (2026-10-30: no takeaway boxes in Messaging or Lessons)
         self.assertIn('id="bs-journey-table"', body)
         self.assertNotIn('Next step observed', body)
+
+    def test_three_tabs_short_form(self):
+        # Founder brief (2026-10-30, third): Messaging, Application journeys and Lessons & tests.
+        body = self.page[self.page.index('REPORT BODY START'):]
+        msg = body[body.index('<section id="bs-messaging"'):body.index('<section id="bs-journeys"')]
+        jr = body[body.index('<section id="bs-journeys"'):body.index('<section id="bs-lessons"')]
+        ls = body[body.index('<section id="bs-lessons"'):body.index('<section id="bs-social"')]
+        self.assertEqual(msg.count('Website observations: 23 October 2026'), 1)
+        self.assertIn('These are interpretations, not direct quotations or statements of the providers’ internal strategies.', msg)
+        self.assertEqual(len(re.findall(r'<tr id="bs-msg-[a-z]+">', msg)), 6)
+        self.assertEqual(msg.count('<div class="card ex">'), 2)   # Loop and Airwallex; the Float reward example sits in Float's evidence
+        self.assertIn('Two observed examples', msg)
+        self.assertNotIn('What this means for your marketing team', msg)
+        self.assertNotRegex(body, r'(?i)capture request|\bR[12]\b')
+        fu = msg[msg.index('id="bs-p-airwallex"'):]
+        self.assertIn('checked 30 October 2026', fu[:fu.index('</details>')])
+        self.assertIn('<h2 id="bs-journeys-h">What happens after you click?</h2>', jr)
+        self.assertEqual(re.findall(r'<th scope="col">([^<]+)</th>', jr[:jr.index('</thead>')]), ['Platform', 'Where the button leads', 'What it asks for', 'What it tells you next'])
+        self.assertIn('Not available to businesses in Quebec.', jr[:jr.index('id="bs-jt-evidence"')])
+        self.assertIn('<summary>First-screen evidence</summary>', jr)
+        self.assertIn('id="bs-e3"', jr[jr.index('id="bs-jt-evidence"'):])
+        self.assertIn('href="#bs-t3">See the test: explain the next step before the form', jr)
+        self.assertNotRegex(body, r'after booking|is booked')
+        self.assertLess(ls.index('id="bs-tests"'), ls.index('<summary>Other observations</summary>'))
+        self.assertEqual(ls.count('<summary>Evidence and test setup</summary>'), 3)
+        self.assertIn('Run these tests using your own website and application data.', ls)
+        self.assertNotIn("provider's internal data", body)
+        self.assertIn('directional reading only', ls)
 
     def test_ramp_uncaptured_terms_omitted(self):
         self.assertEqual(self.c.obs['O-RMP-02']['status'], 'not_checked')
@@ -253,9 +281,9 @@ class KitTests(unittest.TestCase):
         nav = body[body.index('class="ri-nav bs-views"'):]
         nav = nav[:nav.index('</nav>')]
         self.assertIn('<div class="bs-tablist">', nav)
-        for k in ('overview', 'compare', 'messaging', 'social', 'journeys', 'lessons'):
+        for k in ('overview', 'compare', 'messaging', 'journeys', 'lessons', 'social'):
             self.assertIn('<a href="#bs-%s" id="bs-tab-%s">' % (k, k), nav)
-        self.assertEqual(re.findall(r'id="bs-tab-([a-z]+)"', nav), ['overview', 'compare', 'messaging', 'social', 'journeys', 'lessons'])
+        self.assertEqual(re.findall(r'id="bs-tab-([a-z]+)"', nav), ['overview', 'compare', 'messaging', 'journeys', 'lessons', 'social'])
         self.assertNotIn('role="tab', body)                  # roles come from the script: without it the page is a plain reading order
         self.assertNotRegex(body, r'<section id="bs-[a-z]+" class="bs-view"[^>]* hidden')
         self.assertEqual(body.count('<p class="bs-next">'), 6)
@@ -277,6 +305,9 @@ class KitTests(unittest.TestCase):
             li = body[body.index('<li id="bs-%s">' % t['id'].lower()):]
             li = li[:li.index('</li>')]
             dts = [x for x in __import__('re').findall(r'<dt>([^<]+)</dt>', li)]
+            self.assertEqual(dts[:2], ['The change', 'What to measure'])   # shown first; the full chain sits in "Evidence and test setup"
+            self.assertIn('<summary>Evidence and test setup</summary>', li)
+            dts = dts[2:]
             self.assertEqual(dts, ['Observed evidence', 'Customer question', 'My interpretation', 'Testable hypothesis', 'One change',
                                    'What stays comparable', 'Primary measurement', 'Guardrail', 'When the result would be inconclusive'])
             self.assertTrue(t['evidence'])
@@ -432,16 +463,16 @@ class SocialModuleTests(unittest.TestCase):
                      'api_key=abcdef123456', 'x?_vercel_share=abcdefgh1234'):
             self.assertTrue(social.secret_findings(text), text)
 
-    def test_instagram_view_sits_after_messaging_for_review(self):
+    def test_instagram_view_sits_last(self):
         c = build.Ctx()
         body = build.body(c)
-        self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-compare', 'bs-messaging', 'bs-social', 'bs-journeys', 'bs-lessons'])
+        self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-compare', 'bs-messaging', 'bs-journeys', 'bs-lessons', 'bs-social'])
         self.assertIn('<a href="#bs-social" id="bs-tab-social">Social Media Content</a>', body)
         self.assertIn('This edition reviews Instagram content only.', body)
         self.assertIn('Official company Instagram accounts only, posts published 25 July to 22 October 2026', body)
         self.assertNotIn('<b>Instagram posts</b>', body.split('</header>')[0])  # dates live in Scope & sources, not the hero (2026-10-28)
         self.assertIn('Websites observed 23 October 2026, 10:39 a.m. to 2:33 p.m. Toronto time.', body)
-        sec = body[body.index('<section id="bs-social"'):body.index('<section id="bs-journeys"')]
+        sec = body[body.index('<section id="bs-social"'):body.index('<section id="bs-help"')]
         self.assertEqual('For editorial review' in sec, c.social['status'] == 'review')   # the flag shows only while approval is pending
         self.assertIn('The captured Venn website footer linked to @tryvault, while this study uses owner-confirmed @venn.ca with supporting profile evidence.', sec)
         self.assertEqual(sec.count('No in-window posts found in the reviewed'), 3)

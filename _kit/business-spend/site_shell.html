@@ -33,9 +33,9 @@ w.addEventListener(e,load,{once:true,passive:true});});
 (function(){
   function settle(){
     var id = location.hash && location.hash.slice(1); if (!id) return;
-    var el = document.getElementById(id) || document.getElementsByName(id)[0]; if (!el) return;
+    var el = document.getElementById(id) || document.getElementsByName(id)[0], h = location.hash; if (!el) return;
     var wrap = document.querySelector('.msi'); if (wrap) wrap.classList.add('msi-hash');
-    function jump(){ if (Math.abs(el.getBoundingClientRect().top) > 2) el.scrollIntoView({ block: 'start' }); }
+    function jump(){ if (location.hash !== h) return; /* a later link owns the scroll */ var m = parseFloat(getComputedStyle(el).scrollMarginTop) || 0; if (Math.abs(el.getBoundingClientRect().top - m) > 2) { try { el.scrollIntoView({ block: 'start', behavior: 'instant' }); } catch (e) { el.scrollIntoView(); } } } /* instant (2026-10-30): a smooth re-jump animated over long distances */
     requestAnimationFrame(function(){ requestAnimationFrame(jump); });
     setTimeout(jump, 600); setTimeout(jump, 1500); /* lazy images inside newly visible sections settle late */
   }
