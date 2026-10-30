@@ -26,7 +26,7 @@
     "reading": "A reader who meets the rate on one page and its condition on another has to connect the two to know what they would earn.",
     "analysis": [
      [
-      "Rewards in Compare products",
+      "Rewards in Compare Products",
       "bs-prod"
      ],
      [
@@ -65,7 +65,7 @@
     "reading": "A general \"no FX fee\" line answers the question only for the case it covers; the other cases are priced on other pages or in the terms.",
     "analysis": [
      [
-      "Currency fees in Compare products",
+      "Currency fees in Compare Products",
       "bs-xb"
      ]
     ],
@@ -98,7 +98,7 @@
     "reading": "At most first screens, whether you qualify and what follows was on another page or not stated before the next step. This is a reading of six first screens, not of how many people start or finish an application.",
     "analysis": [
      [
-      "First-screen table in Application journeys",
+      "First-screen table in Application Journey",
       "bs-journey-table"
      ],
      [
@@ -1265,11 +1265,11 @@
    "observed": "Website observations: 23 October 2026"
   },
   "compare": {
-   "title": "Compare products",
+   "title": "Compare Products",
    "dek": "Compare what each platform publishes about its cards, rewards, fees and spending tools."
   },
   "messaging": {
-   "title": "Messaging & offers",
+   "title": "Messaging & Offers",
    "dek": "How each brand explains its value, and where the message needs more detail.",
    "observed": "Website observations: 23 October 2026",
    "table_title": "My reading of the reviewed pages",
@@ -1278,12 +1278,12 @@
    "evidence_dek": "The sources behind each reading: who the pages speak to, the problem, the benefit, the offer and its conditions, the proof, one customer question, missing evidence, and every observation with its exact wording, page and capture time."
   },
   "journeys": {
-   "title": "Application journeys",
+   "title": "Application Journey",
    "dek": "I followed each main start button to the first screen. I did not submit forms or create accounts. Checked 23 October 2026.",
    "heading": "What happens after you click?"
   },
   "lessons": {
-   "title": "Lessons & tests",
+   "title": "Lessons",
    "dek": "Three changes to test on your own website. These are proposals, not proven results."
   }
  },

@@ -266,7 +266,7 @@ def platform_block(c, pid):
     pages = sorted({s for o in obs for s in [r['source_id'] for r in o['sources']] + o.get('reviewed_sources', [])})
     dl = ''.join('<dt>%s</dt><dd>%s <span class="evlinks">(%s)</span></dd>' % (E(l), E(p[k]), id_links(p['ev'][k])) for k, l in PLAT_ROWS)
     links = ('<p class="pnote dlinks"><b>Product details:</b> %s&rsquo;s <a href="#bs-prod-%s">cards, rewards and costs</a>, <a href="#bs-xb-%s">currency fees</a> and '
-             '<a href="#bs-spend-%s">spending controls</a> rows in Compare products, and its <a href="#bs-jt-%s">first screen</a> in Application journeys.</p>'
+             '<a href="#bs-spend-%s">spending controls</a> rows in Compare Products, and its <a href="#bs-jt-%s">first screen</a> in Application Journey.</p>'
              % (E(c.name(pid)), pid, pid, pid, pid))
     q = p['question']
     reading = ('<div class="note reading"><span class="lbl">My reading</span><p><b>Customer question:</b> &ldquo;%s&rdquo; <b class="ans">%s.</b> %s</p><p>%s</p></div>'
@@ -326,14 +326,13 @@ def cite_and_editions(c):
     return cite, table
 
 
-VIEW_ORDER = [('overview', 'bs-overview'), ('compare', 'bs-compare'), ('messaging', 'bs-messaging'), ('journeys', 'bs-journeys'), ('lessons', 'bs-lessons')]
+VIEW_ORDER = [('overview', 'bs-overview'), ('social', 'bs-social'), ('messaging', 'bs-messaging'), ('compare', 'bs-compare'), ('journeys', 'bs-journeys'), ('lessons', 'bs-lessons')]
 
 
 def view_order(c):
-    order = list(VIEW_ORDER)
-    if c.social:
-        order.append(('social', 'bs-social'))   # last (founder, 2026-10-30): Messaging, Application journeys and Lessons read in sequence
-    return order
+    # Tab order and labels (founder, 2026-10-30): Overview, Social Media Content, Messaging & Offers, Compare Products,
+    # Application Journey, Lessons. The Social view shows only with a derived module in review or reviewed.
+    return [v for v in VIEW_ORDER if v[0] != 'social' or c.social]
 
 
 TEST_ROWS = [('observation', 'Observed evidence'), ('question', 'Customer question'), ('reading', 'My interpretation'),
@@ -365,6 +364,7 @@ def body(c):
         out.append('<p class="pnote">%s</p>' % E(h['draft_note']))
     out.append('</header>')
     views = dict(n['views'])
+    marks = {}
     if c.social:
         views['social'] = {'title': c.social['view']['title'], 'dek': c.social['view']['dek']}
     order = view_order(c)
@@ -388,6 +388,7 @@ def body(c):
 
     # ---------- 1. Overview ----------
     # Founder brief (2026-10-28): findings first, my reading beside each, one takeaway, then the research details in expanders.
+    marks['overview'] = len(out)
     out.append(view_open('overview', 'bs-overview'))
     out.append('<p class="bs-obs">%s</p>' % E(views['overview']['observed']))
     f = n['findings']
@@ -455,6 +456,7 @@ def body(c):
 
     # ---------- 2. Compare products ----------
     cp = n['compare']
+    marks['compare'] = len(out)
     out.append(view_open('compare', 'bs-compare'))
     # Founder brief (2026-10-30, second): short, direct and plain. Three compact tables, each with an optional details expander;
     # restrictions beside the provider; supporting information grouped at the bottom.
@@ -490,6 +492,7 @@ def body(c):
     # Founder brief (2026-10-30, third): one reading table, two examples, the evidence per provider in expanders.
     ex = n['examples']
     vm = views['messaging']
+    marks['messaging'] = len(out)
     out.append(view_open('messaging', 'bs-messaging'))
     out.append('<p class="bs-obs">%s</p>' % E(vm['observed']))
     mrows = ''.join('<tr id="bs-msg-%s"><td class="brandcell"><a href="#bs-p-%s">%s</a></td><td data-label="Main message">%s</td><td data-label="What stood out">%s</td></tr>\n' % (
@@ -506,6 +509,7 @@ def body(c):
 
     # ---------- 4. Application journeys ----------
     jn = n['journeys']
+    marks['journeys'] = len(out)
     out.append(view_open('journeys', 'bs-journeys'))
     head = ''.join('<th scope="col">%s</th>' % E(l) for _, l in jn['table_columns'])
     rows = []
@@ -538,6 +542,7 @@ def body(c):
     # Tests first, each with the change and the measure, the full chain in an expander; the patterns under "Other observations".
     pt = n['patterns']
     ts = n['tests']
+    marks['lessons'] = len(out)
     out.append(view_open('lessons', 'bs-lessons'))
     lis = []
     for t in ts['items']:
@@ -559,9 +564,15 @@ def body(c):
 
     # ---------- 6. Social Media Content (only with a derived module in review or reviewed) ----------
     if c.social:
+        marks['social'] = len(out)
         out.append(view_open('social', 'bs-social'))
         out.append(social.panel_html(c))
         out.append(view_close('social'))
+
+    # Emit the views in tab order, so the page reads the same without JavaScript and in print.
+    ends = sorted(marks.values()) + [len(out)]
+    chunks = {k: out[i:ends[ends.index(i) + 1]] for k, i in marks.items()}
+    out = out[:min(marks.values())] + [x for k, _ in order for x in chunks[k]]
 
     hp = n['help']
     href = '/contact?intent=review&amp;entry=%s#contact-form' % hp['entry']

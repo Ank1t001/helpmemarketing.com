@@ -180,7 +180,7 @@ class KitTests(unittest.TestCase):
 
     def test_five_views_and_content_kinds(self):
         body = self.page[self.page.index('REPORT BODY START'):]
-        pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-compare', 'bs-messaging', 'bs-journeys', 'bs-lessons', 'bs-social')]
+        pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons')]
         self.assertEqual(pos, sorted(pos))
         self.assertEqual(body.count('class="note reading"'), 6 + 1 + 4)  # six provider evidence expanders, the journey reading, four Instagram examples
         self.assertEqual(body.count('Proposed test, not a result</span><h3 class="bs-ttitle">Test '), 3)   # still exactly three tests
@@ -191,9 +191,7 @@ class KitTests(unittest.TestCase):
     def test_three_tabs_short_form(self):
         # Founder brief (2026-10-30, third): Messaging, Application journeys and Lessons & tests.
         body = self.page[self.page.index('REPORT BODY START'):]
-        msg = body[body.index('<section id="bs-messaging"'):body.index('<section id="bs-journeys"')]
-        jr = body[body.index('<section id="bs-journeys"'):body.index('<section id="bs-lessons"')]
-        ls = body[body.index('<section id="bs-lessons"'):body.index('<section id="bs-social"')]
+        msg, jr, ls = (validate.view_html(body, v) for v in ('bs-messaging', 'bs-journeys', 'bs-lessons'))
         self.assertEqual(msg.count('Website observations: 23 October 2026'), 1)
         self.assertIn('These are interpretations, not direct quotations or statements of the providers’ internal strategies.', msg)
         self.assertEqual(len(re.findall(r'<tr id="bs-msg-[a-z]+">', msg)), 6)
@@ -281,9 +279,9 @@ class KitTests(unittest.TestCase):
         nav = body[body.index('class="ri-nav bs-views"'):]
         nav = nav[:nav.index('</nav>')]
         self.assertIn('<div class="bs-tablist">', nav)
-        for k in ('overview', 'compare', 'messaging', 'journeys', 'lessons', 'social'):
+        for k in ('overview', 'social', 'messaging', 'compare', 'journeys', 'lessons'):
             self.assertIn('<a href="#bs-%s" id="bs-tab-%s">' % (k, k), nav)
-        self.assertEqual(re.findall(r'id="bs-tab-([a-z]+)"', nav), ['overview', 'compare', 'messaging', 'journeys', 'lessons', 'social'])
+        self.assertEqual(re.findall(r'id="bs-tab-([a-z]+)"', nav), ['overview', 'social', 'messaging', 'compare', 'journeys', 'lessons'])
         self.assertNotIn('role="tab', body)                  # roles come from the script: without it the page is a plain reading order
         self.assertNotRegex(body, r'<section id="bs-[a-z]+" class="bs-view"[^>]* hidden')
         self.assertEqual(body.count('<p class="bs-next">'), 6)
@@ -463,16 +461,16 @@ class SocialModuleTests(unittest.TestCase):
                      'api_key=abcdef123456', 'x?_vercel_share=abcdefgh1234'):
             self.assertTrue(social.secret_findings(text), text)
 
-    def test_instagram_view_sits_last(self):
+    def test_tab_order_and_labels(self):
         c = build.Ctx()
         body = build.body(c)
-        self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-compare', 'bs-messaging', 'bs-journeys', 'bs-lessons', 'bs-social'])
+        self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'])
         self.assertIn('<a href="#bs-social" id="bs-tab-social">Social Media Content</a>', body)
         self.assertIn('This edition reviews Instagram content only.', body)
         self.assertIn('Official company Instagram accounts only, posts published 25 July to 22 October 2026', body)
         self.assertNotIn('<b>Instagram posts</b>', body.split('</header>')[0])  # dates live in Scope & sources, not the hero (2026-10-28)
         self.assertIn('Websites observed 23 October 2026, 10:39 a.m. to 2:33 p.m. Toronto time.', body)
-        sec = body[body.index('<section id="bs-social"'):body.index('<section id="bs-help"')]
+        sec = validate.view_html(body, 'bs-social')
         self.assertEqual('For editorial review' in sec, c.social['status'] == 'review')   # the flag shows only while approval is pending
         self.assertIn('The captured Venn website footer linked to @tryvault, while this study uses owner-confirmed @venn.ca with supporting profile evidence.', sec)
         self.assertEqual(sec.count('No in-window posts found in the reviewed'), 3)

@@ -364,6 +364,12 @@ def social_csv():
     return social.CSV_REL
 
 
+def view_html(body, vid):
+    """One view's markup, from its section to the next section, whatever the tab order."""
+    a = body.index('<section id="%s"' % vid)
+    return body[a:body.index('<section id=', a + 1)]
+
+
 PRIVATE_MARKERS = ('reposts-index', 'captions_exact', 'manifest-social', 'social-evidence-v1.zip', 'libfile_', 'drive.google', 'scratchpad', '_vercel_share', '/_kit/')
 
 
@@ -374,11 +380,11 @@ def check_social_outputs(c, body):
     s = c.social
     errs = []
     views = [v for _, v in build.view_order(c)]
-    if views[-1] != 'bs-social' or views.index('bs-journeys') != views.index('bs-messaging') + 1 or views.index('bs-lessons') != views.index('bs-journeys') + 1:
-        errs.append('social: Messaging & offers, Application journeys and Lessons & tests read in sequence, with Social Media Content last')
+    if views != ['bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons']:
+        errs.append('social: tab order is Overview, Social Media Content, Messaging & Offers, Compare Products, Application Journey, Lessons')
     if '<a href="#bs-social" id="bs-tab-social">Social Media Content</a>' not in body or 'This edition reviews Instagram content only.' not in body:
         errs.append('social: the tab is labelled "Social Media Content" and the view says it reviews Instagram content only')
-    sec = body[body.index('<section id="bs-social"'):body.index('<section id="bs-help"')]
+    sec = view_html(body, 'bs-social')
     review = 'For editorial review</span>' in sec
     if (s['status'] == 'review' and getattr(c, 'mode', 'draft') == 'draft') != review:
         errs.append('social: the editorial-review flag shows on the draft only, and only while approval is pending')
@@ -552,7 +558,7 @@ def check_outputs(c, page, csvtext, extra_paths=()):
             target = os.path.join(model.ROOT, path.lstrip('/'))
             if path not in ('/', '', '/' + build_csv(), '/' + social_csv()) and path not in extra_paths and not (os.path.exists(target) or os.path.exists(target + '.html')):
                 errs.append('page: internal link target missing %s' % h)
-    msg = body[body.index('<section id="bs-messaging"'):body.index('<section id="bs-journeys"')]
+    msg = view_html(body, 'bs-messaging')
     for pid in EXPECTED_ORDER:
         if '<details class="bs-more plat" id="bs-p-%s">' % pid not in msg or 'id="bs-msg-%s"' % pid not in msg:
             errs.append('page: %s needs a Messaging table row and an evidence expander' % pid)
