@@ -18,6 +18,7 @@ import sys
 from datetime import datetime
 
 import model
+import paid
 import social
 import validate
 
@@ -74,6 +75,7 @@ class Ctx:
         self.date_modified = self.edition.get('modified_at')
         # Separately dated follow-up checks (not part of the 23 October 2026 research data or its CSV).
         self.followup = model.load('airwallex_followup_2026-10-30.json')
+        self.paid = paid.load()
         # Instagram module: status review shows the view for editorial review (release stays blocked by
         # validate.check_inputs); status reviewed, with the owner's approval recorded by hand, releases it.
         self.social = social.load_module()
@@ -329,13 +331,13 @@ def cite_and_editions(c):
     return cite, table
 
 
-VIEW_ORDER = [('overview', 'bs-overview'), ('social', 'bs-social'), ('messaging', 'bs-messaging'), ('compare', 'bs-compare'), ('journeys', 'bs-journeys'), ('lessons', 'bs-lessons')]
+VIEW_ORDER = [('overview', 'bs-overview'), ('social', 'bs-social'), ('paid', 'bs-paid'), ('messaging', 'bs-messaging'), ('compare', 'bs-compare'), ('journeys', 'bs-journeys'), ('lessons', 'bs-lessons')]
 
 
 def view_order(c):
     # Tab order and labels (founder, 2026-10-30): Overview, Social Media Content, Messaging & Offers, Compare Products,
     # Application Journey, Lessons. The Social view shows only with a derived module in review or reviewed.
-    return [v for v in VIEW_ORDER if v[0] != 'social' or c.social]
+    return [v for v in VIEW_ORDER if (v[0] != 'social' or c.social) and (v[0] != 'paid' or getattr(c, 'paid', None))]
 
 
 TEST_ROWS = [('observation', 'Observed evidence'), ('question', 'Customer question'), ('reading', 'My interpretation'),
@@ -357,6 +359,7 @@ ICONS = {
     'bubble': _SVG % '<path d="M8 12a5 5 0 0 1 5-5h22a5 5 0 0 1 5 5v14a5 5 0 0 1-5 5H21l-8 7v-7a5 5 0 0 1-5-5z"/><path d="M15 15h18M15 22h12"/>',
     'grid': _SVG % '<rect x="7" y="9" width="34" height="30" rx="3"/><path d="M7 19h34M7 29h34M19 9v30M30 9v30"/>',
     'steps': _SVG % '<circle cx="10" cy="24" r="4"/><circle cx="24" cy="24" r="4"/><circle cx="38" cy="24" r="4"/><path d="M14 24h6M28 24h6"/>',
+    'ads': _SVG % '<path d="M8 20v8a2 2 0 0 0 2 2h4l10 7V11L14 18h-4a2 2 0 0 0-2 2z"/><path d="M31 18a8 8 0 0 1 0 12M35 13a14 14 0 0 1 0 22"/>',
     'check': _SVG % '<path d="M9 13l3 3 5-6M9 25l3 3 5-6M9 37l3 3 5-6"/><path d="M22 13h17M22 25h17M22 37h17"/>',
 }
 
@@ -370,12 +373,14 @@ def sources_view(c, views, start, end, draft):
     m = n['method']
     when = '%s, %s to %s Toronto time' % (long_date(start), toronto_time(start), toronto_time(end))
     parts = []
-    toc = [('bs-ref-scope', 'Scope, dates and coverage'), ('bs-ref-web', 'Website evidence by provider'), ('bs-ref-social', 'Social accounts, posts, classifications and engagement'),
+    toc = [('bs-ref-scope', 'Scope, dates and coverage'), ('bs-ref-web', 'Website evidence by provider'), ('bs-ref-social', 'Social accounts, posts, classifications and engagement'), ('bs-ref-paid', 'Paid ads: collection and records'),
            ('bs-ref-journey', 'Customer-journey evidence'), ('bs-ref-tests', 'Findings and full test specifications'), ('bs-ref-status', 'Status definitions and reconciliation'),
            ('bs-ref-images', 'Image provenance'), ('bs-ref-author', 'Author and relationship disclosure'), ('bs-cite', 'Citation'),
            ('bs-editions', 'Edition history and corrections'), ('bs-ref-downloads', 'Downloads')]
     if not c.social:
         toc = [t for t in toc if t[0] not in ('bs-ref-social', 'bs-ref-images')]
+    if not c.paid:
+        toc = [t for t in toc if t[0] != 'bs-ref-paid']
     if draft:
         toc = [t for t in toc if t[0] != 'bs-cite']
     back = '<p class="bs-ref-back"><a href="#bs-overview" data-bs-back>&larr; <span>Back to the index</span></a></p>'
@@ -419,6 +424,8 @@ def sources_view(c, views, start, end, draft):
     # 3. Social accounts, posts and attribution
     if c.social:
         sec('bs-ref-social', 'Social accounts, posts, classifications and engagement', social.reference_html(c) + (social.analysis_reference_html(c.social) if c.social.get('analysis') else ''))
+    if c.paid:
+        sec('bs-ref-paid', 'Paid ads: collection and records', paid.reference_html(c.paid, c.order, long_date, toronto_time))
     # 4. Customer-journey evidence
     jn = n['journeys']
     jlabels = [('start', 'Starting page and button'), ('dest', 'Destination'), ('asks', 'Fields asked for'), ('elig', 'Eligibility shown'),
@@ -514,6 +521,9 @@ def sources_view(c, views, start, end, draft):
         if c.social.get('analysis'):
             dl.append('<li><a href="/%s" download>Social analysis, version 1 (CSV)</a>: one row per attributed post (%d), with the primary theme, secondary tags, format, creative approach and whether it was inspected, audience, product and benefit, the basis for each classification, likes and comments as displayed with their state (exact, approximate or missing) and read time, and views where recorded. Captions, comment text and commenter names are not in the file. The two files above keep their meaning and columns.</li>' % (
                 social.ANALYSIS_CSV_REL, len(c.social['analysis']['posts'])))
+    if c.paid:
+        dl.append('<li><a href="/%s" download>Paid ads, version 1 (CSV)</a>: one row per active Meta ad collected on 30 October 2026 (%d), with the Ad Library link, start date, days running, format, versions, placements, button, destination page and headline, and flags for unfilled template text and card disclosures. Full ad copy and media are not in the file.</li>' % (
+            paid.CSV_REL, len(c.paid['records'])))
     sec('bs-ref-downloads', 'Downloads', '<ul class="dek dlinks">%s</ul>' % ''.join(dl))
     parts.append(back.replace('bs-ref-back', 'bs-ref-back bs-ref-back-end') + '</section>')
     return '\n'.join(parts)
@@ -538,6 +548,8 @@ def body(c):
     views = dict(n['views'])
     if c.social:
         views['social'] = {'title': c.social['view']['title'], 'dek': c.social['view']['dek']}
+    if getattr(c, 'paid', None):
+        views['paid'] = {'title': c.paid['narrative']['view']['title'], 'dek': c.paid['narrative']['view']['dek']}
     order = view_order(c)
     # Tabs plus one small "Sources & evidence" link for the whole index (founder brief, 2026-10-30, final).
     out.append('<nav class="ri-nav bs-views" aria-label="Sections of this page"><div class="bs-tablist">%s</div>'
@@ -567,7 +579,7 @@ def body(c):
     # ---------- Overview: a visual guide to the index (founder brief, 2026-10-30, final) ----------
     vo = views['overview']
     guide = ''.join('<a class="bs-gcard" href="#bs-%s">%s<span class="bs-gt">%s</span><span class="bs-gd">%s</span></a>' % (
-        k, ICONS[icon], E(views[k]['title'] if k in views else t), E(desc)) for k, t, desc, icon in vo['guide'] if k != 'social' or c.social)
+        k, ICONS[icon], E(views[k]['title'] if k in views else t), E(desc)) for k, t, desc, icon in vo['guide'] if k in views)
     V['overview'] = (view_open('overview', 'bs-overview')
                      + '<p class="bs-provs bs-ov-provs">%s</p>' % ' &middot; '.join(plain(pid) for pid in c.order)
                      + '<nav class="bs-guide" aria-label="Sections of this case study">%s</nav>' % guide
@@ -580,6 +592,8 @@ def body(c):
     # ---------- Social Media Content ----------
     if c.social:
         V['social'] = view_open('social', 'bs-social') + social.strategy_html(c) + view_close('social')
+    if c.paid:
+        V['paid'] = view_open('paid', 'bs-paid') + paid.tab_html(c.paid, c.order, long_date) + view_close('paid')
 
     # ---------- Messaging & Offers ----------
     ex = n['examples']
@@ -776,6 +790,8 @@ def main(argv):
     files = [(PAGE, page), (CSV_PATH, csvtext)]
     if c.social:
         files.append((SOCIAL_CSV_PATH, social.render_csv(c.social)))
+    if c.paid:
+        files.append((os.path.join(model.ROOT, paid.CSV_REL), paid.render_csv(c.paid)))
         if c.social.get('analysis'):
             files.append((os.path.join(model.ROOT, social.ANALYSIS_CSV_REL), social.render_analysis_csv(c.social)))
     if '--check' in argv:

@@ -180,13 +180,31 @@ class KitTests(unittest.TestCase):
 
     def test_five_views_and_content_kinds(self):
         body = self.page[self.page.index('REPORT BODY START'):]
-        pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons')]
+        pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-social', 'bs-paid', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons')]
         self.assertEqual(pos, sorted(pos))
         self.assertEqual(body.count('class="note reading"'), 6 + 1)  # six provider evidence expanders, the journey reading
         self.assertEqual(body.count('Proposed test, not a result</span><h3 class="bs-ttitle">Test '), 3)   # still exactly three tests
         self.assertEqual(body.count('What this means for your marketing team'), 1)  # the reading-guide entry only (2026-10-30, final: no takeaway boxes)
         self.assertIn('id="bs-journey-table"', body)
         self.assertNotIn('Next step observed', body)
+
+    def test_paid_ads_tab(self):
+        # Founder request (2026-10-30): Meta Ad Library, Canada, active ads, collected 30 October 2026.
+        import paid
+        body = self.page[self.page.index('REPORT BODY START'):]
+        tab = validate.view_html(body, 'bs-paid')
+        d = self.c.paid
+        self.assertIn('<a href="#bs-paid" id="bs-tab-paid">Social Media Paid Ads Strategy</a>', body)
+        self.assertEqual(len(d['records']), 119)
+        self.assertEqual({p: sum(1 for r in d['records'] if r['platform'] == p) for p in self.c.order}, {'venn': 20, 'float': 11, 'ramp': 47, 'loop': 17, 'keep': 0, 'airwallex': 24})
+        self.assertIn('No active ads in Canada when collected', tab)
+        self.assertIn('no spend, impressions or reach', tab)
+        self.assertNotRegex(tab, r'(?i)\bperform(s|ed)? (best|better)|winning ad|engagement rate')
+        self.assertEqual(sum(1 for r in d['records'] if r['days_running'] <= 30), 102)
+        self.assertEqual(sum(1 for r in d['records'] if r['platform'] == 'ramp' and 'lp2/industry/nonprofits' in r['landing']), 12)
+        rows = list(csv.reader(io.StringIO(paid.render_csv(d))))
+        self.assertEqual(len(rows) - 1, 119)
+        self.assertNotIn('snapshot', open(paid.DATA, encoding='utf-8').read())   # derived records only, no raw fields
 
     def test_case_study_title_and_social_analysis(self):
         # Founder brief (2026-10-30, case study): title, metadata, Social Media Strategy computed from the recorded counts.
@@ -233,10 +251,10 @@ class KitTests(unittest.TestCase):
     def test_final_layout_tabs_and_sources(self):
         # Founder brief (2026-10-30, final): plain tabs, one Sources & evidence view holding the research trail.
         body = self.page[self.page.index('REPORT BODY START'):]
-        ov, so, msg, cmp_, jr, ls = (validate.view_html(body, v) for v in ('bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'))
+        ov, so, pa, msg, cmp_, jr, ls = (validate.view_html(body, v) for v in ('bs-overview', 'bs-social', 'bs-paid', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'))
         ref = validate.view_html(body, 'bs-sources')
         self.assertIn('<h2 id="bs-overview-h">Inside this case study</h2>', ov)
-        self.assertEqual(re.findall(r'<a class="bs-gcard" href="#(bs-[a-z]+)"', ov), ['bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'])
+        self.assertEqual(re.findall(r'<a class="bs-gcard" href="#(bs-[a-z]+)"', ov), ['bs-social', 'bs-paid', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'])
         self.assertNotIn('class="find"', ov)
         self.assertIn('Later follow-up: Airwallex only, checked 30 October 2026', ov)
         self.assertEqual(msg.count('Website observations: 23 October 2026'), 1)
@@ -265,7 +283,7 @@ class KitTests(unittest.TestCase):
         self.assertIn('directional reading only', ref)
         self.assertIn('<a class="bs-srclink" href="#bs-sources" id="bs-srclink">Sources &amp; evidence</a>', body)
         self.assertIn('data-bs-back', ref)
-        for v in (ov, so, msg, cmp_, jr, ls):
+        for v in (ov, so, pa, msg, cmp_, jr, ls):
             self.assertNotRegex(v, r'\bO-[A-Z]{3}-\d\d\b|id="ev-|What the sources say|<details')
 
     def test_ramp_uncaptured_terms_omitted(self):
@@ -333,12 +351,12 @@ class KitTests(unittest.TestCase):
         nav = body[body.index('class="ri-nav bs-views"'):]
         nav = nav[:nav.index('</nav>')]
         self.assertIn('<div class="bs-tablist">', nav)
-        for k in ('overview', 'social', 'messaging', 'compare', 'journeys', 'lessons'):
+        for k in ('overview', 'social', 'paid', 'messaging', 'compare', 'journeys', 'lessons'):
             self.assertIn('<a href="#bs-%s" id="bs-tab-%s">' % (k, k), nav)
-        self.assertEqual(re.findall(r'id="bs-tab-([a-z]+)"', nav), ['overview', 'social', 'messaging', 'compare', 'journeys', 'lessons'])
+        self.assertEqual(re.findall(r'id="bs-tab-([a-z]+)"', nav), ['overview', 'social', 'paid', 'messaging', 'compare', 'journeys', 'lessons'])
         self.assertNotIn('role="tab', body)                  # roles come from the script: without it the page is a plain reading order
         self.assertNotRegex(body, r'<section id="bs-[a-z]+" class="bs-view"[^>]* hidden')
-        self.assertEqual(body.count('<p class="bs-next">'), 6)
+        self.assertEqual(body.count('<p class="bs-next">'), 7)
         script = self.page[self.page.index('<script data-bsi-tabs>'):]
         script = script[:script.index('</script>')]
         for needle in ("'tablist'", "'tab'", "'tabpanel'", 'aria-selected', 'aria-controls', 'aria-labelledby', 'ArrowRight', 'ArrowLeft',
@@ -515,7 +533,7 @@ class SocialModuleTests(unittest.TestCase):
     def test_tab_order_and_labels(self):
         c = build.Ctx()
         body = build.body(c)
-        self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'])
+        self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-social', 'bs-paid', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'])
         self.assertIn('<a href="#bs-social" id="bs-tab-social">Social Media Strategy</a>', body)
         self.assertIn('Instagram only. Analysis of public content, not internal strategy.', body)
         self.assertIn('Official company Instagram accounts only, posts published 25 July to 22 October 2026', body)

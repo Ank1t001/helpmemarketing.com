@@ -303,7 +303,7 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-fu-note{border-left:2px solid var(--border-strong);padding-left:12px}
 /* Final simplification (founder brief, 2026-10-30, final): Sources & evidence link and view, Overview guide, Customer Journey stages and evidence labels, Lessons. */
 .msi.msi .bs-views{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
-.msi.msi .bs-srclink{font-size:13.5px;font-weight:600;color:var(--text-muted);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;padding:6px 4px;white-space:nowrap}
+.msi.msi .bs-srclink{margin-left:auto;font-size:13.5px;font-weight:600;color:var(--text-muted);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;padding:6px 4px;white-space:nowrap}
 .msi.msi .bs-srclink:hover,.msi.msi .bs-srclink[aria-current]{color:var(--text)}
 .msi.msi .bs-srclink:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
 .msi.msi .bs-next{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
@@ -372,6 +372,8 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-reftoc ol{columns:1}
 }
 @media print{.msi.msi .bs-srclink,.msi.msi .bs-ref-back,.msi.msi .bs-jpick{display:none!important}.msi.msi #bs-journey-table .bs-jm.is-pick td[data-pid]{display:block!important}.msi.msi .bs-view[hidden]{display:block!important}}
+/* Seven tabs (2026-10-30): slightly narrower tab padding, same text size, so the tabs keep to one row on desktop; the Sources link sits at the right. */
+@media(min-width:901px){.msi.msi .bs-tablist{gap:6px}.msi.msi .bs-tablist a{padding:6px 10px}}
 /* Case study (founder brief, 2026-10-30): subtitle, Social Media Strategy subsections, theme bars and suggestions. */
 .msi.msi header .bs-subtitle{margin:-4px 0 10px;font-family:var(--font-display,Fraunces,serif);font-style:italic;font-size:20px;line-height:1.3;color:var(--text-muted)}
 .msi.msi .soc-sec>h3{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}

@@ -370,6 +370,11 @@ def social_analysis_csv():
     return social.ANALYSIS_CSV_REL
 
 
+def paid_csv():
+    import paid
+    return paid.CSV_REL
+
+
 def view_html(body, vid):
     """One view's markup, from its section to the next section, whatever the tab order."""
     a = body.index('<section id="%s"' % vid)
@@ -386,8 +391,8 @@ def check_social_outputs(c, body):
     s = c.social
     errs = []
     views = [v for _, v in build.view_order(c)]
-    if views != ['bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons']:
-        errs.append('social: tab order is Overview, Social Media Strategy, Website Messaging, Product Comparison, Customer Journey, Lessons')
+    if [v for v in views if v != 'bs-paid'] != ['bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'] or ('bs-paid' in views and views.index('bs-paid') != 2):
+        errs.append('social: tab order is Overview, Social Media Strategy, Social Media Paid Ads Strategy, Website Messaging, Product Comparison, Customer Journey, Lessons')
     if '<a href="#bs-social" id="bs-tab-social">Social Media Strategy</a>' not in body or 'Instagram only. Analysis of public content, not internal strategy.' not in body:
         errs.append('social: the tab is labelled "Social Media Strategy" and the view says it covers Instagram only')
     sec = view_html(body, 'bs-social')
@@ -572,7 +577,7 @@ def check_outputs(c, page, csvtext, extra_paths=()):
             if path.endswith('.html'):
                 errs.append('page: link with .html suffix %s' % h)
             target = os.path.join(model.ROOT, path.lstrip('/'))
-            if path not in ('/', '', '/' + build_csv(), '/' + social_csv(), '/' + social_analysis_csv()) and path not in extra_paths and not (os.path.exists(target) or os.path.exists(target + '.html')):
+            if path not in ('/', '', '/' + build_csv(), '/' + social_csv(), '/' + social_analysis_csv(), '/' + paid_csv()) and path not in extra_paths and not (os.path.exists(target) or os.path.exists(target + '.html')):
                 errs.append('page: internal link target missing %s' % h)
     msg = view_html(body, 'bs-messaging')
     refv = view_html(body, 'bs-sources') if '<section id="bs-sources"' in body else ''

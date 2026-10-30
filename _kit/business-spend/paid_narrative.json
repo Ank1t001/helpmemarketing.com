@@ -1,0 +1,126 @@
+{
+ "view": {
+  "title": "Social Media Paid Ads Strategy",
+  "dek": "How each brand advertises on Meta (Facebook, Instagram and partner apps) in Canada, from the ads running on 30 October 2026.",
+  "scope": "Meta Ad Library, Canada, active ads only. A one-day snapshot, collected 30 October 2026 at 5:28 p.m. Toronto time.",
+  "limits": "For these ads in Canada the library shows no spend, impressions or reach, so this describes what each brand runs, not how well it performs. Ad text was read in full; videos and images were not reviewed frame by frame."
+ },
+ "messages": [
+  {
+   "pid": "venn",
+   "message": "Switch from a big bank to a faster, cheaper business account",
+   "offers": "2% interest; 1% cashback described as “unlimited” and “no caps, no minimums”; 0.25% FX against “3%+ at the Big Banks”; 15,000+ businesses",
+   "conditions": "No terms or conditions in the text of any of the 20 ads"
+  },
+  {
+   "pid": "float",
+   "message": "Less finance busywork, with cards, bills and expenses in one platform",
+   "offers": "“Up to 3.75% interest”; “Best Canadian Corporate Cards”; a comparison with American Express",
+   "conditions": "No terms or conditions in the text of any of the 11 ads"
+  },
+  {
+   "pid": "ramp",
+   "message": "Control spending and automate finance work, told industry by industry",
+   "offers": "1% cash back “now available in Canada”; no FX fees on CAD and USD; 70,000+ customers; a $60 billion valuation",
+   "conditions": "Ads for the Canadian card add “Terms and conditions apply” and a Peoples Trust card disclosure; 8 of 47 carry US bank disclosures instead"
+  },
+  {
+   "pid": "loop",
+   "message": "Banking for Canadian businesses that buy and sell across borders",
+   "offers": "0% FX on card spend from four currencies; $0 wire fees; “Save $40K+/year”; a worked example of a 3% bank margin",
+   "conditions": "One ad names its source (Bank of Canada research) for bank margins; the $40K figure shows no basis in the ad"
+  },
+  {
+   "pid": "keep",
+   "message": "No active ads in Canada when collected",
+   "offers": "None",
+   "conditions": "None"
+  },
+  {
+   "pid": "airwallex",
+   "message": "Pay, hold and spend money across countries",
+   "offers": "Pay in 60+ currencies; 0% FX fees; cards for 60+ markets; 675,000+ businesses",
+   "conditions": "No terms or conditions in the text of any of the 24 ads"
+  }
+ ],
+ "examples": [
+  {
+   "id": "P1",
+   "pid": "venn",
+   "ad": "1587543352797640",
+   "title": "A rewards claim with no cap in the ad",
+   "observed": "The ad promises “1% cashback” alongside “Zero hidden fees” and lists cards, FX and transfers. Other Venn ads in the set say “no caps, no minimums”.",
+   "reading": "The ad states the rate without the plan limit that Venn’s pricing footnote set on 23 October.",
+   "limits": "The footnote was not rechecked on 30 October, so whether the limit still applies is not established. The video was not watched."
+  },
+  {
+   "id": "P2",
+   "pid": "ramp",
+   "ad": "industry",
+   "title": "One message per industry, each with its own page",
+   "observed": "25 of Ramp’s 47 ads point to industry pages: 12 for nonprofits, 8 for healthcare and 5 for construction, each written to that reader (“Grant compliance is not a game of chance.”).",
+   "reading": "The ads and the pages they open speak to one kind of business at a time, so the first screen after the click can stay on the same problem.",
+   "limits": "The landing pages were not reviewed. Which audiences saw each ad is not shown in the library."
+  },
+  {
+   "id": "P3",
+   "pid": "loop",
+   "ad": "worked",
+   "title": "A worked example with a named source",
+   "observed": "One ad works through a payment: “On a US$50,000 payment, a 3% bank margin costs about US$1,500”, and names Bank of Canada research for the margin. Another ad says “Save $40K+/year” with no basis shown.",
+   "reading": "The worked example gives a reader something to check; the round savings figure asks them to trust it.",
+   "limits": "The cited research and the arithmetic were not checked here."
+  },
+  {
+   "id": "P4",
+   "pid": "airwallex",
+   "ad": "compare",
+   "title": "Comparison pages as the destination",
+   "observed": "One Airwallex ad sends people to an “Airwallex vs Ramp” comparison page, and one Float ad promotes an “American Express vs. Float” comparison.",
+   "reading": "Both meet a buyer who is already weighing options, at the point of comparing.",
+   "limits": "The comparison pages themselves were not reviewed for accuracy."
+  }
+ ],
+ "website_check": [
+  {
+   "pid": "ramp",
+   "ads": "“Get 1% cash back with our corporate card, now available in Canada” and “1% back on CAD and USD, no FX fees”",
+   "web": "A Canadian rewards rate was not found in the reviewed sources (23 October)."
+  },
+  {
+   "pid": "venn",
+   "ads": "1% cashback with “no caps, no minimums”",
+   "web": "The pricing footnote limited eligible card spend on Essentials and Plus (23 October)."
+  },
+  {
+   "pid": "float",
+   "ads": "“Up to 3.75% interest”",
+   "web": "Account interest of 2.5%, up to 3.5% in a promotion (23 October)."
+  },
+  {
+   "pid": "airwallex",
+   "ads": "“Trusted by over 675,000 businesses”",
+   "web": "The homepage gave 200,000 and 600,000+ businesses (23 October)."
+  }
+ ],
+ "website_check_note": "These ads are dated 30 October and the website evidence 23 October, so a difference may be a change over the week rather than a contradiction. None of them changes the findings or counts in this case study; each is listed for editorial review.",
+ "ramp_note": "The Ramp Facebook page in the library sends its ads to ramp.com, and 3 of its ads thank @tryramp for “Tony Stock” content. That is new evidence on the unresolved @tryramp question in Social Media Strategy, kept for editorial review; the Instagram analysis still treats @tryramp as unresolved.",
+ "counts_note": "The library’s count for each page and the records returned can differ: for Venn the library reported 34 active ads and 20 records came back, each record grouping one or more versions (43 versions in all). Totals here use the records returned.",
+ "suggests": [
+  {
+   "observed": "None of Venn’s, Float’s or Airwallex’s ad text mentions terms or conditions, including beside reward, interest and FX-fee claims.",
+   "reading": "An ad is often the first place a buyer meets the offer. Without the condition there, the website has to correct the impression later.",
+   "test": "Add the main condition to the ad text or the first screen the ad opens, and compare qualified sign-ups per click (see test 1 in Lessons)."
+  },
+  {
+   "observed": "25 of Ramp’s 47 ads send people to pages for one industry: nonprofits, healthcare or construction.",
+   "reading": "Matching the ad and the page to one kind of business keeps the message consistent after the click.",
+   "test": "For your largest audience, compare a matched landing page with a general one on qualified sign-ups per click, using your own analytics."
+  },
+  {
+   "observed": "102 of the 119 ads started in the 30 days before collection; one Loop ad had run since June and two Venn ads since July.",
+   "reading": "A one-day snapshot shows what runs now, not a long-term strategy. Running a long time does not prove an ad works.",
+   "test": "Repeat the collection monthly and track which messages keep running alongside your own results."
+  }
+ ]
+}
