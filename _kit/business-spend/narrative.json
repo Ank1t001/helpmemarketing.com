@@ -65,7 +65,7 @@
     "reading": "A general \"no FX fee\" line answers the question only for the case it covers; the other cases are priced on other pages or in the terms.",
     "analysis": [
      [
-      "Currency & payments in Compare products",
+      "Currency fees in Compare products",
       "bs-xb"
      ]
     ],
@@ -121,52 +121,6 @@
  },
  "compare": {
   "dek": "One row per platform, in three parts. The status shows how firm each entry is; conditions stay with the fact they qualify. On a phone each platform becomes a card.",
-  "plan_columns": [
-   [
-    "model",
-    "How the card is funded or repaid"
-   ],
-   [
-    "rewards",
-    "Rewards and conditions"
-   ],
-   [
-    "plans",
-    "Plan prices"
-   ]
-  ],
-  "card_columns": [
-   [
-    "issuer",
-    "Network and issuer"
-   ],
-   [
-    "format",
-    "Physical and virtual cards"
-   ],
-   [
-    "eligibility",
-    "Published eligibility and application restrictions"
-   ]
-  ],
-  "xb_columns": [
-   [
-    "xb_card",
-    "Card spending in another currency"
-   ],
-   [
-    "xb_fx",
-    "FX conversion"
-   ],
-   [
-    "xb_accounts",
-    "Multi-currency accounts"
-   ],
-   [
-    "xb_transfers",
-    "Transfers"
-   ]
-  ],
   "rows": {
    "venn": {
     "model": {
@@ -230,20 +184,6 @@
       "O-VEN-11"
      ]
     },
-    "limits": {
-     "text": "Limits by period, card or team",
-     "sub": "Cards lock without a receipt or memo",
-     "ids": [
-      "O-VEN-06"
-     ]
-    },
-    "approvals": {
-     "text": "By role, department or amount",
-     "sub": "Multi-step payment approvals by plan",
-     "ids": [
-      "O-VEN-20"
-     ]
-    },
     "expense": {
      "text": "Receipt prompt after every purchase",
      "ids": [
@@ -262,6 +202,14 @@
       "O-VEN-07"
      ],
      "restriction": "Not offered to businesses in Quebec"
+    },
+    "controls": {
+     "text": "Limits by period, card or team; approvals by role, department or amount",
+     "sub": "Cards lock without a receipt or memo; multi-step payment approvals by plan",
+     "ids": [
+      "O-VEN-06",
+      "O-VEN-20"
+     ]
     }
    },
    "float": {
@@ -328,20 +276,6 @@
       "O-FLT-11"
      ]
     },
-    "limits": {
-     "text": "Custom limits and controls",
-     "sub": "Free plan: up to 20 physical cards",
-     "ids": [
-      "O-FLT-19"
-     ]
-    },
-    "approvals": {
-     "text": "Spend requests to managers",
-     "sub": "Second approver above a set amount",
-     "ids": [
-      "O-FLT-20"
-     ]
-    },
     "expense": {
      "text": "Receipt capture and auto-coding",
      "sub": "Cards, reimbursements and bills",
@@ -362,6 +296,14 @@
      "ids": [
       "O-FLT-01",
       "O-FLT-07"
+     ]
+    },
+    "controls": {
+     "text": "Custom limits and controls; spend requests to managers",
+     "sub": "Second approver above a set amount",
+     "ids": [
+      "O-FLT-19",
+      "O-FLT-20"
      ]
     }
    },
@@ -423,19 +365,6 @@
       "O-RMP-10"
      ]
     },
-    "limits": {
-     "text": "Limits and merchant or category blocks",
-     "sub": "Applied before spend",
-     "ids": [
-      "O-RMP-17"
-     ]
-    },
-    "approvals": {
-     "text": "Approval rules before spend",
-     "ids": [
-      "O-RMP-18"
-     ]
-    },
     "expense": {
      "text": "Receipts matched as employees spend",
      "ids": [
@@ -454,6 +383,14 @@
      "sub": "Canadian Cards: a Canada-registered affiliate",
      "ids": [
       "O-RMP-04"
+     ]
+    },
+    "controls": {
+     "text": "Limits and merchant or category blocks; approval rules before spend",
+     "sub": "Applied before spend",
+     "ids": [
+      "O-RMP-17",
+      "O-RMP-18"
      ]
     }
    },
@@ -519,19 +456,6 @@
       "O-LOP-10"
      ]
     },
-    "limits": {
-     "text": "Customisable internal controls",
-     "sub": "Limit types not specified",
-     "ids": [
-      "O-LOP-17"
-     ]
-    },
-    "approvals": {
-     "text": "Unlimited approval flows",
-     "ids": [
-      "O-LOP-18"
-     ]
-    },
     "expense": {
      "text": "Receipts by SMS, matched by OCR",
      "ids": [
@@ -549,6 +473,14 @@
      "sub": "Applying said not to affect the personal credit score",
      "ids": [
       "O-LOP-06"
+     ]
+    },
+    "controls": {
+     "text": "Customisable internal controls; unlimited approval flows",
+     "sub": "Limit types not specified",
+     "ids": [
+      "O-LOP-17",
+      "O-LOP-18"
      ]
     }
    },
@@ -616,18 +548,6 @@
       "O-KEP-10"
      ]
     },
-    "limits": {
-     "text": "Daily, weekly or monthly limits",
-     "ids": [
-      "O-KEP-16"
-     ]
-    },
-    "approvals": {
-     "text": null,
-     "ids": [
-      "O-KEP-17"
-     ]
-    },
     "expense": {
      "text": "Receipt photos matched by text or email",
      "ids": [
@@ -649,6 +569,14 @@
       "O-KEP-06"
      ],
      "restriction": "Self-serve sign-up route closed to new applicants when checked"
+    },
+    "controls": {
+     "text": "Daily, weekly or monthly limits",
+     "sub": "Approvals not found in reviewed sources",
+     "ids": [
+      "O-KEP-16",
+      "O-KEP-17"
+     ]
     }
    },
    "airwallex": {
@@ -673,7 +601,7 @@
     },
     "rewards": {
      "text": "1% cashback",
-     "sub": "Pricing: up to 1% on local CAD spend; a 2% figure is in page metadata only",
+     "sub": "Pricing: up to 1% on local CAD spend",
      "ids": [
       "O-AWX-04"
      ]
@@ -711,19 +639,6 @@
       "O-AWX-10"
      ]
     },
-    "limits": {
-     "text": "Card spend limits, freeze or cancel",
-     "ids": [
-      "O-AWX-16"
-     ]
-    },
-    "approvals": {
-     "text": "Flagged expenses to an approver",
-     "sub": "Multi-conditional approvals on Grow",
-     "ids": [
-      "O-AWX-17"
-     ]
-    },
     "expense": {
      "text": "Receipt details extracted automatically",
      "ids": [
@@ -742,18 +657,72 @@
      "ids": [
       "O-AWX-06"
      ]
+    },
+    "controls": {
+     "text": "Card spend limits, freeze or cancel; flagged expenses to an approver",
+     "sub": "Multi-conditional approvals on Grow",
+     "ids": [
+      "O-AWX-16",
+      "O-AWX-17"
+     ]
     }
    }
   },
-  "note": "Plan prices are monthly, in Canadian dollars, as published; some are billed annually or per user. A row is not a quote, and the lowest advertised FX rate may not apply to every payment type. Peoples Trust Company issues four of the six cards (Venn, Ramp, Keep, Airwallex); how each card is funded or repaid differs, as the first column shows. This edition does not compare FX costs: a fair comparison would need the same currencies, amount, timing, plan and fees. The \"Published eligibility and application restrictions\" column covers applying from Canada only; availability in other countries is not assessed, and worldwide figures in the proof are labelled as worldwide where the source says so.",
-  "spend_columns": [
+  "note": "A row is not a quote. Peoples Trust Company issues four of the six cards (Venn, Ramp, Keep, Airwallex); how each card is funded or repaid differs, as the first column of Cards, rewards & costs shows. This edition does not compare FX costs: a fair comparison would need the same currencies, amount, timing, plan and fees. The eligibility column covers applying from Canada only; availability in other countries is not assessed, and worldwide figures in the proof are labelled as worldwide where the source says so.",
+  "observed_line": "I reviewed the published information; I did not test the products.",
+  "essentials": "Prices are in Canadian dollars unless stated otherwise. Check whether each price is per user, billed annually or includes an additional platform fee. Currency fees cover different transactions, so the lowest percentage is not necessarily the lowest cost.",
+  "cost_columns": [
    [
-    "limits",
-    "Card limits and controls"
+    "model",
+    "How the card is funded or repaid"
    ],
    [
-    "approvals",
-    "Approvals"
+    "rewards",
+    "Rewards and conditions"
+   ],
+   [
+    "plans",
+    "Plan prices"
+   ],
+   [
+    "eligibility",
+    "Eligibility and restrictions"
+   ]
+  ],
+  "card_columns": [
+   [
+    "issuer",
+    "Network and issuer"
+   ],
+   [
+    "format",
+    "Physical and virtual cards"
+   ]
+  ],
+  "fee_columns": [
+   [
+    "xb_card",
+    "Card spending in another currency"
+   ],
+   [
+    "xb_fx",
+    "Currency conversion fee"
+   ]
+  ],
+  "acct_columns": [
+   [
+    "xb_accounts",
+    "Multi-currency accounts"
+   ],
+   [
+    "xb_transfers",
+    "Transfers"
+   ]
+  ],
+  "spend_columns": [
+   [
+    "controls",
+    "Limits and approvals"
    ],
    [
     "expense",
@@ -764,8 +733,7 @@
     "Accounting connections"
    ]
   ],
-  "observed_line": "I reviewed the published information; I did not test the products.",
-  "essentials": "Prices are in Canadian dollars unless stated otherwise. Check whether each price is per user, billed annually or includes an additional platform fee. Currency fees cover different transactions, so the lowest percentage is not necessarily the lowest cost."
+  "unclear": "“Unclear from the reviewed sources” marks two published statements whose relationship the evidence cannot settle (reconciliation class D). Airwallex’s pricing page lists a credit line whose terms were not found, so it cannot be placed against the card terms; and its 1% cashback “with no cap” sits beside pricing that says “up to 1% on local CAD spend”, which needs the rebate terms to settle. A 2% figure appears only in the page metadata, not on the page visitors see. Each statement stays in the evidence."
  },
  "examples": {
   "dek": "Four observed examples of how an offer, proof or next step was explained. They are examples to learn from, not winning platforms.",

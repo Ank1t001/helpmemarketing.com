@@ -133,13 +133,13 @@ def cell(c, pid, key, label):
         # A restriction the cell already states is set in bold instead of repeated as a label.
         tag = '' if restr and restr in (spec['text'], spec.get('sub')) else table_tag(status, spec)
     if any('D' in (c.obs[i].get('reconciliation') or {}).get('class', '') for i in ids):
-        tag += '<span class="st st-undetermined">%s</span>' % E(TABLE_LABEL['undetermined'])
+        tag += '<a class="st st-undetermined" href="#bs-unclear">%s</a>' % E(TABLE_LABEL['undetermined'])
     return '<td%s data-label="%s">%s%s</td>' % (cls, E(label), body, tag)
 
 
 # Plain wording beside a claim in the comparison tables (founder, 2026-10-28). The formal status names stay in
 # "What each status means", the evidence records and the CSV; "Explicitly unavailable" shows the exact restriction.
-TABLE_LABEL = {'conflicting': 'Published pages disagree', 'undetermined': 'Could not confirm how these statements fit together'}
+TABLE_LABEL = {'conflicting': 'Published pages disagree', 'undetermined': 'Unclear from the reviewed sources'}
 
 
 def table_tag(status, spec):
@@ -151,20 +151,22 @@ def table_tag(status, spec):
 
 
 def compare_columns(cp):
-    return cp['plan_columns'] + cp['card_columns'] + cp['xb_columns'] + cp['spend_columns']
+    return cp['cost_columns'] + cp['card_columns'] + cp['fee_columns'] + cp['acct_columns'] + cp['spend_columns']
 
 
-def table(c, title, cols, tid):
-    head = ''.join('<th scope="col">%s</th>' % E(l) for _, l in cols)
+def table(c, title, cols, tid, head=True):
+    ths = ''.join('<th scope="col">%s</th>' % E(l) for _, l in cols)
     rows = []
     for pid in c.order:
         cells = ''.join(cell(c, pid, k, l) for k, l in cols)
         rows.append('<tr id="%s-%s"><td class="brandcell"><a href="#bs-p-%s">%s</a></td>%s</tr>' % (tid, pid, pid, E(c.name(pid)), cells))
-    return ('<div class="tblock" id="%s"><h3 id="%s-h">%s</h3>'
-            '<div class="tw cards" tabindex="0" role="region" aria-labelledby="%s-h"><table class="bs">'
+    label = ('<h3 id="%s-h">%s</h3>' % (tid, E(title))) if head else ''
+    region = ('aria-labelledby="%s-h"' % tid) if head else ('aria-label="%s"' % E(title))
+    return ('<div class="tblock" id="%s">%s'
+            '<div class="tw cards" tabindex="0" role="region" %s><table class="bs">'
             '<caption class="sr-only">%s for six platforms, as published on 23 October 2026</caption>'
             '<thead><tr><th scope="col">Platform</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div></div>'
-            % (tid, tid, E(title), tid, E(title), head, '\n'.join(rows)))
+            % (tid, label, region, E(title), ths, '\n'.join(rows)))
 
 
 def compare_sources(c):
@@ -179,9 +181,9 @@ def compare_sources(c):
             else:
                 parts.append('%s: not checked' % E(l))
         items.append('<li><b>%s.</b> %s</li>' % (E(c.name(pid)), '; '.join(parts)))
-    return ('<details class="ri-adv srcs"><summary>Where each entry comes from</summary>'
+    return ('<h4 class="t">Where each entry comes from</h4>'
             '<p class="dek">Each entry links to the observation it summarises, with the exact wording, the page and the capture time.</p>'
-            '<ul class="evlist">%s</ul></details>' % ''.join(items))
+            '<ul class="evlist">%s</ul>' % ''.join(items))
 
 
 def ev_item(c, o):
@@ -247,9 +249,9 @@ def platform_block(c, pid):
     times = sorted({o['observed_at'] for o in obs if o['observed_at']}, key=model.parse_ts)
     pages = sorted({s for o in obs for s in [r['source_id'] for r in o['sources']] + o.get('reviewed_sources', [])})
     dl = ''.join('<dt>%s</dt><dd>%s <span class="evlinks">(%s)</span></dd>' % (E(l), E(p[k]), id_links(p['ev'][k])) for k, l in PLAT_ROWS)
-    links = ('<p class="pnote dlinks"><b>Product details:</b> %s&rsquo;s <a href="#bs-prod-%s">cards, rewards and plans</a>, <a href="#bs-cards-%s">card details and eligibility</a>, '
-             '<a href="#bs-xb-%s">currency and payments</a> and <a href="#bs-spend-%s">spending controls</a> rows in Compare products, and its <a href="#bs-jt-%s">first screen</a> in Application journeys.</p>'
-             % (E(c.name(pid)), pid, pid, pid, pid, pid))
+    links = ('<p class="pnote dlinks"><b>Product details:</b> %s&rsquo;s <a href="#bs-prod-%s">cards, rewards and costs</a>, <a href="#bs-xb-%s">currency fees</a> and '
+             '<a href="#bs-spend-%s">spending controls</a> rows in Compare products, and its <a href="#bs-jt-%s">first screen</a> in Application journeys.</p>'
+             % (E(c.name(pid)), pid, pid, pid, pid))
     q = p['question']
     reading = ('<div class="note reading"><span class="lbl">My reading</span><p><b>Customer question:</b> &ldquo;%s&rdquo; <b class="ans">%s.</b> %s</p><p>%s</p></div>'
                % (E(q['text']), E(q['answer']), E(q['detail']), E(p['observation'])))
@@ -432,18 +434,21 @@ def body(c):
     # ---------- 2. Compare products ----------
     cp = n['compare']
     out.append(view_open('compare', 'bs-compare'))
-    # Founder brief (2026-10-28): observation date and three jump links first, the essential reading notes above the tables,
-    # the product table split in two, plain section names; the fuller explanation and the source records stay below.
+    # Founder brief (2026-10-30): one rule, keep upfront what explains a cost, a restriction or a meaningful product
+    # difference. Three compact tables, each with an optional details expander; sources and the download at the bottom.
     out.append('<p class="bs-cmp-when"><b>Website observations: %s.</b> %s</p>' % (long_date(start), E(cp['observed_line'])))
-    out.append('<p class="bs-cmp-jump"><a href="#bs-prod">Cards, rewards &amp; plans</a> &middot; <a href="#bs-xb">Currency &amp; payments</a> &middot; <a href="#bs-spend">Spending controls</a></p>')
+    out.append('<p class="bs-cmp-jump"><a href="#bs-prod">Cards, rewards &amp; costs</a> &middot; <a href="#bs-xb">Currency fees</a> &middot; <a href="#bs-spend">Spending controls</a></p>')
     out.append('<p class="bs-cmp-ess">%s</p>' % E(cp['essentials']))
-    out.append('<p class="ktag fact">What the sources say</p>')
-    out.append(table(c, 'Cards, rewards & plans', cp['plan_columns'], 'bs-prod'))
-    out.append(table(c, 'Card details & eligibility', cp['card_columns'], 'bs-cards'))
-    out.append(table(c, 'Currency & payments', cp['xb_columns'], 'bs-xb'))
-    out.append(table(c, 'Spending controls', cp['spend_columns'], 'bs-spend'))
-    out.append('<p class="pnote"><b>Reading the tables.</b> %s A label beside an entry means it is not a plain published fact: &ldquo;Published pages disagree&rdquo; is the status Conflicting, and a restriction set in bold (such as &ldquo;Not offered to businesses in Quebec&rdquo;) is the status Explicitly unavailable. &ldquo;Not checked&rdquo; and &ldquo;Not found in reviewed sources&rdquo; do not mean a feature is unavailable; <a href="#bs-statuses">what each status means</a>. &ldquo;Could not confirm how these statements fit together&rdquo; is not a status: it marks two published statements whose relationship the evidence cannot settle (<a href="#bs-recon">reconciliation</a> class D).</p>' % E(cp['note']))
-    out.append(compare_sources(c))
+    out.append('<div class="bs-cmp-sec">%s<details class="bs-more"><summary>More product details: network, issuer and card formats</summary>%s</details></div>'
+               % (table(c, 'Cards, rewards & costs', cp['cost_columns'], 'bs-prod'), table(c, 'More product details', cp['card_columns'], 'bs-cards', head=False)))
+    out.append('<div class="bs-cmp-sec">%s<details class="bs-more"><summary>Account and transfer details: currencies held and transfer fees</summary>%s</details></div>'
+               % (table(c, 'Currency fees', cp['fee_columns'], 'bs-xb'), table(c, 'Account and transfer details', cp['acct_columns'], 'bs-xt', head=False)))
+    out.append('<div class="bs-cmp-sec">%s</div>' % table(c, 'Spending controls', cp['spend_columns'], 'bs-spend'))
+    out.append('<details class="bs-more bs-cmp-read" id="bs-cmp-read"><summary>Sources and how to read the comparison</summary>'
+               '<p class="dek">%s</p>'
+               '<p class="dek">A label beside an entry means it is not a plain published fact. &ldquo;Published pages disagree&rdquo; is the status Conflicting, and a restriction set in bold (such as &ldquo;Not offered to businesses in Quebec&rdquo;) is the status Explicitly unavailable. &ldquo;Not checked&rdquo; and &ldquo;Not found in reviewed sources&rdquo; do not mean a feature is unavailable. <a href="#bs-statuses">What each status means</a>.</p>'
+               '<p class="dek" id="bs-unclear">%s <a href="#bs-recon">Reconciliation</a>.</p>%s</details>'
+               % (E(cp['note']), E(cp['unclear']), compare_sources(c)))
     out.append('<p class="pnote dlinks"><b>Download the data:</b> <a href="/%s" download>every observation with its source (CSV)</a>.</p>' % CSV_REL)
     out.append(view_close('compare'))
 

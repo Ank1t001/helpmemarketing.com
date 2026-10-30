@@ -125,8 +125,12 @@ class KitTests(unittest.TestCase):
         body = self.page[self.page.index('id="bs-spend-h"'):]
         body = body[:body.index('</table>')]
         self.assertEqual(body.count('<tr id="bs-spend-'), 6)
-        for label in ('Card limits and controls', 'Approvals', 'Receipts and expenses', 'Accounting connections'):
+        for label in ('Limits and approvals', 'Receipts and expenses', 'Accounting connections'):
             self.assertIn(label, body)
+        # limits and approvals share one column (2026-10-30); each cell still cites both kinds of evidence
+        for pid in self.c.order:
+            cats_in_cell = {self.c.obs[i]['category'] for i in self.c.n['compare']['rows'][pid]['controls']['ids']}
+            self.assertEqual(cats_in_cell, {'spend_controls', 'approvals'}, pid)
         cats = {(o['platform'], o['category']) for o in self.c.obs.values()}
         for pid in self.c.order:
             for cat in ('spend_controls', 'approvals', 'expense_workflow', 'accounting'):
@@ -305,9 +309,9 @@ class KitTests(unittest.TestCase):
             self.assertEqual(o['observed_at'], self.c.sources[o['sources'][0]['source_id']]['fetched_at'])
 
     def test_eligibility_kept_apart_from_wider_availability(self):
-        body = self.page[self.page.index('id="bs-cards-h"'):]
+        body = self.page[self.page.index('id="bs-prod-h"'):]
         body = body[:body.index('</table>')]
-        self.assertIn('Published eligibility and application restrictions', body)
+        self.assertIn('Eligibility and restrictions', body)
         self.assertIn('Self-serve sign-up route closed to new applicants when checked', body)
         self.assertIn('availability in other countries is not assessed', self.page)
 

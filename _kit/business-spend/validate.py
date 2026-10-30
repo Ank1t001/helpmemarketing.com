@@ -163,7 +163,8 @@ def check_inputs(c):
                     errs.append('%s.%s: %s was not checked' % (pid, k, i))
         if not p.get('take') and not p.get('missing'):
             errs.append('%s: needs a takeaway or a labelled evidence placeholder' % pid)
-        for k, _ in c.n['compare']['plan_columns'] + c.n['compare']['card_columns'] + c.n['compare']['xb_columns'] + c.n['compare']['spend_columns']:
+        cp_ = c.n['compare']
+        for k, _ in cp_['cost_columns'] + cp_['card_columns'] + cp_['fee_columns'] + cp_['acct_columns'] + cp_['spend_columns']:
             spec = c.n['compare']['rows'].get(pid, {}).get(k)
             if spec is None:
                 errs.append('%s: comparison cell %s missing' % (pid, k))

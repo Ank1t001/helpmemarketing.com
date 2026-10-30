@@ -257,6 +257,19 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 }
 .msi.msi #bs-compare .st{text-transform:none;letter-spacing:0;font-size:12px;font-weight:600}
 .msi.msi #bs-compare .cell-restr{font-weight:650;color:var(--text)}
+/* Compare products, shorter (founder brief, 2026-10-30): three compact tables, each with an optional quiet details expander; sources and how to read them in one expander at the bottom. */
+.msi.msi .bs-view.bs-view>.bs-cmp-sec{margin-top:var(--s6)}
+.msi.msi .bs-cmp-sec>.tblock>h3{margin:0 0 var(--s3)}
+.msi.msi #bs-compare details.bs-more{margin:var(--s3) 0 0;padding:0;border:0;background:none;border-radius:0}
+.msi.msi #bs-compare details.bs-more>summary{display:inline-flex;align-items:center;gap:8px;margin:0;padding:4px 0;font-size:14px;font-weight:600;color:var(--text-muted);border:0}
+.msi.msi #bs-compare details.bs-more>summary:hover{color:var(--text)}
+.msi.msi #bs-compare details.bs-more>summary::after{content:"";width:6px;height:6px;border:0;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;border-radius:0;background:none;transform:rotate(45deg) translateY(-2px);flex:none}
+.msi.msi #bs-compare details.bs-more[open]>summary::after{transform:rotate(225deg) translateY(-1px)}
+.msi.msi #bs-compare details.bs-more[open]>summary{margin-bottom:var(--s3);border:0}
+.msi.msi .bs-view.bs-view>details.bs-cmp-read{margin-top:var(--s6);padding-top:var(--s3);border-top:1px solid var(--border)}
+.msi.msi #bs-compare details.bs-cmp-read>.dek{max-width:72ch}
+.msi.msi #bs-compare a.st{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;color:var(--text-muted)}
+@media print{.msi.msi #bs-compare details.bs-more{display:block}}
 </style>
 <script data-bsi-tabs>
 /* Views as tabs (2026-10-23). Without JavaScript every view shows in reading order and the links jump to it. With it, one view shows at a time: the links become an ARIA tablist (arrow keys, Home, End), the address keeps the view (#bs-compare), Back and Forward restore it, and any link to an id inside a view (a section, an evidence item, a closed expander) opens that view and the expanders around the target. Print shows every view. */
