@@ -537,6 +537,80 @@ def panel_html(c):
     return '\n'.join(out)
 
 
+def main_html(c):
+    """The Social Media Content tab (founder brief, 2026-10-30, final): scope and coverage, the four examples, why they matter.
+    Account tables, provenance and image records sit in Sources & evidence (reference_html, images_html)."""
+    s = c.social
+    n = s['narrative']
+    out = []
+    if s['status'] == 'review' and getattr(c, 'mode', 'draft') == 'draft':
+        out.append('<div class="note gap soc-review"><span class="lbl">For editorial review</span><p>%s</p></div>' % E(n['review_flag']))
+    out.append('<div class="bs-soc-cov" id="bs-social-scope-short"><p class="bs-obs">Instagram posts published %s</p><p class="dek">%s</p><p class="dek">%s</p></div>'
+               % (E(window_text()), E(n['coverage_note']), E(n['coverage_none'])))
+    items = []
+    for ex in n['examples']:
+        p = next(x for x in s['posts'] if x['id'] == ex['post'])
+        img = ex.get('image')
+        fig = ('<figure class="soc-shot"><img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async"><figcaption>%s</figcaption></figure>'
+               % (E(img['src']), E(img['alt']), img['width'], img['height'], E(img['credit']))) if img else ''
+        text = ('<p class="dek">%s</p><p class="dek"><b>My reading:</b> %s</p><p class="pnote bs-soc-lim"><b>Limits:</b> %s %s</p>'
+                % (E(ex['observed']), E(ex['reading_short']), E(p['inspection_label']), E(ex['limitation'])))
+        main = ('<div class="soc-body">%s<div class="soc-text">%s</div></div>' % (fig, text)) if fig else text
+        items.append('<article class="card ex soc-ex" id="bs-s%s"><p class="kind">%s &middot; %s</p><h4 class="t">%s</h4>%s</article>'
+                     % (ex['id'][1:].lower(), E(NAMES[p['platform']]), E(long_day(p['published_on'])), E(ex['title']), main))
+    out.append('<div class="sub" id="bs-social-examples"><h3>Selected posts</h3><p class="dek">%s</p>%s</div>' % (E(n['selection_short']), ''.join(items)))
+    out.append('<div class="sub" id="bs-social-tests"><h3>Why these examples matter</h3><div class="note reading"><span class="lbl">My reading</span><p>%s</p></div></div>' % _rich(n['why']))
+    return '\n'.join(out)
+
+
+def reference_html(c):
+    """Social records for Sources & evidence: scope, accounts and coverage, patterns, and each example's record."""
+    s = c.social
+    n = s['narrative']
+    kinds = ''.join('<div class="kind"><dt>%s</dt><dd>%s</dd></div>' % (E(a), E(b)) for a, b in n['scope'])
+    out = ['<div id="bs-social-scope"><h4 class="t">Scope of the Instagram reading</h4><dl class="legend soc-scope-key">%s</dl></div>' % kinds]
+    out.append('<div class="tblock" id="bs-social-coverage"><h4 class="t" id="bs-sc-h">Accounts and coverage</h4><p class="dek">%s</p>'
+               '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-sc-h"><table class="bs"><caption class="sr-only">Instagram accounts, posts published 25 July to 22 October 2026</caption>'
+               '<thead><tr><th scope="col">Provider and account</th><th scope="col">Scope</th><th scope="col">Posts in the window</th><th scope="col">Collaborations</th><th scope="col">Identity and limits</th></tr></thead>'
+               '<tbody>\n%s\n</tbody></table></div></div>' % (E(n['coverage_dek']), '\n'.join(coverage_rows(s, c.order))))
+    pts = ''.join('<p class="dek"><b>%s.</b> %s <b>Denominator:</b> %s</p>' % (E(x['title']), E(x['body']), E(x['denominator'])) for x in n['patterns'])
+    out.append('<div id="bs-social-patterns"><h4 class="t">What the posts show across the sample</h4><p class="dek">%s</p>%s</div>' % (E(n['patterns_dek']), pts))
+    recs = []
+    for ex in n['examples']:
+        p = next(x for x in s['posts'] if x['id'] == ex['post'])
+        a = next(x for x in s['accounts'] if x['platform'] == p['platform'])
+        meta = ''.join('<dt>%s</dt><dd>%s</dd>' % (k, v) for k, v in (
+            ('Account', '@%s, %s' % (E(p['account']), E({'canada': 'Canadian account', 'global': 'global account', 'unclear': 'scope unclear'}[a['scope']]))),
+            ('Published by', _collab_text(p)),
+            ('Published', '%s (Toronto date)' % E(long_day(p['published_on']))),
+            ('Inspection', '%s. %s' % (E(FORMAT_LABEL[p['format']]), E(p['inspection_label']))),
+            ('What the evidence shows', _rich(ex['shows'])),
+            ('Website evidence', _rich(ex['website']) if ex.get('website') else 'None linked'),
+            ('My reading in full', E(ex['reading'])),
+            ('Post record', 'Record %s, read %s, %s Toronto time, from the post page. Screenshot %s in the private evidence archive (sha256 %s&hellip;). What was looked at: %s Quoted phrases are exact caption text; the full caption is not reproduced. Displayed likes, comments and views were recorded but are not shown or compared.' % (
+                E(p['id']), E(long_day(p['captured_at'])), E(clock(p['captured_at'])), E(p['capture_ref']), E((p['capture_sha256'] or '')[:16]), E(p['inspected']))),
+            ('Original', '<a href="%s" rel="noopener nofollow" target="_blank">View the post on Instagram<span class="sr-only"> (opens in a new tab)</span></a>' % E(p['url'])),
+        ))
+        recs.append('<details class="bs-more" id="bs-s%s-src"><summary>%s, %s: %s</summary><dl class="chain">%s</dl></details>' % (
+            ex['id'][1:].lower(), E(NAMES[p['platform']]), E(long_day(p['published_on'])), E(ex['title']), meta))
+    out.append('<h4 class="t">Selected posts: records</h4>%s' % ''.join(recs))
+    return '\n'.join(out)
+
+
+def images_html(s):
+    """Where each displayed image comes from: source screenshot hash, crop box, what was covered."""
+    li = []
+    for ex in s['narrative']['examples']:
+        img = ex.get('image')
+        if img:
+            li.append('<li><b>%s.</b> %s Cropped from %s (sha256 %s&hellip;), box %s in pixels; area %s covered. %s Saved as a new file; the original is unchanged.</li>' % (
+                E(img['src'].rsplit('/', 1)[-1]), E(img['credit']), E(img['from']), E(img['from_sha256'][:16]),
+                E(', '.join(str(x) for x in img['crop'])), E(', '.join(str(x) for x in img['covered'])), E(img['sanitisation'])))
+        else:
+            li.append('<li><b>%s (no image).</b> %s</li>' % (E(ex['title']), E(ex['no_image_reason'])))
+    return '<ul class="dek">%s</ul>' % ''.join(li)
+
+
 CSV_HEAD = ['provider', 'provider_attribution', 'account_handle', 'account_scope', 'account_attribution', 'post_url', 'published_by_handle', 'relation', 'collaboration',
             'paid_partnership_label', 'published_on_toronto', 'date_method', 'format', 'inspection', 'what_was_inspected', 'topic', 'post_record_read_at']
 

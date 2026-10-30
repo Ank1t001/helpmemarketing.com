@@ -46,7 +46,8 @@
      "bs-prod"
     ],
     "figure": "2 of 5",
-    "figure_label": "platforms that published a reward rate"
+    "figure_label": "platforms that published a reward rate",
+    "noticed": "Venn and Loop published reward statements that did not agree for some plans. On each site, the rate and the condition that limits it sat on different pages."
    },
    {
     "id": "F2",
@@ -77,7 +78,8 @@
      "bs-xb"
     ],
     "figure": "6 of 6",
-    "figure_label": "platforms limited the no-FX-fee claim to a specific situation"
+    "figure_label": "platforms limited the no-FX-fee claim to a specific situation",
+    "noticed": "Each of the six reviewed no-FX-fee claims applied to a particular situation, such as spending from a balance in the same currency. Banking and card transactions can differ: Keep’s pricing lists a 0% FX fee for banking, while its card agreement sets a 3% card conversion fee."
    },
    {
     "id": "F3",
@@ -114,7 +116,8 @@
      "bs-journey-table"
     ],
     "figure": "1 of 6",
-    "figure_label": "first screens listed the steps ahead"
+    "figure_label": "first screens listed the steps ahead",
+    "noticed": "Only Loop’s reviewed first screen listed later steps. The routes served different purposes, including account sign-ups, a card application and a demo request, and Keep’s reviewed route was closed."
    }
   ],
   "take": "Open your main offer page and follow its button. Can a new customer understand the conditions and what happens next without searching elsewhere?"
@@ -1206,7 +1209,7 @@
     "measure_short": "Qualified applications per visitor and per form start. Track total qualified applications too."
    }
   ],
-  "data_note": "Run these tests using your own website and application data. This research uses public evidence only; measuring a result needs your own traffic and application records, and no baselines, sample sizes or uplift have been established here."
+  "data_note": "Run these tests using your own website and application data. This research uses public evidence only. Report the counts behind each rate, such as qualified applications and page visitors, not the rate alone. No baselines, sample sizes, durations or expected improvements are set here."
  },
  "method": {
   "scope": "An independent comparative marketing case study of how six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses. It reads dated public sources and the first screen of each application journey. It does not test product performance, assess regulatory compliance or recommend a provider for your business.",
@@ -1259,10 +1262,43 @@
  "views": {
   "overview": {
    "title": "Overview",
-   "dek": "I reviewed six platforms’ websites to see how they explain their offers and what happens when someone clicks to apply. These three things stood out.",
+   "dek": "A look at how six platforms present their products, publish social content and guide people towards getting started.",
    "about_intro": "This page serves two kinds of reader. If you are comparing card and spend platforms, it sets out what six providers publish, each fact linked to its source. If you market a product, it is my independent case study of how they explain it: the offer, the proof and the path to applying. None of the six is a client, and I have no view of their internal strategy or results.",
-   "heading": "What stood out",
-   "observed": "Website observations: 23 October 2026"
+   "heading": "Inside this index",
+   "observed": "Website observations: 23 October 2026",
+   "scope_line": "Independent marketing research from dated public sources. Not a product recommendation.",
+   "guide": [
+    [
+     "social",
+     "Social Media Content",
+     "What they post and how they explain their offers.",
+     "post"
+    ],
+    [
+     "messaging",
+     "Messaging & Offers",
+     "What they promise and how they support it.",
+     "bubble"
+    ],
+    [
+     "compare",
+     "Compare Products",
+     "Cards, rewards, fees and the conditions that matter.",
+     "grid"
+    ],
+    [
+     "journeys",
+     "Customer Journey",
+     "What happens after someone shows interest, and which steps are explained.",
+     "steps"
+    ],
+    [
+     "lessons",
+     "Lessons",
+     "Practical ideas to test on your own website and content.",
+     "check"
+    ]
+   ]
   },
   "compare": {
    "title": "Compare Products",
@@ -1278,13 +1314,16 @@
    "evidence_dek": "The sources behind each reading: who the pages speak to, the problem, the benefit, the offer and its conditions, the proof, one customer question, missing evidence, and every observation with its exact wording, page and capture time."
   },
   "journeys": {
-   "title": "Application Journey",
-   "dek": "I followed each main start button to the first screen. I did not submit forms or create accounts. Checked 23 October 2026.",
-   "heading": "What happens after you click?"
+   "title": "Customer Journey",
+   "dek": "A public view of the customer journey. Websites, selected Instagram content and first entry screens were reviewed. Later stages are included only where public sources explain them."
   },
   "lessons": {
    "title": "Lessons",
    "dek": "Three changes to test on your own website. These are proposals, not proven results."
+  },
+  "sources": {
+   "title": "Sources & evidence",
+   "dek": "The full research trail for this index: dates and coverage, the evidence behind each tab, test specifications, definitions, disclosure, citation and downloads. Conditions and uncertainty that matter stay in the tabs themselves."
   }
  },
  "journeys": {
@@ -1515,5 +1554,451 @@
    "Measurement"
   ],
   "note": "Every conclusion on this page follows that order. From public pages I do not infer a provider's intent, what customers understood, any effect on conversions, revenue or acquisition efficiency, paid distribution, or non-compliance, and I give no baselines or uplift figures."
+ },
+ "journey": {
+  "labels": [
+   [
+    "observed",
+    "Observed",
+    "Seen on a reviewed page, screen or post."
+   ],
+   [
+    "describes",
+    "Provider describes",
+    "Stated by the provider; not used or verified in this review."
+   ],
+   [
+    "not_reviewed",
+    "Not reviewed",
+    "The public sources reviewed do not answer it."
+   ]
+  ],
+  "cautions": [
+   "A published feature is not evidence that customers used it.",
+   "A social post is not evidence that a customer saw it.",
+   "A published verification process is not evidence that I completed it."
+  ],
+  "stages": [
+   [
+    "discover",
+    "Discovers the brand",
+    "What the reviewed social content introduces or promises."
+   ],
+   [
+    "visit",
+    "Visits the website",
+    "How the offer, conditions and reasons to trust it are explained."
+   ],
+   [
+    "first",
+    "Takes the first step",
+    "Where the main button leads and what it asks for."
+   ],
+   [
+    "verify",
+    "Completes verification",
+    "What is publicly explained about eligibility, documents and approval."
+   ],
+   [
+    "start",
+    "Starts using the product",
+    "What is required to fund an account, activate a card or make a first transaction."
+   ],
+   [
+    "keep",
+    "Keeps using it",
+    "What the provider describes about ongoing spending, payments and expenses."
+   ]
+  ],
+  "stage_notes": {
+   "start": "Card activation and first transactions were not reviewed for any provider.",
+   "keep": "How customers actually use the product over time was not reviewed."
+  },
+  "cells": {
+   "discover": {
+    "venn": [
+     [
+      "observed",
+      "9 posts in the window, including a customer story that repeats the 1% cashback rate.",
+      []
+     ]
+    ],
+    "float": [
+     [
+      "observed",
+      "No in-window posts found on the reviewed account.",
+      []
+     ]
+    ],
+    "ramp": [
+     [
+      "observed",
+      "19 records on @tryramp, whose link to Ramp is unresolved, so they are not used here.",
+      []
+     ]
+    ],
+    "loop": [
+     [
+      "observed",
+      "No in-window posts found on the reviewed account.",
+      []
+     ]
+    ],
+    "keep": [
+     [
+      "observed",
+      "No in-window posts found on the reviewed account.",
+      []
+     ]
+    ],
+    "airwallex": [
+     [
+      "observed",
+      "23 posts on its global account, including a paid creator partnership and a programme nomination call.",
+      []
+     ]
+    ]
+   },
+   "visit": {
+    "venn": [
+     [
+      "observed",
+      "The cards page says cashback has no caps; the pricing footnote limits it on two plans.",
+      [
+       "O-VEN-04"
+      ]
+     ]
+    ],
+    "float": [
+     [
+      "observed",
+      "“Up to” rates for cashback and interest, with the conditions in a pricing footnote and promotion terms.",
+      [
+       "O-FLT-05",
+       "O-FLT-10"
+      ]
+     ]
+    ],
+    "ramp": [
+     [
+      "observed",
+      "Canadian eligibility on the card page; customer proof is worldwide (85,000 customers).",
+      [
+       "O-RMP-04",
+       "O-RMP-13"
+      ]
+     ]
+    ],
+    "loop": [
+     [
+      "observed",
+      "A case study labels its savings figure as Loop’s calculation; homepage averages show no basis I could find.",
+      [
+       "O-LOP-13",
+       "O-LOP-12"
+      ]
+     ]
+    ],
+    "keep": [
+     [
+      "observed",
+      "Pages show start buttons and “Applications do not impact your credit score”.",
+      [
+       "O-KEP-06"
+      ]
+     ]
+    ],
+    "airwallex": [
+     [
+      "observed",
+      "Visible pages say 1% cashback; the rebate terms were not found on 23 October.",
+      [
+       "O-AWX-04"
+      ]
+     ],
+     [
+      "observed",
+      "Checked 30 October 2026: pricing links promotion terms with a 2025 end date.",
+      []
+     ]
+    ]
+   },
+   "first": {
+    "venn": [
+     [
+      "observed",
+      "Account creation. Asks for sign-in, or email and password. Shows a time estimate; later steps are not described.",
+      [
+       "O-VEN-18"
+      ]
+     ]
+    ],
+    "float": [
+     [
+      "observed",
+      "Demo request. Eight required questions plus other fields. The screen does not say what happens after requesting a demo.",
+      [
+       "O-FLT-16"
+      ]
+     ]
+    ],
+    "ramp": [
+     [
+      "observed",
+      "Card application. Asks for an email. Later steps are not listed.",
+      [
+       "O-RMP-15"
+      ]
+     ]
+    ],
+    "loop": [
+     [
+      "observed",
+      "Account sign-up. Contact and business details, or Google sign-up. Lists the business-information and identity steps ahead.",
+      [
+       "O-LOP-15"
+      ]
+     ]
+    ],
+    "keep": [
+     [
+      "observed",
+      "The reviewed self-serve route leads to a closed-applications page. No application fields are offered.",
+      [
+       "O-KEP-05"
+      ]
+     ]
+    ],
+    "airwallex": [
+     [
+      "observed",
+      "Account sign-up. Asks for a business email. Later steps are not listed.",
+      [
+       "O-AWX-14"
+      ]
+     ]
+    ]
+   },
+   "verify": {
+    "venn": [
+     [
+      "observed",
+      "The sign-up screen says “No personal credit check or guarantee”.",
+      [
+       "O-VEN-18"
+      ]
+     ],
+     [
+      "describes",
+      "Not available to businesses in Quebec (stated elsewhere on the site).",
+      [
+       "O-VEN-07"
+      ]
+     ],
+     [
+      "not_reviewed",
+      "Documents and approval steps.",
+      []
+     ]
+    ],
+    "float": [
+     [
+      "describes",
+      "Float Charge credit is subject to terms, eligibility criteria and caps.",
+      [
+       "O-FLT-07"
+      ]
+     ],
+     [
+      "not_reviewed",
+      "Documents and approval steps.",
+      []
+     ]
+    ],
+    "ramp": [
+     [
+      "describes",
+      "The card page lists a Canadian, US or UK-registered entity, a Business Number and a linked Canadian bank account.",
+      [
+       "O-RMP-04"
+      ]
+     ],
+     [
+      "not_reviewed",
+      "Approval steps after the email.",
+      []
+     ]
+    ],
+    "loop": [
+     [
+      "observed",
+      "The sign-up screen lists business information (CRA ID, structure, website) and identity (date of birth, government ID) as the next steps.",
+      [
+       "O-LOP-15"
+      ]
+     ],
+     [
+      "describes",
+      "The card is not available to sole proprietors residing in Quebec.",
+      [
+       "O-LOP-06"
+      ]
+     ]
+    ],
+    "keep": [
+     [
+      "describes",
+      "Applying does not affect the credit score; accepting an offer may lead to a hard inquiry.",
+      [
+       "O-KEP-06"
+      ]
+     ],
+     [
+      "not_reviewed",
+      "Verification steps, as the reviewed route was closed.",
+      []
+     ]
+    ],
+    "airwallex": [
+     [
+      "describes",
+      "Business use only; not for sole proprietors in Quebec.",
+      [
+       "O-AWX-06"
+      ]
+     ],
+     [
+      "not_reviewed",
+      "Documents and approval steps.",
+      []
+     ]
+    ]
+   },
+   "start": {
+    "venn": [
+     [
+      "describes",
+      "A charge card that spends funds already in the card account, paid in full each cycle.",
+      [
+       "O-VEN-01"
+      ]
+     ]
+    ],
+    "float": [
+     [
+      "describes",
+      "A pre-funded card limited to the Float balance, or Float Charge credit with 15- or 30-day terms.",
+      [
+       "O-FLT-01"
+      ]
+     ]
+    ],
+    "ramp": [
+     [
+      "not_reviewed",
+      "How the Canadian card is funded or repaid was not established.",
+      [
+       "O-RMP-02"
+      ]
+     ]
+    ],
+    "loop": [
+     [
+      "describes",
+      "Card purchases are drawn under a credit facility; limits up to $1M are promoted.",
+      [
+       "O-LOP-01"
+      ]
+     ]
+    ],
+    "keep": [
+     [
+      "describes",
+      "A charge card paid in full, with no interest.",
+      [
+       "O-KEP-01"
+      ]
+     ]
+    ],
+    "airwallex": [
+     [
+      "describes",
+      "The card spends the wallet balance; a credit line is also listed, with its terms not explained.",
+      [
+       "O-AWX-01"
+      ]
+     ]
+    ]
+   },
+   "keep": {
+    "venn": [
+     [
+      "describes",
+      "Approval workflows by role, department or amount; QuickBooks and Xero sync.",
+      [
+       "O-VEN-20",
+       "O-VEN-22"
+      ]
+     ]
+    ],
+    "float": [
+     [
+      "describes",
+      "Manager approvals, a second approver above a set amount; QuickBooks Online and Xero, NetSuite on Professional.",
+      [
+       "O-FLT-20",
+       "O-FLT-22"
+      ]
+     ]
+    ],
+    "ramp": [
+     [
+      "describes",
+      "Approval rules before employees spend; QuickBooks Online and Xero, more systems on Plus.",
+      [
+       "O-RMP-18",
+       "O-RMP-20"
+      ]
+     ]
+    ],
+    "loop": [
+     [
+      "describes",
+      "Unlimited approval flows and custom rules; QuickBooks and Xero.",
+      [
+       "O-LOP-18",
+       "O-LOP-20"
+      ]
+     ]
+    ],
+    "keep": [
+     [
+      "describes",
+      "Rules set once instead of approving each purchase; QuickBooks and CSV exports.",
+      [
+       "O-KEP-17",
+       "O-KEP-19"
+      ]
+     ]
+    ],
+    "airwallex": [
+     [
+      "describes",
+      "Flagged expenses go to an approver; Xero and QuickBooks, more systems on Grow.",
+      [
+       "O-AWX-17",
+       "O-AWX-19"
+      ]
+     ]
+    ]
+   }
+  },
+  "reading": "Only Loop’s reviewed first screen listed the steps ahead. This review does not establish whether more people completed the journey.",
+  "gaps": [
+   "Ramp’s Canadian card model and repayment terms (the Canada Card Supplement was not captured).",
+   "What each provider asks for during verification, from its own help or onboarding pages, without creating an account.",
+   "How each card is activated and funded before a first transaction, from public help pages.",
+   "What happens after Float’s demo request and after Airwallex’s and Ramp’s email step, where a public page explains it."
+  ]
  }
 }

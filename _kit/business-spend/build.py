@@ -10,6 +10,7 @@ so the same inputs always give the same bytes. A rebuild never changes a date.
 """
 import csv
 import html
+import re
 import io
 import json
 import os
@@ -122,7 +123,8 @@ def cell(c, pid, key, label):
     else:
         status = 'published'
     if spec.get('text') is None:
-        body = '<span class="cell-main">%s</span>' % E(model.STATUSES[status])
+        why = re.sub(r'^Not checked:\s*', '', re.split(r'(?<=\.)\s', c.obs[ids[0]]['statement'])[0]) if ids else ''
+        body = '<span class="cell-main">%s</span>%s' % (E(model.STATUSES[status]), ('<span class="cell-sub">%s</span>' % E(why[0].upper() + why[1:])) if why else '')
         cls = ' class="miss"'
         tag = ''
     else:
@@ -162,13 +164,14 @@ def restriction_lines(c, pid):
     return ''.join('<span class="bs-restr"><b>%s:</b> %s</span>' % (E(l), E(t)) for l, t, _ in c.n['compare']['rows'][pid].get('restrictions', []))
 
 
-def table(c, title, cols, tid, head=True, note=None, restrictions=False):
+def table(c, title, cols, tid, head=True, note=None, restrictions=False, link=False):
     ths = ''.join('<th scope="col">%s</th>' % E(l) for _, l in cols)
     rows = []
     for pid in c.order:
         cells = ''.join(cell(c, pid, k, l) for k, l in cols)
         extra = restriction_lines(c, pid) if restrictions else ''
-        rows.append('<tr id="%s-%s"><td class="brandcell"><a href="#bs-p-%s">%s</a>%s</td>%s</tr>' % (tid, pid, pid, E(c.name(pid)), extra, cells))
+        name = ('<a href="#bs-p-%s">%s</a>' % (pid, E(c.name(pid)))) if link else E(c.name(pid))   # plain in the tabs (2026-10-30, final)
+        rows.append('<tr id="%s-%s"><td class="brandcell">%s%s</td>%s</tr>' % (tid, pid, name, extra, cells))
     label = ('<h3 id="%s-h">%s</h3>' % (tid, E(title))) if head else ''
     if note:
         label += '<p class="bs-tnote">%s</p>' % E(note)
@@ -340,11 +343,176 @@ TEST_ROWS = [('observation', 'Observed evidence'), ('question', 'Customer questi
              ('measure', 'Primary measurement'), ('guardrail', 'Guardrail'), ('limitation', 'When the result would be inconclusive')]
 
 
-def example_card(c, e, eid=None):
+def example_card(c, e, eid=None, evidence=True):
     # Short form (2026-10-30): heading, the observed fact, one sentence of my reading, the evidence link.
     return ('<div class="card ex"%s><h4 class="t">%s</h4><p class="dek">%s</p>'
             '<p class="dek"><b>My reading:</b> %s</p>%s</div>' % (
-                (' id="%s"' % eid) if eid else '', E(e['title']), E(e['body']), E(e['lesson']), ev_links(c, e['evidence'])))
+                (' id="%s"' % eid) if eid else '', E(e['title']), E(e['body']), E(e['lesson']), ev_links(c, e['evidence']) if evidence else ''))
+
+
+# Line icons for the Overview guide (founder brief, 2026-10-30, final): restrained, decorative only (the text carries the meaning).
+_SVG = '<svg class="bs-gi" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">%s</svg>'
+ICONS = {
+    'post': _SVG % '<rect x="9" y="7" width="30" height="34" rx="4"/><rect x="14" y="12" width="20" height="14" rx="2"/><circle cx="20" cy="17" r="2"/><path d="M14 24l6-5 5 4 3-2 6 5"/><path d="M14 31h20M14 36h12"/>',
+    'bubble': _SVG % '<path d="M8 12a5 5 0 0 1 5-5h22a5 5 0 0 1 5 5v14a5 5 0 0 1-5 5H21l-8 7v-7a5 5 0 0 1-5-5z"/><path d="M15 15h18M15 22h12"/>',
+    'grid': _SVG % '<rect x="7" y="9" width="34" height="30" rx="3"/><path d="M7 19h34M7 29h34M19 9v30M30 9v30"/>',
+    'steps': _SVG % '<circle cx="10" cy="24" r="4"/><circle cx="24" cy="24" r="4"/><circle cx="38" cy="24" r="4"/><path d="M14 24h6M28 24h6"/>',
+    'check': _SVG % '<path d="M9 13l3 3 5-6M9 25l3 3 5-6M9 37l3 3 5-6"/><path d="M22 13h17M22 25h17M22 37h17"/>',
+}
+
+EXT = ' <span class="sr-only">(opens in a new tab)</span>'
+
+
+def sources_view(c, views, start, end, draft):
+    """The one reference view: the full research trail behind every tab (founder brief, 2026-10-30, final). Not a tab; the
+    "Sources & evidence" link beside the tabs opens it and its return control goes back to the tab the reader came from."""
+    n, ed = c.n, c.edition
+    m = n['method']
+    when = '%s, %s to %s Toronto time' % (long_date(start), toronto_time(start), toronto_time(end))
+    parts = []
+    toc = [('bs-ref-scope', 'Scope, dates and coverage'), ('bs-ref-web', 'Website evidence by provider'), ('bs-ref-social', 'Social accounts, posts and attribution'),
+           ('bs-ref-journey', 'Customer-journey evidence'), ('bs-ref-tests', 'Findings and full test specifications'), ('bs-ref-status', 'Status definitions and reconciliation'),
+           ('bs-ref-images', 'Image provenance'), ('bs-ref-author', 'Author and relationship disclosure'), ('bs-cite', 'Citation'),
+           ('bs-editions', 'Edition history and corrections'), ('bs-ref-downloads', 'Downloads')]
+    if not c.social:
+        toc = [t for t in toc if t[0] not in ('bs-ref-social', 'bs-ref-images')]
+    if draft:
+        toc = [t for t in toc if t[0] != 'bs-cite']
+    back = '<p class="bs-ref-back"><a href="#bs-overview" data-bs-back>&larr; <span>Back to the index</span></a></p>'
+    v = views['sources']
+    parts.append('<section id="bs-sources" class="bs-view bs-ref" aria-labelledby="bs-sources-h">%s<div class="sec-head"><h2 id="bs-sources-h">%s</h2><p class="dek">%s</p></div>'
+                 '<nav class="bs-reftoc" aria-label="Sources and evidence contents"><ol>%s</ol></nav>' % (
+                     back, E(v['title']), E(v['dek']), ''.join('<li><a href="#%s">%s</a></li>' % (i, E(t)) for i, t in toc)))
+
+    def sec(sid, title, html_):
+        parts.append('<div class="bs-refsec" id="%s"><h3>%s</h3>%s</div>' % (sid, E(title), html_))
+
+    # 1. Scope, dates and coverage
+    about = ''.join('<div class="kind"><dt>%s</dt><dd>%s</dd></div>' % (E(a), E(b)) for a, b in n['about'])
+    leg = ''.join('<div class="kind kind-%d"><dt>%s</dt><dd>%s</dd></div>' % (i, E(a), E(b)) for i, (a, b) in enumerate(n['legend']))
+    ch = n['chain']
+    lim = ''.join('<li>%s</li>' % E(x) for x in m['limitations'])
+    nobs, nsrc = len(c.obs), len(c.sources)
+    nbr = sum(1 for x in c.sources.values() if x['method'] == 'browser')
+    fu = c.followup
+    sec('bs-ref-scope', 'Scope, dates and coverage',
+        '<div id="bs-about"><p class="dek">%s</p><dl class="legend">%s</dl></div>'
+        '<div id="bs-method"><div id="bs-scope"><h4 class="t">Scope</h4><p class="dek">%s</p><h4 class="t">Selection</h4><p class="dek">%s</p>'
+        '<h4 class="t">Dates</h4><p class="dek">Websites observed %s. %s%s</p><h4 class="t">Public sources only</h4><p class="dek">%s</p>%s'
+        '<h4 class="t">Limitations</h4><ul class="dek">%s</ul>'
+        '<p class="pnote">%d observations from %d captures of public pages (%d by server fetch, %d in a browser), six platforms, edition %s.</p></div></div>'
+        '<div id="bs-guide"><h4 class="t">How to read the analysis</h4><dl class="legend">%s</dl><h4 class="t chain-h">How each conclusion is reached</h4>'
+        '<ol class="chain-steps">%s</ol><p class="pnote m0">%s</p></div>' % (
+            E(views['overview']['about_intro']), about, E(m['scope']), E(m['selection']), E(when), E(m['dates']),
+            (' A separately dated follow-up on Airwallex only was checked on %s; it is not part of the 23 October observations.' % iso_long(fu['checked_on'])) if fu else '',
+            E(m['public_only']), social.method_html(c.social) if c.social else '', lim, nobs, nsrc, nsrc - nbr, nbr, E(ed['edition']),
+            leg, ''.join('<li>%s</li>' % E(s_) for s_ in ch['steps']), E(ch['note'])))
+    # 2. Website evidence by provider
+    cp = n['compare']
+    sec('bs-ref-web', 'Website evidence by provider',
+        '<p class="dek">%s</p>%s%s<h4 class="t">Each provider&rsquo;s pages</h4><p class="dek">%s</p><div id="bs-platforms">%s</div>%s' % (
+            E(cp['note']), table(c, 'More product details', cp['card_columns'], 'bs-cards', link=True), table(c, 'Account and transfer details', cp['acct_columns'], 'bs-xt', link=True),
+            E(views['messaging']['evidence_dek']), ''.join(platform_block(c, pid) for pid in c.order),
+            compare_sources(c) + '<h4 class="t">Messaging examples: evidence</h4><ul class="dek">%s</ul>' % ''.join(
+                '<li><b>%s.</b> %s</li>' % (E(e['title']), ev_links(c, e['evidence']).replace('<p class="evlinks">', '<span class="evlinks">').replace('</p>', '</span>'))
+                for e in n['examples']['items'] if e.get('place') == 'messaging')))
+    # 3. Social accounts, posts and attribution
+    if c.social:
+        sec('bs-ref-social', 'Social accounts, posts and attribution', social.reference_html(c))
+    # 4. Customer-journey evidence
+    jn = n['journeys']
+    jlabels = [('start', 'Starting page and button'), ('dest', 'Destination'), ('asks', 'Fields asked for'), ('elig', 'Eligibility shown'),
+               ('next', 'Next step and consent wording'), ('limit', 'Availability note'), ('stop', 'Where inspection stopped')]
+    jev = []
+    for pid in c.order:
+        r = jn['rows'][pid]
+        t0 = c.obs[r['ids'][0]]['observed_at']
+        dd = ''.join('<dt>%s</dt><dd>%s</dd>' % (E(l), E(r[k])) for k, l in jlabels)
+        dd += ''.join('<dt>%s</dt><dd>%s</dd>' % (E(l), E(t)) for l, t, _ in r.get('restrictions', []))
+        dd += '<dt>Observed</dt><dd>%s, %s Toronto time <span class="evlinks">(%s)</span></dd>' % (long_date(t0), toronto_time(t0), id_links(r['ids']))
+        jev.append('<div id="bs-jt-%s"><h4 class="t" id="bs-jev-%s">%s</h4><dl class="chain">%s</dl></div>' % (pid, pid, E(c.name(pid)), dd))
+    jy = n['journey']
+    stage_ev = ''.join('<li><b>%s.</b> %s</li>' % (E(t), '; '.join('%s: %s' % (E(c.name(pid)), id_links(sorted({i for _, _, ids in jy['cells'][k][pid] for i in ids})) or 'Instagram records') for pid in c.order))
+                       for k, t, _ in jy['stages'])
+    e3 = [e for e in n['examples']['items'] if e.get('place') == 'journeys']
+    sec('bs-ref-journey', 'Customer-journey evidence',
+        '<div id="bs-jt-evidence"><h4 class="t">First screens</h4><p class="dek">%s</p>%s%s</div>'
+        '<h4 class="t">Evidence behind each stage</h4><ul class="dek">%s</ul>'
+        '<h4 class="t" id="bs-journey-gaps">Gaps for a later edition</h4><p class="dek">Targeted checks that would make the later stages fuller. None is a broad new collection.</p><ul class="dek">%s</ul>' % (
+            E(jn['note']), ''.join(jev), ''.join(example_card(c, e, 'bs-e3') for e in e3), stage_ev, ''.join('<li>%s</li>' % E(g) for g in jy['gaps'])))
+    # 5. Findings and full test specifications
+    fl = []
+    for it in n['findings']['items']:
+        an = ', '.join('<a href="#%s">%s</a>' % (a[1], E(a[0])) for a in it['analysis'])
+        fl.append('<div class="bs-fdetail" id="bs-%s-detail"><h4 class="t">Finding %s. %s</h4><dl class="chain"><dt>What the sources say</dt><dd>%s <b>Denominator:</b> %s %s</dd>'
+                  '<dt>Customer question</dt><dd>&ldquo;%s&rdquo;</dd><dt>My reading</dt><dd>%s</dd><dt>Where it shows</dt><dd class="dlinks">%s. Proposed test: <a href="#bs-%s">test %s</a>.</dd></dl></div>' % (
+                      it['id'].lower(), it['id'][1:], E(it['title']), E(it['body']), E(it['denominator']),
+                      ev_links(c, it['evidence']).replace('<p class="evlinks">', '<span class="evlinks">').replace('</p>', '</span>'),
+                      E(it['question']), E(it['reading']), an, it['test'].lower(), it['test'][1:]))
+    tl = []
+    for t in n['tests']['items']:
+        dd = []
+        for k, l in TEST_ROWS:
+            val = E(t[k])
+            if k == 'observation':
+                val += ' <span class="evlinks">(%s)</span>' % id_links(t['evidence'])
+            dd.append('<dt>%s</dt><dd>%s</dd>' % (E(l), val))
+        tl.append('<div class="bs-tspec" id="bs-%s-spec"><h4 class="t">Test %s. %s <span class="ktag test">Proposed test, not a result</span></h4><dl class="chain">%s</dl></div>' % (
+            t['id'].lower(), t['id'][1:], E(t['title']), ''.join(dd)))
+    pt = n['patterns']
+    pts = ''.join('<p class="dek"><b>%s.</b> %s%s <b>Denominator:</b> %s</p>%s' % (
+        E(x['title']), E(x['body']), (' <b>Exceptions:</b> %s' % E(x['exceptions'])) if x['exceptions'] else '', E(x['denominator']), ev_links(c, x['evidence'])) for x in pt['items'])
+    sec('bs-ref-tests', 'Findings and full test specifications',
+        '%s<p class="dek"><b>A question to start with:</b> %s</p>%s<p class="dek">%s</p><div id="bs-patterns"><h4 class="t">Other observations across the six</h4><p class="dek">%s</p>%s</div>' % (
+            ''.join(fl), E(n['findings']['take']), ''.join(tl), E(n['tests']['data_note']), E(pt['dek']), pts))
+    # 6. Status definitions and reconciliation
+    st = ''.join('<dt>%s</dt><dd>%s</dd>' % (E(a), E(b)) for a, b in m['statuses'])
+    fu_html = ''
+    if fu:
+        fu_src = {x['id']: x for x in fu['sources']}
+        rc = fu.get('recheck')
+        fu_html = ('<h4 class="t" id="bs-awx-followup">Airwallex follow-up, checked %s</h4><p class="dek">%s %s%s</p><ul class="dek">%s</ul>'
+                   '<p class="dek"><b>Not established:</b> %s</p><p class="pnote">Pages checked: %s.</p>' % (
+                       iso_long(fu['checked_on']), E(fu['note']), E(fu['method']), (' ' + E(rc['note'])) if rc else '',
+                       ''.join('<li>%s <span class="src">&ldquo;%s&rdquo;, <a href="%s" rel="noopener nofollow" target="_blank">%s%s</a></span></li>' % (
+                           E(f['text']), E(f['quote']), E(fu_src[f['source']]['url']), E(fu_src[f['source']]['title']), EXT) for f in fu['findings']),
+                       E(' '.join(fu['not_established'])),
+                       '; '.join('<a href="%s" rel="noopener nofollow" target="_blank">%s%s</a> (server fetch %s, browser %s Toronto time; capture SHA-256 %s&hellip;)' % (
+                           E(x['url']), E(x['title']), EXT, toronto_time(x['server_fetched_at']), toronto_time(x['browser_rendered_at']), E(x['html_sha256'][:16])) for x in fu['sources'])))
+    sec('bs-ref-status', 'Status definitions and reconciliation',
+        '<h4 class="t" id="bs-statuses">What each status means</h4><dl class="statdefs">%s</dl>'
+        '<div id="bs-cmp-read"><p class="dek">A label beside an entry means it is not a plain published fact. &ldquo;Published pages disagree&rdquo; is the status Conflicting. A restriction set in bold (such as &ldquo;Not offered to businesses in Quebec&rdquo;) is the status Explicitly unavailable. &ldquo;Not checked&rdquo; means no valid check was completed, and &ldquo;Not found in reviewed sources&rdquo; means the reviewed pages did not establish it; neither means a feature is unavailable. Restriction lines beside a provider repeat what its pages state and are not a complete eligibility assessment.</p>'
+        '<p class="dek" id="bs-unclear">%s</p></div>%s%s' % (st, E(cp['unclear']), recon_details(c, inline=True), fu_html))
+    # 7. Image provenance
+    if c.social:
+        sec('bs-ref-images', 'Image provenance', social.images_html(c.social))
+    # 8. Author and relationship disclosure
+    rel = ed['relationship_disclosure']
+    if rel['status'] == 'complete':
+        rel_html = '<p class="dek"><b>Relationship disclosure.</b> %s</p>' % E(rel['text'])
+    else:
+        rel_html = ('<div class="note gap"><span class="lbl">Placeholder</span><p>Relationship disclosure pending. Before publication I will state here whether '
+                    'I or Help Me Marketing have any commercial connection with any of the six providers.</p></div>')
+    sec('bs-ref-author', 'Author and relationship disclosure',
+        '<div id="bs-research"><p class="dek">Research and analysis by <a href="/about">Ankit Kumar</a>, founder of Help Me Marketing, a marketing practice in Halton Hills, Ontario. This Index reads marketing pages; it is not financial, legal or regulatory advice.</p>%s</div>' % rel_html)
+    # 9 and 10. Citation, edition history and corrections
+    log = ''.join('<li><b>%s.</b> %s</li>' % (E(d), E(x)) for d, x in m.get('corrections_log', []))
+    corr = ('<h4 class="t" id="bs-corrections">Corrections</h4><p class="dek">%s</p>%s' % (
+        E(m['corrections']).replace('Hello@helpmemarketing.com', '<a href="mailto:Hello@helpmemarketing.com">Hello@helpmemarketing.com</a>'),
+        ('<ul class="dek corrections-log">%s</ul>' % log) if log else '<p class="pnote m0">No corrections recorded.</p>'))
+    if not draft:
+        cite, ed_table = cite_and_editions(c)
+        sec('bs-cite', 'Citation', cite)
+        sec('bs-editions', 'Edition history and corrections', ed_table + corr)
+    else:
+        sec('bs-editions', 'Edition history and corrections', corr)
+    # 11. Downloads
+    sec('bs-ref-downloads', 'Downloads',
+        '<ul class="dek dlinks"><li><a href="/%s" download>Website observations from 23 October 2026 (CSV)</a>: platform, category, observation, status, market and plan, conditions, source URL and capture time. My interpretations and the Airwallex follow-up of 30 October 2026 are not in the file.</li>%s</ul>' % (
+            CSV_REL, ('<li><a href="/%s" download>Instagram records (CSV)</a>: all %d records, %d attributed posts and %d @tryramp records with unresolved provider attribution, marked in the provider_attribution column. Captions, displayed counts and reposts are not in the file.</li>' % (
+                social.CSV_REL, len(c.social['posts']), social.attributed_count(c.social), len(c.social['posts']) - social.attributed_count(c.social))) if c.social else ''))
+    parts.append(back.replace('bs-ref-back', 'bs-ref-back bs-ref-back-end') + '</section>')
+    return '\n'.join(parts)
 
 
 def body(c):
@@ -364,215 +532,121 @@ def body(c):
         out.append('<p class="pnote">%s</p>' % E(h['draft_note']))
     out.append('</header>')
     views = dict(n['views'])
-    marks = {}
     if c.social:
         views['social'] = {'title': c.social['view']['title'], 'dek': c.social['view']['dek']}
     order = view_order(c)
-    out.append('<nav class="ri-nav bs-views" aria-label="Sections of this page"><div class="bs-tablist">%s</div></nav>' % ''.join(
-        '<a href="#%s" id="bs-tab-%s">%s</a>' % (vid, k, E(views[k]['title'])) for k, vid in order))
+    # Tabs plus one small "Sources & evidence" link for the whole index (founder brief, 2026-10-30, final).
+    out.append('<nav class="ri-nav bs-views" aria-label="Sections of this page"><div class="bs-tablist">%s</div>'
+               '<a class="bs-srclink" href="#bs-sources" id="bs-srclink">Sources &amp; evidence</a></nav>' % ''.join(
+                   '<a href="#%s" id="bs-tab-%s">%s</a>' % (vid, k, E(views[k]['title'])) for k, vid in order))
 
-    def view_open(key, vid):
+    def view_open(key, vid, cls='bs-view'):
         v = views[key]
-        return ('<section id="%s" class="bs-view" aria-labelledby="%s-h"><div class="sec-head"><h2 id="%s-h">%s</h2><p class="dek">%s</p></div>'
-                % (vid, vid, vid, E(v.get('heading', v['title'])), E(v['dek'])))
+        return ('<section id="%s" class="%s" aria-labelledby="%s-h"><div class="sec-head"><h2 id="%s-h">%s</h2><p class="dek">%s</p></div>'
+                % (vid, cls, vid, vid, E(v.get('heading', v['title'])), E(v['dek'])))
 
     def view_close(key):
         keys = [k for k, _ in order]
         i = keys.index(key)
+        prev = ('<a href="#%s">&larr; Back: %s</a>' % (order[i - 1][1], E(views[order[i - 1][0]]['title']))) if i else ''
         if i + 1 < len(order):
             k2, v2 = order[i + 1]
-            link = '<a href="#%s">Next: %s &rarr;</a>' % (v2, E(views[k2]['title']))
+            nxt = '<a href="#%s">Next: %s &rarr;</a>' % (v2, E(views[k2]['title']))
         else:
-            link = '<a href="#%s">Back to %s</a>' % (order[0][1], E(views[order[0][0]]['title']))
-        return '<p class="bs-next">%s</p></section>' % link
+            nxt = '<a href="#%s">Back to %s</a>' % (order[0][1], E(views[order[0][0]]['title']))
+        return '<p class="bs-next">%s%s</p></section>' % (prev, nxt)
 
-    # ---------- 1. Overview ----------
-    # Founder brief (2026-10-28): findings first, my reading beside each, one takeaway, then the research details in expanders.
-    marks['overview'] = len(out)
-    out.append(view_open('overview', 'bs-overview'))
-    out.append('<p class="bs-obs">%s</p>' % E(views['overview']['observed']))
-    f = n['findings']
-    tests = {t['id']: t for t in n['tests']['items']}
-    items = []
-    for k, it in enumerate(f['items'], 1):
-        t = tests[it['test']]
-        an = ', '.join('<a href="#%s">%s</a>' % (a[1], E(a[0])) for a in it['analysis'])
-        detail = ('<details class="bs-fdetail"><summary>Evidence for this finding</summary><p class="dek fdetail-t">%s</p><dl class="chain">'
-                  '<dt>What the sources say</dt><dd>%s <b>Denominator:</b> %s %s</dd>'
-                  '<dt>Customer question</dt><dd>&ldquo;%s&rdquo;</dd>'
-                  '<dt>My reading</dt><dd>%s</dd>'
-                  '<dt>Analysis and test</dt><dd class="dlinks">%s. Proposed test, not a result: <a href="#bs-%s">test %s, %s</a>.</dd></dl></details>' % (
-                      E(it['title']), E(it['body']), E(it['denominator']), ev_links(c, it['evidence']).replace('<p class="evlinks">', '<span class="evlinks">').replace('</p>', '</span>'),
-                      E(it['question']), E(it['reading']), an, t['id'].lower(), t['id'][1:], E(t['title'])))
-        # Key figure first (2026-10-28): the count comes from the finding's denominator; validate.py checks they agree.
-        # Headline first, then the count as a supporting line with its own denominator (founder, 2026-10-28).
-        items.append('<div class="find" id="bs-%s"><h3 class="bs-ftitle">%s</h3><p class="bs-fig"><b>%s</b> %s</p><p class="dek">%s</p>'
-                     '<p class="bs-fgo"><a href="#%s">%s<span aria-hidden="true"> &rarr;</span></a></p>%s</div>' % (
-                         it['id'].lower(), E(it['short_title']), E(it['figure']), E(it['figure_label']), E(it['summary']), it['explore'][1], E(it['explore'][0]), detail))
-    out.append('<div id="bs-findings" class="bs-finds">%s</div>' % ''.join(items))
-    out.append(take(f['take']))
-    m = n['method']
-    st = ''.join('<dt>%s</dt><dd>%s</dd>' % (E(a), E(b)) for a, b in m['statuses'])
-    lim = ''.join('<li>%s</li>' % E(x) for x in m['limitations'])
-    rel = ed['relationship_disclosure']
-    if rel['status'] == 'complete':
-        rel_line = 'No commercial relationship with the six providers.'
-        rel_full = '<p class="dek"><b>Relationship disclosure.</b> %s</p>' % E(rel['text'])
-    else:
-        rel_line = 'Relationship disclosure pending.'
-        rel_full = ('<div class="note gap"><span class="lbl">Placeholder</span><p>Relationship disclosure pending. Before publication I will state here whether '
-                    'I or Help Me Marketing have any commercial connection with any of the six providers.</p></div>')
-    nobs = len(c.obs)
-    nsrc = len(c.sources)
-    nbr = sum(1 for x in c.sources.values() if x['method'] == 'browser')
-    out.append('<div class="bs-research" id="bs-research"><p class="bs-author">Research and analysis by <a href="/about">Ankit Kumar</a>, founder of Help Me Marketing. %s</p>' % E(rel_line))
-    about = ''.join('<div class="kind"><dt>%s</dt><dd>%s</dd></div>' % (E(a), E(b)) for a, b in n['about'])
-    out.append('<details class="bs-rd" id="bs-about"><summary>About this study</summary><p class="dek">%s</p><dl class="legend">%s</dl>'
-               '<p class="dek">Research and analysis by <a href="/about">Ankit Kumar</a>, founder of Help Me Marketing, a marketing practice in Halton Hills, Ontario. This Index reads marketing pages; it is not financial, legal or regulatory advice.</p>%s</details>'
-               % (E(views['overview']['about_intro']), about, rel_full))
-    leg = ''.join('<div class="kind kind-%d"><dt>%s</dt><dd>%s</dd></div>' % (i, E(a), E(b)) for i, (a, b) in enumerate(n['legend']))
-    ch = n['chain']
-    chain = '<ol class="chain-steps">%s</ol>' % ''.join('<li>%s</li>' % E(s) for s in ch['steps'])
-    out.append('<details class="bs-rd" id="bs-guide"><summary>How to read the analysis</summary><dl class="legend">%s</dl>'
-               '<h4 class="t chain-h">How each conclusion is reached</h4>%s<p class="pnote m0">%s</p></details>' % (leg, chain, E(ch['note'])))
-    social_method = social.method_html(c.social) if c.social else ''
-    out.append('<div id="bs-method"><details class="bs-rd" id="bs-scope"><summary>Sources and methodology</summary>'
-               '<h4 class="t">Scope</h4><p class="dek">%s</p><h4 class="t">Selection</h4><p class="dek">%s</p><h4 class="t">Dates</h4><p class="dek">Websites observed %s. %s</p><h4 class="t">Public sources only</h4><p class="dek">%s</p>%s'
-               '<h4 class="t" id="bs-statuses">What each status means</h4><dl class="statdefs">%s</dl><h4 class="t">Limitations</h4><ul class="dek">%s</ul>'
-               '<p class="pnote">%d observations from %d captures of public pages (%d by server fetch, %d in a browser), six platforms, edition %s. Interpretations are marked &ldquo;My reading&rdquo; and kept apart from what each source states.</p>%s</details></div>'
-               % (E(m['scope']), E(m['selection']), E(when), E(m['dates']), E(m['public_only']), social_method, st, lim, nobs, nsrc, nsrc - nbr, nbr, E(ed['edition']), recon_details(c, inline=True)))
-    log = ''.join('<li><b>%s.</b> %s</li>' % (E(d), E(x)) for d, x in m.get('corrections_log', []))
-    corr = ('<h4 class="t" id="bs-corrections">Corrections</h4><p class="dek">%s</p>%s' % (
-        E(m['corrections']).replace('Hello@helpmemarketing.com', '<a href="mailto:Hello@helpmemarketing.com">Hello@helpmemarketing.com</a>'),
-        ('<ul class="dek corrections-log">%s</ul>' % log) if log else '<p class="pnote m0">No corrections recorded.</p>'))
-    if not draft:
-        cite, ed_table = cite_and_editions(c)
-        out.append('<details class="bs-rd" id="bs-cite"><summary>Cite this research</summary>%s</details>' % cite)
-        out.append('<details class="bs-rd" id="bs-editions"><summary>Edition history and corrections</summary><h4 class="t">Edition history</h4>%s%s</details>' % (ed_table, corr))
-    else:
-        out.append('<details class="bs-rd" id="bs-editions"><summary>Corrections</summary>%s</details>' % corr)
-    out.append('<p class="pnote dlinks"><b>Download the data:</b> <a href="/%s" download>the curated observations (CSV)</a>: platform, category, observation, status, market and plan, conditions, source URL and capture time. My interpretations are not in the file.</p></div>' % CSV_REL)
-    out.append(view_close('overview'))
-
-    # ---------- 2. Compare products ----------
-    cp = n['compare']
-    marks['compare'] = len(out)
-    out.append(view_open('compare', 'bs-compare'))
-    # Founder brief (2026-10-30, second): short, direct and plain. Three compact tables, each with an optional details expander;
-    # restrictions beside the provider; supporting information grouped at the bottom.
-    out.append('<p class="bs-cmp-when"><b>Website observations: %s.</b> %s</p>' % (long_date(start), E(cp['observed_line'])))
-    out.append('<p class="bs-cmp-jump"><a href="#bs-prod">Cards, rewards &amp; costs</a> &middot; <a href="#bs-xb">Currency fees</a> &middot; <a href="#bs-spend">Spending controls</a></p>')
-    out.append('<div class="bs-cmp-sec">%s<details class="bs-more"><summary>More product details: network, issuer, card formats and eligibility</summary>%s</details></div>'
-               % (table(c, 'Cards, rewards & costs', cp['cost_columns'], 'bs-prod', note=cp['pricing_note'], restrictions=True),
-                  table(c, 'More product details', cp['card_columns'], 'bs-cards', head=False)))
-    out.append('<div class="bs-cmp-sec">%s<details class="bs-more"><summary>Account and transfer details: currencies, banking partners, interest offers and transfers</summary>%s</details></div>'
-               % (table(c, 'Currency fees', cp['fee_columns'], 'bs-xb', note=cp['currency_note']), table(c, 'Account and transfer details', cp['acct_columns'], 'bs-xt', head=False)))
-    out.append('<div class="bs-cmp-sec">%s</div>' % table(c, 'Spending controls', cp['spend_columns'], 'bs-spend'))
+    V = {}
+    plain = lambda pid: E(c.name(pid))
     fu = c.followup
-    fu_src = {x['id']: x for x in fu['sources']}
-    fu_html = ('<h4 class="t" id="bs-awx-followup">Airwallex follow-up, 30 October 2026</h4><p class="dek">%s %s</p><ul class="dek">%s</ul>'
-               '<p class="dek"><b>Not established:</b> %s</p><p class="pnote">Pages checked: %s.</p>' % (
-                   E(fu['note']), E(fu['method']),
-                   ''.join('<li>%s <span class="src">&ldquo;%s&rdquo;, <a href="%s" rel="noopener nofollow" target="_blank">%s</a></span></li>' % (
-                       E(f['text']), E(f['quote']), E(fu_src[f['source']]['url']), E(fu_src[f['source']]['title'])) for f in fu['findings']),
-                   E(' '.join(fu['not_established'])),
-                   '; '.join('<a href="%s" rel="noopener nofollow" target="_blank">%s</a> (server fetch %s, browser %s Toronto time; capture SHA-256 %s&hellip;)' % (
-                       E(x['url']), E(x['title']), toronto_time(x['server_fetched_at']), toronto_time(x['browser_rendered_at']), E(x['html_sha256'][:16])) for x in fu['sources'])))
-    out.append('<details class="bs-more bs-cmp-read" id="bs-cmp-read"><summary>Sources and how to read the comparison</summary>'
-               '<p class="dek">%s</p>'
-               '<p class="dek">A label beside an entry means it is not a plain published fact. &ldquo;Published pages disagree&rdquo; is the status Conflicting. A restriction set in bold (such as &ldquo;Not offered to businesses in Quebec&rdquo;) is the status Explicitly unavailable. &ldquo;Not checked&rdquo; means no valid check was completed, and &ldquo;Not found in reviewed sources&rdquo; means the reviewed pages did not establish it; neither means a feature is unavailable. Restriction lines beside a provider repeat what its pages state and are not a complete eligibility assessment. <a href="#bs-statuses">What each status means</a>.</p>'
-               '<p class="dek" id="bs-unclear">%s</p></details>' % (E(cp['note']), E(cp['unclear'])))
-    out.append('<details class="bs-more bs-cmp-read" id="bs-cmp-evidence"><summary>Detailed evidence and reconciliation notes</summary>%s'
-               '<p class="dek">How the reported differences were classified: <a href="#bs-recon">reconciliation of the ten differences</a>.</p>%s</details>'
-               % (compare_sources(c), fu_html))
-    out.append('<p class="pnote dlinks"><b>Download the data:</b> <a href="/%s" download>every observation from 23 October 2026 with its source (CSV)</a>. The Airwallex follow-up of 30 October 2026 is recorded above and is not in the file.</p>' % CSV_REL)
-    out.append(view_close('compare'))
 
-    # ---------- 3. Messaging & offers ----------
-    # Founder brief (2026-10-30, third): one reading table, two examples, the evidence per provider in expanders.
+    # ---------- Overview: a visual guide to the index (founder brief, 2026-10-30, final) ----------
+    vo = views['overview']
+    guide = ''.join('<a class="bs-gcard" href="#bs-%s">%s<span class="bs-gt">%s</span><span class="bs-gd">%s</span></a>' % (
+        k, ICONS[icon], E(views[k]['title'] if k in views else t), E(desc)) for k, t, desc, icon in vo['guide'] if k != 'social' or c.social)
+    V['overview'] = (view_open('overview', 'bs-overview')
+                     + '<p class="bs-provs bs-ov-provs">%s</p>' % ' &middot; '.join(plain(pid) for pid in c.order)
+                     + '<nav class="bs-guide" aria-label="Sections of this index">%s</nav>' % guide
+                     + '<div class="bs-ov-scope"><p class="dek">%s</p><p class="bs-ov-dates">Website observations: %s%s. %s.</p></div>' % (
+                         E(vo['scope_line']), long_date(start),
+                         ' &middot; Instagram posts published 25 July to 22 October 2026' if c.social else '',
+                         'Later follow-up: Airwallex only, checked %s' % iso_long(fu['checked_on']) if fu else 'No later follow-up')
+                     + view_close('overview'))
+
+    # ---------- Social Media Content ----------
+    if c.social:
+        V['social'] = view_open('social', 'bs-social') + social.main_html(c) + view_close('social')
+
+    # ---------- Messaging & Offers ----------
     ex = n['examples']
     vm = views['messaging']
-    marks['messaging'] = len(out)
-    out.append(view_open('messaging', 'bs-messaging'))
-    out.append('<p class="bs-obs">%s</p>' % E(vm['observed']))
-    mrows = ''.join('<tr id="bs-msg-%s"><td class="brandcell"><a href="#bs-p-%s">%s</a></td><td data-label="Main message">%s</td><td data-label="What stood out">%s</td></tr>\n' % (
-        pid, pid, E(c.name(pid)), E(n['platforms'][pid]['main_message']), E(n['platforms'][pid]['stood_out'])) for pid in c.order)
-    out.append('<div class="tblock" id="bs-msg-table"><p class="ktag">My reading</p><h3 id="bs-msg-h">%s</h3><p class="bs-tnote">%s</p>'
-               '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-msg-h"><table class="bs"><caption class="sr-only">My reading of each platform&rsquo;s main message, from pages observed on 23 October 2026</caption>'
-               '<thead><tr><th scope="col">Platform</th><th scope="col">Main message</th><th scope="col">What stood out</th></tr></thead><tbody>\n%s</tbody></table></div></div>'
-               % (E(vm['table_title']), E(vm['table_note']), mrows))
-    exs = ''.join(example_card(c, e) for e in ex['items'] if e.get('place') == 'messaging')
-    out.append('<div id="bs-examples" class="sub"><h3>Selected examples</h3><p class="dek">%s</p>%s</div>' % (E(ex['dek']), exs))
-    out.append('<div id="bs-platforms" class="sub"><h3>%s</h3><p class="dek">%s</p>%s</div>' % (
-        E(vm['evidence_title']), E(vm['evidence_dek']), ''.join(platform_block(c, pid) for pid in c.order)))
-    out.append(view_close('messaging'))
+    mrows = ''.join('<tr id="bs-msg-%s"><td class="brandcell">%s</td><td data-label="Main message">%s</td><td data-label="What stood out">%s</td></tr>\n' % (
+        pid, plain(pid), E(n['platforms'][pid]['main_message']), E(n['platforms'][pid]['stood_out'])) for pid in c.order)
+    exs = ''.join(example_card(c, e, evidence=False) for e in ex['items'] if e.get('place') == 'messaging')
+    V['messaging'] = (view_open('messaging', 'bs-messaging')
+                      + '<p class="bs-obs">%s</p>' % E(vm['observed'])
+                      + '<div class="tblock" id="bs-msg-table"><p class="ktag">My reading</p><h3 id="bs-msg-h">%s</h3><p class="bs-tnote">%s</p>'
+                        '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-msg-h"><table class="bs"><caption class="sr-only">My reading of each platform&rsquo;s main message, from pages observed on 23 October 2026</caption>'
+                        '<thead><tr><th scope="col">Platform</th><th scope="col">Main message</th><th scope="col">What stood out</th></tr></thead><tbody>\n%s</tbody></table></div></div>'
+                        % (E(vm['table_title']), E(vm['table_note']), mrows)
+                      + '<div id="bs-examples" class="sub"><h3>Selected examples</h3><p class="dek">%s</p>%s</div>' % (E(ex['dek']), exs)
+                      + view_close('messaging'))
 
-    # ---------- 4. Application journeys ----------
-    jn = n['journeys']
-    marks['journeys'] = len(out)
-    out.append(view_open('journeys', 'bs-journeys'))
-    head = ''.join('<th scope="col">%s</th>' % E(l) for _, l in jn['table_columns'])
+    # ---------- Compare Products ----------
+    cp = n['compare']
+    V['compare'] = (view_open('compare', 'bs-compare')
+                    + '<p class="bs-cmp-when"><b>Website observations: %s.</b> %s</p>' % (long_date(start), E(cp['observed_line']))
+                    + '<p class="bs-cmp-jump"><a href="#bs-prod">Cards, rewards &amp; costs</a> &middot; <a href="#bs-xb">Currency fees</a> &middot; <a href="#bs-spend">Spending controls</a></p>'
+                    + '<div class="bs-cmp-sec">%s</div>' % table(c, 'Cards, rewards & costs', cp['cost_columns'], 'bs-prod', note=cp['pricing_note'], restrictions=True)
+                    + '<div class="bs-cmp-sec">%s</div>' % table(c, 'Currency fees', cp['fee_columns'], 'bs-xb', note=cp['currency_note'])
+                    + '<div class="bs-cmp-sec">%s</div>' % table(c, 'Spending controls', cp['spend_columns'], 'bs-spend')
+                    + '<p class="pnote dlinks bs-cmp-foot">Network and issuer, card formats, eligibility detail, account currencies, transfers, banking partners, interest offers and the source of every entry are in <a href="#bs-ref-web">Sources &amp; evidence</a>.</p>'
+                    + view_close('compare'))
+
+    # ---------- Customer Journey: six-stage framework and a stage-by-provider comparison ----------
+    jy = n['journey']
+    lab = {k: l for k, l, _ in jy['labels']}
+    stages = ''.join('<li><span class="bs-sn" aria-hidden="true">%d</span><span class="bs-st">%s</span><span class="bs-sd">%s</span></li>' % (i, E(t), E(d))
+                     for i, (_, t, d) in enumerate(jy['stages'], 1))
+    legend = ''.join('<div><dt><span class="bs-ev bs-ev-%s">%s</span></dt><dd>%s</dd></div>' % (k, E(l), E(d)) for k, l, d in jy['labels'])
+    head = ''.join('<th scope="col" data-pid="%s">%s</th>' % (pid, plain(pid)) for pid in c.order)
     rows = []
-    for pid in c.order:
-        r = jn['rows'][pid]
-        cells = ''.join('<td data-label="%s">%s</td>' % (E(l), E(r[k])) for k, l in jn['table_columns'])
-        status = ''.join(status_tag(c.obs[i]['status']) for i in r['ids'][:1])
-        rl = ''.join('<span class="bs-restr"><b>%s:</b> %s</span>' % (E(l), E(t)) for l, t, _ in r.get('restrictions', []))
-        rows.append('<tr id="bs-jt-%s"><td class="brandcell"><a href="#bs-jev-%s">%s</a>%s%s</td>%s</tr>' % (pid, pid, E(c.name(pid)), status, rl, cells))
-    out.append('<div class="tblock" id="bs-journey-table">'
-               '<div class="tw cards" tabindex="0" role="region" aria-label="First screen after each main start button, scrolls sideways"><table class="bs"><caption class="sr-only">First screen after each provider&rsquo;s main start button, 23 October 2026</caption>'
-               '<thead><tr><th scope="col">Platform</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div></div>' % (head, '\n'.join(rows)))
-    out.append('<div class="sub" id="bs-journey-reading"><div class="note reading"><span class="lbl">My reading</span><p>%s</p></div>'
-               '<p class="dlinks bs-tlink"><a href="#bs-t3">%s<span aria-hidden="true"> &rarr;</span></a></p></div>' % (E(jn['reading']), E(jn['test_link'])))
-    jlabels = [('start', 'Starting page and button'), ('dest', 'Destination'), ('asks', 'Fields asked for'), ('elig', 'Eligibility shown'),
-               ('next', 'Next step and consent wording'), ('limit', 'Availability note'), ('stop', 'Where inspection stopped')]
-    jev = []
-    for pid in c.order:
-        r = jn['rows'][pid]
-        t0 = c.obs[r['ids'][0]]['observed_at']
-        dd = ''.join('<dt>%s</dt><dd>%s</dd>' % (E(l), E(r[k])) for k, l in jlabels)
-        dd += '<dt>Observed</dt><dd>%s, %s Toronto time <span class="evlinks">(%s)</span></dd>' % (long_date(t0), toronto_time(t0), id_links(r['ids']))
-        jev.append('<h4 class="t" id="bs-jev-%s">%s</h4><dl class="chain">%s</dl>' % (pid, E(c.name(pid)), dd))
-    e3 = [e for e in ex['items'] if e.get('place') == 'journeys']
-    out.append('<details class="bs-more" id="bs-jt-evidence"><summary>First-screen evidence</summary><p class="dek">%s</p>%s%s</details>' % (
-        E(jn['note']), ''.join(jev), ''.join(example_card(c, e, 'bs-e3') for e in e3)))
-    out.append(view_close('journeys'))
+    for i, (sk, st, _) in enumerate(jy['stages'], 1):
+        note = jy['stage_notes'].get(sk)
+        cells = ''.join('<td data-pid="%s" data-label="%s">%s</td>' % (pid, plain(pid), ''.join(
+            '<p class="bs-je"><span class="bs-ev bs-ev-%s">%s</span> %s</p>' % (k, E(lab[k]), E(t)) for k, t, _ in jy['cells'][sk][pid])) for pid in c.order)
+        rows.append('<tr id="bs-js-%s"><th scope="row" class="brandcell"><span class="bs-sn" aria-hidden="true">%d</span>%s%s</th>%s</tr>' % (
+            sk, i, E(st), ('<span class="cell-sub">%s</span>' % E(note)) if note else '', cells))
+    V['journeys'] = (view_open('journeys', 'bs-journeys')
+                     + '<ol class="bs-stages" aria-label="Six stages used to compare the providers">%s</ol>' % stages
+                     + '<p class="pnote">These stages are a way to compare the providers, not a sequence every customer follows.</p>'
+                     + '<div class="bs-jlegend"><dl>%s</dl><ul class="pnote">%s</ul></div>' % (legend, ''.join('<li>%s</li>' % E(x) for x in jy['cautions']))
+                     + '<div class="tblock" id="bs-journey-table"><h3 id="bs-jm-h">Stage by stage</h3><div class="bs-jpick" hidden></div>'
+                       '<div class="tw cards bs-jm" tabindex="0" role="region" aria-labelledby="bs-jm-h"><table class="bs"><caption class="sr-only">Customer journey stages by provider, from public sources observed on 23 October 2026 and the Instagram window</caption>'
+                       '<thead><tr><th scope="col">Stage</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div></div>' % (head, '\n'.join(rows))
+                     + '<div class="sub" id="bs-journey-reading"><div class="note reading"><span class="lbl">My reading</span><p>%s</p></div>'
+                       '<p class="dlinks bs-tlink"><a href="#bs-t3">%s<span aria-hidden="true"> &rarr;</span></a></p></div>' % (E(jy['reading']), E(n['journeys']['test_link']))
+                     + view_close('journeys'))
 
-    # ---------- 5. Lessons & tests ----------
-    # Tests first, each with the change and the measure, the full chain in an expander; the patterns under "Other observations".
-    pt = n['patterns']
+    # ---------- Lessons: three tests, each with what I noticed ----------
     ts = n['tests']
-    marks['lessons'] = len(out)
-    out.append(view_open('lessons', 'bs-lessons'))
+    F = {f['id']: f for f in n['findings']['items']}
     lis = []
     for t in ts['items']:
-        dd = []
-        for k, l in TEST_ROWS:
-            v = E(t[k])
-            if k == 'observation':
-                v += ' <span class="evlinks">(%s)</span>' % id_links(t['evidence'])
-            dd.append('<dt>%s</dt><dd>%s</dd>' % (E(l), v))
-        lis.append('<li id="bs-%s"><span class="ktag test">Proposed test, not a result</span><h3 class="bs-ttitle">Test %s. %s</h3>'
-                   '<dl class="bs-tmain"><dt>The change</dt><dd>%s</dd><dt>What to measure</dt><dd>%s</dd></dl>'
-                   '<details class="bs-more"><summary>Evidence and test setup</summary><p class="dek dlinks">From <a href="#bs-%s">finding %s</a>.</p><dl>%s</dl></details></li>' % (
-                       t['id'].lower(), t['id'][1:], E(t['title']), E(t['change_short']), E(t['measure_short']), t['finding'].lower(), t['finding'][1:], ''.join(dd)))
-    out.append('<div id="bs-tests" class="sub"><ol class="tests">%s</ol><p class="dek bs-datanote">%s</p></div>' % (''.join(lis), E(ts['data_note'])))
-    pts = ''.join('<p class="dek"><b>%s.</b> %s%s <b>Denominator:</b> %s</p>%s' % (
-        E(x['title']), E(x['body']), (' <b>Exceptions:</b> %s' % E(x['exceptions'])) if x['exceptions'] else '', E(x['denominator']), ev_links(c, x['evidence'])) for x in pt['items'])
-    out.append('<details class="bs-more" id="bs-patterns"><summary>%s</summary><p class="dek">%s</p>%s</details>' % (E(pt['title']), E(pt['dek']), pts))
-    out.append(view_close('lessons'))
+        f = F[t['finding']]
+        lis.append('<li id="bs-%s"><span class="ktag test">Proposed test, not a result</span><h3 class="bs-ttitle">Test %s. %s</h3><dl class="bs-tmain">'
+                   '<dt>What I noticed</dt><dd id="bs-%s"><span class="bs-fig"><b>%s</b> %s.</span> %s</dd>'
+                   '<dt>Change to try</dt><dd>%s</dd><dt>What to measure</dt><dd>%s</dd></dl></li>' % (
+                       t['id'].lower(), t['id'][1:], E(t['title']), f['id'].lower(), E(f['figure']), E(f['figure_label']), E(f['noticed']),
+                       E(t['change_short']), E(t['measure_short'])))
+    V['lessons'] = (view_open('lessons', 'bs-lessons')
+                    + '<div id="bs-tests" class="sub"><div id="bs-findings"></div><ol class="tests">%s</ol><p class="dek bs-datanote">%s</p>'
+                      '<p class="pnote dlinks">Full test specifications, guardrails and the evidence behind each finding are in <a href="#bs-ref-tests">Sources &amp; evidence</a>.</p></div>'
+                      % (''.join(lis), E(ts['data_note']))
+                    + view_close('lessons'))
 
-    # ---------- 6. Social Media Content (only with a derived module in review or reviewed) ----------
-    if c.social:
-        marks['social'] = len(out)
-        out.append(view_open('social', 'bs-social'))
-        out.append(social.panel_html(c))
-        out.append(view_close('social'))
-
-    # Emit the views in tab order, so the page reads the same without JavaScript and in print.
-    ends = sorted(marks.values()) + [len(out)]
-    chunks = {k: out[i:ends[ends.index(i) + 1]] for k, i in marks.items()}
-    out = out[:min(marks.values())] + [x for k, _ in order for x in chunks[k]]
+    out += [V[k] for k, _ in order]
+    out.append(sources_view(c, views, start, end, draft))
 
     hp = n['help']
     href = '/contact?intent=review&amp;entry=%s#contact-form' % hp['entry']

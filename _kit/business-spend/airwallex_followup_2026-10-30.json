@@ -72,5 +72,10 @@
  "proposed_research_changes": [
   "Airwallex rewards (O-AWX-04, reconciliation class B and D): the terms answer the class D question about the rebate terms; they show conditions (new customers, CAD 2,000 a month, CAD 25 Canadian-merchant transactions, a 2025 end date) that the card page’s “1% cashback, with no cap” does not state. A reviewer may reclassify this as a difference between published statements in a future edition. Not changed here.",
   "Finding 1 (2 of 5 platforms that published a reward rate) is not affected: Airwallex still published a reward rate on 30 October 2026, and it is not one of the two platforms counted."
- ]
+ ],
+ "recheck": {
+  "at": "2026-10-30T16:20:18-04:00",
+  "method": "server fetch",
+  "note": "Rechecked by server fetch on 30 October 2026 at 4:20 p.m. Toronto time: every quoted phrase below was still present on its page."
+ }
 }

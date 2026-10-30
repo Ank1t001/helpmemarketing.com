@@ -182,37 +182,47 @@ class KitTests(unittest.TestCase):
         body = self.page[self.page.index('REPORT BODY START'):]
         pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons')]
         self.assertEqual(pos, sorted(pos))
-        self.assertEqual(body.count('class="note reading"'), 6 + 1 + 4)  # six provider evidence expanders, the journey reading, four Instagram examples
+        self.assertEqual(body.count('class="note reading"'), 6 + 1 + 1)  # six provider evidence expanders, the journey reading, why the social examples matter
         self.assertEqual(body.count('Proposed test, not a result</span><h3 class="bs-ttitle">Test '), 3)   # still exactly three tests
-        self.assertEqual(body.count('What this means for your marketing team'), 1 + 1 + 4)  # the Overview takeaway, the legend entry, four Instagram examples (2026-10-30: no takeaway boxes in Messaging or Lessons)
+        self.assertEqual(body.count('What this means for your marketing team'), 1)  # the reading-guide entry only (2026-10-30, final: no takeaway boxes)
         self.assertIn('id="bs-journey-table"', body)
         self.assertNotIn('Next step observed', body)
 
-    def test_three_tabs_short_form(self):
-        # Founder brief (2026-10-30, third): Messaging, Application journeys and Lessons & tests.
+    def test_final_layout_tabs_and_sources(self):
+        # Founder brief (2026-10-30, final): plain tabs, one Sources & evidence view holding the research trail.
         body = self.page[self.page.index('REPORT BODY START'):]
-        msg, jr, ls = (validate.view_html(body, v) for v in ('bs-messaging', 'bs-journeys', 'bs-lessons'))
+        ov, so, msg, cmp_, jr, ls = (validate.view_html(body, v) for v in ('bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'))
+        ref = validate.view_html(body, 'bs-sources')
+        self.assertIn('<h2 id="bs-overview-h">Inside this index</h2>', ov)
+        self.assertEqual(re.findall(r'<a class="bs-gcard" href="#(bs-[a-z]+)"', ov), ['bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'])
+        self.assertNotIn('class="find"', ov)
+        self.assertIn('Later follow-up: Airwallex only, checked 30 October 2026', ov)
         self.assertEqual(msg.count('Website observations: 23 October 2026'), 1)
         self.assertIn('These are interpretations, not direct quotations or statements of the providers’ internal strategies.', msg)
         self.assertEqual(len(re.findall(r'<tr id="bs-msg-[a-z]+">', msg)), 6)
-        self.assertEqual(msg.count('<div class="card ex">'), 2)   # Loop and Airwallex; the Float reward example sits in Float's evidence
+        self.assertEqual(msg.count('<div class="card ex">'), 2)
         self.assertIn('Two observed examples', msg)
-        self.assertNotIn('What this means for your marketing team', msg)
-        self.assertNotRegex(body, r'(?i)capture request|\bR[12]\b')
-        fu = msg[msg.index('id="bs-p-airwallex"'):]
+        self.assertNotRegex(body, r'(?i)capture request|\bR[12]\b|after booking|is booked')
+        fu = ref[ref.index('id="bs-p-airwallex"'):]
         self.assertIn('checked 30 October 2026', fu[:fu.index('</details>')])
-        self.assertIn('<h2 id="bs-journeys-h">What happens after you click?</h2>', jr)
-        self.assertEqual(re.findall(r'<th scope="col">([^<]+)</th>', jr[:jr.index('</thead>')]), ['Platform', 'Where the button leads', 'What it asks for', 'What it tells you next'])
-        self.assertIn('Not available to businesses in Quebec.', jr[:jr.index('id="bs-jt-evidence"')])
-        self.assertIn('<summary>First-screen evidence</summary>', jr)
-        self.assertIn('id="bs-e3"', jr[jr.index('id="bs-jt-evidence"'):])
+        self.assertIn('<h2 id="bs-journeys-h">Customer Journey</h2>', jr)
+        self.assertEqual(len(re.findall(r'<tr id="bs-js-[a-z]+">', jr)), 6)
+        self.assertEqual(re.findall(r'<th scope="col"[^>]*>([^<]+)</th>', jr[:jr.index('</thead>')]), ['Stage', 'Venn', 'Float', 'Ramp', 'Loop', 'Keep', 'Airwallex'])
+        self.assertIn('id="bs-journey-table"', jr)
         self.assertIn('href="#bs-t3">See the test: explain the next step before the form', jr)
-        self.assertNotRegex(body, r'after booking|is booked')
-        self.assertLess(ls.index('id="bs-tests"'), ls.index('<summary>Other observations</summary>'))
-        self.assertEqual(ls.count('<summary>Evidence and test setup</summary>'), 3)
+        for pid in self.c.order:
+            self.assertIn('id="bs-jt-%s"' % pid, ref)
+        self.assertIn('id="bs-e3"', ref)
+        self.assertEqual(re.findall(r'<dt>([^<]+)</dt>', ls), ['What I noticed', 'Change to try', 'What to measure'] * 3)
+        for f in ('bs-f1', 'bs-f2', 'bs-f3', 'bs-t1', 'bs-t2', 'bs-t3'):
+            self.assertIn('id="%s"' % f, ls)
+        self.assertIn('2 of 5</b> platforms that published a reward rate', ls)
         self.assertIn('Run these tests using your own website and application data.', ls)
-        self.assertNotIn("provider's internal data", body)
-        self.assertIn('directional reading only', ls)
+        self.assertIn('directional reading only', ref)
+        self.assertIn('<a class="bs-srclink" href="#bs-sources" id="bs-srclink">Sources &amp; evidence</a>', body)
+        self.assertIn('data-bs-back', ref)
+        for v in (ov, so, msg, cmp_, jr, ls):
+            self.assertNotRegex(v, r'\bO-[A-Z]{3}-\d\d\b|id="ev-|What the sources say|<details')
 
     def test_ramp_uncaptured_terms_omitted(self):
         self.assertEqual(self.c.obs['O-RMP-02']['status'], 'not_checked')
@@ -300,17 +310,14 @@ class KitTests(unittest.TestCase):
         for label in ('What the sources say', 'My reading', 'What this means for your marketing team', 'Proposed test, not a result'):
             self.assertIn('<dt>%s</dt>' % label, body)
         for t in self.c.n['tests']['items']:
-            li = body[body.index('<li id="bs-%s">' % t['id'].lower()):]
-            li = li[:li.index('</li>')]
+            li = body[body.index('<div class="bs-tspec" id="bs-%s-spec">' % t['id'].lower()):]
+            li = li[:li.index('</dl>')]
             dts = [x for x in __import__('re').findall(r'<dt>([^<]+)</dt>', li)]
-            self.assertEqual(dts[:2], ['The change', 'What to measure'])   # shown first; the full chain sits in "Evidence and test setup"
-            self.assertIn('<summary>Evidence and test setup</summary>', li)
-            dts = dts[2:]
             self.assertEqual(dts, ['Observed evidence', 'Customer question', 'My interpretation', 'Testable hypothesis', 'One change',
                                    'What stays comparable', 'Primary measurement', 'Guardrail', 'When the result would be inconclusive'])
             self.assertTrue(t['evidence'])
         for f in self.c.n['findings']['items']:
-            blk = body[body.index('<div class="find" id="bs-%s">' % f['id'].lower()):]
+            blk = body[body.index('<div class="bs-fdetail" id="bs-%s-detail">' % f['id'].lower()):]
             blk = blk[:blk.index('</dl>')]
             self.assertIn('href="#bs-%s"' % f['test'].lower(), blk)
             for _, anchor in f['analysis']:
@@ -394,7 +401,7 @@ class KitTests(unittest.TestCase):
     def test_loop_correction_is_logged_and_propagated(self):
         body = self.page[self.page.index('REPORT BODY START'):]
         log = body[body.index('id="bs-corrections"'):]
-        log = log[:log.index('</details>')]
+        log = log[:log.index('<div class="bs-refsec"')]
         self.assertIn('<b>26 October 2026.</b>', log)   # Toronto date of commit 9e020f1 (21:08 EDT)
         self.assertIn('12 hours weekly', log)
         self.assertIn('O-LOP-12', log)
@@ -470,12 +477,13 @@ class SocialModuleTests(unittest.TestCase):
         self.assertIn('Official company Instagram accounts only, posts published 25 July to 22 October 2026', body)
         self.assertNotIn('<b>Instagram posts</b>', body.split('</header>')[0])  # dates live in Scope & sources, not the hero (2026-10-28)
         self.assertIn('Websites observed 23 October 2026, 10:39 a.m. to 2:33 p.m. Toronto time.', body)
-        sec = validate.view_html(body, 'bs-social')
-        self.assertEqual('For editorial review' in sec, c.social['status'] == 'review')   # the flag shows only while approval is pending
+        tab = validate.view_html(body, 'bs-social')
+        sec = tab + validate.view_html(body, 'bs-sources')
+        self.assertEqual('For editorial review' in tab, c.social['status'] == 'review')   # the flag shows only while approval is pending
         self.assertIn('The captured Venn website footer linked to @tryvault, while this study uses owner-confirmed @venn.ca with supporting profile evidence.', sec)
         self.assertEqual(sec.count('No in-window posts found in the reviewed'), 3)
         self.assertNotRegex(sec, r'(?i)\binactive\b')
-        self.assertEqual(sec.count(social.VIDEO_LABEL), 3)   # S1, S2 and S3 are reels (S4 is a carousel)
+        self.assertEqual(tab.count(social.VIDEO_LABEL), 3)   # S1, S2 and S3 are reels (S4 is a carousel)
         self.assertIn('Attribution unresolved', sec)
         self.assertNotIn('ramp-ig-', sec)                       # no Ramp example while attribution is unresolved
 

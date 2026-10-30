@@ -1,7 +1,7 @@
 {
  "view": {
   "title": "Social Media Content",
-  "dek": "This edition reviews Instagram content only. What the six providers published on their official Instagram accounts between 25 July and 22 October 2026, read after the window closed. The posts are kept apart from the website evidence, which was captured on 23 October 2026 and has its own dates."
+  "dek": "This edition reviews Instagram content only. It covers official company accounts; posts on a global account do not show what is offered in Canada."
  },
  "review_flag": "This view is shown on the staging draft for editorial review. Editorial approval has not been recorded, and the release build stays blocked until the owner records it.",
  "scope": [
@@ -96,7 +96,10 @@
    ],
    "reading": "The caption gives the rate without naming a plan. I cannot say it left out a condition that applied at the time: Venn's plan limits were captured in October, and whether they applied on 30 July was not established. What the post does show is a rate repeated in a customer story with no plan beside it, so a reader cannot tell from the caption which plans the rate covers.",
    "take": "When a rate is repeated in a customer story, the plan it applies to can drop out of the caption. Hypothesis: naming the plan that earns the rate in posts that repeat it reduces rewards questions after sign-up. Measure rewards questions per new account in the first 60 days, for posts with and without the plan line.",
-   "no_image_reason": "The cover frame shows a person from behind and does not show the rate; the caption excerpt carries the point."
+   "no_image_reason": "The cover frame shows a person from behind and does not show the rate; the caption excerpt carries the point.",
+   "observed": "The caption lists features a customer relies on. The last is “1% cashback that arrives in the account every month automatically”. It names no plan or monthly limit.",
+   "reading_short": "The caption gives the rate without naming a plan, so a reader cannot tell which plans it covers.",
+   "limitation": "Venn’s plan limits were captured in October 2026. Whether they applied on 30 July was not established, so this is not shown to be a contradiction at the time."
   },
   {
    "id": "S2",
@@ -128,7 +131,10 @@
    ],
    "reading": "Here the condition sits in the caption with the rate, the arrangement that test 1 proposes for card pages. The tracker the post describes also answers the reader's next question, how much of the balance qualifies. I did not watch the video, so I cannot say whether the video states the condition too.",
    "take": "A promotional rate and its main condition fit in one caption. Hypothesis: a post that states both draws fewer \"does my balance qualify?\" questions than one that states the rate alone. Measure promotion questions per account opened through the post's link, against a rate-only version.",
-   "no_image_reason": "The cover frame is a small dashboard image with an account name blurred by the collector; it does not show the rate or the condition, so the caption excerpt is used instead."
+   "no_image_reason": "The cover frame is a small dashboard image with an account name blurred by the collector; it does not show the rate or the condition, so the caption excerpt is used instead.",
+   "observed": "The caption announces Venn’s Interest Boost “up to 3.50%” and says it “applies to funds added above your pre-promo average monthly” balance.",
+   "reading_short": "Here the rate and its main condition sit together in one caption.",
+   "limitation": "The captured caption is cut off before its last word."
   },
   {
    "id": "S3",
@@ -178,7 +184,10 @@
     ],
     "sanitisation": "The collector hid the viewer's navigation, avatar, notifications, messages, comment box, comments and commenter names before capture. In this derivative the row of like, comment and share counts is covered with the panel's background colour; nothing else in the crop is changed.",
     "sha256": "806b0a3afccd43556df721b144cdb6b4b19f9589ecfaa44a9a65621b7a935b19"
-   }
+   },
+   "observed": "Published by the creator @thejoshvfx with @airwallex as collaborator. The caption says “One corporate card, total control” and names no market, plan, fee or condition; the cover shows none either.",
+   "reading_short": "In the caption and cover, the benefit appears with no market or condition beside it.",
+   "limitation": "Instagram shows a “Paid partnership” label. Only the caption and cover were inspected, so this does not show what the full video says. It is a global post and does not show what is offered in Canada."
   },
   {
    "id": "S4",
@@ -232,7 +241,10 @@
     ],
     "sanitisation": "The collector hid the viewer's navigation, avatar, notifications, messages, comment box, comments and commenter names before capture. In this derivative the row of like, comment and share counts is covered with the panel's background colour; nothing else in the crop is changed.",
     "sha256": "c13c1a176a27db7e6246aca1c41caa4c03dc4fdb9b2a92086ecb35363031dd0d"
-   }
+   },
+   "observed": "The caption says who the programme is for (“If you lead finance at a venture-backed startup”), gives the deadline (“Nominations are now open until 13 September 2026”) and ends with a web address.",
+   "reading_short": "One caption says who the programme is for, when it closes and where to go.",
+   "limitation": "This is a nomination for a programme, not a product application."
   }
  ],
  "tests_note": [
@@ -248,5 +260,21 @@
   },
   ". None is a stronger basis than the website pages: the posts are a different surface, published on different dates, and the reels were read from cover and caption only."
  ],
- "tests_decision": "Three tests unchanged (27 October 2026). Reason: no social observation gives stronger evidence than the website observations behind tests 1 to 3; the posts that bear on them are consistent with those tests and are linked from this view."
+ "tests_decision": "Three tests unchanged (27 October 2026). Reason: no social observation gives stronger evidence than the website observations behind tests 1 to 3; the posts that bear on them are consistent with those tests and are linked from this view.",
+ "coverage_note": "32 attributed posts: Venn 9 and Airwallex 23. A further 19 records were observed on @tryramp, whose provider attribution remains unresolved.",
+ "coverage_none": "No in-window posts were found on the reviewed Float, Loop and Keep accounts. That says nothing about their activity elsewhere.",
+ "selection_short": "Four posts, chosen for how they present an offer or a next step, not for likes or views.",
+ "why": [
+  "Two Venn posts bear on ",
+  {
+   "a": "#bs-t1",
+   "t": "test 1"
+  },
+  ": one repeats a rate without naming a plan, and one keeps a rate and its condition together. The Airwallex nominations post bears on ",
+  {
+   "a": "#bs-t3",
+   "t": "test 3"
+  },
+  " as a way of saying who qualifies and by when. The posts were published on different dates from the website evidence, so they add to it rather than replace it."
+ ]
 }

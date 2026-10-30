@@ -27,6 +27,7 @@ import io
 import json
 import os
 import re
+from html import unescape as html_unescape
 import sys
 import unicodedata
 from html.parser import HTMLParser
@@ -385,7 +386,13 @@ def check_social_outputs(c, body):
     if '<a href="#bs-social" id="bs-tab-social">Social Media Content</a>' not in body or 'This edition reviews Instagram content only.' not in body:
         errs.append('social: the tab is labelled "Social Media Content" and the view says it reviews Instagram content only')
     sec = view_html(body, 'bs-social')
-    review = 'For editorial review</span>' in sec
+    ref = view_html(body, 'bs-sources') if '<section id="bs-sources"' in body else ''
+    tab = sec
+    # Since 2026-10-30 (final brief) the tab holds scope, coverage note and four examples; account rows and records sit in Sources & evidence.
+    if s['narrative']['coverage_note'] not in html_unescape(tab) or s['narrative']['coverage_none'] not in html_unescape(tab):
+        errs.append('social: the tab carries the coverage note and the no-posts sentence')
+    sec = sec + ref
+    review = 'For editorial review</span>' in tab
     if (s['status'] == 'review' and getattr(c, 'mode', 'draft') == 'draft') != review:
         errs.append('social: the editorial-review flag shows on the draft only, and only while approval is pending')
     for pid in EXPECTED_ORDER:
@@ -411,16 +418,19 @@ def check_social_outputs(c, body):
         errs.append('social: an account with no posts is never called inactive')
     for ex in s['narrative']['examples']:
         p = next(x for x in s['posts'] if x['id'] == ex['post'])
-        art = re.search(r'<article class="card ex soc-ex" id="bs-s%s">(.*?)</article>' % ex['id'][1:], sec, re.S)
-        if not art:
-            errs.append('social: example %s missing' % ex['id'])
+        art = re.search(r'<article class="card ex soc-ex" id="bs-s%s">(.*?)</article>' % ex['id'][1:].lower(), tab, re.S)
+        rec = re.search(r'<details class="bs-more" id="bs-s%s-src">(.*?)</details>' % ex['id'][1:].lower(), ref, re.S)
+        if not art or not rec:
+            errs.append('social: example %s missing from the tab or its record from Sources & evidence' % ex['id'])
             continue
         t = art.group(1)
         if p['format'] == 'video' and social.VIDEO_LABEL not in t:
             errs.append('social: example %s is a reel and carries "%s"' % (ex['id'], social.VIDEO_LABEL))
-        for need in ('What the evidence shows', 'My reading', 'What this means for your marketing team', 'Provenance for this example', html_escape(p['url'])):
-            if need not in t:
-                errs.append('social: example %s lacks %s' % (ex['id'], need))
+        if 'My reading:' not in t or 'Limits:' not in t or 'href="http' in t:
+            errs.append('social: example %s shows my reading and its limits, with no source link in the tab' % ex['id'])
+        for need in ('What the evidence shows', 'Post record', html_escape(p['url'])):
+            if need not in rec.group(1):
+                errs.append('social: record for %s lacks %s' % (ex['id'], need))
         if p.get('paid_label') and html_escape(p['paid_label']['text']) not in t and p['paid_label']['text'] not in t:
             errs.append('social: example %s drops its paid-partnership label' % ex['id'])
     if 'Proposed test, not a result</span><h3 class="bs-ttitle">Test ' in sec:
@@ -559,9 +569,18 @@ def check_outputs(c, page, csvtext, extra_paths=()):
             if path not in ('/', '', '/' + build_csv(), '/' + social_csv()) and path not in extra_paths and not (os.path.exists(target) or os.path.exists(target + '.html')):
                 errs.append('page: internal link target missing %s' % h)
     msg = view_html(body, 'bs-messaging')
+    refv = view_html(body, 'bs-sources') if '<section id="bs-sources"' in body else ''
     for pid in EXPECTED_ORDER:
-        if '<details class="bs-more plat" id="bs-p-%s">' % pid not in msg or 'id="bs-msg-%s"' % pid not in msg:
-            errs.append('page: %s needs a Messaging table row and an evidence expander' % pid)
+        if 'id="bs-msg-%s"' % pid not in msg or '<details class="bs-more plat" id="bs-p-%s">' % pid not in refv:
+            errs.append('page: %s needs a Messaging table row and an evidence expander in Sources & evidence' % pid)
+    # The tabs stay plain (founder brief, 2026-10-30, final): no observation IDs, evidence lists or "What the sources say" labels.
+    import build as _b
+    for _, vid in _b.view_order(c):
+        tv = view_html(body, vid)
+        if re.search(r'\bO-[A-Z]{3}-\d\d\b|id="ev-|What the sources say|capture request|<details', tv):
+            errs.append('page: %s carries evidence detail that belongs in Sources & evidence' % vid)
+    if not refv or 'data-bs-back' not in refv or refv.count('id="ev-') != len(c.obs):
+        errs.append('page: Sources & evidence holds every observation and a return control')
     if TAKE_LABEL in msg or re.search(r'capture request|\bR[12]\b', body, re.I) or msg.count(html_escape(c.n['views']['messaging']['observed'])) != 1:
         errs.append('page: Messaging carries no takeaway boxes or capture codes, and the observation date once')
     if 'booked' in body or 'after booking' in body:
@@ -584,7 +603,8 @@ def check_outputs(c, page, csvtext, extra_paths=()):
     views = [v for _, v in build.view_order(c)]
     nav = body[body.index('class="ri-nav bs-views"'):]
     nav = nav[:nav.index('</nav>')]
-    if [h[1:] for h in re.findall(r'href="(#[^"]+)"', nav)] != views:
+    tl = nav[:nav.index('</div>')] if '</div>' in nav else nav
+    if [h[1:] for h in re.findall(r'href="(#[^"]+)"', tl)] != views or '<a class="bs-srclink" href="#bs-sources"' not in nav:
         errs.append('page: the section nav lists the views in order (%s)' % ', '.join(views))
     if ('bs-social' in views) != bool(getattr(c, 'social', None)) or ('id="bs-social"' in body) != bool(getattr(c, 'social', None)):
         errs.append('page: the Instagram view appears only with a derived module in review or reviewed')
