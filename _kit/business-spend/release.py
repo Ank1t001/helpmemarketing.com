@@ -100,10 +100,10 @@ def hub_card(day):
             '        <a class="wk-tool-shot" href="/business-spend-index" tabindex="-1" aria-hidden="true"><img src="/assets/index/business-spend/hero.webp" alt="" width="1056" height="591" loading="lazy" decoding="async"></a>\n'
             '        <div class="wk-tool-body">\n'
             '          <p class="wk-tool-kind">Comparison &middot; Canada &middot; One edition</p>\n'
-            '          <h3 class="wk-tool-title">Business Cards &amp; Spend Management Index</h3>\n'
+            '          <h3 class="wk-tool-title">How Six Business Finance Brands Market Their Products</h3>\n'
             '          <p class="wk-tool-who">%s An independent case study from dated public sources, not a ranking or recommendation.</p>\n'
             '          <dl class="ix-dates"><div><dt>Last updated</dt><dd>%s</dd></div><div><dt>Next update</dt><dd>Not scheduled</dd></div></dl>\n'
-            '          <div class="wk-tool-links"><a class="wk-tool-cta" href="/business-spend-index">Read the Business Cards &amp; Spend Management Index &rarr;</a></div>\n'
+            '          <div class="wk-tool-links"><a class="wk-tool-cta" href="/business-spend-index">Read the case study &rarr;</a></div>\n'
             '        </div>\n'
             '      </article>\n' % (CARD_SENTENCE, hub_date(day)))
 
@@ -124,7 +124,7 @@ def new_hub(text, day):
     if not m:
         issues.append('hub: CollectionPage hasPart not found')
     else:
-        part = json.dumps({'@type': 'WebPage', 'name': 'Business Cards & Spend Management Index',
+        part = json.dumps({'@type': 'WebPage', 'name': 'How Six Business Finance Brands Market Their Products',
                            'description': CARD_SENTENCE,
                            'url': URL}, ensure_ascii=False, separators=(',', ':'))
         text = text[:m.end(1)] + ',' + part + text[m.end(1):]
