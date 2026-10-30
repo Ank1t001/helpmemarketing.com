@@ -260,8 +260,10 @@ def check_narrative(s, n, asset_root=None):
     errs = []
     posts = {p['id']: p for p in s.get('posts', [])}
     accts = {a['platform']: a for a in s.get('accounts', [])}
-    if n.get('view', {}).get('title') != 'Instagram content':
-        errs.append('social narrative: the view is titled "Instagram content"')
+    if n.get('view', {}).get('title') != 'Social Media Content':
+        errs.append('social narrative: the view is titled "Social Media Content" (renamed 2026-10-30)')
+    if 'This edition reviews Instagram content only.' not in n.get('view', {}).get('dek', ''):
+        errs.append('social narrative: the view must say that this edition reviews Instagram content only')
     per = {}
     for ex in n.get('examples', []):
         p = posts.get(ex.get('post'))

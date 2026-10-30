@@ -100,6 +100,40 @@ def check_text(c):
     return errs
 
 
+def check_followup(c, raw_dir=None):
+    """The Airwallex follow-up of 30 October 2026 is kept apart from the 23 October research. With raw_dir (the private
+    captures), every hash and quote is checked against the files."""
+    import hashlib
+    errs = []
+    fu = getattr(c, 'followup', None)
+    if not fu:
+        return ['follow-up: record missing']
+    if fu.get('checked_on') != '2026-10-30' or not fu.get('note') or not fu.get('method'):
+        errs.append('follow-up: needs its own date (2026-10-30), a note and a method')
+    srcs = {s['id']: s for s in fu.get('sources', [])}
+    for s in srcs.values():
+        for k in ('url', 'server_fetched_at', 'browser_rendered_at', 'html_sha256', 'text_sha256'):
+            if not s.get(k):
+                errs.append('follow-up: source %s missing %s' % (s.get('id'), k))
+        if not str(s.get('server_fetched_at', '')).startswith('2026-10-30'):
+            errs.append('follow-up: source %s not dated 30 October 2026' % s.get('id'))
+    for f in fu.get('findings', []):
+        if f.get('source') not in srcs or not f.get('quote') or not f.get('text'):
+            errs.append('follow-up: finding %s needs a known source, text and an exact quote' % f.get('id'))
+    if raw_dir:
+        names = {'AWX-FU-PRICING': 'en-ca_pricing', 'AWX-FU-CARDS': 'en-ca_spend-management_cards', 'AWX-FU-TERMS': 'en-ca_terms_cash-rebate-promotion'}
+        for sid, s in srcs.items():
+            base = os.path.join(raw_dir, names.get(sid, sid))
+            for ext, key in (('.html', 'html_sha256'), ('.rendered.txt', 'text_sha256')):
+                if not os.path.exists(base + ext) or hashlib.sha256(open(base + ext, 'rb').read()).hexdigest() != s[key]:
+                    errs.append('follow-up: %s%s does not match its recorded hash' % (sid, ext))
+        for f in fu.get('findings', []):
+            p = os.path.join(raw_dir, names.get(f['source'], f['source']) + '.rendered.txt')
+            if os.path.exists(p) and f['quote'] not in open(p, encoding='utf-8').read():
+                errs.append('follow-up: quote of %s not found in its capture' % f['id'])
+    return errs
+
+
 def check_inputs(c):
     errs, _ = model.check_all({'observations': list(c.obs.values())}, {'sources': list(c.sources.values())})
     ed = c.edition
@@ -166,10 +200,19 @@ def check_inputs(c):
         cp_ = c.n['compare']
         for k, _ in cp_['cost_columns'] + cp_['card_columns'] + cp_['fee_columns'] + cp_['acct_columns'] + cp_['spend_columns']:
             spec = c.n['compare']['rows'].get(pid, {}).get(k)
+            if k == cp_['cost_columns'][0][0]:
+                for lbl, txt, ids in c.n['compare']['rows'].get(pid, {}).get('restrictions', []):
+                    if lbl not in ('Restriction', 'Credit') or not txt or not ids or any(i not in c.obs or c.obs[i]['platform'] != pid for i in ids):
+                        errs.append('%s: restriction line %r needs a label and its own evidence' % (pid, txt))
             if spec is None:
                 errs.append('%s: comparison cell %s missing' % (pid, k))
                 continue
             sts = [c.obs[i]['status'] for i in spec.get('ids', []) if i in c.obs]
+            # a cell whose statements could not be reconciled (class D) must say what could not be confirmed (2026-10-30)
+            if any('D' in (c.obs[i].get('reconciliation') or {}).get('class', '') for i in spec.get('ids', []) if i in c.obs) and not spec.get('unclear'):
+                errs.append('%s.%s: say what could not be confirmed (unclear)' % (pid, k))
+            if spec.get('followup') and spec['followup'] != (getattr(c, 'followup', None) or {}).get('id'):
+                errs.append('%s.%s: unknown follow-up %s' % (pid, k, spec['followup']))
             if spec.get('text') is not None and 'explicitly_unavailable' in sts and 'conflicting' not in sts and not spec.get('restriction'):
                 errs.append('%s.%s: an explicitly unavailable entry needs its exact restriction for the table label' % (pid, k))
             for i in spec.get('ids', []):
@@ -323,8 +366,8 @@ def check_social_outputs(c, body):
     views = [v for _, v in build.view_order(c)]
     if views.index('bs-social') != views.index('bs-messaging') + 1 or views.index('bs-journeys') != views.index('bs-social') + 1:
         errs.append('social: the Instagram view sits after Messaging & offers and before Application journeys')
-    if '<a href="#bs-social" id="bs-tab-social">Instagram content</a>' not in body:
-        errs.append('social: the tab is labelled "Instagram content"')
+    if '<a href="#bs-social" id="bs-tab-social">Social Media Content</a>' not in body or 'This edition reviews Instagram content only.' not in body:
+        errs.append('social: the tab is labelled "Social Media Content" and the view says it reviews Instagram content only')
     sec = body[body.index('<section id="bs-social"'):body.index('<section id="bs-journeys"')]
     review = 'For editorial review</span>' in sec
     if (s['status'] == 'review' and getattr(c, 'mode', 'draft') == 'draft') != review:
@@ -658,6 +701,7 @@ def main(argv):
     import build
     page, csvtext, c = build.render()
     errs = check_outputs(c, page, csvtext)
+    errs += check_followup(c, argv[argv.index('--followup') + 1] if '--followup' in argv else None)
     if '--raw' in argv:
         errs += check_raw(c, argv[argv.index('--raw') + 1])
     if '--browser' in argv:

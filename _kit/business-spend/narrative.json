@@ -210,7 +210,16 @@
       "O-VEN-06",
       "O-VEN-20"
      ]
-    }
+    },
+    "restrictions": [
+     [
+      "Restriction",
+      "Not offered to businesses in Quebec",
+      [
+       "O-VEN-07"
+      ]
+     ]
+    ]
    },
    "float": {
     "model": {
@@ -305,7 +314,16 @@
       "O-FLT-19",
       "O-FLT-20"
      ]
-    }
+    },
+    "restrictions": [
+     [
+      "Credit",
+      "Float Charge credit is subject to eligibility criteria",
+      [
+       "O-FLT-07"
+      ]
+     ]
+    ]
    },
    "ramp": {
     "model": {
@@ -392,7 +410,8 @@
       "O-RMP-17",
       "O-RMP-18"
      ]
-    }
+    },
+    "restrictions": []
    },
    "loop": {
     "model": {
@@ -482,7 +501,16 @@
       "O-LOP-17",
       "O-LOP-18"
      ]
-    }
+    },
+    "restrictions": [
+     [
+      "Restriction",
+      "Not offered to sole proprietors residing in Quebec",
+      [
+       "O-LOP-06"
+      ]
+     ]
+    ]
    },
    "keep": {
     "model": {
@@ -514,12 +542,9 @@
     },
     "plans": {
      "text": "$79, $119, $199 a month",
-     "sub": "Self-serve sign-up closed when checked",
      "ids": [
-      "O-KEP-04",
-      "O-KEP-05"
-     ],
-     "restriction": "Self-serve sign-up closed when checked"
+      "O-KEP-04"
+     ]
     },
     "xb_card": {
      "text": "3% card conversion fee (agreement)",
@@ -577,15 +602,33 @@
       "O-KEP-16",
       "O-KEP-17"
      ]
-    }
+    },
+    "restrictions": [
+     [
+      "Restriction",
+      "Self-serve sign-up closed to new applicants when checked on 23 October 2026",
+      [
+       "O-KEP-05"
+      ]
+     ],
+     [
+      "Credit",
+      "Accepting an offer may lead to a hard inquiry",
+      [
+       "O-KEP-06"
+      ]
+     ]
+    ]
    },
    "airwallex": {
     "model": {
-     "text": "Spends the wallet balance",
-     "sub": "Pricing also lists a credit line; its terms were not found",
+     "text": "Spends from your wallet balance",
+     "sub": "A credit line is also listed.",
+     "unclear": "Credit line terms are not explained on the pricing page",
      "ids": [
       "O-AWX-01"
-     ]
+     ],
+     "followup": "AWX-FU-2026-10-30"
     },
     "issuer": {
      "text": "Visa, Peoples Trust Company",
@@ -600,18 +643,21 @@
      ]
     },
     "rewards": {
-     "text": "1% cashback",
-     "sub": "Pricing: up to 1% on local CAD spend",
+     "text": "Up to 1% on local CAD spend",
+     "sub": "Linked promotion terms show a 2025 end date.",
+     "unclear": "Current eligibility needs confirmation",
      "ids": [
       "O-AWX-04"
-     ]
+     ],
+     "followup": "AWX-FU-2026-10-30"
     },
     "plans": {
-     "text": "$0; Grow $12 per user a month",
-     "sub": "Grow adds a platform fee",
+     "text": "Explore $0 with up to 10 free Spend users; Grow $12 per active Spend user a month; Accelerate custom pricing",
+     "sub": "Grow adds a platform fee based on team size",
      "ids": [
       "O-AWX-05"
-     ]
+     ],
+     "followup": "AWX-FU-2026-10-30"
     },
     "xb_card": {
      "text": "No foreign transaction fee from a held currency",
@@ -665,16 +711,24 @@
       "O-AWX-16",
       "O-AWX-17"
      ]
-    }
+    },
+    "restrictions": [
+     [
+      "Restriction",
+      "Business use only; not for sole proprietors in Quebec",
+      [
+       "O-AWX-06"
+      ]
+     ]
+    ]
    }
   },
   "note": "A row is not a quote. Peoples Trust Company issues four of the six cards (Venn, Ramp, Keep, Airwallex); how each card is funded or repaid differs, as the first column of Cards, rewards & costs shows. This edition does not compare FX costs: a fair comparison would need the same currencies, amount, timing, plan and fees. The eligibility column covers applying from Canada only; availability in other countries is not assessed, and worldwide figures in the proof are labelled as worldwide where the source says so.",
-  "observed_line": "I reviewed the published information; I did not test the products.",
-  "essentials": "Prices are in Canadian dollars unless stated otherwise. Check whether each price is per user, billed annually or includes an additional platform fee. Currency fees cover different transactions, so the lowest percentage is not necessarily the lowest cost.",
+  "observed_line": "Published information, not product testing.",
   "cost_columns": [
    [
     "model",
-    "How the card is funded or repaid"
+    "Funding and repayment"
    ],
    [
     "rewards",
@@ -682,11 +736,7 @@
    ],
    [
     "plans",
-    "Plan prices"
-   ],
-   [
-    "eligibility",
-    "Eligibility and restrictions"
+    "Plan costs"
    ]
   ],
   "card_columns": [
@@ -697,6 +747,10 @@
    [
     "format",
     "Physical and virtual cards"
+   ],
+   [
+    "eligibility",
+    "Eligibility details"
    ]
   ],
   "fee_columns": [
@@ -706,7 +760,7 @@
    ],
    [
     "xb_fx",
-    "Currency conversion fee"
+    "Currency conversion"
    ]
   ],
   "acct_columns": [
@@ -733,7 +787,9 @@
     "Accounting connections"
    ]
   ],
-  "unclear": "“Unclear from the reviewed sources” marks two published statements whose relationship the evidence cannot settle (reconciliation class D). Airwallex’s pricing page lists a credit line whose terms were not found, so it cannot be placed against the card terms; and its 1% cashback “with no cap” sits beside pricing that says “up to 1% on local CAD spend”, which needs the rebate terms to settle. A 2% figure appears only in the page metadata, not on the page visitors see. Each statement stays in the evidence."
+  "unclear": "Where a label says what could not be confirmed, two published statements did not settle the point (reconciliation class D in the 23 October 2026 research). For Airwallex, a follow-up check on 30 October 2026 found that pricing lists up to 1% cash rebates on local CAD spend and links to promotion terms whose period ends on 31 December 2025 unless Airwallex notifies otherwise; no extension was found, so current eligibility needs confirmation. The card page still states 1% cashback with no cap, and a 2% figure seen in the page metadata on 23 October stays in the evidence. Pricing also lists a credit line for corporate cards without explaining its eligibility or repayment terms.",
+  "pricing_note": "Prices are in Canadian dollars unless stated otherwise. Per-user charges, annual billing and additional platform fees are shown where applicable.",
+  "currency_note": "Fees cover different transactions and conditions. These figures are not a like-for-like cost comparison."
  },
  "examples": {
   "dek": "Four observed examples of how an offer, proof or next step was explained. They are examples to learn from, not winning platforms.",
@@ -1188,11 +1244,12 @@
    "title": "Overview",
    "dek": "I reviewed six platforms’ websites to see how they explain their offers and what happens when someone clicks to apply. These three things stood out.",
    "about_intro": "This page serves two kinds of reader. If you are comparing card and spend platforms, it sets out what six providers publish, each fact linked to its source. If you market a product, it is my independent case study of how they explain it: the offer, the proof and the path to applying. None of the six is a client, and I have no view of their internal strategy or results.",
-   "heading": "What stood out"
+   "heading": "What stood out",
+   "observed": "Website observations: 23 October 2026"
   },
   "compare": {
    "title": "Compare products",
-   "dek": "See what each platform says about its cards, fees and spending tools. Conditions sit beside the claims they apply to."
+   "dek": "Compare what each platform publishes about its cards, rewards, fees and spending tools."
   },
   "messaging": {
    "title": "Messaging & offers",

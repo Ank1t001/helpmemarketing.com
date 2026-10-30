@@ -71,6 +71,8 @@ class Ctx:
         self.mode = 'draft' if self.edition['status'] == 'draft' else 'release'
         self.release_date = (self.edition.get('published_at') or '')[:10] or None
         self.date_modified = self.edition.get('modified_at')
+        # Separately dated follow-up checks (not part of the 23 October 2026 research data or its CSV).
+        self.followup = model.load('airwallex_followup_2026-10-30.json')
         # Instagram module: status review shows the view for editorial review (release stays blocked by
         # validate.check_inputs); status reviewed, with the owner's approval recorded by hand, releases it.
         self.social = social.load_module()
@@ -133,13 +135,15 @@ def cell(c, pid, key, label):
         # A restriction the cell already states is set in bold instead of repeated as a label.
         tag = '' if restr and restr in (spec['text'], spec.get('sub')) else table_tag(status, spec)
     if any('D' in (c.obs[i].get('reconciliation') or {}).get('class', '') for i in ids):
-        tag += '<a class="st st-undetermined" href="#bs-unclear">%s</a>' % E(TABLE_LABEL['undetermined'])
+        tag += '<a class="st st-undetermined" href="#bs-unclear">%s</a>' % E(spec['unclear'])
+    if spec.get('followup'):
+        tag += '<a class="bs-fu" href="#bs-awx-followup">Checked 30 October 2026</a>'
     return '<td%s data-label="%s">%s%s</td>' % (cls, E(label), body, tag)
 
 
 # Plain wording beside a claim in the comparison tables (founder, 2026-10-28). The formal status names stay in
 # "What each status means", the evidence records and the CSV; "Explicitly unavailable" shows the exact restriction.
-TABLE_LABEL = {'conflicting': 'Published pages disagree', 'undetermined': 'Unclear from the reviewed sources'}
+TABLE_LABEL = {'conflicting': 'Published pages disagree'}
 
 
 def table_tag(status, spec):
@@ -154,13 +158,20 @@ def compare_columns(cp):
     return cp['cost_columns'] + cp['card_columns'] + cp['fee_columns'] + cp['acct_columns'] + cp['spend_columns']
 
 
-def table(c, title, cols, tid, head=True):
+def restriction_lines(c, pid):
+    return ''.join('<span class="bs-restr"><b>%s:</b> %s</span>' % (E(l), E(t)) for l, t, _ in c.n['compare']['rows'][pid].get('restrictions', []))
+
+
+def table(c, title, cols, tid, head=True, note=None, restrictions=False):
     ths = ''.join('<th scope="col">%s</th>' % E(l) for _, l in cols)
     rows = []
     for pid in c.order:
         cells = ''.join(cell(c, pid, k, l) for k, l in cols)
-        rows.append('<tr id="%s-%s"><td class="brandcell"><a href="#bs-p-%s">%s</a></td>%s</tr>' % (tid, pid, pid, E(c.name(pid)), cells))
+        extra = restriction_lines(c, pid) if restrictions else ''
+        rows.append('<tr id="%s-%s"><td class="brandcell"><a href="#bs-p-%s">%s</a>%s</td>%s</tr>' % (tid, pid, pid, E(c.name(pid)), extra, cells))
     label = ('<h3 id="%s-h">%s</h3>' % (tid, E(title))) if head else ''
+    if note:
+        label += '<p class="bs-tnote">%s</p>' % E(note)
     region = ('aria-labelledby="%s-h"' % tid) if head else ('aria-label="%s"' % E(title))
     return ('<div class="tblock" id="%s">%s'
             '<div class="tw cards" tabindex="0" role="region" %s><table class="bs">'
@@ -180,6 +191,10 @@ def compare_sources(c):
                 parts.append('%s: %s' % (E(l), ', '.join('<a href="#ev-%s">%s</a>' % (i, i) for i in ids)))
             else:
                 parts.append('%s: not checked' % E(l))
+        for l, t, ids in c.n['compare']['rows'][pid].get('restrictions', []):
+            parts.append('%s line (%s): %s' % (E(l), E(t), ', '.join('<a href="#ev-%s">%s</a>' % (i, i) for i in ids)))
+        if any(c.n['compare']['rows'][pid][k].get('followup') for k, _ in cols):
+            parts.append('follow-up of 30 October 2026: <a href="#bs-awx-followup">record</a>')
         items.append('<li><b>%s.</b> %s</li>' % (E(c.name(pid)), '; '.join(parts)))
     return ('<h4 class="t">Where each entry comes from</h4>'
             '<p class="dek">Each entry links to the observation it summarises, with the exact wording, the page and the capture time.</p>'
@@ -368,6 +383,7 @@ def body(c):
     # ---------- 1. Overview ----------
     # Founder brief (2026-10-28): findings first, my reading beside each, one takeaway, then the research details in expanders.
     out.append(view_open('overview', 'bs-overview'))
+    out.append('<p class="bs-obs">%s</p>' % E(views['overview']['observed']))
     f = n['findings']
     tests = {t['id']: t for t in n['tests']['items']}
     items = []
@@ -434,22 +450,34 @@ def body(c):
     # ---------- 2. Compare products ----------
     cp = n['compare']
     out.append(view_open('compare', 'bs-compare'))
-    # Founder brief (2026-10-30): one rule, keep upfront what explains a cost, a restriction or a meaningful product
-    # difference. Three compact tables, each with an optional details expander; sources and the download at the bottom.
+    # Founder brief (2026-10-30, second): short, direct and plain. Three compact tables, each with an optional details expander;
+    # restrictions beside the provider; supporting information grouped at the bottom.
     out.append('<p class="bs-cmp-when"><b>Website observations: %s.</b> %s</p>' % (long_date(start), E(cp['observed_line'])))
     out.append('<p class="bs-cmp-jump"><a href="#bs-prod">Cards, rewards &amp; costs</a> &middot; <a href="#bs-xb">Currency fees</a> &middot; <a href="#bs-spend">Spending controls</a></p>')
-    out.append('<p class="bs-cmp-ess">%s</p>' % E(cp['essentials']))
-    out.append('<div class="bs-cmp-sec">%s<details class="bs-more"><summary>More product details: network, issuer and card formats</summary>%s</details></div>'
-               % (table(c, 'Cards, rewards & costs', cp['cost_columns'], 'bs-prod'), table(c, 'More product details', cp['card_columns'], 'bs-cards', head=False)))
-    out.append('<div class="bs-cmp-sec">%s<details class="bs-more"><summary>Account and transfer details: currencies held and transfer fees</summary>%s</details></div>'
-               % (table(c, 'Currency fees', cp['fee_columns'], 'bs-xb'), table(c, 'Account and transfer details', cp['acct_columns'], 'bs-xt', head=False)))
+    out.append('<div class="bs-cmp-sec">%s<details class="bs-more"><summary>More product details: network, issuer, card formats and eligibility</summary>%s</details></div>'
+               % (table(c, 'Cards, rewards & costs', cp['cost_columns'], 'bs-prod', note=cp['pricing_note'], restrictions=True),
+                  table(c, 'More product details', cp['card_columns'], 'bs-cards', head=False)))
+    out.append('<div class="bs-cmp-sec">%s<details class="bs-more"><summary>Account and transfer details: currencies, banking partners, interest offers and transfers</summary>%s</details></div>'
+               % (table(c, 'Currency fees', cp['fee_columns'], 'bs-xb', note=cp['currency_note']), table(c, 'Account and transfer details', cp['acct_columns'], 'bs-xt', head=False)))
     out.append('<div class="bs-cmp-sec">%s</div>' % table(c, 'Spending controls', cp['spend_columns'], 'bs-spend'))
+    fu = c.followup
+    fu_src = {x['id']: x for x in fu['sources']}
+    fu_html = ('<h4 class="t" id="bs-awx-followup">Airwallex follow-up, 30 October 2026</h4><p class="dek">%s %s</p><ul class="dek">%s</ul>'
+               '<p class="dek"><b>Not established:</b> %s</p><p class="pnote">Pages checked: %s.</p>' % (
+                   E(fu['note']), E(fu['method']),
+                   ''.join('<li>%s <span class="src">&ldquo;%s&rdquo;, <a href="%s" rel="noopener nofollow" target="_blank">%s</a></span></li>' % (
+                       E(f['text']), E(f['quote']), E(fu_src[f['source']]['url']), E(fu_src[f['source']]['title'])) for f in fu['findings']),
+                   E(' '.join(fu['not_established'])),
+                   '; '.join('<a href="%s" rel="noopener nofollow" target="_blank">%s</a> (server fetch %s, browser %s Toronto time; capture SHA-256 %s&hellip;)' % (
+                       E(x['url']), E(x['title']), toronto_time(x['server_fetched_at']), toronto_time(x['browser_rendered_at']), E(x['html_sha256'][:16])) for x in fu['sources'])))
     out.append('<details class="bs-more bs-cmp-read" id="bs-cmp-read"><summary>Sources and how to read the comparison</summary>'
                '<p class="dek">%s</p>'
-               '<p class="dek">A label beside an entry means it is not a plain published fact. &ldquo;Published pages disagree&rdquo; is the status Conflicting, and a restriction set in bold (such as &ldquo;Not offered to businesses in Quebec&rdquo;) is the status Explicitly unavailable. &ldquo;Not checked&rdquo; and &ldquo;Not found in reviewed sources&rdquo; do not mean a feature is unavailable. <a href="#bs-statuses">What each status means</a>.</p>'
-               '<p class="dek" id="bs-unclear">%s <a href="#bs-recon">Reconciliation</a>.</p>%s</details>'
-               % (E(cp['note']), E(cp['unclear']), compare_sources(c)))
-    out.append('<p class="pnote dlinks"><b>Download the data:</b> <a href="/%s" download>every observation with its source (CSV)</a>.</p>' % CSV_REL)
+               '<p class="dek">A label beside an entry means it is not a plain published fact. &ldquo;Published pages disagree&rdquo; is the status Conflicting. A restriction set in bold (such as &ldquo;Not offered to businesses in Quebec&rdquo;) is the status Explicitly unavailable. &ldquo;Not checked&rdquo; means no valid check was completed, and &ldquo;Not found in reviewed sources&rdquo; means the reviewed pages did not establish it; neither means a feature is unavailable. Restriction lines beside a provider repeat what its pages state and are not a complete eligibility assessment. <a href="#bs-statuses">What each status means</a>.</p>'
+               '<p class="dek" id="bs-unclear">%s</p></details>' % (E(cp['note']), E(cp['unclear'])))
+    out.append('<details class="bs-more bs-cmp-read" id="bs-cmp-evidence"><summary>Detailed evidence and reconciliation notes</summary>%s'
+               '<p class="dek">How the reported differences were classified: <a href="#bs-recon">reconciliation of the ten differences</a>.</p>%s</details>'
+               % (compare_sources(c), fu_html))
+    out.append('<p class="pnote dlinks"><b>Download the data:</b> <a href="/%s" download>every observation from 23 October 2026 with its source (CSV)</a>. The Airwallex follow-up of 30 October 2026 is recorded above and is not in the file.</p>' % CSV_REL)
     out.append(view_close('compare'))
 
     # ---------- 3. Messaging & offers ----------

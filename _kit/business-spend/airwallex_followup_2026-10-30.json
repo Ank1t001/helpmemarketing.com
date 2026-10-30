@@ -1,0 +1,76 @@
+{
+ "id": "AWX-FU-2026-10-30",
+ "checked_on": "2026-10-30",
+ "note": "A targeted follow-up on Airwallex only, recorded separately from the 23 October 2026 research. It does not change edition 001’s observations, statuses, findings or the observations CSV.",
+ "method": "Each page was fetched by a server and rendered in a browser (Chrome, not signed in, Canadian locale) on 30 October 2026 between 1:40 p.m. and 1:41 p.m. Toronto time. The captures are kept privately outside the repository; their SHA-256 hashes are recorded here.",
+ "sources": [
+  {
+   "id": "AWX-FU-PRICING",
+   "title": "Airwallex Canada pricing",
+   "url": "https://www.airwallex.com/en-ca/pricing",
+   "server_fetched_at": "2026-10-30T13:40:10-04:00",
+   "browser_rendered_at": "2026-10-30T13:40:25-04:00",
+   "html_sha256": "46a638b47d04dbf615306e180826eb9fd8c989458925fe7992eab598c6b64e1e",
+   "text_sha256": "b55bd8ffac44a392483abba3a4957a112ae33276ce4f5119530c67eea55ee2ea"
+  },
+  {
+   "id": "AWX-FU-CARDS",
+   "title": "Airwallex Canada corporate cards",
+   "url": "https://www.airwallex.com/en-ca/spend-management/cards",
+   "server_fetched_at": "2026-10-30T13:40:11-04:00",
+   "browser_rendered_at": "2026-10-30T13:40:37-04:00",
+   "html_sha256": "93d733f53a2d34ad0e504c310331ef3eb09a2b514f5d9a1a05ace0d57ab01c94",
+   "text_sha256": "f37ea6f164b9eb972969e46cb315c28f750a33168748539f60c2607493cebb42"
+  },
+  {
+   "id": "AWX-FU-TERMS",
+   "title": "Airwallex cash rebate promotion terms (Canada)",
+   "url": "https://www.airwallex.com/en-ca/terms/cash-rebate-promotion",
+   "server_fetched_at": "2026-10-30T13:40:13-04:00",
+   "browser_rendered_at": "2026-10-30T13:40:48-04:00",
+   "html_sha256": "446073123a46c33e8fa4ee22683ab2673148c77780a8db9d4d957517734f7c25",
+   "text_sha256": "b6a7bb555f6a840641679a30eae0ca0de0af65422752f8444c56cf3bb19d22b5"
+  }
+ ],
+ "findings": [
+  {
+   "id": "FU-1",
+   "source": "AWX-FU-PRICING",
+   "text": "Pricing lists up to 1% cash rebates on local CAD spend, marked with a footnote that terms and conditions apply; the footnote links to the cash rebate promotion terms.",
+   "quote": "Up to 1% cash rebates on local CAD spend"
+  },
+  {
+   "id": "FU-2",
+   "source": "AWX-FU-TERMS",
+   "text": "The linked terms (last updated 3 January 2025) describe a new-customer promotion for Canadian customers: up to 1% on eligible CAD and USD transactions in a calendar month with at least CAD 2,000 of card spend, where an eligible CAD transaction is CAD 25 or more with a merchant in Canada. The promotion period is 1 June 2024 to 31 December 2025, unless Airwallex notifies otherwise.",
+   "quote": "ends on 31 December 2025, 23:59 PST (both dates inclusive), unless otherwise notified by Airwallex"
+  },
+  {
+   "id": "FU-3",
+   "source": "AWX-FU-CARDS",
+   "text": "The card page describes spending from the account balance and states 1% cashback on every eligible transaction with no cap.",
+   "quote": "Every eligible transaction earns 1% cashback, with no cap."
+  },
+  {
+   "id": "FU-4",
+   "source": "AWX-FU-PRICING",
+   "text": "Pricing lists a credit line for corporate cards and does not explain its eligibility or repayment terms.",
+   "quote": "Credit line for corporate cards"
+  },
+  {
+   "id": "FU-5",
+   "source": "AWX-FU-PRICING",
+   "text": "Explore includes up to 10 free Spend users; Grow is $12 per active Spend user a month (up to 250 Spend users) plus a platform fee based on team size; Accelerate has custom pricing.",
+   "quote": "$12 per active Spend user/month up to 250 Spend users"
+  }
+ ],
+ "not_established": [
+  "Whether the promotion was extended beyond 31 December 2025: none of the three pages states an extension.",
+  "Whether new customers can currently receive the rebate.",
+  "The credit line’s eligibility, limits or repayment terms."
+ ],
+ "proposed_research_changes": [
+  "Airwallex rewards (O-AWX-04, reconciliation class B and D): the terms answer the class D question about the rebate terms; they show conditions (new customers, CAD 2,000 a month, CAD 25 Canadian-merchant transactions, a 2025 end date) that the card page’s “1% cashback, with no cap” does not state. A reviewer may reclassify this as a difference between published statements in a future edition. Not changed here.",
+  "Finding 1 (2 of 5 platforms that published a reward rate) is not affected: Airwallex still published a reward rate on 30 October 2026, and it is not one of the two platforms counted."
+ ]
+}

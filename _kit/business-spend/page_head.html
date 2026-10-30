@@ -243,12 +243,11 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-finds .find>.bs-fgo{margin-top:auto;padding-top:var(--s3)}
 }
 /* Compare products (founder brief, 2026-10-28): observation line, plain jump links and the essential reading notes above the tables; lighter row shading, sentence-case headings and readable conditions. */
-.msi.msi #bs-compare .bs-cmp-when,.msi.msi #bs-compare .bs-cmp-jump,.msi.msi #bs-compare .bs-cmp-ess{max-width:72ch;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
+.msi.msi #bs-compare .bs-cmp-when,.msi.msi #bs-compare .bs-cmp-jump{max-width:72ch;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
 .msi.msi .bs-view.bs-view>.bs-cmp-when{margin-top:var(--s4)}
-.msi.msi .bs-view.bs-view>.bs-cmp-jump,.msi.msi .bs-view.bs-view>.bs-cmp-ess{margin-top:var(--s3)}
+.msi.msi .bs-view.bs-view>.bs-cmp-jump{margin-top:var(--s3)}
 .msi.msi #bs-compare .bs-cmp-when b{color:var(--text);font-weight:650}
 .msi.msi #bs-compare .bs-cmp-jump a{color:var(--cta-text,var(--cta));font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
-.msi.msi #bs-compare .bs-cmp-ess{color:var(--text)}
 @media(min-width:901px){
 .msi.msi #bs-compare table.bs th{font-size:13px;font-weight:650;letter-spacing:0;text-transform:none;color:var(--text);vertical-align:bottom}
 .msi.msi #bs-compare table.bs tbody tr:nth-child(even) td{background:rgba(var(--ink-rgb,255,255,255),.025)}
@@ -270,6 +269,14 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi #bs-compare details.bs-cmp-read>.dek{max-width:72ch}
 .msi.msi #bs-compare a.st{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;color:var(--text-muted)}
 @media print{.msi.msi #bs-compare details.bs-more{display:block}}
+/* Plain and short (founder brief, 2026-10-30, second): restriction lines beside the provider, one note under each table heading, dated follow-up links, the Overview observation line. */
+.msi.msi .bs-view.bs-view>.bs-obs{margin-top:var(--s3);font-size:14.5px;font-weight:650;color:var(--text)}
+.msi.msi .bs-cmp-sec .bs-tnote{margin:0 0 var(--s3);max-width:72ch;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
+.msi.msi td.brandcell .bs-restr{display:block;margin-top:6px;font-size:13px;line-height:1.45;font-weight:400;color:var(--text-muted)}
+.msi.msi td.brandcell .bs-restr b{font-weight:650;color:var(--text)}
+.msi.msi #bs-compare a.bs-fu{display:block;margin-top:4px;font-size:12.5px;color:var(--text-muted);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+.msi.msi #bs-compare td.brandcell{min-width:10em}
+@media(max-width:900px){.msi.msi .tw.cards td.brandcell .bs-restr{font-size:13.5px}}
 </style>
 <script data-bsi-tabs>
 /* Views as tabs (2026-10-23). Without JavaScript every view shows in reading order and the links jump to it. With it, one view shows at a time: the links become an ARIA tablist (arrow keys, Home, End), the address keeps the view (#bs-compare), Back and Forward restore it, and any link to an id inside a view (a section, an evidence item, a closed expander) opens that view and the expanders around the target. Print shows every view. */
@@ -282,6 +289,10 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
     try { id = decodeURIComponent(id); } catch (e) {}
     return id ? d.getElementById(id) : null;
   }
+  // Print shows every expander's content (2026-10-30); they close again afterwards.
+  var printed = [];
+  window.addEventListener('beforeprint', function () { printed = [].filter.call(d.querySelectorAll('details:not([open])'), function (x) { x.open = true; return true; }); });
+  window.addEventListener('afterprint', function () { printed.forEach(function (x) { x.open = false; }); printed = []; });
   var kbd = false;
   d.addEventListener('keydown', function (e) { if (!e.altKey && !e.ctrlKey && !e.metaKey) kbd = true; }, true);
   d.addEventListener('pointerdown', function () { kbd = false; }, true);

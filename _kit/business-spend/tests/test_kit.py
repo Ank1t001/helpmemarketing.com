@@ -309,10 +309,16 @@ class KitTests(unittest.TestCase):
             self.assertEqual(o['observed_at'], self.c.sources[o['sources'][0]['source_id']]['fetched_at'])
 
     def test_eligibility_kept_apart_from_wider_availability(self):
+        # restrictions stay visible beside the provider; the full eligibility details sit in the expander (2026-10-30)
         body = self.page[self.page.index('id="bs-prod-h"'):]
         body = body[:body.index('</table>')]
-        self.assertIn('Eligibility and restrictions', body)
-        self.assertIn('Self-serve sign-up route closed to new applicants when checked', body)
+        self.assertIn('<b>Restriction:</b> Self-serve sign-up closed to new applicants when checked', body)
+        self.assertIn('<b>Restriction:</b> Not offered to businesses in Quebec', body)
+        self.assertIn('<b>Credit:</b> Float Charge credit is subject to eligibility criteria', body)
+        det = self.page[self.page.index('id="bs-cards"'):]
+        det = det[:det.index('</table>')]
+        self.assertIn('Eligibility details', det)
+        self.assertIn('Self-serve sign-up route closed to new applicants when checked', det)
         self.assertIn('availability in other countries is not assessed', self.page)
 
     def test_hub_wording_and_card_artwork(self):
@@ -430,7 +436,8 @@ class SocialModuleTests(unittest.TestCase):
         c = build.Ctx()
         body = build.body(c)
         self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-compare', 'bs-messaging', 'bs-social', 'bs-journeys', 'bs-lessons'])
-        self.assertIn('<a href="#bs-social" id="bs-tab-social">Instagram content</a>', body)
+        self.assertIn('<a href="#bs-social" id="bs-tab-social">Social Media Content</a>', body)
+        self.assertIn('This edition reviews Instagram content only.', body)
         self.assertIn('Official company Instagram accounts only, posts published 25 July to 22 October 2026', body)
         self.assertNotIn('<b>Instagram posts</b>', body.split('</header>')[0])  # dates live in Scope & sources, not the hero (2026-10-28)
         self.assertIn('Websites observed 23 October 2026, 10:39 a.m. to 2:33 p.m. Toronto time.', body)
@@ -494,7 +501,7 @@ class SocialModuleTests(unittest.TestCase):
         self.assertIn('text excerpt', errs(lambda m: m['examples'][0].pop('no_image_reason')))
         self.assertIn('not a claim', errs(lambda m: m['examples'][0].update(reading='This was the best performing post.')))
         self.assertIn('recorded hash', errs(lambda m: m['examples'][2]['image'].update(sha256='0' * 64)))
-        self.assertIn('Instagram content', errs(lambda m: m['view'].update(title='Social content')))
+        self.assertIn('Social Media Content', errs(lambda m: m['view'].update(title='Social content')))
         # a reel read from cover and caption cannot carry a claim about the whole post
         self.assertIn('overstates', errs(lambda m: m['examples'][2].update(reading='A reader cannot tell from the post where the card is offered.')))
         self.assertIn('overstates', errs(lambda m: m['examples'][2].update(reading='The post names no market. Second sentence.')))
