@@ -35,16 +35,17 @@ Goal: a reader quickly understands three things: how the brands position themsel
 
 New structure, three parts: **Positioning, then Creative Strategy with examples, then Engagement by Theme.**
 
-### 2.1 Introduction
-- One scope line: "Instagram content published 25 July to 22 October 2026. Comparable findings are available for Venn and Airwallex; coverage limitations are explained below."
-- One compact coverage note that keeps three different situations apart:
-  - **No posts found:** Float, Loop and Keep (no in-window posts on the reviewed accounts; says nothing about activity elsewhere).
-  - **Attribution unresolved:** 19 posts on @tryramp, counted separately; no official Ramp source links the account, so nothing is assessed for Ramp.
-  - **Content not assessed:** reels whose video was not watched (Venn 7 of 9, Airwallex 14 of 23); their creative execution is not established.
-- Replaces the current three paragraphs.
+### 2.1 Introduction (revised 31 October 2026, founder; supersedes the scope line and coverage note first recorded)
+- The tab opens with one line under the H2, replacing the current description and the three-paragraph scope note: "A look at how brands present themselves on Instagram, the content they create and the engagement it receives."
+- Dates and coverage details move to Sources & evidence (`#bs-ref-social`): the 25 July to 22 October 2026 window (Toronto time, 90 days), the 26 October count date, the 32 attributed posts (Venn 9, Airwallex 23), and the three coverage situations kept apart there: no posts found (Float, Loop, Keep), attribution unresolved (19 posts on @tryramp), content not assessed (reels not watched).
+- A limitation that changes how a comparison reads stays beside that comparison, in one short line:
+  - Positioning: only Venn and Airwallex are compared; one line saying why the other four are not (no posts found for Float, Loop and Keep; @tryramp not confirmed as Ramp's account).
+  - Creative Strategy: execution applies to inspected posts only, while the reels remain unwatched.
+  - Engagement by Theme: "Based on visible likes and comments. Small samples are directional and do not establish sales performance."
+- Consequence to note: with the Overview date note also removed, the Instagram window appears only in Sources & evidence. The brief should confirm that is intended.
 
 ### 2.2 Positioning (replaces Brand positioning and Product positioning)
-Venn and Airwallex only; the other four brands move to the coverage note. One or two short sentences per cell, each a supported observation. Draft from the existing readings in `social_narrative.json` and `social_analysis.json`, wording to be confirmed in the brief:
+Venn and Airwallex only; the other four brands are explained in one line beside the table (see 2.1) and in full in Sources & evidence. One or two short sentences per cell, each a supported observation. Draft from the existing readings in `social_narrative.json` and `social_analysis.json`, wording to be confirmed in the brief:
 
 | Brand | How it presents itself | Products and benefits it emphasises |
 |---|---|---|
