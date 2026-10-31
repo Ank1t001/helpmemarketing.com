@@ -507,6 +507,29 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 @media(max-width:900px){.msi.msi .pd-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.msi.msi .pd-exs{grid-template-columns:1fr}}
 @media(max-width:720px){.msi.msi .pd-cards{grid-template-columns:1fr}.msi.msi .pd-card,.msi.msi .pd-ex{padding:20px}.msi.msi .pd-ex.has-img{grid-template-columns:1fr}.msi.msi figure.pd-shot img{max-height:300px}}
 @media print{.msi.msi .pd-sel,.msi.msi .pd-showall{display:none!important}.msi.msi .pd-dim[hidden]{display:block!important}.msi.msi .pd-dim.pd-collapsed li.pd-extra{display:grid!important}.msi.msi .pd-dims.pd-js .pd-dimh{position:static;width:auto;height:auto;clip:auto}}
+/* Website Messaging (founder review, 2026-10-31): numbered parts, the "How the promise is supported" column with text status labels, examples in a grid. */
+.msi.msi #bs-messaging .soc-sec>h3{margin:0 0 var(--s3)}
+.msi.msi #bs-messaging .soc-lim{margin:0 0 var(--s4);font-size:14px;line-height:1.55;color:var(--text-muted)}
+.msi.msi #bs-messaging .bs-msg-after{margin:var(--s4) 0 0}
+.msi.msi #bs-messaging .bs-msg-adsweb{margin:var(--s6) 0 0}
+.msi.msi #bs-messaging .soc-lim a{color:var(--cta-text,var(--cta));text-decoration:underline;text-underline-offset:3px}
+.msi.msi table.bs-msgt td.brandcell{width:10%}
+.msi.msi table.bs-msgt td{vertical-align:top}
+@media(min-width:901px){.msi.msi table.bs-msgt td[data-label="Main website message"]{width:20%}.msi.msi table.bs-msgt td[data-label="How the promise is supported"]{width:44%}}
+.msi.msi ul.bs-sup{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.msi.msi ul.bs-sup li{display:grid;grid-template-columns:auto 1fr;column-gap:8px;row-gap:2px;align-items:baseline;font-size:13.5px;line-height:1.5}
+.msi.msi .bs-sup-k{grid-column:1/-1;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--text-tertiary)}
+.msi.msi .bs-sup-s{font-size:12px;font-weight:700;line-height:1.3;padding:2px 8px;border-radius:999px;border:1px solid var(--border-strong);color:var(--text);white-space:nowrap}
+.msi.msi .bs-sup-shown{border-color:var(--mint);color:var(--mint)}
+.msi.msi .bs-sup-partly{border-style:dashed}
+.msi.msi .bs-sup-conflicting{border-color:var(--warn);color:var(--warn)}
+.msi.msi .bs-sup-not_found,.msi.msi .bs-sup-rate_not_found{border-style:dotted;color:var(--text-muted)}
+.msi.msi .bs-sup-t{color:var(--text-body,var(--text))}
+.msi.msi .bs-msg-exs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--s4);align-items:start}
+.msi.msi .bs-msg-exs .card.ex{margin:0;padding:var(--s5)}
+.msi.msi .bs-msg-exs .card.ex .dek{max-width:none}
+@media(max-width:900px){.msi.msi .bs-msg-exs{grid-template-columns:1fr}.msi.msi table.bs-msgt td.brandcell{width:auto}}
+@media(max-width:720px){.msi.msi .bs-msg-exs .card.ex{padding:20px}.msi.msi .tw.cards table.bs-msgt td[data-label]{grid-column:1/-1}}
 </style>
 <script data-pd-mix>
 /* Paid Social Strategy (2026-10-31): the Focus / Format / Creative approach / Theme selector and "Show all categories".

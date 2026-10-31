@@ -118,7 +118,20 @@ Two briefs arrived the same day; the second (percentage splits) supersedes the f
 - The approved mockup was not attached in this session; the layout follows the written direction (warm neutral cards, serif hooks, Signal Orange accents, fine borders).
 - Classification consistency across six reviewers was checked through shared rules, spot checks of same-hook groups and the cross-batch Ramp pair, not a second full pass.
 
-## 4. Website Messaging (in review)
+## 4. Website Messaging (decided and applied 31 October 2026, founder: "Apply all the options, then push it to live")
+
+Applied:
+- One intro line ("What each website promises and how it supports that promise."); the bold date line, the "My reading" kicker and the repeated H3 are gone. The date sits in one limitation beside the table: "My reading of pages observed on 23 October 2026, not the providers' own statements of strategy."
+- Numbered parts: 1 Main messages and how they are supported, 2 Selected examples.
+- New column "How the promise is supported" with three checks per brand (customer story, basis for headline figures, conditions beside the headline rate), each a text status (Shown, Partly, Conflicting, Not found, Rate not found) and one short sentence; every check cites its observations in Sources & evidence (`#bs-msg-support-ev`, `narrative.json` `messaging_support`), linked once from the tab.
+- Keep's "What stood out" is now a messaging observation (no visible basis for "Canada's #1" and "5,000+ Canadian companies"; no case study); the closed application route stays in Customer Journey, where it was already recorded.
+- Examples: three (Loop names who calculated its figure; Float's "Up to" with the threshold in a footnote, moved from the Float evidence expander; Airwallex names the tools a customer used before) in a grid, three across on desktop, one on phones; "not winning platforms" removed. The validator now allows two to four examples in Messaging.
+- One line points to the ads-beside-website comparison in Sources & evidence (`#bs-paid-ref-vs-web`), saying the dates differ.
+- Spacing on the shared scale; on phones every cell of the table runs full width.
+
+Not applied: page crops. The 23 October browser captures are private and not in this environment, and new screenshots would show today's pages, not the pages reviewed. If you supply the captures, crops can be added as recorded derivatives with their hashes.
+
+Audit that led to these changes:
 
 Audit of the current view, 31 October 2026 (build `aab3d88`, live):
 

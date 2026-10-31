@@ -345,6 +345,18 @@ TEST_ROWS = [('observation', 'Observed evidence'), ('question', 'Customer questi
              ('measure', 'Primary measurement'), ('guardrail', 'Guardrail'), ('limitation', 'When the result would be inconclusive')]
 
 
+
+def msg_support_reference(c, n):
+    """Sources & evidence: every "How the promise is supported" check with the observations behind it (founder review, 2026-10-31)."""
+    ms = n['messaging_support']
+    rows = []
+    for pid in c.order:
+        for k, lab in ms['checks']:
+            cell = ms[pid][k]
+            rows.append('<li><b>%s, %s: %s.</b> %s %s</li>' % (E(c.name(pid)), E(lab.lower()), E(ms['labels'][cell['s']]), E(cell['t']),
+                        ev_links(c, cell['ev']).replace('<p class="evlinks">', '<span class="evlinks">').replace('</p>', '</span>')))
+    return '<div id="bs-msg-support-ev"><h4 class="t">How each promise is supported: evidence</h4><ul class="dek">%s</ul></div>' % ''.join(rows)
+
 def example_card(c, e, eid=None, evidence=True):
     # Short form (2026-10-30): heading, the observed fact, one sentence of my reading, the evidence link.
     return ('<div class="card ex"%s><h4 class="t">%s</h4><p class="dek">%s</p>'
@@ -420,7 +432,8 @@ def sources_view(c, views, start, end, draft):
             E(views['messaging']['evidence_dek']), ''.join(platform_block(c, pid) for pid in c.order),
             compare_sources(c) + '<h4 class="t">Messaging examples: evidence</h4><ul class="dek">%s</ul>' % ''.join(
                 '<li><b>%s.</b> %s</li>' % (E(e['title']), ev_links(c, e['evidence']).replace('<p class="evlinks">', '<span class="evlinks">').replace('</p>', '</span>'))
-                for e in n['examples']['items'] if e.get('place') == 'messaging')))
+                for e in n['examples']['items'] if e.get('place') == 'messaging'))
+            + msg_support_reference(c, n))
     # 3. Social accounts, posts and attribution
     if c.social:
         sec('bs-ref-social', 'Social accounts, posts, classifications and engagement', social.strategy_reference_html(c) + social.reference_html(c) + (social.analysis_reference_html(c.social) if c.social.get('analysis') else ''))
@@ -598,16 +611,24 @@ def body(c):
     # ---------- Messaging & Offers ----------
     ex = n['examples']
     vm = views['messaging']
-    mrows = ''.join('<tr id="bs-msg-%s"><td class="brandcell">%s</td><td data-label="Main website message">%s</td><td data-label="What stood out">%s</td></tr>\n' % (
-        pid, plain(pid), E(n['platforms'][pid]['main_message']), E(n['platforms'][pid]['stood_out'])) for pid in c.order)
+    ms = n['messaging_support']
+
+    def support_cell(pid):
+        return '<ul class="bs-sup">%s</ul>' % ''.join(
+            '<li><span class="bs-sup-k">%s</span><span class="bs-sup-s bs-sup-%s">%s</span><span class="bs-sup-t">%s</span></li>' % (
+                E(lab), ms[pid][k]['s'], E(ms['labels'][ms[pid][k]['s']]), E(ms[pid][k]['t'])) for k, lab in ms['checks'])
+    mrows = ''.join('<tr id="bs-msg-%s"><td class="brandcell">%s</td><td data-label="Main website message">%s</td><td data-label="How the promise is supported">%s</td><td data-label="What stood out">%s</td></tr>\n' % (
+        pid, plain(pid), E(n['platforms'][pid]['main_message']), support_cell(pid), E(n['platforms'][pid]['stood_out'])) for pid in c.order)
     exs = ''.join(example_card(c, e, evidence=False) for e in ex['items'] if e.get('place') == 'messaging')
+    # Founder review (2026-10-31): one intro line, numbered parts, the support column, examples in a grid and a pointer to the ads comparison.
     V['messaging'] = (view_open('messaging', 'bs-messaging')
-                      + '<p class="bs-obs">%s</p>' % E(vm['observed'])
-                      + '<div class="tblock" id="bs-msg-table"><p class="ktag">My reading</p><h3 id="bs-msg-h">%s</h3><p class="bs-tnote">%s</p>'
-                        '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-msg-h"><table class="bs"><caption class="sr-only">My reading of each platform&rsquo;s main message, from pages observed on 23 October 2026</caption>'
-                        '<thead><tr><th scope="col">Brand</th><th scope="col">Main website message</th><th scope="col">What stood out</th></tr></thead><tbody>\n%s</tbody></table></div></div>'
-                        % (E(vm['table_title']), E(vm['table_note']), mrows)
-                      + '<div id="bs-examples" class="sub"><h3>Selected examples</h3><p class="dek">%s</p>%s</div>' % (E(ex['dek']), exs)
+                      + '<div class="sub soc-sec" id="bs-msg-table"><h3 id="bs-msg-h"><span class="soc-n">1</span>%s</h3><p class="soc-lim">%s</p>'
+                        '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-msg-h"><table class="bs bs-msgt"><caption class="sr-only">Main website message, how the promise is supported and what stood out, from pages observed on 23 October 2026</caption>'
+                        '<thead><tr><th scope="col">Brand</th><th scope="col">Main website message</th><th scope="col">How the promise is supported</th><th scope="col">What stood out</th></tr></thead><tbody>\n%s</tbody></table></div>'
+                        '<p class="soc-lim bs-msg-after">%s <a href="#bs-msg-support-ev">See the evidence</a>.</p></div>'
+                        % (E(vm['table_title']), E(vm['table_note']), mrows, E(vm['support_note']))
+                      + '<div id="bs-examples" class="sub soc-sec"><h3><span class="soc-n">2</span>%s</h3><p class="soc-lim">%s</p><div class="bs-msg-exs">%s</div></div>' % (E(vm['examples_title']), E(ex['dek']), exs)
+                      + '<p class="soc-lim bs-msg-adsweb">%s <a href="#bs-paid-ref-vs-web">Ads beside the website</a>.</p>' % E(vm['adsweb_note'])
                       + view_close('messaging'))
 
     # ---------- Compare Products ----------

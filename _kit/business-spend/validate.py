@@ -259,8 +259,9 @@ def check_inputs(c):
     if len(c.n['examples']['items']) > 4:
         errs.append('examples: at most four')
     places = [e.get('place') for e in c.n['examples']['items']]
-    if places.count('messaging') != 2 or places.count('journeys') != 1 or any(not (x in ('messaging', 'journeys') or str(x).startswith('evidence:')) for x in places):
-        errs.append('examples: two in Messaging, one in the journey evidence, any other in a provider evidence expander')
+    # Two to four in Messaging since the 2026-10-31 founder review (was exactly two).
+    if not 2 <= places.count('messaging') <= 4 or places.count('journeys') != 1 or any(not (x in ('messaging', 'journeys') or str(x).startswith('evidence:')) for x in places):
+        errs.append('examples: two to four in Messaging, one in the journey evidence, any other in a provider evidence expander')
     if not re.match(r'(One|Two|Three|Four) observed example', c.n['examples']['dek']) or ['One', 'Two', 'Three', 'Four'].index(c.n['examples']['dek'].split()[0]) + 1 != places.count('messaging'):
         errs.append('examples: the dek count matches the examples shown')
     if not 2 <= len(c.n['patterns']['items']) <= 3:
@@ -679,8 +680,8 @@ def check_outputs(c, page, csvtext, extra_paths=()):
             errs.append('page: %s carries evidence detail that belongs in Sources & evidence' % vid)
     if not refv or 'data-bs-back' not in refv or refv.count('id="ev-') != len(c.obs):
         errs.append('page: Sources & evidence holds every observation and a return control')
-    if TAKE_LABEL in msg or re.search(r'capture request|\bR[12]\b', body, re.I) or msg.count(html_escape(c.n['views']['messaging']['observed'])) != 1:
-        errs.append('page: Messaging carries no takeaway boxes or capture codes, and the observation date once')
+    if TAKE_LABEL in msg or re.search(r'capture request|\bR[12]\b', body, re.I) or html_escape(c.n['views']['messaging']['table_note']) not in msg:   # the date sits in the limitation beside the table since 2026-10-31
+        errs.append('page: Messaging carries no takeaway boxes or capture codes, and keeps its dated limitation beside the table')
     if 'booked' in body or 'after booking' in body:
         errs.append('page: a demo request is not a booked meeting')
     if body.count('<ol class="tests"><li') != 1 or body.count('<dt>Testable hypothesis</dt>') != 3 or body.count('Proposed test, not a result</span><h3 class="bs-ttitle">Test ') != 3:

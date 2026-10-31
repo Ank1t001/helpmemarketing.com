@@ -796,7 +796,7 @@
   "currency_note": "Fees cover different transactions and conditions. These figures are not a like-for-like cost comparison."
  },
  "examples": {
-  "dek": "Two observed examples of how proof was explained. They are examples to learn from, not winning platforms.",
+  "dek": "Three observed examples of how proof and conditions were explained.",
   "items": [
    {
     "id": "E1",
@@ -821,7 +821,7 @@
     "evidence": [
      "O-FLT-05"
     ],
-    "place": "evidence:float"
+    "place": "messaging"
    },
    {
     "id": "E3",
@@ -1055,7 +1055,7 @@
     ]
    },
    "main_message": "Higher limits and less expense admin.",
-   "stood_out": "Start buttons led to a closed application route when checked."
+   "stood_out": "“Canada’s #1” and “5,000+ Canadian companies” carry no visible basis, and no case study was found."
   },
   "airwallex": {
    "offer": "1% cashback on card spend, no foreign transaction fee from a held currency, transfers with $0 fees on local rails, and plans from $0.",
@@ -1313,12 +1313,15 @@
   },
   "messaging": {
    "title": "Website Messaging",
-   "dek": "What each website promises, how it supports the offer and what needs explaining better.",
+   "dek": "What each website promises and how it supports that promise.",
    "observed": "Website observations: 23 October 2026",
-   "table_title": "My reading of the reviewed pages",
-   "table_note": "These are my interpretations of the reviewed pages, not direct quotations or statements of the providers’ internal strategies.",
+   "table_title": "Main messages and how they are supported",
+   "table_note": "My reading of pages observed on 23 October 2026, not the providers’ own statements of strategy.",
    "evidence_title": "Evidence by provider",
-   "evidence_dek": "The sources behind each reading: who the pages speak to, the problem, the benefit, the offer and its conditions, the proof, one customer question, missing evidence, and every observation with its exact wording, page and capture time."
+   "evidence_dek": "The sources behind each reading: who the pages speak to, the problem, the benefit, the offer and its conditions, the proof, one customer question, missing evidence, and every observation with its exact wording, page and capture time.",
+   "support_note": "Each check links to the observations behind it in Sources & evidence.",
+   "examples_title": "Selected examples",
+   "adsweb_note": "The paid ads collected on 30 October are compared with these 23 October pages in Sources & evidence; the two dates differ, so a difference is not a confirmed contradiction."
   },
   "journeys": {
    "title": "Customer Journey",
@@ -1958,5 +1961,169 @@
    "How each card is activated and funded before a first transaction, from public help pages.",
    "What happens after Float’s demo request and after Airwallex’s and Ramp’s email step, where a public page explains it."
   ]
+ },
+ "messaging_support": {
+  "checks": [
+   [
+    "story",
+    "Customer story"
+   ],
+   [
+    "basis",
+    "Basis for headline figures"
+   ],
+   [
+    "conditions",
+    "Conditions beside the headline rate"
+   ]
+  ],
+  "labels": {
+   "shown": "Shown",
+   "partly": "Partly",
+   "conflicting": "Conflicting",
+   "not_found": "Not found",
+   "rate_not_found": "Rate not found"
+  },
+  "venn": {
+   "story": {
+    "s": "shown",
+    "t": "The Flow case study, with time saved described, not measured.",
+    "ev": [
+     "O-VEN-17"
+    ]
+   },
+   "basis": {
+    "s": "not_found",
+    "t": "The claim of FX rates cheaper than banks carries no basis I could find; customer counts agree at 15,000+.",
+    "ev": [
+     "O-VEN-15",
+     "O-VEN-16"
+    ]
+   },
+   "conditions": {
+    "s": "conflicting",
+    "t": "The cards page says no caps on cashback; the pricing footnote limits eligible spend.",
+    "ev": [
+     "O-VEN-04"
+    ]
+   }
+  },
+  "float": {
+   "story": {
+    "s": "shown",
+    "t": "The Impact Kitchen story reports more than 100 hours a year saved.",
+    "ev": [
+     "O-FLT-15"
+    ]
+   },
+   "basis": {
+    "s": "not_found",
+    "t": "“Save up to 90% on FX” carries no basis I could find.",
+    "ev": [
+     "O-FLT-09"
+    ]
+   },
+   "conditions": {
+    "s": "partly",
+    "t": "“Up to 1%” is explained in a footnote on the pricing page only.",
+    "ev": [
+     "O-FLT-05"
+    ]
+   }
+  },
+  "ramp": {
+   "story": {
+    "s": "partly",
+    "t": "Quotes from large brands; none is specific to Canada.",
+    "ev": [
+     "O-RMP-13"
+    ]
+   },
+   "basis": {
+    "s": "partly",
+    "t": "A receipt figure is labelled as internal data; the 85,000 customers are worldwide.",
+    "ev": [
+     "O-RMP-13"
+    ]
+   },
+   "conditions": {
+    "s": "rate_not_found",
+    "t": "A Canadian rewards rate was not found in the reviewed sources.",
+    "ev": [
+     "O-RMP-05"
+    ]
+   }
+  },
+  "loop": {
+   "story": {
+    "s": "shown",
+    "t": "The Bells of Steel case study labels its $10,000 saving as Loop’s calculation.",
+    "ev": [
+     "O-LOP-13"
+    ]
+   },
+   "basis": {
+    "s": "partly",
+    "t": "The case study figure is labelled; the homepage averages carry no basis I could find.",
+    "ev": [
+     "O-LOP-12",
+     "O-LOP-13"
+    ]
+   },
+   "conditions": {
+    "s": "conflicting",
+    "t": "“No tiers” on the cards page; earn rates differ by plan on the pricing page.",
+    "ev": [
+     "O-LOP-04"
+    ]
+   }
+  },
+  "keep": {
+   "story": {
+    "s": "not_found",
+    "t": "No case study was found in the reviewed pages.",
+    "ev": [
+     "O-KEP-13"
+    ]
+   },
+   "basis": {
+    "s": "not_found",
+    "t": "“Canada’s #1” carries no basis I could find.",
+    "ev": [
+     "O-KEP-12"
+    ]
+   },
+   "conditions": {
+    "s": "partly",
+    "t": "Top-tier rates lead; the 3% conversion fee is only in the card agreement.",
+    "ev": [
+     "O-KEP-03",
+     "O-KEP-07"
+    ]
+   }
+  },
+  "airwallex": {
+   "story": {
+    "s": "shown",
+    "t": "The Adaria story is Canadian, with qualitative outcomes.",
+    "ev": [
+     "O-AWX-13"
+    ]
+   },
+   "basis": {
+    "s": "partly",
+    "t": "The 600,000+ figure says it includes customers served through platforms.",
+    "ev": [
+     "O-AWX-12"
+    ]
+   },
+   "conditions": {
+    "s": "partly",
+    "t": "“Every eligible transaction” earns 1%; the rebate terms were not found.",
+    "ev": [
+     "O-AWX-04"
+    ]
+   }
+  }
  }
 }
