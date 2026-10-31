@@ -334,7 +334,8 @@
      "text": null,
      "ids": [
       "O-RMP-02"
-     ]
+     ],
+     "recheck": "RMP-MODEL-RECHECK-2026-10-31"
     },
     "issuer": {
      "text": "Visa, Peoples Trust Company",
@@ -794,7 +795,7 @@
   "unclear": "Where a label says what could not be confirmed, two published statements did not settle the point (reconciliation class D in the 23 October 2026 research). For Airwallex, a follow-up check on 30 October 2026 found that pricing lists up to 1% cash rebates on local CAD spend and links to promotion terms whose period ends on 31 December 2025 unless Airwallex notifies otherwise; no extension was found, so eligibility was not confirmed at the follow-up. The card page still states 1% cashback with no cap, and a 2% figure seen in the page metadata on 23 October stays in the evidence. Pricing also lists a credit line for corporate cards without explaining its eligibility or repayment terms.",
   "pricing_note": "Prices are in Canadian dollars unless stated otherwise. Per-user charges, annual billing and additional platform fees are shown where applicable.",
   "currency_note": "Fees apply to different transactions and conditions; these are not like-for-like total costs.",
-  "dates_line": "Website observations: 23 October 2026. Later follow-ups are marked in the cells they change.",
+  "dates_line": "Website observations: 23 October 2026. Later follow-ups and rechecks are noted in the row they change.",
   "compare_title": "Compare by category",
   "rechecks": [
    {
@@ -821,6 +822,26 @@
     ],
     "cell_text": "Rechecked 31 October 2026: the Canadian pages mention rewards but publish no rate.",
     "finding": "The Canadian homepage and cards page link to “Perks and rewards”, and the Canadian pricing page says Ramp Plus can be paid with “the rewards you earn from your Ramp card spending”; none of the three publishes a reward rate or its conditions. A Canadian cashback claim seen in a Meta ad collected on 30 October 2026 is not treated as confirmation of reward eligibility or conditions."
+   },
+   {
+    "id": "RMP-MODEL-RECHECK-2026-10-31",
+    "pid": "ramp",
+    "cell": "model",
+    "checked_at": "2026-10-31T18:23:06-04:00",
+    "pages": [
+     {
+      "title": "Pricing (Canada)",
+      "url": "https://ramp.com/en-ca/pricing",
+      "text_sha256": "a8ed36b16b7f4b911b0e22b56ad77a18456a95784224b40b1053cb56cefab049"
+     },
+     {
+      "title": "Applying for Ramp as a Canadian business (help centre)",
+      "url": "https://support.ramp.com/applying-for-ramp-as-a-canadian-business",
+      "text_sha256": "e127bad95f5b75b0ee1dda9cea2e6b388b5e0ae968caa5cbb15aff60dac974a1"
+     }
+    ],
+    "cell_text": "Rechecked 31 October 2026: the Canadian pricing page lists a corporate liability charge card with credit limits; repayment terms are not published there.",
+    "finding": "The Canadian pricing page’s feature table lists “Corporate liability charge card” and “Competitive credit limits”, and the Canadian help-centre guide (read 4:59 to 5:00 p.m.) says the credit limit is set from cash balance, bank transaction history and business profile. Neither page publishes the repayment schedule, so the 23 October status (Not checked) stands and the card model is recorded here as a dated follow-up."
    }
   ]
  },
@@ -1361,7 +1382,7 @@
    ],
    [
     "Product facts",
-    "Pages observed 23 October 2026; an Airwallex follow-up on 30 October 2026 and a Ramp recheck on 31 October 2026, marked in the cells they change."
+    "Pages observed 23 October 2026; an Airwallex follow-up on 30 October 2026 and two Ramp rechecks on 31 October 2026, noted in the rows they change."
    ],
    [
     "First-screen observations",

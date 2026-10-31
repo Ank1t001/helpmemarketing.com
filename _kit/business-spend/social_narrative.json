@@ -434,7 +434,7 @@
   "engagement_title": "Engagement by Theme",
   "engagement_limit": "Based on visible likes and comments. Small samples are directional and do not establish sales performance.",
   "engagement_takeaway": {
-   "venn": "Only customer stories has enough posts for a median; the other themes are too small for a meaningful comparison.",
+   "venn": "Only customer stories meets this review’s minimum sample for reporting a median; the other themes are too small for a meaningful comparison.",
    "airwallex": "Partnership posts had the highest median (237 from 6 posts with counts), mostly from posts made with collaborators: without them the median is 75 from 4, close to Culture or community (66 from 5)."
   }
  }

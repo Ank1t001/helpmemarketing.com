@@ -128,7 +128,7 @@ def cell_status(c, pid, key):
 
 def unclear_tag(c, spec):
     if any('D' in (c.obs[i].get('reconciliation') or {}).get('class', '') for i in spec.get('ids', [])):
-        return '<a class="st st-undetermined" href="#bs-unclear">%s</a>' % E(spec['unclear'])
+        return '<span class="st st-undetermined">%s</span>' % E(spec['unclear'])
     return ''
 
 
@@ -152,12 +152,11 @@ def cell(c, pid, key, label):
         # A restriction the cell already states is set in bold instead of repeated as a label.
         tag = '' if restr and restr in (spec['text'], spec.get('sub')) else table_tag(status, spec)
     tag += unclear_tag(c, spec)
-    # Later follow-ups are marked in the cells they change (founder, 2026-10-31, refinement brief).
-    if spec.get('followup'):
-        tag += '<a class="bs-fu-tag" href="#bs-awx-followup">Follow-up, 30 October 2026</a>'
+    # Conditions and later rechecks stay as plain text in the cell; the evidence is reached from the one global Sources & evidence link
+    # (founder, 2026-10-31). The Airwallex follow-up is named once, in the brand cell (see table()).
     if spec.get('recheck'):
         rc = {r['id']: r for r in c.n['compare'].get('rechecks', [])}[spec['recheck']]
-        tag += '<span class="cell-sub bs-recheck">%s <a href="#bs-recheck-%s">Details</a></span>' % (E(rc['cell_text']), E(rc['id']))
+        tag += '<span class="cell-sub bs-recheck">%s</span>' % E(rc['cell_text'])
     return '<td%s data-label="%s">%s%s</td>' % (cls, E(label), body, tag)
 
 
@@ -188,6 +187,9 @@ def table(c, title, cols, tid, head=True, note=None, restrictions=False, link=Fa
     for pid in c.order:
         cells = ''.join(cell(c, pid, k, l) for k, l in cols)
         extra = restriction_lines(c, pid) if restrictions else ''
+        fu_cols = [l for k, l in cols if c.n['compare']['rows'][pid][k].get('followup')]
+        if fu_cols:
+            extra += '<span class="bs-restr bs-fu-line"><b>Follow-up, 30 October 2026:</b> %s</span>' % E(', '.join(fu_cols).capitalize())
         name = ('<a href="#bs-p-%s">%s</a>' % (pid, E(c.name(pid)))) if link else E(c.name(pid))   # plain in the tabs (2026-10-30, final)
         rows.append('<tr id="%s-%s"><td class="brandcell">%s%s</td>%s</tr>' % (tid, pid, name, extra, cells))
     label = ('<h3 id="%s-h">%s%s</h3>' % (tid, ('<span class="soc-n">%d</span>' % num) if num else '', E(title))) if head else ''
@@ -196,7 +198,7 @@ def table(c, title, cols, tid, head=True, note=None, restrictions=False, link=Fa
     region = ('aria-labelledby="%s-h"' % tid) if head else ('aria-label="%s"' % E(title))
     return ('<div class="tblock" id="%s">%s'
             '<div class="tw cards" tabindex="0" role="region" %s><table class="bs">'
-            '<caption class="sr-only">%s for six brands, from website observations on 23 October 2026, with later follow-ups marked in the cells they change</caption>'
+            '<caption class="sr-only">%s for six brands, from website observations on 23 October 2026, with later follow-ups and rechecks noted in the row they change</caption>'
             '<thead><tr><th scope="col">Brand</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div>%s</div>'
             % (tid, label, region, E(title), ths, '\n'.join(rows), after))
 
@@ -226,8 +228,13 @@ def ev_item(c, o):
     src_html = []
     for ref in o['sources']:
         s = c.sources[ref['source_id']]
+        # Quotes are shown verbatim. One that opens with a list-like character (three pages open a line with "+") is set inside quotation
+        # marks, so text extractors do not read the "+" as a stray bullet between sections (founder, 2026-10-31).
+        q = E(ref['excerpt'])
+        if ref['excerpt'][:1] in '+-*#':
+            q = '&ldquo;%s&rdquo;' % q
         src_html.append('<blockquote>%s</blockquote><span class="src"><a href="%s" rel="noopener nofollow" target="_blank">%s</a> &middot; captured %s, %s Toronto time &middot; %s</span>'
-                        % (E(ref['excerpt']), E(s['final_url']), E(page_label(s['final_url'])), long_date(s['fetched_at']),
+                        % (q, E(s['final_url']), E(page_label(s['final_url'])), long_date(s['fetched_at']),
                            toronto_time(s['fetched_at']), METHOD_LABEL[s['method']]))
     if o['status'] == 'not_found':
         rev = [c.sources[s] for s in o['reviewed_sources']]

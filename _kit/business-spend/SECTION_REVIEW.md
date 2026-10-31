@@ -241,6 +241,14 @@ Completed by section:
 
 Remaining gaps: Instagram reels (need a signed-in or collector route the founder approves); Float's help-centre text (document categories, waiting rules, verification timing); Ramp's Canadian reward rate; Airwallex's Canadian-specific onboarding guidance.
 
+### 7b. Targeted fixes after the refinement pass (founder, 31 October 2026; staging)
+
+- Stray "+": three verbatim quotes in Sources & evidence open with a literal "+" from the providers' pages (Venn "+ multi-step payment approvals...", Ramp "+ Platform fee based on team size", twice). Text extractors read a line that starts with "+" as a bullet, which showed as a lone "+" between sections. Quotes that open with "+", "-", "*" or "#" are now set inside quotation marks; the wording is unchanged and the CSV download is untouched. A pandoc conversion of the page now has no line starting with "+".
+- Product Comparison: no links inside the comparison cells. The uncertainty labels are plain text, the Airwallex follow-up is named once in its brand cell ("Follow-up, 30 October 2026: card funding / repayment, rewards and key condition, plan costs"), and the Ramp rechecks are plain lines; the evidence sits behind the one Sources & evidence link.
+- Ramp funding and repayment: rechecked on the Canadian pricing page (feature table: "Corporate liability charge card", "Competitive credit limits") with the Canadian help-centre guide (credit limit set from cash balance, transaction history and business profile). Repayment terms are not published, so the 23 October status Not checked stands with a dated recheck line.
+- Venn engagement: "Only customer stories meets this review’s minimum sample for reporting a median; the other themes are too small for a meaningful comparison."
+- Still open and labelled: Instagram reels (7 Venn, 14 Airwallex) unwatched, behind Instagram's sign-in wall; Float's verification documents (help centre blocked); Airwallex's Canadian funding guidance (global articles only).
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:
