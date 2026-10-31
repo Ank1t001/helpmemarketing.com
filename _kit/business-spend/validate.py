@@ -295,7 +295,7 @@ def check_inputs(c):
     if [s['name'] for s in jy_.get('stages', [])] != ['Start', 'Provide details', 'Verification and decision', 'First use']:
         errs.append('journey: four stages (Start, Provide details, Verification and decision, First use)')
     for r in jf['records']:
-        if not r['captured_at'].startswith('2026-10-31') or r['kind'] not in ('help_centre', 'website_faq', 'entry_route', 'blocked') or (r['kind'] == 'blocked' and r['used']):
+        if not r['captured_at'].startswith('2026-10-31') or r['kind'] not in ('help_centre', 'website', 'entry_route', 'blocked') or (r['kind'] == 'blocked' and r['used']):
             errs.append('journey: follow-up record %s needs its real capture date, a kind, and blocked pages must stay unused' % r['id'])
     labs = jy_.get('labels', {})
     for pid in EXPECTED_ORDER:
@@ -316,7 +316,7 @@ def check_inputs(c):
                             errs.append('journey: %s.%s cites unknown follow-up %s' % (pid, col, i))
                         elif lab == 'first_screen' and r['kind'] != 'entry_route':
                             errs.append('journey: %s.%s labels a help or FAQ page as a first screen' % (pid, col))
-                        elif lab in ('help', 'faq') and r['kind'] != {'help': 'help_centre', 'faq': 'website_faq'}[lab] and not (lab == 'faq' and r['kind'] == 'entry_route'):
+                        elif lab in ('help', 'faq') and r['kind'] != {'help': 'help_centre', 'faq': 'website'}[lab] and not (lab == 'faq' and r['kind'] == 'entry_route'):
                             errs.append('journey: %s.%s label does not match the kind of %s' % (pid, col, i))
                         elif lab != 'none' and not r['used']:
                             errs.append('journey: %s.%s rests on %s, which could not be read' % (pid, col, i))

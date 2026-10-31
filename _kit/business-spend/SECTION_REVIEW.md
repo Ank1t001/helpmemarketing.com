@@ -219,6 +219,13 @@ Changes to earlier interpretations:
 
 Remaining gaps: Float's help-centre guidance; where Float's free sign-up leads; Canadian-specific Airwallex timing, funding and activation; Ramp's first-use steps after approval and its current eligibility wording; whether Keep's route reopens; Loop's first card steps after the card application.
 
+### 6b refinements (founder, 31 October 2026; staging)
+
+- Float's row: the help centre still returned an access check (HTTP 403) when retried at 5:47 to 5:48 p.m. Toronto time with a 20-second wait, so nothing from it is used; the access problem is recorded in Sources & evidence (`#bs-float-access`, with the further help articles a web search listed). Search-engine summaries of those pages disagree on timing and were not used. Two Float pages that do load were added: the direct application at welcome.floatfinancial.com (observed: work email, name, company, job title, phone, company size, monthly expenses) and the corporate cards page (Float's three steps: a 2-minute application, business verification in under 24 hours, Interac e-Transfer funding, virtual cards at once, physical cards in 5 to 10 days). Only Float's verification documents stay Not confirmed.
+- The paragraph above the table is now: "First screens were observed directly. Later steps come from public guidance; timing estimates are not guarantees." Observation dates and times moved to Sources & evidence (`#bs-journey-dates`); route dates stay in the cells (Keep's closed route, Float's two routes).
+- Airwallex's global articles now say "Canadian applicability not confirmed" in the cells and in their records.
+- The "Website FAQ" label became "Website", because Float's corporate cards page is not an FAQ.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

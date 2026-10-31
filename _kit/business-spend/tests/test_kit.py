@@ -335,13 +335,15 @@ class KitTests(unittest.TestCase):
         self.assertIn('Routes vary by product. Account approval and card approval may be separate.', jr)
         self.assertEqual(re.findall(r'<th scope="col">([^<]+)</th>', jr), ['Brand', 'Entry routes', 'What to prepare', 'Review and waiting', 'Getting started'])
         self.assertEqual(len(re.findall(r'<tr id="bs-jt-row-[a-z]+">', jr)), 6)
-        self.assertIn('First-screen findings were observed directly', jr)
-        self.assertIn('Help-centre and website FAQ steps, read on 31 October 2026, are provider descriptions, not completed applications.', jr)
+        self.assertIn('<p class="soc-lim">First screens were observed directly. Later steps come from public guidance; timing estimates are not guarantees.</p>', jr)
+        self.assertNotIn('Website FAQ', jr)
         row = lambda pid: jr[jr.index('<tr id="bs-jt-row-%s">' % pid):jr.index('</tr>', jr.index('<tr id="bs-jt-row-%s">' % pid))]
         self.assertIn('separate card application', row('loop'))
-        self.assertIn('Use Float for free', row('float'))
         self.assertNotIn('demo-only', row('float'))
-        self.assertIn('Not confirmed', row('float'))
+        self.assertIn('direct application', row('float'))
+        self.assertIn('Interac e-Transfer', row('float'))
+        self.assertEqual(row('float').count('bs-src-none'), 1)        # only the verification documents stay unconfirmed
+        self.assertEqual(row('airwallex').count('Canadian applicability not confirmed'), 2)
         self.assertIn('closed-applications page on 23 October and again on 31 October', row('keep'))
         self.assertIn('Not confirmed', row('airwallex'))
         self.assertIn('under 10 minutes to sign up, then asks applicants to allow up to 24 hours', row('venn'))
@@ -352,7 +354,7 @@ class KitTests(unittest.TestCase):
             self.assertNotIn(gone, jr)
         self.assertEqual(body.count('<dialog class="bs-lightbox"'), 1)
         self.assertNotIn('<dialog', msg + jr)          # one shared dialog outside the tab panels
-        for need in ('id="bs-journey-followup"', 'id="bs-journey-coverage"', 'id="bs-journey-captures"', 'id="jf-J-FLT-3"', 'Not readable from this review'):
+        for need in ('id="bs-journey-followup"', 'id="bs-journey-coverage"', 'id="bs-journey-captures"', 'id="jf-J-FLT-3"', 'Not readable from this review', 'id="bs-float-access"', 'id="bs-journey-dates"', 'id="jf-J-FLT-7"'):
             self.assertIn(need, ref)
         self.assertIn('href="#bs-t3">See the test: explain the next step before the form', jr)
         for pid in self.c.order:

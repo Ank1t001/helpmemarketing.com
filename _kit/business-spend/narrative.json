@@ -1564,25 +1564,19 @@
      "entry": [
       [
        "first_screen",
-       "Demo request form (23 October).",
+       "A demo request form (23 October) and a direct application that starts with contact and company details (31 October).",
        [
-        "O-FLT-16"
-       ]
-      ],
-      [
-       "faq",
-       "Pages also offer “Use Float for free” with an email field; where it leads was not inspected.",
-       [
-        "J-FLT-4"
+        "O-FLT-16",
+        "J-FLT-6"
        ]
       ]
      ],
      "prepare": [
       [
        "first_screen",
-       "The demo form asks eight required questions.",
+       "The direct application asks for work email, name, company, job title, phone, company size and monthly expenses.",
        [
-        "O-FLT-16"
+        "J-FLT-6"
        ]
       ],
       [
@@ -1596,18 +1590,19 @@
      "review": [
       [
        "faq",
-       "Float says opening an account takes about 15 minutes online; verification time not confirmed.",
+       "Float says the application takes a few minutes and business verification under 24 hours.",
        [
+        "J-FLT-7",
         "J-FLT-5"
        ]
       ]
      ],
      "start": [
       [
-       "none",
-       "Setup and first-use steps not confirmed in this review.",
+       "faq",
+       "Float says funds load by Interac e-Transfer and virtual cards can be issued at once; physical cards take 5 to 10 days.",
        [
-        "J-FLT-3"
+        "J-FLT-7"
        ]
       ]
      ]
@@ -1849,7 +1844,7 @@
      "review": [
       [
        "help",
-       "A global article estimates 1 to 3 business days after all required information, varying with complexity.",
+       "A global article estimates 1 to 3 business days after all required information; Canadian applicability not confirmed.",
        [
         "J-AWX-2"
        ]
@@ -1858,7 +1853,7 @@
      "start": [
       [
        "help",
-       "A global article explains activating a physical card with its CVV.",
+       "A global article explains activating a physical card with its CVV; Canadian applicability not confirmed.",
        [
         "J-AWX-3"
        ]
@@ -1940,8 +1935,8 @@
  },
  "journey": {
   "gaps": [
-   "Float’s help-centre guidance on verification, waiting and setup: the help centre returned an access check to this review on 31 October 2026, so a pasted copy or screenshots from a normal browser would be needed.",
-   "Where Float’s “Use Float for free” email field leads, without submitting an address.",
+   "Float’s help-centre guidance on verification documents and what customers can do while verification is pending: the help centre returned an access check to this review on 31 October 2026 (twice), so a copy read in a normal browser would be needed.",
+   "Float’s steps after the first application screen, without entering details.",
    "Airwallex guidance specific to Canada on review timing, funding and card activation (the articles found are global).",
    "Ramp’s first-use steps after the approval email, and whether its Canadian eligibility (a Canadian-registered business and CA$25,000 in connected accounts) has replaced the 23 October card-page wording.",
    "Ramp’s Canadian card model and repayment terms (the Canada Card Supplement was not captured).",
@@ -1977,11 +1972,11 @@
   ],
   "overview_note": "Routes vary by product. Account approval and card approval may be separate.",
   "compare_title": "How the brands compare",
-  "compare_note": "First-screen findings were observed directly on 23 October 2026 (Keep’s route rechecked on 31 October). Help-centre and website FAQ steps, read on 31 October 2026, are provider descriptions, not completed applications. Provider time estimates are not guarantees, and a step not confirmed here is not evidence that the provider lacks it.",
+  "compare_note": "First screens were observed directly. Later steps come from public guidance; timing estimates are not guarantees.",
   "labels": {
    "first_screen": "First screen",
    "help": "Help centre",
-   "faq": "Website FAQ",
+   "faq": "Website",
    "none": "Not confirmed"
   },
   "compare_columns": [

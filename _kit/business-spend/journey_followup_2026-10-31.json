@@ -96,8 +96,8 @@
     "first_use"
    ],
    "wording": "",
-   "summary": "The help centre returned an access check (“Just a moment...”, HTTP 403) to this environment, and a separate fetch tool also received HTTP 403. The article text was not read, so nothing from it is used.",
-   "uncertainty": "Float may publish verification, waiting-period and setup guidance here; this review could not confirm it.",
+   "summary": "Not readable from this review: an access check (“Just a moment...”, HTTP 403) at 5:00 p.m. Toronto time, again at 5:47 to 5:48 p.m. after a 20-second wait, and HTTP 403 to a separate fetch tool. The article text was not read, so nothing from it is used.",
+   "uncertainty": "Float may publish verification documents, waiting-period rules and setup steps here. Search-engine summaries of these pages disagree on timing and were not used.",
    "used": false,
    "text_sha256": "00cf38e229584b0f28215d66b8522d5a38c39579e7a4e032dba2beae2494eaf5"
   },
@@ -117,8 +117,8 @@
     "first_use"
    ],
    "wording": "",
-   "summary": "The help centre returned an access check (“Just a moment...”, HTTP 403) to this environment, and a separate fetch tool also received HTTP 403. The article text was not read, so nothing from it is used.",
-   "uncertainty": "Float may publish verification, waiting-period and setup guidance here; this review could not confirm it.",
+   "summary": "Not readable from this review: an access check (“Just a moment...”, HTTP 403) at 5:00 p.m. Toronto time, again at 5:47 to 5:48 p.m. after a 20-second wait, and HTTP 403 to a separate fetch tool. The article text was not read, so nothing from it is used.",
+   "uncertainty": "Float may publish verification documents, waiting-period rules and setup steps here. Search-engine summaries of these pages disagree on timing and were not used.",
    "used": false,
    "text_sha256": "6af75c2b96074ad4fce443d2c1db2e2c753a32c640cf5aa45602ec91a1f616fd"
   },
@@ -138,8 +138,8 @@
     "first_use"
    ],
    "wording": "",
-   "summary": "The help centre returned an access check (“Just a moment...”, HTTP 403) to this environment, and a separate fetch tool also received HTTP 403. The article text was not read, so nothing from it is used.",
-   "uncertainty": "Float may publish verification, waiting-period and setup guidance here; this review could not confirm it.",
+   "summary": "Not readable from this review: an access check (“Just a moment...”, HTTP 403) at 5:00 p.m. Toronto time, again at 5:47 to 5:48 p.m. after a 20-second wait, and HTTP 403 to a separate fetch tool. The article text was not read, so nothing from it is used.",
+   "uncertainty": "Float may publish verification documents, waiting-period rules and setup steps here. Search-engine summaries of these pages disagree on timing and were not used.",
    "used": false,
    "text_sha256": "f19d78318425146581437c14231f9578aebeba6ba73ae6137d256c24c13f17b3"
   },
@@ -170,7 +170,7 @@
    "url": "https://floatfinancial.com/demo",
    "captured_at": "2026-10-31T17:08:33-04:00",
    "http_status": 200,
-   "kind": "website_faq",
+   "kind": "website",
    "scope": "Canada",
    "stages": [
     "review"
@@ -180,6 +180,46 @@
    "uncertainty": "These are Float estimates on a marketing page. Business verification time is not stated there.",
    "used": true,
    "text_sha256": null
+  },
+  {
+   "id": "J-FLT-6",
+   "pid": "float",
+   "route": "Direct application",
+   "title": "Float Application",
+   "url": "https://welcome.floatfinancial.com/",
+   "captured_at": "2026-10-31T17:49:21-04:00",
+   "http_status": 200,
+   "kind": "entry_route",
+   "scope": "Canada",
+   "stages": [
+    "entry",
+    "prepare"
+   ],
+   "wording": "Let’s start with the basics",
+   "summary": "The direct application opens with company website (optional), work email, first and last name, company name, job title, phone number, company size and monthly business expenses, then Continue. Later steps are not listed on this screen.",
+   "uncertainty": "Observed on 31 October 2026, not part of the 23 October first-screen review. Nothing was entered.",
+   "used": true,
+   "text_sha256": "2f18a9731fa7dc183ad308ff244530ccaca6eea70a6bf24c5ed775741ff17bef"
+  },
+  {
+   "id": "J-FLT-7",
+   "pid": "float",
+   "route": "Corporate cards",
+   "title": "Corporate Cards Canada",
+   "url": "https://floatfinancial.com/corporate-cards",
+   "captured_at": "2026-10-31T17:49:15-04:00",
+   "http_status": 200,
+   "kind": "website",
+   "scope": "Canada",
+   "stages": [
+    "review",
+    "first_use"
+   ],
+   "wording": "Quick 2-minute application. Verify your business in under 24 hours. ... Use Interac e-transfer for instant funding or apply for 1-day Fast Funding for larger transfers. ... Issue virtual cards instantly. ... Physical cards arrive in 5-10 days.",
+   "summary": "“From signup to spending in three simple steps”: set up and verify identity (a 2-minute application, business verification in under 24 hours), load funds (Interac e-Transfer, or 1-day Fast Funding for larger transfers), then issue virtual cards at once; physical cards arrive in 5 to 10 days.",
+   "uncertainty": "Marketing-page estimates. The same page also says “Apply in 5 minutes” and lists “5 minutes or less” as application time, and the demo-page FAQ says about 15 minutes; none is a guarantee.",
+   "used": true,
+   "text_sha256": "3f4665a5afdfad9b0f1decf7924a8bb8f857f429741f6e7e57e42f6c020e2c80"
   },
   {
    "id": "J-RMP-1",
@@ -289,7 +329,7 @@
    "url": "https://www.trykeep.com/resources/faq",
    "captured_at": "2026-10-31T17:01:00-04:00",
    "http_status": 200,
-   "kind": "website_faq",
+   "kind": "website",
    "scope": "Canada",
    "stages": [
     "prepare",
@@ -354,7 +394,7 @@
    ],
    "wording": "After you submit all required business information, your application will be processed within 1-3 business days.",
    "summary": "1 to 3 business days after all required information is submitted, varying with complexity; the onboarding team may email for more information.",
-   "uncertainty": "A global article, not specific to Canada.",
+   "uncertainty": "A global article; Canadian applicability not confirmed.",
    "used": true,
    "text_sha256": "c88ab47f62a1d665070d3da528064a59a7f737d072e5770f7cda60cb20fa8ffd"
   },
@@ -373,7 +413,7 @@
    ],
    "wording": "Activation is required before a physical card can be used to transact.",
    "summary": "Physical card activation in the app or web app: open the card, enter the CVV and set a PIN.",
-   "uncertainty": "A global article about employee cards, not specific to Canada.",
+   "uncertainty": "A global article; Canadian applicability not confirmed.",
    "used": true,
    "text_sha256": "c8353cb4ac3050d6c789d8c706310d8568d563dfda2ce199b10e138ffd6e4ce6"
   },
@@ -392,7 +432,7 @@
    ],
    "wording": "Direct Debit is only available for businesses based in the following countries",
    "summary": "Funds arrive through a Global Account, direct debit (not listed for Canada) or Airwallex Pay.",
-   "uncertainty": "Canadian funding steps were not confirmed in this review.",
+   "uncertainty": "A global article; Canadian applicability not confirmed. The direct debit list does not include Canada.",
    "used": false,
    "text_sha256": "9996e897e858788ee69528edae811daa1f984789bd1be0487f0213ba780ac474"
   }
@@ -444,5 +484,6 @@
    "zoom_height": 580,
    "zoom_sha256": "eece882b439fe08a9efbdad36994070bab9b67a2b78b0f7856d1b38b208cc7d3"
   }
- ]
+ ],
+ "float_access": "Float help centre (help.floatfinancial.com): the three articles named in the brief, and further articles a web search on 31 October 2026 listed (Business Registration & Verification (KYB) FAQ; KYB Verification for Float Customers; How to Register Your Business with Float; Setting Up Your Business’s Float Account; How to Start Spending with Float Cards), sit behind an access check that this research environment could not pass. Nothing from them is used. Float’s verification documents and its rules for what customers can do while verification is pending therefore stay Not confirmed; a copy read in a normal browser would close the gap."
 }

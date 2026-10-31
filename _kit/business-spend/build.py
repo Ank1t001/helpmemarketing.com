@@ -411,7 +411,7 @@ JOURNEY_ICONS = {
 def journey_followup_reference(c, n):
     """Sources & evidence: the 31 October 2026 follow-up records and where each Customer Journey comparison cell comes from."""
     jf = json.load(open(os.path.join(KIT_DIR, 'journey_followup_2026-10-31.json'), encoding='utf-8'))
-    kinds = {'help_centre': 'Help centre (provider description)', 'website_faq': 'Website FAQ (provider description)', 'entry_route': 'Entry route (observed)', 'blocked': 'Not readable from this review'}
+    kinds = {'help_centre': 'Help centre (provider description)', 'website': 'Website (provider description)', 'entry_route': 'Entry route (observed)', 'blocked': 'Not readable from this review'}
     stg = {'entry': 'Start', 'prepare': 'Provide details', 'review': 'Verification and decision', 'first_use': 'First use'}
     recs = []
     for r in jf['records']:
@@ -428,6 +428,8 @@ def journey_followup_reference(c, n):
         g = n['journeys']['rows'][pid]['guide']
         cells.append('<li><b>%s.</b> %s</li>' % (E(c.name(pid)), '; '.join('%s: %s (%s)' % (E(l), ', '.join(E(jl[k]) for k, _, _ in g[col]), '; '.join(refs(ids) for _, _, ids in g[col])) for col, l in n['journey']['compare_columns'])))
     return ('<div id="bs-journey-followup"><h4 class="t">Follow-up of 31 October 2026: help centres and entry routes</h4><p class="dek">%s %s</p>'
+            '<p class="dek" id="bs-journey-dates"><b>Dates behind the comparison.</b> First screens: 23 October 2026, between 12:02 p.m. and 12:12 p.m. Toronto time; Keep&rsquo;s route rechecked and Float&rsquo;s direct application observed on 31 October 2026. Help-centre and website guidance: read on 31 October 2026 between 4:59 p.m. and 5:49 p.m. Toronto time. Help-centre and website steps are provider descriptions, not completed applications.</p>'
+            '<p class="dek" id="bs-float-access"><b>Access problem.</b> ' + E(jf['float_access']) + '</p>'
             '<p class="dek">Qualifications kept with every finding: provider time estimates are not guarantees; account approval and credit card approval may be separate; published guidance does not confirm that an application route is open; a step not reviewed is not evidence that the provider lacks it.</p>'
             '<ul class="dek">%s</ul></div><div id="bs-journey-coverage"><h4 class="t">Where each comparison cell comes from</h4><ul class="dek">%s</ul></div>') % (E(jf['note']), E(jf['method']), ''.join(recs), ''.join(cells))
 
