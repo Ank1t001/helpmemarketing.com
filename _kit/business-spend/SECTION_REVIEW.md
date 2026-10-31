@@ -20,24 +20,72 @@ Change:
 | Customer Journey card description | What happens after clicking and which steps are explained. | How brands guide customers from their website to getting started. |
 | Note below the cards (`div.bs-ov-scope`: "Independent marketing research from dated public sources. Not a product recommendation." and the dates line) | Shown | Removed (founder, 31 October 2026, reversing the earlier "keep research dates and independence statement" in the same review) |
 
+Settled 31 October 2026: the hero byline carries "Independent marketing research, not a product recommendation" (founder). The note below the cards is removed as recorded.
+
 Open, to settle in the final brief:
-- **"Not a product recommendation" has no other place on the page.** Every date in the removed note is still shown in its own section (Instagram window in Social Media Strategy, 23 October in Website Messaging and Compare, the Airwallex follow-up in Compare, all of them in Sources & evidence), and the relationship disclosure is in Sources & evidence. The "not a product recommendation" line appears only in the note being removed. Options: (a) add it to the hero byline line; (b) put it at the top of Sources & evidence beside the relationship disclosure; (c) drop it. Recommendation: (a), a few words in the hero keep it visible to readers comparing providers.
+- ~~"Not a product recommendation" has no other place on the page.~~ Settled above (hero byline). Background: Every date in the removed note is still shown in its own section (Instagram window in Social Media Strategy, 23 October in Website Messaging and Compare, the Airwallex follow-up in Compare, all of them in Sources & evidence), and the relationship disclosure is in Sources & evidence. The "not a product recommendation" line appears only in the note being removed. Options: (a) add it to the hero byline line; (b) put it at the top of Sources & evidence beside the relationship disclosure; (c) drop it. Recommendation: (a), a few words in the hero keep it visible to readers comparing providers.
 - The paid social review period (Meta Ad Library, active ads collected 30 October 2026) is not in any Overview note; decide when reviewing Paid Social Strategy whether it needs a place outside that tab.
-- The Social Media Strategy description now promises "vary their creatives". The section can show format mix (reels, carousels, images) for Venn and Airwallex, but creative approach is established only for posts whose full creative was inspected (2 of 9 Venn, 9 of 23 Airwallex: the reels were not watched). Settle in the Social Media Strategy review whether the section supports the new wording as it stands.
+- The Social Media Strategy description now promises "vary their creatives". **Kept pending the reel review in section 2 (founder, 31 October 2026).** The section can show format mix (reels, carousels, images) for Venn and Airwallex, but creative approach is established only for posts whose full creative was inspected (2 of 9 Venn, 9 of 23 Airwallex: the reels were not watched). Settle in the Social Media Strategy review whether the section supports the new wording as it stands.
 
 Findings, rankings and detailed comparisons stay in their own sections; the Overview stays a short visual guide.
 
-## 2. Social Media Strategy (in review)
+## 2. Social Media Strategy (decided 31 October 2026)
 
-Audit of the current view, 31 October 2026 (local build of `f13a8cf`):
+Goal: a reader quickly understands three things: how the brands position themselves, how their creative approaches differ, and which themes receive more visible engagement.
 
+New structure, three parts: **Positioning, then Creative Strategy with examples, then Engagement by Theme.**
+
+### 2.1 Introduction
+- One scope line: "Instagram content published 25 July to 22 October 2026. Comparable findings are available for Venn and Airwallex; coverage limitations are explained below."
+- One compact coverage note that keeps three different situations apart:
+  - **No posts found:** Float, Loop and Keep (no in-window posts on the reviewed accounts; says nothing about activity elsewhere).
+  - **Attribution unresolved:** 19 posts on @tryramp, counted separately; no official Ramp source links the account, so nothing is assessed for Ramp.
+  - **Content not assessed:** reels whose video was not watched (Venn 7 of 9, Airwallex 14 of 23); their creative execution is not established.
+- Replaces the current three paragraphs.
+
+### 2.2 Positioning (replaces Brand positioning and Product positioning)
+Venn and Airwallex only; the other four brands move to the coverage note. One or two short sentences per cell, each a supported observation. Draft from the existing readings in `social_narrative.json` and `social_analysis.json`, wording to be confirmed in the brief:
+
+| Brand | How it presents itself | Products and benefits it emphasises |
+|---|---|---|
+| Venn | Banking that saves small teams time and fees, told through named Canadian customers. | Reimbursements, payments and cashback cards, shown as use cases (reimbursements cut from five weeks to under a week, by the customer's account in the caption). |
+| Airwallex | A global brand linked to elite sport, founders and events (a global account, not specific to Canada). | 4 of 23 posts name a product; one use case, Arsenal fans paying in their own currency. Most posts name no product benefit. |
+
+### 2.3 Creative Strategy (title case as given)
+Three separate layers, never merged:
+- **Formats:** reels, carousels, images (counts).
+- **Themes:** subjects or customer problems covered.
+- **Execution:** how the message is presented (demonstration, customer story, product graphic and so on).
+
+Format counts alone support no conclusion about creative approach.
+
+**Dependency for the final brief: review the collected reels before any broader conclusion.** Current state of the evidence: every Venn and Airwallex carousel was already inspected slide by slide (Venn 1, Airwallex 7) and the images were inspected from cover and caption (Venn 1, Airwallex 2), so there are no remaining carousel slides for the two comparable brands. The open item is the 21 reels (Venn 7, Airwallex 14), reviewed so far from cover and caption only. The private evidence package holds covers and captions, not the videos, so watching them needs a new, dated collection step (a browser pass or an approved collector), recorded with its own date and hashes. Instagram access from this environment was blocked earlier, so this is likely a founder browser pass. If the reel review is not completed, every execution finding is labelled as applying to inspected posts only.
+
+**Examples directly below the comparison** (replace the separate "Selected posts" block):
+- Up to two examples per brand, chosen to show different approaches.
+- Each example: the post visual where available, a short theme and format label, one sentence on what it shows.
+- No visual: a compact full-width text card, with no empty image column reserved.
+- Further examples behind one "More examples" control.
+- Visuals today: two Airwallex image crops exist (30 August creator post, 12 August SF30 carousel). Venn has no image crop, so Venn examples are text cards unless crops are added from the private screenshots (a new, recorded derivative, as `social_images.py` does now).
+
+### 2.4 Engagement by Theme (stays last)
+- Columns: theme, number of posts, median visible likes plus comments. Missing counts shown as "unavailable", never zero.
+- Themes compared within each brand only, with a short takeaway where the evidence supports one. On today's figures: Airwallex, partnership posts drew the highest median (237 from 6), mostly from posts with collaborators (75 from 4 without them, close to Culture or community at 66 from 5). Venn's counts are too small to compare themes (3 to 12 per post; one theme with six posts), and the section should say so in one line.
+- Two limitations beside the results: "Based on visible likes and comments. Small samples are directional and do not establish sales performance."
+- Calculation rules and collection caveats (lifetime counts read once on 26 October, abbreviated counts, collaboration split, views reported separately, Paid partnership label) move to Sources & evidence.
+
+### 2.5 Shared rules applied here
+- The spacing scale below; fix the 0px gap under the engagement tables and the 8px gap above them; one table typography (theme column no longer 11.5px bold).
+- Card types share padding without needing equal heights.
+- "What stood out" for short observations, used consistently across the page (replaces "What I observed" here and "What I noticed" in Lessons, to confirm at the Lessons review).
+- Recommendations and proposed tests live in Lessons only. The current "What this suggests" subsection is removed from this tab; its three tests (name the plan beside a rate; add a product line to sponsorship posts; compare themes at the same post age without collaborations) are carried to the Lessons review to decide whether they join the website tests there.
+
+### Audit that led to these notes
 - Length: about 6,500px at 1280px wide and 12,100px at 390px, the longest view on the page.
-- Brand positioning and Product positioning list all six brands. Four rows in each say "No in-window posts" or "Not assessed" (Float, Ramp, Loop, Keep). On phones each becomes its own card, so eight of the twelve cards carry no reading.
-- The scope note is three paragraphs at body size above the first subsection.
-- Creative strategy: two columns (Venn, Airwallex); the shorter Venn column leaves an empty area beside Airwallex's longer list.
-- "Selected posts" sits inside Creative strategy as an unnumbered heading, about 2,000px long. The two text-only Venn cards span the full width with text limited to about 680px, leaving the right half empty.
-- Engagement by theme: the tables touch the paragraph after them (0px gap) and sit 8px under the brand name; the theme column is 11.5px bold while every other table's first column is 13.5px regular. Five caveat bullets follow.
-- What this suggests uses "What I observed"; Lessons uses "What I noticed".
+- Brand positioning and Product positioning listed all six brands; four rows in each said "No in-window posts" or "Not assessed", and on phones eight of the twelve cards carried no reading.
+- The scope note was three paragraphs at body size.
+- Creative strategy's shorter Venn column left an empty area; "Selected posts" was an unnumbered block of about 2,000px, and the text-only Venn cards left half the card empty.
+- Engagement tables touched the text below them; the theme column used 11.5px bold; five caveat bullets followed.
 
 ## Sitewide spacing and padding (collected across sections)
 
