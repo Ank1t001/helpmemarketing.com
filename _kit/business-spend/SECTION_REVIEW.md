@@ -161,6 +161,23 @@ Audit of the current view, 31 October 2026 (build `aab3d88`, live):
 - The ads-beside-website comparison (30 October ads, 23 October pages) now sits in Sources & evidence under the paid ads records; nothing in this tab points to it.
 - Spacing: H3 "My reading of the reviewed pages" has 8px above it where other tabs use 0; first table column is 13.5px regular, which matches the shared rule; table to the next block is 32px.
 
+## 5. Product Comparison (in review, 31 October 2026)
+
+Audit of the live build (Website Messaging refinements on staging at `2d6aeb6`), 1280px and 390px, light and dark. Nothing changed yet; waiting for founder notes.
+
+- Two intro lines before the first table: a bold "Website observations: 23 October 2026. Published information, not product testing." line and a jump-link line to the three parts. Social, Paid and Messaging now open with one line and keep dates in Sources & evidence.
+- Three parts (Cards, rewards & costs; Currency fees; Spending controls), not numbered, unlike the other rebuilt tabs ("01 ·", "02 ·").
+- Three tables, about 720 words, six brands each. Cards, rewards & costs has four columns; Currency fees three (with the note "not a like-for-like cost comparison"); Spending controls four.
+- Status badges inside cells: "Published pages disagree" (2), "Credit line terms are not explained" (1), "Current eligibility needs confirmation" (1). Ramp shows "Not checked" (1) and "Not found" (2) as plain cell text, which reads as missing data rather than a finding.
+- Airwallex has three "Checked 30 October 2026" links inside cells, a second date inside a 23 October table.
+- No visual summary: a reader has to read 18 rows to see who offers rewards, who charges plan fees or who connects to which accounting tools.
+- Header rows are sentence case at body size; Social, Paid and Messaging tables use small uppercase headers.
+- Length: 2,566px at 1280px; 6,431px at 390px, the longest view after Social. Each table stacks into six cards on phones.
+- Spacing: intro line to jump links 12px, jump links to first part 32px, parts 32px apart, last table to footer note 16px; on phones the gaps stay 32px (others drop to 24px). H3 bottom margin 12px (Social, Paid, Messaging use 8px).
+- The footer note pointing to Sources & evidence repeats the link already beside the tabs.
+
+Options offered: one intro line; numbered parts; a compact at-a-glance grid (rewards, plan fee, FX fee shown, accounting connections) above the detail; badges moved to one consistent style with "Not checked" and "Not found" shown as status, not text; the 30 October Airwallex checks moved to a note; shorter phone layout (per-part brand cards or a brand selector); spacing on the shared scale.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:
