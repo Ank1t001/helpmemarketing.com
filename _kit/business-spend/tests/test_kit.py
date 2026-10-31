@@ -265,13 +265,14 @@ class KitTests(unittest.TestCase):
             'What they advertise on Meta in Canada and where the ads lead.',
             'What their websites promise and how they support it.',
             'Cards, rewards, fees and key conditions.',
-            'What happens after clicking and which steps are explained.',
+            'How brands guide customers from their website to getting started.',
             'Ideas to test in your own marketing.'])
         self.assertIn('<h2 id="bs-paid-h">Paid Social Strategy</h2>', pa)
         self.assertNotIn('Social Media Paid Ads Strategy', body)
         self.assertIn('</div></nav><p class="bs-srcrow"><a class="bs-srclink" href="#bs-sources" id="bs-srclink">', body)
         self.assertEqual(body.count('id="bs-srclink"'), 1)
-        self.assertIn('Later follow-up: Airwallex only, checked 30 October 2026', ov)
+        self.assertNotIn('bs-ov-scope', ov)                    # the note under the cards was removed (founder, 2026-10-31)
+        self.assertIn('Independent marketing research, not a product recommendation', body.split('</header>')[0])
         self.assertEqual(msg.count('Website observations: 23 October 2026'), 1)
         self.assertIn('These are my interpretations of the reviewed pages, not direct quotations or statements of the providers’ internal strategies.', msg)
         self.assertIn('<th scope="col">Main website message</th>', msg)
@@ -549,7 +550,7 @@ class SocialModuleTests(unittest.TestCase):
         body = build.body(c)
         self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-social', 'bs-paid', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'])
         self.assertIn('<a href="#bs-social" id="bs-tab-social">Social Media Strategy</a>', body)
-        self.assertIn('Instagram only. Analysis of public content, not internal strategy.', body)
+        self.assertIn('A look at how brands present themselves on Instagram, the content they create and the engagement it receives.', body)
         self.assertIn('Official company Instagram accounts only, posts published 25 July to 22 October 2026', body)
         self.assertNotIn('<b>Instagram posts</b>', body.split('</header>')[0])  # dates live in Scope & sources, not the hero (2026-10-28)
         self.assertIn('Websites observed 23 October 2026, 10:39 a.m. to 2:33 p.m. Toronto time.', body)
@@ -557,9 +558,17 @@ class SocialModuleTests(unittest.TestCase):
         sec = tab + validate.view_html(body, 'bs-sources')
         self.assertEqual('For editorial review' in tab, c.social['status'] == 'review')   # the flag shows only while approval is pending
         self.assertIn('The captured Venn website footer linked to @tryvault, while this study uses owner-confirmed @venn.ca with supporting profile evidence.', sec)
-        self.assertEqual(sec.count('No in-window posts found in the reviewed'), 3 + 3 + 3 + 3)   # accounts table, positioning, product positioning, coverage assessment
+        self.assertEqual(sec.count('No in-window posts found in the reviewed'), 3 + 3 + 3 + 3)   # in Sources & evidence: accounts table, positioning, product positioning, coverage assessment
         self.assertNotRegex(sec, r'(?i)\binactive\b')
-        self.assertEqual(tab.count(social.VIDEO_LABEL), 3)   # S1, S2 and S3 are reels (S4 is a carousel)
+        self.assertEqual(sec.count(social.VIDEO_LABEL) >= 3, True)   # the offer examples' records keep the reel label
+        # Founder review (2026-10-31): three parts, Venn and Airwallex only, examples from inspected posts, no empty rows or tests.
+        self.assertEqual(re.findall(r'<h3><span class="soc-n">\d</span>([^<]+)</h3>', tab), ['Positioning', 'Creative Strategy', 'Engagement by Theme'])
+        self.assertNotIn('Not assessed', tab)
+        self.assertNotIn('What this suggests', tab)
+        self.assertEqual(len(re.findall(r'<article class="soc-cex', tab)), 4)
+        self.assertEqual(tab.count('<td class="brandcell">Venn</td>') + tab.count('<td class="brandcell">Airwallex</td>'), 2)
+        self.assertIn('Based on visible likes and comments. Small samples are directional and do not establish sales performance.', tab)
+        self.assertIn('Window and coverage', sec)
         self.assertIn('Attribution unresolved', sec)
         self.assertNotIn('ramp-ig-', sec)                       # no Ramp example while attribution is unresolved
 

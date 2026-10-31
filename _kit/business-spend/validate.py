@@ -393,14 +393,35 @@ def check_social_outputs(c, body):
     views = [v for _, v in build.view_order(c)]
     if [v for v in views if v != 'bs-paid'] != ['bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'] or ('bs-paid' in views and views.index('bs-paid') != 2):
         errs.append('social: tab order is Overview, Social Media Strategy, Paid Social Strategy, Website Messaging, Product Comparison, Customer Journey, Lessons')
-    if '<a href="#bs-social" id="bs-tab-social">Social Media Strategy</a>' not in body or 'Instagram only. Analysis of public content, not internal strategy.' not in body:
-        errs.append('social: the tab is labelled "Social Media Strategy" and the view says it covers Instagram only')
+    if '<a href="#bs-social" id="bs-tab-social">Social Media Strategy</a>' not in body or html_escape(s['narrative']['view']['dek']) not in body:
+        errs.append('social: the tab is labelled "Social Media Strategy" and opens with its one-line introduction')
     sec = view_html(body, 'bs-social')
     ref = view_html(body, 'bs-sources') if '<section id="bs-sources"' in body else ''
     tab = sec
-    # Since 2026-10-30 (final brief) the tab holds scope, coverage note and four examples; account rows and records sit in Sources & evidence.
-    if s['narrative']['coverage_note'] not in html_unescape(tab) or s['narrative']['coverage_none'] not in html_unescape(tab):
-        errs.append('social: the tab carries the coverage note and the no-posts sentence')
+    # Since 2026-10-31 (founder review) the tab is Positioning, Creative Strategy with examples and Engagement by Theme;
+    # dates, coverage, calculation rules and the full readings sit in Sources & evidence.
+    if s['narrative']['coverage_note'] not in html_unescape(ref) or s['narrative']['coverage_none'] not in html_unescape(ref):
+        errs.append('social: Sources & evidence carries the coverage note and the no-posts sentence')
+    st = s['narrative']['strategy']
+    if re.findall(r'<h3><span class="soc-n">\d</span>([^<]+)</h3>', tab) != [st['positioning_title'], st['creative_title'], st['engagement_title']]:
+        errs.append('social: the tab has three parts: Positioning, Creative Strategy, Engagement by Theme')
+    for t in (st['positioning_limit'], st['creative_limit'], st['engagement_limit']):
+        if html_escape(t) not in tab:
+            errs.append('social: a comparison lost the limitation beside it (%s...)' % t[:40])
+    if 'Not assessed' in tab or 'What this suggests' in tab or 'A possible test' in tab:
+        errs.append('social: the tab carries no empty rows and no tests (tests live in Lessons)')
+    if [r['pid'] for r in st['positioning_pair']] != ['venn', 'airwallex']:
+        errs.append('social: Positioning compares Venn and Airwallex only')
+    for i, cx in enumerate(st['creative_examples'], 1):
+        p = next((x for x in s['posts'] if x['id'] == cx['post']), None)
+        cl = next((x for x in s['analysis']['posts'] if x['post'] == cx['post']), None)
+        art = re.search(r'<article class="soc-cex[^"]*" id="bs-sx%d">(.*?)</article>' % i, tab, re.S)
+        if not p or not cl or p['attribution'] == 'unresolved' or not cl['approach_inspected']:
+            errs.append('social: creative example %d must be an attributed post whose full creative was inspected' % i)
+        elif not art or 'href="http' in art.group(1) or html_escape(cx['shows']) not in art.group(1):
+            errs.append('social: creative example %d is missing from the tab, lacks its sentence, or links out' % i)
+    if sum(1 for cx in st['creative_examples'] for p in s['posts'] if p['id'] == cx['post'] and p['platform'] == 'venn') > 2 or len(st['creative_examples']) > 4:
+        errs.append('social: up to two creative examples per brand')
     sec = sec + ref
     review = 'For editorial review</span>' in tab
     if (s['status'] == 'review' and getattr(c, 'mode', 'draft') == 'draft') != review:
@@ -428,16 +449,13 @@ def check_social_outputs(c, body):
         errs.append('social: an account with no posts is never called inactive')
     for ex in s['narrative']['examples']:
         p = next(x for x in s['posts'] if x['id'] == ex['post'])
-        art = re.search(r'<article class="card ex soc-ex" id="bs-s%s">(.*?)</article>' % ex['id'][1:].lower(), tab, re.S)
         rec = re.search(r'<details class="bs-more" id="bs-s%s-src">(.*?)</details>' % ex['id'][1:].lower(), ref, re.S)
-        if not art or not rec:
-            errs.append('social: example %s missing from the tab or its record from Sources & evidence' % ex['id'])
+        if not rec:
+            errs.append('social: the record for offer example %s is missing from Sources & evidence' % ex['id'])
             continue
-        t = art.group(1)
+        t = rec.group(1)
         if p['format'] == 'video' and social.VIDEO_LABEL not in t:
-            errs.append('social: example %s is a reel and carries "%s"' % (ex['id'], social.VIDEO_LABEL))
-        if 'My reading:' not in t or 'Limits:' not in t or 'href="http' in t:
-            errs.append('social: example %s shows my reading and its limits, with no source link in the tab' % ex['id'])
+            errs.append('social: example %s is a reel and its record carries "%s"' % (ex['id'], social.VIDEO_LABEL))
         for need in ('What the evidence shows', 'Post record', html_escape(p['url'])):
             if need not in rec.group(1):
                 errs.append('social: record for %s lacks %s' % (ex['id'], need))

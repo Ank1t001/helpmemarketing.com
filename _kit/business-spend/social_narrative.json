@@ -1,7 +1,7 @@
 {
  "view": {
   "title": "Social Media Strategy",
-  "dek": "How each brand positions itself, promotes its products and uses creative content, alongside the visible engagement recorded on 26 October 2026.",
+  "dek": "A look at how brands present themselves on Instagram, the content they create and the engagement it receives.",
   "scope": "Instagram only. Analysis of public content, not internal strategy."
  },
  "review_flag": "This view is shown on the staging draft for editorial review. Editorial approval has not been recorded, and the release build stays blocked until the owner records it.",
@@ -392,6 +392,50 @@
     "reading": "Co-authors’ audiences and post age may explain more of the difference than the theme. Public counts cannot separate them.",
     "test": "Read counts at the same age after posting and keep collaborations apart before comparing themes."
    }
-  ]
+  ],
+  "positioning_title": "Positioning",
+  "positioning_pair": [
+   {
+    "pid": "venn",
+    "presents": "Banking that saves small teams time and fees, told through named Canadian customers.",
+    "emphasises": "Reimbursements, payments and cashback cards, shown as use cases, such as reimbursements cut from five weeks to under a week (as stated in the caption)."
+   },
+   {
+    "pid": "airwallex",
+    "presents": "A global brand linked to elite sport, founders and events. This is a global account, so it does not show what is offered in Canada.",
+    "emphasises": "4 of 23 posts name a product; one shows a use case, Arsenal fans paying in their own currencies. Most posts name no product benefit."
+   }
+  ],
+  "positioning_limit": "Only Venn and Airwallex are compared: no posts in the window were found on the reviewed Float, Loop and Keep accounts, and @tryramp is not confirmed as Ramp’s account.",
+  "creative_title": "Creative Strategy",
+  "creative_stood_out": {
+   "venn": "Customer stories lead (6 of 9 posts), mostly as reels; the two inspected non-video posts explain the app feature by feature.",
+   "airwallex": "Partnerships and company events lead (14 of 23 posts); photo carousels are the most common execution among the inspected posts (6 of 9)."
+  },
+  "creative_limit": "Execution is shown for inspected posts only. The reels (Venn 7 of 9, Airwallex 14 of 23) were reviewed from cover and caption, not watched, so how they present their message is not established.",
+  "creative_examples": [
+   {
+    "post": "venn-ig-DbV1GBioK7e",
+    "shows": "Four designed slides, one app feature on each with a short headline: the product explained as a list of tasks."
+   },
+   {
+    "post": "venn-ig-DcOdMd8oMR-",
+    "shows": "One text-led graphic states a user milestone (5,000+ app users) and lists app tasks, using the company’s own figure as proof."
+   },
+   {
+    "post": "airwallex-ig-Db8jAJeDQ5J",
+    "shows": "A programme cover, then one slide per judge: designed slides that say who the programme is for and when nominations close."
+   },
+   {
+    "post": "airwallex-ig-DePPHLOl2cq",
+    "shows": "Event photos with a Formula 1 driver and no product named: the brand is shown through hospitality and sport rather than features."
+   }
+  ],
+  "engagement_title": "Engagement by Theme",
+  "engagement_limit": "Based on visible likes and comments. Small samples are directional and do not establish sales performance.",
+  "engagement_takeaway": {
+   "venn": "Too few posts in each theme to compare. One theme has six posts, the others one or two, and every count is between 3 and 12.",
+   "airwallex": "Partnership posts had the highest median (237 from 6 posts with counts), mostly from posts made with collaborators: without them the median is 75 from 4, close to Culture or community (66 from 5)."
+  }
  }
 }

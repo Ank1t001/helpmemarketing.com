@@ -601,7 +601,7 @@ def reference_html(c):
         ))
         recs.append('<details class="bs-more" id="bs-s%s-src"><summary>%s, %s: %s</summary><dl class="chain">%s</dl></details>' % (
             ex['id'][1:].lower(), E(NAMES[p['platform']]), E(long_day(p['published_on'])), E(ex['title']), meta))
-    out.append('<h4 class="t">Selected posts: records</h4>%s' % ''.join(recs))
+    out.append('<h4 class="t">Posts showing how offers are presented: records</h4>%s' % ''.join(recs))
     return '\n'.join(out)
 
 
@@ -835,97 +835,114 @@ def _bar(n, total, width=160):
     return ('<svg class="soc-bar" viewBox="0 0 %d 10" width="%d" height="10" aria-hidden="true" focusable="false"><rect width="%d" height="10" rx="2"/></svg>' % (width, width, w))
 
 
+def _plural(v, one, many):
+    return '%d %s' % (v, one if v == 1 else many)
+
+
 def strategy_html(c):
-    """The Social Media Strategy tab: positioning, product positioning, creative strategy, engagement by theme, what this suggests."""
+    """The Social Media Strategy tab (founder review, 31 October 2026): Positioning, Creative Strategy with examples,
+    Engagement by Theme. Dates, coverage details, calculation rules and the full readings sit in Sources & evidence;
+    a limitation that changes how a comparison reads stays beside that comparison."""
     s = c.social
     n = s['narrative']
     st = n['strategy']
     out = []
     if s['status'] == 'review' and getattr(c, 'mode', 'draft') == 'draft':
         out.append('<div class="note gap soc-review"><span class="lbl">For editorial review</span><p>%s</p></div>' % E(n['review_flag']))
-    out.append('<div class="bs-soc-cov" id="bs-social-scope-short"><p class="bs-obs">%s</p><p class="dek">Posts published %s. %s</p><p class="dek">%s</p></div>'
-               % (E(n['view']['scope']), E(window_text()), E(n['coverage_note']), E(n['coverage_none'])))
-    head = lambda i, t, q: '<h3><span class="soc-n">%d</span>%s</h3><p class="dek soc-q">%s</p>' % (i, E(t), E(q))
-    # 1. Brand positioning
-    rows = ''.join('<tr><td class="brandcell">%s</td><td data-label="Audience suggested by the posts">%s</td><td data-label="Main message">%s</td><td data-label="Tone">%s</td></tr>' % (
-        E(NAMES[r['pid']]), E(r['audience']), E(r['message']), E(r['tone'])) for r in st['positioning'])
-    out.append('<div class="sub soc-sec" id="bs-soc-positioning">%s<p class="ktag">My reading of the reviewed posts</p>'
-               '<div class="tw cards" tabindex="0" role="region" aria-label="Brand positioning on Instagram"><table class="bs"><thead><tr><th scope="col">Brand</th><th scope="col">Audience suggested by the posts</th><th scope="col">Main message</th><th scope="col">Tone</th></tr></thead><tbody>%s</tbody></table></div>'
-               '<p class="pnote">%s</p></div>' % (head(1, 'Brand positioning', st['positioning_q']), rows, E(st['positioning_note'])))
-    # 2. Product positioning
-    rows = ''.join('<tr><td class="brandcell">%s</td><td data-label="Products emphasised">%s</td><td data-label="Customer benefit or use case">%s</td><td data-label="Proof used">%s</td></tr>' % (
-        E(NAMES[r['pid']]), E(r['products']), E(r['benefit']), E(r['proof'])) for r in st['product'])
-    out.append('<div class="sub soc-sec" id="bs-soc-product">%s<div class="tw cards" tabindex="0" role="region" aria-label="Product positioning on Instagram"><table class="bs"><thead><tr><th scope="col">Brand</th><th scope="col">Products emphasised</th><th scope="col">Customer benefit or use case</th><th scope="col">Proof used</th></tr></thead><tbody>%s</tbody></table></div>'
-               '<p class="dek soc-fu"><b>Feature or use case?</b> %s</p></div>' % (head(2, 'Product positioning', st['product_q']), rows, E(st['feature_vs_use'])))
-    # 3. Creative strategy: theme mix, format mix, approaches, examples
+    head = lambda i, t: '<h3><span class="soc-n">%d</span>%s</h3>' % (i, E(t))
+    lim = lambda t: '<p class="soc-lim">%s</p>' % E(t)
+    stood = lambda t: '<p class="soc-stood"><b>What stood out:</b> %s</p>' % E(t)
+    # 1. Positioning: Venn and Airwallex side by side
+    rows = ''.join('<tr><td class="brandcell">%s</td><td data-label="How it presents itself">%s</td><td data-label="Products and benefits it emphasises">%s</td></tr>' % (
+        E(NAMES[r['pid']]), E(r['presents']), E(r['emphasises'])) for r in st['positioning_pair'])
+    out.append('<div class="sub soc-sec" id="bs-soc-positioning">%s<div class="tw cards" tabindex="0" role="region" aria-label="Positioning on Instagram, Venn and Airwallex">'
+               '<table class="bs soc-t"><thead><tr><th scope="col">Brand</th><th scope="col">How it presents itself</th><th scope="col">Products and benefits it emphasises</th></tr></thead><tbody>%s</tbody></table></div>%s</div>'
+               % (head(1, st['positioning_title']), rows, lim(st['positioning_limit'])))
+    # 2. Creative Strategy: formats, themes and execution kept apart, then examples
+    fmt_names = {'video': ('reel', 'reels'), 'carousel': ('carousel', 'carousels'), 'image': ('image', 'images')}
     blocks = []
     for pid in ('venn', 'airwallex'):
         rr = [(cl, p) for cl, p in analysis_rows(s) if p['platform'] == pid]
         tot = len(rr)
+        fm = {}
+        for _, p in rr:
+            fm[p['format']] = fm.get(p['format'], 0) + 1
+        fmt = ', '.join(_plural(fm[k], *fmt_names[k]) for k in ('video', 'carousel', 'image') if fm.get(k))
         th = ''
         for k, label, _ in s['analysis']['guide']['themes']:
             k_n = sum(1 for cl, _ in rr if cl['theme'] == k)
             if k_n:
                 th += '<li><span class="soc-bl">%s</span>%s<span class="soc-bv">%d of %d</span></li>' % (E(label), _bar(k_n, tot), k_n, tot)
-        fm = {}
-        for _, p in rr:
-            fm[p['format']] = fm.get(p['format'], 0) + 1
-        fmt = ', '.join('%d %s' % (v, {'video': 'videos (reels)', 'carousel': 'carousels', 'image': 'images'}[k] if v != 1 else {'video': 'video (reel)', 'carousel': 'carousel', 'image': 'image'}[k])
-                        for k, v in sorted(fm.items(), key=lambda kv: ['video', 'carousel', 'image'].index(kv[0])))
         insp = [cl for cl, _ in rr if cl['approach_inspected']]
         appr = {}
         for cl in insp:
             key = cl['approach'].split(':')[0]
             appr[key] = appr.get(key, 0) + 1
-        ap = '; '.join('%s (%d)' % (E(k), v) for k, v in sorted(appr.items(), key=lambda kv: -kv[1]))
-        blocks.append('<div class="soc-mix"><h4 class="t">%s <span class="soc-den">%d attributed posts</span></h4><p class="pnote m0">Primary theme</p><ul class="soc-bars">%s</ul>'
-                      '<p class="dek"><b>Format:</b> %s.</p><p class="dek"><b>Creative approach:</b> established for %d of %d posts, the ones whose full creative was inspected: %s. The other %d are reels that were not watched, so their approach is not established.</p></div>'
-                      % (E(NAMES[pid]), tot, th, fmt, len(insp), tot, ap, tot - len(insp)))
+        ex_items = ''.join('<li>%s <span class="soc-bv">%d</span></li>' % (E(k), v) for k, v in sorted(appr.items(), key=lambda kv: (-kv[1], kv[0])))
+        blocks.append('<div class="soc-mix"><h4 class="t">%s <span class="soc-den">%d attributed posts</span></h4>'
+                      '<dl class="soc-layers"><div><dt>Formats</dt><dd>%s</dd></div>'
+                      '<div><dt>Themes</dt><dd><ul class="soc-bars">%s</ul></dd></div>'
+                      '<div><dt>Execution <span class="soc-den">%d inspected posts</span></dt><dd><ul class="soc-exec">%s</ul></dd></div></dl>%s</div>'
+                      % (E(NAMES[pid]), tot, fmt, th, len(insp), ex_items, stood(st['creative_stood_out'][pid])))
     exs = []
-    for ex in n['examples']:
+    images = {ex['post']: ex['image'] for ex in n['examples'] if ex.get('image')}
+    for i, ex in enumerate(st['creative_examples'], 1):
         p = next(x for x in s['posts'] if x['id'] == ex['post'])
         cl = next(x for x in s['analysis']['posts'] if x['post'] == p['id'])
-        img = ex.get('image')
-        fig = ('<figure class="soc-shot"><img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async"><figcaption>%s</figcaption></figure>'
-               % (E(img['src']), E(img['alt']), img['width'], img['height'], E(img['credit']))) if img else ''
-        approach = cl['approach'] if cl['approach_inspected'] else FORMAT_LABEL[p['format']]
-        text = ('<p class="pnote soc-tags">%s &middot; %s</p><p class="dek">%s</p><p class="dek"><b>My reading:</b> %s</p><p class="pnote bs-soc-lim"><b>Limits:</b> %s %s</p>'
-                % (E(theme_label(s, cl['theme'])), E(approach), E(ex['observed']), E(ex['reading_short']), E(p['inspection_label']), E(ex['limitation'])))
-        main = ('<div class="soc-body">%s<div class="soc-text">%s</div></div>' % (fig, text)) if fig else text
-        exs.append('<article class="card ex soc-ex" id="bs-s%s"><p class="kind">%s &middot; %s</p><h4 class="t">%s</h4>%s</article>'
-                   % (ex['id'][1:].lower(), E(NAMES[p['platform']]), E(long_day(p['published_on'])), E(ex['title']), main))
-    out.append('<div class="sub soc-sec" id="bs-soc-creative">%s<div class="soc-mixes">%s</div><p class="pnote">%s</p>'
-               '<div id="bs-social-examples"><h4 class="t">Selected posts</h4><p class="dek">%s</p>%s</div></div>'
-               % (head(3, 'Creative strategy', st['creative_q']), ''.join(blocks), E(st['creative_note']), E(n['selection_short']), ''.join(exs)))
-    # 4. Engagement by theme, within each brand
+        slides = re.search(r'all (\d+) slides', p.get('inspected', ''))
+        fmt = FORMAT_LABEL[p['format']] + (', %s slides' % slides.group(1) if p['format'] == 'carousel' and slides else '')
+        label = '%s &middot; %s &middot; %s &middot; %s' % (E(NAMES[p['platform']]), E(theme_label(s, cl['theme'])), E(fmt), E(long_day(p['published_on'])))
+        text = '<p class="soc-tags">%s</p><p class="soc-ex-approach">%s</p><p class="soc-ex-shows">%s</p>' % (label, E(cl['approach'].split(':')[0]), E(ex['shows']))
+        img = images.get(p['id'])
+        if img:
+            exs.append('<article class="soc-cex has-img" id="bs-sx%d"><figure class="soc-shot"><img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async"><figcaption>%s</figcaption></figure><div class="soc-cex-text">%s</div></article>'
+                       % (i, E(img['src']), E(img['alt']), img['width'], img['height'], E(img['credit']), text))
+        else:
+            exs.append('<article class="soc-cex" id="bs-sx%d"><div class="soc-cex-text">%s</div></article>' % (i, text))
+    out.append('<div class="sub soc-sec" id="bs-soc-creative">%s<div class="soc-mixes">%s</div>%s'
+               '<div id="bs-social-examples"><h4 class="t">Creative examples</h4><div class="soc-cexs">%s</div></div></div>'
+               % (head(2, st['creative_title']), ''.join(blocks), lim(st['creative_limit']), ''.join(exs)))
+    # 3. Engagement by Theme, within each brand
     eng = []
     for pid in ('venn', 'airwallex'):
         rows = ''
         for r in engagement(s, pid):
-            lim = r['usable'] < 3
-            med = _num(r['median']) if r['median'] is not None else 'None usable'
-            if lim and r['usable']:
-                med = 'Too few for a pattern: %s' % ', '.join(str(v) for v in r['values'])
-            solo = ''
-            if r['collab']:
-                solo = '<span class="cell-sub">%d collaboration%s in this theme; without them: %s</span>' % (
-                    r['collab'], '' if r['collab'] == 1 else 's', ('median %s from %d posts' % (_num(r['median_solo']), r['solo_usable'])) if r['solo_usable'] >= 3 else
-                    ('%s' % (', '.join(str(v) for v in sorted(v for v, p in [(interactions(p)[0], p) for cl, p in analysis_rows(s) if p['platform'] == pid and cl['theme'] == r['theme'] and p['relation'] != 'collaboration'] if v is not None)) or 'no usable posts')))
-            rows += '<tr><th scope="row" class="brandcell">%s</th><td data-label="Posts in theme">%d</td><td data-label="Posts with usable counts">%d</td><td data-label="Median visible likes + comments">%s%s</td></tr>' % (
-                E(r['label']), r['posts'], r['usable'], E(med), solo)
-        top = st['engagement'][pid]
-        eng.append('<div class="soc-eng" id="bs-soc-eng-%s"><h4 class="t" id="bs-soc-eng-%s-h">%s</h4><div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-soc-eng-%s-h"><table class="bs">'
-                   '<thead><tr><th scope="col">Theme</th><th scope="col">Posts in theme</th><th scope="col">Posts with usable counts</th><th scope="col">Median visible likes + comments</th></tr></thead><tbody>%s</tbody></table></div>'
-                   '<p class="dek"><b>Theme with the highest median:</b> %s</p><p class="dek"><b>Single post with the highest count:</b> %s</p></div>'
-                   % (pid, pid, E(NAMES[pid]), pid, rows, E(top['theme']), E(top['post'])))
-    out.append('<div class="sub soc-sec" id="bs-soc-engagement">%s<p class="dek">%s</p>%s<ul class="pnote soc-rules">%s</ul></div>'
-               % (head(4, 'Engagement by theme', st['engagement_q']), E(st['engagement_intro']), ''.join(eng), ''.join('<li>%s</li>' % E(x) for x in st['engagement_rules'])))
-    # 5. What this suggests
-    items = ''.join('<li><dl class="bs-tmain"><dt>What I observed</dt><dd>%s</dd><dt>My reading</dt><dd>%s</dd><dt>A possible test</dt><dd>%s</dd></dl></li>' % (
-        E(x['observed']), E(x['reading']), E(x['test'])) for x in st['suggests'])
-    out.append('<div class="sub soc-sec" id="bs-social-tests">%s<ol class="soc-sug">%s</ol><p class="pnote dlinks">%s</p></div>'
-               % (head(5, 'What this suggests', st['suggests_q']), items, _rich(n['why'])))
+            miss = r['posts'] - r['usable']
+            posts = '%d%s' % (r['posts'], ('<span class="cell-sub">%s unavailable</span>' % _plural(miss, 'count', 'counts')) if miss else '')
+            if r['usable'] >= 3:
+                med = _num(r['median'])
+            elif r['usable']:
+                med = 'Too few to compare'
+            else:
+                med = 'Unavailable'
+            rows += '<tr><td class="brandcell">%s</td><td data-label="Posts">%s</td><td data-label="Median visible likes + comments">%s</td></tr>' % (E(r['label']), posts, E(med))
+        eng.append('<div class="soc-eng" id="bs-soc-eng-%s"><h4 class="t" id="bs-soc-eng-%s-h">%s</h4><div class="tw" tabindex="0" role="region" aria-labelledby="bs-soc-eng-%s-h"><table class="bs soc-t">'
+                   '<thead><tr><th scope="col">Theme</th><th scope="col">Posts</th><th scope="col">Median visible likes + comments</th></tr></thead><tbody>%s</tbody></table></div>%s</div>'
+                   % (pid, pid, E(NAMES[pid]), pid, rows, stood(st['engagement_takeaway'][pid])))
+    out.append('<div class="sub soc-sec" id="bs-soc-engagement">%s%s<div class="soc-engs">%s</div></div>'
+               % (head(3, st['engagement_title']), lim(st['engagement_limit']), ''.join(eng)))
     return '\n'.join(out)
+
+
+def strategy_reference_html(c):
+    """Sources & evidence: the scope line, coverage and the full readings that the tab summarises (moved 31 October 2026)."""
+    s = c.social
+    n = s['narrative']
+    st = n['strategy']
+    pos = ''.join('<tr><td class="brandcell">%s</td><td data-label="Audience suggested by the posts">%s</td><td data-label="Main message">%s</td><td data-label="Tone">%s</td></tr>' % (
+        E(NAMES[r['pid']]), E(r['audience']), E(r['message']), E(r['tone'])) for r in st['positioning'])
+    prod = ''.join('<tr><td class="brandcell">%s</td><td data-label="Products emphasised">%s</td><td data-label="Customer benefit or use case">%s</td><td data-label="Proof used">%s</td></tr>' % (
+        E(NAMES[r['pid']]), E(r['products']), E(r['benefit']), E(r['proof'])) for r in st['product'])
+    tops = ''.join('<li><b>%s:</b> %s</li>' % (E(NAMES[pid]), E(st['engagement'][pid]['post'])) for pid in ('venn', 'airwallex'))
+    return ('<div id="bs-soc-scope-ref"><h4 class="t">Window and coverage</h4><p class="dek">%s Posts published %s. %s %s</p></div>'
+            '<div id="bs-soc-reading"><h4 class="t">Positioning: the full reading for every brand</h4><p class="dek">%s</p>'
+            '<div class="tw cards" tabindex="0" role="region" aria-label="Brand positioning on Instagram, all brands"><table class="bs"><thead><tr><th scope="col">Brand</th><th scope="col">Audience suggested by the posts</th><th scope="col">Main message</th><th scope="col">Tone</th></tr></thead><tbody>%s</tbody></table></div>'
+            '<div class="tw cards" tabindex="0" role="region" aria-label="Product positioning on Instagram, all brands"><table class="bs"><thead><tr><th scope="col">Brand</th><th scope="col">Products emphasised</th><th scope="col">Customer benefit or use case</th><th scope="col">Proof used</th></tr></thead><tbody>%s</tbody></table></div>'
+            '<p class="dek"><b>Feature or use case?</b> %s</p></div>'
+            '<div id="bs-soc-eng-rules"><h4 class="t">Engagement: rules and caveats</h4><p class="dek">%s</p><ul class="dek">%s</ul><p class="dek">Single post with the highest count in each brand:</p><ul class="dek">%s</ul></div>'
+            % (E(n['view']['scope']), E(window_text()), E(n['coverage_note']), E(n['coverage_none']),
+               E(st['positioning_note']), pos, prod, E(st['feature_vs_use']),
+               E(st['engagement_intro']), ''.join('<li>%s</li>' % E(x) for x in st['engagement_rules']), tops))
 
 
 def analysis_reference_html(s):

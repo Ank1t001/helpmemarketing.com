@@ -1,10 +1,12 @@
 # Section-by-section review, /business-spend-index
 
-Started 31 October 2026 at the founder's request: one section at a time, decisions recorded here, then one final brief once every section has been reviewed. Nothing in this file is applied to the page until the final brief is approved. Each decision says what changes, what stays and why.
+Started 31 October 2026 at the founder's request: one section at a time, decisions recorded here, then one final brief once every section has been reviewed. Sections are applied when the founder asks; the rest wait for the final brief. Applied so far: Overview and Social Media Strategy (31 October 2026, founder: "push it to live"). Each decision says what changes, what stays and why.
 
 Sections in review order: Overview, Social Media Strategy, Paid Social Strategy, Website Messaging, Product Comparison, Customer Journey, Lessons, Sources & evidence, then sitewide spacing.
 
-## 1. Overview (decided 31 October 2026)
+## 1. Overview (decided and applied 31 October 2026)
+
+Applied: Customer Journey description, note below the cards removed, independence line as a second line of the hero byline. The Social Media Strategy card keeps its current wording until the reel review.
 
 Keep:
 - The heading "Inside this case study".
@@ -29,7 +31,9 @@ Open, to settle in the final brief:
 
 Findings, rankings and detailed comparisons stay in their own sections; the Overview stays a short visual guide.
 
-## 2. Social Media Strategy (decided 31 October 2026)
+## 2. Social Media Strategy (decided and applied 31 October 2026)
+
+Applied as recorded below, with these build choices: the four creative examples are posts whose full creative was inspected (Venn: 28 July feature slides, 19 August text-led graphic; Airwallex: 12 August designed slides with its image, 8 October photo carousel), because the earlier four were chosen for how offers are presented and three were unwatched reels; the earlier four keep their records in Sources & evidence. No "More examples" control was needed. Engagement tables stay plain tables on phones (three short columns fit). The "What this suggests" tests are off the page until the Lessons review.
 
 Goal: a reader quickly understands three things: how the brands position themselves, how their creative approaches differ, and which themes receive more visible engagement.
 

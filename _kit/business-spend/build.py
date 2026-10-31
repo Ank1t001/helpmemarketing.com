@@ -423,7 +423,7 @@ def sources_view(c, views, start, end, draft):
                 for e in n['examples']['items'] if e.get('place') == 'messaging')))
     # 3. Social accounts, posts and attribution
     if c.social:
-        sec('bs-ref-social', 'Social accounts, posts, classifications and engagement', social.reference_html(c) + (social.analysis_reference_html(c.social) if c.social.get('analysis') else ''))
+        sec('bs-ref-social', 'Social accounts, posts, classifications and engagement', social.strategy_reference_html(c) + social.reference_html(c) + (social.analysis_reference_html(c.social) if c.social.get('analysis') else ''))
     if c.paid:
         sec('bs-ref-paid', 'Paid ads: collection and records', paid.reference_html(c.paid, c.order, long_date, toronto_time))
     # 4. Customer-journey evidence
@@ -540,8 +540,10 @@ def body(c):
     # Capture times and the scope paragraph live in "Scope & sources" (the methodology), not here.
     out.append('<header><p class="kicker">%s</p><h1>%s</h1><p class="bs-subtitle">%s</p><p class="lede">%s</p>' % (E(h['kicker']), E(h['title']), E(h['subtitle']), E(h['lede'])))
     out.append('<p class="bs-provs">%s</p>' % ' &middot; '.join(E(c.name(pid)) for pid in c.order))
-    out.append('<p class="bs-meta">%sBy <a href="/about">Ankit Kumar</a> &middot; Edition %s &middot; %s</p>' % (
-        '<span class="draft-flag">Draft</span> ' if draft else '', E(ed['edition']), 'Not yet published' if draft else 'Last Updated %s' % E(short_date(c.date_modified or c.release_date))))
+    # The independence line sits in the byline since 2026-10-31 (founder; it was the note under the Overview cards).
+    out.append('<p class="bs-meta">%sBy <a href="/about">Ankit Kumar</a> &middot; Edition %s &middot; %s<span class="bs-meta-ind">%s</span></p>' % (
+        '<span class="draft-flag">Draft</span> ' if draft else '', E(ed['edition']), 'Not yet published' if draft else 'Last Updated %s' % E(short_date(c.date_modified or c.release_date)),
+        E(h['independence'])))
     if draft:
         out.append('<p class="pnote">%s</p>' % E(h['draft_note']))
     out.append('</header>')
@@ -581,13 +583,10 @@ def body(c):
     vo = views['overview']
     guide = ''.join('<a class="bs-gcard" href="#bs-%s">%s<span class="bs-gt">%s</span><span class="bs-gd">%s</span></a>' % (
         k, ICONS[icon], E(views[k]['title'] if k in views else t), E(desc)) for k, t, desc, icon in vo['guide'] if k in views)
-    # No intro paragraph or provider list: the hero already carries both (founder brief, 2026-10-31).
+    # No intro paragraph, provider list or note below the cards: the hero carries the providers and the independence line,
+    # and each section carries its own dates (founder review, 2026-10-31).
     V['overview'] = (view_open('overview', 'bs-overview', dek=False)
                      + '<nav class="bs-guide" aria-label="Sections of this case study">%s</nav>' % guide
-                     + '<div class="bs-ov-scope"><p class="dek">%s</p><p class="bs-ov-dates">Website observations: %s%s. %s.</p></div>' % (
-                         E(vo['scope_line']), long_date(start),
-                         ' &middot; Instagram posts published 25 July to 22 October 2026' if c.social else '',
-                         'Later follow-up: Airwallex only, checked %s' % iso_long(fu['checked_on']) if fu else 'No later follow-up')
                      + view_close('overview'))
 
     # ---------- Social Media Content ----------

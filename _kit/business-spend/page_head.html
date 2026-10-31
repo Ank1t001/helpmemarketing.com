@@ -409,6 +409,41 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-view dl.bs-tmain{grid-template-columns:1fr;gap:2px}
 .msi.msi .bs-view dl.bs-tmain dd{margin-bottom:10px}
 }
+.msi.msi .bs-meta .bs-meta-ind{display:block;margin-top:2px}
+/* Social Media Strategy (founder review, 2026-10-31): Positioning, Creative Strategy with examples, Engagement by Theme.
+   Shared spacing scale: heading to content 12px, table or card to the text after it 16px, card padding 24px (20px on phones). */
+.msi.msi #bs-social .soc-sec>h3{margin-bottom:var(--s3)}
+.msi.msi #bs-social .soc-sec .tw{margin:0}
+.msi.msi #bs-social .soc-lim{margin:var(--s4) 0 0;font-size:14px;line-height:1.55;color:var(--text-muted)}
+.msi.msi #bs-social #bs-soc-engagement>.soc-lim{margin:0 0 var(--s4)}
+.msi.msi #bs-social .soc-stood{margin:var(--s4) 0 0;font-size:15px;line-height:1.6;color:var(--text-body,var(--text))}
+.msi.msi #bs-social .soc-stood b{color:var(--text)}
+.msi.msi #bs-social table.soc-t td.brandcell{font-size:13.5px;font-weight:400;color:var(--text);width:14%}
+.msi.msi #bs-social .soc-mix h4.t{margin:0 0 var(--s3)}
+.msi.msi dl.soc-layers{margin:0;display:grid;gap:var(--s3)}
+.msi.msi dl.soc-layers dt{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary);margin:0 0 4px}
+.msi.msi dl.soc-layers dt .soc-den{font-size:12px;text-transform:none;letter-spacing:0;font-weight:500;margin-left:4px}
+.msi.msi dl.soc-layers dd{margin:0;font-size:14.5px;line-height:1.55;color:var(--text)}
+.msi.msi dl.soc-layers ul.soc-bars{margin:0}
+.msi.msi ul.soc-exec{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.msi.msi ul.soc-exec li{display:flex;justify-content:space-between;gap:12px;font-size:14px}
+.msi.msi #bs-social-examples{margin-top:var(--s6)}
+.msi.msi #bs-social-examples>h4.t{margin:0 0 var(--s3)}
+.msi.msi .soc-cexs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4);align-items:start}
+.msi.msi .soc-cex{padding:var(--s5);border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
+.msi.msi .soc-cex figure.soc-shot{margin:0 0 var(--s4);max-width:none}
+.msi.msi .soc-cex.has-img{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:var(--s4);align-items:start}
+.msi.msi .soc-cex.has-img figure.soc-shot{margin:0}
+.msi.msi .soc-cex.has-img figcaption{font-size:12px}
+.msi.msi #bs-social .soc-eng table.soc-t td.brandcell{width:36%}
+.msi.msi .soc-cex .soc-tags{margin:0 0 6px}
+.msi.msi .soc-ex-approach{margin:0 0 6px;font-size:16px;font-weight:650;line-height:1.35;color:var(--text)}
+.msi.msi .soc-ex-shows{margin:0;font-size:14.5px;line-height:1.6;color:var(--text-body,var(--text))}
+.msi.msi #bs-social .soc-engs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5);align-items:start}
+.msi.msi #bs-social .soc-eng{margin:0}
+.msi.msi #bs-social .soc-eng h4.t{margin:0 0 var(--s3)}
+@media(max-width:900px){.msi.msi .soc-cexs,.msi.msi #bs-social .soc-engs{grid-template-columns:1fr}.msi.msi #bs-social table.soc-t td.brandcell{width:auto}}
+@media(max-width:720px){.msi.msi #bs-social .soc-eng table.soc-t th,.msi.msi #bs-social .soc-eng table.soc-t td{padding:10px 8px}.msi.msi .soc-cex{padding:20px}.msi.msi .soc-cex.has-img{grid-template-columns:1fr}}
 </style>
 <script data-bsi-tabs>
 /* Views as tabs (2026-10-23). Without JavaScript every view shows in reading order and the links jump to it. With it, one view shows at a time: the links become an ARIA tablist (arrow keys, Home, End), the address keeps the view (#bs-compare), Back and Forward restore it, and any link to an id inside a view (a section, an evidence item, a closed expander) opens that view and the expanders around the target. Print shows every view. */
