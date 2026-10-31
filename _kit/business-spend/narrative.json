@@ -728,7 +728,6 @@
    }
   },
   "note": "A row is not a quote. Peoples Trust Company issues four of the six cards (Venn, Ramp, Keep, Airwallex); how each card is funded or repaid differs, as the first column of Cards, rewards & costs shows. This edition does not compare FX costs: a fair comparison would need the same currencies, amount, timing, plan and fees. The eligibility column covers applying from Canada only; availability in other countries is not assessed, and worldwide figures in the proof are labelled as worldwide where the source says so.",
-  "observed_line": "Published information, not product testing.",
   "cost_columns": [
    [
     "model",
@@ -793,7 +792,66 @@
   ],
   "unclear": "Where a label says what could not be confirmed, two published statements did not settle the point (reconciliation class D in the 23 October 2026 research). For Airwallex, a follow-up check on 30 October 2026 found that pricing lists up to 1% cash rebates on local CAD spend and links to promotion terms whose period ends on 31 December 2025 unless Airwallex notifies otherwise; no extension was found, so current eligibility needs confirmation. The card page still states 1% cashback with no cap, and a 2% figure seen in the page metadata on 23 October stays in the evidence. Pricing also lists a credit line for corporate cards without explaining its eligibility or repayment terms.",
   "pricing_note": "Prices are in Canadian dollars unless stated otherwise. Per-user charges, annual billing and additional platform fees are shown where applicable.",
-  "currency_note": "Fees cover different transactions and conditions. These figures are not a like-for-like cost comparison."
+  "currency_note": "Fees cover different transactions and conditions. These figures are not a like-for-like cost comparison.",
+  "glance_title": "At a glance",
+  "glance_note": "Short versions of parts 2 to 4, from pages observed on 23 October 2026. Published information, not product testing; conditions and extra fees are in the detail.",
+  "glance_columns": [
+   [
+    "rewards",
+    "Rewards"
+   ],
+   [
+    "plans",
+    "Plan fees"
+   ],
+   [
+    "xb_card",
+    "Card spending in another currency"
+   ],
+   [
+    "accounting",
+    "Accounting connections"
+   ]
+  ],
+  "glance": {
+   "venn": {
+    "rewards": "1% cashback",
+    "plans": "Free plan; $40 or $100 a month, or custom",
+    "xb_card": "No FX fee from a matching balance; otherwise 0.25% to 0.45%",
+    "accounting": "QuickBooks, Xero"
+   },
+   "float": {
+    "rewards": "Up to 1% cashback",
+    "plans": "Free plan; Professional from $100 a month",
+    "xb_card": "No foreign transaction fees on USD cards",
+    "accounting": "QuickBooks Online, Xero; NetSuite on Professional"
+   },
+   "ramp": {
+    "rewards": null,
+    "plans": "Free plan; Plus CA$15 per user a month",
+    "xb_card": "No FX markup on CAD and USD spend",
+    "accounting": "QuickBooks Online, Xero; more on Plus"
+   },
+   "loop": {
+    "rewards": "Points by plan",
+    "plans": "Free plan; $79 or $299 a month",
+    "xb_card": "No FX fee in CAD, USD, EUR, GBP; 1.5% in others",
+    "accounting": "QuickBooks, Xero"
+   },
+   "keep": {
+    "rewards": "Points by plan",
+    "plans": "$79, $119 or $199 a month",
+    "xb_card": "3% card conversion fee (agreement)",
+    "accounting": "QuickBooks"
+   },
+   "airwallex": {
+    "rewards": "Up to 1% on local CAD spend",
+    "plans": "Free plan; Grow $12 per active Spend user a month",
+    "xb_card": "No foreign transaction fee from a held currency",
+    "accounting": "Xero, QuickBooks; more on Grow"
+   }
+  },
+  "followup_note": "Airwallex funding, rewards and plan costs were checked again on 30 October 2026, separately from these 23 October entries."
  },
  "examples": {
   "dek": "Three observed examples of how proof and conditions were explained.",

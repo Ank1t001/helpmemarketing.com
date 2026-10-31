@@ -111,23 +111,35 @@ def gap_note(what):
             '<p><b>Evidence placeholder.</b> %s</p></div>' % E(what))
 
 
-def cell(c, pid, key, label):
+def cell_status(c, pid, key):
     spec = c.n['compare']['rows'][pid][key]
     ids = spec.get('ids', [])
     statuses = [c.obs[i]['status'] for i in ids]
     if not ids:
-        status = 'not_checked'
-    elif 'conflicting' in statuses:
-        status = 'conflicting'
-    elif spec.get('text') is None:
-        status = statuses[0]
-    elif 'explicitly_unavailable' in statuses:
-        status = 'explicitly_unavailable'
-    else:
-        status = 'published'
+        return 'not_checked'
+    if 'conflicting' in statuses:
+        return 'conflicting'
     if spec.get('text') is None:
+        return statuses[0]
+    if 'explicitly_unavailable' in statuses:
+        return 'explicitly_unavailable'
+    return 'published'
+
+
+def unclear_tag(c, spec):
+    if any('D' in (c.obs[i].get('reconciliation') or {}).get('class', '') for i in spec.get('ids', [])):
+        return '<a class="st st-undetermined" href="#bs-unclear">%s</a>' % E(spec['unclear'])
+    return ''
+
+
+def cell(c, pid, key, label):
+    spec = c.n['compare']['rows'][pid][key]
+    ids = spec.get('ids', [])
+    status = cell_status(c, pid, key)
+    if spec.get('text') is None:
+        # A missing entry shows its status in the same label style as every other status (2026-10-31).
         why = re.sub(r'^Not checked:\s*', '', re.split(r'(?<=\.)\s', c.obs[ids[0]]['statement'])[0]) if ids else ''
-        body = '<span class="cell-main">%s</span>%s' % (E(model.STATUSES[status]), ('<span class="cell-sub">%s</span>' % E(why[0].upper() + why[1:])) if why else '')
+        body = '<span class="st st-%s">%s</span>%s' % (status, E(model.STATUSES[status]), ('<span class="cell-sub">%s</span>' % E(why[0].upper() + why[1:])) if why else '')
         cls = ' class="miss"'
         tag = ''
     else:
@@ -139,11 +151,32 @@ def cell(c, pid, key, label):
         cls = ''
         # A restriction the cell already states is set in bold instead of repeated as a label.
         tag = '' if restr and restr in (spec['text'], spec.get('sub')) else table_tag(status, spec)
-    if any('D' in (c.obs[i].get('reconciliation') or {}).get('class', '') for i in ids):
-        tag += '<a class="st st-undetermined" href="#bs-unclear">%s</a>' % E(spec['unclear'])
-    if spec.get('followup'):
-        tag += '<a class="bs-fu" href="#bs-awx-followup">Checked 30 October 2026</a>'
+    tag += unclear_tag(c, spec)
+    # The 30 October follow-up is one note under the table, not a link inside each cell (2026-10-31).
     return '<td%s data-label="%s">%s%s</td>' % (cls, E(label), body, tag)
+
+
+def glance_cell(c, pid, key, label):
+    """Short form of a detail cell for the at-a-glance table; the status and evidence are the detail cell's."""
+    spec = c.n['compare']['rows'][pid][key]
+    text = c.n['compare']['glance'][pid][key]
+    status = cell_status(c, pid, key)
+    if text is None:
+        return '<td class="miss" data-label="%s"><span class="st st-%s">%s</span></td>' % (E(label), status, E(model.STATUSES[status]))
+    tag = '' if status == 'explicitly_unavailable' else table_tag(status, spec)
+    return '<td data-label="%s"><span class="cell-main">%s</span>%s%s</td>' % (E(label), E(text), tag, unclear_tag(c, spec))
+
+
+def glance_table(c, num):
+    cp = c.n['compare']
+    cols = cp['glance_columns']
+    ths = ''.join('<th scope="col">%s</th>' % E(l) for _, l in cols)
+    rows = '\n'.join('<tr id="bs-glance-%s"><td class="brandcell">%s</td>%s</tr>' % (pid, E(c.name(pid)), ''.join(glance_cell(c, pid, k, l) for k, l in cols)) for pid in c.order)
+    return ('<div class="tblock" id="bs-cmp-glance"><h3 id="bs-cmp-glance-h"><span class="soc-n">%d</span>%s</h3><p class="bs-tnote">%s</p>'
+            '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-cmp-glance-h"><table class="bs bs-glance">'
+            '<caption class="sr-only">Rewards, plan fees, card spending in another currency and accounting connections for six platforms, as published on 23 October 2026</caption>'
+            '<thead><tr><th scope="col">Platform</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div></div>'
+            % (num, E(cp['glance_title']), E(cp['glance_note']), ths, rows))
 
 
 # Plain wording beside a claim in the comparison tables (founder, 2026-10-28). The formal status names stay in
@@ -167,7 +200,7 @@ def restriction_lines(c, pid):
     return ''.join('<span class="bs-restr"><b>%s:</b> %s</span>' % (E(l), E(t)) for l, t, _ in c.n['compare']['rows'][pid].get('restrictions', []))
 
 
-def table(c, title, cols, tid, head=True, note=None, restrictions=False, link=False):
+def table(c, title, cols, tid, head=True, note=None, restrictions=False, link=False, num=None, after=''):
     ths = ''.join('<th scope="col">%s</th>' % E(l) for _, l in cols)
     rows = []
     for pid in c.order:
@@ -175,15 +208,15 @@ def table(c, title, cols, tid, head=True, note=None, restrictions=False, link=Fa
         extra = restriction_lines(c, pid) if restrictions else ''
         name = ('<a href="#bs-p-%s">%s</a>' % (pid, E(c.name(pid)))) if link else E(c.name(pid))   # plain in the tabs (2026-10-30, final)
         rows.append('<tr id="%s-%s"><td class="brandcell">%s%s</td>%s</tr>' % (tid, pid, name, extra, cells))
-    label = ('<h3 id="%s-h">%s</h3>' % (tid, E(title))) if head else ''
+    label = ('<h3 id="%s-h">%s%s</h3>' % (tid, ('<span class="soc-n">%d</span>' % num) if num else '', E(title))) if head else ''
     if note:
         label += '<p class="bs-tnote">%s</p>' % E(note)
     region = ('aria-labelledby="%s-h"' % tid) if head else ('aria-label="%s"' % E(title))
     return ('<div class="tblock" id="%s">%s'
             '<div class="tw cards" tabindex="0" role="region" %s><table class="bs">'
             '<caption class="sr-only">%s for six platforms, as published on 23 October 2026</caption>'
-            '<thead><tr><th scope="col">Platform</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div></div>'
-            % (tid, label, region, E(title), ths, '\n'.join(rows)))
+            '<thead><tr><th scope="col">Platform</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div>%s</div>'
+            % (tid, label, region, E(title), ths, '\n'.join(rows), after))
 
 
 def compare_sources(c):
@@ -657,13 +690,18 @@ def body(c):
 
     # ---------- Compare Products ----------
     cp = n['compare']
+    # Product Comparison (founder, 2026-10-31): one intro line, a numbered at-a-glance table, a phone brand selector
+    # for the three numbered detail parts, the Airwallex follow-up as one note, no footer note.
+    fu = ('<p class="pnote bs-fu-note">%s <a href="#bs-awx-followup">See the follow-up in Sources &amp; evidence</a>.</p>' % E(cp['followup_note'])) if any(cp['rows'][p_][k].get('followup') for p_ in c.order for k, _ in cp['cost_columns']) else ''
+    brand_sel = ('<div class="bs-cmp-sel" role="group" aria-label="Brands shown in parts 2 to 4" hidden><span class="bs-cmp-sel-l">Show</span>%s</div>'
+                 % ''.join('<button type="button" class="bs-bopt" data-brand="%s" aria-pressed="%s">%s</button>' % (k, 'true' if k == 'all' else 'false', E(l))
+                           for k, l in [('all', 'All brands')] + [(p_, c.name(p_)) for p_ in c.order]))
     V['compare'] = (view_open('compare', 'bs-compare')
-                    + '<p class="bs-cmp-when"><b>Website observations: %s.</b> %s</p>' % (long_date(start), E(cp['observed_line']))
-                    + '<p class="bs-cmp-jump"><a href="#bs-prod">Cards, rewards &amp; costs</a> &middot; <a href="#bs-xb">Currency fees</a> &middot; <a href="#bs-spend">Spending controls</a></p>'
-                    + '<div class="bs-cmp-sec">%s</div>' % table(c, 'Cards, rewards & costs', cp['cost_columns'], 'bs-prod', note=cp['pricing_note'], restrictions=True)
-                    + '<div class="bs-cmp-sec">%s</div>' % table(c, 'Currency fees', cp['fee_columns'], 'bs-xb', note=cp['currency_note'])
-                    + '<div class="bs-cmp-sec">%s</div>' % table(c, 'Spending controls', cp['spend_columns'], 'bs-spend')
-                    + '<p class="pnote dlinks bs-cmp-foot">Network and issuer, card formats, eligibility detail, account currencies, transfers, banking partners, interest offers and the source of every entry are in <a href="#bs-ref-web">Sources &amp; evidence</a>.</p>'
+                    + '<div class="bs-cmp-sec">%s</div>' % glance_table(c, 1)
+                    + brand_sel
+                    + '<div class="bs-cmp-sec">%s</div>' % table(c, 'Cards, rewards & costs', cp['cost_columns'], 'bs-prod', note=cp['pricing_note'], restrictions=True, num=2, after=fu)
+                    + '<div class="bs-cmp-sec">%s</div>' % table(c, 'Currency fees', cp['fee_columns'], 'bs-xb', note=cp['currency_note'], num=3)
+                    + '<div class="bs-cmp-sec">%s</div>' % table(c, 'Spending controls', cp['spend_columns'], 'bs-spend', num=4)
                     + view_close('compare'))
 
     # ---------- Customer Journey: six-stage framework and a stage-by-provider comparison ----------

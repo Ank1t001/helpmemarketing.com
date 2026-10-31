@@ -242,14 +242,8 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-finds .find:last-child{padding-right:0}
 .msi.msi .bs-finds .find>.bs-fgo{margin-top:auto;padding-top:var(--s3)}
 }
-/* Compare products (founder brief, 2026-10-28): observation line, plain jump links and the essential reading notes above the tables; lighter row shading, sentence-case headings and readable conditions. */
-.msi.msi #bs-compare .bs-cmp-when,.msi.msi #bs-compare .bs-cmp-jump{max-width:72ch;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
-.msi.msi .bs-view.bs-view>.bs-cmp-when{margin-top:var(--s4)}
-.msi.msi .bs-view.bs-view>.bs-cmp-jump{margin-top:var(--s3)}
-.msi.msi #bs-compare .bs-cmp-when b{color:var(--text);font-weight:650}
-.msi.msi #bs-compare .bs-cmp-jump a{color:var(--cta-text,var(--cta));font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+/* Compare products (2026-10-28, revised 2026-10-31): lighter row shading and readable conditions; headers use the shared small uppercase style. */
 @media(min-width:901px){
-.msi.msi #bs-compare table.bs th{font-size:13px;font-weight:650;letter-spacing:0;text-transform:none;color:var(--text);vertical-align:bottom}
 .msi.msi #bs-compare table.bs tbody tr:nth-child(even) td{background:rgba(var(--ink-rgb,255,255,255),.025)}
 .msi.msi #bs-compare table.bs tbody td{border-top-color:rgba(var(--ink-rgb,255,255,255),.06)}
 .msi.msi #bs-compare table.bs .cell-sub{font-size:13px;line-height:1.5}
@@ -274,9 +268,24 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-cmp-sec .bs-tnote{margin:0 0 var(--s3);max-width:72ch;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
 .msi.msi td.brandcell .bs-restr{display:block;margin-top:6px;font-size:13px;line-height:1.45;font-weight:400;color:var(--text-muted)}
 .msi.msi td.brandcell .bs-restr b{font-weight:650;color:var(--text)}
-.msi.msi #bs-compare a.bs-fu{display:block;margin-top:4px;font-size:12.5px;color:var(--text-muted);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
 .msi.msi #bs-compare td.brandcell{min-width:10em}
 @media(max-width:900px){.msi.msi .tw.cards td.brandcell .bs-restr{font-size:13.5px}}
+/* Product Comparison (founder, 2026-10-31): numbered parts, the at-a-glance table, every status in one label style, the Airwallex follow-up as one note, a brand selector for parts 2 to 4 on phones, tighter phone cards and the shared spacing scale. Design System note "Product Comparison at a glance". */
+.msi.msi .bs-cmp-sec>.tblock>h3{display:flex;align-items:baseline;gap:10px}
+.msi.msi #bs-compare td.miss .st{margin-top:0}
+.msi.msi #bs-compare td.miss .cell-sub{margin-top:4px}
+@media(min-width:901px){.msi.msi table.bs-glance td{width:22%}.msi.msi table.bs-glance td.brandcell{width:12%}}
+.msi.msi #bs-compare .bs-fu-note{margin:var(--s3) 0 0;max-width:72ch}
+.msi.msi #bs-compare .bs-fu-note a{color:var(--cta-text,var(--cta));text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+.msi.msi .bs-cmp-sel{display:none}
+@media screen and (max-width:720px){
+.msi.msi .bs-view.bs-view>.bs-cmp-sec{margin-top:var(--s5)}
+.msi.msi .bs-cmp-sel:not([hidden]){display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:var(--s5)}
+.msi.msi .bs-cmp-sel .bs-bopt{min-height:40px;padding:6px 14px;font-size:13.5px}
+.msi.msi .bs-cmp-sel-l{width:100%;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary)}
+.msi.msi #bs-compare .tw.cards tr{padding:14px;gap:10px 14px;margin-bottom:10px}
+.msi.msi #bs-compare .tw.cards tr.bs-off{display:none}
+}
 /* Messaging, Application journeys and Lessons, shorter (founder brief, 2026-10-30, third): one reading table, provider evidence and first-screen evidence in expanders, tests as stacked blocks with thin dividers. */
 .msi.msi .bs-view .tblock>.bs-tnote{margin:0 0 var(--s3);max-width:72ch;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
 .msi.msi #bs-msg-table{margin-top:var(--s5)}
@@ -456,9 +465,9 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi #bs-paid .soc-lim{margin:0 0 var(--s4);font-size:14px;line-height:1.55;color:var(--text-muted)}
 .msi.msi #bs-paid .pd-lead{margin-bottom:var(--s5)}
 .msi.msi .pd-sel{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 var(--s5)}
-.msi.msi .pd-opt{font:inherit;font-size:14px;font-weight:600;min-height:40px;padding:8px 16px;border:1px solid var(--border-strong);border-radius:999px;background:var(--bg-elevated);color:var(--text-muted);cursor:pointer}
-.msi.msi .pd-opt[aria-pressed="true"]{background:var(--text);border-color:var(--text);color:var(--bg)}
-.msi.msi .pd-opt:focus-visible,.msi.msi .pd-showall:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
+.msi.msi .pd-opt,.msi.msi .bs-bopt{font:inherit;font-size:14px;font-weight:600;min-height:40px;padding:8px 16px;border:1px solid var(--border-strong);border-radius:999px;background:var(--bg-elevated);color:var(--text-muted);cursor:pointer}
+.msi.msi .pd-opt[aria-pressed="true"],.msi.msi .bs-bopt[aria-pressed="true"]{background:var(--text);border-color:var(--text);color:var(--bg)}
+.msi.msi .pd-opt:focus-visible,.msi.msi .bs-bopt:focus-visible,.msi.msi .pd-showall:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
 .msi.msi .pd-dim+.pd-dim{margin-top:var(--s6)}
 .msi.msi .pd-dims.pd-js .pd-dim+.pd-dim{margin-top:0}
 .msi.msi .pd-dims.pd-js .pd-dimh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -561,6 +570,31 @@ document.addEventListener('DOMContentLoaded', function () {
   dlg.querySelector('.bs-lightbox-close').addEventListener('click', function () { dlg.close(); });
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
   dlg.addEventListener('close', function () { if (last) last.focus(); });
+});
+</script>
+<script data-bs-cmp>
+/* Product Comparison (2026-10-31): on phones a brand selector narrows parts 2 to 4 to one brand. Without JavaScript, on
+   wider screens and in print every row shows. A link to a row the selector hid shows all brands again first. */
+document.addEventListener('DOMContentLoaded', function () {
+  var sel = document.querySelector('#bs-compare .bs-cmp-sel');
+  if (!sel) return;
+  var btns = [].slice.call(sel.querySelectorAll('.bs-bopt')),
+      rows = [].slice.call(document.querySelectorAll('#bs-prod tbody tr, #bs-xb tbody tr, #bs-spend tbody tr'));
+  function pick(k) {
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-brand') === k ? 'true' : 'false'); });
+    rows.forEach(function (r) { r.classList.toggle('bs-off', k !== 'all' && r.id.slice(r.id.lastIndexOf('-') + 1) !== k); });
+  }
+  btns.forEach(function (b) { b.addEventListener('click', function () { pick(b.getAttribute('data-brand')); }); });
+  function reveal(hash) {
+    var id = (hash || '').replace(/^#/, ''), el = id ? document.getElementById(id) : null;
+    if (el && el.closest && el.closest('tr.bs-off')) pick('all');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (a) reveal(a.getAttribute('href'));
+  }, true);
+  window.addEventListener('hashchange', function () { reveal(location.hash); });
+  sel.hidden = false;
 });
 </script>
 <script data-pd-mix>

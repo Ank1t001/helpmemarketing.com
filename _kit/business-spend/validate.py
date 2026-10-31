@@ -201,6 +201,16 @@ def check_inputs(c):
         if re.search(r'capture request|\bR[12]\b', ' '.join(p.get('missing', []))):
             errs.append('%s: describe missing evidence in plain language, not internal capture codes' % pid)
         cp_ = c.n['compare']
+        # At-a-glance cells (2026-10-31): a short form of a detail cell, missing exactly when the detail is missing.
+        for k, _ in cp_.get('glance_columns', []):
+            g = cp_.get('glance', {}).get(pid, {})
+            d = cp_['rows'].get(pid, {}).get(k) or {}
+            if k not in g:
+                errs.append('%s: at-a-glance cell %s missing' % (pid, k))
+            elif (g[k] is None) != (d.get('text') is None):
+                errs.append('%s.%s: the at-a-glance cell and the detail cell must both be filled or both be missing' % (pid, k))
+            elif g[k] and (len(g[k]) > 70 or '\u2014' in g[k]):
+                errs.append('%s.%s: keep the at-a-glance cell short and without em dashes' % (pid, k))
         for k, _ in cp_['cost_columns'] + cp_['card_columns'] + cp_['fee_columns'] + cp_['acct_columns'] + cp_['spend_columns']:
             spec = c.n['compare']['rows'].get(pid, {}).get(k)
             if k == cp_['cost_columns'][0][0]:

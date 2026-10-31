@@ -313,6 +313,19 @@ class KitTests(unittest.TestCase):
         self.assertNotRegex(body, r'(?i)capture request|\bR[12]\b|after booking|is booked')
         fu = ref[ref.index('id="bs-p-airwallex"'):]
         self.assertIn('checked 30 October 2026', fu[:fu.index('</details>')])
+        # Product Comparison (founder, 2026-10-31): one intro line, four numbered parts, statuses as labels, one follow-up note.
+        self.assertEqual(re.findall(r'<h3[^>]*><span class="soc-n">\d</span>([^<]+)</h3>', cmp_), ['At a glance', 'Cards, rewards &amp; costs', 'Currency fees', 'Spending controls'])
+        for gone in ('bs-cmp-when', 'bs-cmp-jump', 'bs-cmp-foot', 'class="bs-fu"', 'Website observations:'):
+            self.assertNotIn(gone, cmp_)
+        self.assertEqual(len(re.findall(r'<tr id="bs-glance-[a-z]+">', cmp_)), 6)
+        self.assertEqual(re.findall(r'<th scope="col">([^<]+)</th>', cmp_[cmp_.index('bs-cmp-glance'):cmp_.index('</thead>', cmp_.index('bs-cmp-glance'))]),
+                         ['Platform', 'Rewards', 'Plan fees', 'Card spending in another currency', 'Accounting connections'])
+        self.assertNotRegex(cmp_, r'<td class="miss"[^>]*><span class="cell-main">')
+        self.assertEqual(cmp_.count('<span class="st st-not_checked">Not checked</span>'), 1)              # Ramp funding
+        self.assertEqual(cmp_.count('<span class="st st-not_found">Not found in reviewed sources</span>'), 3)   # Ramp rewards (twice) and FX conversion
+        self.assertEqual(cmp_.count('href="#bs-awx-followup"'), 1)
+        self.assertEqual(cmp_.count('data-brand='), 7)
+        self.assertIn('<div class="bs-cmp-sel" role="group" aria-label="Brands shown in parts 2 to 4" hidden>', cmp_)
         self.assertIn('<h2 id="bs-journeys-h">Customer Journey</h2>', jr)
         self.assertEqual(len(re.findall(r'<tr id="bs-js-[a-z]+">', jr)), 5)   # social discovery belongs to Social Media Strategy (2026-10-30, case study)
         self.assertNotIn('id="bs-js-discover"', jr)

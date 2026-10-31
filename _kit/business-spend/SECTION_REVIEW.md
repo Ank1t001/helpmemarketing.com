@@ -161,7 +161,7 @@ Audit of the current view, 31 October 2026 (build `aab3d88`, live):
 - The ads-beside-website comparison (30 October ads, 23 October pages) now sits in Sources & evidence under the paid ads records; nothing in this tab points to it.
 - Spacing: H3 "My reading of the reviewed pages" has 8px above it where other tabs use 0; first table column is 13.5px regular, which matches the shared rule; table to the next block is 32px.
 
-## 5. Product Comparison (in review, 31 October 2026)
+## 5. Product Comparison (decided and applied 31 October 2026)
 
 Audit of the live build (Website Messaging refinements on staging at `2d6aeb6`), 1280px and 390px, light and dark. Nothing changed yet; waiting for founder notes.
 
@@ -177,6 +177,15 @@ Audit of the live build (Website Messaging refinements on staging at `2d6aeb6`),
 - The footer note pointing to Sources & evidence repeats the link already beside the tabs.
 
 Options offered: one intro line; numbered parts; a compact at-a-glance grid (rewards, plan fee, FX fee shown, accounting connections) above the detail; badges moved to one consistent style with "Not checked" and "Not found" shown as status, not text; the 30 October Airwallex checks moved to a note; shorter phone layout (per-part brand cards or a brand selector); spacing on the shared scale.
+
+Decision (founder, 31 October 2026): "Apply all the options, then push it to live." Applied:
+- One intro line (the dek). The date moved into the at-a-glance note; the jump links and the footer note were removed.
+- Four numbered parts: 1 At a glance, 2 Cards, rewards & costs, 3 Currency fees, 4 Spending controls.
+- At a glance: rewards, plan fees, card spending in another currency and accounting connections for the six brands, each a short form of its detail cell with the same status label.
+- Every status in one label style; "Not checked" and "Not found in reviewed sources" are labels with the reason beneath.
+- The three Airwallex "Checked 30 October 2026" cell links became one note under part 2.
+- Phones: a brand selector narrows parts 2 to 4 to one brand (the view is about 3,200px with one brand, 7,800px with all, including the new summary); cards are tighter.
+- Shared spacing: parts 32px apart on desktop, 24px on phones; small uppercase table headers like the other tabs.
 
 ## Sitewide spacing and padding (collected across sections)
 
