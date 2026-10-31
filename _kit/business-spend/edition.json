@@ -14,8 +14,8 @@
     "note": "Browser pass of 23 October 2026, 12:00 p.m. to 12:14 p.m. Toronto time: customer-visible pages, the six enquiry journeys to their first screen, FINTRAC and Bank of Canada registries, and the reconciliation of the ten differences. Package: business-spend-browser-pass-2026-10-23 (34 captures; screenshots held privately, hashes in sources.json)."
   },
   "published_at": "2026-10-27",
-  "modified_at": "2026-10-31T01:21:57-04:00",
-  "modified_at_source": "Vercel production deployment dpl_nr9SQFqv3DxwgPunrTBrG4DM1a1K (commit ceef4ed) ready time (1793424117306 ms), the release of the Paid Social Strategy creative review, the last content change to /business-spend-index. Earlier values: 2026-10-31T00:43:00-04:00 from dpl_Ak7Ubsp3jZzBsDEZeqVS9pabiTx9 (commit ebf70a9, Overview and Social Media Strategy review); 2026-10-31T00:15:42-04:00 from dpl_4gxaz2rp54q42WVpW2yDtnfLqaqQ (commit 53b2700, Overview refinement); 2026-10-30T22:19:18-04:00 from dpl_Bw8QJ4HssdAdYb2fRxto82zzE6vQ (commit 38235c4, the paid ads release); 2026-10-27T15:29:31-04:00 from dpl_3GG1u1RJdS82Vjw5FjhoUeTggFLK (commit 1692f0d), the release of edition 001.",
+  "modified_at": "2026-10-31T15:06:33-04:00",
+  "modified_at_source": "Vercel production deployment dpl_62JCBQAXnFxypFEhbZbHqLGGuWPX (commit 730dd77) ready time (1793473593381 ms), the release of the Website Messaging section review, the last content change to /business-spend-index. Earlier values: 2026-10-31T01:21:57-04:00 from dpl_nr9SQFqv3DxwgPunrTBrG4DM1a1K (commit ceef4ed), the Paid Social Strategy creative review; earlier releases are listed in the git history of this file.",
   "snapshot_metadata_fixes": [
     "27 October 2026: dateModified 2026-10-27T15:29:31-04:00 added to the Article from the recorded production deployment (dpl_3GG1u1RJdS82Vjw5FjhoUeTggFLK, commit 1692f0d); research content unchanged."
   ],
