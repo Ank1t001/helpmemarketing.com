@@ -92,6 +92,32 @@ Format counts alone support no conclusion about creative approach.
 - Creative strategy's shorter Venn column left an empty area; "Selected posts" was an unnumbered block of about 2,000px, and the text-only Venn cards left half the card empty.
 - Engagement tables touched the text below them; the theme column used 11.5px bold; five caveat bullets followed.
 
+## 3. Paid Social Strategy (founder briefs of 31 October 2026; built on staging, not deployed)
+
+Two briefs arrived the same day; the second (percentage splits) supersedes the first where they differ. Built on `staging-business-spend` only.
+
+### What the section shows now
+- Title "Paid Social Strategy"; introduction "A look at the creative approaches brands use in their Meta ads, who they speak to and how they encourage action."; one statement near the comparisons: "Percentages show the share of reviewed creatives, not ad spend or performance."
+- **1 Creative mix by brand:** a selector (Focus, Format, Creative approach, Theme; Focus by default) that changes every brand at once. Focus and Format are one 100% stacked bar per brand with every category written out as "60% · 12 of 20 creatives". Creative approach and Theme are brand cards with independent bars, the eight most common categories across the combined sample first and "Show all categories" for the rest, plus "A creative can appear in more than one category." A "What stood out" box holds five lines, each checked against the data by `validate.py`. Keep appears only in a coverage line ("no active ads in Canada found in the snapshot").
+- **2 Audience and buying stage:** persona cards (independent bars, General business audience and Unclear always shown) and one stacked bar per brand for TOF · Awareness, MOF · Consideration, BOF · Action, Mixed, Unclear; the note "Personas and buying stages are inferred from the creative, not confirmed campaign targeting."; a "Not observed in the reviewed sample" line.
+- **3 Selected creative examples:** four cards (Venn skit, Ramp named customer, Airwallex switching-barrier image, Ramp founder news clip), then "More examples (4)" (Loop rate comparison, Ramp creator partnership, Venn comment-reply Q&A, Float social proof). Each card: real still or image (self-hosted under `/assets/index/business-spend/paid/`, hash recorded), hook, chips for focus, format and approach, persona and stage, one "What stood out" line. One commenter's name and photo are blurred in the C110 still.
+- Moved to Sources & evidence (`#bs-ref-paid`): how the creatives were reviewed, deduplicated and counted; one row per distinct creative; the ad-record table; and the 30 October ad-text reading (activity, messages and offers, ad-copy notes, ads beside the website with both dates, the @tryramp note) under "Ad-text reading, 30 October 2026" with `bs-paid-ref-*` ids.
+- The three tests in `paid_narrative.json` "suggests" are off the page and carried to the Lessons review (as the Social Media Strategy tests were).
+
+### Evidence and review
+- Snapshot unchanged: the 119 ad records collected 30 October 2026 at 5:28 p.m. Toronto time. The creative files were read on 31 October from the same Apify dataset (`VCg3RIURBE8m9WboJ`, the run behind `paid_ads.json`); 14 dataset rows that the original derivation excluded stay excluded. 459 files (images, videos, video previews) were downloaded privately and hashed; no ad was added or swapped. The signed media links expire around 4 November 2026.
+- Review: every image inspected; every video reviewed as 8 to 24 frames sampled evenly across its full length with burned-in captions read; audio not heard. 175 distinct assets classified by six reviewers working from one guide; two are "partial" (C004 Ramp, C175 Float: the message is spoken and not captioned). None is "not assessed".
+- Deduplication: 288 media slots in the 119 ads held 196 distinct files (byte-identical files count once); near-identical files (perceptual hash, same brand, type, length within 1.5 seconds) reduced them to 175 assets; reviewers then linked 88 resizes, crops or re-cuts with `same_as` (one of them, C057 into C055, added on review across two Ramp batches). Result: **87 distinct creatives** (Venn 12, Float 5, Ramp 35, Loop 14, Airwallex 21, Keep none).
+- Denominator: each brand's distinct creatives; unclear stays in the denominator. Exclusive dimensions (focus, format, stage) add to 100% before rounding; overlapping ones (approach, theme, persona) do not. Whole percentages; bars use the unrounded values.
+- Data: `paid_creatives.json` (built by `paid_creatives_derive.py` from the private queue and classification files; no media links or full ad copy; private handles scrubbed). Every published count is computed from it in `paid.py`.
+
+### Remaining gaps
+- Audio was not heard for any video. Spoken claims count only where captioned; two creatives are partial for this reason.
+- Influencer-led rests on Meta's branded-content label and the posting page name (C004, C032); the creators are not named on screen.
+- Personas and stages are inferred labels; no targeting, objective or result is known. The library shows no spend, impressions or reach.
+- The approved mockup was not attached in this session; the layout follows the written direction (warm neutral cards, serif hooks, Signal Orange accents, fine borders).
+- Classification consistency across six reviewers was checked through shared rules, spot checks of same-hook groups and the cross-batch Ramp pair, not a second full pass.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

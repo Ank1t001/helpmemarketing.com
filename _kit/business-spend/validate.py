@@ -535,6 +535,75 @@ def check_social_package(c, pkg, zpath=None):
     return errs
 
 
+
+def check_paid_creatives(c, body):
+    """Paid Social Strategy creative review (founder brief, 2026-10-31): counts, denominators, labels and examples."""
+    import hashlib
+    import paid
+    errs = []
+    d = c.paid
+    cr = d['creatives']['creatives']
+    ids = {x['id']: x for x in cr}
+    if len(ids) != len(cr):
+        errs.append('paid creatives: duplicate creative ids')
+    rec_ids = {r['id'] for r in d['records']}
+    for x in cr:
+        if not set(x['ads']) <= rec_ids:
+            errs.append('paid creatives: %s links an ad that is not in the 30 October records' % x['id'])
+        if x.get('same_as') and (x['same_as'] not in ids or ids[x['same_as']].get('same_as') or ids[x['same_as']]['pid'] != x['pid']):
+            errs.append('paid creatives: %s merges into a creative that is not a distinct creative of the same brand' % x['id'])
+        if x['inspection'] == 'not_assessed' and (x['focus'] != 'not_assessed' or x['approaches']):
+            errs.append('paid creatives: %s was not inspected but carries visual labels' % x['id'])
+    covered = {a for x in cr for a in x['ads']}
+    if covered != rec_ids - {r['id'] for r in d['records'] if r['platform'] == 'keep'}:
+        errs.append('paid creatives: every ad record with media maps to a creative (%d of %d)' % (len(covered), len(rec_ids)))
+    tab = view_html(body, 'bs-paid')
+    for pid in paid.NAMES:
+        cs = paid.sample(d, pid)
+        if not cs:
+            if '%s:' % paid.NAMES[pid] not in tab:
+                errs.append('paid creatives: %s has no reviewed creatives and needs a coverage line, not percentages' % pid)
+            continue
+        n = len(cs)
+        for dim in ('focus', 'format', 'stage'):
+            cnt = paid.counts(cs, dim)
+            if sum(cnt.values()) != n:
+                errs.append('paid creatives: %s %s counts add to %d, not %d' % (pid, dim, sum(cnt.values()), n))
+        for dim in ('approach', 'theme', 'persona'):
+            cnt = paid.counts(cs, dim)
+            if any(v > n for v in cnt.values()):
+                errs.append('paid creatives: %s %s has a category above the sample size' % (pid, dim))
+            for k, v in cnt.items():
+                if v and ('%d of %d creative' % (v, n)) not in tab:
+                    errs.append('paid creatives: %s %s %s (%d of %d) is not shown with its count' % (pid, dim, k, v, n))
+    cv = d['narrative']['creative']
+    for so in cv['mix_stood_out']:
+        cs = paid.sample(d, so['pid'])
+        v = paid.counts(cs, so['dim']).get(so['key'], 0)
+        if ('%d of %d' % (v, len(cs))) not in so['text']:
+            errs.append('paid creatives: "What stood out" for %s says something other than %d of %d' % (so['pid'], v, len(cs)))
+    for i, ex in enumerate(cv['examples'], 1):
+        x = ids.get(ex['creative'])
+        if not x or x.get('same_as') or x['inspection'] == 'not_assessed':
+            errs.append('paid creatives: example %d must be a distinct, inspected creative' % i)
+            continue
+        img = ex.get('image')
+        if img:
+            pth = os.path.join(model.ROOT, img['src'].lstrip('/'))
+            if not os.path.exists(pth) or hashlib.sha256(open(pth, 'rb').read()).hexdigest() != img['sha256']:
+                errs.append('paid creatives: example %d image is missing or differs from its recorded hash' % i)
+        elif 'Ad-copy review' not in tab:
+            errs.append('paid creatives: example %d has no visual and must be labelled as an ad-copy review' % i)
+    for need in (cv['share_note'], cv['audience_note'], 'A creative can appear in more than one category.'):
+        if html_escape(need) not in tab:
+            errs.append('paid creatives: the tab lacks "%s"' % need[:50])
+    if re.search(r'(?i)\b(best[- ]performing|top[- ]performing|winning|winner|dominant|outperform\w*|most effective|highest[- ]converting)\b', html_unescape(re.sub(r'<[^>]+>', ' ', tab))):
+        errs.append('paid creatives: the tab makes a performance claim')
+    for old in ('bs-paid-activity', 'bs-paid-messages', 'bs-paid-vs-web', 'bs-paid-suggests', 'bs-paid-scope'):
+        if 'id="%s"' % old in tab:
+            errs.append('paid creatives: the old block %s is still in the tab' % old)
+    return errs
+
 def check_outputs(c, page, csvtext, extra_paths=()):
     errs = []
     mode = getattr(c, 'mode', 'draft')
@@ -606,7 +675,7 @@ def check_outputs(c, page, csvtext, extra_paths=()):
     import build as _b
     for _, vid in _b.view_order(c):
         tv = view_html(body, vid)
-        if re.search(r'\bO-[A-Z]{3}-\d\d\b|id="ev-|What the sources say|capture request|<details', tv):
+        if re.search(r'\bO-[A-Z]{3}-\d\d\b|id="ev-|What the sources say|capture request|<details(?! class="pd-more")', tv):   # the one "More examples" control in Paid Social Strategy is allowed (founder, 2026-10-31)
             errs.append('page: %s carries evidence detail that belongs in Sources & evidence' % vid)
     if not refv or 'data-bs-back' not in refv or refv.count('id="ev-') != len(c.obs):
         errs.append('page: Sources & evidence holds every observation and a return control')
@@ -646,6 +715,8 @@ def check_outputs(c, page, csvtext, extra_paths=()):
         errs.append('page: the Instagram view appears only with a derived module in review or reviewed')
     if getattr(c, 'social', None):
         errs += check_social_outputs(c, body)
+    if getattr(c, 'paid', None) and c.paid.get('creatives'):
+        errs += check_paid_creatives(c, body)
     if 'class="bs-tablist"' not in nav or len(re.findall(r'<a href="#bs-[a-z]+" id="bs-tab-[a-z]+">', nav)) != len(views):
         errs.append('page: the nav holds one tab link per view inside .bs-tablist')
     if '<script data-bsi-tabs>' not in page or 'data-bsi-views' in page:

@@ -197,8 +197,27 @@ class KitTests(unittest.TestCase):
         self.assertIn('<a href="#bs-paid" id="bs-tab-paid">Paid Social Strategy</a>', body)
         self.assertEqual(len(d['records']), 119)
         self.assertEqual({p: sum(1 for r in d['records'] if r['platform'] == p) for p in self.c.order}, {'venn': 20, 'float': 11, 'ramp': 47, 'loop': 17, 'keep': 0, 'airwallex': 24})
-        self.assertIn('No active ads in Canada when collected', tab)
-        self.assertIn('no spend, impressions or reach', tab)
+        ref = validate.view_html(body, 'bs-sources')
+        self.assertIn('No active ads in Canada when collected', ref)       # the ad-text reading moved to Sources & evidence (2026-10-31)
+        self.assertIn('no spend, impressions or reach', ref)
+        # Creative review (founder brief, 2026-10-31): distinct reviewed creatives, percentages from counts, three subsections.
+        cr = d['creatives']['creatives']
+        heads = [x for x in cr if not x['same_as']]
+        self.assertEqual(len(cr), 175)
+        self.assertEqual({p: len(paid.sample(d, p)) for p in self.c.order}, {'venn': 12, 'float': 5, 'ramp': 35, 'loop': 14, 'keep': 0, 'airwallex': 21})
+        self.assertEqual(len(heads), 87)
+        self.assertEqual(re.findall(r'<h3><span class="soc-n">\d</span>([^<]+)</h3>', tab), ['Creative mix by brand', 'Audience and buying stage', 'Selected creative examples'])
+        self.assertIn('Percentages show the share of reviewed creatives, not ad spend or performance.', tab)
+        self.assertIn('Personas and buying stages are inferred from the creative, not confirmed campaign targeting.', tab)
+        self.assertIn('Product-focused <b>79% &middot; 11 of 14 creatives</b>', tab)    # Loop focus, computed from counts
+        self.assertIn('Keep: no active ads in Canada found in the snapshot', tab)
+        self.assertEqual(len(re.findall(r'<article class="pd-ex', tab)), 8)
+        self.assertEqual(tab.count('<details class="pd-more">'), 1)
+        self.assertNotIn('Keep</b>', tab)                                       # no percentages for a brand with no creatives
+        for dim in ('focus', 'format', 'stage'):
+            for p in ('venn', 'float', 'ramp', 'loop', 'airwallex'):
+                self.assertEqual(sum(paid.counts(paid.sample(d, p), dim).values()), len(paid.sample(d, p)))
+        self.assertEqual(validate.check_paid_creatives(self.c, body), [])
         self.assertNotRegex(tab, r'(?i)\bperform(s|ed)? (best|better)|winning ad|engagement rate')
         self.assertEqual(sum(1 for r in d['records'] if r['days_running'] <= 30), 102)
         self.assertEqual(sum(1 for r in d['records'] if r['platform'] == 'ramp' and 'lp2/industry/nonprofits' in r['landing']), 12)
@@ -300,7 +319,7 @@ class KitTests(unittest.TestCase):
         self.assertIn('<a class="bs-srclink" href="#bs-sources" id="bs-srclink">Sources &amp; evidence</a>', body)
         self.assertIn('data-bs-back', ref)
         for v in (ov, so, pa, msg, cmp_, jr, ls):
-            self.assertNotRegex(v, r'\bO-[A-Z]{3}-\d\d\b|id="ev-|What the sources say|<details')
+            self.assertNotRegex(v, r'\bO-[A-Z]{3}-\d\d\b|id="ev-|What the sources say|<details(?! class="pd-more")')
 
     def test_ramp_uncaptured_terms_omitted(self):
         self.assertEqual(self.c.obs['O-RMP-02']['status'], 'not_checked')

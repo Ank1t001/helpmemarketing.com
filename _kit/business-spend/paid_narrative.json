@@ -1,126 +1,292 @@
 {
- "view": {
-  "title": "Paid Social Strategy",
-  "dek": "How each brand advertises on Meta (Facebook, Instagram and partner apps) in Canada, from the ads running on 30 October 2026.",
-  "scope": "Meta Ad Library, Canada, active ads only. A one-day snapshot, collected 30 October 2026 at 5:28 p.m. Toronto time.",
-  "limits": "For these ads in Canada the library shows no spend, impressions or reach, so this describes what each brand runs, not how well it performs. Ad text was read in full; videos and images were not reviewed frame by frame."
- },
- "messages": [
-  {
-   "pid": "venn",
-   "message": "Switch from a big bank to a faster, cheaper business account",
-   "offers": "2% interest; 1% cashback described as “unlimited” and “no caps, no minimums”; 0.25% FX against “3%+ at the Big Banks”; 15,000+ businesses",
-   "conditions": "No terms or conditions in the text of any of the 20 ads"
+  "view": {
+    "title": "Paid Social Strategy",
+    "dek": "A look at the creative approaches brands use in their Meta ads, who they speak to and how they encourage action.",
+    "scope": "Meta Ad Library, Canada, active ads only. A one-day snapshot, collected 30 October 2026 at 5:28 p.m. Toronto time.",
+    "limits": "For these ads in Canada the library shows no spend, impressions or reach, so this describes what each brand runs, not how well it performs. Ad text was read in full; videos and images were not reviewed frame by frame."
   },
-  {
-   "pid": "float",
-   "message": "Less finance busywork, with cards, bills and expenses in one platform",
-   "offers": "“Up to 3.75% interest”; “Best Canadian Corporate Cards”; a comparison with American Express",
-   "conditions": "No terms or conditions in the text of any of the 11 ads"
-  },
-  {
-   "pid": "ramp",
-   "message": "Control spending and automate finance work, told industry by industry",
-   "offers": "1% cash back “now available in Canada”; no FX fees on CAD and USD; 70,000+ customers; a $60 billion valuation",
-   "conditions": "Ads for the Canadian card add “Terms and conditions apply” and a Peoples Trust card disclosure; 8 of 47 carry US bank disclosures instead"
-  },
-  {
-   "pid": "loop",
-   "message": "Banking for Canadian businesses that buy and sell across borders",
-   "offers": "0% FX on card spend from four currencies; $0 wire fees; “Save $40K+/year”; a worked example of a 3% bank margin",
-   "conditions": "One ad names its source (Bank of Canada research) for bank margins; the $40K figure shows no basis in the ad"
-  },
-  {
-   "pid": "keep",
-   "message": "No active ads in Canada when collected",
-   "offers": "None",
-   "conditions": "None"
-  },
-  {
-   "pid": "airwallex",
-   "message": "Pay, hold and spend money across countries",
-   "offers": "Pay in 60+ currencies; 0% FX fees; cards for 60+ markets; 675,000+ businesses",
-   "conditions": "No terms or conditions in the text of any of the 24 ads"
+  "messages": [
+    {
+      "pid": "venn",
+      "message": "Switch from a big bank to a faster, cheaper business account",
+      "offers": "2% interest; 1% cashback described as “unlimited” and “no caps, no minimums”; 0.25% FX against “3%+ at the Big Banks”; 15,000+ businesses",
+      "conditions": "No terms or conditions in the text of any of the 20 ads"
+    },
+    {
+      "pid": "float",
+      "message": "Less finance busywork, with cards, bills and expenses in one platform",
+      "offers": "“Up to 3.75% interest”; “Best Canadian Corporate Cards”; a comparison with American Express",
+      "conditions": "No terms or conditions in the text of any of the 11 ads"
+    },
+    {
+      "pid": "ramp",
+      "message": "Control spending and automate finance work, told industry by industry",
+      "offers": "1% cash back “now available in Canada”; no FX fees on CAD and USD; 70,000+ customers; a $60 billion valuation",
+      "conditions": "Ads for the Canadian card add “Terms and conditions apply” and a Peoples Trust card disclosure; 8 of 47 carry US bank disclosures instead"
+    },
+    {
+      "pid": "loop",
+      "message": "Banking for Canadian businesses that buy and sell across borders",
+      "offers": "0% FX on card spend from four currencies; $0 wire fees; “Save $40K+/year”; a worked example of a 3% bank margin",
+      "conditions": "One ad names its source (Bank of Canada research) for bank margins; the $40K figure shows no basis in the ad"
+    },
+    {
+      "pid": "keep",
+      "message": "No active ads in Canada when collected",
+      "offers": "None",
+      "conditions": "None"
+    },
+    {
+      "pid": "airwallex",
+      "message": "Pay, hold and spend money across countries",
+      "offers": "Pay in 60+ currencies; 0% FX fees; cards for 60+ markets; 675,000+ businesses",
+      "conditions": "No terms or conditions in the text of any of the 24 ads"
+    }
+  ],
+  "examples": [
+    {
+      "id": "P1",
+      "pid": "venn",
+      "ad": "1587543352797640",
+      "title": "A rewards claim with no cap in the ad",
+      "observed": "The ad promises “1% cashback” alongside “Zero hidden fees” and lists cards, FX and transfers. Other Venn ads in the set say “no caps, no minimums”.",
+      "reading": "The ad states the rate without the plan limit that Venn’s pricing footnote set on 23 October.",
+      "limits": "The footnote was not rechecked on 30 October, so whether the limit still applies is not established. The video was not watched."
+    },
+    {
+      "id": "P2",
+      "pid": "ramp",
+      "ad": "industry",
+      "title": "One message per industry, each with its own page",
+      "observed": "25 of Ramp’s 47 ads point to industry pages: 12 for nonprofits, 8 for healthcare and 5 for construction, each written to that reader (“Grant compliance is not a game of chance.”).",
+      "reading": "The ads and the pages they open speak to one kind of business at a time, so the first screen after the click can stay on the same problem.",
+      "limits": "The landing pages were not reviewed. Which audiences saw each ad is not shown in the library."
+    },
+    {
+      "id": "P3",
+      "pid": "loop",
+      "ad": "worked",
+      "title": "A worked example with a named source",
+      "observed": "One ad works through a payment: “On a US$50,000 payment, a 3% bank margin costs about US$1,500”, and names Bank of Canada research for the margin. Another ad says “Save $40K+/year” with no basis shown.",
+      "reading": "The worked example gives a reader something to check; the round savings figure asks them to trust it.",
+      "limits": "The cited research and the arithmetic were not checked here."
+    },
+    {
+      "id": "P4",
+      "pid": "airwallex",
+      "ad": "compare",
+      "title": "Comparison pages as the destination",
+      "observed": "One Airwallex ad sends people to an “Airwallex vs Ramp” comparison page, and one Float ad promotes an “American Express vs. Float” comparison.",
+      "reading": "Both meet a buyer who is already weighing options, at the point of comparing.",
+      "limits": "The comparison pages themselves were not reviewed for accuracy."
+    }
+  ],
+  "website_check": [
+    {
+      "pid": "ramp",
+      "ads": "“Get 1% cash back with our corporate card, now available in Canada” and “1% back on CAD and USD, no FX fees”",
+      "web": "A Canadian rewards rate was not found in the reviewed sources (23 October)."
+    },
+    {
+      "pid": "venn",
+      "ads": "1% cashback with “no caps, no minimums”",
+      "web": "The pricing footnote limited eligible card spend on Essentials and Plus (23 October)."
+    },
+    {
+      "pid": "float",
+      "ads": "“Up to 3.75% interest”",
+      "web": "Account interest of 2.5%, up to 3.5% in a promotion (23 October)."
+    },
+    {
+      "pid": "airwallex",
+      "ads": "“Trusted by over 675,000 businesses”",
+      "web": "The homepage gave 200,000 and 600,000+ businesses (23 October)."
+    }
+  ],
+  "website_check_note": "These ads are dated 30 October and the website evidence 23 October, so a difference may be a change over the week rather than a contradiction. None of them changes the findings or counts in this case study; each is listed for editorial review.",
+  "ramp_note": "The Ramp Facebook page in the library sends its ads to ramp.com, and 3 of its ads thank @tryramp for “Tony Stock” content. That is new evidence on the unresolved @tryramp question in Social Media Strategy, kept for editorial review; the Instagram analysis still treats @tryramp as unresolved.",
+  "counts_note": "The library’s count for each page and the records returned can differ: for Venn the library reported 34 active ads and 20 records came back, each record grouping one or more versions (43 versions in all). Totals here use the records returned.",
+  "suggests": [
+    {
+      "observed": "None of Venn’s, Float’s or Airwallex’s ad text mentions terms or conditions, including beside reward, interest and FX-fee claims.",
+      "reading": "An ad is often the first place a buyer meets the offer. Without the condition there, the website has to correct the impression later.",
+      "test": "Add the main condition to the ad text or the first screen the ad opens, and compare qualified sign-ups per click (see test 1 in Lessons)."
+    },
+    {
+      "observed": "25 of Ramp’s 47 ads send people to pages for one industry: nonprofits, healthcare or construction.",
+      "reading": "Matching the ad and the page to one kind of business keeps the message consistent after the click.",
+      "test": "For your largest audience, compare a matched landing page with a general one on qualified sign-ups per click, using your own analytics."
+    },
+    {
+      "observed": "102 of the 119 ads started in the 30 days before collection; one Loop ad had run since June and two Venn ads since July.",
+      "reading": "A one-day snapshot shows what runs now, not a long-term strategy. Running a long time does not prove an ad works.",
+      "test": "Repeat the collection monthly and track which messages keep running alongside your own results."
+    }
+  ],
+  "creative": {
+    "pending": "The creative review is not complete, so no creative percentages are shown yet.",
+    "share_note": "Percentages show the share of reviewed creatives, not ad spend or performance.",
+    "mix_title": "Creative mix by brand",
+    "audience_title": "Audience and buying stage",
+    "audience_note": "Personas and buying stages are inferred from the creative, not confirmed campaign targeting.",
+    "examples_title": "Selected creative examples",
+    "coverage_status": {
+      "keep": "no active ads in Canada found in the snapshot"
+    },
+    "mix_stood_out": [
+      {
+        "pid": "venn",
+        "dim": "approach",
+        "key": "competitor_comparison",
+        "text": "Venn: 7 of 12 reviewed creatives contrast Venn with banks, and 7 of 12 use a UGC-style, talk-to-camera presentation."
+      },
+      {
+        "pid": "ramp",
+        "dim": "theme",
+        "key": "sector_specific",
+        "text": "Ramp: 23 of 35 name an industry, such as nonprofits, healthcare or construction."
+      },
+      {
+        "pid": "loop",
+        "dim": "theme",
+        "key": "international_payments",
+        "text": "Loop: 13 of 14 are about international payments."
+      },
+      {
+        "pid": "airwallex",
+        "dim": "approach",
+        "key": "text_led_graphic",
+        "text": "Airwallex: 19 of 21 are text-led graphics, and all 21 are product-focused."
+      },
+      {
+        "pid": "float",
+        "dim": "theme",
+        "key": "finance_admin_automation",
+        "text": "Float: a small sample; 5 of 5 reviewed creatives are about reducing finance admin."
+      }
+    ],
+    "examples": [
+      {
+        "creative": "C100",
+        "hook": "Hey, I'm trying to open a business account?",
+        "stood_out": "A scripted phone-call skit acts out bank friction (appointments, wire fees, weeks to approve) before naming Venn's 0.25% FX fee.",
+        "image": {
+          "src": "/assets/index/business-spend/paid/c100.webp",
+          "width": 360,
+          "height": 640,
+          "alt": "Video still from a Venn ad: a man on a phone call on a sofa, with the caption 'It's only 0.25%, though, with Venn.'",
+          "caption": "Still from the video ad, Meta Ad Library, Canada, collected 30 October 2026.",
+          "sha256": "480afd4e5af65bf733e353b60566cd34d06f6414c81519b07ddc69c65f856b67",
+          "from": "C100, C100_2.jpg"
+        }
+      },
+      {
+        "creative": "C023",
+        "hook": "Many people don't realize",
+        "stood_out": "A named customer, the chief executive of Zero Foodprint, speaks to camera; the video ends on 'Ramp for nonprofits'.",
+        "image": {
+          "src": "/assets/index/business-spend/paid/c023.webp",
+          "width": 360,
+          "height": 640,
+          "alt": "Video still from a Ramp ad: a man speaking to camera, captioned Leo Beckerman, Zero Foodprint, Chief Executive Officer.",
+          "caption": "Still from the video ad, Meta Ad Library, Canada, collected 30 October 2026.",
+          "sha256": "ee71e62f9e85cb5f54e1fe8c49918dfe1884e0e1d0cefa794df1061373d75001",
+          "from": "C023, C023_0.jpg"
+        }
+      },
+      {
+        "creative": "C097",
+        "hook": "Settling for $25,000 locked up? How about a $0 minimum.",
+        "stood_out": "The headline takes on one switching barrier, a minimum balance, rather than listing features.",
+        "image": {
+          "src": "/assets/index/business-spend/paid/c097.webp",
+          "width": 540,
+          "height": 540,
+          "alt": "Airwallex image ad with the headline 'Settling for $25,000 locked up? How about a $0 minimum.'",
+          "caption": "The image ad as it ran, Meta Ad Library, Canada, collected 30 October 2026.",
+          "sha256": "8b2ac0b9d68cc06b42c79f1534b02504cc59d687cbb7010d20e67c5851f12e89",
+          "from": "C097, 4271752406449849_card2_image.jpg"
+        }
+      },
+      {
+        "creative": "C011",
+        "hook": "RAMP HITS $60 BILLION VALUATION",
+        "stood_out": "A television news clip of the co-founder is reused as a paid ad: the message is the company's scale, with no product benefit.",
+        "image": {
+          "src": "/assets/index/business-spend/paid/c011.webp",
+          "width": 360,
+          "height": 640,
+          "alt": "Video still from a Ramp ad: a man in a television news interview with the banner 'Ramp hits $60 billion valuation'.",
+          "caption": "Still from the video ad, Meta Ad Library, Canada, collected 30 October 2026.",
+          "sha256": "516a1c6750e421e51e0a0db9fcb677a891de8a34c824ca4ff048c589c26b5e75",
+          "from": "C011, C011_0.jpg"
+        }
+      },
+      {
+        "creative": "C160",
+        "hook": "The fee isn't on your statement. It's in the rate.",
+        "stood_out": "Motion graphics set a typical bank rate beside Loop's rate, so the fee argument is shown as numbers.",
+        "image": {
+          "src": "/assets/index/business-spend/paid/c160.webp",
+          "width": 360,
+          "height": 640,
+          "alt": "Video still from a Loop ad: a typical bank rate of 0.6819 shown above a Loop rate of 0.7011.",
+          "caption": "Still from the video ad, Meta Ad Library, Canada, collected 30 October 2026.",
+          "sha256": "f847fea113432c9b8228d11744698057cc8e558d7207dfccfc6974417b62dc70",
+          "from": "C160, C160_3.jpg"
+        }
+      },
+      {
+        "creative": "C032",
+        "hook": "Finance Couple At the New York Stock Exachange",
+        "stood_out": "A creator skit that Meta lists as a paid partnership; Ramp appears as the event host rather than through its product.",
+        "image": {
+          "src": "/assets/index/business-spend/paid/c032.webp",
+          "width": 360,
+          "height": 640,
+          "alt": "Video still from a Ramp partnership ad: a crowd on the New York Stock Exchange floor.",
+          "caption": "Still from the video ad, Meta Ad Library, Canada, collected 30 October 2026.",
+          "sha256": "e66dfd3507e3dad4dd0d00cb9816da924cf60e973b61a753bc0b63666b6462d3",
+          "from": "C032, C032_0.jpg"
+        }
+      },
+      {
+        "creative": "C110",
+        "hook": "Does it sync with QuickBooks?",
+        "stood_out": "Comment-reply cards answer common objections one by one: accounting sync, earning on balances, branches and support.",
+        "image": {
+          "src": "/assets/index/business-spend/paid/c110.webp",
+          "width": 360,
+          "height": 640,
+          "alt": "Video still from a Venn ad: a man holding a phone, with a comment card asking 'Does it sync with QuickBooks?'; the commenter's name is blurred.",
+          "caption": "Still from the video ad, Meta Ad Library, Canada, collected 30 October 2026. The commenter’s name and photo are blurred.",
+          "sha256": "88f31968b6d7cd17d050705e75e710b84da4002638a6d82813b2ee75f7a81450",
+          "from": "C110, C110_1.jpg"
+        }
+      },
+      {
+        "creative": "C068",
+        "hook": "See why 10,000+ Canadian businesses trust Float",
+        "stood_out": "A customer-count headline is paired with a short checklist of product benefits.",
+        "image": {
+          "src": "/assets/index/business-spend/paid/c068.webp",
+          "width": 540,
+          "height": 960,
+          "alt": "Float image ad with the headline 'See why 10,000+ Canadian businesses trust Float' and a list of benefits.",
+          "caption": "The image ad as it ran, Meta Ad Library, Canada, collected 30 October 2026.",
+          "sha256": "a38745861de586765631ad9e19c981ec2fe992a7fc96867e71e9c1e25c347d34",
+          "from": "C068, 1103450262612320_card0_image.jpg"
+        }
+      }
+    ],
+    "method": [
+      "Snapshot: the Meta Ad Library, Canada, active ads, collected 30 October 2026 at 5:28 p.m. Toronto time (119 ad records). The creative files were read from the same collection on 31 October 2026; no ads were added or swapped.",
+      "Every image was inspected. Every video was reviewed as frames sampled evenly across its whole length (8 to 24 frames), with on-screen captions read; audio was not heard, so spoken words count only where they appear on screen.",
+      "Dynamic ads list several alternative creatives; each was reviewed as its own asset. No ad in the snapshot was a carousel.",
+      "Unit of analysis: a distinct creative execution within a brand. The 119 ads held 288 media slots and 196 distinct files; byte-identical files count once, and near-identical files (matching image or middle frame, same brand, type and length within 1.5 seconds) count once, leaving 175 assets. A resize, crop or re-cut with the same hook, message and visual story counts once (88 such links), leaving 87 distinct creatives; a different hook, message, visual story or format counts as a new creative.",
+      "Percentage = creatives in the category divided by the brand's distinct creatives, times 100, rounded to a whole number. Bar widths use the unrounded values. Focus, format and buying stage have one label each and add up to 100% before rounding. Creative approach, theme and persona can have several labels, so they are not forced to 100%.",
+      "Labels describe what the creative shows and says. Personas and buying stages are inferred from the content, not from Meta targeting, objectives or results; the library shows no spend, impressions or reach for these ads.",
+      "Ad record counts, Meta's displayed library counts, exact file variants and distinct creatives are different numbers; this section counts distinct creatives only."
+    ]
   }
- ],
- "examples": [
-  {
-   "id": "P1",
-   "pid": "venn",
-   "ad": "1587543352797640",
-   "title": "A rewards claim with no cap in the ad",
-   "observed": "The ad promises “1% cashback” alongside “Zero hidden fees” and lists cards, FX and transfers. Other Venn ads in the set say “no caps, no minimums”.",
-   "reading": "The ad states the rate without the plan limit that Venn’s pricing footnote set on 23 October.",
-   "limits": "The footnote was not rechecked on 30 October, so whether the limit still applies is not established. The video was not watched."
-  },
-  {
-   "id": "P2",
-   "pid": "ramp",
-   "ad": "industry",
-   "title": "One message per industry, each with its own page",
-   "observed": "25 of Ramp’s 47 ads point to industry pages: 12 for nonprofits, 8 for healthcare and 5 for construction, each written to that reader (“Grant compliance is not a game of chance.”).",
-   "reading": "The ads and the pages they open speak to one kind of business at a time, so the first screen after the click can stay on the same problem.",
-   "limits": "The landing pages were not reviewed. Which audiences saw each ad is not shown in the library."
-  },
-  {
-   "id": "P3",
-   "pid": "loop",
-   "ad": "worked",
-   "title": "A worked example with a named source",
-   "observed": "One ad works through a payment: “On a US$50,000 payment, a 3% bank margin costs about US$1,500”, and names Bank of Canada research for the margin. Another ad says “Save $40K+/year” with no basis shown.",
-   "reading": "The worked example gives a reader something to check; the round savings figure asks them to trust it.",
-   "limits": "The cited research and the arithmetic were not checked here."
-  },
-  {
-   "id": "P4",
-   "pid": "airwallex",
-   "ad": "compare",
-   "title": "Comparison pages as the destination",
-   "observed": "One Airwallex ad sends people to an “Airwallex vs Ramp” comparison page, and one Float ad promotes an “American Express vs. Float” comparison.",
-   "reading": "Both meet a buyer who is already weighing options, at the point of comparing.",
-   "limits": "The comparison pages themselves were not reviewed for accuracy."
-  }
- ],
- "website_check": [
-  {
-   "pid": "ramp",
-   "ads": "“Get 1% cash back with our corporate card, now available in Canada” and “1% back on CAD and USD, no FX fees”",
-   "web": "A Canadian rewards rate was not found in the reviewed sources (23 October)."
-  },
-  {
-   "pid": "venn",
-   "ads": "1% cashback with “no caps, no minimums”",
-   "web": "The pricing footnote limited eligible card spend on Essentials and Plus (23 October)."
-  },
-  {
-   "pid": "float",
-   "ads": "“Up to 3.75% interest”",
-   "web": "Account interest of 2.5%, up to 3.5% in a promotion (23 October)."
-  },
-  {
-   "pid": "airwallex",
-   "ads": "“Trusted by over 675,000 businesses”",
-   "web": "The homepage gave 200,000 and 600,000+ businesses (23 October)."
-  }
- ],
- "website_check_note": "These ads are dated 30 October and the website evidence 23 October, so a difference may be a change over the week rather than a contradiction. None of them changes the findings or counts in this case study; each is listed for editorial review.",
- "ramp_note": "The Ramp Facebook page in the library sends its ads to ramp.com, and 3 of its ads thank @tryramp for “Tony Stock” content. That is new evidence on the unresolved @tryramp question in Social Media Strategy, kept for editorial review; the Instagram analysis still treats @tryramp as unresolved.",
- "counts_note": "The library’s count for each page and the records returned can differ: for Venn the library reported 34 active ads and 20 records came back, each record grouping one or more versions (43 versions in all). Totals here use the records returned.",
- "suggests": [
-  {
-   "observed": "None of Venn’s, Float’s or Airwallex’s ad text mentions terms or conditions, including beside reward, interest and FX-fee claims.",
-   "reading": "An ad is often the first place a buyer meets the offer. Without the condition there, the website has to correct the impression later.",
-   "test": "Add the main condition to the ad text or the first screen the ad opens, and compare qualified sign-ups per click (see test 1 in Lessons)."
-  },
-  {
-   "observed": "25 of Ramp’s 47 ads send people to pages for one industry: nonprofits, healthcare or construction.",
-   "reading": "Matching the ad and the page to one kind of business keeps the message consistent after the click.",
-   "test": "For your largest audience, compare a matched landing page with a general one on qualified sign-ups per click, using your own analytics."
-  },
-  {
-   "observed": "102 of the 119 ads started in the 30 days before collection; one Loop ad had run since June and two Venn ads since July.",
-   "reading": "A one-day snapshot shows what runs now, not a long-term strategy. Running a long time does not prove an ad works.",
-   "test": "Repeat the collection monthly and track which messages keep running alongside your own results."
-  }
- ]
 }

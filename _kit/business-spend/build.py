@@ -425,7 +425,7 @@ def sources_view(c, views, start, end, draft):
     if c.social:
         sec('bs-ref-social', 'Social accounts, posts, classifications and engagement', social.strategy_reference_html(c) + social.reference_html(c) + (social.analysis_reference_html(c.social) if c.social.get('analysis') else ''))
     if c.paid:
-        sec('bs-ref-paid', 'Paid ads: collection and records', paid.reference_html(c.paid, c.order, long_date, toronto_time))
+        sec('bs-ref-paid', 'Paid ads: collection, creative review and records', paid.creative_reference_html(c.paid, c.order) + paid.reference_html(c.paid, c.order, long_date, toronto_time) + '<div id="bs-paid-adtext"><h4 class="t">Ad-text reading, 30 October 2026</h4>' + paid.legacy_html(c.paid, c.order, long_date) + '</div>')
     # 4. Customer-journey evidence
     jn = n['journeys']
     jlabels = [('start', 'Starting page and button'), ('dest', 'Destination'), ('asks', 'Fields asked for'), ('elig', 'Eligibility shown'),
