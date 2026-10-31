@@ -1310,7 +1310,7 @@
     "id": "T3",
     "title": "Explain the next step before the form",
     "finding": "F3",
-    "observation": "Loop's sign-up lists the two steps ahead and what they need. Ramp's eligibility rules sit on its cards page rather than its sign-up screen. The Venn, Float and Airwallex first screens asked for contact or account details without saying what follows, and Keep's route was closed.",
+    "observation": "Loop's sign-up lists the two steps ahead and what they need. Ramp's eligibility rules sit on its cards page rather than its sign-up screen. The Venn, Float and Airwallex first screens asked for contact or account details without saying what follows, and Keep's route was closed. Help pages read on 31 October explain more of this (Ramp’s Canadian steps, Loop’s separate card application, Venn’s and Airwallex’s review estimates), but those are help pages, not the first screen.",
     "evidence": [
      "O-LOP-15",
      "O-RMP-04",
@@ -1322,12 +1322,12 @@
     "question": "Do I qualify, and what happens after I give my details?",
     "reading": "At most first screens the answer to either question was on another page or not stated before the next step.",
     "hypothesis": "A short \"Before you start\" list above the first field will raise the share of form starts that become qualified applications, without reducing the number of qualified applications.",
-    "change": "Add a short \"Before you start\" list above the first form field: who can apply, what you need, which provinces are served, and what happens after submitting.",
+    "change": "Add a short \"Before you start\" list above the first form field: who can apply, what you need, which provinces are served, how long review usually takes and what happens after submitting, including whether the card needs a separate application.",
     "comparable": "The form fields, verification steps, traffic sources and the definition of a qualified application stay the same. Split traffic at random with consistent audiences.",
     "measure": "Qualified applications per visitor and per form start, and total qualified applications. Report clicks, form starts, submissions and qualified applications as separate numbers. A higher qualification rate alone is not enough: if total qualified applications fall, the list is turning away businesses that would have qualified.",
     "guardrail": "Eligible visitors who start the form, and total qualified applications.",
     "limitation": "Inconclusive if eligibility rules change during the test or most traffic is already qualified. Never remove necessary identity or eligibility checks.",
-    "change_short": "State who can apply, what they need and what happens after submitting.",
+    "change_short": "State who can apply, what they need, how long review takes and what happens after submitting.",
     "measure_short": "Qualified applications per visitor and per form start. Track total qualified applications too."
    }
   ],
@@ -1504,11 +1504,45 @@
       ]
      ]
     ],
-    "cmp": {
-     "first": "Account creation",
-     "info": "Google or Microsoft sign-in, or email and password",
-     "next": "Not described; the heading says “Get started in 5 minutes”",
-     "stood": "Shows a time estimate and “No personal credit check or guarantee” before any field, but not the later steps."
+    "guide": {
+     "entry": [
+      [
+       "first_screen",
+       "Direct account creation with Google, Microsoft or email; the first screen did not list later steps.",
+       [
+        "O-VEN-18"
+       ]
+      ]
+     ],
+     "prepare": [
+      [
+       "help",
+       "Everyone added at sign-up completes a selfie and government ID check; Venn may email single applicants for more business details.",
+       [
+        "J-VEN-2"
+       ]
+      ]
+     ],
+     "review": [
+      [
+       "help",
+       "Venn estimates under 10 minutes to sign up, then asks applicants to allow up to 24 hours for checks and verification.",
+       [
+        "J-VEN-1",
+        "J-VEN-2"
+       ]
+      ]
+     ],
+     "start": [
+      [
+       "help",
+       "Link an external bank account to add CAD by pre-authorized debit; activate a physical card with its CVV.",
+       [
+        "J-VEN-3",
+        "J-VEN-4"
+       ]
+      ]
+     ]
     }
    },
    "float": {
@@ -1526,11 +1560,57 @@
     "asks_short": "Eight required questions, plus other fields",
     "tells": "Does not explain what happens after the request.",
     "restrictions": [],
-    "cmp": {
-     "first": "Demo request",
-     "info": "Eight required questions plus other fields",
-     "next": "Not explained; the line above the button covers consent to be contacted",
-     "stood": "Asks the most of the six before the first step, and the follow-up process is not explained there."
+    "guide": {
+     "entry": [
+      [
+       "first_screen",
+       "Demo request form (23 October).",
+       [
+        "O-FLT-16"
+       ]
+      ],
+      [
+       "faq",
+       "Pages also offer “Use Float for free” with an email field; where it leads was not inspected.",
+       [
+        "J-FLT-4"
+       ]
+      ]
+     ],
+     "prepare": [
+      [
+       "first_screen",
+       "The demo form asks eight required questions.",
+       [
+        "O-FLT-16"
+       ]
+      ],
+      [
+       "none",
+       "Verification documents not confirmed in this review.",
+       [
+        "J-FLT-2"
+       ]
+      ]
+     ],
+     "review": [
+      [
+       "faq",
+       "Float says opening an account takes about 15 minutes online; verification time not confirmed.",
+       [
+        "J-FLT-5"
+       ]
+      ]
+     ],
+     "start": [
+      [
+       "none",
+       "Setup and first-use steps not confirmed in this review.",
+       [
+        "J-FLT-3"
+       ]
+      ]
+     ]
     }
    },
    "ramp": {
@@ -1557,11 +1637,43 @@
       ]
      ]
     ],
-    "cmp": {
-     "first": "Email-led card application",
-     "info": "Email",
-     "next": "Not listed",
-     "stood": "A short first screen; the eligibility rules sit on the card page, not here."
+    "guide": {
+     "entry": [
+      [
+       "first_screen",
+       "Card application starting with a business email; later steps were not listed on the reviewed first screen.",
+       [
+        "O-RMP-15"
+       ]
+      ]
+     ],
+     "prepare": [
+      [
+       "help",
+       "Canadian guide: business details and Business Number, key individuals, a connected Canadian bank account and business documents.",
+       [
+        "J-RMP-1"
+       ]
+      ]
+     ],
+     "review": [
+      [
+       "help",
+       "Ramp says the form takes about 5 minutes; review estimates on the guide range from a few business days to about a week after all documents.",
+       [
+        "J-RMP-1"
+       ]
+      ]
+     ],
+     "start": [
+      [
+       "help",
+       "After approval, an email explains how to finish setup, such as issuing cards and inviting employees.",
+       [
+        "J-RMP-1"
+       ]
+      ]
+     ]
     }
    },
    "loop": {
@@ -1588,11 +1700,44 @@
       ]
      ]
     ],
-    "cmp": {
-     "first": "Account sign-up",
-     "info": "Name, legal business name, email and mobile, or Google sign-up",
-     "next": "Business information (CRA ID, structure, website), then identity (date of birth, government ID)",
-     "stood": "The only first screen reviewed that lists the steps ahead."
+    "guide": {
+     "entry": [
+      [
+       "first_screen",
+       "Account sign-up that listed the business-information and identity steps ahead.",
+       [
+        "O-LOP-15"
+       ]
+      ]
+     ],
+     "prepare": [
+      [
+       "help",
+       "Registration details, an ID check for each owner, director and signing officer, and supporting documents uploaded while waiting.",
+       [
+        "J-LOP-1"
+       ]
+      ]
+     ],
+     "review": [
+      [
+       "help",
+       "Loop aims to review applications within 2 business days and says busy periods may add delays.",
+       [
+        "J-LOP-1"
+       ]
+      ]
+     ],
+     "start": [
+      [
+       "help",
+       "Account approval does not include the card: connect a business bank account, then a separate card application appears.",
+       [
+        "J-LOP-1",
+        "J-LOP-2"
+       ]
+      ]
+     ]
     }
    },
    "keep": {
@@ -1618,11 +1763,44 @@
       ]
      ]
     ],
-    "cmp": {
-     "first": "Closed application route",
-     "info": "None offered",
-     "next": "A message that new applications are closed; log-in for existing customers",
-     "stood": "Start buttons on the homepage, card page and pricing all led to this closed route."
+    "guide": {
+     "entry": [
+      [
+       "first_screen",
+       "The self-serve route led to a closed-applications page on 23 October and again on 31 October.",
+       [
+        "O-KEP-05",
+        "J-KEP-1"
+       ]
+      ]
+     ],
+     "prepare": [
+      [
+       "faq",
+       "The FAQ lists registration details, 6 months of revenue proof, ID and 6 months of bank transactions.",
+       [
+        "J-KEP-2"
+       ]
+      ]
+     ],
+     "review": [
+      [
+       "faq",
+       "The FAQ says the application takes 10 minutes and can be approved within 3 business days.",
+       [
+        "J-KEP-2"
+       ]
+      ]
+     ],
+     "start": [
+      [
+       "help",
+       "For existing cardholders: virtual cards activate automatically; physical cards need a PIN and a first in-store purchase.",
+       [
+        "J-KEP-3"
+       ]
+      ]
+     ]
     }
    },
    "airwallex": {
@@ -1649,11 +1827,50 @@
       ]
      ]
     ],
-    "cmp": {
-     "first": "Business-email sign-up",
-     "info": "Business email",
-     "next": "Not listed; continuing agrees to marketing communications",
-     "stood": "A short first screen, with later steps not listed."
+    "guide": {
+     "entry": [
+      [
+       "first_screen",
+       "Account sign-up starting with a business email; later steps were not listed.",
+       [
+        "O-AWX-14"
+       ]
+      ]
+     ],
+     "prepare": [
+      [
+       "help",
+       "A Canada article lists incorporation documents, ownership details and photo ID for the applicant and 25% owners.",
+       [
+        "J-AWX-1"
+       ]
+      ]
+     ],
+     "review": [
+      [
+       "help",
+       "A global article estimates 1 to 3 business days after all required information, varying with complexity.",
+       [
+        "J-AWX-2"
+       ]
+      ]
+     ],
+     "start": [
+      [
+       "help",
+       "A global article explains activating a physical card with its CVV.",
+       [
+        "J-AWX-3"
+       ]
+      ],
+      [
+       "none",
+       "Canadian funding steps not confirmed in this review.",
+       [
+        "J-AWX-4"
+       ]
+      ]
+     ]
     }
    }
   },
@@ -1723,99 +1940,85 @@
  },
  "journey": {
   "gaps": [
+   "Float’s help-centre guidance on verification, waiting and setup: the help centre returned an access check to this review on 31 October 2026, so a pasted copy or screenshots from a normal browser would be needed.",
+   "Where Float’s “Use Float for free” email field leads, without submitting an address.",
+   "Airwallex guidance specific to Canada on review timing, funding and card activation (the articles found are global).",
+   "Ramp’s first-use steps after the approval email, and whether its Canadian eligibility (a Canadian-registered business and CA$25,000 in connected accounts) has replaced the 23 October card-page wording.",
    "Ramp’s Canadian card model and repayment terms (the Canada Card Supplement was not captured).",
-   "What each provider asks for during verification, from its own help or onboarding pages, without creating an account.",
-   "How each card is activated and funded before a first transaction, from public help pages.",
-   "What happens after Float’s demo request and after Airwallex’s and Ramp’s email step, where a public page explains it."
+   "Whether Keep’s self-serve route reopens; it was closed on 23 and 31 October 2026.",
+   "Loop’s first card steps after the separate card application."
   ],
-  "map_title": "The journey",
-  "map_note": "This is a comparison framework. Different products may follow different routes.",
-  "coverage_labels": {
-   "all": "Compared for all six",
-   "partly": "Partly",
-   "not_reviewed": "Not reviewed"
-  },
-  "map": [
+  "overview_title": "Journey overview",
+  "stages": [
    {
     "key": "start",
     "name": "Start",
-    "question": "Does the customer apply, create an account or request a demo?",
-    "coverage": "all",
-    "note": "First screens observed on 23 October 2026.",
-    "ids": []
+    "text": "Choose a sign-up, application or demo route.",
+    "icon": "route"
    },
    {
     "key": "details",
     "name": "Provide details",
-    "question": "What information is requested first?",
-    "coverage": "all",
-    "note": "First screens observed on 23 October 2026.",
-    "ids": []
+    "text": "Enter business information and prepare required documents.",
+    "icon": "doc"
    },
    {
-    "key": "verify",
-    "name": "Get verified",
-    "question": "Are documents, eligibility and approval steps explained?",
-    "coverage": "partly",
-    "note": "Loop’s first screen lists the identity steps ahead, and Ramp’s card page lists eligibility. Documents and approval were not reviewed.",
-    "ids": [
-     "O-LOP-15",
-     "O-RMP-04"
-    ]
+    "key": "decision",
+    "name": "Verification and decision",
+    "text": "Understand the review, possible follow-up and expected timing.",
+    "icon": "shield"
    },
    {
-    "key": "activate",
-    "name": "Get started",
-    "question": "Does the provider explain funding, card activation or the first transaction?",
-    "coverage": "not_reviewed",
-    "note": "Public onboarding guidance was not assessed in this edition.",
-    "ids": []
-   },
-   {
-    "key": "continue",
-    "name": "Continue using",
-    "question": "What onboarding guidance or support is described?",
-    "coverage": "not_reviewed",
-    "note": "Public onboarding guidance was not assessed in this edition.",
-    "ids": []
+    "key": "first_use",
+    "name": "First use",
+    "text": "Follow the steps to fund an account, activate a card or make a first transaction, where applicable.",
+    "icon": "card"
    }
   ],
-  "table_title": "First steps compared",
-  "table_note": "What each brand’s main start button led to on 23 October 2026, followed to the first screen only: no form was submitted and no account was created. These describe the dated routes reviewed, not every route a brand offers. Fewer initial fields do not establish a shorter total application, and first screens do not show how many people finish one.",
-  "table_columns": [
+  "overview_note": "Routes vary by product. Account approval and card approval may be separate.",
+  "compare_title": "How the brands compare",
+  "compare_note": "First-screen findings were observed directly on 23 October 2026 (Keep’s route rechecked on 31 October). Help-centre and website FAQ steps, read on 31 October 2026, are provider descriptions, not completed applications. Provider time estimates are not guarantees, and a step not confirmed here is not evidence that the provider lacks it.",
+  "labels": {
+   "first_screen": "First screen",
+   "help": "Help centre",
+   "faq": "Website FAQ",
+   "none": "Not confirmed"
+  },
+  "compare_columns": [
    [
-    "first",
-    "First step"
+    "entry",
+    "Entry routes"
    ],
    [
-    "info",
-    "Information requested"
+    "prepare",
+    "What to prepare"
    ],
    [
-    "next",
-    "What happens next"
+    "review",
+    "Review and waiting"
    ],
    [
-    "stood",
-    "What stood out"
+    "start",
+    "Getting started"
    ]
   ],
-  "examples_title": "First screens in practice",
-  "examples_note": "Fresh captures from 31 October 2026, cropped; the wording matches the 23 October first screens. Click a screenshot to enlarge it.",
+  "examples_title": "Journey examples",
+  "examples_note": "Crops of public help pages captured on 31 October 2026. Click a screenshot to enlarge it.",
   "examples": [
    {
-    "capture": "J1",
-    "label": "Setting expectations",
-    "alt": "Venn sign-up screen: heading ‘Get started in 5 minutes’, the line ‘No personal credit check or guarantee.’, Google and Microsoft buttons, email, password and confirm password fields and a Create account button.",
-    "observation": "Before any field, the screen sets two expectations: a time estimate and no personal credit check. It does not say what follows account creation."
+    "capture": "H1",
+    "label": "Guidance while waiting",
+    "alt": "Venn help article: if more than 24 hours have passed since sign-up, excluding weekends and public holidays, check email for a message from the onboarding team, make sure all added applicants have completed selfie and government ID verification, and allow up to 24 hours for a reply to be reviewed.",
+    "stood_out": "Tells applicants what to check if approval takes longer than 24 hours, including whether everyone added has finished ID verification."
    },
    {
-    "capture": "J2",
-    "label": "Explaining the next action",
-    "alt": "Float Book a Demo form: eight fields marked required, product interest checkboxes, an optional referral code, a menu asking where the visitor heard of Float, a consent line and a Book a Demo button.",
-    "observation": "Eight required fields come first, and the only wording above the button is consent to be contacted. Nothing on the screen says what happens after a demo is requested."
+    "capture": "H2",
+    "label": "Account approval versus card approval",
+    "alt": "Loop help answer: completing onboarding gives access to core banking features; the credit card is a separate product with its own application process; after approval, connect a bank account under Settings, Bank Account, and a card application form appears on the home screen.",
+    "stood_out": "Separates opening the account from applying for the credit card, and names the step that leads to the card application."
    }
-  ]
+  ],
+  "example_swap": "Float’s waiting-period article was the planned first example, but Float’s help centre returned an access check to this review, so Venn’s published waiting guidance is shown instead."
  },
  "messaging_support": {
   "checks": [

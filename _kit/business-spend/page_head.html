@@ -283,17 +283,26 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi #bs-compare .tw.cards tr{padding:14px;gap:10px 14px;margin-bottom:10px}
 .msi.msi #bs-compare .tw.cards tr.bs-off{display:none}
 }
-/* Customer Journey (founder brief, 2026-10-31): numbered parts, a five-station journey map with a coverage label per stage, the first-steps table and two first-screen examples in a two-column grid. Design System note "Customer Journey first steps". */
+/* Customer Journey (founder brief, 2026-10-31, second): four numbered stage cards with line icons, one comparison whose entries carry a source label (First screen, Help centre, Website FAQ, Not confirmed), two help-page examples in a two-column grid. Design System note "Customer Journey from first click to first use". */
 .msi.msi #bs-journeys .soc-sec>h3{margin:0 0 var(--s3)}
-.msi.msi #bs-journeys .soc-lim{margin:var(--s3) 0 0;max-width:72ch;font-size:14px;line-height:1.55;color:var(--text-muted)}
+.msi.msi #bs-journeys .soc-lim{margin:var(--s4) 0 0;max-width:72ch;font-size:14px;line-height:1.55;color:var(--text-muted)}
 .msi.msi #bs-journeys .soc-sec>h3+.soc-lim{margin:0 0 var(--s4)}
-.msi.msi ol.bs-jmap li .bs-ev{align-self:flex-start;margin-top:4px}
+.msi.msi ol.bs-jstages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s4)}
+.msi.msi li.bs-jst{display:flex;flex-direction:column;gap:6px;padding:var(--s5);border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
+.msi.msi .bs-jst-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.msi.msi .bs-jst-ic{display:inline-flex;color:var(--cta-text,var(--cta))}
+.msi.msi li.bs-jst .bs-st{font-size:16px}
+.msi.msi .bs-src{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.03em;line-height:1.4;padding:1px 7px;margin-right:4px;border-radius:100px;border:1px solid var(--border-strong);color:var(--text);white-space:nowrap;vertical-align:1px}
+.msi.msi .bs-src-help,.msi.msi .bs-src-faq{border-style:dashed;color:var(--text-muted)}
+.msi.msi .bs-src-none{border-style:dotted;color:var(--text-tertiary)}
+.msi.msi .bs-jg{margin:0 0 8px;font-size:14px;line-height:1.55;color:var(--text-body,var(--text))}
+.msi.msi .bs-jg:last-child{margin-bottom:0}
 .msi.msi table.bs-jfirst td{vertical-align:top}
-@media(min-width:901px){.msi.msi table.bs-jfirst td.brandcell{width:11%}.msi.msi table.bs-jfirst td{width:22.25%}}
+@media(min-width:901px){.msi.msi table.bs-jfirst td.brandcell{width:10%}.msi.msi table.bs-jfirst td{width:22.5%}}
 .msi.msi .bs-wexs.bs-jexs{grid-template-columns:repeat(2,minmax(0,1fr))}
-.msi.msi .bs-jex figure.bs-wex-shot img{max-height:560px;width:auto;max-width:100%;margin:0 auto}
-@media(max-width:900px){.msi.msi ol.bs-jmap li .bs-ev{grid-column:2;justify-self:start}.msi.msi .bs-wexs.bs-jexs{grid-template-columns:1fr}}
-@media(max-width:720px){.msi.msi .tw.cards table.bs-jfirst td[data-label]{grid-column:1/-1}}
+.msi.msi .bs-jex .soc-tags .bs-src{margin-left:4px}
+@media(max-width:900px){.msi.msi ol.bs-jstages{grid-template-columns:repeat(2,minmax(0,1fr))}.msi.msi .bs-wexs.bs-jexs{grid-template-columns:1fr}}
+@media(max-width:720px){.msi.msi ol.bs-jstages{grid-template-columns:1fr;gap:12px}.msi.msi li.bs-jst{padding:20px}.msi.msi #bs-journeys .soc-sec+.soc-sec{margin-top:var(--s5)}.msi.msi .tw.cards table.bs-jfirst td[data-label]{grid-column:1/-1}.msi.msi .bs-src{white-space:normal}}
 /* Messaging, Application journeys and Lessons, shorter (founder brief, 2026-10-30, third): one reading table, provider evidence and first-screen evidence in expanders, tests as stacked blocks with thin dividers. */
 .msi.msi .bs-view .tblock>.bs-tnote{margin:0 0 var(--s3);max-width:72ch;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
 .msi.msi #bs-msg-table{margin-top:var(--s5)}
@@ -337,9 +346,6 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-gd{font-size:15px;line-height:1.55;color:var(--text-muted)}
 .msi.msi .bs-ov-scope .dek{margin:0}
 .msi.msi .bs-ov-dates{margin:6px 0 0;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
-.msi.msi ol.bs-stages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;position:relative}
-.msi.msi ol.bs-stages::before{content:"";position:absolute;left:14px;right:14px;top:14px;border-top:1px solid var(--border-strong)}
-.msi.msi ol.bs-stages li{position:relative;display:flex;flex-direction:column;gap:6px}
 .msi.msi .bs-sn{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--border-strong);background:var(--bg);font-size:13px;font-weight:700;color:var(--text);flex:none}
 .msi.msi .bs-st{font-size:15px;font-weight:650;line-height:1.3;color:var(--text)}
 .msi.msi .bs-sd{font-size:14px;line-height:1.5;color:var(--text-muted)}
@@ -362,10 +368,6 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-refsec .bs-tspec .ktag{margin:0 0 0 8px;vertical-align:middle}
 @media(max-width:900px){
 .msi.msi .bs-guide{grid-template-columns:repeat(2,minmax(0,1fr))}
-.msi.msi ol.bs-stages{grid-template-columns:1fr;gap:12px}
-.msi.msi ol.bs-stages::before{left:14px;right:auto;top:14px;bottom:14px;border-top:0;border-left:1px solid var(--border-strong)}
-.msi.msi ol.bs-stages li{display:grid;grid-template-columns:28px 1fr;column-gap:12px;row-gap:2px}
-.msi.msi ol.bs-stages li .bs-sn{grid-row:1/3}
 .msi.msi .bs-reftoc ol{columns:1}
 }
 @media(max-width:720px){.msi.msi .bs-guide{grid-template-columns:1fr}.msi.msi .bs-srcrow{margin-bottom:28px}}

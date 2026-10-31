@@ -1,0 +1,448 @@
+{
+ "checked_on": "2026-10-31",
+ "method": "Headless Chromium from this research environment, 1280 by 900 window, locale en-CA. Pages were read only: nothing was typed or submitted, no account was created and no demo was requested; on Float’s demo page the cookie banner was answered with Reject All and three FAQ questions were opened by clicking them. Page text and full screenshots are kept privately with their hashes.",
+ "note": "Follow-up for the Customer Journey rebuild (founder brief, 31 October 2026). These records are dated separately from the 23 October observations and change no observation, status or finding. Help-centre and website FAQ wording is the provider’s description, not a completed application.",
+ "records": [
+  {
+   "id": "J-VEN-1",
+   "pid": "venn",
+   "route": "Business account sign-up",
+   "title": "How long does it take for a new account to be approved?",
+   "url": "https://help.venn.ca/en/articles/10504568-how-long-does-it-take-for-a-new-account-to-be-approved",
+   "captured_at": "2026-10-31T16:59:47-04:00",
+   "http_status": 200,
+   "kind": "help_centre",
+   "scope": "Canada",
+   "stages": [
+    "review"
+   ],
+   "wording": "Opening an account will take less than 10 minutes. Once you have signed up, kindly allow up to 24 hours for checks and verifications to be completed.",
+   "summary": "Two separate provider estimates: under 10 minutes to sign up, then up to 24 hours for checks and verification.",
+   "uncertainty": "The sign-up screen observed on 23 October said “Get started in 5 minutes”; this article says less than 10 minutes. Both are Venn estimates, not guarantees.",
+   "used": true,
+   "text_sha256": "bae60ffa52c8af2fe8370a97a96ae43f77e073e56537e5cc4bd1dbe5048bb15a"
+  },
+  {
+   "id": "J-VEN-2",
+   "pid": "venn",
+   "route": "Business account sign-up",
+   "title": "What do I do if my account has not been approved after 24 hours?",
+   "url": "https://help.venn.ca/en/articles/10532321-what-do-i-do-if-my-account-has-not-been-approved-after-24-hours",
+   "captured_at": "2026-10-31T16:59:54-04:00",
+   "http_status": 200,
+   "kind": "help_centre",
+   "scope": "Canada",
+   "stages": [
+    "prepare",
+    "review"
+   ],
+   "wording": "If you added other applicants during sign-up, they must complete the selfie and government ID verification.",
+   "summary": "After 24 hours (excluding weekends and public holidays): check for an email from the onboarding team, which may ask single applicants for more business information, and make sure every added applicant has completed the selfie and government ID check. Venn may review an application before sending it to its banking partners for final review.",
+   "uncertainty": "No document checklist was found in the pages reviewed.",
+   "used": true,
+   "text_sha256": "934ef3b5df9b5a025b510f3b54432e48a7df31ad4ba25ec122b6d8d4b8d89cc9"
+  },
+  {
+   "id": "J-VEN-3",
+   "pid": "venn",
+   "route": "Business account",
+   "title": "How do I add or receive funds to my Venn account?",
+   "url": "https://help.venn.ca/en/articles/9236417-how-do-i-add-or-receive-funds-to-my-venn-account",
+   "captured_at": "2026-10-31T17:00:02-04:00",
+   "http_status": 200,
+   "kind": "help_centre",
+   "scope": "Canada",
+   "stages": [
+    "first_use"
+   ],
+   "wording": "Select \"Link External Bank Account\". Select your linked bank account and add funds.",
+   "summary": "Adding CAD by pre-authorized debit: Dashboards, Add money, Link External Bank Account, then add funds; an email gives the estimated arrival date. Receiving by Interac e-Transfer, EFT and wire uses account details downloaded from the dashboard.",
+   "uncertainty": "The article does not say whether funding is required before using the card.",
+   "used": true,
+   "text_sha256": "64728ddfcb5db81377af69e995cac9841656e1b4d6d3067249b25bc5c4196492"
+  },
+  {
+   "id": "J-VEN-4",
+   "pid": "venn",
+   "route": "Mastercard charge card",
+   "title": "How do I activate my physical card?",
+   "url": "https://help.venn.ca/en/articles/9236420-how-do-i-activate-my-physical-card",
+   "captured_at": "2026-10-31T17:00:09-04:00",
+   "http_status": 200,
+   "kind": "help_centre",
+   "scope": "Canada",
+   "stages": [
+    "first_use"
+   ],
+   "wording": "Enter the 3-digit CVV code on the back of the physical card",
+   "summary": "Physical card activation in Cards with the CVV; online purchases work after activation, and the first in-store purchase uses chip and PIN before contactless is enabled.",
+   "uncertainty": "",
+   "used": true,
+   "text_sha256": "49d27877579c43b9d9150a74ca6d41797f907f47803780c408c6d2bea898778e"
+  },
+  {
+   "id": "J-FLT-1",
+   "pid": "float",
+   "route": "Float account",
+   "title": "FAQ for New and Prospective Float Customers",
+   "url": "https://help.floatfinancial.com/hc/en-us/articles/37285875669268-FAQ-for-New-and-Prospective-Float-Customers",
+   "captured_at": "2026-10-31T17:00:14-04:00",
+   "http_status": 403,
+   "kind": "blocked",
+   "scope": "Not established",
+   "stages": [
+    "prepare",
+    "review",
+    "first_use"
+   ],
+   "wording": "",
+   "summary": "The help centre returned an access check (“Just a moment...”, HTTP 403) to this environment, and a separate fetch tool also received HTTP 403. The article text was not read, so nothing from it is used.",
+   "uncertainty": "Float may publish verification, waiting-period and setup guidance here; this review could not confirm it.",
+   "used": false,
+   "text_sha256": "00cf38e229584b0f28215d66b8522d5a38c39579e7a4e032dba2beae2494eaf5"
+  },
+  {
+   "id": "J-FLT-2",
+   "pid": "float",
+   "route": "Float account",
+   "title": "Steps to Verify Your Business on Float",
+   "url": "https://help.floatfinancial.com/hc/en-us/articles/40396310058772-Steps-to-Verify-Your-Business-on-Float",
+   "captured_at": "2026-10-31T17:00:20-04:00",
+   "http_status": 403,
+   "kind": "blocked",
+   "scope": "Not established",
+   "stages": [
+    "prepare",
+    "review",
+    "first_use"
+   ],
+   "wording": "",
+   "summary": "The help centre returned an access check (“Just a moment...”, HTTP 403) to this environment, and a separate fetch tool also received HTTP 403. The article text was not read, so nothing from it is used.",
+   "uncertainty": "Float may publish verification, waiting-period and setup guidance here; this review could not confirm it.",
+   "used": false,
+   "text_sha256": "6af75c2b96074ad4fce443d2c1db2e2c753a32c640cf5aa45602ec91a1f616fd"
+  },
+  {
+   "id": "J-FLT-3",
+   "pid": "float",
+   "route": "Float account",
+   "title": "While You Wait: Getting Started While KYB Is Still in Progress",
+   "url": "https://help.floatfinancial.com/hc/en-us/articles/42535423558164-While-You-Wait-Getting-Started-While-KYB-Is-Still-in-Progress",
+   "captured_at": "2026-10-31T17:00:26-04:00",
+   "http_status": 403,
+   "kind": "blocked",
+   "scope": "Not established",
+   "stages": [
+    "prepare",
+    "review",
+    "first_use"
+   ],
+   "wording": "",
+   "summary": "The help centre returned an access check (“Just a moment...”, HTTP 403) to this environment, and a separate fetch tool also received HTTP 403. The article text was not read, so nothing from it is used.",
+   "uncertainty": "Float may publish verification, waiting-period and setup guidance here; this review could not confirm it.",
+   "used": false,
+   "text_sha256": "f19d78318425146581437c14231f9578aebeba6ba73ae6137d256c24c13f17b3"
+  },
+  {
+   "id": "J-FLT-4",
+   "pid": "float",
+   "route": "Website entry points",
+   "title": "Book a Demo and homepage",
+   "url": "https://floatfinancial.com/demo",
+   "captured_at": "2026-10-31T17:07:51-04:00",
+   "http_status": 200,
+   "kind": "entry_route",
+   "scope": "Canada",
+   "stages": [
+    "entry"
+   ],
+   "wording": "Use Float for free. By submitting your email, you agree to opt in to marketing emails.",
+   "summary": "Float’s homepage and demo page offer “Use Float for free” with an email field beside “Book a Demo” and “Take a product tour”.",
+   "uncertainty": "Where the email field leads was not inspected, because that would mean submitting an email address.",
+   "used": true,
+   "text_sha256": "e7a7bc9150076e149dfc5311c5691f7f3f1bb276f6bfd249be6a814ba362bc6b"
+  },
+  {
+   "id": "J-FLT-5",
+   "pid": "float",
+   "route": "Float account",
+   "title": "Book a Demo (FAQ answers opened)",
+   "url": "https://floatfinancial.com/demo",
+   "captured_at": "2026-10-31T17:08:33-04:00",
+   "http_status": 200,
+   "kind": "website_faq",
+   "scope": "Canada",
+   "stages": [
+    "review"
+   ],
+   "wording": "Opening an account takes about 15 minutes online. ... Prepaid model offers ... account opening in < 24 hours.",
+   "summary": "On the demo page FAQ (answers opened by clicking each question; nothing submitted): opening an account takes about 15 minutes online, and the Prepaid model is described with account opening in under 24 hours.",
+   "uncertainty": "These are Float estimates on a marketing page. Business verification time is not stated there.",
+   "used": true,
+   "text_sha256": null
+  },
+  {
+   "id": "J-RMP-1",
+   "pid": "ramp",
+   "route": "Canadian corporate card application",
+   "title": "Applying for Ramp as a Canadian business",
+   "url": "https://support.ramp.com/applying-for-ramp-as-a-canadian-business",
+   "captured_at": "2026-10-31T17:00:33-04:00",
+   "http_status": 200,
+   "kind": "help_centre",
+   "scope": "Canada",
+   "stages": [
+    "entry",
+    "prepare",
+    "review",
+    "first_use"
+   ],
+   "wording": "Receive a decision. Most applications are reviewed within a few business days.",
+   "summary": "Canadian steps: enter a business email, create the account and verify the email, choose Canada, enter business details (legal name, office address, Business Number or incorporation number), add key individuals with their information, connect a Canadian bank account, upload business documents, complete extra identity verification if prompted, then receive a decision. Ramp says the application takes about 5 minutes. After approval, an email gives instructions to finish setup, such as issuing cards and inviting employees.",
+   "uncertainty": "Two review estimates on the same page: “most applications are reviewed within a few business days” and, in the FAQ, “approximately 1 week after all documents are submitted”. The guide also lists eligibility not shown in the 23 October observations: a business registered in Canada (corporation, incorporated partnership or not-for-profit), supported provinces excluding Quebec and the territories, and at least CA$25,000 in connected bank accounts; the 23 October card page listed a Canadian, US or UK-registered entity.",
+   "used": true,
+   "text_sha256": "e127bad95f5b75b0ee1dda9cea2e6b388b5e0ae968caa5cbb15aff60dac974a1"
+  },
+  {
+   "id": "J-LOP-1",
+   "pid": "loop",
+   "route": "Loop account, then Loop credit card",
+   "title": "Onboarding FAQs",
+   "url": "https://support.bankonloop.com/en/articles/15882482-onboarding-faqs",
+   "captured_at": "2026-10-31T17:00:40-04:00",
+   "http_status": 200,
+   "kind": "help_centre",
+   "scope": "Canada",
+   "stages": [
+    "prepare",
+    "review",
+    "first_use"
+   ],
+   "wording": "The credit card is a separate product with its own application process.",
+   "summary": "Roles to list (25% owners, directors, signing officers), each with an identity check; registration documents for sole proprietors and partnerships; supporting documents uploaded in the application waiting room (for example a recent bank statement, revenue proof, contracts or tax documents); a target of reviewing applications within 2 business days, with possible delays at busy times; approval opens banking features, and after connecting a bank account a separate credit card application appears.",
+   "uncertainty": "Approval of the Loop account is not approval of the credit card.",
+   "used": true,
+   "text_sha256": "34bc704aa24a63c642c4f0232c128a727dac10685c563e5a98391c999e4622af"
+  },
+  {
+   "id": "J-LOP-2",
+   "pid": "loop",
+   "route": "Loop account",
+   "title": "How to connect your external bank account to Loop",
+   "url": "https://support.bankonloop.com/en/articles/12631452-how-to-connect-your-external-bank-account-to-loop",
+   "captured_at": "2026-10-31T17:00:47-04:00",
+   "http_status": 200,
+   "kind": "help_centre",
+   "scope": "Canada",
+   "stages": [
+    "first_use"
+   ],
+   "wording": "Verification is required before you can add cards, load funds, or send payments.",
+   "summary": "Connect a business bank account in Settings, Bank Accounts, through the bank’s secure login; most verify instantly, otherwise an email explains the next step, which may take up to one business day after documents are uploaded.",
+   "uncertainty": "",
+   "used": true,
+   "text_sha256": "86056d6c8bfff2ba6f5f3c1fea80c592c21949c03c4edc95849c332a86a96ba0"
+  },
+  {
+   "id": "J-LOP-3",
+   "pid": "loop",
+   "route": "Loop account",
+   "title": "Getting Started: Loop Accounts",
+   "url": "https://support.bankonloop.com/en/articles/12558260-getting-started-loop-accounts",
+   "captured_at": "2026-10-31T17:00:54-04:00",
+   "http_status": 200,
+   "kind": "help_centre",
+   "scope": "Canada",
+   "stages": [
+    "first_use"
+   ],
+   "wording": "Currency Accounts are created automatically when you open your Loop Account.",
+   "summary": "Currency accounts in CAD, USD, EUR and GBP are created automatically; to receive external funds a currency account is upgraded to an operating account from the Accounts tab.",
+   "uncertainty": "",
+   "used": false,
+   "text_sha256": "2b855e3be96fbc6dc53533172c999bd1e1bfea9b673b1bbbd2a83f77691be33a"
+  },
+  {
+   "id": "J-KEP-1",
+   "pid": "keep",
+   "route": "Self-serve application route",
+   "title": "Keep - Applications closed",
+   "url": "https://app.trykeep.com/get-started",
+   "captured_at": "2026-10-31T17:01:20-04:00",
+   "http_status": 200,
+   "kind": "entry_route",
+   "scope": "Canada",
+   "stages": [
+    "entry"
+   ],
+   "wording": "We’re not accepting new applications at this time",
+   "summary": "The start route still redirected to the closed-applications page when rechecked.",
+   "uncertainty": "The 23 October finding stands; the message names no product.",
+   "used": true,
+   "text_sha256": "2904bb7ea3010e7b8559a4f4e058d5bbde44acd4c1270cf1451c319b0b58fb1e"
+  },
+  {
+   "id": "J-KEP-2",
+   "pid": "keep",
+   "route": "Keep corporate card application",
+   "title": "FAQs",
+   "url": "https://www.trykeep.com/resources/faq",
+   "captured_at": "2026-10-31T17:01:00-04:00",
+   "http_status": 200,
+   "kind": "website_faq",
+   "scope": "Canada",
+   "stages": [
+    "prepare",
+    "review"
+   ],
+   "wording": "Your application can get approved within 3 business days.",
+   "summary": "The FAQ says the application takes 10 minutes and can be approved within 3 business days, and lists business information, the incorporation or registration number and date, 6 months of proof of revenue, a government ID and address, and 6 months of business bank transactions through Flinks or as PDF statements.",
+   "uncertainty": "Published guidance does not confirm the route is open: the start route was closed when checked the same day. The list mentions a social security number “if applicable”, a US term.",
+   "used": true,
+   "text_sha256": "95284baa3b972ff9ccbcfa642e01aa523dbe146da0cd598367dd2df6ebc7421e"
+  },
+  {
+   "id": "J-KEP-3",
+   "pid": "keep",
+   "route": "Keep card (existing customers)",
+   "title": "How to Activate Your Keep Card",
+   "url": "https://help.trykeep.com/how-to-activate-your-keep-card",
+   "captured_at": "2026-10-31T17:01:07-04:00",
+   "http_status": 200,
+   "kind": "help_centre",
+   "scope": "Canada",
+   "stages": [
+    "first_use"
+   ],
+   "wording": "All Keep Virtual cards are activated automatically.",
+   "summary": "Virtual cards activate automatically. A physical card works online at once; for in-store use, set a PIN through the QR code or trykeep.com/activate and complete a first in-store purchase.",
+   "uncertainty": "This is guidance for cardholders. Secured-card deposit articles in the same help centre cover a different product and are not used.",
+   "used": true,
+   "text_sha256": "695fb82c384b2014f51aa2ca39d0b00cef26e209b4ae087ec8859e838b8f89d6"
+  },
+  {
+   "id": "J-AWX-1",
+   "pid": "airwallex",
+   "route": "Airwallex business account",
+   "title": "Documents required for companies in Canada",
+   "url": "https://help.airwallex.com/hc/en-gb/articles/6301832217999-Documents-required-for-companies-in-Canada",
+   "captured_at": "2026-10-31T17:05:04-04:00",
+   "http_status": 200,
+   "kind": "help_centre",
+   "scope": "Canada",
+   "stages": [
+    "prepare"
+   ],
+   "wording": "Below, we have provided details on the documents that are required for organizations to open an account with Airwallex if your business is registered in Canada.",
+   "summary": "A certificate of formation or incorporation, the shareholding structure with each 25% owner’s percentage (an attestation for indirect ownership), and government photo ID, residential address, date of birth and job title for the applicant and 25% owners; extra supporting documents may be asked of businesses run outside Canada or just starting out.",
+   "uncertainty": "Published in the global help centre (English, United Kingdom), in its country-specific section for Canada.",
+   "used": true,
+   "text_sha256": "15868121924b24e55268c3b975664f13361942ddb7457c7d1fa035b5edbaeafa"
+  },
+  {
+   "id": "J-AWX-2",
+   "pid": "airwallex",
+   "route": "Airwallex business account",
+   "title": "How long will my application take to process?",
+   "url": "https://help.airwallex.com/hc/en-gb/articles/900001755986-How-long-will-my-application-take-to-process",
+   "captured_at": "2026-10-31T17:05:11-04:00",
+   "http_status": 200,
+   "kind": "help_centre",
+   "scope": "Global",
+   "stages": [
+    "review"
+   ],
+   "wording": "After you submit all required business information, your application will be processed within 1-3 business days.",
+   "summary": "1 to 3 business days after all required information is submitted, varying with complexity; the onboarding team may email for more information.",
+   "uncertainty": "A global article, not specific to Canada.",
+   "used": true,
+   "text_sha256": "c88ab47f62a1d665070d3da528064a59a7f737d072e5770f7cda60cb20fa8ffd"
+  },
+  {
+   "id": "J-AWX-3",
+   "pid": "airwallex",
+   "route": "Airwallex card",
+   "title": "How do I activate my new physical card?",
+   "url": "https://help.airwallex.com/hc/en-gb/articles/900006071606-How-do-I-activate-my-new-physical-card",
+   "captured_at": "2026-10-31T17:05:18-04:00",
+   "http_status": 200,
+   "kind": "help_centre",
+   "scope": "Global",
+   "stages": [
+    "first_use"
+   ],
+   "wording": "Activation is required before a physical card can be used to transact.",
+   "summary": "Physical card activation in the app or web app: open the card, enter the CVV and set a PIN.",
+   "uncertainty": "A global article about employee cards, not specific to Canada.",
+   "used": true,
+   "text_sha256": "c8353cb4ac3050d6c789d8c706310d8568d563dfda2ce199b10e138ffd6e4ce6"
+  },
+  {
+   "id": "J-AWX-4",
+   "pid": "airwallex",
+   "route": "Airwallex business account",
+   "title": "How to add funds to your Borderless Cash account",
+   "url": "https://help.airwallex.com/hc/en-gb/articles/18108552747407-How-to-add-funds-to-your-Borderless-Cash-account",
+   "captured_at": "2026-10-31T17:05:25-04:00",
+   "http_status": 200,
+   "kind": "help_centre",
+   "scope": "Global",
+   "stages": [
+    "first_use"
+   ],
+   "wording": "Direct Debit is only available for businesses based in the following countries",
+   "summary": "Funds arrive through a Global Account, direct debit (not listed for Canada) or Airwallex Pay.",
+   "uncertainty": "Canadian funding steps were not confirmed in this review.",
+   "used": false,
+   "text_sha256": "9996e897e858788ee69528edae811daa1f984789bd1be0487f0213ba780ac474"
+  }
+ ],
+ "examples": [
+  {
+   "id": "H1",
+   "pid": "venn",
+   "record": "J-VEN-2",
+   "url": "https://help.venn.ca/en/articles/10532321-what-do-i-do-if-my-account-has-not-been-approved-after-24-hours",
+   "captured_at": "2026-10-31T17:07:08-04:00",
+   "note": "Crop starts below the article byline, so the help-centre author is not shown.",
+   "src": "/assets/index/business-spend/web/venn-help-24h-2026-10-31.webp",
+   "width": 680,
+   "height": 465,
+   "crop": [
+    300,
+    505,
+    980,
+    970
+   ],
+   "capture_sha256": "170ac244a87ea15ff5a8da3b5254fb67393224c694018c60eee166722f0ebce2",
+   "sha256": "6423dbf7acab5d14a9d6bcc04a186fbd89d13c47f30a3c78e09de3d0b0e902cb",
+   "zoom_src": "/assets/index/business-spend/web/venn-help-24h-2026-10-31-large.webp",
+   "zoom_width": 1360,
+   "zoom_height": 930,
+   "zoom_sha256": "e956d8ef697039a1edb0ac41c254ec7b48b906b7c8d3afd3b2ab95a906988af2"
+  },
+  {
+   "id": "H2",
+   "pid": "loop",
+   "record": "J-LOP-1",
+   "url": "https://support.bankonloop.com/en/articles/15882482-onboarding-faqs",
+   "captured_at": "2026-10-31T17:07:16-04:00",
+   "note": "The answer to “Does getting approved mean I’ll automatically receive a credit card?”.",
+   "src": "/assets/index/business-spend/web/loop-help-card-2026-10-31.webp",
+   "width": 680,
+   "height": 290,
+   "crop": [
+    140,
+    3955,
+    820,
+    4245
+   ],
+   "capture_sha256": "5ed81f407dbfd4fd94546644689da013acec497af91c780aacfc6dd40b08a602",
+   "sha256": "6ef3772703d59eb47bf37cf20a6e6d823a8c337c82f780bebba0c065eace2160",
+   "zoom_src": "/assets/index/business-spend/web/loop-help-card-2026-10-31-large.webp",
+   "zoom_width": 1360,
+   "zoom_height": 580,
+   "zoom_sha256": "eece882b439fe08a9efbdad36994070bab9b67a2b78b0f7856d1b38b208cc7d3"
+  }
+ ]
+}

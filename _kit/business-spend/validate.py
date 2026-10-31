@@ -288,23 +288,52 @@ def check_inputs(c):
         zp = os.path.join(model.ROOT, w.get('zoom_src', '').lstrip('/'))
         if not w.get('zoom_src') or not os.path.exists(zp) or hashlib.sha256(open(zp, 'rb').read()).hexdigest() != w.get('zoom_sha256'):
             errs.append('examples: the enlarged crop for %s is missing or differs from its recorded hash' % x['capture'])
-    # Customer Journey (founder brief, 2026-10-31): five map stages, one comparison row per brand, two dated first-screen examples.
+    # Customer Journey (founder brief, 2026-10-31, second): four stages, a labelled comparison for six brands, two dated help-page examples.
     jy_ = c.n.get('journey', {})
-    if [s['name'] for s in jy_.get('map', [])] != ['Start', 'Provide details', 'Get verified', 'Get started', 'Continue using'] or any(s['coverage'] not in jy_.get('coverage_labels', {}) or not set(s['ids']) <= set(c.obs) for s in jy_.get('map', [])):
-        errs.append('journey: five map stages, each with a coverage label and known evidence')
+    jf = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'journey_followup_2026-10-31.json'), encoding='utf-8'))
+    jrec = {r['id']: r for r in jf['records']}
+    if [s['name'] for s in jy_.get('stages', [])] != ['Start', 'Provide details', 'Verification and decision', 'First use']:
+        errs.append('journey: four stages (Start, Provide details, Verification and decision, First use)')
+    for r in jf['records']:
+        if not r['captured_at'].startswith('2026-10-31') or r['kind'] not in ('help_centre', 'website_faq', 'entry_route', 'blocked') or (r['kind'] == 'blocked' and r['used']):
+            errs.append('journey: follow-up record %s needs its real capture date, a kind, and blocked pages must stay unused' % r['id'])
+    labs = jy_.get('labels', {})
     for pid in EXPECTED_ORDER:
-        cm = c.n['journeys']['rows'].get(pid, {}).get('cmp') or {}
-        if set(cm) != {k for k, _ in jy_.get('table_columns', [])} or not all(cm.values()):
-            errs.append('journey: %s needs a first step, information requested, what happens next and what stood out' % pid)
-    jdoc = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'journey_examples_2026-10-31.json'), encoding='utf-8'))
-    jcaps = {w['id']: w for w in jdoc['captures']}
+        g = c.n['journeys']['rows'].get(pid, {}).get('guide') or {}
+        if set(g) != {k for k, _ in jy_.get('compare_columns', [])}:
+            errs.append('journey: %s needs entry routes, what to prepare, review and waiting, and getting started' % pid)
+            continue
+        for col, items in g.items():
+            if not items:
+                errs.append('journey: %s.%s is empty' % (pid, col))
+            for lab, txt, ids in items:
+                if lab not in labs or not txt or txt.count('. ') > 1 or len(txt) > 170:
+                    errs.append('journey: %s.%s needs a source label and one or two short sentences' % (pid, col))
+                for i in ids:
+                    if i.startswith('J-'):
+                        r = jrec.get(i)
+                        if not r or r['pid'] != pid:
+                            errs.append('journey: %s.%s cites unknown follow-up %s' % (pid, col, i))
+                        elif lab == 'first_screen' and r['kind'] != 'entry_route':
+                            errs.append('journey: %s.%s labels a help or FAQ page as a first screen' % (pid, col))
+                        elif lab in ('help', 'faq') and r['kind'] != {'help': 'help_centre', 'faq': 'website_faq'}[lab] and not (lab == 'faq' and r['kind'] == 'entry_route'):
+                            errs.append('journey: %s.%s label does not match the kind of %s' % (pid, col, i))
+                        elif lab != 'none' and not r['used']:
+                            errs.append('journey: %s.%s rests on %s, which could not be read' % (pid, col, i))
+                    elif i not in c.obs or c.obs[i]['platform'] != pid:
+                        errs.append('journey: %s.%s cites unknown observation %s' % (pid, col, i))
+                    elif lab != 'first_screen':
+                        errs.append('journey: %s.%s uses a 23 October observation under a label other than First screen' % (pid, col))
+                if lab != 'none' and not ids:
+                    errs.append('journey: %s.%s needs evidence' % (pid, col))
+    jcaps = {w['id']: w for w in jf.get('examples', [])}
     jx = jy_.get('examples', [])
-    if [x['label'] for x in jx] != ['Setting expectations', 'Explaining the next action'] or len({jcaps[x['capture']]['pid'] for x in jx if x['capture'] in jcaps}) != len(jx):
-        errs.append('journey: two examples (setting expectations, explaining the next action) from two different brands')
+    if [x['label'] for x in jx] != ['Guidance while waiting', 'Account approval versus card approval'] or len({jcaps[x['capture']]['pid'] for x in jx if x['capture'] in jcaps}) != len(jx):
+        errs.append('journey: two examples (guidance while waiting, account approval versus card approval) from two different brands')
     for x in jx:
         w = jcaps.get(x['capture'])
-        if not w or not w['captured_at'].startswith('2026-10-31') or not set(w['observations']) <= set(c.obs) or not x.get('observation') or x['observation'].count('. ') > 2:
-            errs.append('journey: example %s needs a dated capture, linked observations and one short observation' % x['capture'])
+        if not w or not w['captured_at'].startswith('2026-10-31') or w['record'] not in jrec or not x.get('stood_out') or x['stood_out'].count('. ') > 1:
+            errs.append('journey: example %s needs a dated capture, its follow-up record and one short sentence' % x.get('capture'))
             continue
         for key, hkey in (('src', 'sha256'), ('zoom_src', 'zoom_sha256')):
             pth = os.path.join(model.ROOT, w[key].lstrip('/'))

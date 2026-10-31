@@ -326,23 +326,34 @@ class KitTests(unittest.TestCase):
         self.assertEqual(cmp_.count('data-brand='), 7)
         self.assertIn('<div class="bs-cmp-sel" role="group" aria-label="Brands shown in parts 2 to 4" hidden>', cmp_)
         self.assertIn('<h2 id="bs-journeys-h">Customer Journey</h2>', jr)
-        # Founder brief (2026-10-31): a five-stage journey map, one first-steps comparison, two first-screen examples.
+        # Founder brief (2026-10-31, second): four stages, one labelled comparison, two help-page examples.
         self.assertIn('A look at how brands guide customers from their first click to getting started.', jr)
-        self.assertEqual(re.findall(r'<h3[^>]*><span class="soc-n">\d</span>([^<]+)</h3>', jr), ['The journey', 'First steps compared', 'First screens in practice'])
-        self.assertEqual(re.findall(r'<span class="bs-st">([^<]+)</span>', jr), ['Start', 'Provide details', 'Get verified', 'Get started', 'Continue using'])
-        self.assertIn('This is a comparison framework. Different products may follow different routes.', jr)
-        self.assertEqual(re.findall(r'<th scope="col">([^<]+)</th>', jr), ['Brand', 'First step', 'Information requested', 'What happens next', 'What stood out'])
+        self.assertEqual(re.findall(r'<h3[^>]*><span class="soc-n">\d</span>([^<]+)</h3>', jr), ['Journey overview', 'How the brands compare', 'Journey examples'])
+        self.assertEqual(re.findall(r'<span class="bs-st">([^<]+)</span>', jr), ['Start', 'Provide details', 'Verification and decision', 'First use'])
+        self.assertIn('aria-label="Four journey stages"', jr)
+        self.assertNotRegex(jr, r'(?i)six stages|five stages|keeps using')
+        self.assertIn('Routes vary by product. Account approval and card approval may be separate.', jr)
+        self.assertEqual(re.findall(r'<th scope="col">([^<]+)</th>', jr), ['Brand', 'Entry routes', 'What to prepare', 'Review and waiting', 'Getting started'])
         self.assertEqual(len(re.findall(r'<tr id="bs-jt-row-[a-z]+">', jr)), 6)
-        self.assertEqual(re.findall(r'<p class="soc-tags">([^&]+?) &middot;', jr), ['Setting expectations', 'Explaining the next action'])
+        self.assertIn('First-screen findings were observed directly', jr)
+        self.assertIn('Help-centre and website FAQ steps, read on 31 October 2026, are provider descriptions, not completed applications.', jr)
+        row = lambda pid: jr[jr.index('<tr id="bs-jt-row-%s">' % pid):jr.index('</tr>', jr.index('<tr id="bs-jt-row-%s">' % pid))]
+        self.assertIn('separate card application', row('loop'))
+        self.assertIn('Use Float for free', row('float'))
+        self.assertNotIn('demo-only', row('float'))
+        self.assertIn('Not confirmed', row('float'))
+        self.assertIn('closed-applications page on 23 October and again on 31 October', row('keep'))
+        self.assertIn('Not confirmed', row('airwallex'))
+        self.assertIn('under 10 minutes to sign up, then asks applicants to allow up to 24 hours', row('venn'))
+        self.assertEqual(re.findall(r'<p class="soc-tags">([^&]+?) &middot; ([^<]+?) <span', jr), [('Venn', 'Guidance while waiting'), ('Loop', 'Account approval versus card approval')])
         self.assertEqual(jr.count('<a class="bs-zoom" href="/assets/index/business-spend/web/'), 2)
-        self.assertEqual(jr.count('captured 31 October 2026'), 2)
-        self.assertIn('Fewer initial fields do not establish a shorter total application', jr)
-        for gone in ('bs-js-', 'bs-jpick', 'bs-jlegend', 'cashback', 'QuickBooks', 'Not reviewed</span> Documents'):
+        self.assertEqual(jr.count('help centre, captured 31 October 2026.'), 2)
+        for gone in ('bs-js-', 'bs-jpick', 'bs-jlegend', 'cashback', 'QuickBooks', 'NetSuite', 'interest', 'fastest', 'easiest', 'best onboarding', 'lowest friction', 'O-VEN', 'J-VEN'):
             self.assertNotIn(gone, jr)
         self.assertEqual(body.count('<dialog class="bs-lightbox"'), 1)
         self.assertNotIn('<dialog', msg + jr)          # one shared dialog outside the tab panels
-        self.assertIn('id="bs-journey-captures"', ref)
-        self.assertIn('id="bs-journey-coverage"', ref)
+        for need in ('id="bs-journey-followup"', 'id="bs-journey-coverage"', 'id="bs-journey-captures"', 'id="jf-J-FLT-3"', 'Not readable from this review'):
+            self.assertIn(need, ref)
         self.assertIn('href="#bs-t3">See the test: explain the next step before the form', jr)
         for pid in self.c.order:
             self.assertIn('id="bs-jt-%s"' % pid, ref)

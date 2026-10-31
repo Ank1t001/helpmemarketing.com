@@ -198,6 +198,27 @@ Built:
 - Removed from the tab: cashback, rates, card funding and accounting rows, the per-stage provider matrix, the legend, the repeated "Not reviewed" lines, the phone picker and the reading box. Verification and activation are marked Partly and Not reviewed until public onboarding guidance is assessed (the gaps list in Sources & evidence names the checks).
 - Loop: its first screen is the one that lists the steps ahead, but on 31 October its sign-up page returned a browser verification checkpoint to this environment, so no Loop capture was made; the checkpoint was not bypassed.
 
+## 6b. Customer Journey, second brief (founder, 31 October 2026; built on staging, not deployed)
+
+Agreed structure: intro "A look at how brands guide customers from their first click to getting started."; 1 Journey overview (four stages: Start, Provide details, Verification and decision, First use; "Routes vary by product. Account approval and card approval may be separate."); 2 How the brands compare (Brand, Entry routes, What to prepare, Review and waiting, Getting started, each entry labelled First screen, Help centre, Website FAQ or Not confirmed); 3 Journey examples (two help-page crops). "Keeps using it" is gone as a stage.
+
+New evidence (all read on 31 October 2026, recorded in `journey_followup_2026-10-31.json`, separate from the 23 October observations):
+- Venn: under 10 minutes to sign up, then allow up to 24 hours for checks and verification; what to check after 24 hours (onboarding email, every added applicant's selfie and ID check, a banking-partner review); adding CAD by pre-authorized debit; physical card activation with the CVV.
+- Float: "Use Float for free" email entry on the homepage and demo page (where it leads not inspected); demo-page FAQ: opening an account takes about 15 minutes online, Prepaid account opening in under 24 hours. The three help-centre articles in the brief returned an access check (HTTP 403) to the browser and to a separate fetch tool; nothing from them is used.
+- Ramp: the Canadian application steps, documents and individual checks; about 5 minutes to apply; two review estimates on the same page (a few business days; about 1 week after all documents); after approval an email explains finishing setup.
+- Loop: roles and ID checks, supporting documents in the waiting room, a target of 2 business days; account approval opens banking features, and the credit card is a separate application that appears after a bank account is connected; bank connection usually verifies instantly.
+- Keep: the start route was still closed on 31 October; the website FAQ lists what to prepare, 10 minutes to apply and approval within 3 business days (this does not show the route is open); cardholder activation (virtual automatic, physical PIN and first in-store purchase).
+- Airwallex: a Canada documents article in the global help centre; global articles on review time (1 to 3 business days after all information) and physical card activation; the global funding article lists no direct debit for Canada, so Canadian funding stays Not confirmed.
+
+Changes to earlier interpretations:
+- Float is no longer shown as demo-only: its pages also offer a self-serve email entry.
+- Venn's first screen said "Get started in 5 minutes"; its help article says under 10 minutes. Both are Venn estimates, recorded side by side.
+- Ramp's Canadian guide states eligibility that differs from the 23 October card page (a Canadian-registered business, supported provinces, CA$25,000 in connected accounts); recorded as a difference for editorial review, no 23 October finding changed.
+- Example A was planned as Float's waiting-period article. Float's help centre could not be read, so Venn's waiting guidance is shown instead; Example B is Loop's account-versus-card answer as planned.
+- Lessons test 3 now also asks the "Before you start" list to say how long review usually takes and whether the card needs a separate application.
+
+Remaining gaps: Float's help-centre guidance; where Float's free sign-up leads; Canadian-specific Airwallex timing, funding and activation; Ramp's first-use steps after approval and its current eligibility wording; whether Keep's route reopens; Loop's first card steps after the card application.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:
