@@ -14,8 +14,8 @@
     "note": "Browser pass of 23 October 2026, 12:00 p.m. to 12:14 p.m. Toronto time: customer-visible pages, the six enquiry journeys to their first screen, FINTRAC and Bank of Canada registries, and the reconciliation of the ten differences. Package: business-spend-browser-pass-2026-10-23 (34 captures; screenshots held privately, hashes in sources.json)."
   },
   "published_at": "2026-10-27",
-  "modified_at": "2026-10-31T15:19:48-04:00",
-  "modified_at_source": "Vercel production deployment dpl_JAJX1GAkxG817kCRT6ve4Zg9wUbe (commit bfc708d) ready time (1793474388698 ms), the release of the second Website Messaging brief, the last content change to /business-spend-index. Earlier value: 2026-10-31T15:06:33-04:00 from dpl_62JCBQAXnFxypFEhbZbHqLGGuWPX (commit 730dd77); earlier releases are listed in the git history of this file.",
+  "modified_at": "2026-10-31T15:45:22-04:00",
+  "modified_at_source": "Vercel production deployment dpl_Cgft4Po3D8U6Jynx7mTxeCfMSLrC (commit 57e05b4) ready time (1793475922664 ms), the release of the Product Comparison rebuild and the Website Messaging refinements, the last content change to /business-spend-index. Earlier value: 2026-10-31T15:19:48-04:00 from dpl_JAJX1GAkxG817kCRT6ve4Zg9wUbe (commit bfc708d); earlier releases are listed in the git history of this file.",
   "snapshot_metadata_fixes": [
     "27 October 2026: dateModified 2026-10-27T15:29:31-04:00 added to the Article from the recorded production deployment (dpl_3GG1u1RJdS82Vjw5FjhoUeTggFLK, commit 1692f0d); research content unchanged."
   ],
