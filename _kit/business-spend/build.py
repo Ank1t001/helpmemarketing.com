@@ -398,6 +398,16 @@ def web_capture_reference(c):
         ev_links(c, w['observations']).replace('<p class="evlinks">', '<span class="evlinks">').replace('</p>', '</span>')) for w in web['captures'])
     return '<div id="bs-msg-captures"><h4 class="t">Website examples: captures of 31 October 2026</h4><p class="dek">%s %s</p><ul class="dek">%s</ul></div>' % (E(web['note']), E(web['method']), items)
 
+def journey_capture_reference(c):
+    """Sources & evidence: the 31 October 2026 captures behind the Customer Journey examples."""
+    doc = json.load(open(os.path.join(KIT_DIR, 'journey_examples_2026-10-31.json'), encoding='utf-8'))
+    items = ''.join('<li><b>%s.</b> <a href="%s" rel="noopener nofollow" target="_blank">%s%s</a>, captured %s, %s Toronto time (HTTP %d). Wording: %s %s Crop box %s of the private full screenshot (sha256 %s&hellip;); published crop sha256 %s&hellip;. %s</li>' % (
+        E(c.name(w['pid'])), E(w['url']), E(w['url']), EXT, E(iso_long(w['captured_at'][:10])), E(toronto_time(w['captured_at'])), w['http_status'],
+        E(w['quote']), E(w['matches_23_october']), E(', '.join(str(v) for v in w['crop'])), E(w['capture_sha256'][:16]), E(w['sha256'][:16]),
+        ev_links(c, w['observations']).replace('<p class="evlinks">', '<span class="evlinks">').replace('</p>', '</span>')) for w in doc['captures'])
+    return '<div id="bs-journey-captures"><h4 class="t">First-screen examples: captures of 31 October 2026</h4><p class="dek">%s %s</p><ul class="dek">%s</ul></div>' % (E(doc['note']), E(doc['method']), items)
+
+
 def msg_support_reference(c, n):
     """Sources & evidence: every "How the promise is supported" check with the observations behind it (founder review, 2026-10-31)."""
     ms = n['messaging_support']
@@ -504,14 +514,16 @@ def sources_view(c, views, start, end, draft):
         dd += '<dt>Observed</dt><dd>%s, %s Toronto time <span class="evlinks">(%s)</span></dd>' % (long_date(t0), toronto_time(t0), id_links(r['ids']))
         jev.append('<div id="bs-jt-%s"><h4 class="t" id="bs-jev-%s">%s</h4><dl class="chain">%s</dl></div>' % (pid, pid, E(c.name(pid)), dd))
     jy = n['journey']
-    stage_ev = ''.join('<li><b>%s.</b> %s</li>' % (E(t), '; '.join('%s: %s' % (E(c.name(pid)), id_links(sorted({i for _, _, ids in jy['cells'][k][pid] for i in ids})) or 'Instagram records') for pid in c.order))
-                       for k, t, _ in jy['stages'])
+    allids = sorted({i for pid in c.order for i in jn['rows'][pid]['ids']})
+    stage_ev = ''.join('<li><b>%s: %s.</b> %s %s</li>' % (E(s['name']), E(jy['coverage_labels'][s['coverage']]), E(s['note']), id_links(s['ids'] or (allids if s['coverage'] == 'all' else [])))
+                       for s in jy['map'])
     e3 = [e for e in n['examples']['items'] if e.get('place') == 'journeys']
     sec('bs-ref-journey', 'Customer-journey evidence',
         '<div id="bs-jt-evidence"><h4 class="t">First screens</h4><p class="dek">%s</p>%s%s</div>'
-        '<h4 class="t">Evidence behind each stage</h4><ul class="dek">%s</ul>'
+        '<h4 class="t" id="bs-journey-coverage">Journey map coverage</h4><ul class="dek">%s</ul>'
+        '%s'
         '<h4 class="t" id="bs-journey-gaps">Gaps for a later edition</h4><p class="dek">Targeted checks that would make the later stages fuller. None is a broad new collection.</p><ul class="dek">%s</ul>' % (
-            E(jn['note']), ''.join(jev), ''.join(example_card(c, e, 'bs-e3') for e in e3), stage_ev, ''.join('<li>%s</li>' % E(g) for g in jy['gaps'])))
+            E(jn['note']), ''.join(jev), ''.join(example_card(c, e, 'bs-e3') for e in e3), stage_ev, journey_capture_reference(c), ''.join('<li>%s</li>' % E(g) for g in jy['gaps'])))
     # 5. Findings and full test specifications
     fl = []
     for it in n['findings']['items']:
@@ -685,7 +697,7 @@ def body(c):
                         '<thead><tr><th scope="col">Brand</th><th scope="col">Main promise</th><th scope="col">Who it speaks to</th><th scope="col">Why choose them?</th><th scope="col">Proof used</th></tr></thead><tbody>\n%s</tbody></table></div></div>'
                         % (E(vm['table_title']), E(vm['table_note']), mrows)
                       + '<div id="bs-examples" class="sub soc-sec"><h3><span class="soc-n">2</span>%s</h3><p class="soc-lim">%s</p><div class="bs-wexs">%s</div>'
-                        '<dialog class="bs-lightbox" id="bs-lightbox" aria-label="Enlarged screenshot"><figure><img src="" alt=""><figcaption></figcaption></figure><button type="button" class="bs-lightbox-close">Close</button></dialog></div>' % (E(vm['examples_title']), E(vm['examples_note']), ''.join(cards))
+                        '</div>' % (E(vm['examples_title']), E(vm['examples_note']), ''.join(cards))
                       + view_close('messaging'))
 
     # ---------- Compare Products ----------
@@ -704,29 +716,35 @@ def body(c):
                     + '<div class="bs-cmp-sec">%s</div>' % table(c, 'Spending controls', cp['spend_columns'], 'bs-spend', num=4)
                     + view_close('compare'))
 
-    # ---------- Customer Journey: six-stage framework and a stage-by-provider comparison ----------
+    # ---------- Customer Journey (founder brief, 2026-10-31): journey map, first steps compared, two first-screen examples ----------
     jy = n['journey']
-    lab = {k: l for k, l, _ in jy['labels']}
-    stages = ''.join('<li><span class="bs-sn" aria-hidden="true">%d</span><span class="bs-st">%s</span><span class="bs-sd">%s</span></li>' % (i, E(t), E(d))
-                     for i, (_, t, d) in enumerate(jy['stages'], 1))
-    legend = ''.join('<div><dt><span class="bs-ev bs-ev-%s">%s</span></dt><dd>%s</dd></div>' % (k, E(l), E(d)) for k, l, d in jy['labels'])
-    head = ''.join('<th scope="col" data-pid="%s">%s</th>' % (pid, plain(pid)) for pid in c.order)
-    rows = []
-    for i, (sk, st, _) in enumerate(jy['stages'], 1):
-        note = jy['stage_notes'].get(sk)
-        cells = ''.join('<td data-pid="%s" data-label="%s">%s</td>' % (pid, plain(pid), ''.join(
-            '<p class="bs-je"><span class="bs-ev bs-ev-%s">%s</span> %s</p>' % (k, E(lab[k]), E(t)) for k, t, _ in jy['cells'][sk][pid])) for pid in c.order)
-        rows.append('<tr id="bs-js-%s"><th scope="row" class="brandcell"><span class="bs-sn" aria-hidden="true">%d</span>%s%s</th>%s</tr>' % (
-            sk, i, E(st), ('<span class="cell-sub">%s</span>' % E(note)) if note else '', cells))
+    jn = n['journeys']
+    cl = jy['coverage_labels']
+    evk = {'all': 'observed', 'partly': 'describes', 'not_reviewed': 'not_reviewed'}
+    stations = ''.join('<li id="bs-jmap-%s"><span class="bs-sn" aria-hidden="true">%d</span><span class="bs-st">%s</span><span class="bs-sd">%s</span><span class="bs-ev bs-ev-%s">%s</span></li>' % (
+        s['key'], i, E(s['name']), E(s['question']), evk[s['coverage']], E(cl[s['coverage']])) for i, s in enumerate(jy['map'], 1))
+    cols = jy['table_columns']
+    jrows = ''.join('<tr id="bs-jt-row-%s"><td class="brandcell">%s</td>%s</tr>\n' % (pid, plain(pid), ''.join(
+        '<td data-label="%s">%s</td>' % (E(l), E(jn['rows'][pid]['cmp'][k])) for k, l in cols)) for pid in c.order)
+    jcaps = {w['id']: w for w in json.load(open(os.path.join(KIT_DIR, 'journey_examples_2026-10-31.json'), encoding='utf-8'))['captures']}
+    jcards = []
+    for i, x in enumerate(jy['examples'], 1):
+        w = jcaps[x['capture']]
+        jcards.append('<article class="bs-wex bs-jex" id="bs-jex-%d"><figure class="bs-wex-shot"><a class="bs-zoom" href="%s" data-zoom-w="%d" data-zoom-h="%d" aria-label="Enlarge screenshot: %s">'
+                      '<img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async"><span class="bs-zoom-hint" aria-hidden="true">Click to enlarge</span></a>'
+                      '<figcaption>%s, captured %s.</figcaption></figure><div class="bs-wex-text"><p class="soc-tags">%s &middot; %s</p><p class="soc-stood">%s</p></div></article>' % (
+                          i, E(w['zoom_src']), w['zoom_width'], w['zoom_height'], E('%s, %s' % (c.name(w['pid']), x['label'].lower())),
+                          E(w['src']), E(x['alt']), w['width'], w['height'], E(c.name(w['pid'])), E(iso_long(w['captured_at'][:10])), E(x['label']), E(c.name(w['pid'])), E(x['observation'])))
     V['journeys'] = (view_open('journeys', 'bs-journeys')
-                     + '<ol class="bs-stages" aria-label="Six stages used to compare the providers">%s</ol>' % stages
-                     + '<p class="pnote">These stages are a way to compare the providers, not a sequence every customer follows.</p>'
-                     + '<div class="bs-jlegend"><dl>%s</dl><ul class="pnote">%s</ul></div>' % (legend, ''.join('<li>%s</li>' % E(x) for x in jy['cautions']))
-                     + '<div class="tblock" id="bs-journey-table"><h3 id="bs-jm-h">Stage by stage</h3><div class="bs-jpick" hidden></div>'
-                       '<div class="tw cards bs-jm" tabindex="0" role="region" aria-labelledby="bs-jm-h"><table class="bs"><caption class="sr-only">Customer journey stages by provider, from public sources observed on 23 October 2026 and the Instagram window</caption>'
-                       '<thead><tr><th scope="col">Stage</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div></div>' % (head, '\n'.join(rows))
-                     + '<div class="sub" id="bs-journey-reading"><div class="note reading"><span class="lbl">My reading</span><p>%s</p></div>'
-                       '<p class="dlinks bs-tlink"><a href="#bs-t3">%s<span aria-hidden="true"> &rarr;</span></a></p></div>' % (E(jy['reading']), E(n['journeys']['test_link']))
+                     + '<div class="sub soc-sec" id="bs-journey-map"><h3 id="bs-jmap-h"><span class="soc-n">1</span>%s</h3>'
+                       '<ol class="bs-stages bs-jmap" aria-labelledby="bs-jmap-h">%s</ol><p class="soc-lim">%s</p></div>' % (E(jy['map_title']), stations, E(jy['map_note']))
+                     + '<div class="sub soc-sec" id="bs-journey-table"><h3 id="bs-jm-h"><span class="soc-n">2</span>%s</h3><p class="soc-lim">%s</p>'
+                       '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-jm-h"><table class="bs bs-jfirst"><caption class="sr-only">First step, information requested, what happens next and what stood out for six brands, observed on 23 October 2026</caption>'
+                       '<thead><tr><th scope="col">Brand</th>%s</tr></thead><tbody>\n%s</tbody></table></div></div>' % (
+                           E(jy['table_title']), E(jy['table_note']), ''.join('<th scope="col">%s</th>' % E(l) for _, l in cols), jrows)
+                     + '<div class="sub soc-sec" id="bs-journey-examples"><h3><span class="soc-n">3</span>%s</h3><p class="soc-lim">%s</p><div class="bs-wexs bs-jexs">%s</div>'
+                       '<p class="dlinks bs-tlink"><a href="#bs-t3">%s<span aria-hidden="true"> &rarr;</span></a></p></div>' % (
+                           E(jy['examples_title']), E(jy['examples_note']), ''.join(jcards), E(jn['test_link']))
                      + view_close('journeys'))
 
     # ---------- Lessons: three tests, each with what I noticed ----------
@@ -747,6 +765,8 @@ def body(c):
                     + view_close('lessons'))
 
     out += [V[k] for k, _ in order]
+    # One shared screenshot dialog outside the tab panels, so it opens from any tab (2026-10-31).
+    out.append('<dialog class="bs-lightbox" id="bs-lightbox" aria-label="Enlarged screenshot"><figure><img src="" alt=""><figcaption></figcaption></figure><button type="button" class="bs-lightbox-close">Close</button></dialog>')
     out.append(sources_view(c, views, start, end, draft))
 
     hp = n['help']

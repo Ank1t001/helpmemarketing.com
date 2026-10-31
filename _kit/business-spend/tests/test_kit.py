@@ -182,7 +182,7 @@ class KitTests(unittest.TestCase):
         body = self.page[self.page.index('REPORT BODY START'):]
         pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-social', 'bs-paid', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons')]
         self.assertEqual(pos, sorted(pos))
-        self.assertEqual(body.count('class="note reading"'), 6 + 1)  # six provider evidence expanders, the journey reading
+        self.assertEqual(body.count('class="note reading"'), 6)  # six provider evidence expanders (the journey reading went with the 2026-10-31 rebuild)
         self.assertEqual(body.count('Proposed test, not a result</span><h3 class="bs-ttitle">Test '), 3)   # still exactly three tests
         self.assertEqual(body.count('What this means for your marketing team'), 1)  # the reading-guide entry only (2026-10-30, final: no takeaway boxes)
         self.assertIn('id="bs-journey-table"', body)
@@ -284,7 +284,7 @@ class KitTests(unittest.TestCase):
             'What they advertise on Meta in Canada and where the ads lead.',
             'What their websites promise and how they support it.',
             'Cards, rewards, fees and key conditions.',
-            'How brands guide customers from their website to getting started.',
+            'How brands guide customers from their first click to getting started.',
             'Ideas to test in your own marketing.'])
         self.assertIn('<h2 id="bs-paid-h">Paid Social Strategy</h2>', pa)
         self.assertNotIn('Social Media Paid Ads Strategy', body)
@@ -302,7 +302,6 @@ class KitTests(unittest.TestCase):
         self.assertEqual(len(re.findall(r'<figure class="bs-wex-shot"><a class="bs-zoom"[^>]*><img src="/assets/index/business-spend/web/', msg)), 3)
         self.assertEqual(msg.count('captured 31 October 2026'), 3)
         self.assertEqual(msg.count('<a class="bs-zoom" href="/assets/index/business-spend/web/'), 3)    # click to enlarge (2026-10-31)
-        self.assertEqual(msg.count('<dialog class="bs-lightbox"'), 1)
         self.assertIn('the outcomes are provider-reported, not independently verified.', msg)
         self.assertNotIn('described, not measured', msg)
         self.assertNotIn('<div class="card ex">', msg)
@@ -327,10 +326,23 @@ class KitTests(unittest.TestCase):
         self.assertEqual(cmp_.count('data-brand='), 7)
         self.assertIn('<div class="bs-cmp-sel" role="group" aria-label="Brands shown in parts 2 to 4" hidden>', cmp_)
         self.assertIn('<h2 id="bs-journeys-h">Customer Journey</h2>', jr)
-        self.assertEqual(len(re.findall(r'<tr id="bs-js-[a-z]+">', jr)), 5)   # social discovery belongs to Social Media Strategy (2026-10-30, case study)
-        self.assertNotIn('id="bs-js-discover"', jr)
-        self.assertEqual(re.findall(r'<th scope="col"[^>]*>([^<]+)</th>', jr[:jr.index('</thead>')]), ['Stage', 'Venn', 'Float', 'Ramp', 'Loop', 'Keep', 'Airwallex'])
-        self.assertIn('id="bs-journey-table"', jr)
+        # Founder brief (2026-10-31): a five-stage journey map, one first-steps comparison, two first-screen examples.
+        self.assertIn('A look at how brands guide customers from their first click to getting started.', jr)
+        self.assertEqual(re.findall(r'<h3[^>]*><span class="soc-n">\d</span>([^<]+)</h3>', jr), ['The journey', 'First steps compared', 'First screens in practice'])
+        self.assertEqual(re.findall(r'<span class="bs-st">([^<]+)</span>', jr), ['Start', 'Provide details', 'Get verified', 'Get started', 'Continue using'])
+        self.assertIn('This is a comparison framework. Different products may follow different routes.', jr)
+        self.assertEqual(re.findall(r'<th scope="col">([^<]+)</th>', jr), ['Brand', 'First step', 'Information requested', 'What happens next', 'What stood out'])
+        self.assertEqual(len(re.findall(r'<tr id="bs-jt-row-[a-z]+">', jr)), 6)
+        self.assertEqual(re.findall(r'<p class="soc-tags">([^&]+?) &middot;', jr), ['Setting expectations', 'Explaining the next action'])
+        self.assertEqual(jr.count('<a class="bs-zoom" href="/assets/index/business-spend/web/'), 2)
+        self.assertEqual(jr.count('captured 31 October 2026'), 2)
+        self.assertIn('Fewer initial fields do not establish a shorter total application', jr)
+        for gone in ('bs-js-', 'bs-jpick', 'bs-jlegend', 'cashback', 'QuickBooks', 'Not reviewed</span> Documents'):
+            self.assertNotIn(gone, jr)
+        self.assertEqual(body.count('<dialog class="bs-lightbox"'), 1)
+        self.assertNotIn('<dialog', msg + jr)          # one shared dialog outside the tab panels
+        self.assertIn('id="bs-journey-captures"', ref)
+        self.assertIn('id="bs-journey-coverage"', ref)
         self.assertIn('href="#bs-t3">See the test: explain the next step before the form', jr)
         for pid in self.c.order:
             self.assertIn('id="bs-jt-%s"' % pid, ref)

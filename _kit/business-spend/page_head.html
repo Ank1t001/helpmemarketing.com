@@ -50,9 +50,6 @@
 .msi.msi .legend .kind-1{border-left:3px solid var(--text-muted)}
 .msi.msi .legend .kind-2{border-left:3px solid var(--cta)}
 .msi.msi .legend .kind-3{border-left:3px dotted var(--text-muted)}
-.msi.msi #bs-journey-table table{table-layout:fixed;width:100%}
-.msi.msi #bs-journey-table td{min-width:0;overflow-wrap:anywhere}
-.msi.msi #bs-journey-table td.brandcell{width:22%}
 .msi.msi .cell-sub a{color:var(--cta-text,var(--cta));text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
 /* Dark theme focus ring (2026-10-23 browser pass): the global :focus-visible outline resolves to the legacy navy here (about 1.05:1 on Obsidian); Signal Orange meets 3:1 on every dark surface. */
 html[data-theme="dark"] .app :focus-visible{outline:2px solid var(--cta);outline-offset:2px}
@@ -286,6 +283,17 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi #bs-compare .tw.cards tr{padding:14px;gap:10px 14px;margin-bottom:10px}
 .msi.msi #bs-compare .tw.cards tr.bs-off{display:none}
 }
+/* Customer Journey (founder brief, 2026-10-31): numbered parts, a five-station journey map with a coverage label per stage, the first-steps table and two first-screen examples in a two-column grid. Design System note "Customer Journey first steps". */
+.msi.msi #bs-journeys .soc-sec>h3{margin:0 0 var(--s3)}
+.msi.msi #bs-journeys .soc-lim{margin:var(--s3) 0 0;max-width:72ch;font-size:14px;line-height:1.55;color:var(--text-muted)}
+.msi.msi #bs-journeys .soc-sec>h3+.soc-lim{margin:0 0 var(--s4)}
+.msi.msi ol.bs-jmap li .bs-ev{align-self:flex-start;margin-top:4px}
+.msi.msi table.bs-jfirst td{vertical-align:top}
+@media(min-width:901px){.msi.msi table.bs-jfirst td.brandcell{width:11%}.msi.msi table.bs-jfirst td{width:22.25%}}
+.msi.msi .bs-wexs.bs-jexs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.msi.msi .bs-jex figure.bs-wex-shot img{max-height:560px;width:auto;max-width:100%;margin:0 auto}
+@media(max-width:900px){.msi.msi ol.bs-jmap li .bs-ev{grid-column:2;justify-self:start}.msi.msi .bs-wexs.bs-jexs{grid-template-columns:1fr}}
+@media(max-width:720px){.msi.msi .tw.cards table.bs-jfirst td[data-label]{grid-column:1/-1}}
 /* Messaging, Application journeys and Lessons, shorter (founder brief, 2026-10-30, third): one reading table, provider evidence and first-screen evidence in expanders, tests as stacked blocks with thin dividers. */
 .msi.msi .bs-view .tblock>.bs-tnote{margin:0 0 var(--s3);max-width:72ch;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
 .msi.msi #bs-msg-table{margin-top:var(--s5)}
@@ -307,8 +315,8 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi #bs-tests dl.bs-tmain{margin:var(--s3) 0 var(--s2)}
 .msi.msi #bs-tests dl.bs-tmain dd{font-size:15.5px}
 .msi.msi #bs-tests .bs-datanote{margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--border)}
-@media(min-width:901px){.msi.msi #bs-msg-table th:first-child{width:16%}.msi.msi #bs-journey-table th:first-child{width:22%}}
-@media(max-width:900px){.msi.msi #bs-journey-table td.brandcell,.msi.msi #bs-msg-table td.brandcell{width:auto}}
+@media(min-width:901px){.msi.msi #bs-msg-table th:first-child{width:16%}}
+@media(max-width:900px){.msi.msi #bs-msg-table td.brandcell{width:auto}}
 .msi.msi .bs-fu-note{border-left:2px solid var(--border-strong);padding-left:12px}
 /* Final simplification (founder brief, 2026-10-30, final): Sources & evidence link and view, Overview guide, Customer Journey stages and evidence labels, Lessons. */
 .msi.msi .ri-nav.bs-views{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-bottom:0}
@@ -329,27 +337,15 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-gd{font-size:15px;line-height:1.55;color:var(--text-muted)}
 .msi.msi .bs-ov-scope .dek{margin:0}
 .msi.msi .bs-ov-dates{margin:6px 0 0;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
-.msi.msi ol.bs-stages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:16px;position:relative}
+.msi.msi ol.bs-stages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;position:relative}
 .msi.msi ol.bs-stages::before{content:"";position:absolute;left:14px;right:14px;top:14px;border-top:1px solid var(--border-strong)}
 .msi.msi ol.bs-stages li{position:relative;display:flex;flex-direction:column;gap:6px}
 .msi.msi .bs-sn{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--border-strong);background:var(--bg);font-size:13px;font-weight:700;color:var(--text);flex:none}
 .msi.msi .bs-st{font-size:15px;font-weight:650;line-height:1.3;color:var(--text)}
 .msi.msi .bs-sd{font-size:14px;line-height:1.5;color:var(--text-muted)}
-.msi.msi .bs-jlegend dl{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0}
-.msi.msi .bs-jlegend dl>div{display:flex;gap:8px;align-items:baseline}
-.msi.msi .bs-jlegend dd{margin:0;font-size:14px;color:var(--text-muted)}
-.msi.msi .bs-jlegend ul{margin:var(--s2) 0 0;padding-left:18px}
 .msi.msi .bs-ev{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.03em;line-height:1.4;padding:1px 7px;border-radius:100px;border:1px solid var(--border-strong);color:var(--text);white-space:nowrap}
 .msi.msi .bs-ev-describes{border-style:dashed;color:var(--text-muted)}
 .msi.msi .bs-ev-not_reviewed{border-style:dotted;color:var(--text-tertiary)}
-.msi.msi .bs-je{margin:0 0 8px;font-size:14px;line-height:1.55;color:var(--text-body,var(--text))}
-.msi.msi .bs-je:last-child{margin-bottom:0}
-.msi.msi #bs-journey-table>h3{margin:0 0 var(--s3)}
-.msi.msi #bs-journey-table table{table-layout:fixed;width:100%}
-.msi.msi #bs-journey-table th[scope="row"]{text-transform:none;letter-spacing:0;text-align:left;vertical-align:top;font-size:14.5px;font-weight:650;color:var(--text)}
-.msi.msi #bs-journey-table th[scope="row"] .bs-sn{width:24px;height:24px;font-size:12px;margin:0 8px 6px 0}
-.msi.msi #bs-journey-table td{vertical-align:top;min-width:0;overflow-wrap:anywhere}
-.msi.msi .bs-jpick{display:none}
 .msi.msi .bs-fig b{font-weight:700;color:var(--text)}
 .msi.msi .bs-fig{display:block;margin-bottom:4px;color:var(--text-muted)}
 .msi.msi #bs-tests dl.bs-tmain dd{max-width:72ch}
@@ -370,19 +366,10 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi ol.bs-stages::before{left:14px;right:auto;top:14px;bottom:14px;border-top:0;border-left:1px solid var(--border-strong)}
 .msi.msi ol.bs-stages li{display:grid;grid-template-columns:28px 1fr;column-gap:12px;row-gap:2px}
 .msi.msi ol.bs-stages li .bs-sn{grid-row:1/3}
-.msi.msi #bs-journey-table .tw.cards th[scope="row"]{display:block;grid-column:1/-1;padding:0;border:0}
-.msi.msi #bs-journey-table .tw.cards tr{grid-template-columns:1fr 1fr}
-.msi.msi #bs-journey-table .tw.cards td[data-label]::before{font-size:12px}
-.msi.msi .bs-jpick:not([hidden]){display:block;margin:0 0 var(--s3)}
-.msi.msi .bs-jpick-h{margin:0 0 6px;font-size:14px;font-weight:650;color:var(--text)}
-.msi.msi .bs-jpick-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.msi.msi .bs-jpick label{display:block;font-size:12px;color:var(--text-muted);margin-bottom:2px}
-.msi.msi .bs-jpick select{width:100%;min-height:44px;font:inherit;font-size:15px;padding:6px 8px;border:1px solid var(--border-strong);border-radius:8px;background:var(--bg-elevated);color:var(--text)}
-.msi.msi #bs-journey-table .bs-jm.is-pick td[data-pid]:not(.jp-on){display:none}
 .msi.msi .bs-reftoc ol{columns:1}
 }
 @media(max-width:720px){.msi.msi .bs-guide{grid-template-columns:1fr}.msi.msi .bs-srcrow{margin-bottom:28px}}
-@media print{.msi.msi .bs-srcrow,.msi.msi .bs-ref-back,.msi.msi .bs-jpick{display:none!important}.msi.msi #bs-journey-table .bs-jm.is-pick td[data-pid]{display:block!important}.msi.msi .bs-view[hidden]{display:block!important}}
+@media print{.msi.msi .bs-srcrow,.msi.msi .bs-ref-back{display:none!important}.msi.msi .bs-view[hidden]{display:block!important}}
 /* Seven tabs (2026-10-30): slightly narrower tab padding, same text size, so the tabs keep to one row on desktop; the Sources link sits at the right. */
 @media(min-width:901px){.msi.msi .bs-tablist{gap:6px}.msi.msi .bs-tablist a{padding:6px 10px}}
 /* Case study (founder brief, 2026-10-30): subtitle, Social Media Strategy subsections, theme bars and suggestions. */
@@ -747,28 +734,6 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('hashchange', function () { go(location.hash, 'pop'); });
   });
 })();
-/* Customer Journey on phones (2026-10-30, final brief): pick two providers to compare side by side. Without JavaScript, and on
-   wider screens or in print, every provider shows. */
-document.addEventListener('DOMContentLoaded', function () {
-  var box = document.querySelector('#bs-journey-table .bs-jpick'), wrap = document.querySelector('#bs-journey-table .bs-jm');
-  if (!box || !wrap) return;
-  var ths = [].slice.call(wrap.querySelectorAll('thead th[data-pid]'));
-  var names = ths.map(function (t) { return [t.getAttribute('data-pid'), t.textContent]; });
-  function sel(id, label, pick) {
-    var o = names.map(function (n) { return '<option value="' + n[0] + '"' + (n[0] === pick ? ' selected' : '') + '>' + n[1] + '</option>'; }).join('');
-    return '<div><label for="' + id + '">' + label + '</label><select id="' + id + '">' + o + '</select></div>';
-  }
-  box.innerHTML = '<p class="bs-jpick-h">Compare two providers</p><div class="bs-jpick-row">' + sel('bs-jp-a', 'First provider', names[0][0]) + sel('bs-jp-b', 'Second provider', names[1][0]) + '</div>';
-  box.hidden = false;
-  var a = document.getElementById('bs-jp-a'), b = document.getElementById('bs-jp-b');
-  function apply() {
-    [].forEach.call(wrap.querySelectorAll('td[data-pid]'), function (td) {
-      var p = td.getAttribute('data-pid'); td.classList.toggle('jp-on', p === a.value || p === b.value);
-    });
-    wrap.classList.add('is-pick');
-  }
-  a.addEventListener('change', apply); b.addEventListener('change', apply); apply();
-});
 document.addEventListener('DOMContentLoaded', function () {
   function push(o){ try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(o); } catch (e) {} }
   document.querySelectorAll('[data-review-cta^="research_"]').forEach(function (a) {

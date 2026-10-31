@@ -1417,7 +1417,7 @@
     [
      "journeys",
      "Customer Journey",
-     "How brands guide customers from their website to getting started.",
+     "How brands guide customers from their first click to getting started.",
      "steps"
     ],
     [
@@ -1445,7 +1445,7 @@
   },
   "journeys": {
    "title": "Customer Journey",
-   "dek": "Websites and first entry screens were reviewed. Later stages are included only where public sources explain them."
+   "dek": "A look at how brands guide customers from their first click to getting started."
   },
   "lessons": {
    "title": "Lessons",
@@ -1503,7 +1503,13 @@
        "O-VEN-07"
       ]
      ]
-    ]
+    ],
+    "cmp": {
+     "first": "Account creation",
+     "info": "Google or Microsoft sign-in, or email and password",
+     "next": "Not described; the heading says “Get started in 5 minutes”",
+     "stood": "Shows a time estimate and “No personal credit check or guarantee” before any field, but not the later steps."
+    }
    },
    "float": {
     "start": "Homepage, \"See a demo\"",
@@ -1519,7 +1525,13 @@
     "leads": "Demo request",
     "asks_short": "Eight required questions, plus other fields",
     "tells": "Does not explain what happens after the request.",
-    "restrictions": []
+    "restrictions": [],
+    "cmp": {
+     "first": "Demo request",
+     "info": "Eight required questions plus other fields",
+     "next": "Not explained; the line above the button covers consent to be contacted",
+     "stood": "Asks the most of the six before the first step, and the follow-up process is not explained there."
+    }
    },
    "ramp": {
     "start": "Canadian homepage, \"Get started\"",
@@ -1544,7 +1556,13 @@
        "O-RMP-04"
       ]
      ]
-    ]
+    ],
+    "cmp": {
+     "first": "Email-led card application",
+     "info": "Email",
+     "next": "Not listed",
+     "stood": "A short first screen; the eligibility rules sit on the card page, not here."
+    }
    },
    "loop": {
     "start": "Canadian homepage, header \"Open Account\"",
@@ -1569,7 +1587,13 @@
        "O-LOP-06"
       ]
      ]
-    ]
+    ],
+    "cmp": {
+     "first": "Account sign-up",
+     "info": "Name, legal business name, email and mobile, or Google sign-up",
+     "next": "Business information (CRA ID, structure, website), then identity (date of birth, government ID)",
+     "stood": "The only first screen reviewed that lists the steps ahead."
+    }
    },
    "keep": {
     "start": "Homepage, card page and pricing: every start button found",
@@ -1593,7 +1617,13 @@
        "O-KEP-05"
       ]
      ]
-    ]
+    ],
+    "cmp": {
+     "first": "Closed application route",
+     "info": "None offered",
+     "next": "A message that new applications are closed; log-in for existing customers",
+     "stood": "Start buttons on the homepage, card page and pricing all led to this closed route."
+    }
    },
    "airwallex": {
     "start": "Canadian homepage, \"Get started\"",
@@ -1618,7 +1648,13 @@
        "O-AWX-06"
       ]
      ]
-    ]
+    ],
+    "cmp": {
+     "first": "Business-email sign-up",
+     "info": "Business email",
+     "next": "Not listed; continuing agrees to marketing communications",
+     "stood": "A short first screen, with later steps not listed."
+    }
    }
   },
   "note": "Observed in a browser on 23 October 2026 between 12:09 p.m. and 12:12 p.m. Toronto time (Keep at 12:02 p.m.), from a normal Chrome profile not signed in to any provider. I followed each journey to its first screen only: no form was submitted and no account was created, so this does not show how long a full application takes or how many people start, abandon or finish one. Ramp’s header “See a demo” link leads to a page outside the Canadian site.",
@@ -1686,400 +1722,99 @@
   "note": "Every conclusion on this page follows that order. From public pages I do not infer a provider's intent, what customers understood, any effect on conversions, revenue or acquisition efficiency, paid distribution, or non-compliance, and I give no baselines or uplift figures."
  },
  "journey": {
-  "labels": [
-   [
-    "observed",
-    "Observed",
-    "Seen on a reviewed page, screen or post."
-   ],
-   [
-    "describes",
-    "Provider describes",
-    "Stated by the provider; not used or verified in this review."
-   ],
-   [
-    "not_reviewed",
-    "Not reviewed",
-    "The public sources reviewed do not answer it."
-   ]
-  ],
-  "cautions": [
-   "A published feature is not evidence that customers used it.",
-   "A published verification process is not evidence that I completed it.",
-   "Social discovery is covered in Social Media Strategy."
-  ],
-  "stages": [
-   [
-    "visit",
-    "Visits the website",
-    "Understands the offer and conditions."
-   ],
-   [
-    "first",
-    "Takes the first step",
-    "Clicks to sign up, apply or request a demo."
-   ],
-   [
-    "verify",
-    "Completes verification",
-    "Provides required information and documents."
-   ],
-   [
-    "start",
-    "Starts using the product",
-    "Funds an account, activates a card or makes a first transaction, where applicable."
-   ],
-   [
-    "keep",
-    "Keeps using it",
-    "Uses ongoing payments, cards or expense tools."
-   ]
-  ],
-  "stage_notes": {
-   "start": "Card activation and first transactions were not reviewed for any provider.",
-   "keep": "How customers actually use the product over time was not reviewed."
-  },
-  "cells": {
-   "visit": {
-    "venn": [
-     [
-      "observed",
-      "The cards page says cashback has no caps; the pricing footnote limits it on two plans.",
-      [
-       "O-VEN-04"
-      ]
-     ]
-    ],
-    "float": [
-     [
-      "observed",
-      "“Up to” rates for cashback and interest, with the conditions in a pricing footnote and promotion terms.",
-      [
-       "O-FLT-05",
-       "O-FLT-10"
-      ]
-     ]
-    ],
-    "ramp": [
-     [
-      "observed",
-      "Canadian eligibility on the card page; customer proof is worldwide (85,000 customers).",
-      [
-       "O-RMP-04",
-       "O-RMP-13"
-      ]
-     ]
-    ],
-    "loop": [
-     [
-      "observed",
-      "A case study labels its savings figure as Loop’s calculation; homepage averages show no basis I could find.",
-      [
-       "O-LOP-13",
-       "O-LOP-12"
-      ]
-     ]
-    ],
-    "keep": [
-     [
-      "observed",
-      "Pages show start buttons and “Applications do not impact your credit score”.",
-      [
-       "O-KEP-06"
-      ]
-     ]
-    ],
-    "airwallex": [
-     [
-      "observed",
-      "Visible pages say 1% cashback; the rebate terms were not found on 23 October.",
-      [
-       "O-AWX-04"
-      ]
-     ],
-     [
-      "observed",
-      "Checked 30 October 2026: pricing links promotion terms with a 2025 end date.",
-      []
-     ]
-    ]
-   },
-   "first": {
-    "venn": [
-     [
-      "observed",
-      "Account creation. Asks for sign-in, or email and password. Shows a time estimate; later steps are not described.",
-      [
-       "O-VEN-18"
-      ]
-     ]
-    ],
-    "float": [
-     [
-      "observed",
-      "Demo request. Eight required questions plus other fields. The screen does not say what happens after requesting a demo.",
-      [
-       "O-FLT-16"
-      ]
-     ]
-    ],
-    "ramp": [
-     [
-      "observed",
-      "Card application. Asks for an email. Later steps are not listed.",
-      [
-       "O-RMP-15"
-      ]
-     ]
-    ],
-    "loop": [
-     [
-      "observed",
-      "Account sign-up. Contact and business details, or Google sign-up. Lists the business-information and identity steps ahead.",
-      [
-       "O-LOP-15"
-      ]
-     ]
-    ],
-    "keep": [
-     [
-      "observed",
-      "The reviewed self-serve route leads to a closed-applications page. No application fields are offered.",
-      [
-       "O-KEP-05"
-      ]
-     ]
-    ],
-    "airwallex": [
-     [
-      "observed",
-      "Account sign-up. Asks for a business email. Later steps are not listed.",
-      [
-       "O-AWX-14"
-      ]
-     ]
-    ]
-   },
-   "verify": {
-    "venn": [
-     [
-      "observed",
-      "The sign-up screen says “No personal credit check or guarantee”.",
-      [
-       "O-VEN-18"
-      ]
-     ],
-     [
-      "describes",
-      "Not available to businesses in Quebec (stated elsewhere on the site).",
-      [
-       "O-VEN-07"
-      ]
-     ],
-     [
-      "not_reviewed",
-      "Documents and approval steps.",
-      []
-     ]
-    ],
-    "float": [
-     [
-      "describes",
-      "Float Charge credit is subject to terms, eligibility criteria and caps.",
-      [
-       "O-FLT-07"
-      ]
-     ],
-     [
-      "not_reviewed",
-      "Documents and approval steps.",
-      []
-     ]
-    ],
-    "ramp": [
-     [
-      "describes",
-      "The card page lists a Canadian, US or UK-registered entity, a Business Number and a linked Canadian bank account.",
-      [
-       "O-RMP-04"
-      ]
-     ],
-     [
-      "not_reviewed",
-      "Approval steps after the email.",
-      []
-     ]
-    ],
-    "loop": [
-     [
-      "observed",
-      "The sign-up screen lists business information (CRA ID, structure, website) and identity (date of birth, government ID) as the next steps.",
-      [
-       "O-LOP-15"
-      ]
-     ],
-     [
-      "describes",
-      "The card is not available to sole proprietors residing in Quebec.",
-      [
-       "O-LOP-06"
-      ]
-     ]
-    ],
-    "keep": [
-     [
-      "describes",
-      "Applying does not affect the credit score; accepting an offer may lead to a hard inquiry.",
-      [
-       "O-KEP-06"
-      ]
-     ],
-     [
-      "not_reviewed",
-      "Verification steps, as the reviewed route was closed.",
-      []
-     ]
-    ],
-    "airwallex": [
-     [
-      "describes",
-      "Business use only; not for sole proprietors in Quebec.",
-      [
-       "O-AWX-06"
-      ]
-     ],
-     [
-      "not_reviewed",
-      "Documents and approval steps.",
-      []
-     ]
-    ]
-   },
-   "start": {
-    "venn": [
-     [
-      "describes",
-      "A charge card that spends funds already in the card account, paid in full each cycle.",
-      [
-       "O-VEN-01"
-      ]
-     ]
-    ],
-    "float": [
-     [
-      "describes",
-      "A pre-funded card limited to the Float balance, or Float Charge credit with 15- or 30-day terms.",
-      [
-       "O-FLT-01"
-      ]
-     ]
-    ],
-    "ramp": [
-     [
-      "not_reviewed",
-      "How the Canadian card is funded or repaid was not established.",
-      [
-       "O-RMP-02"
-      ]
-     ]
-    ],
-    "loop": [
-     [
-      "describes",
-      "Card purchases are drawn under a credit facility; limits up to $1M are promoted.",
-      [
-       "O-LOP-01"
-      ]
-     ]
-    ],
-    "keep": [
-     [
-      "describes",
-      "A charge card paid in full, with no interest.",
-      [
-       "O-KEP-01"
-      ]
-     ]
-    ],
-    "airwallex": [
-     [
-      "describes",
-      "The card spends the wallet balance; a credit line is also listed, with its terms not explained.",
-      [
-       "O-AWX-01"
-      ]
-     ]
-    ]
-   },
-   "keep": {
-    "venn": [
-     [
-      "describes",
-      "Approval workflows by role, department or amount; QuickBooks and Xero sync.",
-      [
-       "O-VEN-20",
-       "O-VEN-22"
-      ]
-     ]
-    ],
-    "float": [
-     [
-      "describes",
-      "Manager approvals, a second approver above a set amount; QuickBooks Online and Xero, NetSuite on Professional.",
-      [
-       "O-FLT-20",
-       "O-FLT-22"
-      ]
-     ]
-    ],
-    "ramp": [
-     [
-      "describes",
-      "Approval rules before employees spend; QuickBooks Online and Xero, more systems on Plus.",
-      [
-       "O-RMP-18",
-       "O-RMP-20"
-      ]
-     ]
-    ],
-    "loop": [
-     [
-      "describes",
-      "Unlimited approval flows and custom rules; QuickBooks and Xero.",
-      [
-       "O-LOP-18",
-       "O-LOP-20"
-      ]
-     ]
-    ],
-    "keep": [
-     [
-      "describes",
-      "Rules set once instead of approving each purchase; QuickBooks and CSV exports.",
-      [
-       "O-KEP-17",
-       "O-KEP-19"
-      ]
-     ]
-    ],
-    "airwallex": [
-     [
-      "describes",
-      "Flagged expenses go to an approver; Xero and QuickBooks, more systems on Grow.",
-      [
-       "O-AWX-17",
-       "O-AWX-19"
-      ]
-     ]
-    ]
-   }
-  },
-  "reading": "Only Loop’s reviewed first screen listed the steps ahead. This review does not establish whether more people completed the journey.",
   "gaps": [
    "Ramp’s Canadian card model and repayment terms (the Canada Card Supplement was not captured).",
    "What each provider asks for during verification, from its own help or onboarding pages, without creating an account.",
    "How each card is activated and funded before a first transaction, from public help pages.",
    "What happens after Float’s demo request and after Airwallex’s and Ramp’s email step, where a public page explains it."
+  ],
+  "map_title": "The journey",
+  "map_note": "This is a comparison framework. Different products may follow different routes.",
+  "coverage_labels": {
+   "all": "Compared for all six",
+   "partly": "Partly",
+   "not_reviewed": "Not reviewed"
+  },
+  "map": [
+   {
+    "key": "start",
+    "name": "Start",
+    "question": "Does the customer apply, create an account or request a demo?",
+    "coverage": "all",
+    "note": "First screens observed on 23 October 2026.",
+    "ids": []
+   },
+   {
+    "key": "details",
+    "name": "Provide details",
+    "question": "What information is requested first?",
+    "coverage": "all",
+    "note": "First screens observed on 23 October 2026.",
+    "ids": []
+   },
+   {
+    "key": "verify",
+    "name": "Get verified",
+    "question": "Are documents, eligibility and approval steps explained?",
+    "coverage": "partly",
+    "note": "Loop’s first screen lists the identity steps ahead, and Ramp’s card page lists eligibility. Documents and approval were not reviewed.",
+    "ids": [
+     "O-LOP-15",
+     "O-RMP-04"
+    ]
+   },
+   {
+    "key": "activate",
+    "name": "Get started",
+    "question": "Does the provider explain funding, card activation or the first transaction?",
+    "coverage": "not_reviewed",
+    "note": "Public onboarding guidance was not assessed in this edition.",
+    "ids": []
+   },
+   {
+    "key": "continue",
+    "name": "Continue using",
+    "question": "What onboarding guidance or support is described?",
+    "coverage": "not_reviewed",
+    "note": "Public onboarding guidance was not assessed in this edition.",
+    "ids": []
+   }
+  ],
+  "table_title": "First steps compared",
+  "table_note": "What each brand’s main start button led to on 23 October 2026, followed to the first screen only: no form was submitted and no account was created. These describe the dated routes reviewed, not every route a brand offers. Fewer initial fields do not establish a shorter total application, and first screens do not show how many people finish one.",
+  "table_columns": [
+   [
+    "first",
+    "First step"
+   ],
+   [
+    "info",
+    "Information requested"
+   ],
+   [
+    "next",
+    "What happens next"
+   ],
+   [
+    "stood",
+    "What stood out"
+   ]
+  ],
+  "examples_title": "First screens in practice",
+  "examples_note": "Fresh captures from 31 October 2026, cropped; the wording matches the 23 October first screens. Click a screenshot to enlarge it.",
+  "examples": [
+   {
+    "capture": "J1",
+    "label": "Setting expectations",
+    "alt": "Venn sign-up screen: heading ‘Get started in 5 minutes’, the line ‘No personal credit check or guarantee.’, Google and Microsoft buttons, email, password and confirm password fields and a Create account button.",
+    "observation": "Before any field, the screen sets two expectations: a time estimate and no personal credit check. It does not say what follows account creation."
+   },
+   {
+    "capture": "J2",
+    "label": "Explaining the next action",
+    "alt": "Float Book a Demo form: eight fields marked required, product interest checkboxes, an optional referral code, a menu asking where the visitor heard of Float, a consent line and a Book a Demo button.",
+    "observation": "Eight required fields come first, and the only wording above the button is consent to be contacted. Nothing on the screen says what happens after a demo is requested."
+   }
   ]
  },
  "messaging_support": {

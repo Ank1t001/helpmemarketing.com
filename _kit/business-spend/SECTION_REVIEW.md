@@ -187,6 +187,17 @@ Decision (founder, 31 October 2026): "Apply all the options, then push it to liv
 - Phones: a brand selector narrows parts 2 to 4 to one brand (the view is about 3,200px with one brand, 7,800px with all, including the new summary); cards are tighter.
 - Shared spacing: parts 32px apart on desktop, 24px on phones; small uppercase table headers like the other tabs.
 
+## 6. Customer Journey (founder brief, 31 October 2026; built on staging)
+
+Brief: the old view mixed the sign-up experience with website claims and product features; its strongest material is what happens when someone takes the first step. Purpose: "A look at how brands guide customers from their first click to getting started."
+
+Built:
+- 1 The journey: five stages (Start, Provide details, Get verified, Get started, Continue using), each with the question compared and a coverage label (Compared for all six, Partly, Not reviewed), and the line "This is a comparison framework. Different products may follow different routes."
+- 2 First steps compared: Brand, First step, Information requested, What happens next, What stood out, from the 23 October first-screen observations, with one coverage note (dated routes only; fewer initial fields do not establish a shorter total application).
+- 3 First screens in practice: Venn (setting expectations: a time estimate and no personal credit check before any field) and Float (explaining the next action: eight required fields, and the only wording above the button is consent to be contacted). Fresh captures of 31 October 2026, each matching its 23 October observation; click to enlarge.
+- Removed from the tab: cashback, rates, card funding and accounting rows, the per-stage provider matrix, the legend, the repeated "Not reviewed" lines, the phone picker and the reading box. Verification and activation are marked Partly and Not reviewed until public onboarding guidance is assessed (the gaps list in Sources & evidence names the checks).
+- Loop: its first screen is the one that lists the steps ahead, but on 31 October its sign-up page returned a browser verification checkpoint to this environment, so no Loop capture was made; the checkpoint was not bypassed.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

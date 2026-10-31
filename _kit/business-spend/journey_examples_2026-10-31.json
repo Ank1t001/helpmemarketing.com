@@ -1,0 +1,63 @@
+{
+ "captured_on": "2026-10-31",
+ "method": "Headless Chromium from this research environment, 1280 by 900 window, locale en-CA, nothing typed or submitted and no account created; on Float's page the cookie banner was answered with Reject All so the form could be seen. Full screenshots kept privately; only the crops below are published.",
+ "note": "Fresh captures for the Customer Journey examples (founder brief, 31 October 2026). They are dated separately from the 23 October observations and change no observation, status or finding. Loop's sign-up page returned a browser verification checkpoint to this environment on 31 October 2026, so no Loop capture was made.",
+ "captures": [
+  {
+   "id": "J1",
+   "pid": "venn",
+   "kind": "expectations",
+   "url": "https://app.venn.ca/signup",
+   "captured_at": "2026-10-31T16:08:26-04:00",
+   "http_status": 200,
+   "quote": "Get started in 5 minutes. No personal credit check or guarantee. Then Google or Microsoft sign-in, or email, password and password confirmation, and a Create account button.",
+   "matches_23_october": "Matches the 23 October first screen (time estimate, no personal credit check, the same fields).",
+   "observations": [
+    "O-VEN-18"
+   ],
+   "src": "/assets/index/business-spend/web/venn-signup-2026-10-31.webp",
+   "width": 490,
+   "height": 710,
+   "crop": [
+    650,
+    90,
+    1140,
+    800
+   ],
+   "capture_sha256": "1917b544e837102a1740e2f0b3f5de04a0dffd444f4ec75e3db04bb2aa747216",
+   "sha256": "b5257cfe5738d0e71339bdf8a98fe825f20b9c85e8df7c6b0955cf8ec4974cfb",
+   "zoom_src": "/assets/index/business-spend/web/venn-signup-2026-10-31-large.webp",
+   "zoom_width": 490,
+   "zoom_height": 710,
+   "zoom_sha256": "f192e0f409ab6068cf0bdc1c4ccd6a74d07fe7777c5128f32014bea469a80423"
+  },
+  {
+   "id": "J2",
+   "pid": "float",
+   "kind": "next_action",
+   "url": "https://floatfinancial.com/demo",
+   "captured_at": "2026-10-31T16:08:41-04:00",
+   "http_status": 200,
+   "quote": "Book a Demo. Eight fields marked required (first name, last name, work email, job title, phone number, company size, current monthly credit card spend, product interest), a referral code marked optional, How did you hear about us, then: By submitting this form you consent to Float contacting you.",
+   "matches_23_october": "Matches the 23 October first screen (eight required questions, consent to be contacted, nothing on what follows the request).",
+   "observations": [
+    "O-FLT-16"
+   ],
+   "src": "/assets/index/business-spend/web/float-demo-2026-10-31.webp",
+   "width": 560,
+   "height": 727,
+   "crop": [
+    220,
+    293,
+    1060,
+    1383
+   ],
+   "capture_sha256": "f333a93f05731651e86da477bd3f5602fe62bd2eeaa73a7a21ded6d1b5155d5d",
+   "sha256": "edc59e831d0854ddb991a0e1a22f3b727a98d5fadf7f843dcb78c23c24d0fb7e",
+   "zoom_src": "/assets/index/business-spend/web/float-demo-2026-10-31-large.webp",
+   "zoom_width": 840,
+   "zoom_height": 1090,
+   "zoom_sha256": "e151eadda7ed09dcc2944d0ec8b4a7e0441729880a263d7cde8ac57a0c41ec2d"
+  }
+ ]
+}

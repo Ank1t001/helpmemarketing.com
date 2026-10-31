@@ -288,6 +288,28 @@ def check_inputs(c):
         zp = os.path.join(model.ROOT, w.get('zoom_src', '').lstrip('/'))
         if not w.get('zoom_src') or not os.path.exists(zp) or hashlib.sha256(open(zp, 'rb').read()).hexdigest() != w.get('zoom_sha256'):
             errs.append('examples: the enlarged crop for %s is missing or differs from its recorded hash' % x['capture'])
+    # Customer Journey (founder brief, 2026-10-31): five map stages, one comparison row per brand, two dated first-screen examples.
+    jy_ = c.n.get('journey', {})
+    if [s['name'] for s in jy_.get('map', [])] != ['Start', 'Provide details', 'Get verified', 'Get started', 'Continue using'] or any(s['coverage'] not in jy_.get('coverage_labels', {}) or not set(s['ids']) <= set(c.obs) for s in jy_.get('map', [])):
+        errs.append('journey: five map stages, each with a coverage label and known evidence')
+    for pid in EXPECTED_ORDER:
+        cm = c.n['journeys']['rows'].get(pid, {}).get('cmp') or {}
+        if set(cm) != {k for k, _ in jy_.get('table_columns', [])} or not all(cm.values()):
+            errs.append('journey: %s needs a first step, information requested, what happens next and what stood out' % pid)
+    jdoc = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'journey_examples_2026-10-31.json'), encoding='utf-8'))
+    jcaps = {w['id']: w for w in jdoc['captures']}
+    jx = jy_.get('examples', [])
+    if [x['label'] for x in jx] != ['Setting expectations', 'Explaining the next action'] or len({jcaps[x['capture']]['pid'] for x in jx if x['capture'] in jcaps}) != len(jx):
+        errs.append('journey: two examples (setting expectations, explaining the next action) from two different brands')
+    for x in jx:
+        w = jcaps.get(x['capture'])
+        if not w or not w['captured_at'].startswith('2026-10-31') or not set(w['observations']) <= set(c.obs) or not x.get('observation') or x['observation'].count('. ') > 2:
+            errs.append('journey: example %s needs a dated capture, linked observations and one short observation' % x['capture'])
+            continue
+        for key, hkey in (('src', 'sha256'), ('zoom_src', 'zoom_sha256')):
+            pth = os.path.join(model.ROOT, w[key].lstrip('/'))
+            if not os.path.exists(pth) or hashlib.sha256(open(pth, 'rb').read()).hexdigest() != w[hkey]:
+                errs.append('journey: the %s for %s is missing or differs from its recorded hash' % (key, x['capture']))
     for pid in EXPECTED_ORDER:
         g = c.n['platforms'][pid].get('glance') or {}
         if set(g) != {'promise', 'audience', 'why', 'proof', 'ev'} or not g['ev'] or not set(g['ev']) <= set(c.obs) or any(t.count('. ') > 1 for k, t in g.items() if k != 'ev'):
