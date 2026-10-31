@@ -441,9 +441,8 @@ class KitTests(unittest.TestCase):
         new, issues = release.new_hub(hub, '2026-10-23')
         self.assertEqual(issues, [])
         if released(self.c):
-            # the committed hub is exactly the release output for the recorded release date (Last updated may later
-            # move to the Toronto date of the production deployment, set in the metadata commit)
-            self.assertEqual(current, release.new_hub(hub, self.c.edition['published_at'])[0])
+            # The card's Last updated follows the latest recorded production deployment (RELEASE_STEPS step 12), in Toronto time.
+            self.assertEqual(current, release.new_hub(hub, (self.c.edition.get('modified_at') or self.c.edition['published_at'])[:10])[0])
         self.assertIn('<title>The HMM Index: Marketing Research | HelpMeMarketing</title>', new)
         self.assertNotIn('Instagram Benchmarks', new)
         self.assertIn('Sources accompany the observations, with my interpretation labelled separately.', new)
