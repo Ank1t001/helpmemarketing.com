@@ -527,7 +527,42 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi #bs-messaging .soc-stood{margin:0;font-size:14.5px;line-height:1.6;color:var(--text-body,var(--text))}
 @media(max-width:900px){.msi.msi .bs-wexs{grid-template-columns:1fr}}
 @media(max-width:720px){.msi.msi .bs-wex{padding:20px}}
+/* Click to enlarge the Website Messaging screenshots (founder, 2026-10-31): a link per image and one native dialog. */
+.msi.msi a.bs-zoom{position:relative;display:block;cursor:zoom-in;border-radius:var(--r1)}
+.msi.msi a.bs-zoom:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
+.msi.msi .bs-zoom-hint{position:absolute;right:8px;bottom:8px;font-size:12px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--bg);color:var(--text);border:1px solid var(--border-strong)}
+.msi.msi dialog.bs-lightbox{position:fixed;inset:0;margin:auto;width:fit-content;height:fit-content;max-width:min(1200px,94vw);max-height:92vh;padding:var(--s4);border:1px solid var(--border-strong);border-radius:var(--r2);background:var(--bg-elevated);color:var(--text)}
+dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
+.msi.msi dialog.bs-lightbox figure{margin:0}
+.msi.msi dialog.bs-lightbox img{display:block;max-width:100%;max-height:calc(92vh - 110px);width:auto;height:auto;margin:0 auto;border-radius:var(--r1)}
+.msi.msi dialog.bs-lightbox figcaption{margin-top:var(--s3);font-size:14px;line-height:1.5;color:var(--text-muted)}
+.msi.msi .bs-lightbox-close{margin-top:var(--s3);font:inherit;font-size:14px;font-weight:600;min-height:40px;padding:8px 16px;border:1px solid var(--border-strong);border-radius:999px;background:var(--bg);color:var(--text);cursor:pointer}
+.msi.msi .bs-lightbox-close:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
+@media(max-width:720px){.msi.msi dialog.bs-lightbox{padding:var(--s3)}.msi.msi dialog.bs-lightbox figure{overflow-x:auto;-webkit-overflow-scrolling:touch}.msi.msi dialog.bs-lightbox img{max-width:none;max-height:none;margin:0}.msi.msi dialog.bs-lightbox figcaption{position:sticky;left:0}.msi.msi dialog.bs-lightbox figcaption::after{content:" Scroll sideways to read it all."}}
+@media print{.msi.msi .bs-zoom-hint,.msi.msi dialog.bs-lightbox{display:none!important}}
 </style>
+<script data-bs-zoom>
+/* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */
+document.addEventListener('DOMContentLoaded', function () {
+  var dlg = document.getElementById('bs-lightbox');
+  if (!dlg || typeof dlg.showModal !== 'function') return;
+  var img = dlg.querySelector('img'), cap = dlg.querySelector('figcaption'), last = null;
+  [].forEach.call(document.querySelectorAll('a.bs-zoom'), function (a) {
+    a.addEventListener('click', function (e) {
+      if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault(); last = a;
+      var t = a.querySelector('img'), fig = a.closest('figure');
+      img.src = a.getAttribute('href'); img.alt = t ? t.alt : '';
+      img.width = +a.getAttribute('data-zoom-w'); img.height = +a.getAttribute('data-zoom-h');
+      cap.textContent = fig && fig.querySelector('figcaption') ? fig.querySelector('figcaption').textContent : '';
+      dlg.showModal();
+    });
+  });
+  dlg.querySelector('.bs-lightbox-close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', function () { if (last) last.focus(); });
+});
+</script>
 <script data-pd-mix>
 /* Paid Social Strategy (2026-10-31): the Focus / Format / Creative approach / Theme selector and "Show all categories".
    Without JavaScript every view shows with its own heading and every category is listed. */

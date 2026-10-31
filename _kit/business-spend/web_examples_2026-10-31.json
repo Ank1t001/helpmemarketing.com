@@ -25,7 +25,11 @@
     640
    ],
    "capture_sha256": "e348e4a4f1ac86f8da69431c5d38b791e8b0ba23b4aa9e019e253df8832d425a",
-   "sha256": "6b7c61dbbeca99e3738f03d05ce234f2adb6b3319cfc40b813a1ba2ff6927363"
+   "sha256": "6b7c61dbbeca99e3738f03d05ce234f2adb6b3319cfc40b813a1ba2ff6927363",
+   "zoom_src": "/assets/index/business-spend/web/loop-home-2026-10-31-large.webp",
+   "zoom_width": 1180,
+   "zoom_height": 500,
+   "zoom_sha256": "642c69bf009d8b0d33fd490c5813d69849f8b4cc6c96b14e3ad44cf70d1560c0"
   },
   {
    "id": "W2",
@@ -49,7 +53,11 @@
     520
    ],
    "capture_sha256": "e53215302c8d0c554a712623b884caa86609d6e830ab6fc10224f5e849db9c1f",
-   "sha256": "57489ccbc39c3b646d518afcb9a37b75b4f773d65cfa0b833cc752c289d1e8ad"
+   "sha256": "57489ccbc39c3b646d518afcb9a37b75b4f773d65cfa0b833cc752c289d1e8ad",
+   "zoom_src": "/assets/index/business-spend/web/airwallex-adaria-2026-10-31-large.webp",
+   "zoom_width": 700,
+   "zoom_height": 320,
+   "zoom_sha256": "16d88ffa978a1813db2807238c8fc49ac4275398a557d17698b060f5441bcebf"
   },
   {
    "id": "W3",
@@ -73,7 +81,11 @@
     470
    ],
    "capture_sha256": "25a2f46d05f2dfa434799ee1c591b9f926951697ccfa3a15a621c7c04e8602f7",
-   "sha256": "d6ab89a097b19c7fae6fbef91c56aaad0aa8e9d6760481fd60f6e2bc5a913469"
+   "sha256": "d6ab89a097b19c7fae6fbef91c56aaad0aa8e9d6760481fd60f6e2bc5a913469",
+   "zoom_src": "/assets/index/business-spend/web/keep-home-2026-10-31-large.webp",
+   "zoom_width": 860,
+   "zoom_height": 370,
+   "zoom_sha256": "c8dce971fd54e8b5cc30154ead93af43e17e8c4afb2e31bb4872efa52dd7c98a"
   }
  ]
 }

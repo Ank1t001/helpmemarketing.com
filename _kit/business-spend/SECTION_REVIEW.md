@@ -132,6 +132,8 @@ The founder's second brief replaces the version put live earlier the same day (`
 - Moved out: the "How the promise is supported" column (its per-check evidence stays in Sources & evidence, `#bs-msg-support-ev`), the "What stood out" column, the earlier text examples (now in each provider's evidence expander) and the ads-beside-website pointer (the comparison stays in Sources & evidence).
 - No scores or rankings; recommendations and tests stay in Lessons.
 
+- Live as `bfc708d` (dateModified from `a718bea`). Founder check on desktop, 31 October: structure kept. Two refinements built on staging: the Airwallex line now reads "the outcomes are provider-reported, not independently verified"; each screenshot opens larger in an in-page dialog (full-resolution crops from the same 31 October captures, hashes in `web_examples_2026-10-31.json`; on phones the large image scrolls sideways; without JavaScript the link opens the image).
+
 ### First version (applied and put live earlier on 31 October, superseded)
 First version, founder: "Apply all the options, then push it to live"
 

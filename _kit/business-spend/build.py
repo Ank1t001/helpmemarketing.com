@@ -639,16 +639,20 @@ def body(c):
     cards = []
     for i, x in enumerate(n['web_examples'], 1):
         w = caps[x['capture']]
-        cards.append('<article class="bs-wex" id="bs-wex-%d"><figure class="bs-wex-shot"><img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async">'
+        # Click to enlarge (founder, 2026-10-31): the link opens the full-resolution crop in an in-page dialog; without JavaScript it opens the image.
+        cards.append('<article class="bs-wex" id="bs-wex-%d"><figure class="bs-wex-shot"><a class="bs-zoom" href="%s" data-zoom-w="%d" data-zoom-h="%d" aria-label="Enlarge screenshot: %s">'
+                     '<img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async"><span class="bs-zoom-hint" aria-hidden="true">Click to enlarge</span></a>'
                      '<figcaption>%s, captured %s.</figcaption></figure><div class="bs-wex-text"><p class="soc-tags">%s &middot; %s</p><p class="bs-wex-quote">%s</p>'
                      '<p class="soc-stood"><b>What stood out:</b> %s</p></div></article>' % (
-                         i, E(w['src']), E(x['alt']), w['width'], w['height'], E(c.name(w['pid'])), E(iso_long(w['captured_at'][:10])), E(x['label']), E(c.name(w['pid'])), E(x['wording']), E(x['stood_out'])))
+                         i, E(w['zoom_src']), w['zoom_width'], w['zoom_height'], E('%s, %s' % (c.name(w['pid']), x['label'].lower())),
+                         E(w['src']), E(x['alt']), w['width'], w['height'], E(c.name(w['pid'])), E(iso_long(w['captured_at'][:10])), E(x['label']), E(c.name(w['pid'])), E(x['wording']), E(x['stood_out'])))
     V['messaging'] = (view_open('messaging', 'bs-messaging')
                       + '<div class="sub soc-sec" id="bs-msg-table"><h3 id="bs-msg-h"><span class="soc-n">1</span>%s</h3><p class="soc-lim">%s</p>'
                         '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-msg-h"><table class="bs bs-msgt"><caption class="sr-only">Main promise, audience, claimed difference and proof for six brands, from pages observed on 23 October 2026</caption>'
                         '<thead><tr><th scope="col">Brand</th><th scope="col">Main promise</th><th scope="col">Who it speaks to</th><th scope="col">Why choose them?</th><th scope="col">Proof used</th></tr></thead><tbody>\n%s</tbody></table></div></div>'
                         % (E(vm['table_title']), E(vm['table_note']), mrows)
-                      + '<div id="bs-examples" class="sub soc-sec"><h3><span class="soc-n">2</span>%s</h3><p class="soc-lim">%s</p><div class="bs-wexs">%s</div></div>' % (E(vm['examples_title']), E(vm['examples_note']), ''.join(cards))
+                      + '<div id="bs-examples" class="sub soc-sec"><h3><span class="soc-n">2</span>%s</h3><p class="soc-lim">%s</p><div class="bs-wexs">%s</div>'
+                        '<dialog class="bs-lightbox" id="bs-lightbox" aria-label="Enlarged screenshot"><figure><img src="" alt=""><figcaption></figcaption></figure><button type="button" class="bs-lightbox-close">Close</button></dialog></div>' % (E(vm['examples_title']), E(vm['examples_note']), ''.join(cards))
                       + view_close('messaging'))
 
     # ---------- Compare Products ----------

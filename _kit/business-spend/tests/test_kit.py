@@ -299,8 +299,12 @@ class KitTests(unittest.TestCase):
         self.assertEqual(len(re.findall(r'<tr id="bs-msg-[a-z]+">', msg)), 6)
         self.assertEqual(re.findall(r'<h3[^>]*><span class="soc-n">\d</span>([^<]+)</h3>', msg), ['Messaging at a glance', 'Messaging in practice'])
         self.assertEqual(re.findall(r'<p class="soc-tags">([^&]+?) &middot;', msg), ['Value proposition', 'Proof', 'Call to action'])
-        self.assertEqual(msg.count('<figure class="bs-wex-shot"><img src="/assets/index/business-spend/web/'), 3)
+        self.assertEqual(len(re.findall(r'<figure class="bs-wex-shot"><a class="bs-zoom"[^>]*><img src="/assets/index/business-spend/web/', msg)), 3)
         self.assertEqual(msg.count('captured 31 October 2026'), 3)
+        self.assertEqual(msg.count('<a class="bs-zoom" href="/assets/index/business-spend/web/'), 3)    # click to enlarge (2026-10-31)
+        self.assertEqual(msg.count('<dialog class="bs-lightbox"'), 1)
+        self.assertIn('the outcomes are provider-reported, not independently verified.', msg)
+        self.assertNotIn('described, not measured', msg)
         self.assertNotIn('<div class="card ex">', msg)
         self.assertNotRegex(msg.replace('credit score', ''), r'(?i)best website|\b(?:scored?|ranked|rating)\b|\d+ ?/ ?10|winning')   # "credit score" is quoted site wording
         ref = validate.view_html(body, 'bs-sources')

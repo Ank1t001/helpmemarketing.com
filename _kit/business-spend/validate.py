@@ -275,6 +275,9 @@ def check_inputs(c):
         pth = os.path.join(model.ROOT, w['src'].lstrip('/'))
         if not os.path.exists(pth) or hashlib.sha256(open(pth, 'rb').read()).hexdigest() != w['sha256']:
             errs.append('examples: the crop for %s is missing or differs from its recorded hash' % x['capture'])
+        zp = os.path.join(model.ROOT, w.get('zoom_src', '').lstrip('/'))
+        if not w.get('zoom_src') or not os.path.exists(zp) or hashlib.sha256(open(zp, 'rb').read()).hexdigest() != w.get('zoom_sha256'):
+            errs.append('examples: the enlarged crop for %s is missing or differs from its recorded hash' % x['capture'])
     for pid in EXPECTED_ORDER:
         g = c.n['platforms'][pid].get('glance') or {}
         if set(g) != {'promise', 'audience', 'why', 'proof', 'ev'} or not g['ev'] or not set(g['ev']) <= set(c.obs) or any(t.count('. ') > 1 for k, t in g.items() if k != 'ev'):
