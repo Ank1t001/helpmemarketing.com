@@ -201,16 +201,6 @@ def check_inputs(c):
         if re.search(r'capture request|\bR[12]\b', ' '.join(p.get('missing', []))):
             errs.append('%s: describe missing evidence in plain language, not internal capture codes' % pid)
         cp_ = c.n['compare']
-        # At-a-glance cells (2026-10-31): a short form of a detail cell, missing exactly when the detail is missing.
-        for k, _ in cp_.get('glance_columns', []):
-            g = cp_.get('glance', {}).get(pid, {})
-            d = cp_['rows'].get(pid, {}).get(k) or {}
-            if k not in g:
-                errs.append('%s: at-a-glance cell %s missing' % (pid, k))
-            elif (g[k] is None) != (d.get('text') is None):
-                errs.append('%s.%s: the at-a-glance cell and the detail cell must both be filled or both be missing' % (pid, k))
-            elif g[k] and (len(g[k]) > 70 or '\u2014' in g[k]):
-                errs.append('%s.%s: keep the at-a-glance cell short and without em dashes' % (pid, k))
         for k, _ in cp_['cost_columns'] + cp_['card_columns'] + cp_['fee_columns'] + cp_['acct_columns'] + cp_['spend_columns']:
             spec = c.n['compare']['rows'].get(pid, {}).get(k)
             if k == cp_['cost_columns'][0][0]:
@@ -763,8 +753,11 @@ def check_outputs(c, page, csvtext, extra_paths=()):
         errs.append('page: Messaging carries no takeaway boxes or capture codes, and keeps its dated limitation beside the table')
     if 'booked' in body or 'after booking' in body:
         errs.append('page: a demo request is not a booked meeting')
-    if body.count('<ol class="tests"><li') != 1 or body.count('<dt>Testable hypothesis</dt>') != 3 or body.count('Proposed test, not a result</span><h3 class="bs-ttitle">Test ') != 3:
-        errs.append('page: exactly three tests, each with its hypothesis')
+    # Lessons since the 2026-10-31 refinement brief: four cards in the tab; the three detailed test designs stay in Sources & evidence.
+    lsv = view_html(body, 'bs-lessons')
+    if lsv.count('<article class="bs-lesson"') != 4 or lsv.count('<dt>What stood out</dt>') != 4 or body.count('<dt>Testable hypothesis</dt>') != 3 \
+            or any('id="%s"' % a not in lsv for a in ('bs-t1', 'bs-t2', 'bs-t3', 'bs-f1', 'bs-f2', 'bs-f3')):
+        errs.append('page: four lesson cards, the earlier test anchors kept, and the three detailed test designs in Sources & evidence')
     for o in c.obs.values():
         if 'id="ev-%s"' % o['id'] not in body:
             errs.append('page: observation %s not rendered' % o['id'])

@@ -406,7 +406,7 @@
     "emphasises": "4 of 23 posts name a product; one shows a use case, Arsenal fans paying in their own currencies. Most posts name no product benefit."
    }
   ],
-  "positioning_limit": "Only Venn and Airwallex are compared: no posts in the window were found on the reviewed Float, Loop and Keep accounts, and @tryramp is not confirmed as Ramp’s account.",
+  "positioning_limit": "Only Venn and Airwallex are compared. Float, Loop and Keep: no posts found on the reviewed accounts in the research window, which says nothing about posting outside it. Ramp: account attribution unresolved, so @tryramp posts are counted in Sources & evidence but their content is not assessed here.",
   "creative_title": "Creative Strategy",
   "creative_stood_out": {
    "venn": "Customer stories lead (6 of 9 posts), mostly as reels; the two inspected non-video posts explain the app feature by feature.",
@@ -434,7 +434,7 @@
   "engagement_title": "Engagement by Theme",
   "engagement_limit": "Based on visible likes and comments. Small samples are directional and do not establish sales performance.",
   "engagement_takeaway": {
-   "venn": "Too few posts in each theme to compare. One theme has six posts, the others one or two, and every count is between 3 and 12.",
+   "venn": "Only customer stories has enough posts for a median; the other themes are too small for a meaningful comparison.",
    "airwallex": "Partnership posts had the highest median (237 from 6 posts with counts), mostly from posts made with collaborators: without them the median is 75 from 4, close to Culture or community (66 from 5)."
   }
  }

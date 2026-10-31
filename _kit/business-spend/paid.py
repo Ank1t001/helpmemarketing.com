@@ -247,6 +247,8 @@ def _stack(cs, cats, label):
     for i, (k, lab) in enumerate(cats):
         n = c.get(k, 0)
         if not n:
+            if cats is STAGE_L and k in ('TOF', 'MOF', 'BOF'):
+                key.append('<li class="pd-zero"><span class="pd-sw pd-sw-zero" aria-hidden="true"></span>%s <b>0 of %d, not observed</b></li>' % (E(lab), total))
             continue
         w = 1000.0 * n / total
         cls = 'pd-c-un' if k == 'not_assessed' else 'pd-c%d' % (i + 1)
@@ -273,8 +275,13 @@ def _bars(cs, cats, dim):
 def _brand_head(pid, cs, d):
     found = len(sample(d, pid))
     reviewed = sum(1 for c in cs if c['inspection'] != 'not_assessed')
-    cov = 'all %d reviewed' % found if reviewed == found else 'partial sample: %d of %d reviewed' % (reviewed, found)
-    return '<p class="pd-brand"><b>%s</b> <span class="pd-n">%d distinct creative%s, %s</span></p>' % (E(NAMES[pid]), found, '' if found == 1 else 's', cov)
+    # Coverage wording (founder, 2026-10-31): the denominator is the collected, deduplicated sample, not every creative the brand ran.
+    pl = '' if found == 1 else 's'
+    if reviewed == found:
+        cov = '%d distinct creative%s reviewed from the collected sample' % (found, pl)
+    else:
+        cov = '%d of %d distinct creatives in the collected sample reviewed' % (reviewed, found)
+    return '<p class="pd-brand"><b>%s</b> <span class="pd-n">%s</span></p>' % (E(NAMES[pid]), cov)
 
 
 def coverage(d, order):
@@ -320,24 +327,18 @@ def tab_html(d, order, long_date):
                   ('<div class="pd-stood"><p><b>What stood out</b></p><ul>%s</ul></div>' % stood) if stood else '',
                   ('<p class="soc-lim">Not compared: %s.</p>' % nocov) if nocov else ''))
     # 2. Audience and buying stage
-    out.append('<div class="sub soc-sec pd-sec" id="bs-paid-audience">%s<p class="soc-lim pd-lead">%s</p>%s%s%s</div>'
-               % (head(2, cv['audience_title']), E(cv['audience_note']),
+    # Two views behind one switch (founder, 2026-10-31); without JavaScript and in print both show.
+    asel = ''.join('<button type="button" class="pd-opt" data-dim="%s" aria-pressed="%s">%s</button>' % (k, 'true' if i == 0 else 'false', E(t))
+                   for i, (k, t) in enumerate((('persona', 'Customer personas'), ('stage', 'Likely buying stage'))))
+    out.append('<div class="sub soc-sec pd-sec" id="bs-paid-audience">%s<p class="soc-lim pd-lead">%s</p><div class="pd-sel" role="group" aria-label="Show audience by" hidden>%s</div>'
+               '<div class="pd-dims" data-pd-dims>%s%s</div><p class="soc-lim">%s</p></div>'
+               % (head(2, cv['audience_title']), E(cv['audience_note']), asel,
                   _dim_panel(d, have, 'persona', 'Customer personas', True, cs_all),
                   _dim_panel(d, have, 'stage', 'Likely buying stage', False, cs_all),
-                  _not_observed(d, have)))
+                  E(cv.get('zero_note', 'A zero means not observed in this reviewed sample, not absent from the brand\u2019s wider advertising.'))))
     # 3. Selected creative examples
     out.append('<div class="sub soc-sec pd-sec" id="bs-paid-examples">%s%s</div>' % (head(3, cv['examples_title']), examples_html(d, cv)))
     return '\n'.join(out)
-
-
-def _not_observed(d, have):
-    lines = []
-    for pid in have:
-        c = counts(sample(d, pid), 'stage')
-        miss = [lab for k, lab in STAGE_L[:3] if not c.get(k)]
-        if miss:
-            lines.append('%s: %s' % (NAMES[pid], ', '.join(miss)))
-    return ('<p class="soc-lim">Not observed in the reviewed sample: %s.</p>' % E('; '.join(lines))) if lines else ''
 
 
 def _chips(c):
@@ -391,7 +392,8 @@ def creative_reference_html(d, order):
                         c['exact_variants'], '' if c['exact_variants'] == 1 else 's',
                         E(c['inspection']), E(c['inspection_note']), E(dict(FOCUS_L)[c['focus']]), E(dict(FORMAT_L)[c['format']]),
                         E(', '.join(approach_label(a) for a in c['approaches']) or UNCLEAR), E(', '.join(theme_label(t) for t in c['themes']) or UNCLEAR),
-                        E('; '.join('%s (%s)' % (PERSONA_L[persona_key(p['persona'])], p['clue']) for p in c['personas']) or UNCLEAR),
+                        E('; '.join('%s (%s)' % (PERSONA_L[persona_key(p['persona'])], p['clue']) for p in c['personas']) or UNCLEAR)
+                        + ''.join('<span class="cell-sub">Fallback label removed: %s (%s)</span>' % (E(PERSONA_L[persona_key(x['persona'])]), E(x['clue'])) for x in c.get('persona_review_removed', [])),
                         E(dict(STAGE_L)[c['stage']]), E(c['stage_reason']), E(c['hook'])))
     have, none = coverage(d, order)
     tally = '; '.join('%s %d' % (NAMES[p], len(sample(d, p))) for p in have)

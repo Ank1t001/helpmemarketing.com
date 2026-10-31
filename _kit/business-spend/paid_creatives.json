@@ -3,6 +3,7 @@
  "media_read": "The same Apify dataset re-read on 2026-10-31 for its image and video files; the files are kept privately with their hashes",
  "queue_sha256": "83f09a1adbaddd6fd286e8182f0e295ea5f2685461fb4aa8858c6ac7da230a7e",
  "unit": "A distinct creative execution within a brand (see the docstring of paid_creatives_derive.py).",
+ "persona_rule": "General business audience only when a creative has no more specific audience cue; Unclear / not assessed only when nothing is assessable. Fallback labels found beside a specific persona were dropped on 31 October 2026 and are listed in persona_review_removed.",
  "creatives": [
   {
    "id": "C001",
@@ -2524,10 +2525,6 @@
     {
      "persona": "industry:wellness_hospitality",
      "clue": "bathhouse footage; copy 'runs bathhouses'"
-    },
-    {
-     "persona": "general_business",
-     "clue": "'A fleet of locations, one finance operation.'"
     }
    ],
    "stage": "MOF",
@@ -2535,7 +2532,13 @@
    "hook": "We're trying to create a world class",
    "competitor_comparison": false,
    "example_value": "A cinematic customer story built around a cross-border need.",
-   "notes": "Ramp x Othership co-branded title card."
+   "notes": "Ramp x Othership co-branded title card.",
+   "persona_review_removed": [
+    {
+     "persona": "general_business",
+     "clue": "'A fleet of locations, one finance operation.'"
+    }
+   ]
   },
   {
    "id": "C050",
@@ -2589,10 +2592,6 @@
     {
      "persona": "industry:wellness_hospitality",
      "clue": "bathhouse footage; copy 'runs bathhouses'"
-    },
-    {
-     "persona": "general_business",
-     "clue": "'A fleet of locations, one finance operation.'"
     }
    ],
    "stage": "MOF",
@@ -2600,7 +2599,13 @@
    "hook": "We're trying to create a world class",
    "competitor_comparison": false,
    "example_value": "",
-   "notes": "Ramp x Othership co-branded title card. Same execution as C049 in a different aspect ratio; copy carries two headline variants."
+   "notes": "Ramp x Othership co-branded title card. Same execution as C049 in a different aspect ratio; copy carries two headline variants.",
+   "persona_review_removed": [
+    {
+     "persona": "general_business",
+     "clue": "'A fleet of locations, one finance operation.'"
+    }
+   ]
   },
   {
    "id": "C051",
@@ -3313,10 +3318,6 @@
     {
      "persona": "business_owner",
      "clue": "on-screen caption 'founders'"
-    },
-    {
-     "persona": "general_business",
-     "clue": "captions about 'all business spending' and bureaucracy in general"
     }
    ],
    "stage": "MOF",
@@ -3324,7 +3325,13 @@
    "hook": "Bureaucracy",
    "competitor_comparison": false,
    "example_value": "A long talking-head video with kinetic captions and b-roll explaining the product.",
-   "notes": "The speaker is not named or titled on screen, so his role is not stated. Captions are partial words synced to unheard audio; '16% faster' appears without readable context."
+   "notes": "The speaker is not named or titled on screen, so his role is not stated. Captions are partial words synced to unheard audio; '16% faster' appears without readable context.",
+   "persona_review_removed": [
+    {
+     "persona": "general_business",
+     "clue": "captions about 'all business spending' and bureaucracy in general"
+    }
+   ]
   },
   {
    "id": "C065",
@@ -7802,10 +7809,6 @@
    ],
    "personas": [
     {
-     "persona": "general_business",
-     "clue": "\"Simplify your global business\""
-    },
-    {
      "persona": "industry:manufacturing",
      "clue": "copy: \"Modern banking for businesses that make things\""
     }
@@ -7815,7 +7818,13 @@
    "hook": "Ditch the high FX fees",
    "competitor_comparison": false,
    "example_value": "A fee-led headline over a clean card product shot.",
-   "notes": "Manufacturing persona from copy only."
+   "notes": "Manufacturing persona from copy only.",
+   "persona_review_removed": [
+    {
+     "persona": "general_business",
+     "clue": "\"Simplify your global business\""
+    }
+   ]
   },
   {
    "id": "C152",
@@ -7857,10 +7866,6 @@
    ],
    "personas": [
     {
-     "persona": "general_business",
-     "clue": "\"Simplify your global business\""
-    },
-    {
      "persona": "industry:manufacturing",
      "clue": "copy: \"Modern banking for businesses that make things\""
     }
@@ -7870,7 +7875,13 @@
    "hook": "Ditch the high FX fees",
    "competitor_comparison": false,
    "example_value": "",
-   "notes": "Vertical resize of C151. Manufacturing persona from copy only."
+   "notes": "Vertical resize of C151. Manufacturing persona from copy only.",
+   "persona_review_removed": [
+    {
+     "persona": "general_business",
+     "clue": "\"Simplify your global business\""
+    }
+   ]
   },
   {
    "id": "C153",
@@ -7909,10 +7920,6 @@
    ],
    "personas": [
     {
-     "persona": "general_business",
-     "clue": "\"Your Canadian business\""
-    },
-    {
      "persona": "industry:manufacturing",
      "clue": "copy: \"Modern banking for businesses that make things\""
     }
@@ -7922,7 +7929,13 @@
    "hook": "Your Canadian business, local in Michigan, Manchester and Munich.",
    "competitor_comparison": false,
    "example_value": "A place-name hook that makes multi-currency spending concrete.",
-   "notes": "Manufacturing persona from copy only."
+   "notes": "Manufacturing persona from copy only.",
+   "persona_review_removed": [
+    {
+     "persona": "general_business",
+     "clue": "\"Your Canadian business\""
+    }
+   ]
   },
   {
    "id": "C154",
@@ -7963,10 +7976,6 @@
    ],
    "personas": [
     {
-     "persona": "general_business",
-     "clue": "\"Your Canadian business\""
-    },
-    {
      "persona": "industry:manufacturing",
      "clue": "copy: \"Modern banking for businesses that make things\""
     }
@@ -7976,7 +7985,13 @@
    "hook": "Your Canadian business, local in Michigan, Manchester and Munich.",
    "competitor_comparison": false,
    "example_value": "",
-   "notes": "Landscape resize of C153. Manufacturing persona from copy only."
+   "notes": "Landscape resize of C153. Manufacturing persona from copy only.",
+   "persona_review_removed": [
+    {
+     "persona": "general_business",
+     "clue": "\"Your Canadian business\""
+    }
+   ]
   },
   {
    "id": "C155",
@@ -8017,10 +8032,6 @@
    ],
    "personas": [
     {
-     "persona": "general_business",
-     "clue": "\"Your Canadian business\""
-    },
-    {
      "persona": "industry:manufacturing",
      "clue": "copy: \"Modern banking for businesses that make things\""
     }
@@ -8030,7 +8041,13 @@
    "hook": "Your Canadian business, local in Michigan, Manchester and Munich.",
    "competitor_comparison": false,
    "example_value": "",
-   "notes": "Vertical resize of C153. Manufacturing persona from copy only."
+   "notes": "Vertical resize of C153. Manufacturing persona from copy only.",
+   "persona_review_removed": [
+    {
+     "persona": "general_business",
+     "clue": "\"Your Canadian business\""
+    }
+   ]
   },
   {
    "id": "C156",
@@ -8070,10 +8087,6 @@
    ],
    "personas": [
     {
-     "persona": "general_business",
-     "clue": "\"Simplify your global business\""
-    },
-    {
      "persona": "industry:manufacturing",
      "clue": "copy: \"Modern banking for businesses that make things\""
     }
@@ -8083,7 +8096,13 @@
    "hook": "Ditch the high FX fees",
    "competitor_comparison": false,
    "example_value": "",
-   "notes": "Same hook and card photo as C151 but a different template (gradient background, framed photo), so not linked as same_as. Manufacturing persona from copy only."
+   "notes": "Same hook and card photo as C151 but a different template (gradient background, framed photo), so not linked as same_as. Manufacturing persona from copy only.",
+   "persona_review_removed": [
+    {
+     "persona": "general_business",
+     "clue": "\"Simplify your global business\""
+    }
+   ]
   },
   {
    "id": "C157",
@@ -8222,10 +8241,6 @@
    ],
    "personas": [
     {
-     "persona": "general_business",
-     "clue": "\"Simplify your global business\""
-    },
-    {
      "persona": "industry:manufacturing",
      "clue": "copy: \"Modern banking for businesses that make things\""
     }
@@ -8235,7 +8250,13 @@
    "hook": "Ditch the high FX fees",
    "competitor_comparison": false,
    "example_value": "",
-   "notes": "4:5 resize of C151. Manufacturing persona from copy only."
+   "notes": "4:5 resize of C151. Manufacturing persona from copy only.",
+   "persona_review_removed": [
+    {
+     "persona": "general_business",
+     "clue": "\"Simplify your global business\""
+    }
+   ]
   },
   {
    "id": "C160",
@@ -8681,10 +8702,6 @@
    ],
    "personas": [
     {
-     "persona": "general_business",
-     "clue": "\"Your bank isn’t built for multi currency\""
-    },
-    {
      "persona": "industry:manufacturing",
      "clue": "copy: \"Modern banking for businesses that make things\""
     }
@@ -8694,7 +8711,13 @@
    "hook": "Your bank isn’t built for multi currency. Loop is",
    "competitor_comparison": true,
    "example_value": "A \"your bank versus us\" headline backed by a static view of multi-currency accounts.",
-   "notes": "Headline has no hyphen (\"multi currency\") and no final period. Manufacturing persona from copy only."
+   "notes": "Headline has no hyphen (\"multi currency\") and no final period. Manufacturing persona from copy only.",
+   "persona_review_removed": [
+    {
+     "persona": "general_business",
+     "clue": "\"Your bank isn’t built for multi currency\""
+    }
+   ]
   },
   {
    "id": "C169",
@@ -8735,10 +8758,6 @@
    ],
    "personas": [
     {
-     "persona": "general_business",
-     "clue": "\"Your bank isn’t built for multi currency\""
-    },
-    {
      "persona": "industry:manufacturing",
      "clue": "copy: \"Modern banking for businesses that make things\""
     }
@@ -8748,7 +8767,13 @@
    "hook": "Your bank isn’t built for multi currency. Loop is",
    "competitor_comparison": true,
    "example_value": "",
-   "notes": "Landscape resize of C168."
+   "notes": "Landscape resize of C168.",
+   "persona_review_removed": [
+    {
+     "persona": "general_business",
+     "clue": "\"Your bank isn’t built for multi currency\""
+    }
+   ]
   },
   {
    "id": "C170",
@@ -8789,10 +8814,6 @@
    ],
    "personas": [
     {
-     "persona": "general_business",
-     "clue": "\"Your bank isn’t built for multi currency\""
-    },
-    {
      "persona": "industry:manufacturing",
      "clue": "copy: \"Modern banking for businesses that make things\""
     }
@@ -8802,7 +8823,13 @@
    "hook": "Your bank isn’t built for multi currency. Loop is",
    "competitor_comparison": true,
    "example_value": "",
-   "notes": "Vertical resize of C168."
+   "notes": "Vertical resize of C168.",
+   "persona_review_removed": [
+    {
+     "persona": "general_business",
+     "clue": "\"Your bank isn’t built for multi currency\""
+    }
+   ]
   },
   {
    "id": "C171",

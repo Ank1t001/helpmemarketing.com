@@ -96,7 +96,7 @@
     "first_use"
    ],
    "wording": "",
-   "summary": "Not readable from this review: an access check (“Just a moment...”, HTTP 403) at 5:00 p.m. Toronto time, again at 5:47 to 5:48 p.m. after a 20-second wait, and HTTP 403 to a separate fetch tool. The article text was not read, so nothing from it is used.",
+   "summary": "Not readable from this review: an access check (“Just a moment...”, HTTP 403) at 5:00 p.m., 5:47 to 5:48 p.m. and 6:25 to 6:26 p.m. Toronto time (the later attempts after a 20-second wait), and HTTP 403 to a separate fetch tool. The article text was not read, so nothing from it is used.",
    "uncertainty": "Float may publish verification documents, waiting-period rules and setup steps here. Search-engine summaries of these pages disagree on timing and were not used.",
    "used": false,
    "text_sha256": "00cf38e229584b0f28215d66b8522d5a38c39579e7a4e032dba2beae2494eaf5"
@@ -117,7 +117,7 @@
     "first_use"
    ],
    "wording": "",
-   "summary": "Not readable from this review: an access check (“Just a moment...”, HTTP 403) at 5:00 p.m. Toronto time, again at 5:47 to 5:48 p.m. after a 20-second wait, and HTTP 403 to a separate fetch tool. The article text was not read, so nothing from it is used.",
+   "summary": "Not readable from this review: an access check (“Just a moment...”, HTTP 403) at 5:00 p.m., 5:47 to 5:48 p.m. and 6:25 to 6:26 p.m. Toronto time (the later attempts after a 20-second wait), and HTTP 403 to a separate fetch tool. The article text was not read, so nothing from it is used.",
    "uncertainty": "Float may publish verification documents, waiting-period rules and setup steps here. Search-engine summaries of these pages disagree on timing and were not used.",
    "used": false,
    "text_sha256": "6af75c2b96074ad4fce443d2c1db2e2c753a32c640cf5aa45602ec91a1f616fd"
@@ -138,7 +138,7 @@
     "first_use"
    ],
    "wording": "",
-   "summary": "Not readable from this review: an access check (“Just a moment...”, HTTP 403) at 5:00 p.m. Toronto time, again at 5:47 to 5:48 p.m. after a 20-second wait, and HTTP 403 to a separate fetch tool. The article text was not read, so nothing from it is used.",
+   "summary": "Not readable from this review: an access check (“Just a moment...”, HTTP 403) at 5:00 p.m., 5:47 to 5:48 p.m. and 6:25 to 6:26 p.m. Toronto time (the later attempts after a 20-second wait), and HTTP 403 to a separate fetch tool. The article text was not read, so nothing from it is used.",
    "uncertainty": "Float may publish verification documents, waiting-period rules and setup steps here. Search-engine summaries of these pages disagree on timing and were not used.",
    "used": false,
    "text_sha256": "f19d78318425146581437c14231f9578aebeba6ba73ae6137d256c24c13f17b3"
@@ -485,5 +485,27 @@
    "zoom_sha256": "eece882b439fe08a9efbdad36994070bab9b67a2b78b0f7856d1b38b208cc7d3"
   }
  ],
- "float_access": "Float help centre (help.floatfinancial.com): the three articles named in the brief, and further articles a web search on 31 October 2026 listed (Business Registration & Verification (KYB) FAQ; KYB Verification for Float Customers; How to Register Your Business with Float; Setting Up Your Business’s Float Account; How to Start Spending with Float Cards), sit behind an access check that this research environment could not pass. Nothing from them is used. Float’s verification documents and its rules for what customers can do while verification is pending therefore stay Not confirmed; a copy read in a normal browser would close the gap."
+ "float_access": "Float help centre (help.floatfinancial.com): the three articles named in the brief, and further articles a web search on 31 October 2026 listed (Business Registration & Verification (KYB) FAQ; KYB Verification for Float Customers; How to Register Your Business with Float; Setting Up Your Business’s Float Account; How to Start Spending with Float Cards), sit behind an access check that this research environment could not pass. Nothing from them is used. Float’s verification documents and its rules for what customers can do while verification is pending therefore stay Not confirmed; a copy read in a normal browser would close the gap.",
+ "float_reconciliation": {
+  "note": "Published verification estimates differ; see Sources & evidence.",
+  "estimates": [
+   {
+    "source": "Corporate cards page (floatfinancial.com/corporate-cards), read 31 October 2026 at 5:49 p.m. Toronto time",
+    "wording": "Verify your business in under 24 hours.",
+    "status": "Captured: a marketing-page estimate shown as step 1 of three, before loading funds and issuing cards."
+   },
+   {
+    "source": "Demo page FAQ (floatfinancial.com/demo), read 31 October 2026 at 5:08 p.m. Toronto time",
+    "wording": "Opening an account takes about 15 minutes online. ... Prepaid model offers ... account opening in < 24 hours.",
+    "status": "Captured: describes application time and Prepaid account opening, not business verification as such."
+   },
+   {
+    "source": "Help centre articles “Steps to Verify Your Business on Float” and “FAQ for New and Prospective Float Customers”",
+    "wording": "Most business verifications take 1 to 3 business days after documents are submitted, with exceptions.",
+    "status": "Reported in the founder brief of 31 October 2026 and in search-engine summaries; not captured, because the help centre returned an access check to this review. A search-engine summary of the waiting-period article also mentions about five business days."
+   }
+  ],
+  "assessment": "The marketing page gives one headline estimate for verification; the help-centre guidance, as reported, ties a longer range to documents being submitted and allows exceptions. The difference may reflect scope (a best case on a sales page against typical processing in support guidance) or wording, but the help-centre text could not be read to confirm which. Neither estimate is chosen; both are provider estimates, not guarantees.",
+  "prerequisites": "Float’s corporate cards page orders its steps as verify, then load funds, then issue cards. The reported help-centre guidance says some actions wait until verification is complete; which ones could not be confirmed in this review."
+ }
 }

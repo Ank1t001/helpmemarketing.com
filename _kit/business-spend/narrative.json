@@ -353,7 +353,8 @@
      "text": null,
      "ids": [
       "O-RMP-05"
-     ]
+     ],
+     "recheck": "RMP-RECHECK-2026-10-31"
     },
     "plans": {
      "text": "Free; Plus CA$15 per user a month",
@@ -610,7 +611,7 @@
     "restrictions": [
      [
       "Restriction",
-      "Self-serve sign-up closed to new applicants when checked on 23 October 2026",
+      "Self-serve sign-up closed to new applicants when checked on 23 October 2026, and again on 31 October 2026",
       [
        "O-KEP-05"
       ]
@@ -649,7 +650,7 @@
     "rewards": {
      "text": "Up to 1% on local CAD spend",
      "sub": "Linked promotion terms show a 2025 end date.",
-     "unclear": "Current eligibility needs confirmation",
+     "unclear": "Eligibility not confirmed at the follow-up",
      "ids": [
       "O-AWX-04"
      ],
@@ -731,11 +732,11 @@
   "cost_columns": [
    [
     "model",
-    "Funding and repayment"
+    "Card funding / repayment"
    ],
    [
     "rewards",
-    "Rewards and conditions"
+    "Rewards and key condition"
    ],
    [
     "plans",
@@ -759,7 +760,7 @@
   "fee_columns": [
    [
     "xb_card",
-    "Card spending in another currency"
+    "Card spending"
    ],
    [
     "xb_fx",
@@ -790,68 +791,38 @@
     "Accounting connections"
    ]
   ],
-  "unclear": "Where a label says what could not be confirmed, two published statements did not settle the point (reconciliation class D in the 23 October 2026 research). For Airwallex, a follow-up check on 30 October 2026 found that pricing lists up to 1% cash rebates on local CAD spend and links to promotion terms whose period ends on 31 December 2025 unless Airwallex notifies otherwise; no extension was found, so current eligibility needs confirmation. The card page still states 1% cashback with no cap, and a 2% figure seen in the page metadata on 23 October stays in the evidence. Pricing also lists a credit line for corporate cards without explaining its eligibility or repayment terms.",
+  "unclear": "Where a label says what could not be confirmed, two published statements did not settle the point (reconciliation class D in the 23 October 2026 research). For Airwallex, a follow-up check on 30 October 2026 found that pricing lists up to 1% cash rebates on local CAD spend and links to promotion terms whose period ends on 31 December 2025 unless Airwallex notifies otherwise; no extension was found, so eligibility was not confirmed at the follow-up. The card page still states 1% cashback with no cap, and a 2% figure seen in the page metadata on 23 October stays in the evidence. Pricing also lists a credit line for corporate cards without explaining its eligibility or repayment terms.",
   "pricing_note": "Prices are in Canadian dollars unless stated otherwise. Per-user charges, annual billing and additional platform fees are shown where applicable.",
-  "currency_note": "Fees cover different transactions and conditions. These figures are not a like-for-like cost comparison.",
-  "glance_title": "At a glance",
-  "glance_note": "Short versions of parts 2 to 4, from pages observed on 23 October 2026. Published information, not product testing; conditions and extra fees are in the detail.",
-  "glance_columns": [
-   [
-    "rewards",
-    "Rewards"
-   ],
-   [
-    "plans",
-    "Plan fees"
-   ],
-   [
-    "xb_card",
-    "Card spending in another currency"
-   ],
-   [
-    "accounting",
-    "Accounting connections"
-   ]
-  ],
-  "glance": {
-   "venn": {
-    "rewards": "1% cashback",
-    "plans": "Free plan; $40 or $100 a month, or custom",
-    "xb_card": "No FX fee from a matching balance; otherwise 0.25% to 0.45%",
-    "accounting": "QuickBooks, Xero"
-   },
-   "float": {
-    "rewards": "Up to 1% cashback",
-    "plans": "Free plan; Professional from $100 a month",
-    "xb_card": "No foreign transaction fees on USD cards",
-    "accounting": "QuickBooks Online, Xero; NetSuite on Professional"
-   },
-   "ramp": {
-    "rewards": null,
-    "plans": "Free plan; Plus CA$15 per user a month",
-    "xb_card": "No FX markup on CAD and USD spend",
-    "accounting": "QuickBooks Online, Xero; more on Plus"
-   },
-   "loop": {
-    "rewards": "Points by plan",
-    "plans": "Free plan; $79 or $299 a month",
-    "xb_card": "No FX fee in CAD, USD, EUR, GBP; 1.5% in others",
-    "accounting": "QuickBooks, Xero"
-   },
-   "keep": {
-    "rewards": "Points by plan",
-    "plans": "$79, $119 or $199 a month",
-    "xb_card": "3% card conversion fee (agreement)",
-    "accounting": "QuickBooks"
-   },
-   "airwallex": {
-    "rewards": "Up to 1% on local CAD spend",
-    "plans": "Free plan; Grow $12 per active Spend user a month",
-    "xb_card": "No foreign transaction fee from a held currency",
-    "accounting": "Xero, QuickBooks; more on Grow"
+  "currency_note": "Fees apply to different transactions and conditions; these are not like-for-like total costs.",
+  "dates_line": "Website observations: 23 October 2026. Later follow-ups are marked in the cells they change.",
+  "compare_title": "Compare by category",
+  "rechecks": [
+   {
+    "id": "RMP-RECHECK-2026-10-31",
+    "pid": "ramp",
+    "cell": "rewards",
+    "checked_at": "2026-10-31T18:23:06-04:00",
+    "pages": [
+     {
+      "title": "Ramp Canada homepage",
+      "url": "https://ramp.com/en-ca",
+      "text_sha256": "4d5d6ab33f73e6d1eb4cbf9f2b1662e638cd2450b84a6ff2be357052bc306a90"
+     },
+     {
+      "title": "Corporate cards (Canada)",
+      "url": "https://ramp.com/en-ca/corporate-cards",
+      "text_sha256": "2956b874be87525adfe55680f3e6819ee419821c9a363449b428bfe1a5fb3f5c"
+     },
+     {
+      "title": "Pricing (Canada)",
+      "url": "https://ramp.com/en-ca/pricing",
+      "text_sha256": "a8ed36b16b7f4b911b0e22b56ad77a18456a95784224b40b1053cb56cefab049"
+     }
+    ],
+    "cell_text": "Rechecked 31 October 2026: the Canadian pages mention rewards but publish no rate.",
+    "finding": "The Canadian homepage and cards page link to “Perks and rewards”, and the Canadian pricing page says Ramp Plus can be paid with “the rewards you earn from your Ramp card spending”; none of the three publishes a reward rate or its conditions. A Canadian cashback claim seen in a Meta ad collected on 30 October 2026 is not treated as confirmation of reward eligibility or conditions."
    }
-  },
-  "followup_note": "Airwallex funding, rewards and plan costs were checked again on 30 October 2026, separately from these 23 October entries."
+  ]
  },
  "examples": {
   "dek": "Three observed examples of how proof and conditions were explained.",
@@ -950,7 +921,7 @@
    "stood_out": "The cashback claim and pricing limits need to agree.",
    "glance": {
     "promise": "Business banking built for Canada, with lower costs.",
-    "audience": "Canadian businesses; the site says Venn is not available in Quebec.",
+    "audience": "Canadian businesses looking for an alternative to the big banks.",
     "why": "Claims lower FX and transfer costs than the big banks.",
     "proof": "Customer counts (15,000+) and a case study that describes time saved.",
     "ev": [
@@ -1056,13 +1027,14 @@
    "stood_out": "Canadian eligibility and worldwide customer proof need clear labels.",
    "glance": {
     "promise": "Control spending before it happens.",
-    "audience": "Canadian businesses, with eligibility open to Canadian, US or UK-registered entities.",
+    "audience": "Canadian businesses; the Canadian homepage introduces Ramp to Canada.",
     "why": "Claims spending controls that act before money goes out, with CAD and USD cards.",
     "proof": "A worldwide customer count, quotes from large brands and a figure labelled as internal data.",
     "ev": [
      "O-RMP-04",
      "O-RMP-07",
-     "O-RMP-13"
+     "O-RMP-13",
+     "O-RMP-21"
     ]
    }
   },
@@ -1334,7 +1306,7 @@
   "data_note": "Run these tests using your own website and application data. This research uses public evidence only. Report the counts behind each rate, such as qualified applications and page visitors, not the rate alone. No baselines, sample sizes, durations or expected improvements are set here."
  },
  "method": {
-  "scope": "An independent comparative marketing case study of how six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses. It reads dated public sources and the first screen of each application journey. It does not test product performance, assess regulatory compliance or recommend a provider for your business.",
+  "scope": "An independent comparative marketing case study of how six selected brands market business cards, spend management and cross-border payments to Canadian businesses. It reads dated public sources only. It does not test product performance, assess regulatory compliance or recommend a provider for your business.",
   "selection": "The founder selected these six platforms as a comparison set of providers that market business cards and spend management to Canadian businesses. They are not presented as the largest, the most used or the best, and other providers exist.",
   "dates": "Public pages were fetched by a server on 23 October 2026 from 10:39 a.m. to 10:48 a.m. Toronto time, a browser pass checked them from 12:00 p.m. to 12:14 p.m., and two more pages were fetched later the same day: the Airwallex fee schedule at 2:10 p.m. and the Float Payments page at 2:33 p.m. Every observation carries its own capture time.",
   "public_only": "I read only public pages: no accounts, logins, forms submitted, credit checks or transactions. A server fetch does not run JavaScript, so a browser pass then checked what visitors see, followed each enquiry journey to its first screen and looked up the FINTRAC and Bank of Canada registries. Where the two differed, the page reports what a visitor sees and keeps the server reading in the evidence.",
@@ -1373,11 +1345,38 @@
     "26 October 2026",
     "Loop's homepage time saving. Before this correction, the Bells of Steel example said \"$40,000 and 12 hours a year\", and observation O-LOP-12 and the downloadable observations CSV said \"$40,000 and 12 hours saved a year\"; Loop's proof line gave no unit. The homepage states \"Businesses save an average of $40,000 annually and 12 hours weekly\". Corrected in the Bells of Steel example, Loop's proof line, observation O-LOP-12 and the CSV."
    ]
-  ]
+  ],
+  "live_scope": [
+   [
+    "Organic Instagram analysis",
+    "Posts published 25 July to 22 October 2026, collected 26 October 2026; @tryramp attribution unresolved, kept apart."
+   ],
+   [
+    "Paid Meta creative analysis",
+    "Active Meta Ad Library ads in Canada, collected 30 October 2026; creatives reviewed 31 October 2026."
+   ],
+   [
+    "Website messaging",
+    "Pages observed 23 October 2026; three example captures 31 October 2026."
+   ],
+   [
+    "Product facts",
+    "Pages observed 23 October 2026; an Airwallex follow-up on 30 October 2026 and a Ramp recheck on 31 October 2026, marked in the cells they change."
+   ],
+   [
+    "First-screen observations",
+    "Application and demo first screens followed on 23 October 2026; Keep’s route rechecked and Float’s direct application observed on 31 October 2026."
+   ],
+   [
+    "Later public onboarding guidance",
+    "Help-centre and website guidance read on 31 October 2026, as provider descriptions, not completed applications."
+   ]
+  ],
+  "live_scope_note": "Edition 001 was published on 27 October 2026 and its snapshot is fixed. The live case study has been extended since then without changing that snapshot; every finding carries its own observation or capture date."
  },
  "help": {
   "heading": "If you market a financial product",
-  "body": "I can read your own messaging and application journey the way this case study reads these six: how the offer, its conditions, the proof and the next step come across to a buyer. This is a free review of your marketing by Help Me Marketing. It is not advice on which card or platform to choose, and it is not financial, legal or regulatory advice.",
+  "body": "Want the same review for your business? I’ll look at your messaging and sign-up journey, then identify practical improvements to test.",
   "button": "Get my free marketing review",
   "entry": "research_business_spend"
  },
@@ -1399,13 +1398,13 @@
     [
      "paid",
      "Paid Social Strategy",
-     "What they advertise on Meta in Canada and where the ads lead.",
+     "The creative approaches brands use, who they speak to and their likely buying stages.",
      "ads"
     ],
     [
      "messaging",
      "Website Messaging",
-     "What their websites promise and how they support it.",
+     "How brands explain their value and support their claims.",
      "bubble"
     ],
     [
@@ -1449,11 +1448,11 @@
   },
   "lessons": {
    "title": "Lessons",
-   "dek": "Three changes to test on your own website. These are proposals, not proven results."
+   "dek": "Practical ideas from this case study to test in your own marketing."
   },
   "sources": {
    "title": "Sources & evidence",
-   "dek": "The full research trail for this case study: dates and coverage, the evidence behind each tab, test specifications, definitions, disclosure, citation and downloads. Conditions and uncertainty that matter stay in the tabs themselves."
+   "dek": "The full evidence trail for this case study: dates and coverage, the evidence behind each tab, test specifications, definitions, disclosure, citation and downloads. Conditions and uncertainty that matter stay in the tabs themselves."
   }
  },
  "journeys": {
@@ -1590,7 +1589,7 @@
      "review": [
       [
        "faq",
-       "Float says the application takes a few minutes and business verification under 24 hours.",
+       "Float says the application takes a few minutes; published verification estimates differ, see Sources & evidence.",
        [
         "J-FLT-7",
         "J-FLT-5"
@@ -1600,7 +1599,7 @@
      "start": [
       [
        "faq",
-       "Float says funds load by Interac e-Transfer and virtual cards can be issued at once; physical cards take 5 to 10 days.",
+       "Float lists verification first, then loading funds (Interac e-Transfer or 1-day Fast Funding), then issuing cards.",
        [
         "J-FLT-7"
        ]
@@ -2201,5 +2200,50 @@
    "wording": "“Get started”, with “Applications do not impact your credit score¹” directly below.",
    "stood_out": "Answers a likely worry beside the button, but the condition sits in a footnote at the foot of the page: accepting an offer may result in a hard inquiry."
   }
- ]
+ ],
+ "lessons": {
+  "note": "These are proposed tests, not proven improvements.",
+  "items": [
+   {
+    "id": "L1",
+    "title": "Test how you tell the story",
+    "anchors": [],
+    "stood": "In the Meta ads reviewed from the collected sample, brands told similar benefits in different ways: Venn acted out bank friction in a scripted skit, Ramp had a named customer speak to camera, and other ads led with a headline graphic.",
+    "try": "Present the same benefit through two creative approaches, keeping the offer, audience and destination comparable.",
+    "measure": "Cost per qualified application and qualified applications per landing-page visitor, from your own campaign data."
+   },
+   {
+    "id": "L2",
+    "title": "Make the benefit concrete",
+    "anchors": [],
+    "stood": "Airwallex’s Adaria story names the tools the customer used before, and a Venn customer post gives a specific change (reimbursements cut from five weeks to under a week, as stated in the caption).",
+    "try": "Compare a broad benefit statement with a specific use case and clearly attributed proof.",
+    "measure": "Qualified enquiries or applications per page visitor. For organic posts, track engagement as a separate channel measure, not as acquisition results."
+   },
+   {
+    "id": "L3",
+    "title": "Keep conditions beside the promise",
+    "anchors": [
+     "bs-t1",
+     "bs-t2",
+     "bs-f1",
+     "bs-f2"
+    ],
+    "stood": "In the 23 October website review, reward rates and their conditions often sat on different pages, and every “no FX fee” claim covered one kind of transaction.",
+    "try": "Place the main threshold, cap, plan restriction or transaction condition beside the claim, and test clear ways to present it. Conditions that must be stated are not a test variable.",
+    "measure": "Qualified applications per visitor and the number of related clarification questions."
+   },
+   {
+    "id": "L4",
+    "title": "Explain what happens next",
+    "anchors": [
+     "bs-t3",
+     "bs-f3"
+    ],
+    "stood": "On 23 October, Loop’s was the only first screen of six that listed the steps ahead. Help pages read on 31 October explain more, but away from the sign-up screen.",
+    "try": "Before the first field, explain who can apply, what to prepare, how long review usually takes and the next action.",
+    "measure": "Qualified applications per visitor and per form start, tracking counts and application quality."
+   }
+  ]
+ }
 }

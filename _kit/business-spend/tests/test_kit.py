@@ -183,7 +183,8 @@ class KitTests(unittest.TestCase):
         pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-social', 'bs-paid', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons')]
         self.assertEqual(pos, sorted(pos))
         self.assertEqual(body.count('class="note reading"'), 6)  # six provider evidence expanders (the journey reading went with the 2026-10-31 rebuild)
-        self.assertEqual(body.count('Proposed test, not a result</span><h3 class="bs-ttitle">Test '), 3)   # still exactly three tests
+        self.assertEqual(body.count('<article class="bs-lesson"'), 4)   # four lesson cards since 2026-10-31; the three test designs stay in Sources
+        self.assertEqual(body.count('<dt>Testable hypothesis</dt>'), 3)
         self.assertEqual(body.count('What this means for your marketing team'), 1)  # the reading-guide entry only (2026-10-30, final: no takeaway boxes)
         self.assertIn('id="bs-journey-table"', body)
         self.assertNotIn('Next step observed', body)
@@ -281,8 +282,8 @@ class KitTests(unittest.TestCase):
         self.assertEqual(re.findall(r'<span class="bs-gt">([^<]+)</span>', ov), ['Social Media Strategy', 'Paid Social Strategy', 'Website Messaging', 'Product Comparison', 'Customer Journey', 'Lessons'])
         self.assertEqual(re.findall(r'<span class="bs-gd">([^<]+)</span>', ov), [
             'How brands position themselves, what they post and the response they receive.',
-            'What they advertise on Meta in Canada and where the ads lead.',
-            'What their websites promise and how they support it.',
+            'The creative approaches brands use, who they speak to and their likely buying stages.',
+            'How brands explain their value and support their claims.',
             'Cards, rewards, fees and key conditions.',
             'How brands guide customers from their first click to getting started.',
             'Ideas to test in your own marketing.'])
@@ -312,19 +313,28 @@ class KitTests(unittest.TestCase):
         self.assertNotRegex(body, r'(?i)capture request|\bR[12]\b|after booking|is booked')
         fu = ref[ref.index('id="bs-p-airwallex"'):]
         self.assertIn('checked 30 October 2026', fu[:fu.index('</details>')])
-        # Product Comparison (founder, 2026-10-31): one intro line, four numbered parts, statuses as labels, one follow-up note.
-        self.assertEqual(re.findall(r'<h3[^>]*><span class="soc-n">\d</span>([^<]+)</h3>', cmp_), ['At a glance', 'Cards, rewards &amp; costs', 'Currency fees', 'Spending controls'])
-        for gone in ('bs-cmp-when', 'bs-cmp-jump', 'bs-cmp-foot', 'class="bs-fu"', 'Website observations:'):
+        # Product Comparison (founder, 2026-10-31, refinement brief): one comparison, three categories behind a switch, no at-a-glance table.
+        self.assertEqual(re.findall(r'<h3[^>]*><span class="soc-n">\d</span>([^<]+)</h3>', cmp_), ['Compare by category'])
+        self.assertEqual(re.findall(r'<button type="button" class="pd-opt bs-copt" data-cat="([a-z]+)" aria-pressed="(true|false)"', cmp_), [('cards', 'true'), ('fees', 'false'), ('tools', 'false')])
+        self.assertEqual(re.findall(r'class="bs-cpanel" id="bs-cpanel-([a-z]+)"', cmp_), ['cards', 'fees', 'tools'])
+        heads = lambda tid: re.findall(r'<th scope="col">([^<]+)</th>', cmp_[cmp_.index('id="%s"' % tid):cmp_.index('</thead>', cmp_.index('id="%s"' % tid))])
+        self.assertEqual(heads('bs-prod'), ['Brand', 'Card funding / repayment', 'Rewards and key condition', 'Plan costs'])
+        self.assertEqual(heads('bs-xb'), ['Brand', 'Card spending', 'Currency conversion'])
+        self.assertEqual(heads('bs-spend'), ['Brand', 'Limits and approvals', 'Receipts and expenses', 'Accounting connections'])
+        for tid in ('bs-prod', 'bs-xb', 'bs-spend'):
+            self.assertEqual(len(re.findall(r'<tr id="%s-[a-z]+">' % tid, cmp_)), 6)
+        for gone in ('bs-cmp-glance', 'bs-glance-', 'data-brand=', 'bs-cmp-sel', 'At a glance', 'Current eligibility needs confirmation'):
             self.assertNotIn(gone, cmp_)
-        self.assertEqual(len(re.findall(r'<tr id="bs-glance-[a-z]+">', cmp_)), 6)
-        self.assertEqual(re.findall(r'<th scope="col">([^<]+)</th>', cmp_[cmp_.index('bs-cmp-glance'):cmp_.index('</thead>', cmp_.index('bs-cmp-glance'))]),
-                         ['Platform', 'Rewards', 'Plan fees', 'Card spending in another currency', 'Accounting connections'])
+        self.assertIn('Fees apply to different transactions and conditions; these are not like-for-like total costs.', cmp_)
+        self.assertIn('Website observations: 23 October 2026. Later follow-ups are marked in the cells they change.', cmp_)
+        self.assertEqual(cmp_.count('class="bs-fu-tag" href="#bs-awx-followup">Follow-up, 30 October 2026</a>'), 3)
+        self.assertIn('Eligibility not confirmed at the follow-up', cmp_)
+        self.assertIn('Rechecked 31 October 2026: the Canadian pages mention rewards but publish no rate.', cmp_)
+        self.assertIn('and again on 31 October 2026', cmp_)
         self.assertNotRegex(cmp_, r'<td class="miss"[^>]*><span class="cell-main">')
         self.assertEqual(cmp_.count('<span class="st st-not_checked">Not checked</span>'), 1)              # Ramp funding
-        self.assertEqual(cmp_.count('<span class="st st-not_found">Not found in reviewed sources</span>'), 3)   # Ramp rewards (twice) and FX conversion
-        self.assertEqual(cmp_.count('href="#bs-awx-followup"'), 1)
-        self.assertEqual(cmp_.count('data-brand='), 7)
-        self.assertIn('<div class="bs-cmp-sel" role="group" aria-label="Brands shown in parts 2 to 4" hidden>', cmp_)
+        self.assertEqual(cmp_.count('<span class="st st-not_found">Not found in reviewed sources</span>'), 2)   # Ramp rewards and FX conversion
+        self.assertIn('id="bs-recheck-RMP-RECHECK-2026-10-31"', ref)
         self.assertIn('<h2 id="bs-journeys-h">Customer Journey</h2>', jr)
         # Founder brief (2026-10-31, second): four stages, one labelled comparison, two help-page examples.
         self.assertIn('A look at how brands guide customers from their first click to getting started.', jr)
@@ -360,11 +370,17 @@ class KitTests(unittest.TestCase):
         for pid in self.c.order:
             self.assertIn('id="bs-jt-%s"' % pid, ref)
         self.assertIn('id="bs-e3"', ref)
-        self.assertEqual(re.findall(r'<dt>([^<]+)</dt>', ls), ['What I noticed', 'Change to try', 'What to measure'] * 3)
+        self.assertEqual(re.findall(r'<dt>([^<]+)</dt>', ls), ['What stood out', 'What to try', 'What to measure'] * 4)
+        self.assertEqual(re.findall(r'<h3 class="bs-ttitle">([^<]+)</h3>', ls), ['Test how you tell the story', 'Make the benefit concrete', 'Keep conditions beside the promise', 'Explain what happens next'])
+        self.assertIn('Practical ideas from this case study to test in your own marketing.', ls)
+        self.assertEqual(ls.count('These are proposed tests, not proven improvements.'), 1)
+        l3 = ls[ls.index('id="bs-lesson-3"'):ls.index('id="bs-lesson-4"')]
+        for a in ('bs-t1', 'bs-t2', 'bs-f1', 'bs-f2'):
+            self.assertIn('id="%s"' % a, l3)
+        self.assertIn('id="bs-t3"', ls[ls.index('id="bs-lesson-4"'):])
         for f in ('bs-f1', 'bs-f2', 'bs-f3', 'bs-t1', 'bs-t2', 'bs-t3'):
             self.assertIn('id="%s"' % f, ls)
-        self.assertIn('2 of 5</b> platforms that published a reward rate', ls)
-        self.assertIn('Run these tests using your own website and application data.', ls)
+        self.assertIn('id="bs-f1-detail"', ref)
         self.assertIn('directional reading only', ref)
         self.assertIn('<a class="bs-srclink" href="#bs-sources" id="bs-srclink">Sources &amp; evidence</a>', body)
         self.assertIn('data-bs-back', ref)
@@ -547,7 +563,7 @@ class KitTests(unittest.TestCase):
     def test_loop_correction_is_logged_and_propagated(self):
         body = self.page[self.page.index('REPORT BODY START'):]
         log = body[body.index('id="bs-corrections"'):]
-        log = log[:log.index('<div class="bs-refsec"')]
+        log = log[:log.index('<details class="bs-refsec"')]
         self.assertIn('<b>26 October 2026.</b>', log)   # Toronto date of commit 9e020f1 (21:08 EDT)
         self.assertIn('12 hours weekly', log)
         self.assertIn('O-LOP-12', log)

@@ -35,6 +35,27 @@ def scrub(t):
     return HANDLE.sub('@[handle removed]', t or '')
 
 
+# Persona review rule (founder brief, 31 October 2026): "General business audience" is the fallback when a creative has no more
+# specific audience cue, and "not clear" is the fallback when nothing is assessable. A fallback label that sits beside a specific
+# persona is dropped here, and the dropped label and its clue are kept in persona_review_removed for Sources & evidence.
+SPECIFIC = lambda p: p not in ('general_business', 'not_clear')
+
+
+def persona_review(ps):
+    if any(SPECIFIC(p['persona']) for p in ps):
+        keep = [p for p in ps if SPECIFIC(p['persona'])]
+        dropped = [p for p in ps if not SPECIFIC(p['persona'])]
+    elif any(p['persona'] == 'general_business' for p in ps):
+        keep = [p for p in ps if p['persona'] == 'general_business']
+        dropped = [p for p in ps if p['persona'] == 'not_clear']
+    else:
+        keep, dropped = ps, []
+    keep = list(keep)
+    if dropped:
+        keep.append({'persona': None, 'removed': dropped})
+    return keep
+
+
 def main(queue_path, class_dir, reviewed_on):
     queue = {q['id']: q for q in json.load(open(queue_path))}
     recs = {}
@@ -68,17 +89,22 @@ def main(queue_path, class_dir, reviewed_on):
             'approaches': sorted(set(r.get('approaches') or [])), 'approach_evidence': scrub(r.get('approach_evidence', '')),
             'people': r.get('people', ''),
             'themes': sorted(set(r.get('themes') or [])),
-            'personas': [{'persona': p.get('persona'), 'clue': scrub(p.get('clue', ''))} for p in (r.get('personas') or []) if p.get('persona')],
+            'personas': persona_review([{'persona': p.get('persona'), 'clue': scrub(p.get('clue', ''))} for p in (r.get('personas') or []) if p.get('persona')]),
             'stage': st if st in STAGE else 'not_assessed', 'stage_reason': scrub(r.get('stage_reason', '')),
             'hook': scrub(r.get('hook'))[:140], 'competitor_comparison': bool(r.get('competitor_comparison')),
             'example_value': scrub(r.get('example_value', '')), 'notes': scrub(r.get('notes', '')),
         }
+        removed = [x for p in rec['personas'] if p.get('removed') for x in p['removed']]
+        rec['personas'] = [p for p in rec['personas'] if not p.get('removed')]
+        if removed:
+            rec['persona_review_removed'] = removed
         out.append(rec)
     doc = {
         'source': 'Meta Ad Library, Canada, active ads, collected 30 October 2026 at 5:28 p.m. Toronto time (the snapshot behind paid_ads.json)',
         'media_read': 'The same Apify dataset re-read on %s for its image and video files; the files are kept privately with their hashes' % reviewed_on,
         'queue_sha256': hashlib.sha256(open(queue_path, 'rb').read()).hexdigest(),
         'unit': 'A distinct creative execution within a brand (see the docstring of paid_creatives_derive.py).',
+        'persona_rule': 'General business audience only when a creative has no more specific audience cue; Unclear / not assessed only when nothing is assessable. Fallback labels found beside a specific persona were dropped on 31 October 2026 and are listed in persona_review_removed.',
         'creatives': out,
     }
     json.dump(doc, open(OUT, 'w'), indent=1, ensure_ascii=False)

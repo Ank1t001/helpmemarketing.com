@@ -152,31 +152,13 @@ def cell(c, pid, key, label):
         # A restriction the cell already states is set in bold instead of repeated as a label.
         tag = '' if restr and restr in (spec['text'], spec.get('sub')) else table_tag(status, spec)
     tag += unclear_tag(c, spec)
-    # The 30 October follow-up is one note under the table, not a link inside each cell (2026-10-31).
+    # Later follow-ups are marked in the cells they change (founder, 2026-10-31, refinement brief).
+    if spec.get('followup'):
+        tag += '<a class="bs-fu-tag" href="#bs-awx-followup">Follow-up, 30 October 2026</a>'
+    if spec.get('recheck'):
+        rc = {r['id']: r for r in c.n['compare'].get('rechecks', [])}[spec['recheck']]
+        tag += '<span class="cell-sub bs-recheck">%s <a href="#bs-recheck-%s">Details</a></span>' % (E(rc['cell_text']), E(rc['id']))
     return '<td%s data-label="%s">%s%s</td>' % (cls, E(label), body, tag)
-
-
-def glance_cell(c, pid, key, label):
-    """Short form of a detail cell for the at-a-glance table; the status and evidence are the detail cell's."""
-    spec = c.n['compare']['rows'][pid][key]
-    text = c.n['compare']['glance'][pid][key]
-    status = cell_status(c, pid, key)
-    if text is None:
-        return '<td class="miss" data-label="%s"><span class="st st-%s">%s</span></td>' % (E(label), status, E(model.STATUSES[status]))
-    tag = '' if status == 'explicitly_unavailable' else table_tag(status, spec)
-    return '<td data-label="%s"><span class="cell-main">%s</span>%s%s</td>' % (E(label), E(text), tag, unclear_tag(c, spec))
-
-
-def glance_table(c, num):
-    cp = c.n['compare']
-    cols = cp['glance_columns']
-    ths = ''.join('<th scope="col">%s</th>' % E(l) for _, l in cols)
-    rows = '\n'.join('<tr id="bs-glance-%s"><td class="brandcell">%s</td>%s</tr>' % (pid, E(c.name(pid)), ''.join(glance_cell(c, pid, k, l) for k, l in cols)) for pid in c.order)
-    return ('<div class="tblock" id="bs-cmp-glance"><h3 id="bs-cmp-glance-h"><span class="soc-n">%d</span>%s</h3><p class="bs-tnote">%s</p>'
-            '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-cmp-glance-h"><table class="bs bs-glance">'
-            '<caption class="sr-only">Rewards, plan fees, card spending in another currency and accounting connections for six platforms, as published on 23 October 2026</caption>'
-            '<thead><tr><th scope="col">Platform</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div></div>'
-            % (num, E(cp['glance_title']), E(cp['glance_note']), ths, rows))
 
 
 # Plain wording beside a claim in the comparison tables (founder, 2026-10-28). The formal status names stay in
@@ -214,8 +196,8 @@ def table(c, title, cols, tid, head=True, note=None, restrictions=False, link=Fa
     region = ('aria-labelledby="%s-h"' % tid) if head else ('aria-label="%s"' % E(title))
     return ('<div class="tblock" id="%s">%s'
             '<div class="tw cards" tabindex="0" role="region" %s><table class="bs">'
-            '<caption class="sr-only">%s for six platforms, as published on 23 October 2026</caption>'
-            '<thead><tr><th scope="col">Platform</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div>%s</div>'
+            '<caption class="sr-only">%s for six brands, from website observations on 23 October 2026, with later follow-ups marked in the cells they change</caption>'
+            '<thead><tr><th scope="col">Brand</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div>%s</div>'
             % (tid, label, region, E(title), ths, '\n'.join(rows), after))
 
 
@@ -280,12 +262,12 @@ def recon_details(c, inline=False):
     if inline:
         head = '<h4 class="t" id="bs-recon">How the %d reported differences were reconciled</h4>' % len(rows)
         body = ('<p class="dek">After the first reading, a browser pass compared each pair of statements by product, transaction, country and customer, plan, currency, dates and conditions. Classes: %s. Both statements stay in the evidence for every item.</p>'
-                '<div class="tw cards" tabindex="0" role="region" aria-label="Reconciliation of the reported differences"><table class="bs"><thead><tr><th scope="col">Platform</th><th scope="col">Difference</th><th scope="col">Class</th><th scope="col">Why</th></tr></thead><tbody>%s</tbody></table></div>'
+                '<div class="tw cards" tabindex="0" role="region" aria-label="Reconciliation of the reported differences"><table class="bs"><thead><tr><th scope="col">Brand</th><th scope="col">Difference</th><th scope="col">Class</th><th scope="col">Why</th></tr></thead><tbody>%s</tbody></table></div>'
                 % (E(legend), ''.join(rows)))
         return head + body
     return ('<details class="ri-adv srcs" id="bs-recon"><summary>How the %d reported differences were reconciled</summary>'
             '<p class="dek">After the first reading, a browser pass compared each pair of statements by product, transaction, country and customer, plan, currency, dates and conditions. Classes: %s. Both statements stay in the evidence for every item.</p>'
-            '<div class="tw cards" tabindex="0" role="region" aria-label="Reconciliation of the reported differences"><table class="bs"><thead><tr><th scope="col">Platform</th><th scope="col">Difference</th><th scope="col">Class</th><th scope="col">Why</th></tr></thead><tbody>%s</tbody></table></div></details>'
+            '<div class="tw cards" tabindex="0" role="region" aria-label="Reconciliation of the reported differences"><table class="bs"><thead><tr><th scope="col">Brand</th><th scope="col">Difference</th><th scope="col">Class</th><th scope="col">Why</th></tr></thead><tbody>%s</tbody></table></div></details>'
             % (len(rows), E(legend), ''.join(rows)))
 
 
@@ -347,18 +329,19 @@ def cite_and_editions(c):
     ed = c.edition
     start, end = ed['collection_started_at'], ed['collection_ended_at']
     snap = '/' + snapshot_url(c).split('.com/', 1)[1]
-    html = ('<div class="card" id="bs-cite"><h4>Cite this research</h4>'
-            '<p class="dek">Ankit Kumar, Help Me Marketing. <em>How Six Business Finance Brands Market Their Products</em>, a marketing case study in The HMM Index. Edition %s, first published as the Business Cards &amp; Spend Management Index. Public pages captured %s%s. <a href="%s">%s</a></p>'
+    html = ('<div class="card" id="bs-cite"><h4>Cite this case study</h4>'
+            '<p class="dek">Ankit Kumar, Help Me Marketing. <em>How Six Business Finance Brands Market Their Products</em>, a marketing case study in The HMM Index. Edition %s, first published as the Business Cards &amp; Spend Management Index. Public pages captured %s%s; Meta ads collected 30 October 2026; help pages and follow-ups captured 30 and 31 October 2026. <a href="%s">%s</a></p>'
             '<p class="dek m0">For a fixed version, cite the <a href="%s">edition %s snapshot</a>. <a href="#bs-editions">Edition history</a></p></div>'
             '<section id="bs-editions"><details class="ri-adv"><summary>Edition history</summary>'
             '<div class="tw" tabindex="0" role="region" aria-label="Edition history, scrolls sideways"><table><thead><tr><th scope="col">Edition</th><th scope="col">Dates</th><th scope="col">What it covered</th></tr></thead><tbody>'
             '<tr><td><b>%s</b> (this page)</td><td class="wrap-cell">Published %s. Public pages captured %s, %s to %s Toronto time. <a href="%s">Snapshot</a></td>'
             '<td class="wrap-cell">First edition: how six selected platforms explain business cards, spend management and cross-border payments, read from public pages and enquiry journeys%s. No refresh is scheduled.</td></tr>'
+            '<tr><td><b>Live updates</b></td><td class="wrap-cell">Since 27 October 2026</td><td class="wrap-cell">Added on this page without changing the edition %s snapshot: the paid Meta creative review (ads collected 30 October 2026), the Customer Journey help-page review and dated follow-ups (30 and 31 October 2026), and section-by-section revisions recorded in the kit.</td></tr>'
             '</tbody></table></div><p class="pnote">This address shows the latest edition. Each published edition keeps a snapshot at a fixed address.</p></details></section>'
             % (E(ed['edition']), long_date(start), '; Instagram posts published 25 July to 22 October 2026, collected 26 October 2026' if c.social else '',
                E(ed['canonical']), E(ed['canonical']), snap, E(ed['edition']),
                E(ed['edition']), E(iso_long(c.release_date)), long_date(start), toronto_time(start), toronto_time(end), snap,
-               ', with official Instagram posts' if c.social else ''))
+               ', with Instagram posts' if c.social else '', E(ed['edition'])))
     # Overview layout (2026-10-28): the citation and the edition table are rendered by the Overview as two expanders.
     cite = html[html.index('<p class="dek">'):html.index('</div><section id="bs-editions">')]
     table = html[html.index('<div class="tw"'):html.index('</details></section>')]
@@ -430,6 +413,8 @@ def journey_followup_reference(c, n):
     return ('<div id="bs-journey-followup"><h4 class="t">Follow-up of 31 October 2026: help centres and entry routes</h4><p class="dek">%s %s</p>'
             '<p class="dek" id="bs-journey-dates"><b>Dates behind the comparison.</b> First screens: 23 October 2026, between 12:02 p.m. and 12:12 p.m. Toronto time; Keep&rsquo;s route rechecked and Float&rsquo;s direct application observed on 31 October 2026. Help-centre and website guidance: read on 31 October 2026 between 4:59 p.m. and 5:49 p.m. Toronto time. Help-centre and website steps are provider descriptions, not completed applications.</p>'
             '<p class="dek" id="bs-float-access"><b>Access problem.</b> ' + E(jf['float_access']) + '</p>'
+            '<div id="bs-float-estimates"><p class="dek"><b>Float verification estimates.</b> ' + E(jf['float_reconciliation']['assessment']) + ' ' + E(jf['float_reconciliation']['prerequisites']) + '</p><ul class="dek">'
+            + ''.join('<li><b>%s.</b> &ldquo;%s&rdquo; %s</li>' % (E(x['source']), E(x['wording']), E(x['status'])) for x in jf['float_reconciliation']['estimates']) + '</ul></div>'
             '<p class="dek">Qualifications kept with every finding: provider time estimates are not guarantees; account approval and credit card approval may be separate; published guidance does not confirm that an application route is open; a step not reviewed is not evidence that the provider lacks it.</p>'
             '<ul class="dek">%s</ul></div><div id="bs-journey-coverage"><h4 class="t">Where each comparison cell comes from</h4><ul class="dek">%s</ul></div>') % (E(jf['note']), E(jf['method']), ''.join(recs), ''.join(cells))
 
@@ -493,14 +478,15 @@ def sources_view(c, views, start, end, draft):
         toc = [t for t in toc if t[0] != 'bs-ref-paid']
     if draft:
         toc = [t for t in toc if t[0] != 'bs-cite']
-    back = '<p class="bs-ref-back"><a href="#bs-overview" data-bs-back>&larr; <span>Back to the index</span></a></p>'
+    back = '<p class="bs-ref-back"><a href="#bs-overview" data-bs-back>&larr; <span>Back to the case study</span></a></p>'
     v = views['sources']
     parts.append('<section id="bs-sources" class="bs-view bs-ref" aria-labelledby="bs-sources-h">%s<div class="sec-head"><h2 id="bs-sources-h">%s</h2><p class="dek">%s</p></div>'
                  '<nav class="bs-reftoc" aria-label="Sources and evidence contents"><ol>%s</ol></nav>' % (
                      back, E(v['title']), E(v['dek']), ''.join('<li><a href="#%s">%s</a></li>' % (i, E(t)) for i, t in toc)))
 
+    # Expandable groups (founder, 2026-10-31, refinement brief): Scope stays open; a link to anything inside a closed group opens it (tab script openAround).
     def sec(sid, title, html_):
-        parts.append('<div class="bs-refsec" id="%s"><h3>%s</h3>%s</div>' % (sid, E(title), html_))
+        parts.append('<details class="bs-refsec" id="%s"%s><summary><h3>%s</h3></summary><div class="bs-refbody">%s</div></details>' % (sid, ' open' if sid == 'bs-ref-scope' else '', E(title), html_))
 
     # 1. Scope, dates and coverage
     about = ''.join('<div class="kind"><dt>%s</dt><dd>%s</dd></div>' % (E(a), E(b)) for a, b in n['about'])
@@ -512,14 +498,17 @@ def sources_view(c, views, start, end, draft):
     fu = c.followup
     sec('bs-ref-scope', 'Scope, dates and coverage',
         '<div id="bs-about"><p class="dek">%s</p><dl class="legend">%s</dl></div>'
-        '<div id="bs-method"><div id="bs-scope"><h4 class="t">Scope</h4><p class="dek">%s</p><h4 class="t">Selection</h4><p class="dek">%s</p>'
+        '<div id="bs-method"><div id="bs-scope"><h4 class="t">Scope</h4><p class="dek">%s</p>%s<h4 class="t">Selection</h4><p class="dek">%s</p>'
         '<h4 class="t">Dates</h4><p class="dek">Websites observed %s. %s%s</p><h4 class="t">Public sources only</h4><p class="dek">%s</p>%s'
         '<h4 class="t">Limitations</h4><ul class="dek">%s</ul>'
         '<p class="pnote">%d observations from %d captures of public pages (%d by server fetch, %d in a browser), six platforms, edition %s.</p></div></div>'
         '<div id="bs-guide"><h4 class="t">How to read the analysis</h4><dl class="legend">%s</dl><h4 class="t chain-h">How each conclusion is reached</h4>'
         '<ol class="chain-steps">%s</ol><p class="pnote m0">%s</p></div>' % (
-            E(views['overview']['about_intro']), about, E(m['scope']), E(m['selection']), E(when), E(m['dates']),
-            (' A separately dated follow-up on Airwallex only was checked on %s; it is not part of the 23 October observations.' % iso_long(fu['checked_on'])) if fu else '',
+            E(views['overview']['about_intro']), about, E(m['scope']),
+            '<h4 class="t" id="bs-live-scope">What the live case study covers</h4><dl class="legend">%s</dl><p class="dek">%s</p>' % (
+                ''.join('<div class="kind"><dt>%s</dt><dd>%s</dd></div>' % (E(a), E(b)) for a, b in m['live_scope']), E(m['live_scope_note'])),
+            E(m['selection']), E(when), E(m['dates']),
+            (' Later, separately dated work (an Airwallex follow-up on %s, the Meta ads collected on 30 October 2026, and website, help-page and recheck captures on 31 October 2026) is not part of the 23 October observations.' % iso_long(fu['checked_on'])) if fu else '',
             E(m['public_only']), social.method_html(c.social) if c.social else '', lim, nobs, nsrc, nsrc - nbr, nbr, E(ed['edition']),
             leg, ''.join('<li>%s</li>' % E(s_) for s_ in ch['steps']), E(ch['note'])))
     # 2. Website evidence by provider
@@ -585,6 +574,10 @@ def sources_view(c, views, start, end, draft):
             ''.join(fl), E(n['findings']['take']), ''.join(tl), E(n['tests']['data_note']), E(pt['dek']), pts))
     # 6. Status definitions and reconciliation
     st = ''.join('<dt>%s</dt><dd>%s</dd>' % (E(a), E(b)) for a, b in m['statuses'])
+    recheck_html = ''.join('<h4 class="t" id="bs-recheck-%s">%s recheck, %s</h4><p class="dek">%s</p><ul class="dek">%s</ul>' % (
+        E(r['id']), E(c.name(r['pid'])), E(iso_long(r['checked_at'][:10])), E(r['finding']),
+        ''.join('<li><a href="%s" rel="noopener nofollow" target="_blank">%s%s</a>, read %s Toronto time (page text sha256 %s&hellip;)</li>' % (E(pg['url']), E(pg['title']), EXT, E(toronto_time(r['checked_at'])), E(pg['text_sha256'][:16])) for pg in r['pages']))
+        for r in cp.get('rechecks', []))
     fu_html = ''
     if fu:
         fu_src = {x['id']: x for x in fu['sources']}
@@ -600,7 +593,7 @@ def sources_view(c, views, start, end, draft):
     sec('bs-ref-status', 'Status definitions and reconciliation',
         '<h4 class="t" id="bs-statuses">What each status means</h4><dl class="statdefs">%s</dl>'
         '<div id="bs-cmp-read"><p class="dek">A label beside an entry means it is not a plain published fact. &ldquo;Published pages disagree&rdquo; is the status Conflicting. A restriction set in bold (such as &ldquo;Not offered to businesses in Quebec&rdquo;) is the status Explicitly unavailable. &ldquo;Not checked&rdquo; means no valid check was completed, and &ldquo;Not found in reviewed sources&rdquo; means the reviewed pages did not establish it; neither means a feature is unavailable. Restriction lines beside a provider repeat what its pages state and are not a complete eligibility assessment.</p>'
-        '<p class="dek" id="bs-unclear">%s</p></div>%s%s' % (st, E(cp['unclear']), recon_details(c, inline=True), fu_html))
+        '<p class="dek" id="bs-unclear">%s</p></div>%s%s%s' % (st, E(cp['unclear']), recon_details(c, inline=True), fu_html, recheck_html))
     # 7. Image provenance
     if c.social:
         sec('bs-ref-images', 'Image provenance', social.images_html(c.social))
@@ -612,7 +605,7 @@ def sources_view(c, views, start, end, draft):
         rel_html = ('<div class="note gap"><span class="lbl">Placeholder</span><p>Relationship disclosure pending. Before publication I will state here whether '
                     'I or Help Me Marketing have any commercial connection with any of the six providers.</p></div>')
     sec('bs-ref-author', 'Author and relationship disclosure',
-        '<div id="bs-research"><p class="dek">Research and analysis by <a href="/about">Ankit Kumar</a>, founder of Help Me Marketing, a marketing practice in Halton Hills, Ontario. This Index reads marketing pages; it is not financial, legal or regulatory advice.</p>%s</div>' % rel_html)
+        '<div id="bs-research"><p class="dek">Research and analysis by <a href="/about">Ankit Kumar</a>, founder of Help Me Marketing, a marketing practice in Halton Hills, Ontario. This case study reads marketing pages and ads; it is not financial, legal or regulatory advice.</p>%s</div>' % rel_html)
     # 9 and 10. Citation, edition history and corrections
     log = ''.join('<li><b>%s.</b> %s</li>' % (E(d), E(x)) for d, x in m.get('corrections_log', []))
     corr = ('<h4 class="t" id="bs-corrections">Corrections</h4><p class="dek">%s</p>%s' % (
@@ -650,7 +643,7 @@ def body(c):
     # Hero (founder brief, 2026-10-28): kicker, title, one line on what to compare, the six providers, one metadata line and one note.
     # Capture times and the scope paragraph live in "Scope & sources" (the methodology), not here.
     out.append('<header><p class="kicker">%s</p><h1>%s</h1><p class="bs-subtitle">%s</p><p class="lede">%s</p>' % (E(h['kicker']), E(h['title']), E(h['subtitle']), E(h['lede'])))
-    out.append('<p class="bs-provs">%s</p>' % ' &middot; '.join(E(c.name(pid)) for pid in c.order))
+    # The six brands are named once, in the lede (founder, 2026-10-31); the separate brand line was removed.
     # The independence line sits in the byline since 2026-10-31 (founder; it was the note under the Overview cards).
     out.append('<p class="bs-meta">%sBy <a href="/about">Ankit Kumar</a> &middot; Edition %s &middot; %s<span class="bs-meta-ind">%s</span></p>' % (
         '<span class="draft-flag">Draft</span> ' if draft else '', E(ed['edition']), 'Not yet published' if draft else 'Last Updated %s' % E(short_date(c.date_modified or c.release_date)),
@@ -738,16 +731,19 @@ def body(c):
     cp = n['compare']
     # Product Comparison (founder, 2026-10-31): one intro line, a numbered at-a-glance table, a phone brand selector
     # for the three numbered detail parts, the Airwallex follow-up as one note, no footer note.
-    fu = ('<p class="pnote bs-fu-note">%s <a href="#bs-awx-followup">See the follow-up in Sources &amp; evidence</a>.</p>' % E(cp['followup_note'])) if any(cp['rows'][p_][k].get('followup') for p_ in c.order for k, _ in cp['cost_columns']) else ''
-    brand_sel = ('<div class="bs-cmp-sel" role="group" aria-label="Brands shown in parts 2 to 4" hidden><span class="bs-cmp-sel-l">Show</span>%s</div>'
-                 % ''.join('<button type="button" class="bs-bopt" data-brand="%s" aria-pressed="%s">%s</button>' % (k, 'true' if k == 'all' else 'false', E(l))
-                           for k, l in [('all', 'All brands')] + [(p_, c.name(p_)) for p_ in c.order]))
+    # Product Comparison (founder, 2026-10-31, refinement brief): one comparison with three categories behind a switch, Cards, rewards &
+    # costs by default; the separate at-a-glance table and the phone brand selector were removed. Without JavaScript and in print every
+    # category shows with its own heading.
+    cats = [('cards', 'Cards, rewards & costs', cp['cost_columns'], 'bs-prod', cp['pricing_note'], True),
+            ('fees', 'Currency fees', cp['fee_columns'], 'bs-xb', cp['currency_note'], False),
+            ('tools', 'Spending tools', cp['spend_columns'], 'bs-spend', None, False)]
+    csel = ''.join('<button type="button" class="pd-opt bs-copt" data-cat="%s" aria-pressed="%s" aria-controls="bs-cpanel-%s">%s</button>' % (k, 'true' if i == 0 else 'false', k, E(l))
+                   for i, (k, l, _, _, _, _) in enumerate(cats))
+    cpanels = ''.join('<div class="bs-cpanel" id="bs-cpanel-%s" data-cat="%s">%s</div>' % (k, k, table(c, l, cols, tid, note=note, restrictions=rs)) for k, l, cols, tid, note, rs in cats)
     V['compare'] = (view_open('compare', 'bs-compare')
-                    + '<div class="bs-cmp-sec">%s</div>' % glance_table(c, 1)
-                    + brand_sel
-                    + '<div class="bs-cmp-sec">%s</div>' % table(c, 'Cards, rewards & costs', cp['cost_columns'], 'bs-prod', note=cp['pricing_note'], restrictions=True, num=2, after=fu)
-                    + '<div class="bs-cmp-sec">%s</div>' % table(c, 'Currency fees', cp['fee_columns'], 'bs-xb', note=cp['currency_note'], num=3)
-                    + '<div class="bs-cmp-sec">%s</div>' % table(c, 'Spending controls', cp['spend_columns'], 'bs-spend', num=4)
+                    + '<div class="sub soc-sec" id="bs-cmp-area"><h3 id="bs-cmp-h"><span class="soc-n">1</span>%s</h3><p class="soc-lim bs-cmp-dates">%s</p>'
+                      '<div class="pd-sel bs-csel" role="group" aria-label="Choose a comparison category" hidden>%s</div><div class="bs-cpanels" data-bs-cpanels>%s</div></div>'
+                      % (E(cp['compare_title']), E(cp['dates_line']), csel, cpanels)
                     + view_close('compare'))
 
     # ---------- Customer Journey (founder brief, 2026-10-31, second): four stages, one labelled comparison, two help-page examples ----------
@@ -784,21 +780,17 @@ def body(c):
                            E(jy['examples_title']), E(jy['examples_note']), ''.join(jcards), E(jn['test_link']))
                      + view_close('journeys'))
 
-    # ---------- Lessons: three tests, each with what I noticed ----------
-    ts = n['tests']
-    F = {f['id']: f for f in n['findings']['items']}
-    lis = []
-    for t in ts['items']:
-        f = F[t['finding']]
-        lis.append('<li id="bs-%s"><span class="ktag test">Proposed test, not a result</span><h3 class="bs-ttitle">Test %s. %s</h3><dl class="bs-tmain">'
-                   '<dt>What I noticed</dt><dd id="bs-%s"><span class="bs-fig"><b>%s</b> %s.</span> %s</dd>'
-                   '<dt>Change to try</dt><dd>%s</dd><dt>What to measure</dt><dd>%s</dd></dl></li>' % (
-                       t['id'].lower(), t['id'][1:], E(t['title']), f['id'].lower(), E(f['figure']), E(f['figure_label']), E(f['noticed']),
-                       E(t['change_short']), E(t['measure_short'])))
+    # ---------- Lessons (founder, 2026-10-31, refinement brief): four cards, What stood out / What to try / What to measure ----------
+    # The earlier test and finding anchors (#bs-t1 to #bs-t3, #bs-f1 to #bs-f3) now sit on the lesson they fed; the full specifications stay in Sources & evidence.
+    ls_ = n['lessons']
+    cards = ''.join('<article class="bs-lesson" id="bs-lesson-%d">%s<p class="soc-tags">Lesson %d</p><h3 class="bs-ttitle">%s</h3><dl class="bs-tmain">'
+                    '<dt>What stood out</dt><dd>%s</dd><dt>What to try</dt><dd>%s</dd><dt>What to measure</dt><dd>%s</dd></dl></article>' % (
+                        i, ''.join('<span class="bs-anchor" id="%s"></span>' % a for a in x['anchors']), i, E(x['title']), E(x['stood']), E(x['try']), E(x['measure']))
+                    for i, x in enumerate(ls_['items'], 1))
     V['lessons'] = (view_open('lessons', 'bs-lessons')
-                    + '<div id="bs-tests" class="sub"><div id="bs-findings"></div><ol class="tests">%s</ol><p class="dek bs-datanote">%s</p>'
-                      '<p class="pnote dlinks">Full test specifications, guardrails and the evidence behind each finding are in <a href="#bs-ref-tests">Sources &amp; evidence</a>.</p></div>'
-                      % (''.join(lis), E(ts['data_note']))
+                    + '<div id="bs-tests" class="sub"><div id="bs-findings"></div><p class="soc-lim bs-lnote">%s</p><div class="bs-lessons">%s</div>'
+                      '<p class="pnote dlinks">Full test designs, sample planning and guardrails are in <a href="#bs-ref-tests">Sources &amp; evidence</a>.</p></div>'
+                      % (E(ls_['note']), cards)
                     + view_close('lessons'))
 
     out += [V[k] for k, _ in order]
@@ -810,9 +802,9 @@ def body(c):
     href = '/contact?intent=review&amp;entry=%s#contact-form' % hp['entry']
     out.append('<section id="bs-help"><div class="sec-head"><h2>%s</h2></div><div class="card"><p class="dek m0">%s</p>'
                '<a class="btn btn-primary" href="%s" data-review-cta="%s">%s</a></div></section>' % (E(hp['heading']), E(hp['body']), href, hp['entry'], E(hp['button'])))
-    out.append('<footer><div class="about"><p><b>About this case study.</b> It is part of <b>The HMM Index</b> by Help Me Marketing. Edition %s, first published as the Business Cards &amp; Spend Management Index, is an independent comparative marketing case study of how six selected platforms explain business cards, spend management and cross-border payments to Canadian businesses, from public pages captured on %s%s. It is not a ranking, a product test or a recommendation.</p></div>'
+    out.append('<footer><div class="about"><p><b>About this case study.</b> It is part of <b>The HMM Index</b> by Help Me Marketing, an independent comparative marketing case study of how six selected brands market business cards, spend management and cross-border payments to Canadian businesses. Edition %s was first published as the Business Cards &amp; Spend Management Index, from public pages captured on %s%s. The live case study has since added a review of Meta ads collected on 30 October 2026, website and help-page captures from 31 October 2026 and separately dated follow-ups; each finding carries its own date in Sources &amp; evidence. It is not a ranking, a product test or a recommendation.</p></div>'
                '<div class="byline-block"><p>Company names are used to report their public pages and posts and imply no relationship with Help Me Marketing.</p></div></footer>' % (
-                   E(ed['edition']), long_date(start), ' and official Instagram posts published 25 July to 22 October 2026' if c.social else ''))
+                   E(ed['edition']), long_date(start), ' and Instagram posts published 25 July to 22 October 2026 (with @tryramp attribution unresolved)' if c.social else ''))
     out.append('</div>')
     out.append('<!-- ===== BUSINESS SPEND INDEX REPORT BODY END ===== -->')
     return '\n'.join(out)
