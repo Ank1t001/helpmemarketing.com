@@ -392,7 +392,7 @@ def check_social_outputs(c, body):
     errs = []
     views = [v for _, v in build.view_order(c)]
     if [v for v in views if v != 'bs-paid'] != ['bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'] or ('bs-paid' in views and views.index('bs-paid') != 2):
-        errs.append('social: tab order is Overview, Social Media Strategy, Social Media Paid Ads Strategy, Website Messaging, Product Comparison, Customer Journey, Lessons')
+        errs.append('social: tab order is Overview, Social Media Strategy, Paid Social Strategy, Website Messaging, Product Comparison, Customer Journey, Lessons')
     if '<a href="#bs-social" id="bs-tab-social">Social Media Strategy</a>' not in body or 'Instagram only. Analysis of public content, not internal strategy.' not in body:
         errs.append('social: the tab is labelled "Social Media Strategy" and the view says it covers Instagram only')
     sec = view_html(body, 'bs-social')
@@ -615,8 +615,15 @@ def check_outputs(c, page, csvtext, extra_paths=()):
     nav = body[body.index('class="ri-nav bs-views"'):]
     nav = nav[:nav.index('</nav>')]
     tl = nav[:nav.index('</div>')] if '</div>' in nav else nav
-    if [h[1:] for h in re.findall(r'href="(#[^"]+)"', tl)] != views or '<a class="bs-srclink" href="#bs-sources"' not in nav:
+    if [h[1:] for h in re.findall(r'href="(#[^"]+)"', tl)] != views or 'bs-srclink' in nav:
         errs.append('page: the section nav lists the views in order (%s)' % ', '.join(views))
+    # One Sources & evidence link, outside the tab bar, directly after it (founder brief, 2026-10-31).
+    after = body[body.index('class="ri-nav bs-views"'):]
+    after = after[after.index('</nav>') + 6:]
+    if body.count('id="bs-srclink"') != 1 or not after.startswith('<p class="bs-srcrow"><a class="bs-srclink" href="#bs-sources" id="bs-srclink">Sources &amp; evidence</a></p>'):
+        errs.append('page: one Sources & evidence link sits directly below the tab bar, outside it')
+    if '<a href="#bs-paid" id="bs-tab-paid">' in body and '<a href="#bs-paid" id="bs-tab-paid">Paid Social Strategy</a>' not in body:
+        errs.append('page: the paid ads tab is labelled "Paid Social Strategy"')
     if ('bs-social' in views) != bool(getattr(c, 'social', None)) or ('id="bs-social"' in body) != bool(getattr(c, 'social', None)):
         errs.append('page: the Instagram view appears only with a derived module in review or reviewed')
     if getattr(c, 'social', None):

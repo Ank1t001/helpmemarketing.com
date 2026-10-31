@@ -552,14 +552,15 @@ def body(c):
         views['paid'] = {'title': c.paid['narrative']['view']['title'], 'dek': c.paid['narrative']['view']['dek']}
     order = view_order(c)
     # Tabs plus one small "Sources & evidence" link for the whole index (founder brief, 2026-10-30, final).
-    out.append('<nav class="ri-nav bs-views" aria-label="Sections of this page"><div class="bs-tablist">%s</div>'
-               '<a class="bs-srclink" href="#bs-sources" id="bs-srclink">Sources &amp; evidence</a></nav>' % ''.join(
+    # The Sources link sits outside the rounded tab bar, right-aligned below it (founder brief, 2026-10-31).
+    out.append('<nav class="ri-nav bs-views" aria-label="Sections of this page"><div class="bs-tablist">%s</div></nav>'
+               '<p class="bs-srcrow"><a class="bs-srclink" href="#bs-sources" id="bs-srclink">Sources &amp; evidence</a></p>' % ''.join(
                    '<a href="#%s" id="bs-tab-%s">%s</a>' % (vid, k, E(views[k]['title'])) for k, vid in order))
 
-    def view_open(key, vid, cls='bs-view'):
+    def view_open(key, vid, cls='bs-view', dek=True):
         v = views[key]
-        return ('<section id="%s" class="%s" aria-labelledby="%s-h"><div class="sec-head"><h2 id="%s-h">%s</h2><p class="dek">%s</p></div>'
-                % (vid, cls, vid, vid, E(v.get('heading', v['title'])), E(v['dek'])))
+        return ('<section id="%s" class="%s" aria-labelledby="%s-h"><div class="sec-head"><h2 id="%s-h">%s</h2>%s</div>'
+                % (vid, cls, vid, vid, E(v.get('heading', v['title'])), ('<p class="dek">%s</p>' % E(v['dek'])) if dek else ''))
 
     def view_close(key):
         keys = [k for k, _ in order]
@@ -580,8 +581,8 @@ def body(c):
     vo = views['overview']
     guide = ''.join('<a class="bs-gcard" href="#bs-%s">%s<span class="bs-gt">%s</span><span class="bs-gd">%s</span></a>' % (
         k, ICONS[icon], E(views[k]['title'] if k in views else t), E(desc)) for k, t, desc, icon in vo['guide'] if k in views)
-    V['overview'] = (view_open('overview', 'bs-overview')
-                     + '<p class="bs-provs bs-ov-provs">%s</p>' % ' &middot; '.join(plain(pid) for pid in c.order)
+    # No intro paragraph or provider list: the hero already carries both (founder brief, 2026-10-31).
+    V['overview'] = (view_open('overview', 'bs-overview', dek=False)
                      + '<nav class="bs-guide" aria-label="Sections of this case study">%s</nav>' % guide
                      + '<div class="bs-ov-scope"><p class="dek">%s</p><p class="bs-ov-dates">Website observations: %s%s. %s.</p></div>' % (
                          E(vo['scope_line']), long_date(start),

@@ -1,4 +1,4 @@
-"""Social Media Paid Ads Strategy: the active Meta ads of the six brands in Canada (founder request, 2026-10-30).
+"""Paid Social Strategy: the active Meta ads of the six brands in Canada (founder request, 2026-10-30).
 
 paid_ads.json comes from paid_derive.py (private raw collection, never in the repository); paid_narrative.json is the editorial layer.
 """

@@ -302,14 +302,15 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 @media(max-width:900px){.msi.msi #bs-journey-table td.brandcell,.msi.msi #bs-msg-table td.brandcell{width:auto}}
 .msi.msi .bs-fu-note{border-left:2px solid var(--border-strong);padding-left:12px}
 /* Final simplification (founder brief, 2026-10-30, final): Sources & evidence link and view, Overview guide, Customer Journey stages and evidence labels, Lessons. */
-.msi.msi .bs-views{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
-.msi.msi .bs-srclink{margin-left:auto;font-size:13.5px;font-weight:600;color:var(--text-muted);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;padding:6px 4px;white-space:nowrap}
+.msi.msi .ri-nav.bs-views{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-bottom:0}
+/* Sources & evidence sits outside the rounded tab bar, right-aligned directly below it (founder brief, 2026-10-31). */
+.msi.msi .bs-srcrow{display:flex;justify-content:flex-end;margin:6px 0 40px}
+.msi.msi .bs-srclink{font-size:13.5px;font-weight:600;color:var(--text-muted);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;padding:6px 4px;white-space:nowrap}
 .msi.msi .bs-srclink:hover,.msi.msi .bs-srclink[aria-current]{color:var(--text)}
 .msi.msi .bs-srclink:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
 .msi.msi .bs-next{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .msi.msi .bs-next a:only-child{margin-left:auto}
-.msi.msi .bs-ov-provs{margin:0;font-size:15px;font-weight:600;color:var(--text)}
-.msi.msi .bs-guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--s3)}
+.msi.msi .bs-guide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3)}
 .msi.msi a.bs-gcard{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated);color:var(--text);text-decoration:none;transition:border-color .15s}
 .msi.msi a.bs-gcard:hover{border-color:var(--border-strong)}
 .msi.msi a.bs-gcard:hover .bs-gt{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
@@ -355,7 +356,7 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-refsec .bs-fdetail,.msi.msi .bs-refsec .bs-tspec{margin-top:var(--s4)}
 .msi.msi .bs-refsec .bs-tspec .ktag{margin:0 0 0 8px;vertical-align:middle}
 @media(max-width:900px){
-.msi.msi .bs-srclink{order:-1;margin-left:auto}
+.msi.msi .bs-guide{grid-template-columns:repeat(2,minmax(0,1fr))}
 .msi.msi ol.bs-stages{grid-template-columns:1fr;gap:12px}
 .msi.msi ol.bs-stages::before{left:14px;right:auto;top:14px;bottom:14px;border-top:0;border-left:1px solid var(--border-strong)}
 .msi.msi ol.bs-stages li{display:grid;grid-template-columns:28px 1fr;column-gap:12px;row-gap:2px}
@@ -371,7 +372,8 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi #bs-journey-table .bs-jm.is-pick td[data-pid]:not(.jp-on){display:none}
 .msi.msi .bs-reftoc ol{columns:1}
 }
-@media print{.msi.msi .bs-srclink,.msi.msi .bs-ref-back,.msi.msi .bs-jpick{display:none!important}.msi.msi #bs-journey-table .bs-jm.is-pick td[data-pid]{display:block!important}.msi.msi .bs-view[hidden]{display:block!important}}
+@media(max-width:720px){.msi.msi .bs-guide{grid-template-columns:1fr}.msi.msi .bs-srcrow{margin-bottom:28px}}
+@media print{.msi.msi .bs-srcrow,.msi.msi .bs-ref-back,.msi.msi .bs-jpick{display:none!important}.msi.msi #bs-journey-table .bs-jm.is-pick td[data-pid]{display:block!important}.msi.msi .bs-view[hidden]{display:block!important}}
 /* Seven tabs (2026-10-30): slightly narrower tab padding, same text size, so the tabs keep to one row on desktop; the Sources link sits at the right. */
 @media(min-width:901px){.msi.msi .bs-tablist{gap:6px}.msi.msi .bs-tablist a{padding:6px 10px}}
 /* Case study (founder brief, 2026-10-30): subtitle, Social Media Strategy subsections, theme bars and suggestions. */

@@ -194,7 +194,7 @@ class KitTests(unittest.TestCase):
         body = self.page[self.page.index('REPORT BODY START'):]
         tab = validate.view_html(body, 'bs-paid')
         d = self.c.paid
-        self.assertIn('<a href="#bs-paid" id="bs-tab-paid">Social Media Paid Ads Strategy</a>', body)
+        self.assertIn('<a href="#bs-paid" id="bs-tab-paid">Paid Social Strategy</a>', body)
         self.assertEqual(len(d['records']), 119)
         self.assertEqual({p: sum(1 for r in d['records'] if r['platform'] == p) for p in self.c.order}, {'venn': 20, 'float': 11, 'ramp': 47, 'loop': 17, 'keep': 0, 'airwallex': 24})
         self.assertIn('No active ads in Canada when collected', tab)
@@ -256,6 +256,21 @@ class KitTests(unittest.TestCase):
         self.assertIn('<h2 id="bs-overview-h">Inside this case study</h2>', ov)
         self.assertEqual(re.findall(r'<a class="bs-gcard" href="#(bs-[a-z]+)"', ov), ['bs-social', 'bs-paid', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'])
         self.assertNotIn('class="find"', ov)
+        # Overview refinement (founder brief, 2026-10-31): no intro paragraph or provider list, the six blocks with the agreed copy.
+        self.assertNotIn('bs-provs', ov)
+        self.assertNotIn(self.c.n['views']['overview']['dek'], ov)
+        self.assertEqual(re.findall(r'<span class="bs-gt">([^<]+)</span>', ov), ['Social Media Strategy', 'Paid Social Strategy', 'Website Messaging', 'Product Comparison', 'Customer Journey', 'Lessons'])
+        self.assertEqual(re.findall(r'<span class="bs-gd">([^<]+)</span>', ov), [
+            'How brands position themselves, what they post and the response they receive.',
+            'What they advertise on Meta in Canada and where the ads lead.',
+            'What their websites promise and how they support it.',
+            'Cards, rewards, fees and key conditions.',
+            'What happens after clicking and which steps are explained.',
+            'Ideas to test in your own marketing.'])
+        self.assertIn('<h2 id="bs-paid-h">Paid Social Strategy</h2>', pa)
+        self.assertNotIn('Social Media Paid Ads Strategy', body)
+        self.assertIn('</div></nav><p class="bs-srcrow"><a class="bs-srclink" href="#bs-sources" id="bs-srclink">', body)
+        self.assertEqual(body.count('id="bs-srclink"'), 1)
         self.assertIn('Later follow-up: Airwallex only, checked 30 October 2026', ov)
         self.assertEqual(msg.count('Website observations: 23 October 2026'), 1)
         self.assertIn('These are my interpretations of the reviewed pages, not direct quotations or statements of the providers’ internal strategies.', msg)
