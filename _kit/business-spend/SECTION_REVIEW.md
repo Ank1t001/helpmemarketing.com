@@ -118,6 +118,19 @@ Two briefs arrived the same day; the second (percentage splits) supersedes the f
 - The approved mockup was not attached in this session; the layout follows the written direction (warm neutral cards, serif hooks, Signal Orange accents, fine borders).
 - Classification consistency across six reviewers was checked through shared rules, spot checks of same-hook groups and the cross-batch Ramp pair, not a second full pass.
 
+## 4. Website Messaging (in review)
+
+Audit of the current view, 31 October 2026 (build `aab3d88`, live):
+
+- Length: about 1,280px at 1280px wide and 2,310px at 390px, the shortest content tab.
+- Five stacked intro elements before the table: the H2 description, a bold "Website observations: 23 October 2026" line, a "My reading" kicker, the H3 "My reading of the reviewed pages" (the kicker repeats it) and a disclaimer paragraph. Social and Paid now open with one line and keep dates in Sources & evidence.
+- Subsections are not numbered, unlike Social Media Strategy and Paid Social Strategy.
+- The table has six rows (all brands) and two columns: main website message and what stood out. Five of the six "What stood out" cells describe a gap to fix (claims and limits that need to agree, conditions beside rates, labels, a basis for averages, wording and terms). Keep's cell ("Start buttons led to a closed application route") is about the application route, which belongs to Customer Journey.
+- The table does not show how each brand supports its main promise (customer stories, figures with a basis, conditions beside rates); that evidence exists in the observations and in Sources & evidence but not in the tab.
+- Selected examples: two text-only cards (Loop names who calculated a savings figure; Airwallex names the tools a customer used before), with text capped near 680px inside full-width cards, so the right half is empty on desktop. The lead line says "not winning platforms", defensive wording the other tabs no longer use. No page visuals: the 23 October browser captures are private.
+- The ads-beside-website comparison (30 October ads, 23 October pages) now sits in Sources & evidence under the paid ads records; nothing in this tab points to it.
+- Spacing: H3 "My reading of the reviewed pages" has 8px above it where other tabs use 0; first table column is 13.5px regular, which matches the shared rule; table to the next block is 32px.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:
