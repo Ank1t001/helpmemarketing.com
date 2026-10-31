@@ -1,0 +1,79 @@
+{
+ "captured_on": "2026-10-31",
+ "method": "Headless Chromium from this research environment, 1280 by 900 window, locale en-CA, no consent banner answered, nothing clicked or submitted; full screenshots kept privately, only the crops below are published.",
+ "note": "Fresh captures for the Website Messaging examples (founder brief, 31 October 2026). They are dated separately from the 23 October observations and change no observation, status or finding.",
+ "captures": [
+  {
+   "id": "W1",
+   "pid": "loop",
+   "kind": "value",
+   "url": "https://www.bankonloop.com/en-ca",
+   "captured_at": "2026-10-31T15:11:19-04:00",
+   "http_status": 200,
+   "quote": "Global Banking for Canadian Businesses. Unlock growth with Loop. FX-free credit cards, free international transfers, and global accounts with CDIC protection.",
+   "matches_23_october": "The headline matches the audience recorded on 23 October (“Global Banking for Canadian Businesses”).",
+   "observations": [
+    "O-LOP-12"
+   ],
+   "src": "/assets/index/business-spend/web/loop-home-2026-10-31.webp",
+   "width": 800,
+   "height": 339,
+   "crop": [
+    60,
+    140,
+    1240,
+    640
+   ],
+   "capture_sha256": "e348e4a4f1ac86f8da69431c5d38b791e8b0ba23b4aa9e019e253df8832d425a",
+   "sha256": "6b7c61dbbeca99e3738f03d05ce234f2adb6b3319cfc40b813a1ba2ff6927363"
+  },
+  {
+   "id": "W2",
+   "pid": "airwallex",
+   "kind": "proof",
+   "url": "https://www.airwallex.com/en-ca/case-studies/adaria",
+   "captured_at": "2026-10-31T15:11:25-04:00",
+   "http_status": 200,
+   "quote": "Before Airwallex, Adaria relied on a patchwork of traditional banks and fintech tools, including Wise (formerly TransferWise) and Venn.",
+   "matches_23_october": "Matches the 23 October observation that the story names Venn and Wise as tools used before.",
+   "observations": [
+    "O-AWX-13"
+   ],
+   "src": "/assets/index/business-spend/web/airwallex-adaria-2026-10-31.webp",
+   "width": 700,
+   "height": 320,
+   "crop": [
+    60,
+    200,
+    760,
+    520
+   ],
+   "capture_sha256": "e53215302c8d0c554a712623b884caa86609d6e830ab6fc10224f5e849db9c1f",
+   "sha256": "57489ccbc39c3b646d518afcb9a37b75b4f773d65cfa0b833cc752c289d1e8ad"
+  },
+  {
+   "id": "W3",
+   "pid": "keep",
+   "kind": "cta",
+   "url": "https://www.trykeep.com/",
+   "captured_at": "2026-10-31T15:11:32-04:00",
+   "http_status": 200,
+   "quote": "Get started. Applications do not impact your credit score¹ (footnote at the foot of the page: “While applying and reviewing an offer will not impact your personal credit score, accepting an offer may result in a hard inquiry.”)",
+   "matches_23_october": "Matches the 23 October observation of the same line and condition.",
+   "observations": [
+    "O-KEP-06"
+   ],
+   "src": "/assets/index/business-spend/web/keep-home-2026-10-31.webp",
+   "width": 800,
+   "height": 344,
+   "crop": [
+    40,
+    100,
+    900,
+    470
+   ],
+   "capture_sha256": "25a2f46d05f2dfa434799ee1c591b9f926951697ccfa3a15a621c7c04e8602f7",
+   "sha256": "d6ab89a097b19c7fae6fbef91c56aaad0aa8e9d6760481fd60f6e2bc5a913469"
+  }
+ ]
+}

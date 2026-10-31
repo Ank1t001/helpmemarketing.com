@@ -259,11 +259,26 @@ def check_inputs(c):
     if len(c.n['examples']['items']) > 4:
         errs.append('examples: at most four')
     places = [e.get('place') for e in c.n['examples']['items']]
-    # Two to four in Messaging since the 2026-10-31 founder review (was exactly two).
-    if not 2 <= places.count('messaging') <= 4 or places.count('journeys') != 1 or any(not (x in ('messaging', 'journeys') or str(x).startswith('evidence:')) for x in places):
-        errs.append('examples: two to four in Messaging, one in the journey evidence, any other in a provider evidence expander')
-    if not re.match(r'(One|Two|Three|Four) observed example', c.n['examples']['dek']) or ['One', 'Two', 'Three', 'Four'].index(c.n['examples']['dek'].split()[0]) + 1 != places.count('messaging'):
-        errs.append('examples: the dek count matches the examples shown')
+    # Since the second 2026-10-31 brief, Website Messaging shows visual examples (narrative "web_examples") and the text examples sit in provider evidence.
+    if places.count('messaging') or places.count('journeys') != 1 or any(not (x == 'journeys' or str(x).startswith('evidence:')) for x in places):
+        errs.append('examples: one in the journey evidence, the rest in provider evidence expanders')
+    web = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'web_examples_2026-10-31.json'), encoding='utf-8'))
+    caps = {w['id']: w for w in web['captures']}
+    wx = c.n.get('web_examples', [])
+    if [x['label'] for x in wx] != ['Value proposition', 'Proof', 'Call to action'] or len({caps[x['capture']]['pid'] for x in wx if x['capture'] in caps}) != len(wx):
+        errs.append('examples: three website examples (value proposition, proof, call to action) from three different brands')
+    for x in wx:
+        w = caps.get(x['capture'])
+        if not w or not w['captured_at'].startswith('2026-10-31') or not set(w['observations']) <= set(c.obs):
+            errs.append('examples: website example %s needs a dated capture and linked observations' % x['capture'])
+            continue
+        pth = os.path.join(model.ROOT, w['src'].lstrip('/'))
+        if not os.path.exists(pth) or hashlib.sha256(open(pth, 'rb').read()).hexdigest() != w['sha256']:
+            errs.append('examples: the crop for %s is missing or differs from its recorded hash' % x['capture'])
+    for pid in EXPECTED_ORDER:
+        g = c.n['platforms'][pid].get('glance') or {}
+        if set(g) != {'promise', 'audience', 'why', 'proof', 'ev'} or not g['ev'] or not set(g['ev']) <= set(c.obs) or any(t.count('. ') > 1 for k, t in g.items() if k != 'ev'):
+            errs.append('messaging: %s needs one short sentence per column and linked observations' % pid)
     if not 2 <= len(c.n['patterns']['items']) <= 3:
         errs.append('patterns: two or three')
     tests = c.n['tests']['items']

@@ -23,6 +23,7 @@ import social
 import validate
 
 PAGE = os.path.join(model.ROOT, 'business-spend-index.html')
+KIT_DIR = os.path.dirname(os.path.abspath(__file__))
 CSV_REL = 'assets/index/business-spend/business-spend-index-edition-001-observations.csv'
 CSV_PATH = os.path.join(model.ROOT, CSV_REL)
 SOCIAL_CSV_PATH = os.path.join(model.ROOT, social.CSV_REL)
@@ -346,6 +347,24 @@ TEST_ROWS = [('observation', 'Observed evidence'), ('question', 'Customer questi
 
 
 
+
+def msg_glance_reference(c, n):
+    """Sources & evidence: the observations behind each row of "Messaging at a glance" (founder brief, 2026-10-31)."""
+    rows = ''.join('<li><b>%s.</b> %s %s</li>' % (E(c.name(pid)), E(n['platforms'][pid]['glance']['promise']),
+                   ev_links(c, n['platforms'][pid]['glance']['ev']).replace('<p class="evlinks">', '<span class="evlinks">').replace('</p>', '</span>')) for pid in c.order)
+    return '<div id="bs-msg-glance-ev"><h4 class="t">Messaging at a glance: evidence</h4><p class="dek">Each row reads the homepage, a relevant product page and the proof linked from them, observed 23 October 2026; audience lines quote the site where it names one.</p><ul class="dek">%s</ul></div>' % rows
+
+
+def web_capture_reference(c):
+    """Sources & evidence: the 31 October 2026 captures behind the Website Messaging examples."""
+    web = json.load(open(os.path.join(KIT_DIR, 'web_examples_2026-10-31.json'), encoding='utf-8'))
+    items = ''.join('<li><b>%s, %s.</b> <a href="%s" rel="noopener nofollow" target="_blank">%s%s</a>, captured %s, %s Toronto time (HTTP %d). Wording: %s %s Crop box %s of the private full screenshot (sha256 %s&hellip;); published crop sha256 %s&hellip;. %s</li>' % (
+        E(c.name(w['pid'])), E({'value': 'value proposition', 'proof': 'proof', 'cta': 'call to action'}[w['kind']]), E(w['url']), E(w['url']), EXT,
+        E(iso_long(w['captured_at'][:10])), E(toronto_time(w['captured_at'])), w['http_status'], E(w['quote']), E(w['matches_23_october']),
+        E(', '.join(str(v) for v in w['crop'])), E(w['capture_sha256'][:16]), E(w['sha256'][:16]),
+        ev_links(c, w['observations']).replace('<p class="evlinks">', '<span class="evlinks">').replace('</p>', '</span>')) for w in web['captures'])
+    return '<div id="bs-msg-captures"><h4 class="t">Website examples: captures of 31 October 2026</h4><p class="dek">%s %s</p><ul class="dek">%s</ul></div>' % (E(web['note']), E(web['method']), items)
+
 def msg_support_reference(c, n):
     """Sources & evidence: every "How the promise is supported" check with the observations behind it (founder review, 2026-10-31)."""
     ms = n['messaging_support']
@@ -433,7 +452,7 @@ def sources_view(c, views, start, end, draft):
             compare_sources(c) + '<h4 class="t">Messaging examples: evidence</h4><ul class="dek">%s</ul>' % ''.join(
                 '<li><b>%s.</b> %s</li>' % (E(e['title']), ev_links(c, e['evidence']).replace('<p class="evlinks">', '<span class="evlinks">').replace('</p>', '</span>'))
                 for e in n['examples']['items'] if e.get('place') == 'messaging'))
-            + msg_support_reference(c, n))
+            + msg_glance_reference(c, n) + msg_support_reference(c, n) + web_capture_reference(c))
     # 3. Social accounts, posts and attribution
     if c.social:
         sec('bs-ref-social', 'Social accounts, posts, classifications and engagement', social.strategy_reference_html(c) + social.reference_html(c) + (social.analysis_reference_html(c.social) if c.social.get('analysis') else ''))
@@ -611,24 +630,25 @@ def body(c):
     # ---------- Messaging & Offers ----------
     ex = n['examples']
     vm = views['messaging']
-    ms = n['messaging_support']
-
-    def support_cell(pid):
-        return '<ul class="bs-sup">%s</ul>' % ''.join(
-            '<li><span class="bs-sup-k">%s</span><span class="bs-sup-s bs-sup-%s">%s</span><span class="bs-sup-t">%s</span></li>' % (
-                E(lab), ms[pid][k]['s'], E(ms['labels'][ms[pid][k]['s']]), E(ms[pid][k]['t'])) for k, lab in ms['checks'])
-    mrows = ''.join('<tr id="bs-msg-%s"><td class="brandcell">%s</td><td data-label="Main website message">%s</td><td data-label="How the promise is supported">%s</td><td data-label="What stood out">%s</td></tr>\n' % (
-        pid, plain(pid), E(n['platforms'][pid]['main_message']), support_cell(pid), E(n['platforms'][pid]['stood_out'])) for pid in c.order)
-    exs = ''.join(example_card(c, e, evidence=False) for e in ex['items'] if e.get('place') == 'messaging')
-    # Founder review (2026-10-31): one intro line, numbered parts, the support column, examples in a grid and a pointer to the ads comparison.
+    # Founder brief (2026-10-31, second): one comparison with the same criteria for all six brands, then three visual examples.
+    web = json.load(open(os.path.join(KIT_DIR, 'web_examples_2026-10-31.json'), encoding='utf-8'))
+    caps = {w['id']: w for w in web['captures']}
+    gl = lambda pid: n['platforms'][pid]['glance']
+    mrows = ''.join('<tr id="bs-msg-%s"><td class="brandcell">%s</td><td data-label="Main promise">%s</td><td data-label="Who it speaks to">%s</td><td data-label="Why choose them?">%s</td><td data-label="Proof used">%s</td></tr>\n' % (
+        pid, plain(pid), E(gl(pid)['promise']), E(gl(pid)['audience']), E(gl(pid)['why']), E(gl(pid)['proof'])) for pid in c.order)
+    cards = []
+    for i, x in enumerate(n['web_examples'], 1):
+        w = caps[x['capture']]
+        cards.append('<article class="bs-wex" id="bs-wex-%d"><figure class="bs-wex-shot"><img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async">'
+                     '<figcaption>%s, captured %s.</figcaption></figure><div class="bs-wex-text"><p class="soc-tags">%s &middot; %s</p><p class="bs-wex-quote">%s</p>'
+                     '<p class="soc-stood"><b>What stood out:</b> %s</p></div></article>' % (
+                         i, E(w['src']), E(x['alt']), w['width'], w['height'], E(c.name(w['pid'])), E(iso_long(w['captured_at'][:10])), E(x['label']), E(c.name(w['pid'])), E(x['wording']), E(x['stood_out'])))
     V['messaging'] = (view_open('messaging', 'bs-messaging')
                       + '<div class="sub soc-sec" id="bs-msg-table"><h3 id="bs-msg-h"><span class="soc-n">1</span>%s</h3><p class="soc-lim">%s</p>'
-                        '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-msg-h"><table class="bs bs-msgt"><caption class="sr-only">Main website message, how the promise is supported and what stood out, from pages observed on 23 October 2026</caption>'
-                        '<thead><tr><th scope="col">Brand</th><th scope="col">Main website message</th><th scope="col">How the promise is supported</th><th scope="col">What stood out</th></tr></thead><tbody>\n%s</tbody></table></div>'
-                        '<p class="soc-lim bs-msg-after">%s <a href="#bs-msg-support-ev">See the evidence</a>.</p></div>'
-                        % (E(vm['table_title']), E(vm['table_note']), mrows, E(vm['support_note']))
-                      + '<div id="bs-examples" class="sub soc-sec"><h3><span class="soc-n">2</span>%s</h3><p class="soc-lim">%s</p><div class="bs-msg-exs">%s</div></div>' % (E(vm['examples_title']), E(ex['dek']), exs)
-                      + '<p class="soc-lim bs-msg-adsweb">%s <a href="#bs-paid-ref-vs-web">Ads beside the website</a>.</p>' % E(vm['adsweb_note'])
+                        '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-msg-h"><table class="bs bs-msgt"><caption class="sr-only">Main promise, audience, claimed difference and proof for six brands, from pages observed on 23 October 2026</caption>'
+                        '<thead><tr><th scope="col">Brand</th><th scope="col">Main promise</th><th scope="col">Who it speaks to</th><th scope="col">Why choose them?</th><th scope="col">Proof used</th></tr></thead><tbody>\n%s</tbody></table></div></div>'
+                        % (E(vm['table_title']), E(vm['table_note']), mrows)
+                      + '<div id="bs-examples" class="sub soc-sec"><h3><span class="soc-n">2</span>%s</h3><p class="soc-lim">%s</p><div class="bs-wexs">%s</div></div>' % (E(vm['examples_title']), E(vm['examples_note']), ''.join(cards))
                       + view_close('messaging'))
 
     # ---------- Compare Products ----------

@@ -809,7 +809,7 @@
      "O-LOP-13",
      "O-LOP-12"
     ],
-    "place": "messaging"
+    "place": "evidence:loop"
    },
    {
     "id": "E2",
@@ -821,7 +821,7 @@
     "evidence": [
      "O-FLT-05"
     ],
-    "place": "messaging"
+    "place": "evidence:float"
    },
    {
     "id": "E3",
@@ -846,7 +846,7 @@
     "evidence": [
      "O-AWX-13"
     ],
-    "place": "messaging"
+    "place": "evidence:airwallex"
    }
   ]
  },
@@ -889,7 +889,19 @@
     ]
    },
    "main_message": "Business banking built for Canada, with lower costs.",
-   "stood_out": "The cashback claim and pricing limits need to agree."
+   "stood_out": "The cashback claim and pricing limits need to agree.",
+   "glance": {
+    "promise": "Business banking built for Canada, with lower costs.",
+    "audience": "Canadian businesses; the site says Venn is not available in Quebec.",
+    "why": "Claims lower FX and transfer costs than the big banks.",
+    "proof": "Customer counts (15,000+) and a case study that describes time saved.",
+    "ev": [
+     "O-VEN-23",
+     "O-VEN-16",
+     "O-VEN-15",
+     "O-VEN-17"
+    ]
+   }
   },
   "float": {
    "offer": "Up to 1% cashback, 0.25% FX, USD cards without foreign transaction fees, account interest of 2.5% (up to 3.5% in a promotion) and credit up to $3M+ subject to eligibility. The 1% applies above $25k of monthly spending per card program (pricing footnote); the 3.5% is a 12-month promotion on new balances above a baseline (promotion terms).",
@@ -931,7 +943,16 @@
     ]
    },
    "main_message": "Less manual finance work in one platform.",
-   "stood_out": "The headline rates need their spending and promotion conditions beside them."
+   "stood_out": "The headline rates need their spending and promotion conditions beside them.",
+   "glance": {
+    "promise": "Less manual finance work in one platform.",
+    "audience": "Canadian businesses: “Built in Canada, for Canada.”",
+    "why": "Claims cards, accounts, payments and spend management from one Canadian provider.",
+    "proof": "A customer story reporting more than 100 hours a year saved.",
+    "ev": [
+     "O-FLT-15"
+    ]
+   }
   },
   "ramp": {
    "offer": "Free and Plus plans, CAD and USD cards, and CAD or USD spend without the FX markup; the global page says conversions stay subject to applicable exchange rates and fees. A Canadian rewards rate was not found in the reviewed sources.",
@@ -974,7 +995,18 @@
     ]
    },
    "main_message": "Control spending before it happens.",
-   "stood_out": "Canadian eligibility and worldwide customer proof need clear labels."
+   "stood_out": "Canadian eligibility and worldwide customer proof need clear labels.",
+   "glance": {
+    "promise": "Control spending before it happens.",
+    "audience": "Canadian businesses, with eligibility open to Canadian, US or UK-registered entities.",
+    "why": "Claims spending controls that act before money goes out, with CAD and USD cards.",
+    "proof": "A worldwide customer count, quotes from large brands and a figure labelled as internal data.",
+    "ev": [
+     "O-RMP-04",
+     "O-RMP-07",
+     "O-RMP-13"
+    ]
+   }
   },
   "loop": {
    "offer": "No FX fee in four currencies, points on card spend, free payments for now, and credit up to $1M. A 1.5% fee applies to card purchases in other currencies, and on the Basic plan the earn-rate table lists USD, EUR and GBP spend as not eligible for points.",
@@ -1014,7 +1046,18 @@
     ]
    },
    "main_message": "Lower-cost banking across borders.",
-   "stood_out": "Its case study labels a savings estimate, while some homepage averages lack a visible basis in the reviewed sources."
+   "stood_out": "Its case study labels a savings estimate, while some homepage averages lack a visible basis in the reviewed sources.",
+   "glance": {
+    "promise": "Lower-cost banking across borders.",
+    "audience": "Canadian businesses that work across borders.",
+    "why": "Claims no FX fees in four currencies and calls its card Canada’s first no-FX credit card.",
+    "proof": "A case study with a savings figure labelled as Loop’s own calculation.",
+    "ev": [
+     "O-LOP-07",
+     "O-LOP-12",
+     "O-LOP-13"
+    ]
+   }
   },
   "keep": {
    "offer": "Points with up to 56 fee-free days, multi-currency accounts in five currencies, and 90-day trials on plans from $79 a month. The card agreement sets a 3% card conversion fee that I did not find on the card, pricing or FAQ pages.",
@@ -1055,7 +1098,17 @@
     ]
    },
    "main_message": "Higher limits and less expense admin.",
-   "stood_out": "“Canada’s #1” and “5,000+ Canadian companies” carry no visible basis, and no case study was found."
+   "stood_out": "“Canada’s #1” and “5,000+ Canadian companies” carry no visible basis, and no case study was found.",
+   "glance": {
+    "promise": "Higher limits and less expense admin.",
+    "audience": "Any business in the headline; it also cites 5,000+ Canadian companies.",
+    "why": "Claims higher limits, expenses that do themselves and capital to grow.",
+    "proof": "A customer count and a “#1” claim without a stated basis; no case study was found.",
+    "ev": [
+     "O-KEP-12",
+     "O-KEP-13"
+    ]
+   }
   },
   "airwallex": {
    "offer": "1% cashback on card spend, no foreign transaction fee from a held currency, transfers with $0 fees on local rails, and plans from $0.",
@@ -1097,7 +1150,17 @@
     ]
    },
    "main_message": "Manage payments and spending across countries.",
-   "stood_out": "Cashback wording and linked terms need clarification."
+   "stood_out": "Cashback wording and linked terms need clarification.",
+   "glance": {
+    "promise": "Manage payments and spending across countries.",
+    "audience": "Global businesses, with a section on the Canadian market.",
+    "why": "Claims one platform for payments, treasury and spend across countries.",
+    "proof": "Business counts (one including platform customers) and a Canadian customer story.",
+    "ev": [
+     "O-AWX-12",
+     "O-AWX-13"
+    ]
+   }
   }
  },
  "patterns": {
@@ -1313,15 +1376,14 @@
   },
   "messaging": {
    "title": "Website Messaging",
-   "dek": "What each website promises and how it supports that promise.",
+   "dek": "A look at how brands explain their value, build trust and encourage customers to take the next step.",
    "observed": "Website observations: 23 October 2026",
-   "table_title": "Main messages and how they are supported",
-   "table_note": "My reading of pages observed on 23 October 2026, not the providers’ own statements of strategy.",
+   "table_title": "Messaging at a glance",
+   "table_note": "My reading of each homepage, a relevant product page and the proof linked from them, observed on 23 October 2026. Claims are the brands’ own, not verified advantages.",
    "evidence_title": "Evidence by provider",
    "evidence_dek": "The sources behind each reading: who the pages speak to, the problem, the benefit, the offer and its conditions, the proof, one customer question, missing evidence, and every observation with its exact wording, page and capture time.",
-   "support_note": "Each check links to the observations behind it in Sources & evidence.",
-   "examples_title": "Selected examples",
-   "adsweb_note": "The paid ads collected on 30 October are compared with these 23 October pages in Sources & evidence; the two dates differ, so a difference is not a confirmed contradiction."
+   "examples_title": "Messaging in practice",
+   "examples_note": "Three choices shown in fresh captures from 31 October 2026, cropped. The steps after clicking are in Customer Journey."
   },
   "journeys": {
    "title": "Customer Journey",
@@ -2125,5 +2187,28 @@
     ]
    }
   }
- }
+ },
+ "web_examples": [
+  {
+   "capture": "W1",
+   "label": "Value proposition",
+   "alt": "Loop homepage hero: headline 'Global Banking for Canadian Businesses', a line listing FX-free credit cards, free international transfers and global accounts, a work email field and a 'Get Started For Free' button.",
+   "wording": "“Global Banking for Canadian Businesses”, then “FX-free credit cards, free international transfers, and global accounts with CDIC protection.”",
+   "stood_out": "Names the customer and the need in the headline, then lists three concrete products under it."
+  },
+  {
+   "capture": "W2",
+   "label": "Proof",
+   "alt": "Airwallex case study page for Adaria: heading 'The challenge: traditional financial solutions couldn't keep up' and a paragraph naming Wise and Venn.",
+   "wording": "“Before Airwallex, Adaria relied on a patchwork of traditional banks and fintech tools, including Wise (formerly TransferWise) and Venn.”",
+   "stood_out": "Shows the customer’s previous setup to make the change concrete; the outcomes that follow are described, not measured."
+  },
+  {
+   "capture": "W3",
+   "label": "Call to action",
+   "alt": "Keep homepage hero: headline 'All-in-one banking for any business', a 'Get started' button and the line 'Applications do not impact your credit score' with a footnote mark.",
+   "wording": "“Get started”, with “Applications do not impact your credit score¹” directly below.",
+   "stood_out": "Answers a likely worry beside the button, but the condition sits in a footnote at the foot of the page: accepting an offer may result in a hard inquiry."
+  }
+ ]
 }

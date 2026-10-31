@@ -118,7 +118,22 @@ Two briefs arrived the same day; the second (percentage splits) supersedes the f
 - The approved mockup was not attached in this session; the layout follows the written direction (warm neutral cards, serif hooks, Signal Orange accents, fine borders).
 - Classification consistency across six reviewers was checked through shared rules, spot checks of same-hook groups and the cross-batch Ramp pair, not a second full pass.
 
-## 4. Website Messaging (decided and applied 31 October 2026, founder: "Apply all the options, then push it to live")
+## 4. Website Messaging (second brief, 31 October 2026; built on staging)
+
+The founder's second brief replaces the version put live earlier the same day (`730dd77`).
+
+- Introduction: "A look at how brands explain their value, build trust and encourage customers to take the next step."
+- **1 Messaging at a glance:** one table, the same criteria for all six brands: Brand, Main promise, Who it speaks to, Why choose them?, Proof used. One short sentence per cell, written as the brand's claim, not a verified advantage. Basis: each homepage, a relevant product page and the proof linked from them, observed 23 October 2026 (`narrative.json` `platforms.<id>.glance`, each row with its observation ids, listed in Sources & evidence `#bs-msg-glance-ev`). Audience lines quote the site where it names one. Phones show one card per brand.
+- **2 Messaging in practice:** three examples, each a cropped screenshot, the relevant wording and one balanced "What stood out":
+  - Value proposition, Loop homepage: names the customer and the need in the headline, then lists three products.
+  - Proof, Airwallex Adaria story: shows the customer's previous setup (Wise and Venn); outcomes described, not measured.
+  - Call to action, Keep homepage: answers the credit score worry beside the button; the hard inquiry condition sits in a footnote at the foot of the page.
+- Screenshots: fresh captures of 31 October 2026, 3:11 p.m. Toronto time (headless Chromium, nothing clicked or submitted), recorded in `web_examples_2026-10-31.json` with page address, HTTP status, quoted wording, crop box, the private full screenshot's hash and the published crop's hash, and checked against the 23 October observations (all three match). Crops in `/assets/index/business-spend/web/`. The 23 October captures stay private and unchanged.
+- Moved out: the "How the promise is supported" column (its per-check evidence stays in Sources & evidence, `#bs-msg-support-ev`), the "What stood out" column, the earlier text examples (now in each provider's evidence expander) and the ads-beside-website pointer (the comparison stays in Sources & evidence).
+- No scores or rankings; recommendations and tests stay in Lessons.
+
+### First version (applied and put live earlier on 31 October, superseded)
+First version, founder: "Apply all the options, then push it to live"
 
 Applied:
 - One intro line ("What each website promises and how it supports that promise."); the bold date line, the "My reading" kicker and the repeated H3 are gone. The date sits in one limitation beside the table: "My reading of pages observed on 23 October 2026, not the providers' own statements of strategy."

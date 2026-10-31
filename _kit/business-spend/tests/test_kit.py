@@ -292,20 +292,20 @@ class KitTests(unittest.TestCase):
         self.assertEqual(body.count('id="bs-srclink"'), 1)
         self.assertNotIn('bs-ov-scope', ov)                    # the note under the cards was removed (founder, 2026-10-31)
         self.assertIn('Independent marketing research, not a product recommendation', body.split('</header>')[0])
-        # Founder review (2026-10-31): one intro line, dated limitation beside the table, the support column, three examples, the ads pointer.
+        # Founder brief (2026-10-31, second): one five-column comparison for all six brands, then three visual examples.
         self.assertNotIn('Website observations: 23 October 2026', msg)
-        self.assertIn('My reading of pages observed on 23 October 2026, not the providers’ own statements of strategy.', msg)
-        self.assertIn('<th scope="col">How the promise is supported</th>', msg)
+        self.assertIn('A look at how brands explain their value, build trust and encourage customers to take the next step.', msg)
+        self.assertEqual(re.findall(r'<th scope="col">([^<]+)</th>', msg), ['Brand', 'Main promise', 'Who it speaks to', 'Why choose them?', 'Proof used'])
         self.assertEqual(len(re.findall(r'<tr id="bs-msg-[a-z]+">', msg)), 6)
-        self.assertEqual(msg.count('<ul class="bs-sup">'), 6)
-        self.assertEqual(msg.count('<span class="bs-sup-k">'), 18)
-        self.assertEqual(re.findall(r'<h3[^>]*><span class="soc-n">\d</span>([^<]+)</h3>', msg), ['Main messages and how they are supported', 'Selected examples'])
-        self.assertEqual(msg.count('<div class="card ex">'), 3)
-        self.assertIn('Three observed examples', msg)
-        self.assertNotIn('winning platforms', msg)
-        self.assertNotIn('closed application route', msg)                  # Keep's application note lives in Customer Journey
-        self.assertIn('href="#bs-paid-ref-vs-web"', msg)
-        self.assertIn('id="bs-msg-support-ev"', validate.view_html(body, 'bs-sources'))
+        self.assertEqual(re.findall(r'<h3[^>]*><span class="soc-n">\d</span>([^<]+)</h3>', msg), ['Messaging at a glance', 'Messaging in practice'])
+        self.assertEqual(re.findall(r'<p class="soc-tags">([^&]+?) &middot;', msg), ['Value proposition', 'Proof', 'Call to action'])
+        self.assertEqual(msg.count('<figure class="bs-wex-shot"><img src="/assets/index/business-spend/web/'), 3)
+        self.assertEqual(msg.count('captured 31 October 2026'), 3)
+        self.assertNotIn('<div class="card ex">', msg)
+        self.assertNotRegex(msg.replace('credit score', ''), r'(?i)best website|\b(?:scored?|ranked|rating)\b|\d+ ?/ ?10|winning')   # "credit score" is quoted site wording
+        ref = validate.view_html(body, 'bs-sources')
+        for need in ('id="bs-msg-glance-ev"', 'id="bs-msg-captures"', 'id="bs-msg-support-ev"'):
+            self.assertIn(need, ref)
         self.assertNotRegex(body, r'(?i)capture request|\bR[12]\b|after booking|is booked')
         fu = ref[ref.index('id="bs-p-airwallex"'):]
         self.assertIn('checked 30 October 2026', fu[:fu.index('</details>')])
