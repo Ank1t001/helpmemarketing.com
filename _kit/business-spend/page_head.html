@@ -302,6 +302,7 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi article.bs-lesson ol.bs-opps{list-style:none;margin:0;padding:0}
 .msi.msi article.bs-lesson li.bs-opp{margin:0;padding:0}
 .msi.msi article.bs-lesson li.bs-opp+li.bs-opp{margin-top:var(--s4);padding-top:var(--s4);border-top:1px solid var(--border)}
+.msi.msi article.bs-lesson li.bs-opp .pd-chips{margin:0 0 var(--s2)}
 .msi.msi article.bs-lesson li.bs-opp h4{margin:0 0 var(--s2);font:600 15.5px/1.4 var(--sans,Inter,sans-serif);letter-spacing:0;text-transform:none;color:var(--text)}
 .msi.msi article.bs-lesson h3.bs-ttitle{margin:0 0 var(--s3)}
 .msi.msi article.bs-lesson dl,.msi.msi article.bs-lesson dl.bs-tmain{display:block;margin:0}
@@ -390,7 +391,7 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 @media(max-width:720px){.msi.msi .bs-guide{grid-template-columns:1fr}.msi.msi .bs-srcrow{margin-bottom:28px}}
 @media print{.msi.msi .bs-srcrow,.msi.msi .bs-ref-back{display:none!important}.msi.msi .bs-view[hidden]{display:block!important}}
 /* Seven tabs (2026-10-30): slightly narrower tab padding, same text size, so the tabs keep to one row on desktop; the Sources link sits at the right. */
-@media(min-width:901px){.msi.msi .bs-tablist{gap:6px}.msi.msi .bs-tablist a{padding:6px 10px}}
+@media(min-width:901px){.msi.msi .bs-tablist{gap:4px}.msi.msi .bs-tablist a{padding:6px 9px}}
 /* Case study (founder brief, 2026-10-30): subtitle, Social Media Strategy subsections, theme bars and suggestions. */
 .msi.msi header .bs-subtitle{margin:-4px 0 10px;font-family:var(--font-display,Fraunces,serif);font-style:italic;font-size:20px;line-height:1.3;color:var(--text-muted)}
 .msi.msi .soc-sec>h3{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
@@ -646,7 +647,7 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi .bs-srcrow[hidden]{display:none}
 .msi.msi .bs-srclink{padding:0;font-size:15px;color:var(--text)}
 .msi.msi .bs-srcnote{font-size:14px;line-height:1.5;color:var(--text-muted)}
-.msi.msi :is(#bs-social,#bs-paid,#bs-messaging,#bs-compare,#bs-journeys) .bs-stats{margin-bottom:var(--s6)}
+.msi.msi :is(#bs-social,#bs-paid,#bs-messaging,#bs-compare,#bs-journeys,#bs-lessons) .bs-stats{margin-bottom:var(--s6)}
 .msi.msi :is(#bs-social,#bs-paid,#bs-messaging,#bs-compare,#bs-journeys) .soc-sec>h3 .soc-n{width:32px;height:32px;border:0;border-radius:8px;background:color-mix(in srgb,var(--cta) 12%,transparent);color:var(--cta-text,var(--cta));font-size:14px;font-weight:650}
 .msi.msi :is(#bs-social-mix,#bs-paid-mix)>.pd-dims{padding:var(--s5);border:1px solid var(--border);border-radius:var(--r2);background:var(--bg)}
 .msi.msi #bs-social-examples .pd-exs,.msi.msi #bs-examples .bs-wexs,.msi.msi #bs-journey-examples .bs-wexs{align-items:start}
@@ -657,7 +658,7 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi :is(#bs-social,#bs-messaging,#bs-journeys) details.soc-detail>summary:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px;border-radius:4px}
 .msi.msi :is(#bs-social,#bs-messaging,#bs-journeys) details.soc-detail[open]>summary{margin-bottom:var(--s2)}
 .msi.msi :is(#bs-social,#bs-messaging,#bs-journeys) details.soc-detail>p{margin:0;font-size:15px;line-height:1.55;color:var(--text-body,var(--text))}
-@media(max-width:720px){.msi.msi :is(#bs-social,#bs-paid,#bs-messaging,#bs-compare,#bs-journeys) .bs-stats{margin-bottom:40px}.msi.msi :is(#bs-social-mix,#bs-paid-mix)>.pd-dims{padding:20px}}
+@media(max-width:720px){.msi.msi :is(#bs-social,#bs-paid,#bs-messaging,#bs-compare,#bs-journeys,#bs-lessons) .bs-stats{margin-bottom:40px}.msi.msi :is(#bs-social-mix,#bs-paid-mix)>.pd-dims{padding:20px}}
 @media(max-width:720px){.msi.msi .ri-nav.bs-views{margin-bottom:var(--s5)}.msi.msi .bs-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.msi.msi .bs-stat{padding:16px 20px}.msi.msi .bs-stat:nth-child(odd){border-left:0}.msi.msi .bs-stat:nth-child(n+3){border-top:1px solid var(--border)}.msi.msi .bs-stat dd{font-size:30px}.msi.msi .bs-gchip{width:40px;height:40px;border-radius:10px}.msi.msi .bs-gchip svg.bs-gi{width:24px;height:24px}.msi.msi .bs-srcrow{margin-top:40px;padding-top:20px}}
 @media(max-width:720px){.msi.msi #bs-journeys ol.bs-jstages{gap:var(--s4)}}
 @media(max-width:900px){.msi.msi .bs-view .tw.cards td.brandcell{font-size:16px;font-weight:650;color:var(--text)}}

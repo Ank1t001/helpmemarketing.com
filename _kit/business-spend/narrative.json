@@ -1442,8 +1442,8 @@
     ],
     [
      "lessons",
-     "Lessons",
-     "Opportunities for each brand.",
+     "Opportunities",
+     "One or two ideas for each brand to test.",
      "check"
     ]
    ]
@@ -1474,7 +1474,7 @@
    "dek": "A look at how brands guide customers from their first click to getting started."
   },
   "lessons": {
-   "title": "Lessons",
+   "title": "Opportunities",
    "dek": "One or two opportunities for each brand, drawn from the evidence in this case study."
   },
   "sources": {
@@ -2240,7 +2240,7 @@
   }
  ],
  "lessons": {
-  "note": "Opportunities read from the public pages, ads and posts in this case study, collected 23 October to 1 November 2026. They are proposals to test, not proven improvements: I have no access to any brand’s own results.",
+  "note": "Proposals to test from public pages, ads and posts, not proven improvements. I have no access to any brand’s own results.",
   "measure_note": "Each brand can judge an opportunity in its own data, such as qualified applications per visitor and the questions customers ask.",
   "items": [
    {
@@ -2251,11 +2251,13 @@
     ],
     "opps": [
      {
+      "area": "claims",
       "title": "Put the plan limit beside the cashback rate",
       "saw": "On 23 October, Venn’s cards page said its cashback had no tiers, thresholds or caps, while its pricing footnote limited cashback to the first $5,000 of card spend a month on Essentials and the first $25,000 on Plus. Its Meta ads collected on 30 October say “1% cashback” and “no caps, no minimums”.",
       "opp": "State the monthly limit for each plan wherever the rate appears, on the cards page and in ads, and test clear ways to show it."
      },
      {
+      "area": "content",
       "title": "Bring customer stories into ads",
       "saw": "Six of Venn’s nine Instagram posts are customer stories with a specific result, such as students at Queen’s University getting reimbursed in under a week instead of five weeks, as the caption states. In its Meta ads, 7 of 12 reviewed creatives contrast Venn with banks.",
       "opp": "Test a customer-story ad against the bank-contrast format, keeping the offer and landing page the same."
@@ -2267,11 +2269,13 @@
     "anchors": [],
     "opps": [
      {
+      "area": "claims",
       "title": "Show the rate below $25,000",
       "saw": "Float’s pages say “Up to 1% cashback”. The pricing footnote says 1% applies above $25k of monthly spending per card program; the rate below that was not on the pages I reviewed on 23 October.",
       "opp": "Publish the rate below the threshold next to the “up to” claim, so a smaller business can see what it would earn."
      },
      {
+      "area": "content",
       "title": "Bring the admin story to Instagram",
       "saw": "Float’s newest Instagram post was dated 5 June 2026, so the account had no posts in the 25 July to 22 October window. All 5 of its reviewed Meta ad creatives are about reducing finance admin.",
       "opp": "Resume regular posting with the finance-admin theme its ads already use, or point the profile to where current updates live."
@@ -2286,11 +2290,13 @@
     ],
     "opps": [
      {
+      "area": "journey",
       "title": "Repeat the eligibility list at sign-up",
       "saw": "On 23 October, Ramp’s Canadian card page listed what a business needs (a Canadian, US or UK-registered entity, a Business Number and a Canadian bank account), but the sign-up screen asked only for an email.",
       "opp": "Show a short, current eligibility list on the sign-up screen or the step before it, so a business that does not qualify knows before it starts."
      },
      {
+      "area": "claims",
       "title": "Publish the Canadian rewards terms",
       "saw": "Ramp’s Canadian pages link to “Perks and rewards” but published no reward rate or conditions when rechecked on 31 October, while a Meta ad collected on 30 October makes a Canadian cashback claim.",
       "opp": "Publish the Canadian rate and its conditions on the Canadian card or rewards page, so the claim in the ad has a page to back it."
@@ -2302,11 +2308,13 @@
     "anchors": [],
     "opps": [
      {
+      "area": "claims",
       "title": "Name the exclusion beside “rewards on all spend”",
       "saw": "On 23 October, Loop’s cards page said rewards come on all spend, while its earn-rate table listed USD, EUR and GBP spend as not eligible on the Basic plan.",
       "opp": "Name the Basic plan exclusion beside the claim, where a reader decides, not only in the table."
      },
      {
+      "area": "journey",
       "title": "Add the card step to the sign-up steps",
       "saw": "Loop’s was the only first screen of six that listed the steps ahead. A help page read on 31 October says the credit card is a separate application, made after onboarding.",
       "opp": "Add the separate card application to the steps shown at sign-up, so applicants who came for the card know when it comes."
@@ -2321,11 +2329,13 @@
     ],
     "opps": [
      {
+      "area": "claims",
       "title": "Show the card conversion fee beside 0% FX",
       "saw": "Keep’s pricing page listed a 0% FX fee for banking, while its card agreement sets a 3% card conversion fee.",
       "opp": "Say on the pricing page that the 0% applies to banking, and show the card fee beside it."
      },
      {
+      "area": "journey",
       "title": "Tell visitors what to do while sign-up is closed",
       "saw": "Keep’s self-serve application route was closed when checked on 23 and 31 October, while the homepage still offers “Get started”.",
       "opp": "Until the route reopens, say on the start screen what a business can do instead, such as join a waiting list or contact the team."
@@ -2337,17 +2347,24 @@
     "anchors": [],
     "opps": [
      {
+      "area": "claims",
       "title": "Settle on one cashback figure",
       "saw": "The card page states 1% cashback with no cap, a 2% figure appeared in the page’s title metadata on 23 October, and on 30 October the pricing page linked its up to 1% rebate to promotion terms whose period ended on 31 December 2025, with no extension found.",
       "opp": "Align the card page, its metadata and the pricing page on one figure, and show the current promotion period beside it."
      },
      {
+      "area": "content",
       "title": "Give Canadian buyers a Canadian thread on Instagram",
       "saw": "None of the 23 posts on Airwallex’s global Instagram account in the window is about Canada, and 19 are brand-focused. Its Meta ads running in Canada are all product-focused, mostly text-led graphics such as “$0 minimum”.",
       "opp": "Test Canadian posts that carry the product points its ads already make, and compare visits to the Canadian site from Instagram."
      }
     ]
    }
-  ]
+  ],
+  "areas": {
+   "claims": "Claims and conditions",
+   "journey": "Sign-up journeys",
+   "content": "Social and ad content"
+  }
  }
 }

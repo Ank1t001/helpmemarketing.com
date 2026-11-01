@@ -395,6 +395,13 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - Examples note: "Crops of public help pages. Click a screenshot to enlarge it." (each caption carries its capture date).
 - Help-page example cards: short What stood out with a closed-by-default More detail. Venn "Tells applicants what to check if approval takes longer than 24 hours." (detail: everyone added at sign-up must finish the selfie and government ID check); Loop "Separates opening the account from applying for the credit card." (detail: connect a business bank account, then the card form appears on the home screen). Cards align to the top; screenshots, captions, labels and tags unchanged.
 
+## 27. Lessons renamed Opportunities, with the same treatment (founder, 1 November 2026; staging)
+
+- The tab, its heading, the Overview card and the Back/Next links now say "Opportunities" (the founder also offered "Recommendations"; Opportunities was kept because the cards are proposals to test, not advice). The anchor `#bs-lessons`, the tab id and the code names are unchanged, so links keep working. The Overview card line is "One or two ideas for each brand to test."
+- Each opportunity carries an area chip (`area` in `narrative.json` lessons: claims, journey, content), and an at-a-glance strip counts them: 12 opportunities, 6 on claims and conditions, 3 on sign-up journeys, 3 on social and ad content. `validate.py` requires every opportunity to have a known area.
+- The note above the cards is shorter: "Proposals to test from public pages, ads and posts, not proven improvements. I have no access to any brand's own results."
+- The longer tab name made the tab bar wrap at 1024px, so the desktop tab spacing is 4px gaps and 9px side padding (was 6px and 10px); the bar stays on one row from 1024px up, as before.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

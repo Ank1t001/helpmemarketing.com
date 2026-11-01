@@ -306,14 +306,14 @@ class KitTests(unittest.TestCase):
         # Overview refinement (founder brief, 2026-10-31): no intro paragraph or provider list, the six blocks with the agreed copy.
         self.assertNotIn('bs-provs', ov)
         self.assertNotIn(self.c.n['views']['overview']['dek'], ov)
-        self.assertEqual(re.findall(r'<span class="bs-gt">([^<]+)</span>', ov), ['Social Media Strategy', 'Paid Social Strategy', 'Website Messaging', 'Product Comparison', 'Customer Journey', 'Lessons'])
+        self.assertEqual(re.findall(r'<span class="bs-gt">([^<]+)</span>', ov), ['Social Media Strategy', 'Paid Social Strategy', 'Website Messaging', 'Product Comparison', 'Customer Journey', 'Opportunities'])
         self.assertEqual(re.findall(r'<span class="bs-gd">([^<]+)</span>', ov), [
             'The content brands post on Instagram, who it speaks to and the response it receives.',
             'The creative approaches brands use, who they speak to and their likely buying stages.',
             'How brands explain their value and support their claims.',
             'Cards, rewards, fees and key conditions.',
             'How brands guide customers from their first click to getting started.',
-            'Opportunities for each brand.'])
+            'One or two ideas for each brand to test.'])
         self.assertIn('<h2 id="bs-paid-h">Paid Social Strategy</h2>', pa)
         self.assertNotIn('Social Media Paid Ads Strategy', body)
         self.assertNotIn('</div></nav><p class="bs-srcrow">', body)
@@ -411,8 +411,10 @@ class KitTests(unittest.TestCase):
             self.assertIn('id="bs-jt-%s"' % pid, ref)
         self.assertIn('id="bs-e3"', ref)
         self.assertEqual(re.findall(r'<h3 class="bs-ttitle">([^<]+)</h3>', ls), ['Venn', 'Float', 'Ramp', 'Loop', 'Keep', 'Airwallex'])
-        self.assertEqual(re.findall(r'<dt>([^<]+)</dt>', ls), ['What I saw', 'Opportunity'] * 12)
+        self.assertEqual(re.findall(r'<dt>([^<]+)</dt>', ls[ls.index('class="bs-lessons"'):]), ['What I saw', 'Opportunity'] * 12)
         self.assertEqual(ls.count('<li class="bs-opp">'), 12)
+        self.assertIn('<a href="#bs-lessons" id="bs-tab-lessons">Opportunities</a>', body)
+        self.assertEqual(re.findall(r'<div class="bs-stat"><dt>([^<]+)</dt><dd>([^<]+)</dd>', ls), [('Opportunities', '12'), ('Claims and conditions', '6'), ('Sign-up journeys', '3'), ('Social and ad content', '3')])
         self.assertIn('One or two opportunities for each brand, drawn from the evidence in this case study.', ls)
         self.assertEqual(ls.count('not proven improvements'), 1)
         for card, anchors in (('venn', ('bs-t1', 'bs-f1')), ('ramp', ('bs-t3', 'bs-f3')), ('keep', ('bs-t2', 'bs-f2'))):

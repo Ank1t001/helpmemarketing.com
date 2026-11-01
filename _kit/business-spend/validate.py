@@ -462,7 +462,7 @@ def check_social_outputs(c, body):
     errs = []
     views = [v for _, v in build.view_order(c)]
     if [v for v in views if v != 'bs-paid'] != ['bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'] or ('bs-paid' in views and views.index('bs-paid') != 2):
-        errs.append('social: tab order is Overview, Social Media Strategy, Paid Social Strategy, Website Messaging, Product Comparison, Customer Journey, Lessons')
+        errs.append('social: tab order is Overview, Social Media Strategy, Paid Social Strategy, Website Messaging, Product Comparison, Customer Journey, Opportunities')
     if '<a href="#bs-social" id="bs-tab-social">Social Media Strategy</a>' not in body or html_escape(s['narrative']['view']['dek']) not in body:
         errs.append('social: the tab is labelled "Social Media Strategy" and opens with its one-line introduction')
     sec = view_html(body, 'bs-social')
@@ -788,6 +788,7 @@ def check_outputs(c, page, csvtext, extra_paths=()):
     li = c.n['lessons']['items']
     if [x['pid'] for x in li] != list(c.order) or any(not 1 <= len(x['opps']) <= 2 or any(not (o['title'] and o['saw'] and o['opp']) for o in x['opps']) for x in li) \
             or lsv.count('<article class="bs-lesson"') != len(c.order) or lsv.count('<dt>What I saw</dt>') != sum(len(x['opps']) for x in li) \
+            or any(o.get('area') not in c.n['lessons']['areas'] for x in li for o in x['opps']) or '<dl class="bs-stats"' not in lsv \
             or body.count('<dt>Testable hypothesis</dt>') != 3 \
             or any('id="%s"' % a not in lsv for a in ('bs-t1', 'bs-t2', 'bs-t3', 'bs-f1', 'bs-f2', 'bs-f3')):
         errs.append('page: one lesson card per brand with one or two opportunities, the earlier test anchors kept, and the three detailed test designs in Sources & evidence')
