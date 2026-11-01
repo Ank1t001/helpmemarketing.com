@@ -786,17 +786,18 @@ def body(c):
                            E(jy['examples_title']), E(jy['examples_note']), ''.join(jcards), E(jn['test_link']))
                      + view_close('journeys'))
 
-    # ---------- Lessons (founder, 2026-10-31, refinement brief): four cards, What stood out / What to try / What to measure ----------
-    # The earlier test and finding anchors (#bs-t1 to #bs-t3, #bs-f1 to #bs-f3) now sit on the lesson they fed; the full specifications stay in Sources & evidence.
+    # ---------- Lessons (founder, 2026-11-01): one card per brand with one or two opportunities, each What I saw / Opportunity ----------
+    # The earlier test and finding anchors (#bs-t1 to #bs-t3, #bs-f1 to #bs-f3) sit on the brand card they relate to; the full test designs stay in Sources & evidence.
     ls_ = n['lessons']
-    cards = ''.join('<article class="bs-lesson" id="bs-lesson-%d">%s<p class="soc-tags">Lesson %d</p><h3 class="bs-ttitle">%s</h3><dl class="bs-tmain">'
-                    '<dt>What stood out</dt><dd>%s</dd><dt>What to try</dt><dd>%s</dd><dt>What to measure</dt><dd>%s</dd></dl></article>' % (
-                        i, ''.join('<span class="bs-anchor" id="%s"></span>' % a for a in x['anchors']), i, E(x['title']), E(x['stood']), E(x['try']), E(x['measure']))
-                    for i, x in enumerate(ls_['items'], 1))
+    cards = ''.join('<article class="bs-lesson" id="bs-lesson-%s">%s<h3 class="bs-ttitle">%s</h3><ol class="bs-opps">%s</ol></article>' % (
+                        x['pid'], ''.join('<span class="bs-anchor" id="%s"></span>' % a for a in x['anchors']), E(c.name(x['pid'])),
+                        ''.join('<li class="bs-opp"><h4>%s</h4><dl class="bs-tmain"><dt>What I saw</dt><dd>%s</dd><dt>Opportunity</dt><dd>%s</dd></dl></li>' % (
+                            E(o['title']), E(o['saw']), E(o['opp'])) for o in x['opps']))
+                    for x in ls_['items'])
     V['lessons'] = (view_open('lessons', 'bs-lessons')
                     + '<div id="bs-tests" class="sub"><div id="bs-findings"></div><p class="soc-lim bs-lnote">%s</p><div class="bs-lessons">%s</div>'
-                      '<p class="pnote dlinks">Full test designs, sample planning and guardrails are in <a href="#bs-ref-tests">Sources &amp; evidence</a>.</p></div>'
-                      % (E(ls_['note']), cards)
+                      '<p class="pnote dlinks">%s Full test designs, sample planning and guardrails are in <a href="#bs-ref-tests">Sources &amp; evidence</a>.</p></div>'
+                      % (E(ls_['note']), cards, E(ls_['measure_note']))
                     + view_close('lessons'))
 
     out += [V[k] for k, _ in order]

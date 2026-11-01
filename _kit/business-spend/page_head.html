@@ -299,7 +299,10 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 /* Lessons (founder, 2026-10-31, refinement brief): four cards in a 2 x 2 grid on desktop, stacked on phones; What stood out, What to try, What to measure. */
 .msi.msi .bs-lessons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4)}
 .msi.msi article.bs-lesson{padding:var(--s5);border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
-.msi.msi article.bs-lesson .soc-tags{margin:0 0 4px}
+.msi.msi article.bs-lesson ol.bs-opps{list-style:none;margin:0;padding:0}
+.msi.msi article.bs-lesson li.bs-opp{margin:0;padding:0}
+.msi.msi article.bs-lesson li.bs-opp+li.bs-opp{margin-top:var(--s4);padding-top:var(--s4);border-top:1px solid var(--border)}
+.msi.msi article.bs-lesson li.bs-opp h4{margin:0 0 var(--s2);font:600 15.5px/1.4 var(--sans,Inter,sans-serif);letter-spacing:0;text-transform:none;color:var(--text)}
 .msi.msi article.bs-lesson h3.bs-ttitle{margin:0 0 var(--s3)}
 .msi.msi article.bs-lesson dl,.msi.msi article.bs-lesson dl.bs-tmain{display:block;margin:0}
 .msi.msi article.bs-lesson dt{margin-top:var(--s3);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary)}

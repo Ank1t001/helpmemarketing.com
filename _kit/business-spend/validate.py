@@ -772,11 +772,14 @@ def check_outputs(c, page, csvtext, extra_paths=()):
         errs.append('page: Messaging carries no takeaway boxes or capture codes, and keeps its dated limitation beside the table')
     if 'booked' in body or 'after booking' in body:
         errs.append('page: a demo request is not a booked meeting')
-    # Lessons since the 2026-10-31 refinement brief: four cards in the tab; the three detailed test designs stay in Sources & evidence.
+    # Lessons since 2026-11-01 (founder): one card per brand in page order, one or two opportunities each; the three detailed test designs stay in Sources & evidence.
     lsv = view_html(body, 'bs-lessons')
-    if lsv.count('<article class="bs-lesson"') != 4 or lsv.count('<dt>What stood out</dt>') != 4 or body.count('<dt>Testable hypothesis</dt>') != 3 \
+    li = c.n['lessons']['items']
+    if [x['pid'] for x in li] != list(c.order) or any(not 1 <= len(x['opps']) <= 2 or any(not (o['title'] and o['saw'] and o['opp']) for o in x['opps']) for x in li) \
+            or lsv.count('<article class="bs-lesson"') != len(c.order) or lsv.count('<dt>What I saw</dt>') != sum(len(x['opps']) for x in li) \
+            or body.count('<dt>Testable hypothesis</dt>') != 3 \
             or any('id="%s"' % a not in lsv for a in ('bs-t1', 'bs-t2', 'bs-t3', 'bs-f1', 'bs-f2', 'bs-f3')):
-        errs.append('page: four lesson cards, the earlier test anchors kept, and the three detailed test designs in Sources & evidence')
+        errs.append('page: one lesson card per brand with one or two opportunities, the earlier test anchors kept, and the three detailed test designs in Sources & evidence')
     for o in c.obs.values():
         if 'id="ev-%s"' % o['id'] not in body:
             errs.append('page: observation %s not rendered' % o['id'])

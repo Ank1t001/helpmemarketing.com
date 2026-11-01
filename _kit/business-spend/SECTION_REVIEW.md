@@ -323,6 +323,12 @@ Measured at 1280 and 390px. Inside each section the gaps already followed the sc
 - Stage cards carry no item margin. They inherited 8px from the general list rule, which left 8px of dead space under the desktop row and set the phone cards 20px apart; they are now 16px apart at every width.
 - The link to Lessons sits 16px below the examples (was 12px), as notes do elsewhere.
 
+## 17. Lessons: one card per brand, and spacing (founder, 1 November 2026; staging)
+
+The founder asked for one or two recommendations or opportunities for each brand instead of four general lessons. The tab now has six cards in the page's brand order (Venn, Float, Ramp, Loop, Keep, Airwallex), each with two opportunities written as "What I saw" (a dated observation already shown elsewhere on the page) and "Opportunity". No new evidence was collected; every observation comes from the 23 October website review, the 30 October Meta Ad Library collection, the 31 October rechecks and help pages, or the Instagram review. A note says they are proposals to test, not proven improvements, and that I have no access to any brand's own results; the closing line says how a brand could judge one in its own data and links the full test designs in Sources & evidence. The earlier anchors sit on the related brand card: #bs-t1 and #bs-f1 on Venn (reward conditions), #bs-t2 and #bs-f2 on Keep (FX fee scope), #bs-t3 and #bs-f3 on Ramp (sign-up). The Customer Journey link now reads "See the opportunities for each brand"; the Overview card reads "Opportunities for each brand." Data in `narrative.json` `lessons` (`pid`, `anchors`, `opps`); `validate.py` requires one card per brand, in order, with one or two complete opportunities.
+
+Spacing, measured at 1280 and 390px: block gaps already matched the scale (heading to note 24px, note to cards 16px, cards 16px apart with 24px padding, 20px on phones). Inside a card the brand name sits 12px above the first opportunity, opportunity titles 8px above their text, and a second opportunity starts 16px below the first behind a hairline rule.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

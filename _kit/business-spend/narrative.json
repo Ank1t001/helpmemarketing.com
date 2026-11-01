@@ -1443,7 +1443,7 @@
     [
      "lessons",
      "Lessons",
-     "Ideas to test in your own marketing.",
+     "Opportunities for each brand.",
      "check"
     ]
    ]
@@ -1469,7 +1469,7 @@
   },
   "lessons": {
    "title": "Lessons",
-   "dek": "Practical ideas from this case study to test in your own marketing."
+   "dek": "One or two opportunities for each brand, drawn from the evidence in this case study."
   },
   "sources": {
    "title": "Sources & evidence",
@@ -1905,7 +1905,7 @@
     "What it tells you next"
    ]
   ],
-  "test_link": "See the test: explain the next step before the form"
+  "test_link": "See the opportunities for each brand"
  },
  "legend": [
   [
@@ -2223,47 +2223,113 @@
   }
  ],
  "lessons": {
-  "note": "These are proposed tests, not proven improvements.",
+  "note": "Opportunities read from the public pages, ads and posts in this case study, collected 23 October to 1 November 2026. They are proposals to test, not proven improvements: I have no access to any brand’s own results.",
+  "measure_note": "Each brand can judge an opportunity in its own data, such as qualified applications per visitor and the questions customers ask.",
   "items": [
    {
-    "id": "L1",
-    "title": "Test how you tell the story",
-    "anchors": [],
-    "stood": "In the Meta ads reviewed from the collected sample, brands told similar benefits in different ways: Venn acted out bank friction in a scripted skit, Ramp had a named customer speak to camera, and other ads led with a headline graphic.",
-    "try": "Present the same benefit through two creative approaches, keeping the offer, audience and destination comparable.",
-    "measure": "Cost per qualified application and qualified applications per landing-page visitor, from your own campaign data."
-   },
-   {
-    "id": "L2",
-    "title": "Make the benefit concrete",
-    "anchors": [],
-    "stood": "Airwallex’s Adaria story names the tools the customer used before, and a Venn customer post gives a specific change (reimbursements cut from five weeks to under a week, as stated in the caption).",
-    "try": "Compare a broad benefit statement with a specific use case and clearly attributed proof.",
-    "measure": "Qualified enquiries or applications per page visitor. For organic posts, track engagement as a separate channel measure, not as acquisition results."
-   },
-   {
-    "id": "L3",
-    "title": "Keep conditions beside the promise",
+    "pid": "venn",
     "anchors": [
      "bs-t1",
-     "bs-t2",
-     "bs-f1",
-     "bs-f2"
+     "bs-f1"
     ],
-    "stood": "In the 23 October website review, reward rates and their conditions often sat on different pages, and every “no FX fee” claim covered one kind of transaction.",
-    "try": "Place the main threshold, cap, plan restriction or transaction condition beside the claim, and test clear ways to present it. Conditions that must be stated are not a test variable.",
-    "measure": "Qualified applications per visitor and the number of related clarification questions."
+    "opps": [
+     {
+      "title": "Put the plan limit beside the cashback rate",
+      "saw": "On 23 October, Venn’s cards page said its cashback had no tiers, thresholds or caps, while its pricing footnote limited cashback to the first $5,000 of card spend a month on Essentials and the first $25,000 on Plus. Its Meta ads collected on 30 October say “1% cashback” and “no caps, no minimums”.",
+      "opp": "State the monthly limit for each plan wherever the rate appears, on the cards page and in ads, and test clear ways to show it."
+     },
+     {
+      "title": "Bring customer stories into ads",
+      "saw": "Six of Venn’s nine Instagram posts are customer stories with a specific result, such as students at Queen’s University getting reimbursed in under a week instead of five weeks, as the caption states. In its Meta ads, 7 of 12 reviewed creatives contrast Venn with banks.",
+      "opp": "Test a customer-story ad against the bank-contrast format, keeping the offer and landing page the same."
+     }
+    ]
    },
    {
-    "id": "L4",
-    "title": "Explain what happens next",
+    "pid": "float",
+    "anchors": [],
+    "opps": [
+     {
+      "title": "Show the rate below $25,000",
+      "saw": "Float’s pages say “Up to 1% cashback”. The pricing footnote says 1% applies above $25k of monthly spending per card program; the rate below that was not on the pages I reviewed on 23 October.",
+      "opp": "Publish the rate below the threshold next to the “up to” claim, so a smaller business can see what it would earn."
+     },
+     {
+      "title": "Bring the admin story to Instagram",
+      "saw": "Float’s newest Instagram post was dated 5 June 2026, so the account had no posts in the 25 July to 22 October window. All 5 of its reviewed Meta ad creatives are about reducing finance admin.",
+      "opp": "Resume regular posting with the finance-admin theme its ads already use, or point the profile to where current updates live."
+     }
+    ]
+   },
+   {
+    "pid": "ramp",
     "anchors": [
      "bs-t3",
      "bs-f3"
     ],
-    "stood": "On 23 October, Loop’s was the only first screen of six that listed the steps ahead. Help pages read on 31 October explain more, but away from the sign-up screen.",
-    "try": "Before the first field, explain who can apply, what to prepare, how long review usually takes and the next action.",
-    "measure": "Qualified applications per visitor and per form start, tracking counts and application quality."
+    "opps": [
+     {
+      "title": "Repeat the eligibility list at sign-up",
+      "saw": "On 23 October, Ramp’s Canadian card page listed what a business needs (a Canadian, US or UK-registered entity, a Business Number and a Canadian bank account), but the sign-up screen asked only for an email.",
+      "opp": "Show a short, current eligibility list on the sign-up screen or the step before it, so a business that does not qualify knows before it starts."
+     },
+     {
+      "title": "Publish the Canadian rewards terms",
+      "saw": "Ramp’s Canadian pages link to “Perks and rewards” but published no reward rate or conditions when rechecked on 31 October, while a Meta ad collected on 30 October makes a Canadian cashback claim.",
+      "opp": "Publish the Canadian rate and its conditions on the Canadian card or rewards page, so the claim in the ad has a page to back it."
+     }
+    ]
+   },
+   {
+    "pid": "loop",
+    "anchors": [],
+    "opps": [
+     {
+      "title": "Name the exclusion beside “rewards on all spend”",
+      "saw": "On 23 October, Loop’s cards page said rewards come on all spend, while its earn-rate table listed USD, EUR and GBP spend as not eligible on the Basic plan.",
+      "opp": "Name the Basic plan exclusion beside the claim, where a reader decides, not only in the table."
+     },
+     {
+      "title": "Add the card step to the sign-up steps",
+      "saw": "Loop’s was the only first screen of six that listed the steps ahead. A help page read on 31 October says the credit card is a separate application, made after onboarding.",
+      "opp": "Add the separate card application to the steps shown at sign-up, so applicants who came for the card know when it comes."
+     }
+    ]
+   },
+   {
+    "pid": "keep",
+    "anchors": [
+     "bs-t2",
+     "bs-f2"
+    ],
+    "opps": [
+     {
+      "title": "Show the card conversion fee beside 0% FX",
+      "saw": "Keep’s pricing page listed a 0% FX fee for banking, while its card agreement sets a 3% card conversion fee.",
+      "opp": "Say on the pricing page that the 0% applies to banking, and show the card fee beside it."
+     },
+     {
+      "title": "Tell visitors what to do while sign-up is closed",
+      "saw": "Keep’s self-serve application route was closed when checked on 23 and 31 October, while the homepage still offers “Get started”.",
+      "opp": "Until the route reopens, say on the start screen what a business can do instead, such as join a waiting list or contact the team."
+     }
+    ]
+   },
+   {
+    "pid": "airwallex",
+    "anchors": [],
+    "opps": [
+     {
+      "title": "Settle on one cashback figure",
+      "saw": "The card page states 1% cashback with no cap, a 2% figure appeared in the page’s title metadata on 23 October, and on 30 October the pricing page linked its up to 1% rebate to promotion terms whose period ended on 31 December 2025, with no extension found.",
+      "opp": "Align the card page, its metadata and the pricing page on one figure, and show the current promotion period beside it."
+     },
+     {
+      "title": "Give Canadian buyers a Canadian thread on Instagram",
+      "saw": "None of the 23 posts on Airwallex’s global Instagram account in the window is about Canada, and 19 are brand-focused. Its Meta ads running in Canada are all product-focused, mostly text-led graphics such as “$0 minimum”.",
+      "opp": "Test Canadian posts that carry the product points its ads already make, and compare visits to the Canadian site from Instagram."
+     }
+    ]
    }
   ]
  }

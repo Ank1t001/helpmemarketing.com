@@ -184,7 +184,7 @@ class KitTests(unittest.TestCase):
         pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-social', 'bs-paid', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons')]
         self.assertEqual(pos, sorted(pos))
         self.assertEqual(body.count('class="note reading"'), 6)  # six provider evidence expanders (the journey reading went with the 2026-10-31 rebuild)
-        self.assertEqual(body.count('<article class="bs-lesson"'), 4)   # four lesson cards since 2026-10-31; the three test designs stay in Sources
+        self.assertEqual(body.count('<article class="bs-lesson"'), 6)   # one card per brand since 2026-11-01; the three test designs stay in Sources
         self.assertEqual(body.count('<dt>Testable hypothesis</dt>'), 3)
         self.assertEqual(body.count('What this means for your marketing team'), 1)  # the reading-guide entry only (2026-10-30, final: no takeaway boxes)
         self.assertIn('id="bs-journey-table"', body)
@@ -312,7 +312,7 @@ class KitTests(unittest.TestCase):
             'How brands explain their value and support their claims.',
             'Cards, rewards, fees and key conditions.',
             'How brands guide customers from their first click to getting started.',
-            'Ideas to test in your own marketing.'])
+            'Opportunities for each brand.'])
         self.assertIn('<h2 id="bs-paid-h">Paid Social Strategy</h2>', pa)
         self.assertNotIn('Social Media Paid Ads Strategy', body)
         self.assertIn('</div></nav><p class="bs-srcrow"><a class="bs-srclink" href="#bs-sources" id="bs-srclink">', body)
@@ -403,18 +403,20 @@ class KitTests(unittest.TestCase):
         self.assertNotIn('<dialog', msg + jr)          # one shared dialog outside the tab panels
         for need in ('id="bs-journey-followup"', 'id="bs-journey-coverage"', 'id="bs-journey-captures"', 'id="jf-J-FLT-3"', 'Not readable from this review', 'id="bs-float-access"', 'id="bs-journey-dates"', 'id="jf-J-FLT-7"'):
             self.assertIn(need, ref)
-        self.assertIn('href="#bs-t3">See the test: explain the next step before the form', jr)
+        self.assertIn('href="#bs-t3">See the opportunities for each brand', jr)
         for pid in self.c.order:
             self.assertIn('id="bs-jt-%s"' % pid, ref)
         self.assertIn('id="bs-e3"', ref)
-        self.assertEqual(re.findall(r'<dt>([^<]+)</dt>', ls), ['What stood out', 'What to try', 'What to measure'] * 4)
-        self.assertEqual(re.findall(r'<h3 class="bs-ttitle">([^<]+)</h3>', ls), ['Test how you tell the story', 'Make the benefit concrete', 'Keep conditions beside the promise', 'Explain what happens next'])
-        self.assertIn('Practical ideas from this case study to test in your own marketing.', ls)
-        self.assertEqual(ls.count('These are proposed tests, not proven improvements.'), 1)
-        l3 = ls[ls.index('id="bs-lesson-3"'):ls.index('id="bs-lesson-4"')]
-        for a in ('bs-t1', 'bs-t2', 'bs-f1', 'bs-f2'):
-            self.assertIn('id="%s"' % a, l3)
-        self.assertIn('id="bs-t3"', ls[ls.index('id="bs-lesson-4"'):])
+        self.assertEqual(re.findall(r'<h3 class="bs-ttitle">([^<]+)</h3>', ls), ['Venn', 'Float', 'Ramp', 'Loop', 'Keep', 'Airwallex'])
+        self.assertEqual(re.findall(r'<dt>([^<]+)</dt>', ls), ['What I saw', 'Opportunity'] * 12)
+        self.assertEqual(ls.count('<li class="bs-opp">'), 12)
+        self.assertIn('One or two opportunities for each brand, drawn from the evidence in this case study.', ls)
+        self.assertEqual(ls.count('not proven improvements'), 1)
+        for card, anchors in (('venn', ('bs-t1', 'bs-f1')), ('ramp', ('bs-t3', 'bs-f3')), ('keep', ('bs-t2', 'bs-f2'))):
+            seg = ls[ls.index('id="bs-lesson-%s"' % card):]
+            seg = seg[:seg.index('</article>')]
+            for a in anchors:
+                self.assertIn('id="%s"' % a, seg)
         for f in ('bs-f1', 'bs-f2', 'bs-f3', 'bs-t1', 'bs-t2', 'bs-t3'):
             self.assertIn('id="%s"' % f, ls)
         self.assertIn('id="bs-f1-detail"', ref)
