@@ -1227,6 +1227,28 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi .bs-view.bs-view>.bs-next{margin-top:var(--s5)}
 .msi.msi .wrap>#bs-help{margin-top:40px}
 }
+/* Social Media Strategy pass (founder, 2026-11-01). Numbered sections 48px apart (40px at 720px and below), one step above the
+   32px between blocks inside a section. Theme and execution rows 30px apart (the list items carried an extra 8px margin), the
+   Formats, Themes and Execution groups 16px apart. Table headers and cells share 12px side padding so their text lines up
+   (it was 9px and 7px) on every tab; stacked table cards use 20px padding like the other cards at 720px and below, and a brand
+   name heading a stacked card reads as its title. */
+.msi.msi #bs-social.bs-view>.soc-sec+.soc-sec{margin-top:var(--s7)}
+.msi.msi #bs-social ul.soc-bars,.msi.msi #bs-social ul.soc-exec{gap:var(--s2)}
+.msi.msi #bs-social ul.soc-bars li,.msi.msi #bs-social ul.soc-exec li{margin:0;min-height:22px}
+.msi.msi #bs-social dl.soc-layers{gap:var(--s4)}
+.msi.msi #bs-social dl.soc-layers dt{margin:0 0 var(--s2)}
+.msi.msi #bs-social .soc-eng table.soc-t td:nth-child(2),.msi.msi #bs-social .soc-eng table.soc-t th:nth-child(2){width:24%}
+@media(min-width:901px){.msi.msi .bs-view table.bs th,.msi.msi .bs-view table.bs td{padding-left:12px;padding-right:12px}.msi.msi #bs-social .soc-eng td .cell-sub{white-space:nowrap}}
+@media(max-width:900px){
+.msi.msi .bs-view .tw:not(.cards) table.bs th,.msi.msi .bs-view .tw:not(.cards) table.bs td{padding-left:12px;padding-right:12px}
+.msi.msi #bs-social .tw.cards td.brandcell{font-size:16px;font-weight:650}
+}
+@media(max-width:720px){
+.msi.msi #bs-social.bs-view>.soc-sec+.soc-sec{margin-top:40px}
+.msi.msi #bs-social-examples{margin-top:var(--s5)}
+.msi.msi .tw.cards tr{padding:20px}
+.msi.msi .bs-view .tw:not(.cards) table.bs th,.msi.msi .bs-view .tw:not(.cards) table.bs td{padding-left:8px;padding-right:8px}
+}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */

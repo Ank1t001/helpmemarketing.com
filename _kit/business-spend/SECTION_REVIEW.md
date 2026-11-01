@@ -277,6 +277,15 @@ Measured at 1280, 820 and 390px before and after. One rhythm on the 2026-10-27 s
 - Bug fix (live before): the sticky tab bar sat at 72px and slid 11px under the 83px site header on desktop. It now sits at 92px (87px at 900px and below, under the 79px header), and anchor targets clear both (scroll margin 160px).
 - Bug fix (live before): a panel opened from a shared link showed the orange keyboard focus ring to mouse and touch readers; it now shows only after keyboard use.
 
+## 11. Social Media Strategy: spacing (founder, 1 November 2026; staging)
+
+Measured at 1280 and 390px. Block gaps already followed the 2026-10-27 scale (heading to content 12px, content to its note or "What stood out" 16px, blocks 32px). Changes ("Social Media Strategy pass" block in the page CSS):
+- The three numbered sections (Positioning, Creative Strategy, Engagement by Theme) sit 48px apart (40px at 720px and below), one step above the 32px between blocks inside a section, so the numbering reads as structure. Creative examples follow the limitation by 24px on phones (the block step there).
+- Theme and execution rows 30px apart (list items carried an extra 8px margin, so rows were 34 to 36px); Formats, Themes and Execution 16px apart, each label 8px above its content.
+- Tables on every tab: header and cell text share 12px side padding (8px in phone tables), so columns line up; they were 9px and 7px.
+- Engagement tables: the Posts column is 24% wide and "1 count unavailable" stays on one line on desktop.
+- Phone cards: stacked table cards use 20px padding (was 16px), matching the example cards; the brand name at the top of a Positioning card is set as its title (16px, semibold).
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:
