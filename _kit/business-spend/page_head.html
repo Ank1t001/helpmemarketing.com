@@ -597,6 +597,10 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
    sections, 40px at 720px and below). Colour-key and bar rows carry no item margin (some rows inherited 8px from the
    general list rule, so keys on phones stood 36px apart); the What stood out bullets keep their 8px. */
 .msi.msi #bs-paid.bs-view>.soc-sec+.soc-sec{margin-top:var(--s7)}
+/* Website Messaging pass (founder, 2026-11-01): the same 48px (40px) between numbered sections, and on every tab a brand
+   name heading a stacked table card reads as its title (16px, semibold), as in Social Media Strategy. */
+.msi.msi #bs-messaging.bs-view>.soc-sec+.soc-sec{margin-top:var(--s7)}
+@media(max-width:900px){.msi.msi .bs-view .tw.cards td.brandcell{font-size:16px;font-weight:650;color:var(--text)}}
 .msi.msi :is(#bs-paid,#bs-social) ul.pd-key li,.msi.msi :is(#bs-paid,#bs-social) ul.pd-bars li{margin:0}
 .msi.msi #bs-social ul.soc-bars,.msi.msi #bs-social ul.soc-exec{gap:var(--s2)}
 .msi.msi #bs-social ul.soc-bars li,.msi.msi #bs-social ul.soc-exec li{margin:0;min-height:22px}
@@ -609,7 +613,7 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi #bs-social .tw.cards td.brandcell{font-size:16px;font-weight:650}
 }
 @media(max-width:720px){
-.msi.msi :is(#bs-social,#bs-paid).bs-view>.soc-sec+.soc-sec{margin-top:40px}
+.msi.msi :is(#bs-social,#bs-paid,#bs-messaging).bs-view>.soc-sec+.soc-sec{margin-top:40px}
 .msi.msi #bs-social-examples{margin-top:var(--s5)}
 .msi.msi .tw.cards tr{padding:20px}
 .msi.msi .bs-view .tw:not(.cards) table.bs th,.msi.msi .bs-view .tw:not(.cards) table.bs td{padding-left:8px;padding-right:8px}

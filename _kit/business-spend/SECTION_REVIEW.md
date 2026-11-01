@@ -302,6 +302,12 @@ Measured at 1280 and 390px against Social Media Strategy, which now uses the sam
 - Numbered sections 48px apart (40px at 720px and below), as in Social Media Strategy; they were 32px, the same as blocks inside a section.
 - Colour-key rows under the stacked bars and the rows in the bar cards carry no item margin. Some rows inherited 8px from the general list rule, so on phones the key lines stood about 36px apart and the persona cards ran long; keys are now 27px apart and the Audience section is about 80px shorter on desktop. The What stood out bullets keep their 8px. The fix covers both tabs.
 
+## 14. Website Messaging: spacing (founder, 1 November 2026; staging)
+
+Measured at 1280 and 390px. Inside each section the gaps already followed the scale (heading to note 12px, note to table or cards 16px, example cards 16px apart with 24px padding, 20px on phones; header and cell text aligned since section 11). Changes:
+- The two numbered sections (Messaging at a glance, Messaging in practice) sit 48px apart (40px at 720px and below), like Social Media Strategy and Paid Social Strategy; they were 32px (24px on phones).
+- Phone cards on every tab: the brand name heading a stacked table card is 16px semibold in the main text colour (it was regular weight and muted in Messaging and Product Comparison).
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:
