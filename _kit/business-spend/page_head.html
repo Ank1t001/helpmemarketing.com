@@ -612,6 +612,19 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi #bs-journeys li.bs-jst{margin:0}
 .msi.msi #bs-journeys p.bs-tlink{margin-top:var(--s4)}
 .msi.msi #bs-sources details.bs-refsec+details.bs-refsec{margin-top:var(--s4)}
+.msi.msi #bs-sources .bs-stats{margin-bottom:var(--s5)}
+.msi.msi #bs-sources .bs-reftoc ol{list-style:none;margin:0;padding:0;columns:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3);counter-reset:bsrt;line-height:1.35}
+.msi.msi #bs-sources .bs-reftoc li{margin:0;counter-increment:bsrt}
+.msi.msi #bs-sources .bs-reftoc a{display:flex;align-items:center;gap:var(--s3);height:100%;padding:14px var(--s4);border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated);color:var(--text);font-size:14.5px;font-weight:600;text-decoration:none;transition:border-color .15s}
+.msi.msi #bs-sources .bs-reftoc a::before{content:counter(bsrt);flex:none;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:color-mix(in srgb,var(--cta) 12%,transparent);color:var(--cta-text,var(--cta));font-size:13px;font-weight:650}
+.msi.msi #bs-sources .bs-reftoc a:hover{border-color:var(--cta-text,var(--cta))}
+.msi.msi #bs-sources .bs-reftoc a:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
+@media(max-width:900px){.msi.msi #bs-sources .bs-reftoc ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.msi.msi #bs-sources{counter-reset:bsrs}
+.msi.msi #bs-sources details.bs-refsec{counter-increment:bsrs}
+.msi.msi #bs-sources details.bs-refsec>summary>h3{display:flex;align-items:center;gap:var(--s3)}
+.msi.msi #bs-sources details.bs-refsec>summary>h3::before{content:counter(bsrs);flex:none;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:color-mix(in srgb,var(--cta) 12%,transparent);color:var(--cta-text,var(--cta));font-size:13px;font-weight:650}
+@media(max-width:720px){.msi.msi #bs-sources .bs-reftoc ol{grid-template-columns:1fr;gap:var(--s2)}.msi.msi #bs-sources .bs-reftoc a{padding:10px 14px}}
 .msi.msi #bs-sources details.bs-refsec,.msi.msi #bs-sources details.bs-refsec:last-of-type{padding:0 var(--s5)}
 .msi.msi #bs-sources details.bs-refsec[open]{padding-bottom:var(--s5)}
 .msi.msi #bs-sources details.bs-refsec>summary{margin:0 calc(-1*var(--s5));padding:20px var(--s5)}

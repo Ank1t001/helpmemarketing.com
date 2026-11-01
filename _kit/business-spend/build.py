@@ -475,7 +475,7 @@ def sources_view(c, views, start, end, draft):
     m = n['method']
     when = '%s, %s to %s Toronto time' % (long_date(start), toronto_time(start), toronto_time(end))
     parts = []
-    toc = [('bs-ref-scope', 'Scope, dates and coverage'), ('bs-ref-web', 'Website evidence by provider'), ('bs-ref-social', 'Social accounts, posts, classifications and engagement'), ('bs-ref-paid', 'Paid ads: collection and records'),
+    toc = [('bs-ref-scope', 'Scope, dates and coverage'), ('bs-ref-web', 'Website evidence by provider'), ('bs-ref-social', 'Social accounts, posts, classifications and engagement'), ('bs-ref-paid', 'Paid ads: collection, creative review and records'),
            ('bs-ref-journey', 'Customer-journey evidence'), ('bs-ref-tests', 'Findings and full test specifications'), ('bs-ref-status', 'Status definitions and reconciliation'),
            ('bs-ref-images', 'Image provenance'), ('bs-ref-author', 'Author and relationship disclosure'), ('bs-cite', 'Citation'),
            ('bs-editions', 'Edition history and corrections'), ('bs-ref-downloads', 'Downloads')]
@@ -636,6 +636,11 @@ def sources_view(c, views, start, end, draft):
         dl.append('<li><a href="/%s" download>Paid ads, version 1 (CSV)</a>: one row per active Meta ad collected on 30 October 2026 (%d), with the Ad Library link, start date, days running, format, versions, placements, button, destination page and headline, and flags for unfilled template text and card disclosures. Full ad copy and media are not in the file.</li>' % (
             paid.CSV_REL, len(c.paid['records'])))
     sec('bs-ref-downloads', 'Downloads', '<ul class="dek dlinks">%s</ul>' % ''.join(dl))
+    # At-a-glance strip, as on the tabs (founder, 2026-11-01): counted from the sources, observations and downloads.
+    rstats = [('Public sources', str(len(c.sources))), ('Recorded observations', str(len(c.obs))),
+              ('Unresolved conflicts', str(sum(1 for o in c.obs.values() if o['status'] == 'conflicting'))), ('Downloadable files', str(len(dl)))]
+    parts[0] = parts[0].replace('<nav class="bs-reftoc"', '<dl class="bs-stats" aria-label="Sources and evidence at a glance">%s</dl><nav class="bs-reftoc"' % ''.join(
+        '<div class="bs-stat"><dt>%s</dt><dd>%s</dd></div>' % (E(l), E(v)) for l, v in rstats), 1)
     parts.append(back.replace('bs-ref-back', 'bs-ref-back bs-ref-back-end') + '</section>')
     return '\n'.join(parts)
 

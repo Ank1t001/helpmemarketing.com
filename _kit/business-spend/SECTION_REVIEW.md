@@ -402,6 +402,14 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - The note above the cards is shorter: "Proposals to test from public pages, ads and posts, not proven improvements. I have no access to any brand's own results."
 - The longer tab name made the tab bar wrap at 1024px, so the desktop tab spacing is 4px gaps and 9px side padding (was 6px and 10px); the bar stays on one row from 1024px up, as before.
 
+## 28. Sources & evidence: the same treatment (founder, 1 November 2026; staging)
+
+- Shorter intro: "Every source, date, observation and test design behind this case study, with the citation and downloads."
+- At-a-glance strip, counted in `build.py`: 98 public sources, 128 recorded observations, 3 unresolved conflicts, 4 downloadable files.
+- The contents list is a grid of numbered tiles (three columns, two at 900px and below, one at 720px and below) in the Overview card style, with the number in the orange-tinted tile; each expander title carries the same numbered tile, so the numbers match.
+- Contents tile 4 now reads "Paid ads: collection, creative review and records", the title of its section (it said "collection and records"); `validate.py` now fails if a contents entry and its section title differ.
+- Section content unchanged.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:
