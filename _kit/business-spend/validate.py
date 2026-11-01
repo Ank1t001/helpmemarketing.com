@@ -478,15 +478,18 @@ def check_social_outputs(c, body):
     # selected examples, then engagement by theme; Ramp counts on the owner's confirmation.
     if re.findall(r'<h3><span class="soc-n">\d</span>([^<]+)</h3>', tab) != [tb['mix_title'], tb['audience_title'], tb['examples_title'], tb['engagement_title']]:
         errs.append('social: the tab has four parts: creative mix, audience and buying stage, selected examples, engagement by theme')
-    for t in (tb['share_note'], tb['audience_note'], tb['zero_note'], tb['engagement_limit'], tb['ramp_note']):
+    for t in (tb['audience_note'], tb['zero_note'], tb['engagement_limit']):
         if html_escape(t) not in tab:
             errs.append('social: the tab lost a note (%s...)' % t[:40])
     for dim in ('focus', 'format', 'approach', 'theme', 'persona', 'stage'):
         if 'id="bs-social-dim-%s"' % dim not in tab:
             errs.append('social: the %s view is missing' % dim)
-    for pid, txt in tb['coverage_status'].items():
-        if html_escape('%s: %s' % (social.NAMES[pid], txt)) not in tab:
-            errs.append('social: the Not compared line names %s and why' % pid)
+    nc = tab[tab.find('Not compared:'):][:400]
+    for pid, day in tb['coverage_newest'].items():
+        if social.NAMES[pid] not in nc or day not in nc:
+            errs.append('social: the Not compared line names %s and its latest post' % pid)
+    if '<dl class="bs-stats"' not in tab:
+        errs.append('social: the at-a-glance strip is missing')
     for x in tb['mix_stood_out']:
         if html_escape(x) not in tab:
             errs.append('social: a What stood out line is missing')

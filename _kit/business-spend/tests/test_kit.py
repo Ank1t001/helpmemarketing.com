@@ -695,8 +695,10 @@ class SocialModuleTests(unittest.TestCase):
         for dim in ('focus', 'format', 'approach', 'theme', 'persona', 'stage'):
             self.assertIn('id="bs-social-dim-%s"' % dim, tab)
         self.assertEqual([m for m in re.findall(r'<p class="pd-brand"><b>(\w+)</b>', tab)][:3], ['Venn', 'Ramp', 'Airwallex'])
-        self.assertIn('Not compared: Float: no posts in the window (newest post 5 June 2026); Loop: no posts in the window (newest post 11 June 2026); Keep: no posts in the window (newest post 17 July 2024).', html.unescape(tab))
-        self.assertIn('on the study owner', html.unescape(tab))
+        self.assertIn('Not compared: Float, Loop and Keep posted nothing in the window (latest posts 5 June 2026, 11 June 2026 and 17 July 2024).', html.unescape(tab))
+        self.assertNotIn('on the study owner', html.unescape(tab))
+        self.assertNotIn('Percentages show the share', tab)
+        self.assertEqual(re.findall(r'<div class="bs-stat"><dt>([^<]+)</dt><dd>([^<]+)</dd>', tab), [('Posts reviewed', '51'), ('Brands posting', '3 of 6'), ('Reels', '33'), ('Collaborations', '20')])
         self.assertIn('Based on visible likes and comments. Small samples are directional and do not establish sales performance.', tab)
         self.assertIn('Window and coverage', sec)
         self.assertIn('Owner-confirmed, 1 November 2026', sec)

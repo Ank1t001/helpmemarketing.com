@@ -394,18 +394,16 @@
    }
   ],
   "tab": {
-   "share_note": "Percentages show the share of each brand’s posts published 25 July to 22 October 2026. They describe what was posted, not reach or results.",
    "mix_title": "Creative mix by brand",
-   "ramp_note": "Ramp: @tryramp is treated as Ramp’s account on the study owner’s confirmation (1 November 2026); ramp.com does not link it. 15 of its 19 posts are collaborations, 13 published by other accounts.",
    "mix_stood_out": [
     "Venn: every post is about a product or names one (6 product-focused, 3 brand and product); 6 of 9 are customer-led interview videos.",
     "Ramp: 18 of 19 posts are brand-focused, built around a Broadway musical about bills (9 posts) and two comedy series with a creator and Tony Hawk (10 posts); none shows the product in use.",
     "Airwallex: 19 of 23 posts are brand-focused, led by sport sponsorships, hosted events and staff life; photo carousels are the most common approach (7 of 23)."
    ],
-   "coverage_status": {
-    "float": "no posts in the window (newest post 5 June 2026)",
-    "loop": "no posts in the window (newest post 11 June 2026)",
-    "keep": "no posts in the window (newest post 17 July 2024)"
+   "coverage_newest": {
+    "float": "5 June 2026",
+    "loop": "11 June 2026",
+    "keep": "17 July 2024"
    },
    "audience_title": "Audience and buying stage",
    "audience_note": "Personas and buying stages are inferred from each post (caption, visuals and on-screen text), not confirmed by the brand.",

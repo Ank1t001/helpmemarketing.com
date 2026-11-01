@@ -943,17 +943,23 @@ def strategy_html(c):
     out = []
     if s['status'] == 'review' and getattr(c, 'mode', 'draft') == 'draft':
         out.append('<div class="note gap soc-review"><span class="lbl">For editorial review</span><p>%s</p></div>' % E(s['narrative']['review_flag']))
-    out.append('<p class="soc-lim pd-lead">%s</p>' % E(tb['share_note']))
+    # At-a-glance strip, as on the Overview (founder, 2026-11-01); every figure counted from the posts.
+    posts = [p for p in s['posts'] if in_analysis(s, p)]
+    stats = [('Posts reviewed', str(len(posts))), ('Brands posting', '%d of %d' % (len(have), len(c.order))),
+             ('Reels', str(sum(1 for p in posts if p['format'] == 'video'))), ('Collaborations', str(sum(1 for p in posts if p.get('collaboration'))))]
+    out.append('<dl class="bs-stats" aria-label="Instagram posts at a glance">%s</dl>' % ''.join(
+        '<div class="bs-stat"><dt>%s</dt><dd>%s</dd></div>' % (E(l), E(v)) for l, v in stats))
     sel = ''.join('<button type="button" class="pd-opt" data-dim="%s" aria-pressed="%s">%s</button>' % (k, 'true' if i == 0 else 'false', E(t))
                   for i, (k, t) in enumerate((('focus', 'Focus'), ('format', 'Format'), ('approach', 'Creative approach'), ('theme', 'Theme'))))
     panels = (paid._dim_panel(d, have, 'focus', 'Focus', False, cs_all, ctx) + paid._dim_panel(d, have, 'format', 'Format', False, cs_all, ctx)
               + paid._dim_panel(d, have, 'approach', 'Creative approach', True, cs_all, ctx) + paid._dim_panel(d, have, 'theme', 'Theme', True, cs_all, ctx))
     stood = ''.join('<li>%s</li>' % E(x) for x in tb['mix_stood_out'])
-    nocov = '; '.join('%s: %s' % (NAMES[p], E(tb['coverage_status'][p])) for p in none)
+    andj = lambda xs: xs[0] if len(xs) == 1 else ', '.join(xs[:-1]) + ' and ' + xs[-1]
+    nocov = ('%s posted nothing in the window (latest posts %s)' % (andj([NAMES[p] for p in none]), andj([tb['coverage_newest'][p] for p in none]))) if none else ''
     out.append('<div class="sub soc-sec pd-sec" id="bs-social-mix">%s<div class="pd-sel" role="group" aria-label="Compare the creative mix by" hidden>%s</div>'
                '<div class="pd-dims" data-pd-dims>%s</div><div class="pd-stood"><p><b>What stood out</b></p><ul>%s</ul></div>'
-               '<p class="soc-lim">Not compared: %s.</p><p class="soc-lim">%s</p></div>'
-               % (head(1, tb['mix_title']), sel, panels, stood, nocov, E(tb['ramp_note'])))
+               '%s</div>'
+               % (head(1, tb['mix_title']), sel, panels, stood, ('<p class="soc-lim">Not compared: %s.</p>' % E(nocov)) if nocov else ''))
     asel = ''.join('<button type="button" class="pd-opt" data-dim="%s" aria-pressed="%s">%s</button>' % (k, 'true' if i == 0 else 'false', E(t))
                    for i, (k, t) in enumerate((('persona', 'Customer personas'), ('stage', 'Likely buying stage'))))
     out.append('<div class="sub soc-sec pd-sec" id="bs-social-audience">%s<p class="soc-lim pd-lead">%s</p><div class="pd-sel" role="group" aria-label="Show audience by" hidden>%s</div>'

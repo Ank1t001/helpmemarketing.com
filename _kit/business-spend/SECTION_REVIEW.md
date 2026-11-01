@@ -346,6 +346,13 @@ The founder found the Overview dull and asked for the Sources & evidence link at
 - Sources & evidence link: removed from under the tab bar; one row below the tab content (48px after the Back/Next links, 40px on phones, with a rule above) reads "Sources & evidence" with the note "Dates, methods, every observation, test designs and downloads." It hides while Sources & evidence is open and shows without JavaScript.
 - Spacing: the tab bar sits 32px above each tab's heading (24px on phones), which the link row used to fill; heading to strip 24px, strip to cards 32px (24px on phones).
 
+## 20. Social Media Strategy: shorter notes and the Overview look (founder, 1 November 2026; staging)
+
+- Removed the line "Percentages show the share of each brand's posts published 25 July to 22 October 2026..." (the window stays in Sources & evidence, Scope and Social accounts).
+- The Not compared line now reads: "Not compared: Float, Loop and Keep posted nothing in the window (latest posts 5 June 2026, 11 June 2026 and 17 July 2024)." Built from `coverage_newest` in `social_narrative.json`.
+- Removed the Ramp note from the tab; the owner's confirmation of @tryramp stays in Sources & evidence (Social accounts, attribution row) and in `social_analysis.json`.
+- At-a-glance strip under the heading, the same component as the Overview, counted from the 51 posts: 51 posts reviewed, 3 of 6 brands posting, 33 reels, 20 collaborations. Section numbers use the Overview's orange-tinted tile; the creative mix bars sit in a card. Strip to section 1 is 32px (40px on phones, a numbered-section step).
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:
