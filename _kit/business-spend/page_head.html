@@ -600,6 +600,14 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 /* Website Messaging pass (founder, 2026-11-01): the same 48px (40px) between numbered sections, and on every tab a brand
    name heading a stacked table card reads as its title (16px, semibold), as in Social Media Strategy. */
 .msi.msi #bs-messaging.bs-view>.soc-sec+.soc-sec{margin-top:var(--s7)}
+/* Customer Journey pass (founder, 2026-11-01): numbered sections 48px apart (40px at 720px and below) as on the other tabs;
+   stage cards lose an inherited 8px list margin, so they sit 16px apart at every width like the other cards (they were
+   20px apart on phones, with 8px of dead space under the row on desktop); the Lessons link under the examples sits 16px
+   below them, the download-line step. */
+.msi.msi #bs-journeys.bs-view>.soc-sec+.soc-sec{margin-top:var(--s7)}
+.msi.msi #bs-journeys li.bs-jst{margin:0}
+.msi.msi #bs-journeys p.bs-tlink{margin-top:var(--s4)}
+@media(max-width:720px){.msi.msi #bs-journeys ol.bs-jstages{gap:var(--s4)}}
 @media(max-width:900px){.msi.msi .bs-view .tw.cards td.brandcell{font-size:16px;font-weight:650;color:var(--text)}}
 /* Product Comparison pass (founder, 2026-11-01): the steps the other tabs use. Section heading to its note 12px (was 8px),
    note to the category switch 24px and switch to the panel 24px (were 16px), as around the Paid and Social switches; the
@@ -622,7 +630,7 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi #bs-social .tw.cards td.brandcell{font-size:16px;font-weight:650}
 }
 @media(max-width:720px){
-.msi.msi :is(#bs-social,#bs-paid,#bs-messaging).bs-view>.soc-sec+.soc-sec{margin-top:40px}
+.msi.msi :is(#bs-social,#bs-paid,#bs-messaging,#bs-journeys).bs-view>.soc-sec+.soc-sec{margin-top:40px}
 .msi.msi #bs-social-examples{margin-top:var(--s5)}
 .msi.msi .tw.cards tr{padding:20px}
 .msi.msi .bs-view .tw:not(.cards) table.bs th,.msi.msi .bs-view .tw:not(.cards) table.bs td{padding-left:8px;padding-right:8px}

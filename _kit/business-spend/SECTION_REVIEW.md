@@ -316,6 +316,13 @@ Measured at 1280 and 390px. One numbered section, so no section step applies. Ch
 - Price note to its table 16px (was 12px), as in Website Messaging.
 - Phone cards: 20px padding and 12px gaps (16px between columns), like every other stacked card; Product Comparison had its own 14px padding and 10px gaps. The brand name already reads as the card title since section 14.
 
+## 16. Customer Journey: spacing (founder, 1 November 2026; staging)
+
+Measured at 1280 and 390px. Inside each section the gaps already followed the scale. Changes:
+- Numbered sections 48px apart (40px at 720px and below), as on the Social, Paid and Messaging tabs; they were 32px (24px on phones).
+- Stage cards carry no item margin. They inherited 8px from the general list rule, which left 8px of dead space under the desktop row and set the phone cards 20px apart; they are now 16px apart at every width.
+- The link to Lessons sits 16px below the examples (was 12px), as notes do elsewhere.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:
