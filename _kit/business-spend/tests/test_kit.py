@@ -254,7 +254,29 @@ class KitTests(unittest.TestCase):
         self.assertTrue(all(r[rows[0].index('likes_plus_comments')] == '' for r in approx))
         for r in rows[1:]:
             if r[rows[0].index('format')] == 'video':
-                self.assertEqual(r[rows[0].index('approach_inspected')], 'no')
+                # every attributed reel carries its 1 November 2026 frame review
+                self.assertEqual(r[rows[0].index('approach_inspected')], 'yes')
+                self.assertEqual(r[rows[0].index('video_reviewed_on')], '2026-11-01')
+                self.assertGreaterEqual(int(r[rows[0].index('video_frames_reviewed')]), 12)
+            else:
+                self.assertEqual(r[rows[0].index('video_reviewed_on')], '')
+
+    def test_reel_execution_needs_a_frame_review(self):
+        import copy
+        m = social.load_module()
+        self.assertEqual(social.check_analysis(m), [])
+        reels = [c for c in m['analysis']['posts'] if c.get('video_review')]
+        self.assertEqual(len(reels), 21)
+        self.assertTrue(all(c['approach_inspected'] and ':' in c['approach'] for c in reels))
+        bad = copy.deepcopy(m)
+        bad['analysis']['posts'][[c['post'] for c in bad['analysis']['posts']].index(reels[0]['post'])].pop('video_review')
+        self.assertIn('no recorded frame review', ' '.join(social.check_analysis(bad)))
+        bad = copy.deepcopy(m)
+        bad['analysis']['posts'][[c['post'] for c in bad['analysis']['posts']].index(reels[0]['post'])]['video_review']['frames_reviewed'] = 3
+        self.assertIn('no recorded frame review', ' '.join(social.check_analysis(bad)))
+        raw = json.dumps(m['analysis'])
+        self.assertNotIn('cdninstagram', raw)
+        self.assertNotIn('fbcdn', raw)
 
     def test_analysis_rules_on_synthetic_posts(self):
         # Synthetic fixture only, never published: medians ignore missing and abbreviated counts.
@@ -281,7 +303,7 @@ class KitTests(unittest.TestCase):
         self.assertNotIn(self.c.n['views']['overview']['dek'], ov)
         self.assertEqual(re.findall(r'<span class="bs-gt">([^<]+)</span>', ov), ['Social Media Strategy', 'Paid Social Strategy', 'Website Messaging', 'Product Comparison', 'Customer Journey', 'Lessons'])
         self.assertEqual(re.findall(r'<span class="bs-gd">([^<]+)</span>', ov), [
-            'How brands position themselves, what they post and the response they receive.',
+            'How brands position themselves, vary their creatives and engage their audience.',
             'The creative approaches brands use, who they speak to and their likely buying stages.',
             'How brands explain their value and support their claims.',
             'Cards, rewards, fees and key conditions.',
@@ -649,7 +671,7 @@ class SocialModuleTests(unittest.TestCase):
         self.assertIn('The captured Venn website footer linked to @tryvault, while this study uses owner-confirmed @venn.ca with supporting profile evidence.', sec)
         self.assertEqual(sec.count('No in-window posts found in the reviewed'), 3 + 3 + 3 + 3)   # in Sources & evidence: accounts table, positioning, product positioning, coverage assessment
         self.assertNotRegex(sec, r'(?i)\binactive\b')
-        self.assertEqual(sec.count(social.VIDEO_LABEL) >= 3, True)   # the offer examples' records keep the reel label
+        self.assertGreaterEqual(sec.count('Cover and caption reviewed 26 October 2026. Video reviewed 1 November 2026 as'), 3)   # the offer examples' reel records carry both reviews
         # Founder review (2026-10-31): three parts, Venn and Airwallex only, examples from inspected posts, no empty rows or tests.
         self.assertEqual(re.findall(r'<h3><span class="soc-n">\d</span>([^<]+)</h3>', tab), ['Positioning', 'Creative Strategy', 'Engagement by Theme'])
         self.assertNotIn('Not assessed', tab)
@@ -725,8 +747,9 @@ class SocialModuleTests(unittest.TestCase):
         self.assertIn('Whether any plan limit applied on 30 July 2026', web)
         self.assertIn('was not established', ex['S1']['reading'])          # the date limit sits beside the analysis
         self.assertNotIn('the plan limit the pricing page sets', ex['S1']['reading'])
-        self.assertIn('The video was not watched', social._editorial_text(ex['S3']['shows']))
-        self.assertIn('caption or cover', ex['S3']['reading'])
+        self.assertIn('Frames reviewed on 1 November 2026', social._editorial_text(ex['S3']['shows']))
+        self.assertIn('audio not heard', ex['S3']['reading'])
+        self.assertIn('caption, the cover or the on-screen text', ex['S3']['reading'])
         s = social.load_module()
         self.assertEqual((s['totals']['attributed_posts'], s['totals']['unresolved_records']), (32, 19))
         self.assertEqual(social.attributed_count(s), 32)

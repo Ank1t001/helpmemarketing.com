@@ -28,7 +28,7 @@
   ],
   [
    "What was inspected",
-   "33 of the 51 records are reels: for these, the cover frame, caption and header only. No video was played, so nothing here describes what a video says or shows after its cover. Nine carousels were read slide by slide; one, on @tryramp, was only partly captured and is not used as an example."
+   "33 of the 51 records are reels. On 26 October 2026 the cover frame, caption and header were read. On 1 November 2026 the 21 attributed reels (Venn 7, Airwallex 14) were reviewed as frames spread across each video’s full length, with on-screen text and subtitles read; audio was not heard. The 12 @tryramp reels were not reviewed this way. Nine carousels were read slide by slide; one, on @tryramp, was only partly captured and is not used as an example."
   ],
   [
    "Left out",
@@ -36,17 +36,17 @@
   ]
  ],
  "coverage_dek": "One row per provider, in the page's usual order: 51 records in all, 32 attributed posts and 19 @tryramp records with unresolved provider attribution. A count of 0 means no in-window post was found on the surfaces reviewed; it says nothing about whether the provider is active elsewhere.",
- "patterns_dek": "These observations describe this sample: the 32 attributed posts from Venn and Airwallex in one 90-day window, read from covers and captions, with the 19 @tryramp records mentioned only where labelled. They do not show what the providers intend or what the posts achieved.",
+ "patterns_dek": "These observations describe this sample: the 32 attributed posts from Venn and Airwallex in one 90-day window, read from captions, covers, slides and, for reels, frames across each video (audio not heard), with the 19 @tryramp records mentioned only where labelled. They do not show what the providers intend or what the posts achieved.",
  "patterns": [
   {
    "title": "Venn's posts were mostly customer stories",
    "body": "Six of Venn's nine posts tell a customer's story, about three customers: Spellbook (three posts), Queen's Commerce Society (two) and one other business. Two give customer figures in the caption, such as $25,000 saved in a year, and $1,300 in transaction fees and $1,000 in FX fees saved. The captions attribute the figures to the customer and do not say how they were calculated, which matches the website pattern \"Figures often appeared without their basis\".",
-   "denominator": "Venn: 9 posts, all published by @venn.ca; 7 reels read from cover and caption, 1 image, 1 carousel read slide by slide."
+   "denominator": "Venn: 9 posts, all published by @venn.ca; 7 reels reviewed as frames across their full length (audio not heard), 1 image, 1 carousel read slide by slide."
   },
   {
    "title": "Rates, fees and eligibility rarely appeared",
    "body": "Two of the 32 attributed posts state a product rate, both from Venn: 1% cashback in a customer story, and an interest promotion of up to 3.50% with its main condition in the same caption. One more reports a customer's fee savings. No attributed post states an FX fee, a plan price or who can apply for a card. On the websites, these were the main subjects of the three findings.",
-   "denominator": "32 attributed posts (Venn 9, Airwallex 23), captions and covers only for reels. A reel could state terms in its video; that was not checked. The 19 @tryramp records are not counted here."
+   "denominator": "32 attributed posts (Venn 9, Airwallex 23), rates counted from captions. On-screen text in the 21 reels, read from frames on 1 November 2026, adds no FX fee, plan price or eligibility rule: Venn’s rate reel shows the rate and a deadline, and one Airwallex reel briefly shows a phone banner reading “3.5% + 30c an order, yeah?” without saying whose fee it is. Audio was not heard. The 19 @tryramp records are not counted here."
   },
   {
    "title": "Airwallex's account carried sponsorships, events and company life",
@@ -64,7 +64,7 @@
    "denominator": "4 Canadian accounts; grid and Reels surfaces reviewed (Keep's profile shows no Reels tab)."
   }
  ],
- "selection": "Four posts, each showing a different way of presenting an offer or a next step, chosen for what they show about how a claim travels to Instagram: two from Venn and two from Airwallex. They are not ranked and were not chosen by displayed counts. The 19 @tryramp records are not used as examples while their provider attribution is unresolved. For reels, only the cover and caption were reviewed, so each reading is limited to those.",
+ "selection": "Four posts, each showing a different way of presenting an offer or a next step, chosen for what they show about how a claim travels to Instagram: two from Venn and two from Airwallex. They are not ranked and were not chosen by displayed counts. The 19 @tryramp records are not used as examples while their provider attribution is unresolved. Reels were read from cover and caption on 26 October and reviewed as frames on 1 November 2026, with audio not heard; each reading is limited to what those show.",
  "examples": [
   {
    "id": "S1",
@@ -80,7 +80,7 @@
     {
      "q": "1% cashback that arrives in the account every month automatically"
     },
-    ". The caption names no plan, monthly spend limit or other condition for the rate."
+    ". The caption names no plan, monthly spend limit or other condition for the rate. Frames reviewed on 1 November 2026 show the general manager named on screen and card-creation screens, with no rate or plan on screen; audio was not heard."
    ],
    "website": [
     "Venn's pricing footnote, captured on 23 October 2026, limits cashback to card spend on the first $5,000 a month on Essentials and the first $25,000 on Plus, while its cards page says there are no tiers, thresholds or caps (",
@@ -130,7 +130,7 @@
     },
     ", where Venn's cashback condition sat on a different page from the rate. This post is about a different offer, so it does not settle that finding."
    ],
-   "reading": "Here the condition sits in the caption with the rate, the arrangement that test 1 proposes for card pages. The tracker the post describes also answers the reader's next question, how much of the balance qualifies. I did not watch the video, so I cannot say whether the video states the condition too.",
+   "reading": "Here the condition sits in the caption with the rate, the arrangement that test 1 proposes for card pages. The tracker the post describes also answers the reader's next question, how much of the balance qualifies. The frames, reviewed on 1 November 2026, show the rate (“Earn up to 3.5% interest”) and a deadline (“Add funds by October 15, 2026”) on screen, and a balance tracker split at a marked baseline; the condition itself is not written out on screen. Audio was not heard.",
    "take": "A promotional rate and its main condition fit in one caption. Hypothesis: a post that states both draws fewer \"does my balance qualify?\" questions than one that states the rate alone. Measure promotion questions per account opened through the post's link, against a rate-only version.",
    "no_image_reason": "The cover frame is a small dashboard image with an account name blurred by the collector; it does not show the rate or the condition, so the caption excerpt is used instead.",
    "observed": "The caption announces Venn’s Interest Boost “up to 3.50%” and says it “applies to funds added above your pre-promo average monthly” balance.",
@@ -151,7 +151,7 @@
     {
      "q": "One corporate card, total control"
     },
-    ", then invites comments. The caption names no market, plan, fee or condition, and the cover, which shows the creator at Oracle Park in San Francisco holding a card, shows none. The video was not watched, so whether it states any is not known."
+    ", then invites comments. The caption names no market, plan, fee or condition, and the cover, which shows the creator at Oracle Park in San Francisco holding a card, shows none. Frames reviewed on 1 November 2026 show “One card, total control.” on screen and no market, plan, fee or condition; audio was not heard."
    ],
    "website": [
     "Airwallex's Canadian card pages state a 1% cashback rate, with conditions on the pricing page (",
@@ -161,7 +161,7 @@
     },
     "). This post is on the global account; its caption and cover do not show whether the card or its terms apply in Canada."
    ],
-   "reading": "In the caption and cover, the benefit is in the creator's words and no condition or market appears beside it; I did not watch the video, so I cannot say whether the video adds either. The disclosure is Instagram's label rather than a line in the caption. A reader outside the US cannot tell from the caption or cover where the card is offered.",
+   "reading": "The benefit is in the creator's words, and no condition or market appears beside it in the caption, the cover or the on-screen text read from frames (audio not heard). The disclosure is Instagram's label rather than a line in the caption. A reader outside the US cannot tell from the caption or cover where the card is offered.",
    "take": "A creator caption can carry a benefit with no condition or market beside it. Question for your team: does each creator brief name the market served and the one condition a viewer most needs, in the caption as well as the video? Measure the share of enquiries from creator links that come from markets you serve.",
    "image": {
     "src": "/assets/index/business-spend/social/airwallex-thejoshvfx-2026-08-30.webp",
@@ -259,7 +259,7 @@
    "a": "#bs-t3",
    "t": "test 3"
   },
-  ". None is a stronger basis than the website pages: the posts are a different surface, published on different dates, and the reels were read from cover and caption only."
+  ". None is a stronger basis than the website pages: the posts are a different surface, published on different dates, and the reels were reviewed from frames and on-screen text, without audio."
  ],
  "tests_decision": "Three tests unchanged (27 October 2026). Reason: no social observation gives stronger evidence than the website observations behind tests 1 to 3; the posts that bear on them are consistent with those tests and are linked from this view.",
  "coverage_note": "32 attributed posts: Venn 9 and Airwallex 23. A further 19 records were observed on @tryramp, whose provider attribution remains unresolved.",
@@ -409,10 +409,10 @@
   "positioning_limit": "Only Venn and Airwallex are compared. Float, Loop and Keep: no posts found on the reviewed accounts in the research window, which says nothing about posting outside it. Ramp: account attribution unresolved, so @tryramp posts are counted in Sources & evidence but their content is not assessed here.",
   "creative_title": "Creative Strategy",
   "creative_stood_out": {
-   "venn": "Customer stories lead (6 of 9 posts), mostly as reels; the two inspected non-video posts explain the app feature by feature.",
-   "airwallex": "Partnerships and company events lead (14 of 23 posts); photo carousels are the most common execution among the inspected posts (6 of 9)."
+   "venn": "Customer stories lead (6 of 9 posts), all told as interview videos with the customer’s own staff; the other posts explain the app or a rate through slides, a graphic and a screen recording.",
+   "airwallex": "Partnerships and company events lead (14 of 23 posts). Photo carousels are the most common execution (6), then event recap and creator videos (4 each) and sponsorship brand films (3); 5 of its 14 reels show a product or product screen, mostly for a moment."
   },
-  "creative_limit": "Execution is shown for inspected posts only. The reels (Venn 7 of 9, Airwallex 14 of 23) were reviewed from cover and caption, not watched, so how they present their message is not established.",
+  "creative_limit": "Execution covers all 32 attributed posts. The 21 reels were reviewed on 1 November 2026 as frames across each video’s full length, with on-screen text read; audio was not heard, so anything said aloud and not subtitled is not assessed. Themes come from the captions.",
   "creative_examples": [
    {
     "post": "venn-ig-DbV1GBioK7e",

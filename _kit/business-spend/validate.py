@@ -524,8 +524,9 @@ def check_social_outputs(c, body):
             errs.append('social: the record for offer example %s is missing from Sources & evidence' % ex['id'])
             continue
         t = rec.group(1)
-        if p['format'] == 'video' and social.VIDEO_LABEL not in t:
-            errs.append('social: example %s is a reel and its record carries "%s"' % (ex['id'], social.VIDEO_LABEL))
+        need_lbl = social.inspection_text(s, p) if p['format'] == 'video' else None
+        if need_lbl and html_escape(need_lbl) not in t and need_lbl not in t:
+            errs.append('social: example %s is a reel and its record carries "%s"' % (ex['id'], need_lbl))
         for need in ('What the evidence shows', 'Post record', html_escape(p['url'])):
             if need not in rec.group(1):
                 errs.append('social: record for %s lacks %s' % (ex['id'], need))

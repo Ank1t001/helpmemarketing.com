@@ -464,7 +464,12 @@ def coverage_rows(s, order):
             lim.append('A global account: its posts do not show what is offered in Canada or on what terms.')
         if n:
             vids = sum(1 for p in mine if p['format'] == 'video')
-            if vids:
+            vr = video_reviews(s)
+            rev = sum(1 for p in mine if p['format'] == 'video' and p['id'] in vr)
+            if rev:
+                lim.append('%d reel%s: cover and caption reviewed 26 October 2026; %s as frames across the full length on 1 November 2026 (on-screen text read, audio not heard).' % (
+                    vids, '' if vids == 1 else 's', 'all reviewed' if rev == vids else '%d reviewed' % rev))
+            elif vids:
                 lim.append('%d reel%s: cover and caption reviewed, video not watched.' % (vids, '' if vids == 1 else 's'))
             pc = [p for p in mine if p['format'] == 'carousel' and p['inspection'] == 'partial']
             if pc:
@@ -591,7 +596,7 @@ def reference_html(c):
             ('Account', '@%s, %s' % (E(p['account']), E({'canada': 'Canadian account', 'global': 'global account', 'unclear': 'scope unclear'}[a['scope']]))),
             ('Published by', _collab_text(p)),
             ('Published', '%s (Toronto date)' % E(long_day(p['published_on']))),
-            ('Inspection', '%s. %s' % (E(FORMAT_LABEL[p['format']]), E(p['inspection_label']))),
+            ('Inspection', '%s. %s' % (E(FORMAT_LABEL[p['format']]), E(inspection_text(s, p)))),
             ('What the evidence shows', _rich(ex['shows'])),
             ('Website evidence', _rich(ex['website']) if ex.get('website') else 'None linked'),
             ('My reading in full', E(ex['reading'])),
@@ -780,6 +785,30 @@ def _median(xs):
     return xs[m] if len(xs) % 2 else (xs[m - 1] + xs[m]) / 2
 
 
+def _review_ok(vr):
+    """A reel's execution is established only by a recorded frame review across its full length (audio not heard)."""
+    return bool(vr) and vr.get('frames_reviewed', 0) >= 12 and re.fullmatch(r'[0-9a-f]{64}', vr.get('video_sha256', '')) is not None \
+        and bool(vr.get('reviewed_on')) and bool(vr.get('on_screen')) and vr.get('duration_s', 0) > 0
+
+
+def video_reviews(s):
+    """Post id to its frame review (1 November 2026), from social_analysis.json; social.json keeps the 26 October record."""
+    return {c['post']: c['video_review'] for c in s.get('analysis', {}).get('posts', []) if c.get('video_review')}
+
+
+def review_label(vr):
+    return 'Video reviewed %s as %d frames across its %s seconds; on-screen text read, audio not heard.' % (
+        long_day(vr['reviewed_on']), vr['frames_reviewed'], _num(round(vr['duration_s'])))
+
+
+def inspection_text(s, p):
+    """The 26 October inspection, followed by the 1 November frame review where a reel has one."""
+    vr = video_reviews(s).get(p['id'])
+    if not vr:
+        return p['inspection_label']
+    return 'Cover and caption reviewed 26 October 2026. ' + review_label(vr)
+
+
 def check_analysis(s):
     a = s['analysis']
     errs = []
@@ -793,8 +822,13 @@ def check_analysis(s):
         if c['theme'] not in themes:
             errs.append('analysis: %s has an unknown theme %s' % (c['post'], c['theme']))
         p = P.get(c['post'])
-        if p and p['format'] == 'video' and c['approach_inspected']:
-            errs.append('analysis: %s is a video that was not watched; its creative approach cannot be established' % c['post'])
+        vr = c.get('video_review')
+        if p and p['format'] == 'video' and c['approach_inspected'] and not _review_ok(vr):
+            errs.append('analysis: %s is a video with no recorded frame review; its creative approach cannot be established' % c['post'])
+        if vr and p and p['format'] != 'video':
+            errs.append('analysis: %s has a video review but is not a video' % c['post'])
+        if vr and not a.get('video_review', {}).get('method'):
+            errs.append('analysis: video reviews need the review method and collector record')
         if p and p['format'] != 'video' and p['inspection'] == 'partial' and c['approach_inspected']:
             errs.append('analysis: %s was partly inspected' % c['post'])
     return errs
@@ -960,40 +994,47 @@ def analysis_reference_html(s):
         st = [interactions(p)[1] for p in mine]
         views = [metric(p['metrics']['views'])[1] for p in vids]
         att = 'Unresolved' if any(p['attribution'] == 'unresolved' for p in mine) else 'Attributed'
+        vr = video_reviews(s)
         cov.append('<tr><td class="brandcell">%s</td><td data-label="Attribution">%s</td><td data-label="Posts">%d</td><td data-label="Carousels fully opened">%d of %d</td>'
-                   '<td data-label="Videos watched">0 of %d</td><td data-label="Likes + comments">%d exact, %d approximate, %d missing</td><td data-label="Views (reels)">%d exact, %d approximate, %d missing</td></tr>'
-                   % (E(NAMES[pid]), att, len(mine), sum(1 for p in car if p['inspection'] == 'all_slides'), len(car), len(vids),
+                   '<td data-label="Reels reviewed as frames">%d of %d</td><td data-label="Likes + comments">%d exact, %d approximate, %d missing</td><td data-label="Views (reels)">%d exact, %d approximate, %d missing</td></tr>'
+                   % (E(NAMES[pid]), att, len(mine), sum(1 for p in car if p['inspection'] == 'all_slides'), len(car), sum(1 for p in vids if p['id'] in vr), len(vids),
                       st.count('exact'), st.count('approximate'), st.count('missing'), views.count('exact'), views.count('approximate'), views.count('missing')))
     themes = ''.join('<dt>%s</dt><dd>%s</dd>' % (E(l), E(d)) for _, l, d in g['themes'])
     rules = ''.join('<li>%s</li>' % E(v) for v in a['metrics_rules'].values())
     rows = []
+    vr = video_reviews(s)
     for cl, p in analysis_rows(s):
         v, state = interactions(p)
+        insp = inspection_text(s, p) + ((' ' + vr[p['id']]['on_screen']) if p['id'] in vr else '')
         rows.append('<tr><td class="brandcell">%s<span class="cell-sub">%s</span></td><td data-label="Post"><a href="%s" rel="noopener nofollow" target="_blank">%s<span class="sr-only"> (opens in a new tab)</span></a><span class="cell-sub">%s</span></td>'
                     '<td data-label="Theme">%s%s</td><td data-label="Format and approach">%s<span class="cell-sub">%s</span></td><td data-label="Publisher">%s</td>'
                     '<td data-label="Likes, comments">%s, %s<span class="cell-sub">%s</span></td><td data-label="Basis">%s</td></tr>' % (
-                        E(NAMES[p['platform']]), E(long_day(p['published_on'])), E(p['url']), E(p['shortcode']), E(p['inspection_label']),
+                        E(NAMES[p['platform']]), E(long_day(p['published_on'])), E(p['url']), E(p['shortcode']), E(insp),
                         E(theme_label(s, cl['theme'])), ('<span class="cell-sub">Also: %s</span>' % E(', '.join(x.replace('_', ' ') for x in cl['secondary']))) if cl['secondary'] else '',
                         E(FORMAT_LABEL[p['format']]), E(cl['approach']), _collab_text(p),
                         E(str(p['metrics']['likes'])) if p['metrics']['likes'] is not None else 'missing', E(str(p['metrics']['comments'])) if p['metrics']['comments'] is not None else 'missing',
                         {'exact': 'sum %d' % v if v is not None else '', 'approximate': 'approximate, excluded', 'missing': 'missing, excluded'}[state], E(cl['basis'])))
-    return ('<div id="bs-soc-coverage"><h4 class="t">Coverage assessment</h4><p class="dek">%s</p>'
-            '<div class="tw" tabindex="0" role="region" aria-label="Social evidence coverage"><table class="bs"><thead><tr><th scope="col">Brand</th><th scope="col">Attribution</th><th scope="col">Posts</th><th scope="col">Carousels fully opened</th><th scope="col">Videos watched</th><th scope="col">Likes + comments</th><th scope="col">Views (reels)</th></tr></thead><tbody>%s</tbody></table></div></div>'
+    method = a.get('video_review', {})
+    mtxt = ('<p class="dek"><b>Reel review.</b> %s %s Collector output sha256 %s&hellip;.</p>' % (E(method['method']), E(method['private']), E(method['collector_output_sha256'][:16]))) if method else ''
+    return ('<div id="bs-soc-coverage"><h4 class="t">Coverage assessment</h4><p class="dek">%s</p>%s'
+            '<div class="tw" tabindex="0" role="region" aria-label="Social evidence coverage"><table class="bs"><thead><tr><th scope="col">Brand</th><th scope="col">Attribution</th><th scope="col">Posts</th><th scope="col">Carousels fully opened</th><th scope="col">Reels reviewed as frames</th><th scope="col">Likes + comments</th><th scope="col">Views (reels)</th></tr></thead><tbody>%s</tbody></table></div></div>'
             '<div id="bs-soc-guide"><h4 class="t">Classification guide</h4><p class="dek">%s %s</p><dl class="chain">%s</dl><p class="dek"><b>Format.</b> %s <b>Creative approach.</b> %s <b>Other fields.</b> %s %s</p></div>'
             '<div id="bs-soc-metrics"><h4 class="t">Engagement definitions and metric dates</h4><ul class="dek">%s</ul><p class="dek">Likes and comments were read from each post page during the second collection pass, 26 October 2026, 9:45 p.m. to 10:15 p.m. Toronto time; each record keeps its own read time in the downloads. Views were read from each account&rsquo;s Reels tab at 10:15 p.m. No later metric snapshot was taken. Comments were counted, not read: no comment text is analysed.</p></div>'
             '<div id="bs-soc-classified"><h4 class="t">Post-level classifications (%d attributed posts)</h4><div class="tw" tabindex="0" role="region" aria-label="Post classifications, scrolls sideways"><table class="bs soc-cl"><thead><tr><th scope="col">Brand and date</th><th scope="col">Post and inspection</th><th scope="col">Theme</th><th scope="col">Format and approach</th><th scope="col">Publisher</th><th scope="col">Likes, comments as displayed</th><th scope="col">Basis</th></tr></thead><tbody>%s</tbody></table></div></div>'
-            % (E(a['basis']), ''.join(cov), E(g['unit']), E(g['theme']), themes, E(g['format']), E(g['approach']), E(g['other_fields']), E(g['unclear']), rules, len(rows), ''.join(rows)))
+            % (E(a['basis']), mtxt, ''.join(cov), E(g['unit']), E(g['theme']), themes, E(g['format']), E(g['approach']), E(g['other_fields']), E(g['unclear']), rules, len(rows), ''.join(rows)))
 
 
+ANALYSIS_HEAD_TAIL = ['video_reviewed_on', 'video_frames_reviewed', 'video_duration_s', 'video_on_screen_text']
 ANALYSIS_HEAD = ['post_id', 'provider', 'account', 'post_url', 'published_on_toronto', 'publisher', 'relation', 'collaboration', 'paid_partnership_label', 'format', 'inspection',
                  'primary_theme', 'secondary_tags', 'creative_approach', 'approach_inspected', 'audience_suggested', 'product', 'benefit', 'classification_basis',
-                 'likes_displayed', 'comments_displayed', 'interactions_state', 'likes_plus_comments', 'counts_read_at', 'views_displayed', 'views_state', 'views_read_from']
+                 'likes_displayed', 'comments_displayed', 'interactions_state', 'likes_plus_comments', 'counts_read_at', 'views_displayed', 'views_state', 'views_read_from'] + ANALYSIS_HEAD_TAIL
 
 
 def render_analysis_csv(s):
     buf = io.StringIO()
     w = csv.writer(buf, lineterminator='\n')
     w.writerow(ANALYSIS_HEAD)
+    vr = video_reviews(s)
     for cl, p in analysis_rows(s):
         v, state = interactions(p)
         m = p['metrics']
@@ -1002,5 +1043,6 @@ def render_analysis_csv(s):
                     'yes' if cl['approach_inspected'] else 'no', cl['audience'], cl['product'], cl['benefit'], cl['basis'],
                     '' if m['likes'] is None else m['likes'], '' if m['comments'] is None else m['comments'], state, '' if v is None else v,
                     m.get('likes_comments_captured_at') or p['captured_at'], '' if m['views'] is None else m['views'], metric(m['views'])[1] if p['format'] == 'video' else 'not applicable',
-                    'Reels tab' if m['views'] is not None else ''])
+                    'Reels tab' if m['views'] is not None else '']
+                   + ([vr[p['id']]['reviewed_on'], vr[p['id']]['frames_reviewed'], vr[p['id']]['duration_s'], vr[p['id']]['on_screen']] if p['id'] in vr else ['', '', '', '']))
     return buf.getvalue()

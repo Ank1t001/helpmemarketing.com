@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "created": "2026-10-30",
- "basis": "Classified on 30 October 2026 from the inspected evidence recorded on 26 October 2026: captions, headers, cover frames, images and, where opened, every carousel slide. No video was played. No new collection was made.",
+ "basis": "Classified on 30 October 2026 from the inspected evidence recorded on 26 October 2026: captions, headers, cover frames, images and, where opened, every carousel slide. Execution for the 21 reels was added on 1 November 2026 from a frame review of each video (see the video review method); themes stay as classified from the captions.",
  "guide": {
   "unit": "One record per unique attributed post (post ID and URL from social.json). The 19 @tryramp records are not classified while their provider attribution is unresolved.",
   "theme": "One primary theme per post, from what the caption and inspected visuals are about. Primary themes are mutually exclusive and sum to the brand’s post count. Secondary tags may overlap and never change primary counts.",
@@ -43,7 +43,7 @@
    ]
   ],
   "format": "Image, carousel or video, as recorded at collection.",
-  "approach": "How the message is delivered. Recorded only where the full creative was inspected (images and fully opened carousels). For videos it is “Not established: video not watched”; a cover frame does not show how a video is made.",
+  "approach": "How the message is delivered, established by visual review: images, fully opened carousels and, since 1 November 2026, each reel reviewed as frames across its full length with on-screen text read (audio not heard). The part before the colon is the execution type counted on the page; the rest describes the post.",
   "other_fields": "Audience suggested by the content, product promoted, customer problem or benefit, proof, call to action and the opening line of the caption (not a verified video hook). Proof, call to action and the caption opening are taken from the existing post records; this file adds the classification and its basis.",
   "unclear": "Where the evidence does not support a label, the field says so."
  },
@@ -74,23 +74,37 @@
    "post": "venn-ig-Dba905WFcDk",
    "theme": "customer_story",
    "secondary": [],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Customer interview video: the customer’s general manager to camera, named on screen, cut with card-creation screens on a tablet and a virtual card on a phone; logo end card",
+   "approach_inspected": true,
    "audience": "Small business teams",
    "product": "Virtual cards, receipt reminders, team card, 1% cashback",
    "benefit": "Spend tools a team relies on daily",
-   "basis": "Caption reports a named customer’s general manager listing features."
+   "basis": "Caption reports a named customer’s general manager listing features.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 39.5,
+    "frames_reviewed": 16,
+    "video_sha256": "9bcf097db2a160c8cd60a390a002e392efe213cb303d47b8f41dac5811d47a22",
+    "on_screen": "No rate, plan or cashback figure appears on screen."
+   }
   },
   {
    "post": "venn-ig-Dbs4o31gNwm",
    "theme": "customer_story",
    "secondary": [],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Customer interview video: two Spellbook staff to camera in their office; logo end card",
+   "approach_inspected": true,
    "audience": "Startups",
    "product": "Business account with approval controls",
    "benefit": "Faster banking basics, such as a bank letter",
-   "basis": "Caption tells Spellbook’s switch to Venn."
+   "basis": "Caption tells Spellbook’s switch to Venn.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 33.2,
+    "frames_reviewed": 16,
+    "video_sha256": "514194685c6f82e8568a0648d4501fec2b392d57a31b81bdf67bba51e1d174f9",
+    "on_screen": "No on-screen captions, so what they say is not known."
+   }
   },
   {
    "post": "venn-ig-Db8eeMHEV9v",
@@ -98,34 +112,55 @@
    "secondary": [
     "product_education"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Product screen recording: the Venn dashboard with the Interest Boost banner, then a CAD account showing the boosted and standard balances; no people",
+   "approach_inspected": true,
    "audience": "Businesses holding cash balances",
    "product": "Interest Boost promotion, with a tracking banner",
    "benefit": "Seeing how much cash earns the boosted rate",
-   "basis": "Caption announces a time-limited rate with its condition and deadline."
+   "basis": "Caption announces a time-limited rate with its condition and deadline.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 6.8,
+    "frames_reviewed": 16,
+    "video_sha256": "351f5106a118a5739bfb7280cf2a4853927e7667f0ac1823651965c2d9b1c01e",
+    "on_screen": "On screen: “Earn up to 3.5% interest” and “Add funds by October 15, 2026”; the balance tracker is split at a marked baseline."
+   }
   },
   {
    "post": "venn-ig-Db-6ZTdkm1o",
    "theme": "customer_story",
    "secondary": [],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Customer interview video: office b-roll, then Spellbook staff to camera; logo end card",
+   "approach_inspected": true,
    "audience": "Startup finance teams",
    "product": "Business account and approvals",
    "benefit": "Money and time saved",
-   "basis": "Caption quotes Spellbook’s VP of Finance with a savings figure."
+   "basis": "Caption quotes Spellbook’s VP of Finance with a savings figure.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 26.1,
+    "frames_reviewed": 16,
+    "video_sha256": "de4d514bdbd6a91260cecff25bf9be0b071e563f19ebc5b40e3881b899f533df",
+    "on_screen": "No figure appears on screen."
+   }
   },
   {
    "post": "venn-ig-DcL5FguFGv6",
    "theme": "customer_story",
    "secondary": [],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Customer interview video: Spellbook team b-roll with short interview cuts; logo end card",
+   "approach_inspected": true,
    "audience": "Startups",
    "product": "Business account payments (ACH, wire, e-Transfer)",
    "benefit": "Fewer steps to move money",
-   "basis": "Caption contrasts Spellbook’s old bank with Venn."
+   "basis": "Caption contrasts Spellbook’s old bank with Venn.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 33.9,
+    "frames_reviewed": 16,
+    "video_sha256": "a388a356c320d9f1d481d0fee92eec69bff22e3b35e94767a0573cccac8a4db9",
+    "on_screen": "No figure appears on screen."
+   }
   },
   {
    "post": "venn-ig-DcOdMd8oMR-",
@@ -144,23 +179,37 @@
    "post": "venn-ig-DcRCHJOCjRZ",
    "theme": "customer_story",
    "secondary": [],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Customer interview video: a Queen’s Commerce Society member answers on-screen questions, with savings figures shown as text; logo end card",
+   "approach_inspected": true,
    "audience": "Student organisations and small teams",
    "product": "Business account, FX, cards, reimbursements",
    "benefit": "Faster reimbursements and lower fees",
-   "basis": "Caption gives Queen’s Commerce Society figures."
+   "basis": "Caption gives Queen’s Commerce Society figures.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 139.5,
+    "frames_reviewed": 24,
+    "video_sha256": "d402590d6973500786a54e2913ef95c305d10cd793b570f2a41e4ceb5ed936e9",
+    "on_screen": "On screen: wire savings $1,300, FX savings $1,000 and cashback earned $2,200, with no basis given."
+   }
   },
   {
    "post": "venn-ig-DcjEYFvgAJV",
    "theme": "customer_story",
    "secondary": [],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Customer interview video: a short cut of the same Queen’s interview with campus b-roll; logo end card",
+   "approach_inspected": true,
    "audience": "Organisations that reimburse people",
    "product": "Reimbursements",
    "benefit": "Reimbursement time cut from five weeks to under a week",
-   "basis": "Caption tells the Queen’s Commerce Society story."
+   "basis": "Caption tells the Queen’s Commerce Society story.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 19.0,
+    "frames_reviewed": 16,
+    "video_sha256": "5673b3c63d9375151517689b2dd7b58b1e727adde3158d1b1432ef51f42b4c4b",
+    "on_screen": "No figure appears on screen."
+   }
   },
   {
    "post": "airwallex-ig-DbTXNiWnXeJ",
@@ -168,12 +217,19 @@
    "secondary": [
     "sport"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Sponsorship brand film: close-ups of the McLaren driver with projected light, ending on the partner card",
+   "approach_inspected": true,
    "audience": "Motorsport fans",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Caption celebrates a McLaren F1 win as a partner."
+   "basis": "Caption celebrates a McLaren F1 win as a partner.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 11.0,
+    "frames_reviewed": 16,
+    "video_sha256": "b07905eeb79c75a15e4d696ed3b68e243b48a0360e0cfc43a36760622fbd6a41",
+    "on_screen": "End card: Airwallex, McLaren Mastercard Formula 1 Team official partner, “Build the future”. No product shown."
+   }
   },
   {
    "post": "airwallex-ig-DbaD6RJDRf5",
@@ -181,12 +237,19 @@
    "secondary": [
     "sport"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Event recap video: guests in Giants jerseys at a ballpark suite, Airwallex signage and cards held up; logo end card",
+   "approach_inspected": true,
    "audience": "Founders and creators",
    "product": "Platform described generally",
    "benefit": "“One setup that covers everything your business needs”",
-   "basis": "Caption describes a founders’ day at Oracle Park."
+   "basis": "Caption describes a founders’ day at Oracle Park.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 67.7,
+    "frames_reviewed": 16,
+    "video_sha256": "8c32ce2b52bee2c9e61a6e4c3d5d867a86068305f42e3d50737ab2e4d7a1bce4",
+    "on_screen": "The card appears in guests’ hands; no product text."
+   }
   },
   {
    "post": "airwallex-ig-Dbl2eTKAsfQ",
@@ -194,12 +257,19 @@
    "secondary": [
     "sport"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Athlete interview video: a Blues player interviewed in the locker room, with subtitles; partner end card",
+   "approach_inspected": true,
    "audience": "Rugby fans in New Zealand",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Caption congratulates a sponsored rugby team; co-authored post."
+   "basis": "Caption congratulates a sponsored rugby team; co-authored post.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 48.3,
+    "frames_reviewed": 16,
+    "video_sha256": "4126c2e8fe690284c76357a363a9ae7b08679133f1a837c67fb2633baa17bb4d",
+    "on_screen": "End card: Blues and Airwallex, “Build the future”. No product shown."
+   }
   },
   {
    "post": "airwallex-ig-Db8jAJeDQ5J",
@@ -220,12 +290,19 @@
    "secondary": [
     "sport"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Sponsorship brand film: animated text over Arsenal match footage (“Airwallex moves with them”); partner end card",
+   "approach_inspected": true,
    "audience": "Football fans",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Caption marks the Arsenal partnership at the season start."
+   "basis": "Caption marks the Arsenal partnership at the season start.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 18.0,
+    "frames_reviewed": 16,
+    "video_sha256": "ed78720a1f419057fce8948acfed09201edf03b2fa972a6f1e7903c81163d3a8",
+    "on_screen": "End card: official finance software partner of Arsenal. No product shown."
+   }
   },
   {
    "post": "airwallex-ig-DcfKTPtDY1O",
@@ -233,12 +310,19 @@
    "secondary": [
     "media"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Event recap video: a podcast presenter and Airwallex’s Head of ANZ to camera, named on screen, cut with event footage; logo end card",
+   "approach_inspected": true,
    "audience": "Australian businesses",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Caption describes a podcast appearance at a cafe takeover."
+   "basis": "Caption describes a podcast appearance at a cafe takeover.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 58.2,
+    "frames_reviewed": 16,
+    "video_sha256": "0f3a61efd4408e56468dcda39dd8c12f32931326f6d7eb8e4e58018754c8710b",
+    "on_screen": "One phone screen shows a pricing banner (“3.5% + 30c an order”) for a moment."
+   }
   },
   {
    "post": "airwallex-ig-DcifgrKH3FT",
@@ -273,12 +357,19 @@
     "creator",
     "product_mention"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Creator video: a visual-effects skit by the creator, with phone notifications, the app and the card, ending at a ballpark",
+   "approach_inspected": true,
    "audience": "Business owners who follow the creator",
    "product": "Corporate card",
    "benefit": "“One corporate card, total control”",
-   "basis": "Creator post labelled Paid partnership; caption endorses the card."
+   "basis": "Creator post labelled Paid partnership; caption endorses the card.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 25.7,
+    "frames_reviewed": 16,
+    "video_sha256": "ad44d9c7bceb604abf2fa2cdc182a67297c6b07a5cf8b98466eb6f02da53bab1",
+    "on_screen": "On screen: “One card, total control.” No market, plan, fee or condition appears on screen."
+   }
   },
   {
    "post": "airwallex-ig-DdDtsdwzd8J",
@@ -287,12 +378,19 @@
     "creator",
     "sport"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Creator video: a former AFL player and his wife answer quickfire questions on branded cards, with subtitles; contest end card",
+   "approach_inspected": true,
    "audience": "Australian sports fans and business owners",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Creator post labelled Paid partnership invites entries for a Grand Final experience."
+   "basis": "Creator post labelled Paid partnership invites entries for a Grand Final experience.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 61.1,
+    "frames_reviewed": 16,
+    "video_sha256": "4710b90228afe05a0b844198a8f83a08294699613a5f8b74d3b24a4411892daf",
+    "on_screen": "End card: “Enter now”, 2026 AFL Grand Final, Essendon and Airwallex. No product shown."
+   }
   },
   {
    "post": "airwallex-ig-DdIgy8SFQyl",
@@ -300,12 +398,19 @@
    "secondary": [
     "media"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Podcast clip: one guest speaking on The Airwallex Podcast set, with a fixed title panel",
+   "approach_inspected": true,
    "audience": "Marketers and founders",
    "product": "None named (podcast)",
    "benefit": "A view on AI and brand building",
-   "basis": "Caption summarises a podcast discussion."
+   "basis": "Caption summarises a podcast discussion.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 54.9,
+    "frames_reviewed": 16,
+    "video_sha256": "71651b75cdd95d5992398c601ab635022ae7a6a5dc6b4461fd980b0e127c36cb",
+    "on_screen": "No subtitles, so the topic comes from the caption only."
+   }
   },
   {
    "post": "airwallex-ig-DdN-arvztB4",
@@ -314,12 +419,19 @@
     "creator",
     "sport"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Creator video: the former AFL player to camera with a branded football, explaining the contest, with subtitles",
+   "approach_inspected": true,
    "audience": "Australian sports fans and business owners",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Creator post invites contest entries; caption marks it as a paid partnership."
+   "basis": "Creator post invites contest entries; caption marks it as a paid partnership.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 24.5,
+    "frames_reviewed": 16,
+    "video_sha256": "a2ee5763feaa72fa484d9bc843da51770dbfffa9f7f29d9cc5231959542651e0",
+    "on_screen": "On screen: the entry question and “Closes 21st of September”. No product shown."
+   }
   },
   {
    "post": "airwallex-ig-DdWxfd2DN19",
@@ -354,12 +466,19 @@
     "sport",
     "product_mention"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Customer interview video: Arsenal’s Chief Revenue Officer at the stadium, named on screen, with subtitles and a checkout screen; partner end card",
+   "approach_inspected": true,
    "audience": "Global businesses taking payments",
    "product": "Multi-currency accounts and payment acceptance",
    "benefit": "One payment experience for fans in their own currencies",
-   "basis": "Caption introduces the Arsenal case study."
+   "basis": "Caption introduces the Arsenal case study.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 60.1,
+    "frames_reviewed": 16,
+    "video_sha256": "0cc5f7a58ffe5b4d76414cd645d4caa1002aa4d94fd32d2c41092482fc39678f",
+    "on_screen": "On screen: a checkout offering local payment methods."
+   }
   },
   {
    "post": "airwallex-ig-Dd_wnO-DLcT",
@@ -407,12 +526,19 @@
    "secondary": [
     "product_mention"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Event recap video: stage talks at Airwallex’s SHIFT event in Sydney, speakers named on screen, with subtitles",
+   "approach_inspected": true,
    "audience": "Australian finance and business leaders",
    "product": "Company event; names a product (AgentOS)",
    "benefit": "None stated in the caption",
-   "basis": "Caption recaps the SHIFT event."
+   "basis": "Caption recaps the SHIFT event.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 51.6,
+    "frames_reviewed": 16,
+    "video_sha256": "05615dcfa40f0fca0ba8853899851d631401f0268ef74739d09ea6c4f6ae992c",
+    "on_screen": "Product named in subtitles only (“Agent OS”, virtual cards)."
+   }
   },
   {
    "post": "airwallex-ig-DeWOFBfBqQ0",
@@ -421,12 +547,19 @@
     "creator",
     "sport"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Creator video: the creator’s vlog of an Airwallex event in Singapore with a Formula 1 driver, with subtitles",
+   "approach_inspected": true,
    "audience": "Followers of the creator",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Creator post labelled Paid partnership from the Singapore Grand Prix."
+   "basis": "Creator post labelled Paid partnership from the Singapore Grand Prix.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 48.8,
+    "frames_reviewed": 16,
+    "video_sha256": "2963d516f355060299af095d5506e0e5f2004ad331034fb1782da56163b757d6",
+    "on_screen": "Partner branding on the event walls; no product shown."
+   }
   },
   {
    "post": "airwallex-ig-DeYR3AhjgGm",
@@ -448,23 +581,44 @@
     "sport",
     "product_mention"
    ],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Sponsorship brand film: Giants and San Francisco footage with large captions, naming the platform, card and AI agents; partner end card",
+   "approach_inspected": true,
    "audience": "Baseball fans in San Francisco",
    "product": "Business accounts and corporate cards (named)",
    "benefit": "None stated",
-   "basis": "Caption closes a season as the Giants’ sponsor and names products."
+   "basis": "Caption closes a season as the Giants’ sponsor and names products.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 60.7,
+    "frames_reviewed": 16,
+    "video_sha256": "88b2f77d76e0980d722f48a08687e88fb9697496affccf11539ca772f7960e3b",
+    "on_screen": "The card appears once; on screen “Our global financial platform” and “AI agents help to automate financial operations”."
+   }
   },
   {
    "post": "airwallex-ig-DezQZwBiY6q",
    "theme": "company_events",
    "secondary": [],
-   "approach": "Not established: video not watched",
-   "approach_inspected": false,
+   "approach": "Event recap video: a montage of the Money20/20 USA show floor and the Airwallex stand; logo end card",
+   "approach_inspected": true,
    "audience": "Payments and finance industry",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Caption summarises a trade-show presence with event figures."
+   "basis": "Caption summarises a trade-show presence with event figures.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 19.2,
+    "frames_reviewed": 16,
+    "video_sha256": "2497f39a77d946124b78e083934313da6ec44a869d7931ba14c6ed1e0ff6f59e",
+    "on_screen": "Stand screen line: “Accept payments. Earn yield. Pay globally.”"
+   }
   }
- ]
+ ],
+ "video_review": {
+  "method": "The 21 attributed reels were collected with the official Apify actor apify/instagram-scraper on 31 October 2026 at 8:03 p.m. Toronto time (founder-approved after Instagram showed a sign-in wall to a signed-out browser). Each video was downloaded and reviewed on 1 November 2026 as frames spread evenly across its full length (16 per reel, 24 for the 140-second Queen’s interview), with on-screen text and subtitles read. Audio was not heard, so anything said aloud and not subtitled is not assessed. The 12 @tryramp reels were not collected.",
+  "collector": "apify/instagram-scraper",
+  "collected_at": "2026-10-31T20:03:00-04:00",
+  "collector_output_sha256": "525eae8f4d8e7c09441991211422dbdd0ce6d3ca0ef482699c6ac46892b5f0ad",
+  "private": "The collector output, its signed media links and the video files stay private; only their SHA-256 hashes are recorded here."
+ }
 }
