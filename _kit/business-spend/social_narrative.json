@@ -8,11 +8,11 @@
  "scope": [
   [
    "Accounts",
-   "The official company Instagram accounts of the providers: four Canadian accounts (Venn, Float, Loop, Keep) and Airwallex's global account, plus @tryramp, supplied by the owner as Ramp's global account. No official Ramp source links @tryramp, so its provider attribution is unresolved. No founder, employee, partner or reseller accounts, and no other social network."
+   "The official company Instagram accounts of the providers: four Canadian accounts (Venn, Float, Loop, Keep) and Airwallex's global account, plus @tryramp, supplied by the owner on 26 October 2026 and confirmed by the owner as Ramp’s global account on 1 November 2026 (ramp.com does not link it; its handle matches Ramp’s X account and its profile links a Ramp-run campaign site). No founder, employee, partner or reseller accounts, and no other social network."
   ],
   [
    "Records counted",
-   "51 records published in the window: 32 attributed posts (Venn 9, Airwallex 23) and 19 records on @tryramp with unresolved provider attribution. Findings about providers use the 32 attributed posts; the 19 @tryramp records are listed and labelled, and no conclusion about Ramp rests on them."
+   "51 posts published in the window: Venn 9, Ramp 19 and Airwallex 23. Findings use all 51 since 1 November 2026. The edition 001 records and download of 26 October keep @tryramp marked as unresolved, as it was when collected."
   ],
   [
    "Window",
@@ -35,8 +35,8 @@
    "Reposts (Instagram does not show when a repost was made), Stories, highlights, live videos, the Tagged tab, ads and the @tryvault account. Displayed likes, comments and views were recorded with their read times; since 30 October 2026 likes and comments are compared only within each brand, with their limits stated."
   ]
  ],
- "coverage_dek": "One row per provider, in the page's usual order: 51 records in all, 32 attributed posts and 19 @tryramp records with unresolved provider attribution. A count of 0 means no in-window post was found on the surfaces reviewed; it says nothing about whether the provider is active elsewhere.",
- "patterns_dek": "These observations describe this sample: the 32 attributed posts from Venn and Airwallex in one 90-day window, read from captions, covers, slides and, for reels, frames across each video (audio not heard), with the 19 @tryramp records mentioned only where labelled. They do not show what the providers intend or what the posts achieved.",
+ "coverage_dek": "One row per provider, in the page's usual order: 51 posts in all (Venn 9, Ramp 19, Airwallex 23). A count of 0 means no in-window post was found on the surfaces reviewed; it says nothing about whether the provider is active elsewhere.",
+ "patterns_dek": "These observations describe this sample: the 51 posts from Venn, Ramp and Airwallex in one 90-day window, read from captions, covers, slides and, for reels, frames across each video (audio not heard). They do not show what the providers intend or what the posts achieved.",
  "patterns": [
   {
    "title": "Venn's posts were mostly customer stories",
@@ -45,8 +45,8 @@
   },
   {
    "title": "Rates, fees and eligibility rarely appeared",
-   "body": "Two of the 32 attributed posts state a product rate, both from Venn: 1% cashback in a customer story, and an interest promotion of up to 3.50% with its main condition in the same caption. One more reports a customer's fee savings. No attributed post states an FX fee, a plan price or who can apply for a card. On the websites, these were the main subjects of the three findings.",
-   "denominator": "32 attributed posts (Venn 9, Airwallex 23), rates counted from captions. On-screen text in the 21 reels, read from frames on 1 November 2026, adds no FX fee, plan price or eligibility rule: Venn’s rate reel shows the rate and a deadline, and one Airwallex reel briefly shows a phone banner reading “3.5% + 30c an order, yeah?” without saying whose fee it is. Audio was not heard. The 19 @tryramp records are not counted here."
+   "body": "Two of the 51 posts state a product rate, both from Venn: 1% cashback in a customer story, and an interest promotion of up to 3.50% with its main condition in the same caption. One more reports a customer's fee savings. No post states an FX fee, a plan price or who can apply for a card. On the websites, these were the main subjects of the three findings.",
+   "denominator": "51 posts (Venn 9, Ramp 19, Airwallex 23), rates counted from captions. On-screen text in the 33 reels, read from frames on 1 November 2026, adds no FX fee, plan price or eligibility rule: Venn’s rate reel shows the rate and a deadline, and one Airwallex reel briefly shows a phone banner reading “3.5% + 30c an order, yeah?” without saying whose fee it is. Audio was not heard."
   },
   {
    "title": "Airwallex's account carried sponsorships, events and company life",
@@ -55,8 +55,8 @@
   },
   {
    "title": "Collaborations were common on @airwallex and @tryramp",
-   "body": "On @airwallex, 5 of 23 posts are collaborations; 4 carry a paid-partnership label, 3 in the header and 1 in the caption only. On @tryramp, whose provider attribution is unresolved, 15 of the 19 records are collaborations, 13 of them published by other accounts, and 4 carry Instagram's \"Paid partnership with tryramp\" label. These @tryramp figures describe the account, not Ramp.",
-   "denominator": "23 attributed Airwallex posts and, separately, 19 @tryramp records with unresolved provider attribution; the two are not added together. Labels as shown; nothing here says what was paid or to whom."
+   "body": "On @airwallex, 5 of 23 posts are collaborations; 4 carry a paid-partnership label, 3 in the header and 1 in the caption only. On @tryramp, 15 of the 19 posts are collaborations, 13 of them published by other accounts (a creator, a theatre magazine, the musical’s own account and Tony Hawk), and 4 carry Instagram's \"Paid partnership with tryramp\" label.",
+   "denominator": "23 Airwallex posts and 19 Ramp posts, counted separately. Labels as shown; nothing here says what was paid or to whom."
   },
   {
    "title": "Three Canadian accounts had no posts in the window",
@@ -64,7 +64,7 @@
    "denominator": "4 Canadian accounts; grid and Reels surfaces reviewed (Keep's profile shows no Reels tab)."
   }
  ],
- "selection": "Four posts, each showing a different way of presenting an offer or a next step, chosen for what they show about how a claim travels to Instagram: two from Venn and two from Airwallex. They are not ranked and were not chosen by displayed counts. The 19 @tryramp records are not used as examples while their provider attribution is unresolved. Reels were read from cover and caption on 26 October and reviewed as frames on 1 November 2026, with audio not heard; each reading is limited to what those show.",
+ "selection": "Four posts, each showing a different way of presenting an offer or a next step, chosen for what they show about how a claim travels to Instagram: two from Venn and two from Airwallex. They are not ranked and were not chosen by displayed counts. No Ramp post in the window presents an offer, so none is used here. Reels were read from cover and caption on 26 October and reviewed as frames on 1 November 2026, with audio not heard; each reading is limited to what those show.",
  "examples": [
   {
    "id": "S1",
@@ -262,7 +262,7 @@
   ". None is a stronger basis than the website pages: the posts are a different surface, published on different dates, and the reels were reviewed from frames and on-screen text, without audio."
  ],
  "tests_decision": "Three tests unchanged (27 October 2026). Reason: no social observation gives stronger evidence than the website observations behind tests 1 to 3; the posts that bear on them are consistent with those tests and are linked from this view.",
- "coverage_note": "32 attributed posts: Venn 9 and Airwallex 23. A further 19 records were observed on @tryramp, whose provider attribution remains unresolved.",
+ "coverage_note": "51 posts: Venn 9, Ramp 19 and Airwallex 23.",
  "coverage_none": "No in-window posts were found on the reviewed Float, Loop and Keep accounts. That says nothing about their activity elsewhere.",
  "selection_short": "Four posts, chosen for how they present an offer or a next step, not for likes or views.",
  "why": [
@@ -290,9 +290,9 @@
    },
    {
     "pid": "ramp",
-    "audience": "19 records on @tryramp, whose link to Ramp is unresolved, so not assessed for Ramp",
-    "message": "Not assessed",
-    "tone": "Not assessed"
+    "audience": "Theatre audiences, a creator’s and Tony Hawk’s followers, and people in New York; few posts address businesses",
+    "message": "Ramp as a name worth knowing, through a Broadway musical about bills and two comedy series about money",
+    "tone": "Comic and theatrical"
    },
    {
     "pid": "loop",
@@ -313,7 +313,7 @@
     "tone": "Celebratory and event-led"
    }
   ],
-  "positioning_note": "Read from the 32 attributed posts (Venn 9, Airwallex 23), not from website copy. A global account does not show what is offered in Canada.",
+  "positioning_note": "Read from the 51 posts (Venn 9, Ramp 19, Airwallex 23), not from website copy. A global account does not show what is offered in Canada.",
   "product_q": "How do the posts turn product features into reasons to care?",
   "product": [
    {
@@ -330,9 +330,9 @@
    },
    {
     "pid": "ramp",
-    "products": "Not assessed",
-    "benefit": "Not assessed",
-    "proof": "Not assessed while @tryramp’s attribution is unresolved"
+    "products": "Rarely named: one carousel lists three new products (AI spend management, Router, Glass)",
+    "benefit": "Saving businesses money, stated once",
+    "proof": "Company figures without a basis (85,000 businesses saving over $1 billion a month) and well-known performers"
    },
    {
     "pid": "loop",
@@ -393,49 +393,69 @@
     "test": "Read counts at the same age after posting and keep collaborations apart before comparing themes."
    }
   ],
-  "positioning_title": "Positioning",
-  "positioning_pair": [
-   {
-    "pid": "venn",
-    "presents": "Banking that saves small teams time and fees, told through named Canadian customers.",
-    "emphasises": "Reimbursements, payments and cashback cards, shown as use cases, such as reimbursements cut from five weeks to under a week (as stated in the caption)."
+  "tab": {
+   "share_note": "Percentages show the share of each brand’s posts published 25 July to 22 October 2026. They describe what was posted, not reach or results.",
+   "mix_title": "Creative mix by brand",
+   "ramp_note": "Ramp: @tryramp is treated as Ramp’s account on the study owner’s confirmation (1 November 2026); ramp.com does not link it. 15 of its 19 posts are collaborations, 13 published by other accounts.",
+   "mix_stood_out": [
+    "Venn: every post is about a product or names one (6 product-focused, 3 brand and product); 6 of 9 are customer-led interview videos.",
+    "Ramp: 18 of 19 posts are brand-focused, built around a Broadway musical about bills (9 posts) and two comedy series with a creator and Tony Hawk (10 posts); none shows the product in use.",
+    "Airwallex: 19 of 23 posts are brand-focused, led by sport sponsorships, hosted events and staff life; photo carousels are the most common approach (7 of 23)."
+   ],
+   "coverage_status": {
+    "float": "no posts in the window (newest post 5 June 2026)",
+    "loop": "no posts in the window (newest post 11 June 2026)",
+    "keep": "no posts in the window (newest post 17 July 2024)"
    },
-   {
-    "pid": "airwallex",
-    "presents": "A global brand linked to elite sport, founders and events. This is a global account, so it does not show what is offered in Canada.",
-    "emphasises": "4 of 23 posts name a product; one shows a use case, Arsenal fans paying in their own currencies. Most posts name no product benefit."
+   "audience_title": "Audience and buying stage",
+   "audience_note": "Personas and buying stages are inferred from each post (caption, visuals and on-screen text), not confirmed by the brand.",
+   "zero_note": "A zero means not observed in these posts, not absent from the brand’s wider marketing.",
+   "examples_title": "Selected examples",
+   "examples": [
+    {
+     "post": "venn-ig-DcRCHJOCjRZ",
+     "image": "venn-DcRCHJOCjRZ",
+     "alt": "Video still from a Venn reel: a student outside a campus building, with on-screen figures for wire savings, FX savings, cashback earned and total annual savings of $4,500.",
+     "stood_out": "A customer interview puts the savings on screen ($1,300 wire, $1,000 FX, $2,200 cashback, $4,500 a year), credited to the customer with no basis given."
+    },
+    {
+     "post": "ramp-ig-DeM1Ba5zrfA",
+     "image": "ramp-DeM1Ba5zrfA",
+     "alt": "Video still from a Tony Hawk reel: Tony Hawk in a suit on a trading floor, framed like a video-game character select screen titled Tony Stock Pro Trader.",
+     "stood_out": "A three-part scripted comedy starring Tony Hawk, published on his account with a paid-partnership label; Ramp is named only at the end and no product is shown."
+    },
+    {
+     "post": "airwallex-ig-Dd_RQzPjTa7",
+     "image": "airwallex-Dd_RQzPjTa7",
+     "alt": "Video still from an Airwallex reel: a laptop checkout page listing payment currencies, with the subtitle They offer local payment methods.",
+     "stood_out": "A named customer, Arsenal’s Chief Revenue Officer, explains the product at the stadium, with a checkout screen showing local payment methods."
+    },
+    {
+     "post": "ramp-ig-DehBhI9G1w1",
+     "image": "ramp-DehBhI9G1w1",
+     "alt": "Carousel slide from Ramp: Today, 85,000 businesses use Ramp to save over $1 billion a month, in large yellow and white type on a dark background.",
+     "stood_out": "Funding news turned into designed slides around one usage claim, 85,000 businesses saving over $1 billion a month, stated without a basis."
+    },
+    {
+     "post": "venn-ig-Db8eeMHEV9v",
+     "image": "venn-Db8eeMHEV9v",
+     "alt": "Video still from a Venn reel: the Venn dashboard with an Interest Boost banner offering up to 3.5% interest, and account balances below.",
+     "stood_out": "A screen recording shows the rate and the deadline inside the product; the condition appears as a baseline on a tracker, not in words."
+    },
+    {
+     "post": "airwallex-ig-Dcrv-4rhQEc",
+     "image": "airwallex-Dcrv-4rhQEc",
+     "alt": "Video still from a creator reel: a hand holding an Airwallex Visa Commercial card at a baseball stadium, with the words One card, total control.",
+     "stood_out": "A creator skit ends on the card and “One card, total control.”; no market, plan or fee appears on screen."
+    }
+   ],
+   "engagement_title": "Engagement by theme",
+   "engagement_limit": "Based on visible likes and comments. Small samples are directional and do not establish sales performance.",
+   "engagement_takeaway": {
+    "venn": "Only customer stories meets this review’s minimum sample for reporting a median; the other themes are too small for a meaningful comparison.",
+    "ramp": "Ramp’s largest posts show abbreviated counts (such as 244.9K likes), so they are left out; the medians here describe only its smaller posts.",
+    "airwallex": "Partnership posts had the highest median (237 from 6 posts with counts), mostly from posts made with collaborators: without them the median is 75 from 4, close to Culture or community (66 from 5)."
    }
-  ],
-  "positioning_limit": "Only Venn and Airwallex are compared. Float, Loop and Keep: no posts found on the reviewed accounts in the research window, which says nothing about posting outside it. Ramp: account attribution unresolved, so @tryramp posts are counted in Sources & evidence but their content is not assessed here.",
-  "creative_title": "Creative Strategy",
-  "creative_stood_out": {
-   "venn": "Customer stories lead (6 of 9 posts), all told as interview videos with the customer’s own staff; the other posts explain the app or a rate through slides, a graphic and a screen recording.",
-   "airwallex": "Partnerships and company events lead (14 of 23 posts). Photo carousels are the most common execution (6), then event recap and creator videos (4 each) and sponsorship brand films (3); 5 of its 14 reels show a product or product screen, mostly for a moment."
-  },
-  "creative_limit": "Execution covers all 32 attributed posts. The 21 reels were reviewed on 1 November 2026 as frames across each video’s full length, with on-screen text read; audio was not heard, so anything said aloud and not subtitled is not assessed. Themes come from the captions.",
-  "creative_examples": [
-   {
-    "post": "venn-ig-DbV1GBioK7e",
-    "shows": "Four designed slides, one app feature on each with a short headline: the product explained as a list of tasks."
-   },
-   {
-    "post": "venn-ig-DcOdMd8oMR-",
-    "shows": "One text-led graphic states a user milestone (5,000+ app users) and lists app tasks, using the company’s own figure as proof."
-   },
-   {
-    "post": "airwallex-ig-Db8jAJeDQ5J",
-    "shows": "A programme cover, then one slide per judge: designed slides that say who the programme is for and when nominations close."
-   },
-   {
-    "post": "airwallex-ig-DePPHLOl2cq",
-    "shows": "Event photos with a Formula 1 driver and no product named: the brand is shown through hospitality and sport rather than features."
-   }
-  ],
-  "engagement_title": "Engagement by Theme",
-  "engagement_limit": "Based on visible likes and comments. Small samples are directional and do not establish sales performance.",
-  "engagement_takeaway": {
-   "venn": "Only customer stories meets this review’s minimum sample for reporting a median; the other themes are too small for a meaningful comparison.",
-   "airwallex": "Partnership posts had the highest median (237 from 6 posts with counts), mostly from posts made with collaborators: without them the median is 75 from 4, close to Culture or community (66 from 5)."
   }
  }
 }

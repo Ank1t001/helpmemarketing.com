@@ -418,8 +418,10 @@ def method_html(s):
     return ('<h4 class="t">Instagram posts</h4><p class="dek">Official company Instagram accounts only, posts published %s, collected on %s, '
             'after the window closed. These dates are separate from the website observation dates above. %s %s</p>'
             % (E(window_text()), E(c['text']), E(c['note'].split(' Displayed likes, comments and views')[0] + ' Displayed likes, comments and views were recorded with their own read times. Since 30 October 2026 likes and comments are compared only within each brand, in Social Media Strategy, with the limits stated there: posts had different ages at collection, and a collaboration\'s counts include the other account\'s audience.'), E(
-                '%d records were counted: %d attributed posts and %d @tryramp records with unresolved provider attribution, which are listed and labelled but carry no conclusion about Ramp.'
-                % (len(s['posts']), attributed_count(s), len(s['posts']) - attributed_count(s)))))
+                ('%d posts were counted. @tryramp\u2019s 19 posts count as Ramp\u2019s since 1 November 2026, on the owner\u2019s confirmation; the edition 001 records keep them marked as unresolved, as collected.' % len(s['posts']))
+                if ramp_decision(s, 'ramp') else
+                ('%d records were counted: %d attributed posts and %d @tryramp records with unresolved provider attribution, which are listed and labelled but carry no conclusion about Ramp.'
+                 % (len(s['posts']), attributed_count(s), len(s['posts']) - attributed_count(s))))))
 
 
 def byline_html(s):
@@ -432,7 +434,8 @@ def coverage_rows(s, order):
         a = next(x for x in s['accounts'] if x['platform'] == pid)
         mine = [p for p in s['posts'] if p['platform'] == pid]
         n = a['posts_in_window']
-        unresolved = a['attribution']['status'] == 'unresolved'
+        dec = ramp_decision(s, pid)
+        unresolved = a['attribution']['status'] == 'unresolved' and not dec
         if n:
             fm = ', '.join('%d %s' % (v, {'video': 'reels', 'carousel': 'carousels', 'image': 'images'}[k] if v != 1 else {'video': 'reel', 'carousel': 'carousel', 'image': 'image'}[k])
                            for k, v in sorted(a['formats'].items(), key=lambda kv: ['video', 'carousel', 'image'].index(kv[0])))
@@ -455,10 +458,10 @@ def coverage_rows(s, order):
             if a['paid_labels']:
                 parts.append('%d carry a paid-partnership label' % a['paid_labels'])
             col = '<span class="cell-main">%d of %d</span><span class="cell-sub">%s</span>' % (k, n, E('; '.join(parts)))
-        lim = [a['attribution']['label'] + '.']
+        lim = [(dec['label'] + '. ' + dec['basis']) if dec else (a['attribution']['label'] + '.')]
         if pid == 'venn':
             lim.append(a['attribution']['website_link'])
-        if pid == 'ramp':
+        if pid == 'ramp' and not dec:
             lim.append('The profile links tonystockprotrader.com, a campaign site that names Ramp as its operator; ramp.com links no Instagram account. These 19 records are counted and listed apart from the attributed posts, and no conclusion about Ramp rests on them.')
         if a['scope'] == 'global':
             lim.append('A global account: its posts do not show what is offered in Canada or on what terms.')
@@ -805,6 +808,10 @@ def inspection_text(s, p):
     """The 26 October inspection, followed by the 1 November frame review where a reel has one."""
     vr = video_reviews(s).get(p['id'])
     if not vr:
+        ir = next((c.get('image_review') for c in s.get('analysis', {}).get('posts', []) if c['post'] == p['id']), None)
+        if ir:
+            return '%s on 26 October 2026. %s reviewed in full on %s from the collected files.' % (
+                p['inspection_label'].rstrip('.'), 'Every slide' if ir['images'] > 1 else 'The image', long_day(ir['reviewed_on']))
         return p['inspection_label']
     return 'Cover and caption reviewed 26 October 2026. ' + review_label(vr)
 
@@ -812,7 +819,10 @@ def inspection_text(s, p):
 def check_analysis(s):
     a = s['analysis']
     errs = []
-    ids = [p['id'] for p in s['posts'] if p['attribution'] != 'unresolved']
+    ids = [p['id'] for p in s['posts'] if in_analysis(s, p)]
+    for pid, dec in (a.get('attribution_decisions') or {}).items():
+        if dec.get('status') != 'founder_confirmed' or not dec.get('decided_on') or not dec.get('basis'):
+            errs.append('analysis: the %s attribution decision needs its status, date and basis' % pid)
     got = [c['post'] for c in a['posts']]
     if sorted(got) != sorted(ids) or len(set(got)) != len(got):
         errs.append('analysis: one classification per attributed post (%d expected, %d given)' % (len(ids), len(got)))
@@ -829,8 +839,24 @@ def check_analysis(s):
             errs.append('analysis: %s has a video review but is not a video' % c['post'])
         if vr and not a.get('video_review', {}).get('method'):
             errs.append('analysis: video reviews need the review method and collector record')
-        if p and p['format'] != 'video' and p['inspection'] == 'partial' and c['approach_inspected']:
+        ir = c.get('image_review')
+        if p and p['format'] != 'video' and p['inspection'] == 'partial' and c['approach_inspected'] and not (ir and ir.get('images')):
             errs.append('analysis: %s was partly inspected' % c['post'])
+        import paid
+        if c.get('focus') not in dict(paid.FOCUS_L) or c.get('stage') not in dict(paid.STAGE_L) or not c.get('stage_reason'):
+            errs.append('analysis: %s needs a focus, a likely stage and its reason' % c['post'])
+        if not c.get('approaches') or not c.get('personas') or any(not q.get('clue') for q in c['personas']):
+            errs.append('analysis: %s needs creative approaches and personas with their clues' % c['post'])
+        for q in c.get('personas', []):
+            if paid.persona_key(q['persona']) == 'not_clear' and q['persona'] != 'not_clear':
+                errs.append('analysis: %s has an unknown persona %s' % (c['post'], q['persona']))
+    for k, img in (a.get('example_images') or {}).items():
+        pth = os.path.join(ROOT, img['src'].lstrip('/'))
+        if not os.path.exists(pth) or hashlib.sha256(open(pth, 'rb').read()).hexdigest() != img['sha256']:
+            errs.append('analysis: example image %s is missing or changed' % k)
+    blob = json.dumps(a)
+    if re.search(r'cdninstagram|fbcdn|scontent', blob):
+        errs.append('analysis: media links must stay out of the repository')
     return errs
 
 
@@ -873,89 +899,107 @@ def _plural(v, one, many):
     return '%d %s' % (v, one if v == 1 else many)
 
 
+def ramp_decision(s, pid):
+    """An owner decision that brings an account into the analysis (Ramp, 1 November 2026); social.json keeps the 26 October record."""
+    return ((s.get('analysis') or {}).get('attribution_decisions') or {}).get(pid)
+
+
+def in_analysis(s, p):
+    return p['attribution'] != 'unresolved' or bool(ramp_decision(s, p['platform']))
+
+
+SOC_APPROACH_L = {'event_recap': 'Event recap', 'sponsorship_film': 'Sponsorship film', 'campaign_stunt': 'Campaign stunt',
+                  'cinematic_film': 'Cinematic film or teaser', 'interview': 'Interview'}
+
+
+def creative_data(s):
+    """The 51 posts in the shape paid.py renders (Paid Social Strategy format, founder, 1 November 2026)."""
+    import paid
+    paid.APPROACH_L.update({k: v for k, v in SOC_APPROACH_L.items() if k not in paid.APPROACH_L})
+    paid.SOC_THEME_L.update({'soc:' + k: l for k, l, _ in s['analysis']['guide']['themes']})
+    P = {p['id']: p for p in s['posts']}
+    cs = []
+    for cl in s['analysis']['posts']:
+        p = P[cl['post']]
+        cs.append({'id': cl['post'], 'pid': p['platform'], 'focus': cl['focus'], 'format': p['format'], 'approaches': cl['approaches'],
+                   'themes': ['soc:' + cl['theme']], 'personas': cl['personas'], 'stage': cl['stage'], 'inspection': 'full',
+                   'hook': p.get('hook') or '', 'same_as': None})
+    return {'creatives': {'creatives': cs}}
+
+
 def strategy_html(c):
-    """The Social Media Strategy tab (founder review, 31 October 2026): Positioning, Creative Strategy with examples,
-    Engagement by Theme. Dates, coverage details, calculation rules and the full readings sit in Sources & evidence;
-    a limitation that changes how a comparison reads stays beside that comparison."""
+    """The Social Media Strategy tab in the format of Paid Social Strategy (founder, 1 November 2026): creative mix by brand,
+    audience and buying stage, selected examples, then engagement by theme, which only organic posts can show."""
+    import paid
     s = c.social
-    n = s['narrative']
-    st = n['strategy']
+    tb = s['narrative']['strategy']['tab']
+    d = creative_data(s)
+    have = [pid for pid in c.order if paid.sample(d, pid)]
+    none = [pid for pid in c.order if pid not in have]
+    cs_all = [x for pid in have for x in paid.sample(d, pid)]
+    ctx = {'prefix': 'bs-social', 'unit': ('post', 'posts'), 'exclusive': ('theme',),
+           'brand_head': lambda pid, cs: '<p class="pd-brand"><b>%s</b> <span class="pd-n">%d post%s reviewed</span></p>' % (E(NAMES[pid]), len(cs), '' if len(cs) == 1 else 's')}
+    head = lambda i, t: '<h3><span class="soc-n">%d</span>%s</h3>' % (i, E(t))
     out = []
     if s['status'] == 'review' and getattr(c, 'mode', 'draft') == 'draft':
-        out.append('<div class="note gap soc-review"><span class="lbl">For editorial review</span><p>%s</p></div>' % E(n['review_flag']))
-    head = lambda i, t: '<h3><span class="soc-n">%d</span>%s</h3>' % (i, E(t))
-    lim = lambda t: '<p class="soc-lim">%s</p>' % E(t)
-    stood = lambda t: '<p class="soc-stood"><b>What stood out:</b> %s</p>' % E(t)
-    # 1. Positioning: Venn and Airwallex side by side
-    rows = ''.join('<tr><td class="brandcell">%s</td><td data-label="How it presents itself">%s</td><td data-label="Products and benefits it emphasises">%s</td></tr>' % (
-        E(NAMES[r['pid']]), E(r['presents']), E(r['emphasises'])) for r in st['positioning_pair'])
-    out.append('<div class="sub soc-sec" id="bs-soc-positioning">%s<div class="tw cards" tabindex="0" role="region" aria-label="Positioning on Instagram, Venn and Airwallex">'
-               '<table class="bs soc-t"><thead><tr><th scope="col">Brand</th><th scope="col">How it presents itself</th><th scope="col">Products and benefits it emphasises</th></tr></thead><tbody>%s</tbody></table></div>%s</div>'
-               % (head(1, st['positioning_title']), rows, lim(st['positioning_limit'])))
-    # 2. Creative Strategy: formats, themes and execution kept apart, then examples
-    fmt_names = {'video': ('reel', 'reels'), 'carousel': ('carousel', 'carousels'), 'image': ('image', 'images')}
-    blocks = []
-    for pid in ('venn', 'airwallex'):
-        rr = [(cl, p) for cl, p in analysis_rows(s) if p['platform'] == pid]
-        tot = len(rr)
-        fm = {}
-        for _, p in rr:
-            fm[p['format']] = fm.get(p['format'], 0) + 1
-        fmt = ', '.join(_plural(fm[k], *fmt_names[k]) for k in ('video', 'carousel', 'image') if fm.get(k))
-        th = ''
-        for k, label, _ in s['analysis']['guide']['themes']:
-            k_n = sum(1 for cl, _ in rr if cl['theme'] == k)
-            if k_n:
-                th += '<li><span class="soc-bl">%s</span>%s<span class="soc-bv">%d of %d</span></li>' % (E(label), _bar(k_n, tot), k_n, tot)
-        insp = [cl for cl, _ in rr if cl['approach_inspected']]
-        appr = {}
-        for cl in insp:
-            key = cl['approach'].split(':')[0]
-            appr[key] = appr.get(key, 0) + 1
-        ex_items = ''.join('<li>%s <span class="soc-bv">%d</span></li>' % (E(k), v) for k, v in sorted(appr.items(), key=lambda kv: (-kv[1], kv[0])))
-        blocks.append('<div class="soc-mix"><h4 class="t">%s <span class="soc-den">%d attributed posts</span></h4>'
-                      '<dl class="soc-layers"><div><dt>Formats</dt><dd>%s</dd></div>'
-                      '<div><dt>Themes</dt><dd><ul class="soc-bars">%s</ul></dd></div>'
-                      '<div><dt>Execution <span class="soc-den">%d inspected posts</span></dt><dd><ul class="soc-exec">%s</ul></dd></div></dl>%s</div>'
-                      % (E(NAMES[pid]), tot, fmt, th, len(insp), ex_items, stood(st['creative_stood_out'][pid])))
-    exs = []
-    images = {ex['post']: ex['image'] for ex in n['examples'] if ex.get('image')}
-    for i, ex in enumerate(st['creative_examples'], 1):
-        p = next(x for x in s['posts'] if x['id'] == ex['post'])
-        cl = next(x for x in s['analysis']['posts'] if x['post'] == p['id'])
-        slides = re.search(r'all (\d+) slides', p.get('inspected', ''))
-        fmt = FORMAT_LABEL[p['format']] + (', %s slides' % slides.group(1) if p['format'] == 'carousel' and slides else '')
-        label = '%s &middot; %s &middot; %s &middot; %s' % (E(NAMES[p['platform']]), E(theme_label(s, cl['theme'])), E(fmt), E(long_day(p['published_on'])))
-        text = '<p class="soc-tags">%s</p><p class="soc-ex-approach">%s</p><p class="soc-ex-shows">%s</p>' % (label, E(cl['approach'].split(':')[0]), E(ex['shows']))
-        img = images.get(p['id'])
-        if img:
-            exs.append('<article class="soc-cex has-img" id="bs-sx%d"><figure class="soc-shot"><img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async"><figcaption>%s</figcaption></figure><div class="soc-cex-text">%s</div></article>'
-                       % (i, E(img['src']), E(img['alt']), img['width'], img['height'], E(img['credit']), text))
-        else:
-            exs.append('<article class="soc-cex" id="bs-sx%d"><div class="soc-cex-text">%s</div></article>' % (i, text))
-    out.append('<div class="sub soc-sec" id="bs-soc-creative">%s<div class="soc-mixes">%s</div>%s'
-               '<div id="bs-social-examples"><h4 class="t">Creative examples</h4><div class="soc-cexs">%s</div></div></div>'
-               % (head(2, st['creative_title']), ''.join(blocks), lim(st['creative_limit']), ''.join(exs)))
-    # 3. Engagement by Theme, within each brand
+        out.append('<div class="note gap soc-review"><span class="lbl">For editorial review</span><p>%s</p></div>' % E(s['narrative']['review_flag']))
+    out.append('<p class="soc-lim pd-lead">%s</p>' % E(tb['share_note']))
+    sel = ''.join('<button type="button" class="pd-opt" data-dim="%s" aria-pressed="%s">%s</button>' % (k, 'true' if i == 0 else 'false', E(t))
+                  for i, (k, t) in enumerate((('focus', 'Focus'), ('format', 'Format'), ('approach', 'Creative approach'), ('theme', 'Theme'))))
+    panels = (paid._dim_panel(d, have, 'focus', 'Focus', False, cs_all, ctx) + paid._dim_panel(d, have, 'format', 'Format', False, cs_all, ctx)
+              + paid._dim_panel(d, have, 'approach', 'Creative approach', True, cs_all, ctx) + paid._dim_panel(d, have, 'theme', 'Theme', True, cs_all, ctx))
+    stood = ''.join('<li>%s</li>' % E(x) for x in tb['mix_stood_out'])
+    nocov = '; '.join('%s: %s' % (NAMES[p], E(tb['coverage_status'][p])) for p in none)
+    out.append('<div class="sub soc-sec pd-sec" id="bs-social-mix">%s<div class="pd-sel" role="group" aria-label="Compare the creative mix by" hidden>%s</div>'
+               '<div class="pd-dims" data-pd-dims>%s</div><div class="pd-stood"><p><b>What stood out</b></p><ul>%s</ul></div>'
+               '<p class="soc-lim">Not compared: %s.</p><p class="soc-lim">%s</p></div>'
+               % (head(1, tb['mix_title']), sel, panels, stood, nocov, E(tb['ramp_note'])))
+    asel = ''.join('<button type="button" class="pd-opt" data-dim="%s" aria-pressed="%s">%s</button>' % (k, 'true' if i == 0 else 'false', E(t))
+                   for i, (k, t) in enumerate((('persona', 'Customer personas'), ('stage', 'Likely buying stage'))))
+    out.append('<div class="sub soc-sec pd-sec" id="bs-social-audience">%s<p class="soc-lim pd-lead">%s</p><div class="pd-sel" role="group" aria-label="Show audience by" hidden>%s</div>'
+               '<div class="pd-dims" data-pd-dims>%s%s</div><p class="soc-lim">%s</p></div>'
+               % (head(2, tb['audience_title']), E(tb['audience_note']), asel,
+                  paid._dim_panel(d, have, 'persona', 'Customer personas', True, cs_all, ctx),
+                  paid._dim_panel(d, have, 'stage', 'Likely buying stage', False, cs_all, ctx), E(tb['zero_note'])))
+    out.append('<div class="sub soc-sec pd-sec" id="bs-social-examples">%s%s</div>' % (head(3, tb['examples_title']), examples_html(s, d, tb)))
+    # 4. Engagement by theme, within each brand
     eng = []
-    for pid in ('venn', 'airwallex'):
+    for pid in have:
         rows = ''
         for r in engagement(s, pid):
             miss = r['posts'] - r['usable']
             posts = '%d%s' % (r['posts'], ('<span class="cell-sub">%s unavailable</span>' % _plural(miss, 'count', 'counts')) if miss else '')
-            if r['usable'] >= 3:
-                med = _num(r['median'])
-            elif r['usable']:
-                med = 'Too few to compare'
-            else:
-                med = 'Unavailable'
+            med = _num(r['median']) if r['usable'] >= 3 else ('Too few to compare' if r['usable'] else 'Unavailable')
             rows += '<tr><td class="brandcell">%s</td><td data-label="Posts">%s</td><td data-label="Median visible likes + comments">%s</td></tr>' % (E(r['label']), posts, E(med))
         eng.append('<div class="soc-eng" id="bs-soc-eng-%s"><h4 class="t" id="bs-soc-eng-%s-h">%s</h4><div class="tw" tabindex="0" role="region" aria-labelledby="bs-soc-eng-%s-h"><table class="bs soc-t">'
-                   '<thead><tr><th scope="col">Theme</th><th scope="col">Posts</th><th scope="col">Median visible likes + comments</th></tr></thead><tbody>%s</tbody></table></div>%s</div>'
-                   % (pid, pid, E(NAMES[pid]), pid, rows, stood(st['engagement_takeaway'][pid])))
-    out.append('<div class="sub soc-sec" id="bs-soc-engagement">%s%s<div class="soc-engs">%s</div></div>'
-               % (head(3, st['engagement_title']), lim(st['engagement_limit']), ''.join(eng)))
+                   '<thead><tr><th scope="col">Theme</th><th scope="col">Posts</th><th scope="col">Median visible likes + comments</th></tr></thead><tbody>%s</tbody></table></div>'
+                   '<p class="soc-stood"><b>What stood out:</b> %s</p></div>' % (pid, pid, E(NAMES[pid]), pid, rows, E(tb['engagement_takeaway'][pid])))
+    out.append('<div class="sub soc-sec" id="bs-soc-engagement">%s<p class="soc-lim">%s</p><div class="soc-engs">%s</div></div>'
+               % (head(4, tb['engagement_title']), E(tb['engagement_limit']), ''.join(eng)))
     return '\n'.join(out)
+
+
+def examples_html(s, d, tb):
+    import paid
+    P = {p['id']: p for p in s['posts']}
+    byid = {x['id']: x for x in d['creatives']['creatives']}
+    cards = []
+    for i, ex in enumerate(tb['examples'], 1):
+        x, p = byid[ex['post']], P[ex['post']]
+        img = s['analysis']['example_images'][ex['image']]
+        fmt = FORMAT_LABEL[p['format']]
+        cap = '%s by @%s%s, published %s. %s' % (fmt, p['publisher'], (' with @%s' % p['account']) if p['publisher'] != p['account'] else '', long_day(p['published_on']),
+                                               ('Frame at %d seconds, from the video collected 31 October 2026.' % img['frame_s']) if img.get('frame_s') is not None else 'Slide %d, collected 31 October 2026.' % img['slide'])
+        personas = ', '.join(sorted({paid.PERSONA_L[paid.persona_key(q['persona'])] for q in x['personas']})) or paid.UNCLEAR
+        chips = ''.join('<span class="pd-chip">%s</span>' % E(t) for t in [dict(paid.FOCUS_L)[x['focus']], dict(paid.FORMAT_L)[x['format']]] + [paid.approach_label(a) for a in x['approaches']])
+        cards.append('<article class="pd-ex has-img" id="bs-sx%d"><figure class="pd-shot"><img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async"><figcaption>%s</figcaption></figure>'
+                     '<div class="pd-ex-text"><p class="soc-tags">%s &middot; %s</p><p class="pd-hook">%s</p><p class="pd-chips">%s</p>'
+                     '<p class="pd-meta"><b>Appears to address:</b> %s &middot; <b>Likely stage:</b> %s</p><p class="soc-stood"><b>What stood out:</b> %s</p></div></article>'
+                     % (i, E(img['src']), E(ex['alt']), img['width'], img['height'], E(cap), E(NAMES[x['pid']]), E(theme_label(s, p and next(c['theme'] for c in s['analysis']['posts'] if c['post'] == ex['post']))),
+                        E(x['hook']), chips, E(personas), E(dict(paid.STAGE_L)[x['stage']]), E(ex['stood_out'])))
+    first, rest = cards[:4], cards[4:]
+    more = ('<details class="pd-more"><summary>More examples (%d)</summary><div class="pd-exs">%s</div></details>' % (len(rest), ''.join(rest))) if rest else ''
+    return '<div class="pd-exs">%s</div>%s' % (''.join(first), more)
 
 
 def strategy_reference_html(c):
@@ -990,14 +1034,15 @@ def analysis_reference_html(s):
             cov.append('<tr><td class="brandcell">%s</td><td data-label="Posts" colspan="6">No in-window posts found in the reviewed surfaces.</td></tr>' % E(NAMES[pid]))
             continue
         car = [p for p in mine if p['format'] == 'carousel']
+        irs = {c['post'] for c in a['posts'] if c.get('image_review')}
         vids = [p for p in mine if p['format'] == 'video']
         st = [interactions(p)[1] for p in mine]
         views = [metric(p['metrics']['views'])[1] for p in vids]
-        att = 'Unresolved' if any(p['attribution'] == 'unresolved' for p in mine) else 'Attributed'
+        att = ('Owner-confirmed, %s' % long_day(ramp_decision(s, pid)['decided_on'])) if ramp_decision(s, pid) else ('Unresolved' if any(p['attribution'] == 'unresolved' for p in mine) else 'Attributed')
         vr = video_reviews(s)
         cov.append('<tr><td class="brandcell">%s</td><td data-label="Attribution">%s</td><td data-label="Posts">%d</td><td data-label="Carousels fully opened">%d of %d</td>'
                    '<td data-label="Reels reviewed as frames">%d of %d</td><td data-label="Likes + comments">%d exact, %d approximate, %d missing</td><td data-label="Views (reels)">%d exact, %d approximate, %d missing</td></tr>'
-                   % (E(NAMES[pid]), att, len(mine), sum(1 for p in car if p['inspection'] == 'all_slides'), len(car), sum(1 for p in vids if p['id'] in vr), len(vids),
+                   % (E(NAMES[pid]), att, len(mine), sum(1 for p in car if p['inspection'] == 'all_slides' or p['id'] in irs), len(car), sum(1 for p in vids if p['id'] in vr), len(vids),
                       st.count('exact'), st.count('approximate'), st.count('missing'), views.count('exact'), views.count('approximate'), views.count('missing')))
     themes = ''.join('<dt>%s</dt><dd>%s</dd>' % (E(l), E(d)) for _, l, d in g['themes'])
     rules = ''.join('<li>%s</li>' % E(v) for v in a['metrics_rules'].values())
@@ -1005,13 +1050,14 @@ def analysis_reference_html(s):
     vr = video_reviews(s)
     for cl, p in analysis_rows(s):
         v, state = interactions(p)
-        insp = inspection_text(s, p) + ((' ' + vr[p['id']]['on_screen']) if p['id'] in vr else '')
+        ons = (vr.get(p['id']) or cl.get('image_review') or {}).get('on_screen')
+        insp = inspection_text(s, p) + ((' ' + ons) if ons else '')
         rows.append('<tr><td class="brandcell">%s<span class="cell-sub">%s</span></td><td data-label="Post"><a href="%s" rel="noopener nofollow" target="_blank">%s<span class="sr-only"> (opens in a new tab)</span></a><span class="cell-sub">%s</span></td>'
                     '<td data-label="Theme">%s%s</td><td data-label="Format and approach">%s<span class="cell-sub">%s</span></td><td data-label="Publisher">%s</td>'
                     '<td data-label="Likes, comments">%s, %s<span class="cell-sub">%s</span></td><td data-label="Basis">%s</td></tr>' % (
                         E(NAMES[p['platform']]), E(long_day(p['published_on'])), E(p['url']), E(p['shortcode']), E(insp),
                         E(theme_label(s, cl['theme'])), ('<span class="cell-sub">Also: %s</span>' % E(', '.join(x.replace('_', ' ') for x in cl['secondary']))) if cl['secondary'] else '',
-                        E(FORMAT_LABEL[p['format']]), E(cl['approach']), _collab_text(p),
+                        E(FORMAT_LABEL[p['format']]), E(cl['approach']) + ' ' + E(_paid_line(s, cl)), _collab_text(p),
                         E(str(p['metrics']['likes'])) if p['metrics']['likes'] is not None else 'missing', E(str(p['metrics']['comments'])) if p['metrics']['comments'] is not None else 'missing',
                         {'exact': 'sum %d' % v if v is not None else '', 'approximate': 'approximate, excluded', 'missing': 'missing, excluded'}[state], E(cl['basis'])))
     method = a.get('video_review', {})
@@ -1024,10 +1070,27 @@ def analysis_reference_html(s):
             % (E(a['basis']), mtxt, ''.join(cov), E(g['unit']), E(g['theme']), themes, E(g['format']), E(g['approach']), E(g['other_fields']), E(g['unclear']), rules, len(rows), ''.join(rows)))
 
 
-ANALYSIS_HEAD_TAIL = ['video_reviewed_on', 'video_frames_reviewed', 'video_duration_s', 'video_on_screen_text']
+ANALYSIS_HEAD_TAIL = ['video_reviewed_on', 'video_frames_reviewed', 'video_duration_s', 'video_on_screen_text',
+                      'focus', 'creative_approaches', 'personas', 'likely_stage', 'stage_reason', 'account_attribution']
 ANALYSIS_HEAD = ['post_id', 'provider', 'account', 'post_url', 'published_on_toronto', 'publisher', 'relation', 'collaboration', 'paid_partnership_label', 'format', 'inspection',
                  'primary_theme', 'secondary_tags', 'creative_approach', 'approach_inspected', 'audience_suggested', 'product', 'benefit', 'classification_basis',
                  'likes_displayed', 'comments_displayed', 'interactions_state', 'likes_plus_comments', 'counts_read_at', 'views_displayed', 'views_state', 'views_read_from'] + ANALYSIS_HEAD_TAIL
+
+
+def _paid_line(s, cl):
+    import paid
+    creative_data(s)
+    return '(%s; %s; audience: %s; %s.)' % (dict(paid.FOCUS_L)[cl['focus']], ', '.join(paid.approach_label(k) for k in cl['approaches']),
+                                           ', '.join(sorted({paid.PERSONA_L[paid.persona_key(q['persona'])] for q in cl['personas']})), dict(paid.STAGE_L)[cl['stage']])
+
+
+def _paid_cols(s, cl, p):
+    import paid
+    creative_data(s)
+    dec = ramp_decision(s, p['platform'])
+    return [dict(paid.FOCUS_L)[cl['focus']], '; '.join(paid.approach_label(k) for k in cl['approaches']),
+            '; '.join('%s (%s)' % (paid.PERSONA_L[paid.persona_key(q['persona'])], q['clue']) for q in cl['personas']),
+            dict(paid.STAGE_L)[cl['stage']], cl['stage_reason'], dec['label'] if dec else 'attributed']
 
 
 def render_analysis_csv(s):
@@ -1044,5 +1107,6 @@ def render_analysis_csv(s):
                     '' if m['likes'] is None else m['likes'], '' if m['comments'] is None else m['comments'], state, '' if v is None else v,
                     m.get('likes_comments_captured_at') or p['captured_at'], '' if m['views'] is None else m['views'], metric(m['views'])[1] if p['format'] == 'video' else 'not applicable',
                     'Reels tab' if m['views'] is not None else '']
-                   + ([vr[p['id']]['reviewed_on'], vr[p['id']]['frames_reviewed'], vr[p['id']]['duration_s'], vr[p['id']]['on_screen']] if p['id'] in vr else ['', '', '', '']))
+                   + ([vr[p['id']]['reviewed_on'], vr[p['id']]['frames_reviewed'], vr[p['id']]['duration_s'], vr[p['id']]['on_screen']] if p['id'] in vr else ['', '', '', ''])
+                   + _paid_cols(s, cl, p))
     return buf.getvalue()

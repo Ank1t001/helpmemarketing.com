@@ -473,25 +473,38 @@ def check_social_outputs(c, body):
     if s['narrative']['coverage_note'] not in html_unescape(ref) or s['narrative']['coverage_none'] not in html_unescape(ref):
         errs.append('social: Sources & evidence carries the coverage note and the no-posts sentence')
     st = s['narrative']['strategy']
-    if re.findall(r'<h3><span class="soc-n">\d</span>([^<]+)</h3>', tab) != [st['positioning_title'], st['creative_title'], st['engagement_title']]:
-        errs.append('social: the tab has three parts: Positioning, Creative Strategy, Engagement by Theme')
-    for t in (st['positioning_limit'], st['creative_limit'], st['engagement_limit']):
+    tb = st['tab']
+    # Since 2026-11-01 (founder) the tab follows Paid Social Strategy: creative mix by brand, audience and buying stage,
+    # selected examples, then engagement by theme; Ramp counts on the owner's confirmation.
+    if re.findall(r'<h3><span class="soc-n">\d</span>([^<]+)</h3>', tab) != [tb['mix_title'], tb['audience_title'], tb['examples_title'], tb['engagement_title']]:
+        errs.append('social: the tab has four parts: creative mix, audience and buying stage, selected examples, engagement by theme')
+    for t in (tb['share_note'], tb['audience_note'], tb['zero_note'], tb['engagement_limit'], tb['ramp_note']):
         if html_escape(t) not in tab:
-            errs.append('social: a comparison lost the limitation beside it (%s...)' % t[:40])
+            errs.append('social: the tab lost a note (%s...)' % t[:40])
+    for dim in ('focus', 'format', 'approach', 'theme', 'persona', 'stage'):
+        if 'id="bs-social-dim-%s"' % dim not in tab:
+            errs.append('social: the %s view is missing' % dim)
+    for pid, txt in tb['coverage_status'].items():
+        if html_escape('%s: %s' % (social.NAMES[pid], txt)) not in tab:
+            errs.append('social: the Not compared line names %s and why' % pid)
+    for x in tb['mix_stood_out']:
+        if html_escape(x) not in tab:
+            errs.append('social: a What stood out line is missing')
     if 'Not assessed' in tab or 'What this suggests' in tab or 'A possible test' in tab:
         errs.append('social: the tab carries no empty rows and no tests (tests live in Lessons)')
-    if [r['pid'] for r in st['positioning_pair']] != ['venn', 'airwallex']:
-        errs.append('social: Positioning compares Venn and Airwallex only')
-    for i, cx in enumerate(st['creative_examples'], 1):
-        p = next((x for x in s['posts'] if x['id'] == cx['post']), None)
-        cl = next((x for x in s['analysis']['posts'] if x['post'] == cx['post']), None)
-        art = re.search(r'<article class="soc-cex[^"]*" id="bs-sx%d">(.*?)</article>' % i, tab, re.S)
-        if not p or not cl or p['attribution'] == 'unresolved' or not cl['approach_inspected']:
-            errs.append('social: creative example %d must be an attributed post whose full creative was inspected' % i)
-        elif not art or 'href="http' in art.group(1) or html_escape(cx['shows']) not in art.group(1):
-            errs.append('social: creative example %d is missing from the tab, lacks its sentence, or links out' % i)
-    if sum(1 for cx in st['creative_examples'] for p in s['posts'] if p['id'] == cx['post'] and p['platform'] == 'venn') > 2 or len(st['creative_examples']) > 4:
-        errs.append('social: up to two creative examples per brand')
+    per = {}
+    for i, ex in enumerate(tb['examples'], 1):
+        p = next((x for x in s['posts'] if x['id'] == ex['post']), None)
+        cl = next((x for x in s['analysis']['posts'] if x['post'] == ex['post']), None)
+        art = re.search(r'<article class="pd-ex has-img" id="bs-sx%d">(.*?)</article>' % i, tab, re.S)
+        if not p or not cl or not cl['approach_inspected'] or not social.in_analysis(s, p):
+            errs.append('social: example %d must be an analysed post whose full creative was reviewed' % i)
+        elif not art or 'href="http' in art.group(1) or html_escape(ex['stood_out']) not in art.group(1) or html_escape(ex['alt']) not in art.group(1):
+            errs.append('social: example %d is missing from the tab, lacks its sentence or alt text, or links out' % i)
+        if p:
+            per[p['platform']] = per.get(p['platform'], 0) + 1
+    if any(v > 2 for v in per.values()):
+        errs.append('social: up to two examples per brand')
     sec = sec + ref
     review = 'For editorial review</span>' in tab
     if (s['status'] == 'review' and getattr(c, 'mode', 'draft') == 'draft') != review:
@@ -508,7 +521,10 @@ def check_social_outputs(c, body):
             errs.append('social: coverage count for %s does not match the %d records' % (pid, n))
         if n == 0 and 'No in-window posts found in the reviewed' not in row.group(1):
             errs.append('social: %s with no posts uses the agreed wording' % pid)
-        if a['attribution']['status'] == 'unresolved' and 'Attribution unresolved' not in row.group(1):
+        dec = social.ramp_decision(s, pid)
+        if dec and html_escape(dec['label']) not in row.group(1):
+            errs.append('social: %s row records the owner\'s confirmation' % pid)
+        if a['attribution']['status'] == 'unresolved' and not dec and 'Attribution unresolved' not in row.group(1):
             errs.append('social: %s attribution is labelled unresolved' % pid)
         if a['scope'] == 'global' and 'do not show what is offered in Canada' not in row.group(1):
             errs.append('social: %s is a global account and its row says so' % pid)
@@ -562,6 +578,8 @@ def check_social_outputs(c, body):
             if need not in sec:
                 errs.append('social: totals must separate attributed posts from unresolved records (%r missing)' % need)
         for pid in unresolved_pl:
+            if social.ramp_decision(s, pid):
+                continue
             row = re.search(r'<tr id="bs-sc-%s">(.*?)</tr>' % pid, sec, re.S)
             if row and (social.UNRESOLVED_LABEL not in row.group(1) or 'Attribution unresolved</span>' not in row.group(1)):
                 errs.append('social: the %s row labels its records as unresolved' % pid)

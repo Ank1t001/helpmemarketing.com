@@ -1,5 +1,6 @@
 """Run from the kit folder: python3 -m unittest tests.test_kit"""
 import csv
+import html
 import io
 import json
 import os
@@ -247,10 +248,13 @@ class KitTests(unittest.TestCase):
         self.assertEqual(sum(r['posts'] for r in social.engagement(s, 'airwallex')), 23)
         self.assertEqual(sum(r['posts'] for r in social.engagement(s, 'venn')), 9)
         rows = list(csv.reader(io.StringIO(social.render_analysis_csv(s))))
-        self.assertEqual(len(rows) - 1, 32)
-        self.assertFalse(any(r[1] == 'Ramp' for r in rows[1:]))
+        self.assertEqual(len(rows) - 1, 51)                        # Ramp counts on the owner's confirmation (1 November 2026)
+        self.assertEqual(sum(1 for r in rows[1:] if r[1] == 'Ramp'), 19)
+        self.assertEqual(sum(r['posts'] for r in social.engagement(s, 'ramp')), 19)
+        for col in ('focus', 'creative_approaches', 'personas', 'likely_stage', 'account_attribution'):
+            self.assertTrue(all(r[rows[0].index(col)] for r in rows[1:]), col)
         approx = [r for r in rows[1:] if r[rows[0].index('interactions_state')] == 'approximate']
-        self.assertEqual(len(approx), 2)
+        self.assertEqual(len(approx), 15)                          # 2 Airwallex, 13 Ramp (abbreviated counts such as 244.9K)
         self.assertTrue(all(r[rows[0].index('likes_plus_comments')] == '' for r in approx))
         for r in rows[1:]:
             if r[rows[0].index('format')] == 'video':
@@ -266,7 +270,7 @@ class KitTests(unittest.TestCase):
         m = social.load_module()
         self.assertEqual(social.check_analysis(m), [])
         reels = [c for c in m['analysis']['posts'] if c.get('video_review')]
-        self.assertEqual(len(reels), 21)
+        self.assertEqual(len(reels), 33)                          # 21 Venn and Airwallex reels, 12 Ramp reels
         self.assertTrue(all(c['approach_inspected'] and ':' in c['approach'] for c in reels))
         bad = copy.deepcopy(m)
         bad['analysis']['posts'][[c['post'] for c in bad['analysis']['posts']].index(reels[0]['post'])].pop('video_review')
@@ -303,7 +307,7 @@ class KitTests(unittest.TestCase):
         self.assertNotIn(self.c.n['views']['overview']['dek'], ov)
         self.assertEqual(re.findall(r'<span class="bs-gt">([^<]+)</span>', ov), ['Social Media Strategy', 'Paid Social Strategy', 'Website Messaging', 'Product Comparison', 'Customer Journey', 'Lessons'])
         self.assertEqual(re.findall(r'<span class="bs-gd">([^<]+)</span>', ov), [
-            'How brands position themselves, vary their creatives and engage their audience.',
+            'The content brands post on Instagram, who it speaks to and the response it receives.',
             'The creative approaches brands use, who they speak to and their likely buying stages.',
             'How brands explain their value and support their claims.',
             'Cards, rewards, fees and key conditions.',
@@ -679,16 +683,20 @@ class SocialModuleTests(unittest.TestCase):
         self.assertEqual(sec.count('No in-window posts found in the reviewed'), 3 + 3 + 3 + 3)   # in Sources & evidence: accounts table, positioning, product positioning, coverage assessment
         self.assertNotRegex(sec, r'(?i)\binactive\b')
         self.assertGreaterEqual(sec.count('Cover and caption reviewed 26 October 2026. Video reviewed 1 November 2026 as'), 3)   # the offer examples' reel records carry both reviews
-        # Founder review (2026-10-31): three parts, Venn and Airwallex only, examples from inspected posts, no empty rows or tests.
-        self.assertEqual(re.findall(r'<h3><span class="soc-n">\d</span>([^<]+)</h3>', tab), ['Positioning', 'Creative Strategy', 'Engagement by Theme'])
+        # Founder (2026-11-01): the format of Paid Social Strategy, Ramp included on the owner's confirmation.
+        self.assertEqual(re.findall(r'<h3><span class="soc-n">\d</span>([^<]+)</h3>', tab), ['Creative mix by brand', 'Audience and buying stage', 'Selected examples', 'Engagement by theme'])
         self.assertNotIn('Not assessed', tab)
         self.assertNotIn('What this suggests', tab)
-        self.assertEqual(len(re.findall(r'<article class="soc-cex', tab)), 4)
-        self.assertEqual(tab.count('<td class="brandcell">Venn</td>') + tab.count('<td class="brandcell">Airwallex</td>'), 2)
+        self.assertEqual(len(re.findall(r'<article class="pd-ex has-img" id="bs-sx', tab)), 6)
+        for dim in ('focus', 'format', 'approach', 'theme', 'persona', 'stage'):
+            self.assertIn('id="bs-social-dim-%s"' % dim, tab)
+        self.assertEqual([m for m in re.findall(r'<p class="pd-brand"><b>(\w+)</b>', tab)][:3], ['Venn', 'Ramp', 'Airwallex'])
+        self.assertIn('Not compared: Float: no posts in the window (newest post 5 June 2026); Loop: no posts in the window (newest post 11 June 2026); Keep: no posts in the window (newest post 17 July 2024).', html.unescape(tab))
+        self.assertIn('on the study owner', html.unescape(tab))
         self.assertIn('Based on visible likes and comments. Small samples are directional and do not establish sales performance.', tab)
         self.assertIn('Window and coverage', sec)
-        self.assertIn('Attribution unresolved', sec)
-        self.assertNotIn('ramp-ig-', sec)                       # no Ramp example while attribution is unresolved
+        self.assertIn('Owner-confirmed, 1 November 2026', sec)
+        self.assertNotIn('Attribution unresolved', sec)
 
     def test_release_is_blocked_until_approval(self):
         c = build.Ctx()

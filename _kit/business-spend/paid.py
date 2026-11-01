@@ -161,7 +161,12 @@ THEME_L = {'fees_fx': 'Saving on fees or FX', 'rewards_cashback_interest': 'Rewa
            'bill_pay': 'Bill pay', 'expense_management': 'Expense management', 'sector_specific': 'Industry-specific message', 'company_scale_trust': 'Company scale or trust'}
 PERSONA_L = {'business_owner': 'Business owner', 'finance_leader': 'Finance leader', 'accountant_bookkeeper': 'Accountant or bookkeeper',
              'ecommerce_operator': 'Ecommerce operator', 'industry': 'Industry-specific audience', 'general_business': 'General business audience',
-             'not_clear': 'Unclear / not assessed'}
+             'not_clear': 'Unclear / not assessed',
+             # Organic posts (Social Media Strategy, 2026-11-01) also speak to non-business audiences.
+             'fans_followers': 'Fans or followers (no business cue)', 'general_public': 'General public', 'employees_candidates': 'Prospective employees'}
+# Organic content themes (Social Media Strategy) keep their own labels and one primary theme per post.
+SOC_THEME_L = {}
+PAID_CTX = {'prefix': 'bs-paid', 'unit': ('creative', 'creatives'), 'exclusive': ()}
 UNCLEAR = 'Unclear / not assessed'
 TOP_N = 8
 
@@ -177,7 +182,7 @@ def approach_label(k):
 
 
 def theme_label(k):
-    return 'Other themes' if k == 'other' else (THEME_L.get(k) or _other_label(k))
+    return 'Other themes' if k == 'other' else (THEME_L.get(k) or SOC_THEME_L.get(k) or _other_label(k))
 
 
 def persona_key(p):
@@ -221,8 +226,8 @@ def pct(n, total):
     return int(round(100.0 * n / total)) if total else 0
 
 
-def _val(n, total):
-    return '%d%% &middot; %d of %d creative%s' % (pct(n, total), n, total, '' if total == 1 else 's')
+def _val(n, total, ctx=PAID_CTX):
+    return '%d%% &middot; %d of %d %s' % (pct(n, total), n, total, ctx['unit'][0] if total == 1 else ctx['unit'][1])
 
 
 def _cats(dim, cs_all):
@@ -240,7 +245,7 @@ def _cats(dim, cs_all):
     return [(k, UNCLEAR if k in (UNCLEAR, 'not_clear') else lab(k)) for k in keys + tail]
 
 
-def _stack(cs, cats, label):
+def _stack(cs, cats, label, ctx=PAID_CTX):
     total = len(cs)
     c = counts(cs, cats is STAGE_L and 'stage' or cats is FORMAT_L and 'format' or 'focus')
     x, rects, key = 0.0, [], []
@@ -253,13 +258,13 @@ def _stack(cs, cats, label):
         w = 1000.0 * n / total
         cls = 'pd-c-un' if k == 'not_assessed' else 'pd-c%d' % (i + 1)
         rects.append('<rect class="%s" x="%.2f" y="0" width="%.2f" height="18"/>' % (cls, x, w))
-        key.append('<li><span class="pd-sw %s" aria-hidden="true"></span>%s <b>%s</b></li>' % (cls, E(lab), _val(n, total)))
+        key.append('<li><span class="pd-sw %s" aria-hidden="true"></span>%s <b>%s</b></li>' % (cls, E(lab), _val(n, total, ctx)))
         x += w
     return ('<svg class="pd-stack" viewBox="0 0 1000 18" preserveAspectRatio="none" role="img" aria-label="%s"><title>%s</title>%s</svg><ul class="pd-key">%s</ul>'
             % (E(label), E(label), ''.join(rects), ''.join(key)))
 
 
-def _bars(cs, cats, dim):
+def _bars(cs, cats, dim, ctx=PAID_CTX):
     total = len(cs)
     c = counts(cs, dim)
     rows = []
@@ -268,11 +273,13 @@ def _bars(cs, cats, dim):
         w = 0 if not total else 200.0 * n / total
         rows.append('<li class="%s"><span class="pd-bl">%s</span><svg class="pd-bar" viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
                     '<rect class="pd-track" width="200" height="10" rx="2"/><rect class="%s" width="%.2f" height="10" rx="2"/></svg><span class="pd-bv">%s</span></li>'
-                    % ('pd-extra' if i >= TOP_N else '', E(lab), 'pd-c-un' if lab == UNCLEAR else 'pd-fill', w, _val(n, total) if n else '0 of %d' % total))
+                    % ('pd-extra' if i >= TOP_N else '', E(lab), 'pd-c-un' if lab == UNCLEAR else 'pd-fill', w, _val(n, total, ctx) if n else '0 of %d' % total))
     return '<ul class="pd-bars">%s</ul>' % ''.join(rows)
 
 
-def _brand_head(pid, cs, d):
+def _brand_head(pid, cs, d, ctx=PAID_CTX):
+    if ctx.get('brand_head'):
+        return ctx['brand_head'](pid, cs)
     found = len(sample(d, pid))
     reviewed = sum(1 for c in cs if c['inspection'] != 'not_assessed')
     # Coverage wording (founder, 2026-10-31): the denominator is the collected, deduplicated sample, not every creative the brand ran.
@@ -292,16 +299,17 @@ def coverage(d, order):
     return have, none
 
 
-def _dim_panel(d, have, dim, title, overlap, cs_all):
+def _dim_panel(d, have, dim, title, overlap, cs_all, ctx=PAID_CTX):
     cats = _cats(dim, cs_all)
     if overlap:
-        cards = ''.join('<div class="pd-card">%s%s</div>' % (_brand_head(pid, sample(d, pid), d), _bars(sample(d, pid), cats, dim)) for pid in have)
+        cards = ''.join('<div class="pd-card">%s%s</div>' % (_brand_head(pid, sample(d, pid), d, ctx), _bars(sample(d, pid), cats, dim, ctx)) for pid in have)
         more = ('<button type="button" class="pd-showall" aria-expanded="false" hidden>Show all categories (%d)</button>' % len(cats)) if len(cats) > TOP_N else ''
-        body = '<p class="pd-note">A creative can appear in more than one category.</p><div class="pd-cards">%s</div>%s' % (cards, more)
+        note = '' if dim in ctx['exclusive'] else '<p class="pd-note">A %s can appear in more than one category.</p>' % ctx['unit'][0]
+        body = '%s<div class="pd-cards">%s</div>%s' % (note, cards, more)
     else:
         body = '<div class="pd-stacks">%s</div>' % ''.join('<div class="pd-srow">%s%s</div>' % (
-            _brand_head(pid, sample(d, pid), d), _stack(sample(d, pid), cats, '%s, %s' % (NAMES[pid], title.lower()))) for pid in have)
-    return '<div class="pd-dim" data-dim="%s" id="bs-paid-dim-%s"><h4 class="t pd-dimh">%s</h4>%s</div>' % (dim, dim, E(title), body)
+            _brand_head(pid, sample(d, pid), d, ctx), _stack(sample(d, pid), cats, '%s, %s' % (NAMES[pid], title.lower()), ctx)) for pid in have)
+    return '<div class="pd-dim" data-dim="%s" id="%s-dim-%s"><h4 class="t pd-dimh">%s</h4>%s</div>' % (dim, ctx['prefix'], dim, E(title), body)
 
 
 def tab_html(d, order, long_date):

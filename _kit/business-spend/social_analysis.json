@@ -3,7 +3,7 @@
  "created": "2026-10-30",
  "basis": "Classified on 30 October 2026 from the inspected evidence recorded on 26 October 2026: captions, headers, cover frames, images and, where opened, every carousel slide. Execution for the 21 reels was added on 1 November 2026 from a frame review of each video (see the video review method); themes stay as classified from the captions.",
  "guide": {
-  "unit": "One record per unique attributed post (post ID and URL from social.json). The 19 @tryramp records are not classified while their provider attribution is unresolved.",
+  "unit": "One record per post in the analysis (post ID and URL from social.json): Venn 9, Ramp 19 and Airwallex 23. The 19 @tryramp posts were added on 1 November 2026, on the owner’s confirmation of the account.",
   "theme": "One primary theme per post, from what the caption and inspected visuals are about. Primary themes are mutually exclusive and sum to the brand’s post count. Secondary tags may overlap and never change primary counts.",
   "themes": [
    [
@@ -68,7 +68,20 @@
    "audience": "Businesses banking with Venn",
    "product": "Venn mobile app",
    "benefit": "Banking tasks from a phone: transfers, cards, receipts",
-   "basis": "Caption announces the app; each slide names one feature."
+   "basis": "Caption announces the app; each slide names one feature.",
+   "focus": "product",
+   "approaches": [
+    "text_led_graphic",
+    "product_shot"
+   ],
+   "personas": [
+    {
+     "persona": "general_business",
+     "clue": "addressed to businesses already banking with Venn"
+    }
+   ],
+   "stage": "BOF",
+   "stage_reason": "Asks existing customers to download the app."
   },
   {
    "post": "venn-ig-Dba905WFcDk",
@@ -86,7 +99,20 @@
     "frames_reviewed": 16,
     "video_sha256": "9bcf097db2a160c8cd60a390a002e392efe213cb303d47b8f41dac5811d47a22",
     "on_screen": "No rate, plan or cashback figure appears on screen."
-   }
+   },
+   "focus": "product",
+   "approaches": [
+    "customer_led",
+    "product_demo"
+   ],
+   "personas": [
+    {
+     "persona": "business_owner",
+     "clue": "a small-business general manager describes the tools his team uses"
+    }
+   ],
+   "stage": "MOF",
+   "stage_reason": "A customer lists the features that keep the team on Venn."
   },
   {
    "post": "venn-ig-Dbs4o31gNwm",
@@ -104,7 +130,19 @@
     "frames_reviewed": 16,
     "video_sha256": "514194685c6f82e8568a0648d4501fec2b392d57a31b81bdf67bba51e1d174f9",
     "on_screen": "No on-screen captions, so what they say is not known."
-   }
+   },
+   "focus": "brand_product",
+   "approaches": [
+    "customer_led"
+   ],
+   "personas": [
+    {
+     "persona": "industry:startups",
+     "clue": "a legal-software startup explains its switch"
+    }
+   ],
+   "stage": "MOF",
+   "stage_reason": "A customer explains why it switched."
   },
   {
    "post": "venn-ig-Db8eeMHEV9v",
@@ -124,7 +162,19 @@
     "frames_reviewed": 16,
     "video_sha256": "351f5106a118a5739bfb7280cf2a4853927e7667f0ac1823651965c2d9b1c01e",
     "on_screen": "On screen: “Earn up to 3.5% interest” and “Add funds by October 15, 2026”; the balance tracker is split at a marked baseline."
-   }
+   },
+   "focus": "product",
+   "approaches": [
+    "product_demo"
+   ],
+   "personas": [
+    {
+     "persona": "general_business",
+     "clue": "businesses holding cash balances"
+    }
+   ],
+   "stage": "BOF",
+   "stage_reason": "A dated promotion with a sign-up link."
   },
   {
    "post": "venn-ig-Db-6ZTdkm1o",
@@ -142,7 +192,19 @@
     "frames_reviewed": 16,
     "video_sha256": "de4d514bdbd6a91260cecff25bf9be0b071e563f19ebc5b40e3881b899f533df",
     "on_screen": "No figure appears on screen."
-   }
+   },
+   "focus": "brand_product",
+   "approaches": [
+    "customer_led"
+   ],
+   "personas": [
+    {
+     "persona": "finance_leader",
+     "clue": "the customer’s VP of Finance is quoted"
+    }
+   ],
+   "stage": "MOF",
+   "stage_reason": "A customer’s finance lead gives a savings figure."
   },
   {
    "post": "venn-ig-DcL5FguFGv6",
@@ -160,7 +222,19 @@
     "frames_reviewed": 16,
     "video_sha256": "a388a356c320d9f1d481d0fee92eec69bff22e3b35e94767a0573cccac8a4db9",
     "on_screen": "No figure appears on screen."
-   }
+   },
+   "focus": "brand_product",
+   "approaches": [
+    "customer_led"
+   ],
+   "personas": [
+    {
+     "persona": "industry:startups",
+     "clue": "a startup contrasts its old bank with Venn"
+    }
+   ],
+   "stage": "MOF",
+   "stage_reason": "A customer compares Venn with its old bank."
   },
   {
    "post": "venn-ig-DcOdMd8oMR-",
@@ -173,7 +247,19 @@
    "audience": "Businesses banking with Venn",
    "product": "Venn mobile app",
    "benefit": "Banking from a phone",
-   "basis": "Caption and image state 5,000+ app users and list app tasks."
+   "basis": "Caption and image state 5,000+ app users and list app tasks.",
+   "focus": "product",
+   "approaches": [
+    "text_led_graphic"
+   ],
+   "personas": [
+    {
+     "persona": "general_business",
+     "clue": "app tasks for any business on Venn"
+    }
+   ],
+   "stage": "MOF",
+   "stage_reason": "States a user milestone and lists app tasks."
   },
   {
    "post": "venn-ig-DcRCHJOCjRZ",
@@ -191,7 +277,19 @@
     "frames_reviewed": 24,
     "video_sha256": "d402590d6973500786a54e2913ef95c305d10cd793b570f2a41e4ceb5ed936e9",
     "on_screen": "On screen: wire savings $1,300, FX savings $1,000 and cashback earned $2,200, with no basis given."
-   }
+   },
+   "focus": "product",
+   "approaches": [
+    "customer_led"
+   ],
+   "personas": [
+    {
+     "persona": "industry:student_organisations",
+     "clue": "a student society describes its savings"
+    }
+   ],
+   "stage": "MOF",
+   "stage_reason": "A customer reports savings figures."
   },
   {
    "post": "venn-ig-DcjEYFvgAJV",
@@ -209,7 +307,19 @@
     "frames_reviewed": 16,
     "video_sha256": "5673b3c63d9375151517689b2dd7b58b1e727adde3158d1b1432ef51f42b4c4b",
     "on_screen": "No figure appears on screen."
-   }
+   },
+   "focus": "product",
+   "approaches": [
+    "customer_led"
+   ],
+   "personas": [
+    {
+     "persona": "industry:student_organisations",
+     "clue": "a student society on reimbursements"
+    }
+   ],
+   "stage": "MOF",
+   "stage_reason": "A customer describes faster reimbursements."
   },
   {
    "post": "airwallex-ig-DbTXNiWnXeJ",
@@ -229,7 +339,19 @@
     "frames_reviewed": 16,
     "video_sha256": "b07905eeb79c75a15e4d696ed3b68e243b48a0360e0cfc43a36760622fbd6a41",
     "on_screen": "End card: Airwallex, McLaren Mastercard Formula 1 Team official partner, “Build the future”. No product shown."
-   }
+   },
+   "focus": "brand",
+   "approaches": [
+    "sponsorship_film"
+   ],
+   "personas": [
+    {
+     "persona": "fans_followers",
+     "clue": "motorsport fans; no business cue"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Partner celebration with no product."
   },
   {
    "post": "airwallex-ig-DbaD6RJDRf5",
@@ -249,7 +371,20 @@
     "frames_reviewed": 16,
     "video_sha256": "8c32ce2b52bee2c9e61a6e4c3d5d867a86068305f42e3d50737ab2e4d7a1bce4",
     "on_screen": "The card appears in guests’ hands; no product text."
-   }
+   },
+   "focus": "brand",
+   "approaches": [
+    "event_recap",
+    "ugc_style"
+   ],
+   "personas": [
+    {
+     "persona": "business_owner",
+     "clue": "founders and creators at a hosted day"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "A hosted event, platform described generally."
   },
   {
    "post": "airwallex-ig-Dbl2eTKAsfQ",
@@ -269,7 +404,19 @@
     "frames_reviewed": 16,
     "video_sha256": "4126c2e8fe690284c76357a363a9ae7b08679133f1a837c67fb2633baa17bb4d",
     "on_screen": "End card: Blues and Airwallex, “Build the future”. No product shown."
-   }
+   },
+   "focus": "brand",
+   "approaches": [
+    "interview"
+   ],
+   "personas": [
+    {
+     "persona": "fans_followers",
+     "clue": "rugby fans; no business cue"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Sponsored-team interview with no product."
   },
   {
    "post": "airwallex-ig-Db8jAJeDQ5J",
@@ -282,7 +429,20 @@
    "audience": "Finance leaders at venture-backed startups",
    "product": "Startup Finance 30 programme (not a product)",
    "benefit": "Recognition for finance leaders",
-   "basis": "Caption and slides invite nominations with a deadline."
+   "basis": "Caption and slides invite nominations with a deadline.",
+   "focus": "brand",
+   "approaches": [
+    "text_led_graphic",
+    "lifestyle_photo"
+   ],
+   "personas": [
+    {
+     "persona": "finance_leader",
+     "clue": "finance leaders at venture-backed startups"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Programme announcement, not a product."
   },
   {
    "post": "airwallex-ig-DcS90igk82q",
@@ -302,7 +462,20 @@
     "frames_reviewed": 16,
     "video_sha256": "ed78720a1f419057fce8948acfed09201edf03b2fa972a6f1e7903c81163d3a8",
     "on_screen": "End card: official finance software partner of Arsenal. No product shown."
-   }
+   },
+   "focus": "brand",
+   "approaches": [
+    "motion_graphics",
+    "sponsorship_film"
+   ],
+   "personas": [
+    {
+     "persona": "fans_followers",
+     "clue": "football fans; no business cue"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Partner film with no product."
   },
   {
    "post": "airwallex-ig-DcfKTPtDY1O",
@@ -322,7 +495,20 @@
     "frames_reviewed": 16,
     "video_sha256": "0f3a61efd4408e56468dcda39dd8c12f32931326f6d7eb8e4e58018754c8710b",
     "on_screen": "One phone screen shows a pricing banner (“3.5% + 30c an order”) for a moment."
-   }
+   },
+   "focus": "brand",
+   "approaches": [
+    "event_recap",
+    "interview"
+   ],
+   "personas": [
+    {
+     "persona": "business_owner",
+     "clue": "Australian businesses at a hosted event"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Event recap with interviews."
   },
   {
    "post": "airwallex-ig-DcifgrKH3FT",
@@ -335,7 +521,19 @@
    "audience": "Prospective employees",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Caption tells an engineer’s story; link to the full piece."
+   "basis": "Caption tells an engineer’s story; link to the full piece.",
+   "focus": "brand",
+   "approaches": [
+    "lifestyle_photo"
+   ],
+   "personas": [
+    {
+     "persona": "employees_candidates",
+     "clue": "staff photos for prospective employees"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Company life, no product."
   },
   {
    "post": "airwallex-ig-DckdYfnjoaA",
@@ -348,7 +546,19 @@
    "audience": "Australian founders",
    "product": "Latitude 37 founder programme (not a product)",
    "benefit": "Equity-free funding and connections for a cohort",
-   "basis": "Caption announces the first programme cohort."
+   "basis": "Caption announces the first programme cohort.",
+   "focus": "brand",
+   "approaches": [
+    "lifestyle_photo"
+   ],
+   "personas": [
+    {
+     "persona": "business_owner",
+     "clue": "Australian founders in a programme"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Founder programme photos, not a product."
   },
   {
    "post": "airwallex-ig-Dcrv-4rhQEc",
@@ -369,7 +579,21 @@
     "frames_reviewed": 16,
     "video_sha256": "ad44d9c7bceb604abf2fa2cdc182a67297c6b07a5cf8b98466eb6f02da53bab1",
     "on_screen": "On screen: “One card, total control.” No market, plan, fee or condition appears on screen."
-   }
+   },
+   "focus": "product",
+   "approaches": [
+    "influencer_led",
+    "scripted_skit",
+    "product_shot"
+   ],
+   "personas": [
+    {
+     "persona": "business_owner",
+     "clue": "the creator speaks to business owners who travel for work"
+    }
+   ],
+   "stage": "MOF",
+   "stage_reason": "A creator endorses the corporate card."
   },
   {
    "post": "airwallex-ig-DdDtsdwzd8J",
@@ -390,7 +614,24 @@
     "frames_reviewed": 16,
     "video_sha256": "4710b90228afe05a0b844198a8f83a08294699613a5f8b74d3b24a4411892daf",
     "on_screen": "End card: “Enter now”, 2026 AFL Grand Final, Essendon and Airwallex. No product shown."
-   }
+   },
+   "focus": "brand",
+   "approaches": [
+    "influencer_led",
+    "other:quickfire_questions"
+   ],
+   "personas": [
+    {
+     "persona": "business_owner",
+     "clue": "founders answer business questions"
+    },
+    {
+     "persona": "fans_followers",
+     "clue": "AFL fans"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "A contest entry call with no product."
   },
   {
    "post": "airwallex-ig-DdIgy8SFQyl",
@@ -410,7 +651,19 @@
     "frames_reviewed": 16,
     "video_sha256": "71651b75cdd95d5992398c601ab635022ae7a6a5dc6b4461fd980b0e127c36cb",
     "on_screen": "No subtitles, so the topic comes from the caption only."
-   }
+   },
+   "focus": "brand",
+   "approaches": [
+    "other:podcast_clip"
+   ],
+   "personas": [
+    {
+     "persona": "business_owner",
+     "clue": "marketers and founders"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Podcast clip with no product."
   },
   {
    "post": "airwallex-ig-DdN-arvztB4",
@@ -431,7 +684,23 @@
     "frames_reviewed": 16,
     "video_sha256": "a2ee5763feaa72fa484d9bc843da51770dbfffa9f7f29d9cc5231959542651e0",
     "on_screen": "On screen: the entry question and “Closes 21st of September”. No product shown."
-   }
+   },
+   "focus": "brand",
+   "approaches": [
+    "influencer_led"
+   ],
+   "personas": [
+    {
+     "persona": "business_owner",
+     "clue": "asks for a bold business or career call"
+    },
+    {
+     "persona": "fans_followers",
+     "clue": "AFL fans"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "A contest entry call with no product."
   },
   {
    "post": "airwallex-ig-DdWxfd2DN19",
@@ -444,7 +713,19 @@
    "audience": "Prospective employees and the local community",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Caption describes the San Francisco team at a corporate run."
+   "basis": "Caption describes the San Francisco team at a corporate run.",
+   "focus": "brand",
+   "approaches": [
+    "lifestyle_photo"
+   ],
+   "personas": [
+    {
+     "persona": "employees_candidates",
+     "clue": "staff at a community run"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Company life, no product."
   },
   {
    "post": "airwallex-ig-DdmAkDeFw9Y",
@@ -457,7 +738,19 @@
    "audience": "People in San Francisco",
    "product": "None named",
    "benefit": "A free community event",
-   "basis": "Image and caption invite people to a tailgate."
+   "basis": "Image and caption invite people to a tailgate.",
+   "focus": "brand",
+   "approaches": [
+    "text_led_graphic"
+   ],
+   "personas": [
+    {
+     "persona": "general_public",
+     "clue": "a free public tailgate in San Francisco"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Event invitation, no product."
   },
   {
    "post": "airwallex-ig-Dd_RQzPjTa7",
@@ -478,7 +771,20 @@
     "frames_reviewed": 16,
     "video_sha256": "0cc5f7a58ffe5b4d76414cd645d4caa1002aa4d94fd32d2c41092482fc39678f",
     "on_screen": "On screen: a checkout offering local payment methods."
-   }
+   },
+   "focus": "product",
+   "approaches": [
+    "customer_led",
+    "product_shot"
+   ],
+   "personas": [
+    {
+     "persona": "ecommerce_operator",
+     "clue": "a club taking payments from fans worldwide"
+    }
+   ],
+   "stage": "MOF",
+   "stage_reason": "A named customer explains its use of local payment methods."
   },
   {
    "post": "airwallex-ig-Dd_wnO-DLcT",
@@ -492,7 +798,19 @@
    "audience": "Prospective employees",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Caption describes a team day with baseball alumni."
+   "basis": "Caption describes a team day with baseball alumni.",
+   "focus": "brand",
+   "approaches": [
+    "lifestyle_photo"
+   ],
+   "personas": [
+    {
+     "persona": "employees_candidates",
+     "clue": "staff photos for prospective employees"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Company life, no product."
   },
   {
    "post": "airwallex-ig-DePPHLOl2cq",
@@ -505,7 +823,19 @@
    "audience": "Clients and partners",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Caption describes a client event with an F1 driver."
+   "basis": "Caption describes a client event with an F1 driver.",
+   "focus": "brand",
+   "approaches": [
+    "lifestyle_photo"
+   ],
+   "personas": [
+    {
+     "persona": "general_business",
+     "clue": "clients and partners at a hosted event"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Client event, no product."
   },
   {
    "post": "airwallex-ig-DeS2nsqDHhh",
@@ -518,7 +848,19 @@
    "audience": "Motorsport fans",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Caption marks the brand’s place on a driver’s helmet."
+   "basis": "Caption marks the brand’s place on a driver’s helmet.",
+   "focus": "brand",
+   "approaches": [
+    "other:sponsorship_photo"
+   ],
+   "personas": [
+    {
+     "persona": "fans_followers",
+     "clue": "motorsport fans; no business cue"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Logo on a sponsored driver’s helmet."
   },
   {
    "post": "airwallex-ig-DeR-myVkbUa",
@@ -538,7 +880,20 @@
     "frames_reviewed": 16,
     "video_sha256": "05615dcfa40f0fca0ba8853899851d631401f0268ef74739d09ea6c4f6ae992c",
     "on_screen": "Product named in subtitles only (“Agent OS”, virtual cards)."
-   }
+   },
+   "focus": "brand_product",
+   "approaches": [
+    "event_recap",
+    "other:conference_talks"
+   ],
+   "personas": [
+    {
+     "persona": "finance_leader",
+     "clue": "finance and business leaders at a conference"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Conference recap that names a product."
   },
   {
    "post": "airwallex-ig-DeWOFBfBqQ0",
@@ -559,7 +914,20 @@
     "frames_reviewed": 16,
     "video_sha256": "2963d516f355060299af095d5506e0e5f2004ad331034fb1782da56163b757d6",
     "on_screen": "Partner branding on the event walls; no product shown."
-   }
+   },
+   "focus": "brand",
+   "approaches": [
+    "influencer_led",
+    "ugc_style"
+   ],
+   "personas": [
+    {
+     "persona": "fans_followers",
+     "clue": "the creator’s followers"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Creator event vlog with no product."
   },
   {
    "post": "airwallex-ig-DeYR3AhjgGm",
@@ -572,7 +940,19 @@
    "audience": "Clients, prospects and partners",
    "product": "None named",
    "benefit": "None stated",
-   "basis": "Caption describes Grand Prix hospitality and talks."
+   "basis": "Caption describes Grand Prix hospitality and talks.",
+   "focus": "brand",
+   "approaches": [
+    "lifestyle_photo"
+   ],
+   "personas": [
+    {
+     "persona": "general_business",
+     "clue": "clients, prospects and partners"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Hosted event photos, no product."
   },
   {
    "post": "airwallex-ig-DerrpMtiLyT",
@@ -593,7 +973,24 @@
     "frames_reviewed": 16,
     "video_sha256": "88b2f77d76e0980d722f48a08687e88fb9697496affccf11539ca772f7960e3b",
     "on_screen": "The card appears once; on screen “Our global financial platform” and “AI agents help to automate financial operations”."
-   }
+   },
+   "focus": "brand_product",
+   "approaches": [
+    "sponsorship_film",
+    "product_shot"
+   ],
+   "personas": [
+    {
+     "persona": "fans_followers",
+     "clue": "baseball fans"
+    },
+    {
+     "persona": "general_business",
+     "clue": "businesses with big ambitions"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Sponsor film that names the platform and card."
   },
   {
    "post": "airwallex-ig-DezQZwBiY6q",
@@ -611,14 +1008,682 @@
     "frames_reviewed": 16,
     "video_sha256": "2497f39a77d946124b78e083934313da6ec44a869d7931ba14c6ed1e0ff6f59e",
     "on_screen": "Stand screen line: “Accept payments. Earn yield. Pay globally.”"
-   }
+   },
+   "focus": "brand",
+   "approaches": [
+    "event_recap"
+   ],
+   "personas": [
+    {
+     "persona": "finance_leader",
+     "clue": "payments and finance industry at a trade show"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Trade-show recap, no product."
+  },
+  {
+   "post": "ramp-ig-DcJbcr6Inpg",
+   "theme": "partnership",
+   "secondary": [],
+   "approach": "Creator video: a cinematic creator-series episode with large on-screen words, ending on “ramp.com”",
+   "approach_inspected": true,
+   "audience": "Followers of a personal-finance creator",
+   "product": "None named (creator series)",
+   "benefit": "None stated",
+   "basis": "Creator series episode published by @thekumarmethod with @tryramp as collaborator.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 46.9,
+    "frames_reviewed": 16,
+    "video_sha256": "a3593a3c89cb2005f44dbf059609d47750f59f174b1af612db2dc94eddc40407",
+    "on_screen": "On screen: “ramp.com” at the end; no product shown."
+   },
+   "focus": "brand",
+   "approaches": [
+    "influencer_led",
+    "cinematic_film"
+   ],
+   "personas": [
+    {
+     "persona": "fans_followers",
+     "clue": "followers of a personal-finance creator series; no business cue"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Creator series episode; Ramp appears as a link."
+  },
+  {
+   "post": "ramp-ig-DcPprP0IrEE",
+   "theme": "partnership",
+   "secondary": [],
+   "approach": "Creator video: a trend-style hook, then cinematic creator-series shots, ending on “ramp.com/thekumarmethod”",
+   "approach_inspected": true,
+   "audience": "Followers of the creator series",
+   "product": "None named (creator series)",
+   "benefit": "None stated",
+   "basis": "Creator series promotion with @tryramp as collaborator.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 53.5,
+    "frames_reviewed": 16,
+    "video_sha256": "0b5b3264d53b7c7f270460a432614e677e886120fad918efc5c7f490b244a63d",
+    "on_screen": "On screen: “5 Chapters Available Now” and “ramp.com/thekumarmethod”."
+   },
+   "focus": "brand",
+   "approaches": [
+    "influencer_led",
+    "ugc_style"
+   ],
+   "personas": [
+    {
+     "persona": "fans_followers",
+     "clue": "followers of the creator series"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Creator series promoting its chapters."
+  },
+  {
+   "post": "ramp-ig-DcRk2HjEpvT",
+   "theme": "partnership",
+   "secondary": [],
+   "approach": "Photo carousel: creator photos alternating with personal-finance advice pages",
+   "approach_inspected": true,
+   "audience": "Individuals interested in personal finance",
+   "product": "None named (Ramp logo on the book)",
+   "benefit": "Personal money rules",
+   "basis": "Creator carousel with @tryramp as collaborator; seven slides.",
+   "image_review": {
+    "reviewed_on": "2026-11-01",
+    "images": 7,
+    "image_sha256": [
+     "21358f7bc0ea4d3b40724304a610f44c9c885be060008cdd143ed12db2b4bfb3",
+     "3f16dd256652a466ff9c0dacff784b18e74ce4736e44a25299d758484ed505d5",
+     "611604b09f8bcd786bb9f1468699ba9f71b3c4fc0c5dc3ab06543289eb964645",
+     "0f9e0d4a1079275581de2eebd19732d75e3739f252f2d7de9149b87cf10ca274",
+     "c70597007ae2abf8550a3351b289030cb2a4ae42b35b09da97ca546e2e782401",
+     "c1e64da73e8f365ac24e498dc3c12b21fc20398f49f4acfbdf088298f97992b0",
+     "f93b0d63b9ff2d36126a7ef5f24b7f02a4b6b857c80f9964ba75e8bdac78f744"
+    ],
+    "on_screen": "Advice pages such as “Keep your essentials under 55 percent of your income”."
+   },
+   "focus": "brand",
+   "approaches": [
+    "influencer_led",
+    "lifestyle_photo",
+    "text_led_graphic"
+   ],
+   "personas": [
+    {
+     "persona": "fans_followers",
+     "clue": "personal-finance advice for individuals; no business cue"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Personal-finance advice pages; Ramp branding on the book."
+  },
+  {
+   "post": "ramp-ig-DdG_6TuFPa6",
+   "theme": "company_events",
+   "secondary": [],
+   "approach": "Text-led event graphic: a press announcement with three cast photos",
+   "approach_inspected": true,
+   "audience": "Theatre audiences",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Playbill announces Ramp’s one-night Broadway musical.",
+   "image_review": {
+    "reviewed_on": "2026-11-01",
+    "images": 1,
+    "image_sha256": [
+     "0a55a3936f188a0ee58899d0cb217167ce5e57eee0fb739ac8ea4dd0c41e7a83"
+    ],
+    "on_screen": "Headline: “Bill Pay The Musical to Play One-Night-Only on Broadway”."
+   },
+   "focus": "brand",
+   "approaches": [
+    "other:press_announcement"
+   ],
+   "personas": [
+    {
+     "persona": "general_public",
+     "clue": "theatre audiences reading Playbill"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Announces a one-night Broadway show."
+  },
+  {
+   "post": "ramp-ig-DdHauw1xuaM",
+   "theme": "company_events",
+   "secondary": [],
+   "approach": "Event teaser video: short cinematic scenes, then the show title and date",
+   "approach_inspected": true,
+   "audience": "Theatre audiences",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Teaser for Ramp’s Broadway musical, published by @billpaythemusical.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 16.8,
+    "frames_reviewed": 16,
+    "video_sha256": "a3f2bbe2adf3c134add7d9b729383314d01cadd38b300be3df4a0f0077605973",
+    "on_screen": "End card: Ramp, “Bill Pay The Broadway Musical!”, September 25."
+   },
+   "focus": "brand",
+   "approaches": [
+    "cinematic_film"
+   ],
+   "personas": [
+    {
+     "persona": "general_public",
+     "clue": "theatre audiences"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Teaser for the show with a date."
+  },
+  {
+   "post": "ramp-ig-DdbmW7UunVk",
+   "theme": "company_events",
+   "secondary": [],
+   "approach": "Scripted short film: a casting-call office comedy with subtitles",
+   "approach_inspected": true,
+   "audience": "Theatre audiences",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Comedy short for the musical, published by @billpaythemusical.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 79.9,
+    "frames_reviewed": 16,
+    "video_sha256": "aed08d97f0f8cd7b63721b78cd66f2e330fa9c3287817ae7f96d7b3cae2d86f0",
+    "on_screen": "Subtitled dialogue; end card with the date and site."
+   },
+   "focus": "brand",
+   "approaches": [
+    "scripted_skit"
+   ],
+   "personas": [
+    {
+     "persona": "general_public",
+     "clue": "theatre audiences"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Scripted casting comedy for the show."
+  },
+  {
+   "post": "ramp-ig-DdsbIgJusmk",
+   "theme": "company_events",
+   "secondary": [],
+   "approach": "Event recap video: audience phone footage of the show",
+   "approach_inspected": true,
+   "audience": "Theatre audiences",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Clip from the musical night.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 12.0,
+    "frames_reviewed": 16,
+    "video_sha256": "2bb4fcf67060b599bf6d2938c57a9e8e6c3bfbf3c32884372cd75d6f807ae5b2",
+    "on_screen": "Crowd and stage footage; no text."
+   },
+   "focus": "brand",
+   "approaches": [
+    "ugc_style",
+    "event_recap"
+   ],
+   "personas": [
+    {
+     "persona": "general_public",
+     "clue": "theatre audiences"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Audience phone footage from the show."
+  },
+  {
+   "post": "ramp-ig-DdufZ02Rcq-",
+   "theme": "company_events",
+   "secondary": [],
+   "approach": "Single photo: the show’s theatre poster",
+   "approach_inspected": true,
+   "audience": "Theatre audiences",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Poster photo for the musical.",
+   "image_review": {
+    "reviewed_on": "2026-11-01",
+    "images": 1,
+    "image_sha256": [
+     "26808bcab01ff7dcd98551264745b617c08e3ca228f881bbc44f32108bf9619d"
+    ],
+    "on_screen": "Poster: “Ramp presents a real musical about bills”."
+   },
+   "focus": "brand",
+   "approaches": [
+    "other:event_poster"
+   ],
+   "personas": [
+    {
+     "persona": "general_public",
+     "clue": "theatre audiences"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Theatre poster for the show."
+  },
+  {
+   "post": "ramp-ig-DdwXpLwDuGU",
+   "theme": "company_events",
+   "secondary": [],
+   "approach": "Single photo: the CEO on stage with a quote overlay",
+   "approach_inspected": true,
+   "audience": "Theatre audiences",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "The CEO’s Broadway appearance, per the caption.",
+   "image_review": {
+    "reviewed_on": "2026-11-01",
+    "images": 1,
+    "image_sha256": [
+     "6741aee1470f198c41402ced8fa94a8c11900fa74e86cb2b1b378fbe56cca439"
+    ],
+    "on_screen": "Overlay: “AI is for finance, not fine art.”"
+   },
+   "focus": "brand",
+   "approaches": [
+    "founder_led",
+    "text_led_graphic"
+   ],
+   "personas": [
+    {
+     "persona": "general_public",
+     "clue": "theatre audiences"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "The CEO on stage with a one-line quote."
+  },
+  {
+   "post": "ramp-ig-DeK0JbPuJm8",
+   "theme": "company_events",
+   "secondary": [],
+   "approach": "Event recap video: performance highlights with cast credits and captions",
+   "approach_inspected": true,
+   "audience": "Theatre audiences",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Thank-you post for the musical’s cast, published by @tryramp.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 62.1,
+    "frames_reviewed": 16,
+    "video_sha256": "a21d465ca5c99f7aa563461d056bfe6932a3fb139112bda86579a12c22023887",
+    "on_screen": "On screen: the show title and “Starring” credits."
+   },
+   "focus": "brand",
+   "approaches": [
+    "event_recap",
+    "motion_graphics"
+   ],
+   "personas": [
+    {
+     "persona": "general_public",
+     "clue": "theatre audiences"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Performance highlights with cast credits."
+  },
+  {
+   "post": "ramp-ig-DeLBKE-hlOg",
+   "theme": "company_events",
+   "secondary": [],
+   "approach": "Event recap video: Ramp’s OnRamp conference in San Francisco",
+   "approach_inspected": true,
+   "audience": "Ramp’s customers and finance teams",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Conference recap published by @tryramp.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 53.1,
+    "frames_reviewed": 16,
+    "video_sha256": "5e8f6abc74124a908cbfd0be382aa076c134b966e0c7e493c814a742f4da653d",
+    "on_screen": "On screen: “OnRamp”, speaker names; no product."
+   },
+   "focus": "brand",
+   "approaches": [
+    "event_recap"
+   ],
+   "personas": [
+    {
+     "persona": "finance_leader",
+     "clue": "attendees of Ramp’s customer conference"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Conference recap, no product on screen."
+  },
+  {
+   "post": "ramp-ig-DeM1Ba5zrfA",
+   "theme": "partnership",
+   "secondary": [],
+   "approach": "Creator video: a scripted comedy episode starring Tony Hawk (episode 1 of 3)",
+   "approach_inspected": true,
+   "audience": "Tony Hawk’s followers",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Series episode published by @tonyhawk, labelled “Paid partnership with tryramp”.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 97.1,
+    "frames_reviewed": 24,
+    "video_sha256": "50d5c589e9d30fe569bf02b2d10cc5110a8102efc8f1bf8f15ca087ac1ff6b73",
+    "on_screen": "On screen: “Tony Stock Pro Trader, Episode 1/3”."
+   },
+   "focus": "brand",
+   "approaches": [
+    "influencer_led",
+    "scripted_skit"
+   ],
+   "personas": [
+    {
+     "persona": "fans_followers",
+     "clue": "Tony Hawk’s followers; no business cue"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Scripted comedy episode; Ramp named only at the end."
+  },
+  {
+   "post": "ramp-ig-DeZ_EwWSGea",
+   "theme": "partnership",
+   "secondary": [],
+   "approach": "Creator video: a scripted comedy episode with a mock infomercial (episode 2 of 3)",
+   "approach_inspected": true,
+   "audience": "Tony Hawk’s followers",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Series episode published by @tonyhawk, labelled as a paid partnership.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 80.1,
+    "frames_reviewed": 16,
+    "video_sha256": "1b68dfebb35c97f72035470c6b7911e91d7dc5922d9f4efa9cb101bd0e22ea72",
+    "on_screen": "On screen: “Episode: 2/3”; no product."
+   },
+   "focus": "brand",
+   "approaches": [
+    "influencer_led",
+    "scripted_skit"
+   ],
+   "personas": [
+    {
+     "persona": "fans_followers",
+     "clue": "Tony Hawk’s followers"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Scripted comedy episode."
+  },
+  {
+   "post": "ramp-ig-DehBhI9G1w1",
+   "theme": "company_events",
+   "secondary": [],
+   "approach": "Designed slides: funding news, a usage figure, three new products and a founders’ note",
+   "approach_inspected": true,
+   "audience": "Businesses and investors following Ramp",
+   "product": "AI spend management, Router, Glass (named)",
+   "benefit": "Saving businesses money",
+   "basis": "Funding announcement published by @tryramp; six slides.",
+   "image_review": {
+    "reviewed_on": "2026-11-01",
+    "images": 6,
+    "image_sha256": [
+     "f409cafcd32b05e6ae06908fd68cd4b3f561be140e6cdc643f2105c56667206a",
+     "4bffdc689301857097206250f186d4ec22e851a769792501537d44efe6542b14",
+     "190e66aab4a07b52d70420fd0ce03ca433046c958a3297201c38471d09dcb7a1",
+     "8448e52aef2614b637e7944e6de06120cb22ca46a33587cf7bb61a6babf07a8c",
+     "aae4c22ed29bdad26280bc9c46108b3d4607fb1aac6d567fc2de75e300732f94",
+     "bcee9cdf94b995636b849fb5349d1b0145fca10da9757c82e40538421908adb7"
+    ],
+    "on_screen": "Slides: “$1.85B raised”, “85,000 businesses use Ramp to save over $1 billion a month”."
+   },
+   "focus": "brand_product",
+   "approaches": [
+    "text_led_graphic",
+    "founder_led"
+   ],
+   "personas": [
+    {
+     "persona": "general_business",
+     "clue": "“85,000 businesses use Ramp”"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Funding news that names three new products."
+  },
+  {
+   "post": "ramp-ig-DehcRBxzH91",
+   "theme": "partnership",
+   "secondary": [],
+   "approach": "Creator video: a scripted comedy episode with Bam Margera (episode 3, part 1)",
+   "approach_inspected": true,
+   "audience": "Tony Hawk’s followers",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Series episode published by @tonyhawk, labelled as a paid partnership.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 95.0,
+    "frames_reviewed": 24,
+    "video_sha256": "5955943a5fcf17232c03bf28141e3b396ec580c4848c82a77b01019001db804d",
+    "on_screen": "A Ramp-branded skateboard appears near the end."
+   },
+   "focus": "brand",
+   "approaches": [
+    "influencer_led",
+    "scripted_skit"
+   ],
+   "personas": [
+    {
+     "persona": "fans_followers",
+     "clue": "Tony Hawk’s followers"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Scripted comedy episode."
+  },
+  {
+   "post": "ramp-ig-DekVrZ1my_s",
+   "theme": "partnership",
+   "secondary": [],
+   "approach": "Single photo: a campaign print ad on a newsstand",
+   "approach_inspected": true,
+   "audience": "New York newspaper readers",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Campaign stunt photo published by @tryramp.",
+   "image_review": {
+    "reviewed_on": "2026-11-01",
+    "images": 1,
+    "image_sha256": [
+     "8a6ca1944acf638c8bef9fcdfff0117b4559254d1dee6c735159cbdd44bc457a"
+    ],
+    "on_screen": "Ad: “Have you seen this man? … tonystockprotrader.com”, Ramp logo."
+   },
+   "focus": "brand",
+   "approaches": [
+    "campaign_stunt"
+   ],
+   "personas": [
+    {
+     "persona": "general_public",
+     "clue": "New York newspaper readers"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "A campaign print ad photographed on a newsstand."
+  },
+  {
+   "post": "ramp-ig-DemjlLvsi5X",
+   "theme": "partnership",
+   "secondary": [],
+   "approach": "Single photo: a grid of campaign flyers on New York streets",
+   "approach_inspected": true,
+   "audience": "People in New York",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Campaign stunt photo published by @tryramp.",
+   "image_review": {
+    "reviewed_on": "2026-11-01",
+    "images": 1,
+    "image_sha256": [
+     "d54f2278a3c4a524aea0357477d2008f0853221081e28d4e156160d9f818da8a"
+    ],
+    "on_screen": "Flyers: “Have you seen this man? Help us clear this up.”"
+   },
+   "focus": "brand",
+   "approaches": [
+    "campaign_stunt"
+   ],
+   "personas": [
+    {
+     "persona": "general_public",
+     "clue": "people in New York"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Missing-person flyers for the campaign."
+  },
+  {
+   "post": "ramp-ig-Den5Rgit78Q",
+   "theme": "partnership",
+   "secondary": [],
+   "approach": "Event recap video: Tony Hawk skating a Ramp half-pipe at the New York Stock Exchange",
+   "approach_inspected": true,
+   "audience": "Followers of the campaign",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Campaign night recap published by @tryramp with @tonyhawk.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 25.0,
+    "frames_reviewed": 16,
+    "video_sha256": "f127725e8bd426fb8cbf0aa418fb83d0c75ddccae5314727ecda97d39e820da2",
+    "on_screen": "Banner: “Skaters love ramps. Businesses do, too.”"
+   },
+   "focus": "brand",
+   "approaches": [
+    "influencer_led",
+    "event_recap"
+   ],
+   "personas": [
+    {
+     "persona": "general_public",
+     "clue": "a stunt at the New York Stock Exchange"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Campaign stunt; banner “Skaters love ramps. Businesses do, too.”"
+  },
+  {
+   "post": "ramp-ig-DexOf5RysxI",
+   "theme": "partnership",
+   "secondary": [],
+   "approach": "Creator video: a scripted comedy episode on the exchange floor (episode 3, part 2)",
+   "approach_inspected": true,
+   "audience": "Tony Hawk’s followers",
+   "product": "None named",
+   "benefit": "None stated",
+   "basis": "Series episode published by @tonyhawk, labelled as a paid partnership.",
+   "video_review": {
+    "reviewed_on": "2026-11-01",
+    "duration_s": 117.3,
+    "frames_reviewed": 24,
+    "video_sha256": "50f9c84498df05ce4b94994e13bd7cd6a324ece5fa579276ca3132290ebc9f83",
+    "on_screen": "On screen: “Episode: 3 part II”; no product."
+   },
+   "focus": "brand",
+   "approaches": [
+    "influencer_led",
+    "scripted_skit"
+   ],
+   "personas": [
+    {
+     "persona": "fans_followers",
+     "clue": "Tony Hawk’s followers"
+    }
+   ],
+   "stage": "TOF",
+   "stage_reason": "Scripted comedy episode at the exchange."
   }
  ],
  "video_review": {
-  "method": "The 21 attributed reels were collected with the official Apify actor apify/instagram-scraper on 31 October 2026 at 8:03 p.m. Toronto time (founder-approved after Instagram showed a sign-in wall to a signed-out browser). Each video was downloaded and reviewed on 1 November 2026 as frames spread evenly across its full length (16 per reel, 24 for the 140-second Queen’s interview), with on-screen text and subtitles read. Audio was not heard, so anything said aloud and not subtitled is not assessed. The 12 @tryramp reels were not collected.",
+  "method": "The 21 attributed reels were collected with the official Apify actor apify/instagram-scraper on 31 October 2026 at 8:03 p.m. Toronto time (founder-approved after Instagram showed a sign-in wall to a signed-out browser). Each video was downloaded and reviewed on 1 November 2026 as frames spread evenly across its full length (16 per reel, 24 for reels longer than 90 seconds), with on-screen text and subtitles read. Audio was not heard, so anything said aloud and not subtitled is not assessed. The 19 @tryramp posts (12 reels, 5 single images, 2 carousels) were collected the same way on 31 October 2026 at 9:49 p.m. Toronto time, after the owner confirmed the account, and reviewed the same way (images and every carousel slide in full).",
   "collector": "apify/instagram-scraper",
   "collected_at": "2026-10-31T20:03:00-04:00",
   "collector_output_sha256": "525eae8f4d8e7c09441991211422dbdd0ce6d3ca0ef482699c6ac46892b5f0ad",
-  "private": "The collector output, its signed media links and the video files stay private; only their SHA-256 hashes are recorded here."
- }
+  "private": "The collector output, its signed media links and the video files stay private; only their SHA-256 hashes are recorded here.",
+  "ramp_collector_output_sha256": "c66b1ddbd69b5a5bdaaf316bf2552a85c4174cb8e30419bb1fc1b66a59f62117",
+  "ramp_collected_at": "2026-10-31T21:49:24-04:00"
+ },
+ "attribution_decisions": {
+  "ramp": {
+   "status": "founder_confirmed",
+   "decided_on": "2026-11-01",
+   "label": "@tryramp treated as Ramp’s account on the owner’s confirmation (1 November 2026)",
+   "basis": "The confirmation comes from the owner of this study, not from Ramp. Supporting signs: the handle matches Ramp’s X account @tryramp, which ramp.com links; the profile is named Ramp and links tonystockprotrader.com, a campaign site that names Ramp as its operator; one post shows Ramp’s CEO on stage, according to its caption. ramp.com, its press page and its careers page, checked on 1 November 2026, still link no Instagram account."
+  }
+ },
+ "example_images": {
+  "venn-DcRCHJOCjRZ": {
+   "src": "/assets/index/business-spend/social/venn-DcRCHJOCjRZ.webp",
+   "width": 640,
+   "height": 360,
+   "sha256": "9d80bea8b0c544695f8b2a24946522a72c99a0317f9bee474e14e0f7a1747468",
+   "frame_s": 110
+  },
+  "venn-Db8eeMHEV9v": {
+   "src": "/assets/index/business-spend/social/venn-Db8eeMHEV9v.webp",
+   "width": 640,
+   "height": 360,
+   "sha256": "6a99776b609cc4376c62c44d1ec0de0d593441b69b187bc825733ee505737206",
+   "frame_s": 1
+  },
+  "ramp-DeM1Ba5zrfA": {
+   "src": "/assets/index/business-spend/social/ramp-DeM1Ba5zrfA.webp",
+   "width": 640,
+   "height": 480,
+   "sha256": "8bd666f71af518c3779322481e7f1adcd1ea6338c5967f9ca1a1213c5acaf5d5",
+   "frame_s": 61
+  },
+  "ramp-DehBhI9G1w1": {
+   "src": "/assets/index/business-spend/social/ramp-DehBhI9G1w1.webp",
+   "width": 360,
+   "height": 450,
+   "sha256": "ffeae6fadce23a3e6420f938bb942ac2ae8f0d58e4f384767f78bea3f2d37619",
+   "slide": 3
+  },
+  "airwallex-Dd_RQzPjTa7": {
+   "src": "/assets/index/business-spend/social/airwallex-Dd_RQzPjTa7.webp",
+   "width": 360,
+   "height": 640,
+   "sha256": "3d00d1763f1a725d8a52fdca6c58e3d2d32b05f38b2d5ac182a0659841f6a198",
+   "frame_s": 47
+  },
+  "airwallex-Dcrv-4rhQEc": {
+   "src": "/assets/index/business-spend/social/airwallex-Dcrv-4rhQEc.webp",
+   "width": 360,
+   "height": 640,
+   "sha256": "d34bb1f7834f938ef4328c016fa5013caec79d62b018a4bb67bdd597a2fa4ad9",
+   "frame_s": 22
+  }
+ },
+ "example_images_note": "Stills for Selected examples: frames taken from the videos collected on 31 October 2026 (Ramp slide from its carousel), resized to WebP. The videos stay private; only these stills are published."
 }

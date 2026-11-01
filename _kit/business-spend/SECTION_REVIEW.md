@@ -286,6 +286,16 @@ Measured at 1280 and 390px. Block gaps already followed the 2026-10-27 scale (he
 - Engagement tables: the Posts column is 24% wide and "1 count unavailable" stays on one line on desktop.
 - Phone cards: stacked table cards use 20px padding (was 16px), matching the example cards; the brand name at the top of a Positioning card is set as its title (16px, semibold).
 
+## 12. Social Media Strategy in the Paid format, Ramp included (founder, 1 November 2026; staging)
+
+- Founder: show all six brands (option 2 of three offered), treat @tryramp as Ramp's account ("This is Ramp insta Id"), and give the tab the structure of Paid Social Strategy, addressing the same things.
+- Ramp: ramp.com, its press and careers pages were checked again on 1 November 2026; they link Ramp's X account (x.com/tryramp), LinkedIn and Facebook, no Instagram. Chosen option: treat @tryramp as Ramp's on the owner's confirmation, stated on the page with the supporting signs (same handle as the X account, profile named Ramp, profile link to a Ramp-run campaign site, the CEO in a post). Recorded in `social_analysis.json` `attribution_decisions.ramp`. `social.json` and the edition 001 records are unchanged.
+- Ramp's 19 posts collected with `apify/instagram-scraper` on 31 October 2026 at 9:49 p.m. Toronto time (output hash recorded; output, media links and files private), reviewed from frames (12 reels; 24 frames for reels over 90 seconds) and in full (5 images, 2 carousels, every slide). Themes: Partnerships 10 (a personal-finance creator series and a Tony Hawk comedy series with its campaign stunts), Company news and events 9 (a one-night Broadway musical about bills, the OnRamp conference, funding news).
+- All 51 posts coded on the Paid dimensions: focus, creative approach (Paid vocabulary plus Event recap, Sponsorship film, Campaign stunt, Cinematic film or teaser, Interview), personas with clues (plus Fans or followers, General public, Prospective employees for organic audiences), likely buying stage with a reason. Theme stays the organic content theme, one per post.
+- Tab: 1 Creative mix by brand (share note; Focus, Format, Creative approach, Theme; What stood out for Venn, Ramp, Airwallex; Not compared: Float, Loop, Keep with their newest post dates, which is option 2 in the Paid form; the Ramp note), 2 Audience and buying stage, 3 Selected examples (six, two per brand, with stills; four shown, two under More examples), 4 Engagement by theme (Venn, Ramp, Airwallex; Ramp's large posts show abbreviated counts and are left out of medians, which the takeaway says). Positioning (all six brands, Ramp filled in) is in Sources & evidence.
+- Overview card: "The content brands post on Instagram, who it speaks to and the response it receives."
+- Code: `paid.py` renderers take an optional context (id prefix, unit noun, exclusive dimensions, brand heading); the Paid tab's output is byte-identical apart from its Ramp note, which now says the Ad Library evidence is consistent with the owner's confirmation. The analysis CSV gains focus, creative approaches, personas, likely stage, stage reason and account attribution, and now has 51 rows.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

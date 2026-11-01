@@ -425,7 +425,10 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
    Shared spacing scale: heading to content 12px, table or card to the text after it 16px, card padding 24px (20px on phones). */
 .msi.msi #bs-social .soc-sec>h3{margin-bottom:var(--s3)}
 .msi.msi #bs-social .soc-sec .tw{margin:0}
-.msi.msi #bs-social .soc-lim{margin:var(--s4) 0 0;font-size:14px;line-height:1.55;color:var(--text-muted)}
+.msi.msi #bs-social .soc-lim{margin:0 0 var(--s4);font-size:14px;line-height:1.55;color:var(--text-muted)}
+.msi.msi #bs-social-mix>.pd-stood+.soc-lim{margin-top:var(--s4)}
+.msi.msi #bs-social-mix>.soc-lim+.soc-lim.soc-lim{margin-top:var(--s2)}
+.msi.msi #bs-social .pd-ex .soc-stood{margin:0;font-size:14.5px;line-height:1.6;color:var(--text-body,var(--text))}
 .msi.msi #bs-social #bs-soc-engagement>.soc-lim{margin:0 0 var(--s4)}
 .msi.msi #bs-social .soc-stood{margin:var(--s4) 0 0;font-size:15px;line-height:1.6;color:var(--text-body,var(--text))}
 .msi.msi #bs-social .soc-stood b{color:var(--text)}
@@ -457,15 +460,15 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 @media(max-width:720px){.msi.msi #bs-social .soc-eng table.soc-t th,.msi.msi #bs-social .soc-eng table.soc-t td{padding:10px 8px}.msi.msi .soc-cex{padding:20px}.msi.msi .soc-cex.has-img{grid-template-columns:1fr}}
 /* Paid Social Strategy creative review (founder brief, 2026-10-31): percentage splits of distinct reviewed creatives.
    One palette for every brand and selector: c1 orange, c2 ink, c3 mint, c4 amber, unclear grey; every value is also written as text. */
-.msi.msi #bs-paid{--pd-c1:var(--cta);--pd-c2:var(--text);--pd-c3:var(--mint);--pd-c4:var(--warn);--pd-un:var(--border-strong)}
-.msi.msi #bs-paid .pd-c1{fill:var(--pd-c1);background:var(--pd-c1)}
-.msi.msi #bs-paid .pd-c2{fill:var(--pd-c2);background:var(--pd-c2)}
-.msi.msi #bs-paid .pd-c3{fill:var(--pd-c3);background:var(--pd-c3)}
-.msi.msi #bs-paid .pd-c4{fill:var(--pd-c4);background:var(--pd-c4)}
-.msi.msi #bs-paid .pd-c5,.msi.msi #bs-paid .pd-c-un{fill:var(--pd-un);background:var(--pd-un)}
-.msi.msi #bs-paid .pd-sec>h3{margin-bottom:var(--s3)}
+.msi.msi :is(#bs-paid,#bs-social){--pd-c1:var(--cta);--pd-c2:var(--text);--pd-c3:var(--mint);--pd-c4:var(--warn);--pd-un:var(--border-strong)}
+.msi.msi :is(#bs-paid,#bs-social) .pd-c1{fill:var(--pd-c1);background:var(--pd-c1)}
+.msi.msi :is(#bs-paid,#bs-social) .pd-c2{fill:var(--pd-c2);background:var(--pd-c2)}
+.msi.msi :is(#bs-paid,#bs-social) .pd-c3{fill:var(--pd-c3);background:var(--pd-c3)}
+.msi.msi :is(#bs-paid,#bs-social) .pd-c4{fill:var(--pd-c4);background:var(--pd-c4)}
+.msi.msi :is(#bs-paid,#bs-social) .pd-c5,.msi.msi :is(#bs-paid,#bs-social) .pd-c-un{fill:var(--pd-un);background:var(--pd-un)}
+.msi.msi :is(#bs-paid,#bs-social) .pd-sec>h3{margin-bottom:var(--s3)}
 .msi.msi #bs-paid .soc-lim{margin:0 0 var(--s4);font-size:14px;line-height:1.55;color:var(--text-muted)}
-.msi.msi #bs-paid .pd-lead{margin-bottom:var(--s5)}
+.msi.msi :is(#bs-paid,#bs-social) .pd-lead{margin-bottom:var(--s5)}
 .msi.msi .pd-sel{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 var(--s5)}
 .msi.msi .pd-opt{font:inherit;font-size:14px;font-weight:600;min-height:40px;padding:8px 16px;border:1px solid var(--border-strong);border-radius:999px;background:var(--bg-elevated);color:var(--text-muted);cursor:pointer}
 .msi.msi .pd-opt[aria-pressed="true"]{background:var(--text);border-color:var(--text);color:var(--bg)}
@@ -497,9 +500,9 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .pd-stood{margin-top:var(--s5);padding:var(--s4) var(--s5);border-left:2px solid var(--cta);background:var(--bg-elevated);border-radius:0 var(--r2) var(--r2) 0}
 .msi.msi .pd-stood p{margin:0 0 6px;font-size:14px}
 .msi.msi .pd-stood ul{margin:0;padding-left:18px;font-size:14.5px;line-height:1.6;color:var(--text-body,var(--text))}
-.msi.msi #bs-paid-audience .pd-dim+.pd-dim{margin-top:var(--s6)}
-.msi.msi #bs-paid-audience>.soc-lim:last-child{margin:var(--s4) 0 0}
-.msi.msi #bs-paid-mix>.soc-lim:last-child{margin:var(--s4) 0 0}
+.msi.msi :is(#bs-paid-audience,#bs-social-audience) .pd-dim+.pd-dim{margin-top:var(--s6)}
+.msi.msi :is(#bs-paid-audience,#bs-social-audience)>.soc-lim:last-child{margin:var(--s4) 0 0}
+.msi.msi :is(#bs-paid-mix,#bs-social-mix)>.soc-lim:last-child{margin:var(--s4) 0 0}
 .msi.msi .pd-exs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4);align-items:start}
 .msi.msi .pd-ex{padding:var(--s5);border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
 .msi.msi .pd-ex.has-img{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:var(--s4)}
@@ -655,11 +658,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 <script data-pd-mix>
-/* Paid Social Strategy (2026-10-31): the Focus / Format / Creative approach / Theme selector and "Show all categories".
+/* Paid Social Strategy (2026-10-31) and, since 2026-11-01, Social Media Strategy: the Focus / Format / Creative approach / Theme selector and "Show all categories".
    Without JavaScript every view shows with its own heading and every category is listed. */
 document.addEventListener('DOMContentLoaded', function () {
   // One switch per subsection: the creative mix (Focus, Format, Creative approach, Theme) and, since 2026-10-31, the audience (personas, buying stage).
-  [].forEach.call(document.querySelectorAll('#bs-paid .pd-sec'), function (sec) {
+  [].forEach.call(document.querySelectorAll('#bs-paid .pd-sec, #bs-social .pd-sec'), function (sec) {
     var box = sec.querySelector('[data-pd-dims]'), sel = sec.querySelector('.pd-sel');
     if (!box || !sel) return;
     var btns = [].slice.call(sel.querySelectorAll('.pd-opt')), dims = [].slice.call(box.querySelectorAll('.pd-dim'));
@@ -670,7 +673,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btns.forEach(function (b) { b.addEventListener('click', function () { pick(b.getAttribute('data-dim')); }); });
     sel.hidden = false; box.classList.add('pd-js'); pick(btns[0].getAttribute('data-dim'));
   });
-  [].forEach.call(document.querySelectorAll('#bs-paid .pd-showall'), function (b) {
+  [].forEach.call(document.querySelectorAll('#bs-paid .pd-showall, #bs-social .pd-showall'), function (b) {
     var d = b.closest('.pd-dim'), label = b.textContent;
     d.classList.add('pd-collapsed'); b.hidden = false;
     b.addEventListener('click', function () {
