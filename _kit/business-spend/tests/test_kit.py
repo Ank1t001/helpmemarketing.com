@@ -339,7 +339,7 @@ class KitTests(unittest.TestCase):
         self.assertEqual(len(re.findall(r'<figure class="bs-wex-shot"><a class="bs-zoom"[^>]*><img src="/assets/index/business-spend/web/', msg)), 3)
         self.assertEqual(msg.count('captured 31 October 2026'), 3)
         self.assertEqual(msg.count('<a class="bs-zoom" href="/assets/index/business-spend/web/'), 3)    # click to enlarge (2026-10-31)
-        self.assertIn('the outcomes are provider-reported, not independently verified.', msg)
+        self.assertIn('The outcomes in the case study are provider-reported, not independently verified.', msg)
         self.assertNotIn('described, not measured', msg)
         self.assertNotIn('<div class="card ex">', msg)
         self.assertNotRegex(msg.replace('credit score', ''), r'(?i)best website|\b(?:scored?|ranked|rating)\b|\d+ ?/ ?10|winning')   # "credit score" is quoted site wording

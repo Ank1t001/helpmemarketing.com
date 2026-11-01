@@ -775,6 +775,9 @@ def check_outputs(c, page, csvtext, extra_paths=()):
         errs.append('page: Sources & evidence holds every observation and a return control')
     if TAKE_LABEL in msg or re.search(r'capture request|\bR[12]\b', body, re.I) or html_escape(c.n['views']['messaging']['table_note']) not in msg:   # the date sits in the limitation beside the table since 2026-10-31
         errs.append('page: Messaging carries no takeaway boxes or capture codes, and keeps its dated limitation beside the table')
+    pat0 = c.n['patterns']['items'][0]['body']
+    if '<dl class="bs-stats"' not in msg or any(c.name(p) not in pat0 for p in c.n['views']['messaging'].get('unbased_claims', [])):
+        errs.append('page: Messaging opens with the at-a-glance strip, and every brand counted as lacking a stated basis is named in the first pattern')
     if 'booked' in body or 'after booking' in body:
         errs.append('page: a demo request is not a booked meeting')
     # Lessons since 2026-11-01 (founder): one card per brand in page order, one or two opportunities each; the three detailed test designs stay in Sources & evidence.

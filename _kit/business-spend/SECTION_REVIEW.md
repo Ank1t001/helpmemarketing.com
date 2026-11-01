@@ -374,6 +374,13 @@ Structure and percentage splits unchanged. Changes, from the founder's review of
 
 Only the Selected examples cards changed. The four cards shown by default take the founder's shorter "What stood out" wording, and each has a "More detail" disclosure directly below it, closed by default, holding the supporting paragraph (`detail` in `social_narrative.json` `strategy.tab.examples`). It is a native `details` element with the page's quiet `bs-more` style (`soc-detail`), so Enter, Space, click and tap all work, with a visible focus ring and a 32px target. Cards in a row align to the top, so opening one does not stretch its neighbour; nothing clips. Images, captions, headlines, tags, audience and buying-stage labels unchanged; the two cards under More examples have no detail. Engagement tables, calculations and takeaways unchanged. `validate.py` and the tests allow this one disclosure in the tab alongside More examples.
 
+## 24. Website Messaging: the Social and Paid treatment (founder, 1 November 2026; staging)
+
+- At-a-glance strip under the heading: 6 brands compared, 98 public sources reviewed, 128 recorded observations, 4 of 6 brands with a claim lacking a stated basis. The last figure counts `views.messaging.unbased_claims` in `narrative.json` (Venn, Float, Loop, Keep), and `validate.py` requires each of those brands to be named in the first website pattern ("Figures often appeared without their basis").
+- Tinted section number tiles, as on Social and Paid; brand names in the table are semibold.
+- Shorter notes: the table note keeps the 23 October observation date (it differs from Last updated): "Read from each homepage, a product page and the linked proof on 23 October 2026. Claims are the brands' own, not verified." The examples note is now "The steps after clicking are in Customer Journey." (each caption carries its capture date).
+- Example cards: a short What stood out line with a closed-by-default More detail, the same control as the Social example cards. Loop "Names the customer and the need in the headline." (detail: the three products underneath); Airwallex "Shows the customer's previous setup to make the change concrete." (detail: outcomes provider-reported, not independently verified); Keep "Answers a likely worry beside the button." (detail: the hard-inquiry footnote). Cards align to the top so an open card grows alone; images, captions, quotes and tags unchanged.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

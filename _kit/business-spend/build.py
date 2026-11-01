@@ -709,10 +709,17 @@ def body(c):
         cards.append('<article class="bs-wex" id="bs-wex-%d"><figure class="bs-wex-shot"><a class="bs-zoom" href="%s" data-zoom-w="%d" data-zoom-h="%d" aria-label="Enlarge screenshot: %s">'
                      '<img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async"><span class="bs-zoom-hint" aria-hidden="true">Click to enlarge</span></a>'
                      '<figcaption>%s, captured %s.</figcaption></figure><div class="bs-wex-text"><p class="soc-tags">%s &middot; %s</p><p class="bs-wex-quote">%s</p>'
-                     '<p class="soc-stood"><b>What stood out:</b> %s</p></div></article>' % (
+                     '<p class="soc-stood"><b>What stood out:</b> %s</p>%s</div></article>' % (
                          i, E(w['zoom_src']), w['zoom_width'], w['zoom_height'], E('%s, %s' % (c.name(w['pid']), x['label'].lower())),
-                         E(w['src']), E(x['alt']), w['width'], w['height'], E(c.name(w['pid'])), E(iso_long(w['captured_at'][:10])), E(x['label']), E(c.name(w['pid'])), E(x['wording']), E(x['stood_out'])))
-    V['messaging'] = (view_open('messaging', 'bs-messaging')
+                         E(w['src']), E(x['alt']), w['width'], w['height'], E(c.name(w['pid'])), E(iso_long(w['captured_at'][:10])), E(x['label']), E(c.name(w['pid'])), E(x['wording']), E(x['stood_out']),
+                         ('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(x['detail'])) if x.get('detail') else ''))
+    # At-a-glance strip, as on the Overview (founder, 2026-11-01): counted from the platforms, sources and observations.
+    unb = vm.get('unbased_claims', [])
+    mstats = [('Brands compared', str(len(c.order))), ('Public sources reviewed', str(len(c.sources) if hasattr(c, 'sources') else len(model.load('sources.json')['sources']))),
+              ('Recorded observations', str(len(c.obs))), ('Brands with a claim lacking a stated basis', '%d of %d' % (len(unb), len(c.order)))]
+    mstrip = '<dl class="bs-stats" aria-label="Website messaging at a glance">%s</dl>' % ''.join(
+        '<div class="bs-stat"><dt>%s</dt><dd>%s</dd></div>' % (E(l), E(v)) for l, v in mstats)
+    V['messaging'] = (view_open('messaging', 'bs-messaging') + mstrip
                       + '<div class="sub soc-sec" id="bs-msg-table"><h3 id="bs-msg-h"><span class="soc-n">1</span>%s</h3><p class="soc-lim">%s</p>'
                         '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-msg-h"><table class="bs bs-msgt"><caption class="sr-only">Main promise, audience, claimed difference and proof for six brands, from pages observed on 23 October 2026</caption>'
                         '<thead><tr><th scope="col">Brand</th><th scope="col">Main promise</th><th scope="col">Who it speaks to</th><th scope="col">Why choose them?</th><th scope="col">Proof used</th></tr></thead><tbody>\n%s</tbody></table></div></div>'
