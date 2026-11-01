@@ -125,13 +125,12 @@
  ],
  "creative": {
   "pending": "The creative review is not complete, so no creative percentages are shown yet.",
-  "share_note": "Percentages show the share of reviewed creatives, not ad spend or performance.",
   "mix_title": "Creative mix by brand",
   "audience_title": "Audience and buying stage",
   "audience_note": "Personas and buying stages are inferred from the creative, not confirmed campaign targeting.",
   "examples_title": "Selected creative examples",
   "coverage_status": {
-   "keep": "no active ads in Canada found in the snapshot"
+   "keep": "had no active ads in Canada when the library was checked"
   },
   "mix_stood_out": [
    {

@@ -353,6 +353,13 @@ The founder found the Overview dull and asked for the Sources & evidence link at
 - Removed the Ramp note from the tab; the owner's confirmation of @tryramp stays in Sources & evidence (Social accounts, attribution row) and in `social_analysis.json`.
 - At-a-glance strip under the heading, the same component as the Overview, counted from the 51 posts: 51 posts reviewed, 3 of 6 brands posting, 33 reels, 20 collaborations. Section numbers use the Overview's orange-tinted tile; the creative mix bars sit in a card. Strip to section 1 is 32px (40px on phones, a numbered-section step).
 
+## 21. Paid Social Strategy: the same treatment (founder, 1 November 2026; staging)
+
+- Removed the line "Percentages show the share of reviewed creatives, not ad spend or performance." The Ad Library's lack of spend, impressions and reach stays stated in Sources & evidence.
+- The Not compared line now reads: "Not compared: Keep had no active ads in Canada when the library was checked."
+- At-a-glance strip under the heading, counted from the records: 119 Meta ads, 87 distinct creatives, 5 of 6 brands advertising, 102 started within 30 days. Tinted section numbers and the creative mix card as on Social Media Strategy (the CSS now covers both tabs).
+- Kept: each brand's "N distinct creatives reviewed from the collected sample" line, per the 31 October coverage wording rule.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

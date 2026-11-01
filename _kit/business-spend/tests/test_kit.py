@@ -209,10 +209,11 @@ class KitTests(unittest.TestCase):
         self.assertEqual({p: len(paid.sample(d, p)) for p in self.c.order}, {'venn': 12, 'float': 5, 'ramp': 35, 'loop': 14, 'keep': 0, 'airwallex': 21})
         self.assertEqual(len(heads), 87)
         self.assertEqual(re.findall(r'<h3><span class="soc-n">\d</span>([^<]+)</h3>', tab), ['Creative mix by brand', 'Audience and buying stage', 'Selected creative examples'])
-        self.assertIn('Percentages show the share of reviewed creatives, not ad spend or performance.', tab)
         self.assertIn('Personas and buying stages are inferred from the creative, not confirmed campaign targeting.', tab)
         self.assertIn('Product-focused <b>79% &middot; 11 of 14 creatives</b>', tab)    # Loop focus, computed from counts
-        self.assertIn('Keep: no active ads in Canada found in the snapshot', tab)
+        self.assertIn('Not compared: Keep had no active ads in Canada when the library was checked.', tab)
+        self.assertNotIn('Percentages show the share', tab)
+        self.assertEqual(re.findall(r'<div class="bs-stat"><dt>([^<]+)</dt><dd>([^<]+)</dd>', tab), [('Meta ads', '119'), ('Distinct creatives', '87'), ('Brands advertising', '5 of 6'), ('Started within 30 days', '102')])
         self.assertEqual(len(re.findall(r'<article class="pd-ex', tab)), 8)
         self.assertEqual(tab.count('<details class="pd-more">'), 1)
         self.assertNotIn('Keep</b>', tab)                                       # no percentages for a brand with no creatives

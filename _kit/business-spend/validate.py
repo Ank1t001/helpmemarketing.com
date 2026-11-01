@@ -653,7 +653,7 @@ def check_paid_creatives(c, body):
     for pid in paid.NAMES:
         cs = paid.sample(d, pid)
         if not cs:
-            if '%s:' % paid.NAMES[pid] not in tab:
+            if paid.NAMES[pid] not in tab[tab.find('Not compared:'):][:300]:
                 errs.append('paid creatives: %s has no reviewed creatives and needs a coverage line, not percentages' % pid)
             continue
         n = len(cs)
@@ -686,7 +686,9 @@ def check_paid_creatives(c, body):
                 errs.append('paid creatives: example %d image is missing or differs from its recorded hash' % i)
         elif 'Ad-copy review' not in tab:
             errs.append('paid creatives: example %d has no visual and must be labelled as an ad-copy review' % i)
-    for need in (cv['share_note'], cv['audience_note'], 'A creative can appear in more than one category.'):
+    if '<dl class="bs-stats"' not in tab:
+        errs.append('paid creatives: the at-a-glance strip is missing')
+    for need in (cv['audience_note'], 'A creative can appear in more than one category.'):
         if html_escape(need) not in tab:
             errs.append('paid creatives: the tab lacks "%s"' % need[:50])
     if re.search(r'(?i)\b(best[- ]performing|top[- ]performing|winning|winner|dominant|outperform\w*|most effective|highest[- ]converting)\b', html_unescape(re.sub(r'<[^>]+>', ' ', tab))):

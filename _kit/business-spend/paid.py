@@ -320,8 +320,13 @@ def tab_html(d, order, long_date):
     cv = n['creative']
     have, none = coverage(d, order)
     cs_all = [c for pid in have for c in sample(d, pid)]
-    out = ['<p class="soc-lim pd-lead">%s</p>' % E(cv['share_note'])]
-    nocov = '; '.join('%s: %s' % (NAMES[p], E(cv['coverage_status'].get(p, 'no active ads in Canada found in the snapshot'))) for p in none)
+    # At-a-glance strip, as on the Overview (founder, 2026-11-01); every figure counted from the records.
+    recs = d.get('records') or []
+    stats = [('Meta ads', str(len(recs))), ('Distinct creatives', str(len(cs_all))), ('Brands advertising', '%d of %d' % (len(have), len(order))),
+             ('Started within 30 days', str(sum(1 for r in recs if r.get('days_running') is not None and r['days_running'] <= 30)))]
+    out = ['<dl class="bs-stats" aria-label="Meta ads at a glance">%s</dl>' % ''.join(
+        '<div class="bs-stat"><dt>%s</dt><dd>%s</dd></div>' % (E(l), E(v)) for l, v in stats)]
+    nocov = '; '.join('%s %s' % (NAMES[p], E(cv['coverage_status'].get(p, 'had no active ads in Canada when the library was checked'))) for p in none)
     head = lambda i, t: '<h3><span class="soc-n">%d</span>%s</h3>' % (i, E(t))
     # 1. Creative mix by brand
     sel = ''.join('<button type="button" class="pd-opt" data-dim="%s" aria-pressed="%s">%s</button>' % (k, 'true' if i == 0 else 'false', E(t))
