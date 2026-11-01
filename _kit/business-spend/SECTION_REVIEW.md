@@ -296,6 +296,12 @@ Measured at 1280 and 390px. Block gaps already followed the 2026-10-27 scale (he
 - Overview card: "The content brands post on Instagram, who it speaks to and the response it receives."
 - Code: `paid.py` renderers take an optional context (id prefix, unit noun, exclusive dimensions, brand heading); the Paid tab's output is byte-identical apart from its Ramp note, which now says the Ad Library evidence is consistent with the owner's confirmation. The analysis CSV gains focus, creative approaches, personas, likely stage, stage reason and account attribution, and now has 51 rows.
 
+## 13. Paid Social Strategy: spacing (founder, 1 November 2026; staging)
+
+Measured at 1280 and 390px against Social Media Strategy, which now uses the same components. Block gaps already matched (heading to switch 12px, switch to chart 24px, chart to What stood out 24px, box to its note 16px, examples 16px apart). Changes:
+- Numbered sections 48px apart (40px at 720px and below), as in Social Media Strategy; they were 32px, the same as blocks inside a section.
+- Colour-key rows under the stacked bars and the rows in the bar cards carry no item margin. Some rows inherited 8px from the general list rule, so on phones the key lines stood about 36px apart and the persona cards ran long; keys are now 27px apart and the Audience section is about 80px shorter on desktop. The What stood out bullets keep their 8px. The fix covers both tabs.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

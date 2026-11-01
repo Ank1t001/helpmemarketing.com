@@ -1236,6 +1236,11 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
    (it was 9px and 7px) on every tab; stacked table cards use 20px padding like the other cards at 720px and below, and a brand
    name heading a stacked card reads as its title. */
 .msi.msi #bs-social.bs-view>.soc-sec+.soc-sec{margin-top:var(--s7)}
+/* Paid Social Strategy pass (founder, 2026-11-01): the same section steps as Social Media Strategy (48px between numbered
+   sections, 40px at 720px and below). Colour-key and bar rows carry no item margin (some rows inherited 8px from the
+   general list rule, so keys on phones stood 36px apart); the What stood out bullets keep their 8px. */
+.msi.msi #bs-paid.bs-view>.soc-sec+.soc-sec{margin-top:var(--s7)}
+.msi.msi :is(#bs-paid,#bs-social) ul.pd-key li,.msi.msi :is(#bs-paid,#bs-social) ul.pd-bars li{margin:0}
 .msi.msi #bs-social ul.soc-bars,.msi.msi #bs-social ul.soc-exec{gap:var(--s2)}
 .msi.msi #bs-social ul.soc-bars li,.msi.msi #bs-social ul.soc-exec li{margin:0;min-height:22px}
 .msi.msi #bs-social dl.soc-layers{gap:var(--s4)}
@@ -1247,7 +1252,7 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi #bs-social .tw.cards td.brandcell{font-size:16px;font-weight:650}
 }
 @media(max-width:720px){
-.msi.msi #bs-social.bs-view>.soc-sec+.soc-sec{margin-top:40px}
+.msi.msi :is(#bs-social,#bs-paid).bs-view>.soc-sec+.soc-sec{margin-top:40px}
 .msi.msi #bs-social-examples{margin-top:var(--s5)}
 .msi.msi .tw.cards tr{padding:20px}
 .msi.msi .bs-view .tw:not(.cards) table.bs th,.msi.msi .bs-view .tw:not(.cards) table.bs td{padding-left:8px;padding-right:8px}
