@@ -388,6 +388,13 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - Shorter notes: "Observed 23 October 2026. Later rechecks are noted in the row they change." (the observation date stays, as it differs from Last updated) and "Prices in Canadian dollars unless stated. Per-user, annual and platform fees are shown where they apply."
 - Table content, tags, the category switch and the Airwallex follow-up unchanged.
 
+## 26. Customer Journey: the same treatment (founder, 1 November 2026; staging)
+
+- At-a-glance strip under the heading: 6 first screens followed, 13 help-centre pages read (31 October follow-up records of kind help_centre with HTTP 200), 1 of 6 first screens listing the steps ahead (Loop), 1 of 6 self-serve routes closed (Keep). The two brand counts come from `journey.steps_listed` and `journey.routes_closed` in `narrative.json`; `validate.py` requires those brands to be named in the first-screen finding.
+- Tinted section number tiles; brand names in the comparison table semibold.
+- Examples note: "Crops of public help pages. Click a screenshot to enlarge it." (each caption carries its capture date).
+- Help-page example cards: short What stood out with a closed-by-default More detail. Venn "Tells applicants what to check if approval takes longer than 24 hours." (detail: everyone added at sign-up must finish the selfie and government ID check); Loop "Separates opening the account from applying for the credit card." (detail: connect a business bank account, then the card form appears on the home screen). Cards align to the top; screenshots, captions, labels and tags unchanged.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

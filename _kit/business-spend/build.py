@@ -773,10 +773,18 @@ def body(c):
         jcards.append('<article class="bs-wex bs-jex" id="bs-jex-%d"><figure class="bs-wex-shot"><a class="bs-zoom" href="%s" data-zoom-w="%d" data-zoom-h="%d" aria-label="Enlarge screenshot: %s">'
                       '<img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async"><span class="bs-zoom-hint" aria-hidden="true">Click to enlarge</span></a>'
                       '<figcaption>%s help centre, captured %s.</figcaption></figure><div class="bs-wex-text"><p class="soc-tags">%s &middot; %s <span class="bs-src bs-src-help">%s</span></p>'
-                      '<p class="soc-stood"><b>What stood out:</b> %s</p></div></article>' % (
+                      '<p class="soc-stood"><b>What stood out:</b> %s</p>%s</div></article>' % (
                           i, E(w['zoom_src']), w['zoom_width'], w['zoom_height'], E('%s, %s' % (c.name(w['pid']), x['label'].lower())),
-                          E(w['src']), E(x['alt']), w['width'], w['height'], E(c.name(w['pid'])), E(iso_long(w['captured_at'][:10])), E(c.name(w['pid'])), E(x['label']), E(jl['help']), E(x['stood_out'])))
-    V['journeys'] = (view_open('journeys', 'bs-journeys')
+                          E(w['src']), E(x['alt']), w['width'], w['height'], E(c.name(w['pid'])), E(iso_long(w['captured_at'][:10])), E(c.name(w['pid'])), E(x['label']), E(jl['help']), E(x['stood_out']),
+                          ('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(x['detail'])) if x.get('detail') else ''))
+    # At-a-glance strip, as on the Overview (founder, 2026-11-01); the two brand counts come from lists checked against the first-screen finding.
+    jstats = [('First screens followed', str(len(c.order))),
+              ('Help-centre pages read', str(sum(1 for r in jf['records'] if r['kind'] == 'help_centre' and r['http_status'] == 200))),
+              ('First screens listing the steps ahead', '%d of %d' % (len(jy.get('steps_listed', [])), len(c.order))),
+              ('Self-serve routes closed', '%d of %d' % (len(jy.get('routes_closed', [])), len(c.order)))]
+    jstrip = '<dl class="bs-stats" aria-label="Customer journey at a glance">%s</dl>' % ''.join(
+        '<div class="bs-stat"><dt>%s</dt><dd>%s</dd></div>' % (E(l), E(v)) for l, v in jstats)
+    V['journeys'] = (view_open('journeys', 'bs-journeys') + jstrip
                      + '<div class="sub soc-sec" id="bs-journey-map"><h3 id="bs-jmap-h"><span class="soc-n">1</span>%s</h3>'
                        '<ol class="bs-jstages" aria-label="Four journey stages">%s</ol><p class="soc-lim bs-jnote">%s</p></div>' % (E(jy['overview_title']), stages, E(jy['overview_note']))
                      + '<div class="sub soc-sec" id="bs-journey-table"><h3 id="bs-jm-h"><span class="soc-n">2</span>%s</h3><p class="soc-lim">%s</p>'

@@ -2024,22 +2024,30 @@
    ]
   ],
   "examples_title": "Journey examples",
-  "examples_note": "Crops of public help pages captured on 31 October 2026. Click a screenshot to enlarge it.",
+  "examples_note": "Crops of public help pages. Click a screenshot to enlarge it.",
   "examples": [
    {
     "capture": "H1",
     "label": "Guidance while waiting",
     "alt": "Venn help article: if more than 24 hours have passed since sign-up, excluding weekends and public holidays, check email for a message from the onboarding team, make sure all added applicants have completed selfie and government ID verification, and allow up to 24 hours for a reply to be reviewed.",
-    "stood_out": "Tells applicants what to check if approval takes longer than 24 hours, including whether everyone added has finished ID verification."
+    "stood_out": "Tells applicants what to check if approval takes longer than 24 hours.",
+    "detail": "The checklist includes making sure everyone added at sign-up has finished the selfie and government ID check."
    },
    {
     "capture": "H2",
     "label": "Account approval versus card approval",
     "alt": "Loop help answer: completing onboarding gives access to core banking features; the credit card is a separate product with its own application process; after approval, connect a bank account under Settings, Bank Account, and a card application form appears on the home screen.",
-    "stood_out": "Separates opening the account from applying for the credit card, and names the step that leads to the card application."
+    "stood_out": "Separates opening the account from applying for the credit card.",
+    "detail": "It names the step that leads to the card application: connect a business bank account, then the card form appears on the home screen."
    }
   ],
-  "example_swap": "Float’s waiting-period article was the planned first example, but Float’s help centre returned an access check to this review, so Venn’s published waiting guidance is shown instead."
+  "example_swap": "Float’s waiting-period article was the planned first example, but Float’s help centre returned an access check to this review, so Venn’s published waiting guidance is shown instead.",
+  "steps_listed": [
+   "loop"
+  ],
+  "routes_closed": [
+   "keep"
+  ]
  },
  "messaging_support": {
   "checks": [
