@@ -612,7 +612,7 @@ def sources_view(c, views, start, end, draft):
         rel_html = ('<div class="note gap"><span class="lbl">Placeholder</span><p>Relationship disclosure pending. Before publication I will state here whether '
                     'I or Help Me Marketing have any commercial connection with any of the six providers.</p></div>')
     sec('bs-ref-author', 'Author and relationship disclosure',
-        '<div id="bs-research"><p class="dek">Research and analysis by <a href="/about">Ankit Kumar</a>, founder of Help Me Marketing, a marketing practice in Halton Hills, Ontario. This case study reads marketing pages and ads; it is not financial, legal or regulatory advice.</p>%s</div>' % rel_html)
+        '<div id="bs-research"><p class="dek">Research and analysis by <a href="/about">Ankit Kumar</a>, founder of Help Me Marketing, a marketing practice in Halton Hills, Ontario. This case study reads marketing pages and ads; it is not a ranking, a product test or a recommendation, and it is not financial, legal or regulatory advice.</p>%s<p class="dek">Company names are used to report their public pages and posts and imply no relationship with Help Me Marketing.</p></div>' % rel_html)
     # 9 and 10. Citation, edition history and corrections
     log = ''.join('<li><b>%s.</b> %s</li>' % (E(d), E(x)) for d, x in m.get('corrections_log', []))
     corr = ('<h4 class="t" id="bs-corrections">Corrections</h4><p class="dek">%s</p>%s' % (
@@ -651,10 +651,9 @@ def body(c):
     # Capture times and the scope paragraph live in "Scope & sources" (the methodology), not here.
     out.append('<header><p class="kicker">%s</p><h1>%s</h1><p class="bs-subtitle">%s</p><p class="lede">%s</p>' % (E(h['kicker']), E(h['title']), E(h['subtitle']), E(h['lede'])))
     # The six brands are named once, in the lede (founder, 2026-10-31); the separate brand line was removed.
-    # The independence line sits in the byline since 2026-10-31 (founder; it was the note under the Overview cards).
-    out.append('<p class="bs-meta">%sBy <a href="/about">Ankit Kumar</a> &middot; Edition %s &middot; %s<span class="bs-meta-ind">%s</span></p>' % (
-        '<span class="draft-flag">Draft</span> ' if draft else '', E(ed['edition']), 'Not yet published' if draft else 'Last Updated %s' % E(short_date(c.date_modified or c.release_date)),
-        E(h['independence'])))
+    # The independence line left the byline on 1 November 2026 (founder); "not a recommendation" sits in Sources & evidence.
+    out.append('<p class="bs-meta">%sBy <a href="/about">Ankit Kumar</a> &middot; Edition %s &middot; %s</p>' % (
+        '<span class="draft-flag">Draft</span> ' if draft else '', E(ed['edition']), 'Not yet published' if draft else 'Last Updated %s' % E(short_date(c.date_modified or c.release_date))))
     if draft:
         out.append('<p class="pnote">%s</p>' % E(h['draft_note']))
     out.append('</header>')
@@ -694,7 +693,7 @@ def body(c):
     vo = views['overview']
     guide = ''.join('<a class="bs-gcard" href="#bs-%s">%s<span class="bs-gt">%s</span><span class="bs-gd">%s</span></a>' % (
         k, ICONS[icon], E(views[k]['title'] if k in views else t), E(desc)) for k, t, desc, icon in vo['guide'] if k in views)
-    # No intro paragraph, provider list or note below the cards: the hero carries the providers and the independence line,
+    # No intro paragraph, provider list or note below the cards: the hero carries the providers,
     # and each section carries its own dates (founder review, 2026-10-31).
     V['overview'] = (view_open('overview', 'bs-overview', dek=False)
                      + '<nav class="bs-guide" aria-label="Sections of this case study">%s</nav>' % guide
@@ -809,9 +808,8 @@ def body(c):
     href = '/contact?intent=review&amp;entry=%s#contact-form' % hp['entry']
     out.append('<section id="bs-help"><div class="sec-head"><h2>%s</h2></div><div class="card"><p class="dek m0">%s</p>'
                '<a class="btn btn-primary" href="%s" data-review-cta="%s">%s</a></div></section>' % (E(hp['heading']), E(hp['body']), href, hp['entry'], E(hp['button'])))
-    out.append('<footer><div class="about"><p><b>About this case study.</b> It is part of <b>The HMM Index</b> by Help Me Marketing, an independent comparative marketing case study of how six selected brands market business cards, spend management and cross-border payments to Canadian businesses. Edition %s was first published as the Business Cards &amp; Spend Management Index, from public pages captured on %s%s. The live case study has since added a review of Meta ads collected on 30 October 2026, website and help-page captures from 31 October 2026 and separately dated follow-ups; each finding carries its own date in Sources &amp; evidence. It is not a ranking, a product test or a recommendation.</p></div>'
-               '<div class="byline-block"><p>Company names are used to report their public pages and posts and imply no relationship with Help Me Marketing.</p></div></footer>' % (
-                   E(ed['edition']), long_date(start), ' and Instagram posts published 25 July to 22 October 2026 (with @tryramp attribution unresolved)' if c.social else ''))
+    # The "About this case study" box and the company-names line were removed from the main page (founder, 1 November 2026);
+    # Sources & evidence carries the scope, dates, edition name, relationship disclosure and both sentences.
     out.append('</div>')
     out.append('<!-- ===== BUSINESS SPEND INDEX REPORT BODY END ===== -->')
     return '\n'.join(out)

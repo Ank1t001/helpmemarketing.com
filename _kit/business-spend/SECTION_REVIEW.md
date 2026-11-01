@@ -260,6 +260,12 @@ Remaining gaps: Instagram reels (need a signed-in or collector route the founder
 - Paid example P1: its limit said "The video was not watched"; the paid creative review had already covered it (C100, 24 frames, 31 October), so it now says so, and the reading still rests on the ad text.
 - Checks: `social.check_analysis` accepts a reel's execution only with a recorded frame review (12 or more frames, video SHA-256, date, on-screen note); a test covers it and confirms no media link sits in the file.
 
+## 9. Section-by-section pass, start (founder, 1 November 2026; staging)
+
+- Hero byline: "Independent marketing research, not a product recommendation" removed (supersedes the 31 October byline decision in section 1). The byline is now "By Ankit Kumar · Edition 001 · Last Updated ...".
+- The "About this case study" box and the line "Company names are used to report their public pages and posts and imply no relationship with Help Me Marketing." removed from the end of the main page. Everything in the box already sits in Sources & evidence (scope, dates of every collection, the edition 001 name in the citation, "None of the six is a client", the relationship disclosure). The two sentences that did not are now in "Author and relationship disclosure" (`#bs-ref-author`): "it is not a ranking, a product test or a recommendation" and the company-names line. The page now ends with "If you market a financial product".
+- Dead CSS removed with them: the `.msi.msi footer` rules in `site_shell.html` and `page_head.html` and `.bs-meta-ind`.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

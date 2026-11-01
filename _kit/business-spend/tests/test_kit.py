@@ -314,7 +314,11 @@ class KitTests(unittest.TestCase):
         self.assertIn('</div></nav><p class="bs-srcrow"><a class="bs-srclink" href="#bs-sources" id="bs-srclink">', body)
         self.assertEqual(body.count('id="bs-srclink"'), 1)
         self.assertNotIn('bs-ov-scope', ov)                    # the note under the cards was removed (founder, 2026-10-31)
-        self.assertIn('Independent marketing research, not a product recommendation', body.split('</header>')[0])
+        self.assertNotIn('Independent marketing research', body)            # byline line removed (founder, 2026-11-01)
+        self.assertNotIn('About this case study.', body)                    # footer box removed (founder, 2026-11-01)
+        src = body.split('id="bs-ref-author"')[1]
+        self.assertIn('it is not a ranking, a product test or a recommendation', src)
+        self.assertIn('Company names are used to report their public pages and posts and imply no relationship with Help Me Marketing.', src)
         # Founder brief (2026-10-31, second): one five-column comparison for all six brands, then three visual examples.
         self.assertNotIn('Website observations: 23 October 2026', msg)
         self.assertIn('A look at how brands explain their value, build trust and encourage customers to take the next step.', msg)
