@@ -601,6 +601,15 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
    name heading a stacked table card reads as its title (16px, semibold), as in Social Media Strategy. */
 .msi.msi #bs-messaging.bs-view>.soc-sec+.soc-sec{margin-top:var(--s7)}
 @media(max-width:900px){.msi.msi .bs-view .tw.cards td.brandcell{font-size:16px;font-weight:650;color:var(--text)}}
+/* Product Comparison pass (founder, 2026-11-01): the steps the other tabs use. Section heading to its note 12px (was 8px),
+   note to the category switch 24px and switch to the panel 24px (were 16px), as around the Paid and Social switches; the
+   price note to its table 16px (was 12px), as in Website Messaging. Phone cards use 20px padding and 12px gaps like every
+   other stacked card (they had their own 14px and 10px). */
+.msi.msi #bs-compare .soc-sec>h3{margin-bottom:var(--s3)}
+.msi.msi #bs-compare .bs-cmp-dates{margin-bottom:var(--s5)}
+.msi.msi #bs-compare .bs-csel{margin-bottom:var(--s5)}
+.msi.msi #bs-compare .bs-cpanel .tblock>.bs-tnote{margin-bottom:var(--s4)}
+@media screen and (max-width:720px){.msi.msi #bs-compare .tw.cards tr{padding:20px;gap:12px 16px;margin-bottom:12px}}
 .msi.msi :is(#bs-paid,#bs-social) ul.pd-key li,.msi.msi :is(#bs-paid,#bs-social) ul.pd-bars li{margin:0}
 .msi.msi #bs-social ul.soc-bars,.msi.msi #bs-social ul.soc-exec{gap:var(--s2)}
 .msi.msi #bs-social ul.soc-bars li,.msi.msi #bs-social ul.soc-exec li{margin:0;min-height:22px}

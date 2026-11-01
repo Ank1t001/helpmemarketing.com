@@ -308,6 +308,14 @@ Measured at 1280 and 390px. Inside each section the gaps already followed the sc
 - The two numbered sections (Messaging at a glance, Messaging in practice) sit 48px apart (40px at 720px and below), like Social Media Strategy and Paid Social Strategy; they were 32px (24px on phones).
 - Phone cards on every tab: the brand name heading a stacked table card is 16px semibold in the main text colour (it was regular weight and muted in Messaging and Product Comparison).
 
+## 15. Product Comparison: spacing (founder, 1 November 2026; staging)
+
+Measured at 1280 and 390px. One numbered section, so no section step applies. Changes, to the steps the other tabs use:
+- Section heading to the dates note 12px (was 8px), as on every other tab.
+- Dates note to the category switch and switch to the panel 24px each (were 16px), as around the Paid and Social switches.
+- Price note to its table 16px (was 12px), as in Website Messaging.
+- Phone cards: 20px padding and 12px gaps (16px between columns), like every other stacked card; Product Comparison had its own 14px padding and 10px gaps. The brand name already reads as the card title since section 14.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:
