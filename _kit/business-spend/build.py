@@ -741,7 +741,14 @@ def body(c):
     csel = ''.join('<button type="button" class="pd-opt bs-copt" data-cat="%s" aria-pressed="%s" aria-controls="bs-cpanel-%s">%s</button>' % (k, 'true' if i == 0 else 'false', k, E(l))
                    for i, (k, l, _, _, _, _) in enumerate(cats))
     cpanels = ''.join('<div class="bs-cpanel" id="bs-cpanel-%s" data-cat="%s">%s</div>' % (k, k, table(c, l, cols, tid, note=note, restrictions=rs)) for k, l, cols, tid, note, rs in cats)
-    V['compare'] = (view_open('compare', 'bs-compare')
+    # At-a-glance strip, as on the Overview (founder, 2026-11-01): counted from the rows, categories and observation statuses.
+    pt = sum(1 for pid in c.order if 'Peoples Trust' in cp['rows'][pid]['issuer']['text'])
+    disagree = len({o['platform'] for o in c.obs.values() if o['status'] == 'conflicting'})
+    cstats = [('Brands compared', str(len(c.order))), ('Comparison categories', str(len(cats))),
+              ('Cards issued by Peoples Trust', '%d of %d' % (pt, len(c.order))), ('Brands whose published pages disagree', '%d of %d' % (disagree, len(c.order)))]
+    cstrip = '<dl class="bs-stats" aria-label="Product comparison at a glance">%s</dl>' % ''.join(
+        '<div class="bs-stat"><dt>%s</dt><dd>%s</dd></div>' % (E(l), E(v)) for l, v in cstats)
+    V['compare'] = (view_open('compare', 'bs-compare') + cstrip
                     + '<div class="sub soc-sec" id="bs-cmp-area"><h3 id="bs-cmp-h"><span class="soc-n">1</span>%s</h3><p class="soc-lim bs-cmp-dates">%s</p>'
                       '<div class="pd-sel bs-csel" role="group" aria-label="Choose a comparison category" hidden>%s</div><div class="bs-cpanels" data-bs-cpanels>%s</div></div>'
                       % (E(cp['compare_title']), E(cp['dates_line']), csel, cpanels)

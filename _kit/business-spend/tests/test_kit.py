@@ -362,7 +362,7 @@ class KitTests(unittest.TestCase):
         for gone in ('bs-cmp-glance', 'bs-glance-', 'data-brand=', 'bs-cmp-sel', 'At a glance', 'Current eligibility needs confirmation'):
             self.assertNotIn(gone, cmp_)
         self.assertIn('Fees apply to different transactions and conditions; these are not like-for-like total costs.', cmp_)
-        self.assertIn('Website observations: 23 October 2026. Later follow-ups and rechecks are noted in the row they change.', cmp_)
+        self.assertIn('Observed 23 October 2026. Later rechecks are noted in the row they change.', cmp_)
         self.assertEqual(cmp_.count('<b>Follow-up, 30 October 2026:</b>'), 1)          # named once, in Airwallex's brand cell
         for tid in ('bs-prod', 'bs-xb', 'bs-spend'):                                    # no links inside the comparison cells
             seg = cmp_[cmp_.index('id="%s"' % tid):]

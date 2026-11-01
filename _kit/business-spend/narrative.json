@@ -793,9 +793,9 @@
    ]
   ],
   "unclear": "Where a label says what could not be confirmed, two published statements did not settle the point (reconciliation class D in the 23 October 2026 research). For Airwallex, a follow-up check on 30 October 2026 found that pricing lists up to 1% cash rebates on local CAD spend and links to promotion terms whose period ends on 31 December 2025 unless Airwallex notifies otherwise; no extension was found, so eligibility was not confirmed at the follow-up. The card page still states 1% cashback with no cap, and a 2% figure seen in the page metadata on 23 October stays in the evidence. Pricing also lists a credit line for corporate cards without explaining its eligibility or repayment terms.",
-  "pricing_note": "Prices are in Canadian dollars unless stated otherwise. Per-user charges, annual billing and additional platform fees are shown where applicable.",
+  "pricing_note": "Prices in Canadian dollars unless stated. Per-user, annual and platform fees are shown where they apply.",
   "currency_note": "Fees apply to different transactions and conditions; these are not like-for-like total costs.",
-  "dates_line": "Website observations: 23 October 2026. Later follow-ups and rechecks are noted in the row they change.",
+  "dates_line": "Observed 23 October 2026. Later rechecks are noted in the row they change.",
   "compare_title": "Compare by category",
   "rechecks": [
    {

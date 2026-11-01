@@ -381,6 +381,13 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - Shorter notes: the table note keeps the 23 October observation date (it differs from Last updated): "Read from each homepage, a product page and the linked proof on 23 October 2026. Claims are the brands' own, not verified." The examples note is now "The steps after clicking are in Customer Journey." (each caption carries its capture date).
 - Example cards: a short What stood out line with a closed-by-default More detail, the same control as the Social example cards. Loop "Names the customer and the need in the headline." (detail: the three products underneath); Airwallex "Shows the customer's previous setup to make the change concrete." (detail: outcomes provider-reported, not independently verified); Keep "Answers a likely worry beside the button." (detail: the hard-inquiry footnote). Cards align to the top so an open card grows alone; images, captions, quotes and tags unchanged.
 
+## 25. Product Comparison: the same treatment (founder, 1 November 2026; staging)
+
+- At-a-glance strip under the heading, counted in `build.py`: 6 brands compared, 3 comparison categories, 4 of 6 cards issued by Peoples Trust (issuer field), 2 of 6 brands whose published pages disagree (observations with status conflicting: Venn and Loop).
+- Tinted section number tile; brand names in the table semibold (restriction and credit notes under them stay regular).
+- Shorter notes: "Observed 23 October 2026. Later rechecks are noted in the row they change." (the observation date stays, as it differs from Last updated) and "Prices in Canadian dollars unless stated. Per-user, annual and platform fees are shown where they apply."
+- Table content, tags, the category switch and the Airwallex follow-up unchanged.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:
