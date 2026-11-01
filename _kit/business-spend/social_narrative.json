@@ -396,9 +396,9 @@
   "tab": {
    "mix_title": "Creative mix by brand",
    "mix_stood_out": [
-    "Venn: every post is about a product or names one (6 product-focused, 3 brand and product); 6 of 9 are customer-led interview videos.",
-    "Ramp: 18 of 19 posts are brand-focused, built around a Broadway musical about bills (9 posts) and two comedy series with a creator and Tony Hawk (10 posts); none shows the product in use.",
-    "Airwallex: 19 of 23 posts are brand-focused, led by sport sponsorships, hosted events and staff life; photo carousels are the most common approach (7 of 23)."
+    "Venn: All 9 posts feature a product; 6 use customer-led interviews.",
+    "Ramp: 18 of 19 posts focus on the brand through musical and comedy content; none demonstrates the product.",
+    "Airwallex: 19 of 23 posts focus on the brand through sports, events and staff life. Photo carousels lead the creative mix (7 of 23)."
    ],
    "coverage_newest": {
     "float": "5 June 2026",
@@ -414,46 +414,49 @@
      "post": "venn-ig-DcRCHJOCjRZ",
      "image": "venn-DcRCHJOCjRZ",
      "alt": "Video still from a Venn reel: a student outside a campus building, with on-screen figures for wire savings, FX savings, cashback earned and total annual savings of $4,500.",
-     "stood_out": "A customer interview puts the savings on screen ($1,300 wire, $1,000 FX, $2,200 cashback, $4,500 a year), credited to the customer with no basis given."
+     "stood_out": "A customer interview highlights $4,500 in annual savings, without explaining the calculation."
     },
     {
      "post": "ramp-ig-DeM1Ba5zrfA",
      "image": "ramp-DeM1Ba5zrfA",
      "alt": "Video still from a Tony Hawk reel: Tony Hawk in a suit on a trading floor, framed like a video-game character select screen titled Tony Stock Pro Trader.",
-     "stood_out": "A three-part scripted comedy starring Tony Hawk, published on his account with a paid-partnership label; Ramp is named only at the end and no product is shown."
+     "stood_out": "A paid-partnership comedy introduces Ramp at the end without demonstrating the product."
     },
     {
      "post": "airwallex-ig-Dd_RQzPjTa7",
      "image": "airwallex-Dd_RQzPjTa7",
      "alt": "Video still from an Airwallex reel: a laptop checkout page listing payment currencies, with the subtitle They offer local payment methods.",
-     "stood_out": "A named customer, Arsenal’s Chief Revenue Officer, explains the product at the stadium, with a checkout screen showing local payment methods."
+     "stood_out": "An Arsenal executive explains the product, supported by a checkout demonstration."
     },
     {
      "post": "ramp-ig-DehBhI9G1w1",
      "image": "ramp-DehBhI9G1w1",
      "alt": "Carousel slide from Ramp: Today, 85,000 businesses use Ramp to save over $1 billion a month, in large yellow and white type on a dark background.",
-     "stood_out": "Funding news turned into designed slides around one usage claim, 85,000 businesses saving over $1 billion a month, stated without a basis."
+     "stood_out": "Funding news pairs founder-led messaging with a savings claim, without explaining the calculation."
     },
     {
      "post": "venn-ig-Db8eeMHEV9v",
      "image": "venn-Db8eeMHEV9v",
      "alt": "Video still from a Venn reel: the Venn dashboard with an Interest Boost banner offering up to 3.5% interest, and account balances below.",
-     "stood_out": "A screen recording shows the rate and the deadline inside the product; the condition appears as a baseline on a tracker, not in words."
+     "stood_out": "A screen recording shows the rate and deadline in the product; the condition appears only as a tracker baseline."
     },
     {
      "post": "airwallex-ig-Dcrv-4rhQEc",
      "image": "airwallex-Dcrv-4rhQEc",
      "alt": "Video still from a creator reel: a hand holding an Airwallex Visa Commercial card at a baseball stadium, with the words One card, total control.",
-     "stood_out": "A creator skit ends on the card and “One card, total control.”; no market, plan or fee appears on screen."
+     "stood_out": "A creator skit ends on the card and “One card, total control.”, with no market, plan or fee on screen."
     }
    ],
    "engagement_title": "Engagement by theme",
    "engagement_limit": "Based on visible likes and comments. Small samples are directional and do not establish sales performance.",
    "engagement_takeaway": {
-    "venn": "Only customer stories meets this review’s minimum sample for reporting a median; the other themes are too small for a meaningful comparison.",
-    "ramp": "Ramp’s largest posts show abbreviated counts (such as 244.9K likes), so they are left out; the medians here describe only its smaller posts.",
-    "airwallex": "Partnership posts had the highest median (237 from 6 posts with counts), mostly from posts made with collaborators: without them the median is 75 from 4, close to Culture or community (66 from 5)."
-   }
+    "venn": "Customer stories is the only theme with enough posts for this comparison.",
+    "ramp": "Too few exact counts are available for a reliable theme comparison. Larger posts show abbreviated counts.",
+    "airwallex": "Partnerships lead in visible engagement, but collaborations lift the result. Without them, engagement is close to culture and community posts."
+   },
+   "engagement_insufficient": [
+    "ramp"
+   ]
   }
  }
 }

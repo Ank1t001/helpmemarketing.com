@@ -360,6 +360,16 @@ The founder found the Overview dull and asked for the Sources & evidence link at
 - At-a-glance strip under the heading, counted from the records: 119 Meta ads, 87 distinct creatives, 5 of 6 brands advertising, 102 started within 30 days. Tinted section numbers and the creative mix card as on Social Media Strategy (the CSS now covers both tabs).
 - Kept: each brand's "N distinct creatives reviewed from the collected sample" line, per the 31 October coverage wording rule.
 
+## 22. Social Media Strategy: shorter wording and two accuracy refinements (founder, 1 November 2026; staging)
+
+Structure and percentage splits unchanged. Changes, from the founder's review of the live section:
+- What stood out (creative mix): Venn "All 9 posts feature a product; 6 use customer-led interviews."; Ramp "18 of 19 posts focus on the brand through musical and comedy content; none demonstrates the product."; Airwallex "19 of 23 posts focus on the brand through sports, events and staff life. Photo carousels lead the creative mix (7 of 23)."
+- Selected examples, shorter: Venn interview ($4,500 in annual savings, without explaining the calculation), Ramp with Tony Hawk (paid-partnership comedy, Ramp at the end, no product demonstration), Airwallex with Arsenal (an Arsenal executive explains the product, with a checkout demonstration), Ramp funding (founder-led messaging with a savings claim, without explaining the calculation; the post is coded `founder_led` from its founders' note slide). The two examples under More examples were shortened in the same style.
+- Engagement takeaways, shorter, for Venn, Ramp and Airwallex as supplied.
+- Not compared: "no posts found on the reviewed Float, Loop and Keep accounts during the research window (latest posts ...)".
+- Ramp's engagement table shows "Insufficient comparable data" for every theme with counts (`engagement_insufficient` in `social_narrative.json`), because its largest posts show only abbreviated counts and are left out; Sources & evidence (Engagement: rules and caveats) keeps the calculation: Company news and events median 357.5 from 4 of 9 posts.
+- The strip label "Brands posting" is now "Brands with posts found".
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

@@ -945,7 +945,7 @@ def strategy_html(c):
         out.append('<div class="note gap soc-review"><span class="lbl">For editorial review</span><p>%s</p></div>' % E(s['narrative']['review_flag']))
     # At-a-glance strip, as on the Overview (founder, 2026-11-01); every figure counted from the posts.
     posts = [p for p in s['posts'] if in_analysis(s, p)]
-    stats = [('Posts reviewed', str(len(posts))), ('Brands posting', '%d of %d' % (len(have), len(c.order))),
+    stats = [('Posts reviewed', str(len(posts))), ('Brands with posts found', '%d of %d' % (len(have), len(c.order))),
              ('Reels', str(sum(1 for p in posts if p['format'] == 'video'))), ('Collaborations', str(sum(1 for p in posts if p.get('collaboration'))))]
     out.append('<dl class="bs-stats" aria-label="Instagram posts at a glance">%s</dl>' % ''.join(
         '<div class="bs-stat"><dt>%s</dt><dd>%s</dd></div>' % (E(l), E(v)) for l, v in stats))
@@ -955,7 +955,7 @@ def strategy_html(c):
               + paid._dim_panel(d, have, 'approach', 'Creative approach', True, cs_all, ctx) + paid._dim_panel(d, have, 'theme', 'Theme', True, cs_all, ctx))
     stood = ''.join('<li>%s</li>' % E(x) for x in tb['mix_stood_out'])
     andj = lambda xs: xs[0] if len(xs) == 1 else ', '.join(xs[:-1]) + ' and ' + xs[-1]
-    nocov = ('%s posted nothing in the window (latest posts %s)' % (andj([NAMES[p] for p in none]), andj([tb['coverage_newest'][p] for p in none]))) if none else ''
+    nocov = ('no posts found on the reviewed %s accounts during the research window (latest posts %s)' % (andj([NAMES[p] for p in none]), andj([tb['coverage_newest'][p] for p in none]))) if none else ''
     out.append('<div class="sub soc-sec pd-sec" id="bs-social-mix">%s<div class="pd-sel" role="group" aria-label="Compare the creative mix by" hidden>%s</div>'
                '<div class="pd-dims" data-pd-dims>%s</div><div class="pd-stood"><p><b>What stood out</b></p><ul>%s</ul></div>'
                '%s</div>'
@@ -975,7 +975,11 @@ def strategy_html(c):
         for r in engagement(s, pid):
             miss = r['posts'] - r['usable']
             posts = '%d%s' % (r['posts'], ('<span class="cell-sub">%s unavailable</span>' % _plural(miss, 'count', 'counts')) if miss else '')
-            med = _num(r['median']) if r['usable'] >= 3 else ('Too few to compare' if r['usable'] else 'Unavailable')
+            # A brand whose largest posts show only abbreviated counts gets no median in the tab (founder, 2026-11-01); Sources keeps the calculation.
+            if pid in tb.get('engagement_insufficient', []) and r['usable']:
+                med = 'Insufficient comparable data'
+            else:
+                med = _num(r['median']) if r['usable'] >= 3 else ('Too few to compare' if r['usable'] else 'Unavailable')
             rows += '<tr><td class="brandcell">%s</td><td data-label="Posts">%s</td><td data-label="Median visible likes + comments">%s</td></tr>' % (E(r['label']), posts, E(med))
         eng.append('<div class="soc-eng" id="bs-soc-eng-%s"><h4 class="t" id="bs-soc-eng-%s-h">%s</h4><div class="tw" tabindex="0" role="region" aria-labelledby="bs-soc-eng-%s-h"><table class="bs soc-t">'
                    '<thead><tr><th scope="col">Theme</th><th scope="col">Posts</th><th scope="col">Median visible likes + comments</th></tr></thead><tbody>%s</tbody></table></div>'
@@ -1018,15 +1022,22 @@ def strategy_reference_html(c):
     prod = ''.join('<tr><td class="brandcell">%s</td><td data-label="Products emphasised">%s</td><td data-label="Customer benefit or use case">%s</td><td data-label="Proof used">%s</td></tr>' % (
         E(NAMES[r['pid']]), E(r['products']), E(r['benefit']), E(r['proof'])) for r in st['product'])
     tops = ''.join('<li><b>%s:</b> %s</li>' % (E(NAMES[pid]), E(st['engagement'][pid]['post'])) for pid in ('venn', 'airwallex'))
+    # The medians the tab withholds (founder, 2026-11-01): exact counts only, the largest posts left out because they show abbreviated counts.
+    withheld = ''
+    for pid in st['tab'].get('engagement_insufficient', []):
+        rws = [r for r in engagement(s, pid) if r['usable'] >= 3]
+        if rws:
+            withheld += '<p class="dek"><b>%s, calculation not shown in the tab:</b> %s. Only posts with exact likes and comments are counted. The largest posts show abbreviated counts and are left out, so the result understates engagement and is not compared.</p>' % (
+                E(NAMES[pid]), E('; '.join('%s median %s from %d of %d posts' % (r['label'], _num(r['median']), r['usable'], r['posts']) for r in rws)))
     return ('<div id="bs-soc-scope-ref"><h4 class="t">Window and coverage</h4><p class="dek">%s Posts published %s. %s %s</p></div>'
             '<div id="bs-soc-reading"><h4 class="t">Positioning: the full reading for every brand</h4><p class="dek">%s</p>'
             '<div class="tw cards" tabindex="0" role="region" aria-label="Brand positioning on Instagram, all brands"><table class="bs"><thead><tr><th scope="col">Brand</th><th scope="col">Audience suggested by the posts</th><th scope="col">Main message</th><th scope="col">Tone</th></tr></thead><tbody>%s</tbody></table></div>'
             '<div class="tw cards" tabindex="0" role="region" aria-label="Product positioning on Instagram, all brands"><table class="bs"><thead><tr><th scope="col">Brand</th><th scope="col">Products emphasised</th><th scope="col">Customer benefit or use case</th><th scope="col">Proof used</th></tr></thead><tbody>%s</tbody></table></div>'
             '<p class="dek"><b>Feature or use case?</b> %s</p></div>'
-            '<div id="bs-soc-eng-rules"><h4 class="t">Engagement: rules and caveats</h4><p class="dek">%s</p><ul class="dek">%s</ul><p class="dek">Single post with the highest count in each brand:</p><ul class="dek">%s</ul></div>'
+            '<div id="bs-soc-eng-rules"><h4 class="t">Engagement: rules and caveats</h4><p class="dek">%s</p><ul class="dek">%s</ul><p class="dek">Single post with the highest count in each brand:</p><ul class="dek">%s</ul>%s</div>'
             % (E(n['view']['scope']), E(window_text()), E(n['coverage_note']), E(n['coverage_none']),
                E(st['positioning_note']), pos, prod, E(st['feature_vs_use']),
-               E(st['engagement_intro']), ''.join('<li>%s</li>' % E(x) for x in st['engagement_rules']), tops))
+               E(st['engagement_intro']), ''.join('<li>%s</li>' % E(x) for x in st['engagement_rules']), tops, withheld))
 
 
 def analysis_reference_html(s):
