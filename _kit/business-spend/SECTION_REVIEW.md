@@ -329,6 +329,16 @@ The founder asked for one or two recommendations or opportunities for each brand
 
 Spacing, measured at 1280 and 390px: block gaps already matched the scale (heading to note 24px, note to cards 16px, cards 16px apart with 24px padding, 20px on phones). Inside a card the brand name sits 12px above the first opportunity, opportunity titles 8px above their text, and a second opportunity starts 16px below the first behind a hairline rule.
 
+## 18. Sources & evidence: spacing (founder, 1 November 2026; staging)
+
+Measured at 1280 and 390px with every expander open. Changes:
+- Expander cards sit 16px apart (were 32px, 24px on phones), like other stacked cards. Each card has even padding: the title sits 20px from the top and bottom of a closed card (16px on phones) with 24px sides (20px on phones); before, a top padding stacked on the title's own padding (34px above, 18px below), and the Downloads card missed it. The open body starts 24px below the title bar (20px on phones; was 12px) and ends 24px above the card edge.
+- The expander arrow is a plain chevron again; it had inherited a round border and rendered as a small arc.
+- Sub-headings sit 12px above their content (were 8px in about 50 places), table titles 12px (were 16px).
+- A new sub-section inside an expander starts 24px after the content above (was 16px, 24px or 32px depending on the block); inside the per-brand evidence expanders and cards it stays 16px.
+- Notes under a list, table or definition list sit 16px below it (were 12px or 0px), and the paragraph after the coverage tiles 16px (was 0px).
+- Nested expanders open with 12px between the title and the content (were 16px or 32px).
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

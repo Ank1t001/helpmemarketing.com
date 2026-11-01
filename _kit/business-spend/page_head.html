@@ -610,6 +610,19 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi #bs-journeys.bs-view>.soc-sec+.soc-sec{margin-top:var(--s7)}
 .msi.msi #bs-journeys li.bs-jst{margin:0}
 .msi.msi #bs-journeys p.bs-tlink{margin-top:var(--s4)}
+.msi.msi #bs-sources details.bs-refsec+details.bs-refsec{margin-top:var(--s4)}
+.msi.msi #bs-sources details.bs-refsec,.msi.msi #bs-sources details.bs-refsec:last-of-type{padding:0 var(--s5)}
+.msi.msi #bs-sources details.bs-refsec[open]{padding-bottom:var(--s5)}
+.msi.msi #bs-sources details.bs-refsec>summary{margin:0 calc(-1*var(--s5));padding:20px var(--s5)}
+.msi.msi #bs-sources details.bs-refsec>.bs-refbody{margin-top:var(--s5)}
+@media(max-width:720px){.msi.msi #bs-sources details.bs-refsec,.msi.msi #bs-sources details.bs-refsec:last-of-type{padding:0 20px}.msi.msi #bs-sources details.bs-refsec[open]{padding-bottom:20px}.msi.msi #bs-sources details.bs-refsec>summary{margin:0 -20px;padding:16px 20px}.msi.msi #bs-sources details.bs-refsec>.bs-refbody{margin-top:20px}}
+.msi.msi #bs-sources details.bs-refsec>summary::after{border:0;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;border-radius:0;background:none}
+.msi.msi #bs-sources h4.t,.msi.msi #bs-sources .tblock>h3{margin-bottom:0}
+.msi.msi #bs-sources h4.t+*,.msi.msi #bs-sources .tblock>h3+*{margin-top:var(--s3)}
+.msi.msi #bs-sources .bs-refbody :is(h4.t,.tblock,.sub,div:has(>h4.t:first-child)):not(:first-child):not(.card):not(:is(.card,.bs-more) *){margin-top:var(--s5)}
+.msi.msi #bs-sources :is(ul,ol,dl,.tw,table)+p.pnote,.msi.msi #bs-sources dl.legend+p{margin-top:var(--s4)}
+.msi.msi #bs-sources details:not(.bs-refsec)[open]>summary{margin-bottom:0}
+.msi.msi #bs-sources details:not(.bs-refsec)>summary+*{margin-top:var(--s3)}
 @media(max-width:720px){.msi.msi #bs-journeys ol.bs-jstages{gap:var(--s4)}}
 @media(max-width:900px){.msi.msi .bs-view .tw.cards td.brandcell{font-size:16px;font-weight:650;color:var(--text)}}
 /* Product Comparison pass (founder, 2026-11-01): the steps the other tabs use. Section heading to its note 12px (was 8px),
