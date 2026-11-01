@@ -663,10 +663,8 @@ def body(c):
     if getattr(c, 'paid', None):
         views['paid'] = {'title': c.paid['narrative']['view']['title'], 'dek': c.paid['narrative']['view']['dek']}
     order = view_order(c)
-    # Tabs plus one small "Sources & evidence" link for the whole index (founder brief, 2026-10-30, final).
-    # The Sources link sits outside the rounded tab bar, right-aligned below it (founder brief, 2026-10-31).
-    out.append('<nav class="ri-nav bs-views" aria-label="Sections of this page"><div class="bs-tablist">%s</div></nav>'
-               '<p class="bs-srcrow"><a class="bs-srclink" href="#bs-sources" id="bs-srclink">Sources &amp; evidence</a></p>' % ''.join(
+    # Tabs; the one "Sources & evidence" link for the whole index sits below the tab content since 2026-11-01 (founder).
+    out.append('<nav class="ri-nav bs-views" aria-label="Sections of this page"><div class="bs-tablist">%s</div></nav>' % ''.join(
                    '<a href="#%s" id="bs-tab-%s">%s</a>' % (vid, k, E(views[k]['title'])) for k, vid in order))
 
     def view_open(key, vid, cls='bs-view', dek=True):
@@ -688,16 +686,6 @@ def body(c):
     V = {}
     plain = lambda pid: E(c.name(pid))
     fu = c.followup
-
-    # ---------- Overview: a visual guide to the index (founder brief, 2026-10-30, final) ----------
-    vo = views['overview']
-    guide = ''.join('<a class="bs-gcard" href="#bs-%s">%s<span class="bs-gt">%s</span><span class="bs-gd">%s</span></a>' % (
-        k, ICONS[icon], E(views[k]['title'] if k in views else t), E(desc)) for k, t, desc, icon in vo['guide'] if k in views)
-    # No intro paragraph, provider list or note below the cards: the hero carries the providers,
-    # and each section carries its own dates (founder review, 2026-10-31).
-    V['overview'] = (view_open('overview', 'bs-overview', dek=False)
-                     + '<nav class="bs-guide" aria-label="Sections of this case study">%s</nav>' % guide
-                     + view_close('overview'))
 
     # ---------- Social Media Content ----------
     if c.social:
@@ -800,7 +788,34 @@ def body(c):
                       % (E(ls_['note']), cards, E(ls_['measure_note']))
                     + view_close('lessons'))
 
+    # ---------- Overview (founder, 2026-11-01): an at-a-glance strip of counts, then numbered cards, each with one figure from its tab ----------
+    # Built last so every figure is counted from the data or the rendered tab, never typed.
+    vo = views['overview']
+    n_posts = sum(1 for p in c.social['posts'] if social.in_analysis(c.social, p)) if c.social else 0
+    n_ads = len(c.paid['records']) if c.paid else 0
+    n_cr = sum(len(paid.sample(c.paid, pid)) for pid in c.order) if c.paid else 0
+    n_opps = sum(len(x['opps']) for x in n['lessons']['items'])
+    n_cats = V['compare'].count('class="bs-cpanel"')
+    nb = len(c.order)
+    figs = {'social': '%d posts reviewed' % n_posts, 'paid': '%d ads, %d distinct creatives' % (n_ads, n_cr),
+            'messaging': '%d brand websites' % nb, 'compare': '%d categories, %d brands' % (n_cats, nb),
+            'journeys': '%d first screens followed' % nb, 'lessons': '%d opportunities' % n_opps}
+    stats = [(nb, 'Brands compared')] + ([(n_posts, 'Instagram posts')] if c.social else []) + ([(n_ads, 'Meta ads')] if c.paid else []) + [(len(c.obs), 'Recorded observations')]
+    strip = '<dl class="bs-stats" aria-label="This case study at a glance">%s</dl>' % ''.join(
+        '<div class="bs-stat"><dt>%s</dt><dd>%d</dd></div>' % (E(l), v) for v, l in stats)
+    shown = [g for g in vo['guide'] if g[0] in views]
+    guide = ''.join('<a class="bs-gcard" href="#bs-%s"><span class="bs-gtop"><span class="bs-gchip">%s</span><span class="bs-gn" aria-hidden="true">%02d</span></span>'
+                    '<span class="bs-gt">%s</span><span class="bs-gd">%s</span><span class="bs-gf"><span class="bs-gfig">%s</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a>' % (
+                        k, ICONS[icon], i, E(views[k]['title'] if k in views else t), E(desc), E(figs[k]))
+                    for i, (k, t, desc, icon) in enumerate(shown, 1))
+    V['overview'] = (view_open('overview', 'bs-overview', dek=False)
+                     + strip + '<nav class="bs-guide" aria-label="Sections of this case study">%s</nav>' % guide
+                     + view_close('overview'))
+
     out += [V[k] for k, _ in order]
+    # One Sources & evidence link for the whole index, below the tab content (founder, 2026-11-01); hidden while Sources is open.
+    out.append('<p class="bs-srcrow"><a class="bs-srclink" href="#bs-sources" id="bs-srclink">Sources &amp; evidence</a>'
+               '<span class="bs-srcnote">Dates, methods, every observation, test designs and downloads.</span></p>')
     # One shared screenshot dialog outside the tab panels, so it opens from any tab (2026-10-31).
     out.append('<dialog class="bs-lightbox" id="bs-lightbox" aria-label="Enlarged screenshot"><figure><img src="" alt=""><figcaption></figcaption></figure><button type="button" class="bs-lightbox-close">Close</button></dialog>')
     out.append(sources_view(c, views, start, end, draft))

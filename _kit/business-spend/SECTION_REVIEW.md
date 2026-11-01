@@ -339,6 +339,13 @@ Measured at 1280 and 390px with every expander open. Changes:
 - Notes under a list, table or definition list sit 16px below it (were 12px or 0px), and the paragraph after the coverage tiles 16px (was 0px).
 - Nested expanders open with 12px between the title and the content (were 16px or 32px).
 
+## 19. Overview refresh and Sources link at the bottom (founder, 1 November 2026; staging)
+
+The founder found the Overview dull and asked for the Sources & evidence link at the bottom, not the top.
+- Overview: an at-a-glance strip under the heading (6 brands compared, 51 Instagram posts, 119 Meta ads, 128 recorded observations), then the six cards, now numbered 01 to 06 with the icon in an orange-tinted tile and a footer giving one figure from the tab (51 posts reviewed; 119 ads, 87 distinct creatives; 6 brand websites; 3 categories, 6 brands; 6 first screens followed; 12 opportunities) and an arrow. Every number is counted in `build.py` from the kit data or the rendered tab, never typed. Hover lifts the card and turns its border orange (no movement with reduced motion). Works in light and dark.
+- Sources & evidence link: removed from under the tab bar; one row below the tab content (48px after the Back/Next links, 40px on phones, with a rule above) reads "Sources & evidence" with the note "Dates, methods, every observation, test designs and downloads." It hides while Sources & evidence is open and shows without JavaScript.
+- Spacing: the tab bar sits 32px above each tab's heading (24px on phones), which the link row used to fill; heading to strip 24px, strip to cards 32px (24px on phones).
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

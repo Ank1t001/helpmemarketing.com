@@ -799,11 +799,12 @@ def check_outputs(c, page, csvtext, extra_paths=()):
     tl = nav[:nav.index('</div>')] if '</div>' in nav else nav
     if [h[1:] for h in re.findall(r'href="(#[^"]+)"', tl)] != views or 'bs-srclink' in nav:
         errs.append('page: the section nav lists the views in order (%s)' % ', '.join(views))
-    # One Sources & evidence link, outside the tab bar, directly after it (founder brief, 2026-10-31).
-    after = body[body.index('class="ri-nav bs-views"'):]
-    after = after[after.index('</nav>') + 6:]
-    if body.count('id="bs-srclink"') != 1 or not after.startswith('<p class="bs-srcrow"><a class="bs-srclink" href="#bs-sources" id="bs-srclink">Sources &amp; evidence</a></p>'):
-        errs.append('page: one Sources & evidence link sits directly below the tab bar, outside it')
+    # One Sources & evidence link, below the tab content and before the Sources view (founder, 2026-11-01).
+    sl = '<p class="bs-srcrow"><a class="bs-srclink" href="#bs-sources" id="bs-srclink">Sources &amp; evidence</a>'
+    last_view = body.rfind('<section id="bs-', 0, body.index('<section id="bs-sources"'))
+    if body.count('id="bs-srclink"') != 1 or sl not in body or not (last_view < body.index(sl) < body.index('<section id="bs-sources"')) \
+            or 'bs-srclink' in body[body.index('class="ri-nav bs-views"'):body.index('class="ri-nav bs-views"') + 3000]:
+        errs.append('page: one Sources & evidence link sits below the tab content, before the Sources view')
     if '<a href="#bs-paid" id="bs-tab-paid">' in body and '<a href="#bs-paid" id="bs-tab-paid">Paid Social Strategy</a>' not in body:
         errs.append('page: the paid ads tab is labelled "Paid Social Strategy"')
     if ('bs-social' in views) != bool(getattr(c, 'social', None)) or ('id="bs-social"' in body) != bool(getattr(c, 'social', None)):
