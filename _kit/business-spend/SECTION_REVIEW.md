@@ -266,6 +266,17 @@ Remaining gaps: Instagram reels (need a signed-in or collector route the founder
 - The "About this case study" box and the line "Company names are used to report their public pages and posts and imply no relationship with Help Me Marketing." removed from the end of the main page. Everything in the box already sits in Sources & evidence (scope, dates of every collection, the edition 001 name in the citation, "None of the six is a client", the relationship disclosure). The two sentences that did not are now in "Author and relationship disclosure" (`#bs-ref-author`): "it is not a ranking, a product test or a recommendation" and the company-names line. The page now ends with "If you market a financial product".
 - Dead CSS removed with them: the `.msi.msi footer` rules in `site_shell.html` and `page_head.html` and `.bs-meta-ind`.
 
+## 10. Overview: spacing, padding and UX (founder, 1 November 2026; staging)
+
+Measured at 1280, 820 and 390px before and after. One rhythm on the 2026-10-27 scale, in one block at the end of the page CSS ("Overview pass"):
+- Byline to tab bar 40px (32px at 720px and below); was 79px from the header's bottom padding plus margin. The byline's "Last Updated" date never wraps on its own line.
+- Tab bar to the Sources link 8px, Sources link to the view heading 24px (16px); was 6px and 40px plus the view's 24px top padding (so 64px of empty space under the link). This applies to every tab, not only Overview.
+- Heading to cards 24px; cards 16px apart (12px) with 24px padding (20px), up from 12px and 20px everywhere; icon to title 8px.
+- Cards to "Next" 32px (24px), "Next" to the review section 48px (40px).
+- Tabs: at 900px and below they keep to one row that scrolls sideways (the selected tab is scrolled into view), instead of wrapping to two rows on tablets and four (about 150px) on phones. With one row the bar is sticky on phones as well (it was static at 560px and below).
+- Bug fix (live before): the sticky tab bar sat at 72px and slid 11px under the 83px site header on desktop. It now sits at 92px (87px at 900px and below, under the 79px header), and anchor targets clear both (scroll margin 160px).
+- Bug fix (live before): a panel opened from a shared link showed the orange keyboard focus ring to mouse and touch readers; it now shows only after keyboard use.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

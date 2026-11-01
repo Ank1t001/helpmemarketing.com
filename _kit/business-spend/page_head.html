@@ -553,6 +553,37 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi .bs-lightbox-close:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
 @media(max-width:720px){.msi.msi dialog.bs-lightbox{padding:var(--s3)}.msi.msi dialog.bs-lightbox figure{overflow-x:auto;-webkit-overflow-scrolling:touch}.msi.msi dialog.bs-lightbox img{max-width:none;max-height:none;margin:0}.msi.msi dialog.bs-lightbox figcaption{position:sticky;left:0}.msi.msi dialog.bs-lightbox figcaption::after{content:" Scroll sideways to read it all."}}
 @media print{.msi.msi .bs-zoom-hint,.msi.msi dialog.bs-lightbox{display:none!important}}
+/* Overview pass (founder, 2026-11-01): one rhythm from the byline to the review card, the 2026-10-27 scale.
+   Byline to tab bar 40px (32px at 720px and below); tab bar to the Sources link 8px; Sources link to the view heading 24px (16px);
+   heading to cards 24px; cards 16px apart (12px) with 24px padding (20px); cards to the Next link 32px (24px); Next link to the
+   review section 48px (40px). At 900px and below the tabs keep to one row that scrolls sideways, so the bar stays one line and can
+   stay sticky on phones too. The sticky bar sits 9px below the site header (it slid 11px under it before), and anchors clear both. */
+.msi.msi header{margin-bottom:0;padding-bottom:40px}
+.msi.msi header .bs-meta{margin:0}
+.msi.msi header .bs-meta-date{white-space:nowrap}
+.msi.msi .ri-nav.bs-views{margin-top:0;top:92px}
+.msi.msi .bs-view,.msi.msi [id^="bs-"],.msi.msi [id^="ev-"]{scroll-margin-top:160px}
+.msi.msi .bs-srcrow{margin:8px 0 24px}
+.msi.msi .bs-views.is-tabs~.bs-view{padding-top:0}
+.msi.msi .bs-guide{gap:var(--s4)}
+.msi.msi a.bs-gcard{padding:var(--s5);gap:var(--s2)}
+.msi.msi .bs-gi{display:block;line-height:0;margin-bottom:var(--s2)}
+.msi.msi .bs-view.bs-view>.bs-next{margin-top:var(--s6)}
+.msi.msi .wrap>#bs-help{margin-top:var(--s7)}
+@media(max-width:900px){
+.msi.msi .ri-nav.bs-views{position:sticky;top:87px;padding:6px;border-radius:999px;margin-bottom:0}
+.msi.msi .bs-tablist{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px}
+.msi.msi .bs-tablist::-webkit-scrollbar{display:none}
+.msi.msi .bs-tablist a{flex:0 0 auto;white-space:nowrap;scroll-snap-align:start}
+}
+@media(max-width:720px){
+.msi.msi header{padding-bottom:32px}
+.msi.msi .bs-srcrow{margin:4px 0 16px}
+.msi.msi .bs-guide{gap:var(--s3)}
+.msi.msi a.bs-gcard{padding:20px}
+.msi.msi .bs-view.bs-view>.bs-next{margin-top:var(--s5)}
+.msi.msi .wrap>#bs-help{margin-top:40px}
+}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */
@@ -656,11 +687,17 @@ document.addEventListener('DOMContentLoaded', function () {
   function show(panel) {
     var isRef = !!ref && panel === ref;
     if (!isRef) last = panel;
+    var list = nav && nav.querySelector('.bs-tablist');
     panels.forEach(function (p, i) {
       var on = p === panel;
       p.hidden = !on;
       tabs[i].setAttribute('aria-selected', on ? 'true' : 'false');
       tabs[i].tabIndex = (on || (isRef && p === last)) ? 0 : -1;
+      /* One-row tabs at 900px and below scroll sideways: bring the selected tab into view without moving the page. */
+      if (on && list && list.scrollWidth > list.clientWidth) {
+        var t = tabs[i], x = t.offsetLeft - list.offsetLeft - (list.clientWidth - t.offsetWidth) / 2;
+        list.scrollLeft = Math.max(0, x);
+      }
     });
     if (ref) {
       ref.hidden = !isRef;
@@ -714,6 +751,8 @@ document.addEventListener('DOMContentLoaded', function () {
         p.setAttribute('role', 'tabpanel');
         p.setAttribute('aria-labelledby', a.id);
         p.tabIndex = 0;
+        /* A panel the browser focuses for a shared link shows no focus ring to mouse and touch readers; keyboard focus keeps it. */
+        p.addEventListener('focus', function () { p.classList.toggle('bs-pfocus', !kbd); });
         a.addEventListener('click', function (e) {
           if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
           e.preventDefault(); activate(i, 'tab'); a.focus();

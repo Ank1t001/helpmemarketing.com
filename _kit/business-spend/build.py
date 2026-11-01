@@ -653,7 +653,7 @@ def body(c):
     # The six brands are named once, in the lede (founder, 2026-10-31); the separate brand line was removed.
     # The independence line left the byline on 1 November 2026 (founder); "not a recommendation" sits in Sources & evidence.
     out.append('<p class="bs-meta">%sBy <a href="/about">Ankit Kumar</a> &middot; Edition %s &middot; %s</p>' % (
-        '<span class="draft-flag">Draft</span> ' if draft else '', E(ed['edition']), 'Not yet published' if draft else 'Last Updated %s' % E(short_date(c.date_modified or c.release_date))))
+        '<span class="draft-flag">Draft</span> ' if draft else '', E(ed['edition']), 'Not yet published' if draft else '<span class="bs-meta-date">Last Updated %s</span>' % E(short_date(c.date_modified or c.release_date))))
     if draft:
         out.append('<p class="pnote">%s</p>' % E(h['draft_note']))
     out.append('</header>')
