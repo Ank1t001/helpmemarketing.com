@@ -370,6 +370,10 @@ Structure and percentage splits unchanged. Changes, from the founder's review of
 - Ramp's engagement table shows "Insufficient comparable data" for every theme with counts (`engagement_insufficient` in `social_narrative.json`), because its largest posts show only abbreviated counts and are left out; Sources & evidence (Engagement: rules and caveats) keeps the calculation: Company news and events median 357.5 from 4 of 9 posts.
 - The strip label "Brands posting" is now "Brands with posts found".
 
+## 23. Social Media Strategy: example cards with More detail (founder, 1 November 2026; staging)
+
+Only the Selected examples cards changed. The four cards shown by default take the founder's shorter "What stood out" wording, and each has a "More detail" disclosure directly below it, closed by default, holding the supporting paragraph (`detail` in `social_narrative.json` `strategy.tab.examples`). It is a native `details` element with the page's quiet `bs-more` style (`soc-detail`), so Enter, Space, click and tap all work, with a visible focus ring and a 32px target. Cards in a row align to the top, so opening one does not stretch its neighbour; nothing clips. Images, captions, headlines, tags, audience and buying-stage labels unchanged; the two cards under More examples have no detail. Engagement tables, calculations and takeaways unchanged. `validate.py` and the tests allow this one disclosure in the tab alongside More examples.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

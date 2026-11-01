@@ -1004,9 +1004,11 @@ def examples_html(s, d, tb):
         chips = ''.join('<span class="pd-chip">%s</span>' % E(t) for t in [dict(paid.FOCUS_L)[x['focus']], dict(paid.FORMAT_L)[x['format']]] + [paid.approach_label(a) for a in x['approaches']])
         cards.append('<article class="pd-ex has-img" id="bs-sx%d"><figure class="pd-shot"><img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async"><figcaption>%s</figcaption></figure>'
                      '<div class="pd-ex-text"><p class="soc-tags">%s &middot; %s</p><p class="pd-hook">%s</p><p class="pd-chips">%s</p>'
-                     '<p class="pd-meta"><b>Appears to address:</b> %s &middot; <b>Likely stage:</b> %s</p><p class="soc-stood"><b>What stood out:</b> %s</p></div></article>'
+                     '<p class="pd-meta"><b>Appears to address:</b> %s &middot; <b>Likely stage:</b> %s</p><p class="soc-stood"><b>What stood out:</b> %s</p>%s</div></article>'
                      % (i, E(img['src']), E(ex['alt']), img['width'], img['height'], E(cap), E(NAMES[x['pid']]), E(theme_label(s, p and next(c['theme'] for c in s['analysis']['posts'] if c['post'] == ex['post']))),
-                        E(x['hook']), chips, E(personas), E(dict(paid.STAGE_L)[x['stage']]), E(ex['stood_out'])))
+                        E(x['hook']), chips, E(personas), E(dict(paid.STAGE_L)[x['stage']]), E(ex['stood_out']),
+                        # Supporting detail behind a native disclosure, closed by default (founder, 2026-11-01).
+                        ('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(ex['detail'])) if ex.get('detail') else ''))
     first, rest = cards[:4], cards[4:]
     more = ('<details class="pd-more"><summary>More examples (%d)</summary><div class="pd-exs">%s</div></details>' % (len(rest), ''.join(rest))) if rest else ''
     return '<div class="pd-exs">%s</div>%s' % (''.join(first), more)

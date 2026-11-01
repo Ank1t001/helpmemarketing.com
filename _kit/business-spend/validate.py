@@ -769,7 +769,7 @@ def check_outputs(c, page, csvtext, extra_paths=()):
     import build as _b
     for _, vid in _b.view_order(c):
         tv = view_html(body, vid)
-        if re.search(r'\bO-[A-Z]{3}-\d\d\b|id="ev-|What the sources say|capture request|<details(?! class="pd-more")', tv):   # the one "More examples" control in Paid Social Strategy is allowed (founder, 2026-10-31)
+        if re.search(r'\bO-[A-Z]{3}-\d\d\b|id="ev-|What the sources say|capture request|<details(?! class="(?:pd-more|bs-more soc-detail)")', tv):   # "More examples" (founder, 2026-10-31) and the Social example "More detail" (founder, 2026-11-01) are allowed
             errs.append('page: %s carries evidence detail that belongs in Sources & evidence' % vid)
     if not refv or 'data-bs-back' not in refv or refv.count('id="ev-') != len(c.obs):
         errs.append('page: Sources & evidence holds every observation and a return control')

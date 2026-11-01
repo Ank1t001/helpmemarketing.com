@@ -427,7 +427,7 @@ class KitTests(unittest.TestCase):
         self.assertIn('<a class="bs-srclink" href="#bs-sources" id="bs-srclink">Sources &amp; evidence</a>', body)
         self.assertIn('data-bs-back', ref)
         for v in (ov, so, pa, msg, cmp_, jr, ls):
-            self.assertNotRegex(v, r'\bO-[A-Z]{3}-\d\d\b|id="ev-|What the sources say|<details(?! class="pd-more")')
+            self.assertNotRegex(v, r'\bO-[A-Z]{3}-\d\d\b|id="ev-|What the sources say|<details(?! class="(?:pd-more|bs-more soc-detail)")')
 
     def test_ramp_uncaptured_terms_omitted(self):
         self.assertEqual(self.c.obs['O-RMP-02']['status'], 'not_checked')
@@ -693,6 +693,8 @@ class SocialModuleTests(unittest.TestCase):
         self.assertNotIn('Not assessed', tab)
         self.assertNotIn('What this suggests', tab)
         self.assertEqual(len(re.findall(r'<article class="pd-ex has-img" id="bs-sx', tab)), 6)
+        self.assertEqual(tab.count('<details class="bs-more soc-detail"><summary>More detail</summary><p>'), 4)
+        self.assertNotIn('soc-detail" open', tab)
         for dim in ('focus', 'format', 'approach', 'theme', 'persona', 'stage'):
             self.assertIn('id="bs-social-dim-%s"' % dim, tab)
         self.assertEqual([m for m in re.findall(r'<p class="pd-brand"><b>(\w+)</b>', tab)][:3], ['Venn', 'Ramp', 'Airwallex'])
