@@ -998,14 +998,7 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-srclink:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
 .msi.msi .bs-next{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .msi.msi .bs-next a:only-child{margin-left:auto}
-.msi.msi .bs-guide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3)}
-.msi.msi a.bs-gcard{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated);color:var(--text);text-decoration:none;transition:border-color .15s}
-.msi.msi a.bs-gcard:hover{border-color:var(--border-strong)}
-.msi.msi a.bs-gcard:hover .bs-gt{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
-.msi.msi a.bs-gcard:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
 .msi.msi .bs-gi{color:var(--text-muted);margin-bottom:4px}
-.msi.msi .bs-gt{font-size:17px;font-weight:650;line-height:1.3}
-.msi.msi .bs-gd{font-size:15px;line-height:1.55;color:var(--text-muted)}
 .msi.msi .bs-ov-scope .dek{margin:0}
 .msi.msi .bs-ov-dates{margin:6px 0 0;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
 .msi.msi .bs-sn{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--border-strong);background:var(--bg);font-size:13px;font-weight:700;color:var(--text);flex:none}
@@ -1029,10 +1022,9 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-refsec .bs-fdetail,.msi.msi .bs-refsec .bs-tspec{margin-top:var(--s4)}
 .msi.msi .bs-refsec .bs-tspec .ktag{margin:0 0 0 8px;vertical-align:middle}
 @media(max-width:900px){
-.msi.msi .bs-guide{grid-template-columns:repeat(2,minmax(0,1fr))}
 .msi.msi .bs-reftoc ol{columns:1}
 }
-@media(max-width:720px){.msi.msi .bs-guide{grid-template-columns:1fr}.msi.msi .bs-srcrow{margin-bottom:28px}}
+@media(max-width:720px){.msi.msi .bs-srcrow{margin-bottom:28px}}
 @media print{.msi.msi .bs-srcrow,.msi.msi .bs-ref-back{display:none!important}.msi.msi .bs-view[hidden]{display:block!important}}
 /* Seven tabs (2026-10-30): slightly narrower tab padding, same text size, so the tabs keep to one row on desktop; the Sources link sits at the right. */
 @media(min-width:901px){.msi.msi .bs-tablist{gap:4px}.msi.msi .bs-tablist a{padding:6px 9px}}
@@ -1216,8 +1208,6 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi .bs-view,.msi.msi [id^="bs-"],.msi.msi [id^="ev-"]{scroll-margin-top:160px}
 .msi.msi .bs-srcrow{margin:8px 0 24px}
 .msi.msi .bs-views.is-tabs~.bs-view{padding-top:0}
-.msi.msi .bs-guide{gap:var(--s4)}
-.msi.msi a.bs-gcard{padding:var(--s5);gap:var(--s2)}
 .msi.msi .bs-gi{display:block;line-height:0;margin-bottom:var(--s2)}
 .msi.msi .bs-view.bs-view>.bs-next{margin-top:var(--s6)}
 .msi.msi .wrap>#bs-help{margin-top:var(--s7)}
@@ -1230,8 +1220,6 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 @media(max-width:720px){
 .msi.msi header{padding-bottom:32px}
 .msi.msi .bs-srcrow{margin:4px 0 16px}
-.msi.msi .bs-guide{gap:var(--s3)}
-.msi.msi a.bs-gcard{padding:20px}
 .msi.msi .bs-view.bs-view>.bs-next{margin-top:var(--s5)}
 .msi.msi .wrap>#bs-help{margin-top:40px}
 }
@@ -1287,19 +1275,6 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi .bs-stat+.bs-stat{border-left:1px solid var(--border)}
 .msi.msi .bs-stat dd{margin:0;font-family:var(--font-display,Fraunces,serif);font-size:36px;font-weight:400;line-height:1.1;letter-spacing:-.02em;color:var(--text)}
 .msi.msi .bs-stat dt{margin:0;font-size:13.5px;font-weight:600;line-height:1.4;color:var(--text-muted)}
-.msi.msi a.bs-gcard{gap:var(--s2);transition:border-color .15s,transform .15s,box-shadow .15s}
-.msi.msi a.bs-gcard:hover{border-color:var(--cta-text,var(--cta));transform:translateY(-2px);box-shadow:0 10px 24px rgba(var(--ink-rgb,255,255,255),.07)}
-.msi.msi a.bs-gcard:hover .bs-gt{text-decoration:none}
-.msi.msi .bs-gtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--s2)}
-.msi.msi .bs-gchip{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:color-mix(in srgb,var(--cta) 12%,transparent);color:var(--cta-text,var(--cta))}
-.msi.msi .bs-gchip svg.bs-gi{display:block;width:28px;height:28px;margin:0;color:inherit}
-.msi.msi .bs-gn{font-size:13px;font-weight:600;letter-spacing:.08em;color:var(--text-tertiary)}
-.msi.msi a.bs-gcard .bs-gd{padding-bottom:var(--s3)}
-.msi.msi .bs-gf{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:var(--s3);border-top:1px solid var(--border)}
-.msi.msi .bs-gfig{font-size:13.5px;font-weight:600;line-height:1.4;color:var(--text)}
-.msi.msi .bs-garrow{font-size:17px;line-height:1;color:var(--cta-text,var(--cta));transition:transform .15s}
-.msi.msi a.bs-gcard:hover .bs-garrow{transform:translateX(3px)}
-@media(prefers-reduced-motion:reduce){.msi.msi a.bs-gcard,.msi.msi .bs-garrow{transition:none}.msi.msi a.bs-gcard:hover,.msi.msi a.bs-gcard:hover .bs-garrow{transform:none}}
 .msi.msi .bs-srcrow{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:flex-start;gap:4px 12px;margin:var(--s7) 0 0;padding-top:var(--s5);border-top:1px solid var(--border)}
 .msi.msi .bs-srcrow[hidden]{display:none}
 .msi.msi .bs-srclink{padding:0;font-size:15px;color:var(--text)}
@@ -1374,6 +1349,66 @@ dialog.bs-gate::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi .bs-gate-fine a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
 .msi.msi .bs-gate-close{margin-top:var(--s3);font:inherit;font-size:14px;font-weight:600;min-height:40px;padding:8px 16px;border:1px solid var(--border-strong);border-radius:999px;background:var(--bg);color:var(--text);cursor:pointer}
 @media print{.msi.msi dialog.bs-gate,.msi.msi .bs-gate-btn{display:none!important}}
+/* Overview, second look (founder, 2026-11-02): a signature panel in the artwork's look (obsidian with a Signal Orange glow in light mode, the raised dark surface in dark mode) holding the heading as an eyebrow, one Fraunces line with an italic accent and the counts; then a numbered contents list in two groups (open tabs, then the full case study with a lock note shown only while html.bsi-locked), Recommendations featured last. Spec: Design System note "Business Spend Index Overview, second look". */
+.msi.msi #bs-overview .bs-ovhero{position:relative;overflow:hidden;margin:0 0 var(--s6);padding:44px 48px 40px;border:1px solid rgba(255,255,255,.08);border-radius:var(--r2);background:radial-gradient(circle at 100% 0,rgba(255,92,26,.34),rgba(255,92,26,0) 46%),var(--obsidian,var(--bg-elevated));color:var(--paper,var(--text))}
+.msi.msi #bs-overview .bs-ovhero .sec-head{margin:0 0 16px;padding:0;border:0}
+.msi.msi #bs-overview .bs-ovhero h2{margin:0;font-family:var(--sans,Inter,sans-serif);font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:var(--cta)}
+.msi.msi #bs-overview .bs-ovlead{max-width:24ch;margin:0;font-family:var(--font-display,Fraunces,serif);font-size:clamp(30px,3.4vw,44px);font-weight:400;line-height:1.1;letter-spacing:-.02em;color:inherit}
+.msi.msi #bs-overview .bs-ovlead em{font-style:italic;color:var(--cta)}
+.msi.msi #bs-overview .bs-ovstats{margin:40px 0 0;border:0;border-top:1px solid rgba(255,255,255,.16);border-radius:0;background:none}
+.msi.msi #bs-overview .bs-ovstats .bs-stat{padding:22px 24px 0 0}
+.msi.msi #bs-overview .bs-ovstats .bs-stat+.bs-stat{padding-left:24px;border-left:1px solid rgba(255,255,255,.16)}
+.msi.msi #bs-overview .bs-ovstats dd{font-size:clamp(40px,4vw,56px);color:inherit}
+.msi.msi #bs-overview .bs-ovstats dt{color:rgba(255,255,255,.74)}
+.msi.msi #bs-overview .bs-guide{display:block}
+.msi.msi #bs-overview .bs-ovlabel{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0 0 12px;font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:var(--text-tertiary)}
+.msi.msi #bs-overview .bs-ovlabel+.bs-toc{margin-bottom:var(--s6)}
+.msi.msi #bs-overview .bs-ovlock{display:none;align-items:center;gap:6px;font-size:13px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--cta-text,var(--cta))}
+html.bsi-locked .msi.msi #bs-overview .bs-ovlock{display:inline-flex}
+.msi.msi #bs-overview .bs-toc{border-top:1px solid var(--border)}
+.msi.msi #bs-overview a.bs-gcard{display:grid;grid-template-columns:72px 48px minmax(0,1fr) auto;align-items:center;gap:20px;padding:24px 20px;border-bottom:1px solid var(--border);color:var(--text);text-decoration:none;transition:background-color .15s}
+.msi.msi #bs-overview a.bs-gcard:hover{background:var(--bg-elevated)}
+.msi.msi #bs-overview a.bs-gcard:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
+.msi.msi #bs-overview .bs-gn{font-family:var(--font-display,Fraunces,serif);font-size:44px;font-weight:400;line-height:1;letter-spacing:-.03em;color:var(--text-tertiary);transition:color .15s}
+.msi.msi #bs-overview a.bs-gcard:hover .bs-gn{color:var(--cta-text,var(--cta))}
+.msi.msi #bs-overview .bs-gchip{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:color-mix(in srgb,var(--cta) 12%,transparent);color:var(--cta-text,var(--cta))}
+.msi.msi #bs-overview .bs-gchip svg.bs-gi{display:block;width:26px;height:26px;margin:0;color:inherit}
+.msi.msi #bs-overview .bs-gbody{display:flex;flex-direction:column;gap:4px;min-width:0}
+.msi.msi #bs-overview .bs-gt{font-family:var(--font-display,Fraunces,serif);font-size:26px;font-weight:400;line-height:1.2;letter-spacing:-.015em}
+.msi.msi #bs-overview .bs-gd{max-width:60ch;font-size:15px;line-height:1.55;color:var(--text-muted)}
+.msi.msi #bs-overview .bs-gf{display:flex;align-items:center;gap:18px}
+.msi.msi #bs-overview .bs-gfig{padding:6px 12px;border:1px solid var(--border-strong);border-radius:999px;font-size:13px;font-weight:600;line-height:1.4;white-space:nowrap;color:var(--text)}
+.msi.msi #bs-overview .bs-garrow{font-size:20px;line-height:1;color:var(--cta-text,var(--cta));transition:transform .15s}
+.msi.msi #bs-overview a.bs-gcard:hover .bs-garrow{transform:translateX(4px)}
+.msi.msi #bs-overview a.bs-gcard[data-feature]{margin-top:16px;border:1px solid color-mix(in srgb,var(--cta) 45%,transparent);border-radius:var(--r2);background:color-mix(in srgb,var(--cta) 8%,var(--bg))}
+.msi.msi #bs-overview a.bs-gcard[data-feature]:hover{background:color-mix(in srgb,var(--cta) 14%,var(--bg))}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gn{color:var(--cta-text,var(--cta))}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gfig{border-color:color-mix(in srgb,var(--cta) 55%,transparent);color:var(--cta-text,var(--cta))}
+.msi.msi #bs-overview .bs-toc:last-child,.msi.msi #bs-overview .bs-toc:has(a[data-feature]){border-top:1px solid var(--border)}
+.msi.msi #bs-overview .bs-toc a.bs-gcard[data-feature]+*,.msi.msi #bs-overview .bs-toc a.bs-gcard:has(+a[data-feature]){border-bottom-color:var(--border)}
+@media(max-width:900px){
+.msi.msi #bs-overview .bs-ovhero{padding:36px 32px 32px}
+.msi.msi #bs-overview a.bs-gcard{grid-template-columns:56px 44px minmax(0,1fr) auto;gap:16px;padding:20px 12px}
+.msi.msi #bs-overview .bs-gn{font-size:36px}
+.msi.msi #bs-overview .bs-gfig{display:none}
+}
+@media(max-width:720px){
+.msi.msi #bs-overview .bs-ovhero{padding:28px 20px 24px}
+.msi.msi #bs-overview .bs-ovstats{margin-top:28px}
+.msi.msi #bs-overview .bs-ovstats .bs-stat,.msi.msi #bs-overview .bs-ovstats .bs-stat+.bs-stat{padding:16px 12px 12px 0;border-left:0}
+.msi.msi #bs-overview .bs-ovstats .bs-stat:nth-child(even){padding-left:16px;border-left:1px solid rgba(255,255,255,.16)}
+.msi.msi #bs-overview .bs-ovstats .bs-stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.16)}
+.msi.msi #bs-overview a.bs-gcard{grid-template-columns:40px minmax(0,1fr) 20px;gap:4px 14px;padding:18px 8px;align-items:start}
+.msi.msi #bs-overview .bs-gchip{display:none}
+.msi.msi #bs-overview .bs-gn{font-size:30px;grid-row:1/span 2}
+.msi.msi #bs-overview .bs-gt{font-size:22px}
+.msi.msi #bs-overview .bs-gf{display:contents}
+.msi.msi #bs-overview .bs-gfig{display:inline-block;grid-column:2;justify-self:start;margin-top:6px}
+.msi.msi #bs-overview .bs-garrow{grid-column:3;grid-row:1;align-self:center}
+.msi.msi #bs-overview a.bs-gcard[data-feature]{padding:18px 14px}
+}
+@media(prefers-reduced-motion:reduce){.msi.msi #bs-overview a.bs-gcard,.msi.msi #bs-overview .bs-gn,.msi.msi #bs-overview .bs-garrow{transition:none}.msi.msi #bs-overview a.bs-gcard:hover .bs-garrow{transform:none}}
+@media print{.msi.msi #bs-overview .bs-ovhero{background:none;color:inherit;border-color:var(--border)}.msi.msi #bs-overview .bs-ovstats dt{color:inherit}}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */
@@ -1745,7 +1780,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <p class="bs-meta">By <a href="/about">Ankit Kumar</a> &middot; Edition 001 &middot; <span class="bs-meta-date">Last Updated Nov 2, 2026</span></p>
 </header>
 <nav class="ri-nav bs-views" aria-label="Sections of this page"><div class="bs-tablist"><a href="#bs-overview" id="bs-tab-overview">Overview</a><a href="#bs-messaging" id="bs-tab-messaging">Website Messaging</a><a href="#bs-compare" id="bs-tab-compare">Product Comparison</a><a href="#bs-social" id="bs-tab-social">Organic Social</a><a href="#bs-paid" id="bs-tab-paid">Paid Social</a><a href="#bs-journeys" id="bs-tab-journeys">Sign-up Journey</a><a href="#bs-lessons" id="bs-tab-lessons">Recommendations</a></div></nav>
-<section id="bs-overview" class="bs-view" aria-labelledby="bs-overview-h"><div class="sec-head"><h2 id="bs-overview-h">Inside this case study</h2></div><dl class="bs-stats" aria-label="This case study at a glance"><div class="bs-stat"><dt>Brands compared</dt><dd>6</dd></div><div class="bs-stat"><dt>Instagram posts</dt><dd>51</dd></div><div class="bs-stat"><dt>Meta ads</dt><dd>119</dd></div><div class="bs-stat"><dt>Recorded observations</dt><dd>128</dd></div></dl><nav class="bs-guide" aria-label="Sections of this case study"><a class="bs-gcard" href="#bs-messaging"><span class="bs-gtop"><span class="bs-gchip"><svg class="bs-gi" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12a5 5 0 0 1 5-5h22a5 5 0 0 1 5 5v14a5 5 0 0 1-5 5H21l-8 7v-7a5 5 0 0 1-5-5z"/><path d="M15 15h18M15 22h12"/></svg></span><span class="bs-gn" aria-hidden="true">01</span></span><span class="bs-gt">Website Messaging</span><span class="bs-gd">How brands explain their value and support their claims.</span><span class="bs-gf"><span class="bs-gfig">6 brand websites</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a><a class="bs-gcard" href="#bs-compare"><span class="bs-gtop"><span class="bs-gchip"><svg class="bs-gi" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="9" width="34" height="30" rx="3"/><path d="M7 19h34M7 29h34M19 9v30M30 9v30"/></svg></span><span class="bs-gn" aria-hidden="true">02</span></span><span class="bs-gt">Product Comparison</span><span class="bs-gd">Cards, rewards, fees and key conditions.</span><span class="bs-gf"><span class="bs-gfig">3 categories, 6 brands</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a><a class="bs-gcard" href="#bs-social"><span class="bs-gtop"><span class="bs-gchip"><svg class="bs-gi" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="7" width="30" height="34" rx="4"/><rect x="14" y="12" width="20" height="14" rx="2"/><circle cx="20" cy="17" r="2"/><path d="M14 24l6-5 5 4 3-2 6 5"/><path d="M14 31h20M14 36h12"/></svg></span><span class="bs-gn" aria-hidden="true">03</span></span><span class="bs-gt">Organic Social</span><span class="bs-gd">The content brands post on Instagram, who it speaks to and the response it receives.</span><span class="bs-gf"><span class="bs-gfig">51 posts reviewed</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a><a class="bs-gcard" href="#bs-paid"><span class="bs-gtop"><span class="bs-gchip"><svg class="bs-gi" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20v8a2 2 0 0 0 2 2h4l10 7V11L14 18h-4a2 2 0 0 0-2 2z"/><path d="M31 18a8 8 0 0 1 0 12M35 13a14 14 0 0 1 0 22"/></svg></span><span class="bs-gn" aria-hidden="true">04</span></span><span class="bs-gt">Paid Social</span><span class="bs-gd">The creative approaches brands use, who they speak to and their likely buying stages.</span><span class="bs-gf"><span class="bs-gfig">119 ads, 87 distinct creatives</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a><a class="bs-gcard" href="#bs-journeys"><span class="bs-gtop"><span class="bs-gchip"><svg class="bs-gi" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="24" r="4"/><circle cx="24" cy="24" r="4"/><circle cx="38" cy="24" r="4"/><path d="M14 24h6M28 24h6"/></svg></span><span class="bs-gn" aria-hidden="true">05</span></span><span class="bs-gt">Sign-up Journey</span><span class="bs-gd">How brands guide customers from their first click to getting started.</span><span class="bs-gf"><span class="bs-gfig">6 first screens followed</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a><a class="bs-gcard" href="#bs-lessons"><span class="bs-gtop"><span class="bs-gchip"><svg class="bs-gi" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 13l3 3 5-6M9 25l3 3 5-6M9 37l3 3 5-6"/><path d="M22 13h17M22 25h17M22 37h17"/></svg></span><span class="bs-gn" aria-hidden="true">06</span></span><span class="bs-gt">Recommendations</span><span class="bs-gd">One or two ideas for each brand to test.</span><span class="bs-gf"><span class="bs-gfig">12 recommendations</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a></nav><p class="bs-next"><a href="#bs-messaging">Next: Website Messaging &rarr;</a></p></section>
+<section id="bs-overview" class="bs-view" aria-labelledby="bs-overview-h"><div class="bs-ovhero"><div class="sec-head"><h2 id="bs-overview-h">Inside this case study</h2></div><p class="bs-ovlead">Six business finance brands, <em>side by side</em>: what they say, what they offer, what they post and how people sign up.</p><dl class="bs-stats bs-ovstats" aria-label="This case study at a glance"><div class="bs-stat"><dt>Brands compared</dt><dd>6</dd></div><div class="bs-stat"><dt>Instagram posts</dt><dd>51</dd></div><div class="bs-stat"><dt>Meta ads</dt><dd>119</dd></div><div class="bs-stat"><dt>Recorded observations</dt><dd>128</dd></div></dl></div><nav class="bs-guide" aria-label="Sections of this case study"><p class="bs-ovlabel">Open to everyone</p><div class="bs-toc"><a class="bs-gcard" href="#bs-messaging"><span class="bs-gn" aria-hidden="true">01</span><span class="bs-gchip"><svg class="bs-gi" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12a5 5 0 0 1 5-5h22a5 5 0 0 1 5 5v14a5 5 0 0 1-5 5H21l-8 7v-7a5 5 0 0 1-5-5z"/><path d="M15 15h18M15 22h12"/></svg></span><span class="bs-gbody"><span class="bs-gt">Website Messaging</span><span class="bs-gd">How brands explain their value and support their claims.</span></span><span class="bs-gf"><span class="bs-gfig">6 brand websites</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a><a class="bs-gcard" href="#bs-compare"><span class="bs-gn" aria-hidden="true">02</span><span class="bs-gchip"><svg class="bs-gi" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="9" width="34" height="30" rx="3"/><path d="M7 19h34M7 29h34M19 9v30M30 9v30"/></svg></span><span class="bs-gbody"><span class="bs-gt">Product Comparison</span><span class="bs-gd">Cards, rewards, fees and key conditions.</span></span><span class="bs-gf"><span class="bs-gfig">3 categories, 6 brands</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a></div><p class="bs-ovlabel">Full case study<span class="bs-ovlock"><svg class="bs-gate-ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><circle cx="12" cy="16" r="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Confirm your email to open</span></p><div class="bs-toc"><a class="bs-gcard" href="#bs-social"><span class="bs-gn" aria-hidden="true">03</span><span class="bs-gchip"><svg class="bs-gi" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="7" width="30" height="34" rx="4"/><rect x="14" y="12" width="20" height="14" rx="2"/><circle cx="20" cy="17" r="2"/><path d="M14 24l6-5 5 4 3-2 6 5"/><path d="M14 31h20M14 36h12"/></svg></span><span class="bs-gbody"><span class="bs-gt">Organic Social</span><span class="bs-gd">The content brands post on Instagram, who it speaks to and the response it receives.</span></span><span class="bs-gf"><span class="bs-gfig">51 posts reviewed</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a><a class="bs-gcard" href="#bs-paid"><span class="bs-gn" aria-hidden="true">04</span><span class="bs-gchip"><svg class="bs-gi" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20v8a2 2 0 0 0 2 2h4l10 7V11L14 18h-4a2 2 0 0 0-2 2z"/><path d="M31 18a8 8 0 0 1 0 12M35 13a14 14 0 0 1 0 22"/></svg></span><span class="bs-gbody"><span class="bs-gt">Paid Social</span><span class="bs-gd">The creative approaches brands use, who they speak to and their likely buying stages.</span></span><span class="bs-gf"><span class="bs-gfig">119 ads, 87 distinct creatives</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a><a class="bs-gcard" href="#bs-journeys"><span class="bs-gn" aria-hidden="true">05</span><span class="bs-gchip"><svg class="bs-gi" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="24" r="4"/><circle cx="24" cy="24" r="4"/><circle cx="38" cy="24" r="4"/><path d="M14 24h6M28 24h6"/></svg></span><span class="bs-gbody"><span class="bs-gt">Sign-up Journey</span><span class="bs-gd">How brands guide customers from their first click to getting started.</span></span><span class="bs-gf"><span class="bs-gfig">6 first screens followed</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a><a class="bs-gcard" href="#bs-lessons" data-feature><span class="bs-gn" aria-hidden="true">06</span><span class="bs-gchip"><svg class="bs-gi" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 13l3 3 5-6M9 25l3 3 5-6M9 37l3 3 5-6"/><path d="M22 13h17M22 25h17M22 37h17"/></svg></span><span class="bs-gbody"><span class="bs-gt">Recommendations</span><span class="bs-gd">One or two ideas for each brand to test.</span></span><span class="bs-gf"><span class="bs-gfig">12 recommendations</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a></div></nav><p class="bs-next"><a href="#bs-messaging">Next: Website Messaging &rarr;</a></p></section>
 <section id="bs-messaging" class="bs-view" aria-labelledby="bs-messaging-h"><div class="sec-head"><h2 id="bs-messaging-h">Website Messaging</h2><p class="dek">A look at how brands explain their value, build trust and encourage customers to take the next step.</p></div><dl class="bs-stats" aria-label="Website messaging at a glance"><div class="bs-stat"><dt>Brands compared</dt><dd>6</dd></div><div class="bs-stat"><dt>Public sources reviewed</dt><dd>98</dd></div><div class="bs-stat"><dt>Recorded observations</dt><dd>128</dd></div><div class="bs-stat"><dt>Brands with a claim lacking a stated basis</dt><dd>4 of 6</dd></div></dl><div class="sub soc-sec" id="bs-msg-table"><h3 id="bs-msg-h"><span class="soc-n">1</span>Messaging at a glance</h3><p class="soc-lim">Read from each homepage, a product page and the linked proof on 23 October 2026. Claims are the brands’ own, not verified.</p><div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-msg-h"><table class="bs bs-msgt"><caption class="sr-only">Main promise, audience, claimed difference and proof for six brands, from pages observed on 23 October 2026</caption><thead><tr><th scope="col">Brand</th><th scope="col">Main promise</th><th scope="col">Who it speaks to</th><th scope="col">Why choose them?</th><th scope="col">Proof used</th></tr></thead><tbody>
 <tr id="bs-msg-venn"><td class="brandcell">Venn</td><td data-label="Main promise">Business banking built for Canada, with lower costs.</td><td data-label="Who it speaks to">Canadian businesses looking for an alternative to the big banks.</td><td data-label="Why choose them?">Claims lower FX and transfer costs than the big banks.</td><td data-label="Proof used">Customer counts (15,000+) and a case study that describes time saved.</td></tr>
 <tr id="bs-msg-float"><td class="brandcell">Float</td><td data-label="Main promise">Less manual finance work in one platform.</td><td data-label="Who it speaks to">Canadian businesses: “Built in Canada, for Canada.”</td><td data-label="Why choose them?">Claims cards, accounts, payments and spend management from one Canadian provider.</td><td data-label="Proof used">A customer story reporting more than 100 hours a year saved.</td></tr>

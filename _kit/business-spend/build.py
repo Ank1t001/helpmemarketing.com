@@ -823,7 +823,8 @@ def body(c):
                       % (E(ls_['note']), gate.block('opps', '<div class="bs-lessons">%s</div>' % cards), E(ls_['measure_note']))
                     + view_close('lessons'))
 
-    # ---------- Overview (founder, 2026-11-01): an at-a-glance strip of counts, then numbered cards, each with one figure from its tab ----------
+    # ---------- Overview, second look (founder, 2026-11-02): a signature panel (heading, one display line, the counts), then a numbered
+    # contents list in two groups, the open tabs and the full case study behind the email code, with Recommendations featured last ----------
     # Built last so every figure is counted from the data or the rendered tab, never typed.
     vo = views['overview']
     n_posts = sum(1 for p in c.social['posts'] if social.in_analysis(c.social, p)) if c.social else 0
@@ -836,15 +837,27 @@ def body(c):
             'messaging': '%d brand websites' % nb, 'compare': '%d categories, %d brands' % (n_cats, nb),
             'journeys': '%d first screens followed' % nb, 'lessons': '%d recommendations' % n_opps}
     stats = [(nb, 'Brands compared')] + ([(n_posts, 'Instagram posts')] if c.social else []) + ([(n_ads, 'Meta ads')] if c.paid else []) + [(len(c.obs), 'Recorded observations')]
-    strip = '<dl class="bs-stats" aria-label="This case study at a glance">%s</dl>' % ''.join(
+    strip = '<dl class="bs-stats bs-ovstats" aria-label="This case study at a glance">%s</dl>' % ''.join(
         '<div class="bs-stat"><dt>%s</dt><dd>%d</dd></div>' % (E(l), v) for v, l in stats)
     shown = [g for g in vo['guide'] if g[0] in views]
-    guide = ''.join('<a class="bs-gcard" href="#bs-%s"><span class="bs-gtop"><span class="bs-gchip">%s</span><span class="bs-gn" aria-hidden="true">%02d</span></span>'
-                    '<span class="bs-gt">%s</span><span class="bs-gd">%s</span><span class="bs-gf"><span class="bs-gfig">%s</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a>' % (
-                        k, ICONS[icon], i, E(views[k]['title'] if k in views else t), E(desc), E(figs[k]))
-                    for i, (k, t, desc, icon) in enumerate(shown, 1))
-    V['overview'] = (view_open('overview', 'bs-overview', dek=False)
-                     + strip + '<nav class="bs-guide" aria-label="Sections of this case study">%s</nav>' % guide
+    gated_views = {'social', 'paid', 'journeys', 'lessons'}   # the tabs gate.block wraps; the lock note shows only while html.bsi-locked
+    def row(i, k, t, desc, icon):
+        return ('<a class="bs-gcard" href="#bs-%s"%s><span class="bs-gn" aria-hidden="true">%02d</span><span class="bs-gchip">%s</span>'
+                '<span class="bs-gbody"><span class="bs-gt">%s</span><span class="bs-gd">%s</span></span>'
+                '<span class="bs-gf"><span class="bs-gfig">%s</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a>' % (
+                    k, ' data-feature' if k == 'lessons' else '', i, ICONS[icon], E(views[k]['title'] if k in views else t), E(desc), E(figs[k])))
+    rows = [(i, g) for i, g in enumerate(shown, 1)]
+    open_rows = ''.join(row(i, *g) for i, g in rows if g[0] not in gated_views)
+    gated_rows = ''.join(row(i, *g) for i, g in rows if g[0] in gated_views)
+    guide = '<p class="bs-ovlabel">%s</p><div class="bs-toc">%s</div>' % (E(vo['open_label'] if gated_rows else 'In this case study'), open_rows)
+    if gated_rows:
+        guide += ('<p class="bs-ovlabel">%s<span class="bs-ovlock">%s%s</span></p><div class="bs-toc">%s</div>'
+                  % (E(vo['gated_label']), gate.LOCK_ICON, E(vo['gated_note']), gated_rows))
+    lead = vo['lead']
+    V['overview'] = ('<section id="bs-overview" class="bs-view" aria-labelledby="bs-overview-h"><div class="bs-ovhero">'
+                     '<div class="sec-head"><h2 id="bs-overview-h">%s</h2></div><p class="bs-ovlead">%s<em>%s</em>%s</p>%s</div>'
+                     % (E(vo.get('heading', vo['title'])), E(lead[0]), E(lead[1]), E(lead[2]), strip)
+                     + '<nav class="bs-guide" aria-label="Sections of this case study">%s</nav>' % guide
                      + view_close('overview'))
 
     out += [V[k] for k, _ in order]

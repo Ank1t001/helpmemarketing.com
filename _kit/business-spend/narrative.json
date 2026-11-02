@@ -1446,7 +1446,15 @@
      "One or two ideas for each brand to test.",
      "check"
     ]
-   ]
+   ],
+   "lead": [
+    "Six business finance brands, ",
+    "side by side",
+    ": what they say, what they offer, what they post and how people sign up."
+   ],
+   "open_label": "Open to everyone",
+   "gated_label": "Full case study",
+   "gated_note": "Confirm your email to open"
   },
   "compare": {
    "title": "Product Comparison",

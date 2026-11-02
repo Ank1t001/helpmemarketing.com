@@ -425,6 +425,13 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - Order: Overview, Website Messaging, Product Comparison, Organic Social, Paid Social, Sign-up Journey, Recommendations. The Overview cards and Back/Next links follow it.
 - Gating: Organic Social, Paid Social, Sign-up Journey and Recommendations are gated whole below their heading, intro and at-a-glance strip, which stay open as the preview; the Downloads list stays gated. Website Messaging and Product Comparison are fully open, including "More detail".
 
+## 31. Overview, second look (founder, 2 November 2026; staging)
+
+- Founder: "The Overview page looks dull, create a different version while keeping it branded."
+- A signature panel in the case study artwork's look (obsidian with a Signal Orange glow; the raised dark surface in dark mode): "Inside this case study" as an orange eyebrow, one Fraunces line, "Six business finance brands, *side by side*: what they say, what they offer, what they post and how people sign up.", and the four counts in large Fraunces figures.
+- The six cards became a numbered contents list in two groups: "Open to everyone" (Website Messaging, Product Comparison) and "Full case study" (Organic Social, Paid Social, Sign-up Journey, Recommendations), with "Confirm your email to open" beside the second label only while the page is locked. Each row: large Fraunces number, icon tile, Fraunces title, one line, figure pill, arrow. Recommendations is the last row, tinted orange.
+- Phone: the panel's counts sit two by two; rows drop the icon tile and put the figure pill under the line.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

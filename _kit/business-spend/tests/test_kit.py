@@ -316,6 +316,12 @@ class KitTests(unittest.TestCase):
         self.assertIn('<h2 id="bs-overview-h">Inside this case study</h2>', ov)
         self.assertEqual(re.findall(r'<a class="bs-gcard" href="#(bs-[a-z]+)"', ov), ['bs-messaging', 'bs-compare', 'bs-social', 'bs-paid', 'bs-journeys', 'bs-lessons'])
         self.assertNotIn('class="find"', ov)
+        # Overview, second look (founder, 2026-11-02): signature panel, open and gated groups, Recommendations featured last.
+        self.assertIn('<div class="bs-ovhero"><div class="sec-head"><h2 id="bs-overview-h">', ov)
+        self.assertIn('<em>side by side</em>', ov)
+        self.assertIn('<p class="bs-ovlabel">Open to everyone</p>', ov)
+        self.assertIn('Full case study<span class="bs-ovlock">', ov)
+        self.assertEqual(re.findall(r'href="#(bs-[a-z]+)" data-feature', ov), ['bs-lessons'])
         # Overview refinement (founder brief, 2026-10-31): no intro paragraph or provider list, the six blocks with the agreed copy.
         self.assertNotIn('bs-provs', ov)
         self.assertNotIn(self.c.n['views']['overview']['dek'], ov)
