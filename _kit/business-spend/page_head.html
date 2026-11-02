@@ -861,6 +861,20 @@ html.bsi-locked .msi.msi #bs-overview .bs-gstate{display:inline-flex}
 .msi.msi #bs-journey-table .bs-jg:last-child{margin-bottom:0}
 .msi.msi #bs-journeys .soc-stood{margin:0;font-size:14.5px;line-height:1.6;color:var(--text-body,var(--text))}
 .msi.msi .bs-jex .soc-tags .bs-src{display:block;width:fit-content;margin:3px 0 0;padding:0;border:0;border-radius:0;font-size:12px;font-weight:600;font-style:italic;letter-spacing:0;text-transform:none;color:var(--text-tertiary)}
+/* Recommendations pass (founder, 2026-11-02): brand names in Fraunces with a muted count, each recommendation titled in Fraunces, "What I saw" muted, the recommendation in an orange-tinted block with a Signal Orange rule, and room before the closing note. Spec: Design System note "Recommendations pass". */
+.msi.msi #bs-lessons article.bs-lesson h3.bs-ttitle{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;margin:0 0 20px;font-family:var(--font-display,Fraunces,serif);font-size:28px;font-weight:400;line-height:1.15;letter-spacing:-.015em}
+.msi.msi #bs-lessons .bs-lcount{font-family:var(--sans,Inter,sans-serif);font-size:13px;font-weight:600;letter-spacing:0;color:var(--text-tertiary)}
+.msi.msi #bs-lessons article.bs-lesson li.bs-opp h4{margin:0 0 12px;font-family:var(--font-display,Fraunces,serif);font-size:21px;font-weight:400;line-height:1.25;letter-spacing:-.01em}
+.msi.msi #bs-lessons article.bs-lesson li.bs-opp+li.bs-opp{margin-top:24px;padding-top:24px}
+.msi.msi #bs-lessons dl.bs-tmain{display:flex;flex-direction:column;gap:14px}
+.msi.msi #bs-lessons dl.bs-tmain>div{margin:0}
+.msi.msi #bs-lessons dl.bs-tmain dt{margin:0 0 4px}
+.msi.msi #bs-lessons .bs-saw dd{margin:0;font-size:14.5px;color:var(--text-muted)}
+.msi.msi #bs-lessons .bs-rec{padding:14px 16px;border-left:3px solid var(--cta);border-radius:0 var(--r1) var(--r1) 0;background:color-mix(in srgb,var(--cta) 8%,transparent)}
+.msi.msi #bs-lessons .bs-rec dt{color:var(--cta-text,var(--cta))}
+.msi.msi #bs-lessons .bs-rec dd{margin:0;font-size:15px;line-height:1.55;font-weight:500;color:var(--text)}
+.msi.msi #bs-lessons #bs-tests>.pnote{margin-top:var(--s5)}
+@media(max-width:720px){.msi.msi #bs-lessons article.bs-lesson h3.bs-ttitle{font-size:25px}.msi.msi #bs-lessons article.bs-lesson li.bs-opp h4{font-size:20px}}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */

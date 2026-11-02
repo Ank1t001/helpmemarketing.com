@@ -469,6 +469,12 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - On phones the source note no longer looks like the column name above it.
 - Examples: the source sits on its own line under the brand label, and "What stood out" matches the size used on the other tabs.
 
+## 37. Recommendations: the advice as the payoff (founder, 2 November 2026; staging)
+
+- Each recommendation now sits in an orange-tinted block with an orange rule, set darker than the evidence above it; "What I saw" stays as muted supporting text.
+- Brand names and recommendation titles are in Fraunces, with a "2 recommendations" count beside each brand.
+- More room between recommendations and before the closing note. Wording unchanged.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

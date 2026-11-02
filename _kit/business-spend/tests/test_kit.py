@@ -435,7 +435,7 @@ class KitTests(unittest.TestCase):
         for pid in self.c.order:
             self.assertIn('id="bs-jt-%s"' % pid, ref)
         self.assertIn('id="bs-e3"', ref)
-        self.assertEqual(re.findall(r'<h3 class="bs-ttitle">([^<]+)</h3>', ls), ['Venn', 'Float', 'Ramp', 'Loop', 'Keep', 'Airwallex'])
+        self.assertEqual(re.findall(r'<h3 class="bs-ttitle">([^<]+)<span class="bs-lcount">', ls), ['Venn', 'Float', 'Ramp', 'Loop', 'Keep', 'Airwallex'])
         self.assertEqual(re.findall(r'<dt>([^<]+)</dt>', ls[ls.index('class="bs-lessons"'):]), ['What I saw', 'Recommendation'] * 12)
         self.assertEqual(ls.count('<li class="bs-opp">'), 12)
         self.assertIn('<a href="#bs-lessons" id="bs-tab-lessons">Recommendations</a>', body)

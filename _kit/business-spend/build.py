@@ -821,9 +821,12 @@ def body(c):
     # ---------- Opportunities, the tab once called Lessons (anchor #bs-lessons kept; founder, 2026-11-01): one card per brand with one or two opportunities, each What I saw / Opportunity ----------
     # The earlier test and finding anchors (#bs-t1 to #bs-t3, #bs-f1 to #bs-f3) sit on the brand card they relate to; the full test designs stay in Sources & evidence.
     ls_ = n['lessons']
-    cards = ''.join('<article class="bs-lesson" id="bs-lesson-%s">%s<h3 class="bs-ttitle">%s</h3><ol class="bs-opps">%s</ol></article>' % (
+    # Recommendation cards (founder, 2026-11-02): the brand in Fraunces with its count, each recommendation titled in Fraunces, the
+    # evidence ("What I saw") muted and the recommendation itself in a tinted block, so the advice reads as the payoff.
+    cards = ''.join('<article class="bs-lesson" id="bs-lesson-%s">%s<h3 class="bs-ttitle">%s<span class="bs-lcount">%s</span></h3><ol class="bs-opps">%s</ol></article>' % (
                         x['pid'], ''.join('<span class="bs-anchor" id="%s"></span>' % a for a in x['anchors']), E(c.name(x['pid'])),
-                        ''.join('<li class="bs-opp"><p class="pd-chips"><span class="pd-chip">%s</span></p><h4>%s</h4><dl class="bs-tmain"><dt>What I saw</dt><dd>%s</dd><dt>Recommendation</dt><dd>%s</dd></dl></li>' % (
+                        '%d recommendation%s' % (len(x['opps']), '' if len(x['opps']) == 1 else 's'),
+                        ''.join('<li class="bs-opp"><p class="pd-chips"><span class="pd-chip">%s</span></p><h4>%s</h4><dl class="bs-tmain"><div class="bs-saw"><dt>What I saw</dt><dd>%s</dd></div><div class="bs-rec"><dt>Recommendation</dt><dd>%s</dd></div></dl></li>' % (
                             E(ls_['areas'][o['area']]), E(o['title']), E(o['saw']), E(o['opp'])) for o in x['opps']))
                     for x in ls_['items'])
     # At-a-glance strip, as on the other tabs (founder, 2026-11-01): opportunities counted by area.
