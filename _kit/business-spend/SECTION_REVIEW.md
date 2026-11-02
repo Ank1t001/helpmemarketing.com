@@ -457,6 +457,12 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - Engagement by theme: three brand cards side by side instead of three tables in a two-column grid; each lists the theme with its post count under it and the median on the right in Fraunces, with the takeaway at the foot.
 - The tab is about 300px shorter on desktop and 350px shorter on phones.
 
+## 35. Paid Social: alignment and labels (founder, 2 November 2026; staging)
+
+- The "distinct creatives reviewed from the collected sample" line sits under each brand name, so the audience bars and stacked bars start at the same height in every card and row (wording unchanged).
+- Example cards on every tab show the brand as the orange uppercase label used on the Website Messaging cards.
+- "Unclear / not assessed" is no longer listed under "Not observed".
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

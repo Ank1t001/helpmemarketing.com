@@ -850,6 +850,10 @@ html.bsi-locked .msi.msi #bs-overview .bs-gstate{display:inline-flex}
 .msi.msi #bs-social .soc-eng td.soc-med-na{font-family:inherit;font-size:13px;line-height:1.4;color:var(--text-tertiary);white-space:normal;max-width:9em}
 .msi.msi #bs-social .soc-eng .soc-stood{margin:auto 0 0;padding-top:14px;border-top:1px solid var(--border);font-size:14px;line-height:1.5}
 @media(max-width:900px){.msi.msi #bs-social .soc-engs{grid-template-columns:1fr}}
+/* Paid Social pass (founder, 2026-11-02): the coverage line sits under each brand name (audience cards and stacked rows, so bars start level), and every example card's brand line is the small orange uppercase label of the Website Messaging cards (Organic Social, Paid Social, Website Messaging and Sign-up Journey examples). Spec: Design System note "Paid Social pass". */
+.msi.msi .pd-brand .pd-n{display:block;margin:2px 0 0;font-size:12.5px}
+.msi.msi .pd-card .pd-brand{margin-bottom:12px}
+.msi.msi :is(.pd-ex,.bs-wex) .soc-tags{margin:0 0 8px;font-size:12px;font-weight:700;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;color:var(--cta-text,var(--cta))}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */

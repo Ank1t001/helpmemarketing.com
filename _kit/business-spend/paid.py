@@ -272,7 +272,8 @@ def _bars(cs, cats, dim, ctx=PAID_CTX):
     for k, lab in cats:
         n = c.get(k, 0)
         if not n:
-            zero.append(lab)
+            if lab != UNCLEAR:   # nothing left unclear is not a finding, so it is not listed as "not observed"
+                zero.append(lab)
             continue
         w = 0 if not total else 200.0 * n / total
         rows.append('<li class="%s"><span class="pd-bl">%s</span><svg class="pd-bar" viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
