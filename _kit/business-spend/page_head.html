@@ -524,11 +524,6 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi #bs-messaging .soc-sec>h3{margin:0 0 var(--s3)}
 .msi.msi #bs-messaging .soc-lim{margin:0 0 var(--s4);font-size:14px;line-height:1.55;color:var(--text-muted)}
 .msi.msi #bs-messaging .soc-lim a{color:var(--cta-text,var(--cta));text-decoration:underline;text-underline-offset:3px}
-.msi.msi table.bs-msgt td.brandcell{width:10%}
-.msi.msi table.bs-msgt td{vertical-align:top}
-@media(min-width:901px){.msi.msi table.bs-msgt td{width:22.5%}.msi.msi table.bs-msgt td.brandcell{width:10%}}
-@media(max-width:900px){.msi.msi table.bs-msgt td.brandcell{width:auto}}
-@media(max-width:720px){.msi.msi .tw.cards table.bs-msgt td[data-label]{grid-column:1/-1}}
 /* Website Messaging, second brief (2026-10-31): three visual examples, image above text, three across on desktop. */
 .msi.msi .bs-wexs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4);align-items:start}
 .msi.msi .bs-wex{padding:var(--s5);border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
@@ -799,6 +794,24 @@ html.bsi-locked .msi.msi #bs-overview .bs-gstate{display:inline-flex}
 }
 @media(prefers-reduced-motion:reduce){.msi.msi #bs-overview a.bs-gcard,.msi.msi #bs-overview .bs-garrow{transition:none}.msi.msi #bs-overview a.bs-gcard:hover,.msi.msi #bs-overview a.bs-gcard:hover .bs-garrow{transform:none}}
 @media print{.msi.msi #bs-overview .bs-ovhero,.msi.msi #bs-overview a.bs-gcard[data-feature]{background:none;color:inherit;border-color:var(--border)}.msi.msi #bs-overview .bs-ovstats dt{color:inherit}.msi.msi #bs-overview .bs-gstate{display:none}}
+/* Website Messaging, brand message cards (founder, 2026-11-02): six cards instead of the five-column table; the brand as an orange label, the main promise in Fraunces, then audience, claimed difference and proof; a brand counted as lacking a stated basis ends with a tinted note naming the figure. The example screenshots sit in equal frames. Spec: Design System note "Website Messaging brand cards". */
+.msi.msi .bs-view .sec-head .dek{text-wrap:pretty}
+.msi.msi .bs-msgcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.msi.msi .bs-msgc{display:flex;flex-direction:column;padding:24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
+.msi.msi .bs-msgc h4.bs-msgc-brand{margin:0 0 14px;font-family:var(--sans,Inter,sans-serif);font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:var(--cta-text,var(--cta))}
+.msi.msi .bs-msgc dl{display:flex;flex-direction:column;gap:14px;flex:1;margin:0}
+.msi.msi .bs-msgc dl>div{margin:0}
+.msi.msi .bs-msgc dt{margin:0 0 3px;font-size:12px;font-weight:700;line-height:1.4;letter-spacing:.08em;text-transform:uppercase;color:var(--text-tertiary)}
+.msi.msi .bs-msgc dd{margin:0;font-size:14.5px;line-height:1.5;color:var(--text-body,var(--text-muted))}
+.msi.msi .bs-msgc .is-promise{padding-bottom:16px;border-bottom:1px solid var(--border)}
+.msi.msi .bs-msgc .is-promise dt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.msi.msi .bs-msgc .is-promise dd{font-family:var(--font-display,Fraunces,serif);font-size:22px;line-height:1.25;letter-spacing:-.01em;color:var(--text)}
+.msi.msi .bs-msgc-flag{margin:18px 0 0;padding:10px 12px;border-left:3px solid var(--cta);border-radius:0 var(--r1) var(--r1) 0;background:color-mix(in srgb,var(--cta) 8%,transparent);font-size:13.5px;line-height:1.45;color:var(--text)}
+.msi.msi .bs-msgc-flag b{font-weight:600}
+.msi.msi #bs-examples figure.bs-wex-shot a.bs-zoom{display:flex;align-items:center;justify-content:center;aspect-ratio:2/1;overflow:hidden;border:1px solid var(--border);border-radius:var(--r1);background:var(--bg)}
+.msi.msi #bs-examples figure.bs-wex-shot a.bs-zoom img{width:100%;height:100%;object-fit:contain;border:0;border-radius:0}
+@media(max-width:900px){.msi.msi .bs-msgcards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.msi.msi .bs-msgcards{grid-template-columns:1fr;gap:12px}.msi.msi .bs-msgc{padding:20px}.msi.msi .bs-msgc .is-promise dd{font-size:21px}}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */

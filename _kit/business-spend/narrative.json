@@ -1219,7 +1219,7 @@
   "items": [
    {
     "title": "Figures often appeared without their basis",
-    "body": "Every platform published a customer count or savings figure. Savings and ranking claims without a stated basis appeared at Venn (FX up to 2.75% cheaper than banks), Float (save up to 90% on FX), Loop (average savings) and Keep (\"Canada's #1\").",
+    "body": "Every platform published a customer count or savings figure. Savings and ranking claims without a stated basis appeared at Venn (FX up to 2.75% cheaper than banks), Float (save up to 90% on FX), Loop (average savings) and Keep (“Canada’s #1”).",
     "exceptions": "Loop's case study labels its estimate; Ramp labels its receipt figure as internal data; Airwallex says its 600,000 figure includes customers served through platforms.",
     "denominator": "6 of 6 published such a figure; 4 of 6 gave at least one without a basis I could find.",
     "evidence": [
@@ -1478,7 +1478,14 @@
     "float",
     "loop",
     "keep"
-   ]
+   ],
+   "unbased_detail": {
+    "venn": "FX up to 2.75% cheaper than banks",
+    "float": "save up to 90% on FX",
+    "loop": "average savings",
+    "keep": "“Canada’s #1”"
+   },
+   "unbased_label": "No stated basis found for"
   },
   "journeys": {
    "title": "Sign-up Journey",

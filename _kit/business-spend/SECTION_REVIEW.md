@@ -437,6 +437,13 @@ Only the Selected examples cards changed. The four cards shown by default take t
 
 - Optimisation (founder, same day): open tiles side by side with the figure on the right; smaller icon row; Recommendations text centred with the link under it; on phones no icon tiles, the badge on its own line and tighter padding.
 
+## 32. Website Messaging: brand cards (founder, 2 November 2026; staging)
+
+- The five-column table became six brand cards with the same four criteria: the brand as an orange label, its main promise in Fraunces, then who it speaks to, why choose them and proof used.
+- Venn, Float, Loop and Keep end with a tinted note naming the figure without a stated basis (FX up to 2.75% cheaper than banks; save up to 90% on FX; average savings; “Canada’s #1”), the same four brands and figures as the first pattern and the strip.
+- The strip now counts this tab: 6 brand websites read, 24 messages compared, 4 of 6 brands with a figure lacking a stated basis, 3 page examples (it repeated three Overview counts).
+- The three example screenshots sit in equal frames; tab intros avoid a single word on the last line.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

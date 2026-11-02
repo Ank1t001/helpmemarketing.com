@@ -707,8 +707,16 @@ def body(c):
     web = json.load(open(os.path.join(KIT_DIR, 'web_examples_2026-10-31.json'), encoding='utf-8'))
     caps = {w['id']: w for w in web['captures']}
     gl = lambda pid: n['platforms'][pid]['glance']
-    mrows = ''.join('<tr id="bs-msg-%s"><td class="brandcell">%s</td><td data-label="Main promise">%s</td><td data-label="Who it speaks to">%s</td><td data-label="Why choose them?">%s</td><td data-label="Proof used">%s</td></tr>\n' % (
-        pid, plain(pid), E(gl(pid)['promise']), E(gl(pid)['audience']), E(gl(pid)['why']), E(gl(pid)['proof'])) for pid in c.order)
+    # Brand message cards (founder, 2026-11-02): the brand as an orange label, the main promise in Fraunces, then audience, claimed
+    # difference and proof; a brand counted as lacking a stated basis names the figure (from the first pattern) in a tinted note.
+    ubd = vm.get('unbased_detail', {})
+    def mcard(pid):
+        g = gl(pid)
+        flag = ('<p class="bs-msgc-flag"><b>%s:</b> %s</p>' % (E(vm['unbased_label']), E(ubd[pid]))) if pid in ubd else ''
+        return ('<article class="bs-msgc" id="bs-msg-%s"><h4 class="bs-msgc-brand">%s</h4><dl><div class="is-promise"><dt>Main promise</dt><dd>%s</dd></div>'
+                '<div><dt>Who it speaks to</dt><dd>%s</dd></div><div><dt>Why choose them?</dt><dd>%s</dd></div><div><dt>Proof used</dt><dd>%s</dd></div></dl>%s</article>'
+                % (pid, plain(pid), E(g['promise']), E(g['audience']), E(g['why']), E(g['proof']), flag))
+    mrows = ''.join(mcard(pid) for pid in c.order)
     cards = []
     for i, x in enumerate(n['web_examples'], 1):
         w = caps[x['capture']]
@@ -722,14 +730,14 @@ def body(c):
                          ('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(x['detail'])) if x.get('detail') else ''))
     # At-a-glance strip, as on the Overview (founder, 2026-11-01): counted from the platforms, sources and observations.
     unb = vm.get('unbased_claims', [])
-    mstats = [('Brands compared', str(len(c.order))), ('Public sources reviewed', str(len(c.sources) if hasattr(c, 'sources') else len(model.load('sources.json')['sources']))),
-              ('Recorded observations', str(len(c.obs))), ('Brands with a claim lacking a stated basis', '%d of %d' % (len(unb), len(c.order)))]
+    # Strip specific to this tab (founder, 2026-11-02): websites read, messages compared (four per brand), figures without a basis, page examples.
+    mstats = [('Brand websites read', str(len(c.order))), ('Messages compared', str(4 * len(c.order))),
+              ('Brands with a figure lacking a stated basis', '%d of %d' % (len(unb), len(c.order))), ('Page examples', str(len(n['web_examples'])))]
     mstrip = '<dl class="bs-stats" aria-label="Website messaging at a glance">%s</dl>' % ''.join(
         '<div class="bs-stat"><dt>%s</dt><dd>%s</dd></div>' % (E(l), E(v)) for l, v in mstats)
     V['messaging'] = (view_open('messaging', 'bs-messaging') + mstrip
                       + '<div class="sub soc-sec" id="bs-msg-table"><h3 id="bs-msg-h"><span class="soc-n">1</span>%s</h3><p class="soc-lim">%s</p>'
-                        '<div class="tw cards" tabindex="0" role="region" aria-labelledby="bs-msg-h"><table class="bs bs-msgt"><caption class="sr-only">Main promise, audience, claimed difference and proof for six brands, from pages observed on 23 October 2026</caption>'
-                        '<thead><tr><th scope="col">Brand</th><th scope="col">Main promise</th><th scope="col">Who it speaks to</th><th scope="col">Why choose them?</th><th scope="col">Proof used</th></tr></thead><tbody>\n%s</tbody></table></div></div>'
+                        '<div class="bs-msgcards">%s</div></div>'
                         % (E(vm['table_title']), E(vm['table_note']), mrows)
                       + '<div id="bs-examples" class="sub soc-sec"><h3><span class="soc-n">2</span>%s</h3><p class="soc-lim">%s</p><div class="bs-wexs">%s</div>'
                         '</div>' % (E(vm['examples_title']), E(vm['examples_note']), ''.join(cards))

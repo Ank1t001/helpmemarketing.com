@@ -802,7 +802,7 @@ def check_outputs(c, page, csvtext, extra_paths=()):
     refv = view_html(body, 'bs-sources') if '<section id="bs-sources"' in body else ''
     for pid in EXPECTED_ORDER:
         if 'id="bs-msg-%s"' % pid not in msg or '<details class="bs-more plat" id="bs-p-%s">' % pid not in refv:
-            errs.append('page: %s needs a Messaging table row and an evidence expander in Sources & evidence' % pid)
+            errs.append('page: %s needs a Messaging card and an evidence expander in Sources & evidence' % pid)
     # The tabs stay plain (founder brief, 2026-10-30, final): no observation IDs, evidence lists or "What the sources say" labels.
     import build as _b
     for _, vid in _b.view_order(c):
@@ -814,6 +814,9 @@ def check_outputs(c, page, csvtext, extra_paths=()):
     if TAKE_LABEL in msg or re.search(r'capture request|\bR[12]\b', body, re.I) or html_escape(c.n['views']['messaging']['table_note']) not in msg:   # the date sits in the limitation beside the table since 2026-10-31
         errs.append('page: Messaging carries no takeaway boxes or capture codes, and keeps its dated limitation beside the table')
     pat0 = c.n['patterns']['items'][0]['body']
+    ubd = c.n['views']['messaging'].get('unbased_detail', {})
+    if sorted(ubd) != sorted(c.n['views']['messaging'].get('unbased_claims', [])) or any(v not in pat0 for v in ubd.values()):
+        errs.append('page: each brand counted as lacking a stated basis names its figure, quoted from the first pattern (narrative views.messaging.unbased_detail)')
     if '<dl class="bs-stats"' not in msg or any(c.name(p) not in pat0 for p in c.n['views']['messaging'].get('unbased_claims', [])):
         errs.append('page: Messaging opens with the at-a-glance strip, and every brand counted as lacking a stated basis is named in the first pattern')
     jyv, f3 = c.n['journey'], c.n['findings']['items'][2]['summary']

@@ -351,8 +351,11 @@ class KitTests(unittest.TestCase):
         # Founder brief (2026-10-31, second): one five-column comparison for all six brands, then three visual examples.
         self.assertNotIn('Website observations: 23 October 2026', msg)
         self.assertIn('A look at how brands explain their value, build trust and encourage customers to take the next step.', msg)
-        self.assertEqual(re.findall(r'<th scope="col">([^<]+)</th>', msg), ['Brand', 'Main promise', 'Who it speaks to', 'Why choose them?', 'Proof used'])
-        self.assertEqual(len(re.findall(r'<tr id="bs-msg-[a-z]+">', msg)), 6)
+        # Brand message cards since 2026-11-02 (founder): the same four criteria for every brand.
+        self.assertEqual(re.findall(r'<dt>([^<]+)</dt>', msg[msg.index('class="bs-msgcards"'):])[:4], ['Main promise', 'Who it speaks to', 'Why choose them?', 'Proof used'])
+        self.assertEqual(msg.count('<dt>Proof used</dt>'), 6)
+        self.assertEqual(re.findall(r'<article class="bs-msgc" id="bs-msg-([a-z]+)">', msg), list(self.c.order))
+        self.assertEqual(msg.count('<p class="bs-msgc-flag">'), 4)   # Venn, Float, Loop and Keep name the figure without a stated basis
         self.assertEqual(re.findall(r'<h3[^>]*><span class="soc-n">\d</span>([^<]+)</h3>', msg), ['Messaging at a glance', 'Messaging in practice'])
         self.assertEqual(re.findall(r'<p class="soc-tags">([^&]+?) &middot;', msg), ['Value proposition', 'Proof', 'Call to action'])
         self.assertEqual(len(re.findall(r'<figure class="bs-wex-shot"><a class="bs-zoom"[^>]*><img src="/assets/index/business-spend/web/', msg)), 3)
