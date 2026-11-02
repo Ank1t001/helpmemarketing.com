@@ -385,10 +385,13 @@ class KitTests(unittest.TestCase):
             self.assertNotIn(gone, cmp_)
         self.assertIn('Fees apply to different transactions and conditions; these are not like-for-like total costs.', cmp_)
         self.assertIn('Observed 23 October 2026. Later rechecks are noted in the row they change.', cmp_)
-        self.assertEqual(cmp_.count('<b>Follow-up, 30 October 2026:</b>'), 1)          # named once, in Airwallex's brand cell
+        self.assertEqual(cmp_.count('<b>Follow-up, 30 October 2026:</b>'), 1)          # named once, on Airwallex's note line
+        # Since 2026-11-02 (founder) each brand is its own tbody, its notes on a full-width line under the row; the brand cell holds only the name.
+        self.assertEqual(cmp_.count('<tbody class="bs-cgroup">'), 3 * len(self.c.order))
+        self.assertNotRegex(cmp_, r'<td class="brandcell">[^<]+<span')
         for tid in ('bs-prod', 'bs-xb', 'bs-spend'):                                    # no links inside the comparison cells
             seg = cmp_[cmp_.index('id="%s"' % tid):]
-            self.assertNotIn('<a ', seg[seg.index('<tbody>'):seg.index('</tbody>')])
+            self.assertNotIn('<a ', seg[seg.index('<tbody'):seg.index('</table>')])
         self.assertIn('Rechecked 31 October 2026: the Canadian pricing page lists a corporate liability charge card with credit limits; repayment terms are not published there.', cmp_)
         self.assertIn('Eligibility not confirmed at the follow-up', cmp_)
         self.assertIn('Rechecked 31 October 2026: the Canadian pages mention rewards but publish no rate.', cmp_)

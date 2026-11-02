@@ -182,7 +182,7 @@ def restriction_lines(c, pid):
     return ''.join('<span class="bs-restr"><b>%s:</b> %s</span>' % (E(l), E(t)) for l, t, _ in c.n['compare']['rows'][pid].get('restrictions', []))
 
 
-def table(c, title, cols, tid, head=True, note=None, restrictions=False, link=False, num=None, after=''):
+def table(c, title, cols, tid, head=True, note=None, restrictions=False, link=False, num=None, after='', note_rows=False):
     ths = ''.join('<th scope="col">%s</th>' % E(l) for _, l in cols)
     rows = []
     for pid in c.order:
@@ -192,7 +192,13 @@ def table(c, title, cols, tid, head=True, note=None, restrictions=False, link=Fa
         if fu_cols:
             extra += '<span class="bs-restr bs-fu-line"><b>Follow-up, 30 October 2026:</b> %s</span>' % E(', '.join(fu_cols).capitalize())
         name = ('<a href="#bs-p-%s">%s</a>' % (pid, E(c.name(pid)))) if link else E(c.name(pid))   # plain in the tabs (2026-10-30, final)
-        rows.append('<tr id="%s-%s"><td class="brandcell">%s%s</td>%s</tr>' % (tid, pid, name, extra, cells))
+        if note_rows:
+            # Product Comparison (founder, 2026-11-02): restrictions, credit notes and follow-ups sit on a full-width line under the
+            # brand's row, so the brand column holds only the name; each brand is its own tbody (striping and phone cards per brand).
+            noterow = ('<tr class="bs-cnote"><td colspan="%d"><span class="bs-cnote-in">%s</span></td></tr>' % (len(cols) + 1, extra)) if extra else ''
+            rows.append('<tbody class="bs-cgroup"><tr id="%s-%s"><td class="brandcell">%s</td>%s</tr>%s</tbody>' % (tid, pid, name, cells, noterow))
+        else:
+            rows.append('<tr id="%s-%s"><td class="brandcell">%s%s</td>%s</tr>' % (tid, pid, name, extra, cells))
     label = ('<h3 id="%s-h">%s%s</h3>' % (tid, ('<span class="soc-n">%d</span>' % num) if num else '', E(title))) if head else ''
     if note:
         label += '<p class="bs-tnote">%s</p>' % E(note)
@@ -200,8 +206,8 @@ def table(c, title, cols, tid, head=True, note=None, restrictions=False, link=Fa
     return ('<div class="tblock" id="%s">%s'
             '<div class="tw cards" tabindex="0" role="region" %s><table class="bs">'
             '<caption class="sr-only">%s for six brands, from website observations on 23 October 2026, with later follow-ups and rechecks noted in the row they change</caption>'
-            '<thead><tr><th scope="col">Brand</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div>%s</div>'
-            % (tid, label, region, E(title), ths, '\n'.join(rows), after))
+            '<thead><tr><th scope="col">Brand</th>%s</tr></thead>%s</table></div>%s</div>'
+            % (tid, label, region, E(title), ths, ('\n'.join(rows) if note_rows else '<tbody>\n%s\n</tbody>' % '\n'.join(rows)), after))
 
 
 def compare_sources(c):
@@ -755,7 +761,7 @@ def body(c):
             ('tools', 'Spending tools', cp['spend_columns'], 'bs-spend', None, False)]
     csel = ''.join('<button type="button" class="pd-opt bs-copt" data-cat="%s" aria-pressed="%s" aria-controls="bs-cpanel-%s">%s</button>' % (k, 'true' if i == 0 else 'false', k, E(l))
                    for i, (k, l, _, _, _, _) in enumerate(cats))
-    cpanels = ''.join('<div class="bs-cpanel" id="bs-cpanel-%s" data-cat="%s">%s</div>' % (k, k, table(c, l, cols, tid, note=note, restrictions=rs)) for k, l, cols, tid, note, rs in cats)
+    cpanels = ''.join('<div class="bs-cpanel" id="bs-cpanel-%s" data-cat="%s">%s</div>' % (k, k, table(c, l, cols, tid, note=note, restrictions=rs, note_rows=True)) for k, l, cols, tid, note, rs in cats)
     # At-a-glance strip, as on the Overview (founder, 2026-11-01): counted from the rows, categories and observation statuses.
     pt = sum(1 for pid in c.order if 'Peoples Trust' in cp['rows'][pid]['issuer']['text'])
     disagree = len({o['platform'] for o in c.obs.values() if o['status'] == 'conflicting'})

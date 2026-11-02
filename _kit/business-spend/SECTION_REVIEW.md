@@ -444,6 +444,13 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - The strip now counts this tab: 6 brand websites read, 24 messages compared, 4 of 6 brands with a figure lacking a stated basis, 3 page examples (it repeated three Overview counts).
 - The three example screenshots sit in equal frames; tab intros avoid a single word on the last line.
 
+## 33. Product Comparison: table pass (founder, 2 November 2026; staging)
+
+- Restrictions, credit notes and the Airwallex follow-up moved out of the narrow brand column onto a full-width note line under each brand's row; the brand column now holds only the name, so rows are much shorter (Keep and Airwallex most of all).
+- Fixed column widths (brand 14%, the rest equal) replace the uneven auto widths; plan costs no longer wrap into a thin column.
+- Each cell's main value is set in bold with the detail line muted under it, so the comparison reads down the columns.
+- On phones each brand is one card with its notes at the foot, in one column at 720px and below. Wording, statuses and data unchanged.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

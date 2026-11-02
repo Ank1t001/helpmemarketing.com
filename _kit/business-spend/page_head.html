@@ -239,7 +239,6 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 }
 /* Compare products (2026-10-28, revised 2026-10-31): lighter row shading and readable conditions; headers use the shared small uppercase style. */
 @media(min-width:901px){
-.msi.msi #bs-compare table.bs tbody tr:nth-child(even) td{background:rgba(var(--ink-rgb,255,255,255),.025)}
 .msi.msi #bs-compare table.bs tbody td{border-top-color:rgba(var(--ink-rgb,255,255,255),.06)}
 .msi.msi #bs-compare table.bs .cell-sub{font-size:13px;line-height:1.5}
 }
@@ -812,6 +811,26 @@ html.bsi-locked .msi.msi #bs-overview .bs-gstate{display:inline-flex}
 .msi.msi #bs-examples figure.bs-wex-shot a.bs-zoom img{width:100%;height:100%;object-fit:contain;border:0;border-radius:0}
 @media(max-width:900px){.msi.msi .bs-msgcards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.msi.msi .bs-msgcards{grid-template-columns:1fr;gap:12px}.msi.msi .bs-msgc{padding:20px}.msi.msi .bs-msgc .is-promise dd{font-size:21px}}
+/* Product Comparison table pass (founder, 2026-11-02): each brand is a tbody.bs-cgroup, its notes (restrictions, credit, follow-up) on a full-width tr.bs-cnote under the row so the brand column holds only the name; fixed columns (brand 14%, the rest equal); the main value in each cell set in 600 weight; striping by brand on desktop; on phones each brand group is one card with its notes at the foot. Spec: Design System note "Product Comparison table pass". */
+@media(min-width:901px){
+.msi.msi #bs-compare table.bs{table-layout:fixed}
+.msi.msi #bs-compare table.bs thead th:first-child{width:14%}
+.msi.msi #bs-compare table.bs tbody.bs-cgroup:nth-of-type(even) td{background:rgba(var(--ink-rgb,255,255,255),.025)}
+.msi.msi #bs-compare table.bs tr.bs-cnote td{padding-top:0;padding-bottom:16px;border-top:0}
+}
+.msi.msi #bs-compare td.brandcell{min-width:0;font-size:15px}
+.msi.msi #bs-compare .cell-main{display:block;font-weight:600;color:var(--text)}
+.msi.msi #bs-compare td .st{display:inline-block;max-width:100%;white-space:normal;line-height:1.35}
+.msi.msi #bs-compare .bs-cnote-in{display:flex;flex-wrap:wrap;gap:6px 24px}
+.msi.msi #bs-compare .bs-cnote .bs-restr{display:inline;margin:0;font-size:13px;line-height:1.5;font-weight:400;color:var(--text-muted)}
+.msi.msi #bs-compare .bs-cnote .bs-restr b{font-weight:650;color:var(--text)}
+@media(max-width:900px){
+.msi.msi #bs-compare .tw.cards tbody.bs-cgroup{margin:0 0 12px;padding:16px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
+.msi.msi #bs-compare .tw.cards tbody.bs-cgroup tr{margin:0;padding:0;border:0;border-radius:0;background:none}
+.msi.msi #bs-compare .tw.cards tbody.bs-cgroup tr.bs-cnote{display:block;margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
+.msi.msi #bs-compare .bs-cnote-in{flex-direction:column;gap:6px}
+}
+@media(max-width:720px){.msi.msi #bs-compare .tw.cards tbody.bs-cgroup tr:not(.bs-cnote){grid-template-columns:1fr;gap:12px}}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */
