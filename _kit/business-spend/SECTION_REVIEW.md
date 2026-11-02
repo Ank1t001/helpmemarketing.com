@@ -451,6 +451,12 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - Each cell's main value is set in bold with the detail line muted under it, so the comparison reads down the columns.
 - On phones each brand is one card with its notes at the foot, in one column at 720px and below. Wording, statuses and data unchanged.
 
+## 34. Organic Social: shorter audience lists and engagement cards (founder, 2 November 2026; staging)
+
+- Audience and buying stage bars show only the personas and stages seen in each brand's posts; the others are named in one "Not observed" line, so the zero rows no longer push the useful bars apart. Same for Paid Social, which shares the component. Figures unchanged.
+- Engagement by theme: three brand cards side by side instead of three tables in a two-column grid; each lists the theme with its post count under it and the median on the right in Fraunces, with the takeaway at the foot.
+- The tab is about 300px shorter on desktop and 350px shorter on phones.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

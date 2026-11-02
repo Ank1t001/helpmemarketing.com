@@ -267,14 +267,18 @@ def _stack(cs, cats, label, ctx=PAID_CTX):
 def _bars(cs, cats, dim, ctx=PAID_CTX):
     total = len(cs)
     c = counts(cs, dim)
-    rows = []
-    for i, (k, lab) in enumerate(cats):
+    rows, zero = [], []
+    # Only the categories seen in this brand's sample get a bar (founder, 2026-11-02); the rest are named in one "Not observed" line.
+    for k, lab in cats:
         n = c.get(k, 0)
+        if not n:
+            zero.append(lab)
+            continue
         w = 0 if not total else 200.0 * n / total
         rows.append('<li class="%s"><span class="pd-bl">%s</span><svg class="pd-bar" viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
                     '<rect class="pd-track" width="200" height="10" rx="2"/><rect class="%s" width="%.2f" height="10" rx="2"/></svg><span class="pd-bv">%s</span></li>'
-                    % ('pd-extra' if i >= TOP_N else '', E(lab), 'pd-c-un' if lab == UNCLEAR else 'pd-fill', w, _val(n, total, ctx) if n else '0 of %d' % total))
-    return '<ul class="pd-bars">%s</ul>' % ''.join(rows)
+                    % ('pd-extra' if len(rows) >= TOP_N else '', E(lab), 'pd-c-un' if lab == UNCLEAR else 'pd-fill', w, _val(n, total, ctx)))
+    return '<ul class="pd-bars">%s</ul>%s' % (''.join(rows), ('<p class="pd-zero"><b>Not observed:</b> %s</p>' % E(', '.join(zero))) if zero else '')
 
 
 def _brand_head(pid, cs, d, ctx=PAID_CTX):

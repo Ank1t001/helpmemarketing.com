@@ -977,15 +977,17 @@ def strategy_html(c):
         rows = ''
         for r in engagement(s, pid):
             miss = r['posts'] - r['usable']
-            posts = '%d%s' % (r['posts'], ('<span class="cell-sub">%s unavailable</span>' % _plural(miss, 'count', 'counts')) if miss else '')
+            # Two columns since 2026-11-02 (founder): the post count sits under the theme, so three brand cards fit side by side.
+            posts = '%s%s' % (_plural(r['posts'], 'post', 'posts'), (' &middot; %s unavailable' % _plural(miss, 'count', 'counts')) if miss else '')
             # A brand whose largest posts show only abbreviated counts gets no median in the tab (founder, 2026-11-01); Sources keeps the calculation.
             if pid in tb.get('engagement_insufficient', []) and r['usable']:
                 med = 'Insufficient comparable data'
             else:
                 med = _num(r['median']) if r['usable'] >= 3 else ('Too few to compare' if r['usable'] else 'Unavailable')
-            rows += '<tr><td class="brandcell">%s</td><td data-label="Posts">%s</td><td data-label="Median visible likes + comments">%s</td></tr>' % (E(r['label']), posts, E(med))
-        eng.append('<div class="soc-eng" id="bs-soc-eng-%s"><h4 class="t" id="bs-soc-eng-%s-h">%s</h4><div class="tw" tabindex="0" role="region" aria-labelledby="bs-soc-eng-%s-h"><table class="bs soc-t">'
-                   '<thead><tr><th scope="col">Theme</th><th scope="col">Posts</th><th scope="col">Median visible likes + comments</th></tr></thead><tbody>%s</tbody></table></div>'
+            num = r['usable'] >= 3 and not (pid in tb.get('engagement_insufficient', []))
+            rows += '<tr><th scope="row">%s<span class="cell-sub">%s</span></th><td class="%s">%s</td></tr>' % (E(r['label']), posts, 'soc-med' if num else 'soc-med soc-med-na', E(med))
+        eng.append('<div class="soc-eng" id="bs-soc-eng-%s"><h4 class="t" id="bs-soc-eng-%s-h">%s</h4><table class="bs soc-t" aria-labelledby="bs-soc-eng-%s-h">'
+                   '<thead><tr><th scope="col">Theme and posts</th><th scope="col">Median visible likes + comments</th></tr></thead><tbody>%s</tbody></table>'
                    '<p class="soc-stood"><b>What stood out:</b> %s</p></div>' % (pid, pid, E(NAMES[pid]), pid, rows, E(tb['engagement_takeaway'][pid])))
     out.append('<div class="sub soc-sec" id="bs-soc-engagement">%s<p class="soc-lim">%s</p><div class="soc-engs">%s</div></div>'
                % (head(4, tb['engagement_title']), E(tb['engagement_limit']), ''.join(eng)))

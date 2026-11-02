@@ -831,6 +831,25 @@ html.bsi-locked .msi.msi #bs-overview .bs-gstate{display:inline-flex}
 .msi.msi #bs-compare .bs-cnote-in{flex-direction:column;gap:6px}
 }
 @media(max-width:720px){.msi.msi #bs-compare .tw.cards tbody.bs-cgroup tr:not(.bs-cnote){grid-template-columns:1fr;gap:12px}}
+/* Organic Social pass (founder, 2026-11-02): bar lists show only the categories seen in a brand's sample, the rest named in p.pd-zero (shared with Paid Social); Engagement by theme is three brand cards side by side, each a two-column table (theme with its post count under it, median right-aligned) with its takeaway at the foot. Spec: Design System note "Organic Social pass". */
+.msi.msi .pd-zero{margin:12px 0 0;padding-top:10px;border-top:1px solid var(--border);font-size:13px;line-height:1.5;color:var(--text-muted)}
+.msi.msi .pd-zero b{font-weight:650;color:var(--text)}
+.msi.msi #bs-social .soc-engs{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+.msi.msi #bs-social .soc-eng{display:flex;flex-direction:column;padding:20px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
+.msi.msi #bs-social .soc-eng h4.t{margin:0 0 12px}
+.msi.msi #bs-social .soc-eng table.soc-t{width:100%;min-width:0;table-layout:fixed;border:0;background:none}
+.msi.msi #bs-social .soc-eng table.soc-t th,.msi.msi #bs-social .soc-eng table.soc-t td{white-space:normal;width:auto}
+.msi.msi #bs-social .soc-eng table.soc-t thead th:first-child{width:58%}
+.msi.msi #bs-social .soc-eng table.soc-t thead th{padding:0 0 8px;font-size:11.5px;border-bottom:1px solid var(--border-strong);background:none}
+.msi.msi #bs-social .soc-eng table.soc-t thead th:last-child,.msi.msi #bs-social .soc-eng table.soc-t td.soc-med{text-align:right}
+.msi.msi #bs-social .soc-eng table.soc-t tbody th,.msi.msi #bs-social .soc-eng table.soc-t tbody td{padding:10px 0;border-top:1px solid var(--border);background:none;vertical-align:top}
+.msi.msi #bs-social .soc-eng table.soc-t tbody tr:first-child th,.msi.msi #bs-social .soc-eng table.soc-t tbody tr:first-child td{border-top:0}
+.msi.msi #bs-social .soc-eng table.soc-t tbody th{font-size:14.5px;font-weight:600;line-height:1.35;color:var(--text);text-align:left;text-transform:none;letter-spacing:0}
+.msi.msi #bs-social .soc-eng table.soc-t tbody th .cell-sub{display:block;margin-top:2px;font-size:12.5px;font-weight:400;color:var(--text-muted);white-space:normal}
+.msi.msi #bs-social .soc-eng td.soc-med{padding-left:12px;font-family:var(--font-display,Fraunces,serif);font-size:22px;line-height:1.1;color:var(--text);white-space:nowrap}
+.msi.msi #bs-social .soc-eng td.soc-med-na{font-family:inherit;font-size:13px;line-height:1.4;color:var(--text-tertiary);white-space:normal;max-width:9em}
+.msi.msi #bs-social .soc-eng .soc-stood{margin:auto 0 0;padding-top:14px;border-top:1px solid var(--border);font-size:14px;line-height:1.5}
+@media(max-width:900px){.msi.msi #bs-social .soc-engs{grid-template-columns:1fr}}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */
