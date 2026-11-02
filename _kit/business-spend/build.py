@@ -841,19 +841,31 @@ def body(c):
         '<div class="bs-stat"><dt>%s</dt><dd>%d</dd></div>' % (E(l), v) for v, l in stats)
     shown = [g for g in vo['guide'] if g[0] in views]
     gated_views = {'social', 'paid', 'journeys', 'lessons'}   # the tabs gate.block wraps; the lock note shows only while html.bsi-locked
-    def row(i, k, t, desc, icon):
-        return ('<a class="bs-gcard" href="#bs-%s"%s><span class="bs-gn" aria-hidden="true">%02d</span><span class="bs-gchip">%s</span>'
-                '<span class="bs-gbody"><span class="bs-gt">%s</span><span class="bs-gd">%s</span></span>'
-                '<span class="bs-gf"><span class="bs-gfig">%s</span>%s<span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a>' % (
-                    k, ' data-feature' if k == 'lessons' else '', i, ICONS[icon], E(views[k]['title'] if k in views else t), E(desc), E(figs[k]),
-                    # a small lock on each gated row, shown only while html.bsi-locked (the group label carries the words)
-                    ('<span class="bs-glock" aria-hidden="true">%s</span>' % gate.LOCK_ICON) if k in gated_views else ''))
-    rows = [(i, g) for i, g in enumerate(shown, 1)]
-    open_rows = ''.join(row(i, *g) for i, g in rows if g[0] not in gated_views)
-    gated_rows = ''.join(row(i, *g) for i, g in rows if g[0] in gated_views)
-    guide = '<p class="bs-ovlabel">%s</p><div class="bs-toc">%s</div>' % (E(vo['open_label'] if gated_rows else 'In this case study'), open_rows)
+    # Bento tiles (founder, 2026-11-02, third look): each tab leads with its own figure; the gated tiles carry an
+    # "Email to open" badge while html.bsi-locked; Recommendations is a full-width dark feature that mirrors the panel.
+    big = {'messaging': (nb, 'brand websites'), 'compare': (n_cats, 'product categories'), 'social': (n_posts, 'posts reviewed'),
+           'paid': (n_ads, 'ads reviewed'), 'journeys': (nb, 'sign-up journeys followed'), 'lessons': (n_opps, 'recommendations')}
+    badge = '<span class="bs-gstate">%s%s</span>' % (gate.LOCK_ICON, E(vo['tile_locked']))
+    areas = n['lessons']['areas']
+    allo = [o for x in n['lessons']['items'] for o in x['opps']]
+    def tile(k, t, desc, icon):
+        title = E(views[k]['title'] if k in views else t)
+        num, unit = big[k]
+        if k == 'lessons':
+            split = ''.join('<span class="bs-gsplit-i"><b>%d</b> %s</span>' % (sum(1 for o in allo if o['area'] == a), E(l)) for a, l in areas.items())
+            return ('<a class="bs-gcard" href="#bs-%s" data-feature><span class="bs-gmain"><span class="bs-gtop"><span class="bs-gchip">%s</span>%s</span>'
+                    '<span class="bs-gt">%s</span><span class="bs-gd">%s</span><span class="bs-gf"><span class="bs-gopen">%s</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></span>'
+                    '<span class="bs-gside"><span class="bs-gbig"><span class="bs-gnum">%d</span><span class="bs-gunit">%s</span></span><span class="bs-gsplit">%s</span></span></a>'
+                    % (k, ICONS[icon], badge, title, E(desc), E(vo['feature_cta']), num, E(unit), split))
+        return ('<a class="bs-gcard" href="#bs-%s"><span class="bs-gtop"><span class="bs-gchip">%s</span>%s</span>'
+                '<span class="bs-gbig"><span class="bs-gnum">%d</span><span class="bs-gunit">%s</span></span>'
+                '<span class="bs-gt">%s</span><span class="bs-gd">%s</span><span class="bs-gf"><span class="bs-gopen">%s</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a>'
+                % (k, ICONS[icon], badge if k in gated_views else '', num, E(unit), title, E(desc), E(vo['tile_cta'])))
+    open_rows = ''.join(tile(*g) for g in shown if g[0] not in gated_views)
+    gated_rows = ''.join(tile(*g) for g in shown if g[0] in gated_views)
+    guide = '<p class="bs-ovlabel">%s</p><div class="bs-toc bs-toc-open">%s</div>' % (E(vo['open_label'] if gated_rows else 'In this case study'), open_rows)
     if gated_rows:
-        guide += ('<p class="bs-ovlabel">%s<span class="bs-ovlock">%s%s</span></p><div class="bs-toc">%s</div>'
+        guide += ('<p class="bs-ovlabel">%s<span class="bs-ovlock">%s%s</span></p><div class="bs-toc bs-toc-full">%s</div>'
                   % (E(vo['gated_label']), gate.LOCK_ICON, E(vo['gated_note']), gated_rows))
     lead = vo['lead']
     V['overview'] = ('<section id="bs-overview" class="bs-view" aria-labelledby="bs-overview-h"><div class="bs-ovhero">'

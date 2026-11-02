@@ -1454,7 +1454,10 @@
    ],
    "open_label": "Open to everyone",
    "gated_label": "Full case study",
-   "gated_note": "Confirm your email to open"
+   "gated_note": "Confirm your email to open",
+   "tile_locked": "Email to open",
+   "tile_cta": "Explore",
+   "feature_cta": "Read the recommendations"
   },
   "compare": {
    "title": "Product Comparison",

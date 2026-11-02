@@ -433,6 +433,8 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - Phone: the panel's counts sit two by two; rows drop the icon tile and put the figure pill under the line.
 - Spacing and UI pass (founder, same day): the line now fits in three lines on desktop; group labels line up with the row numbers; the figure pills, a small lock on each gated row (only while locked) and the arrows sit in fixed columns so they align; the stray line above Recommendations is gone; even 48px gaps between panel and groups. On phones the line is smaller, the pills are dropped and the lock and arrow sit beside each title, so rows are shorter.
 
+- Third look (founder, same day: "I like till the section we have the image but below that can you create something different"): the panel stays; below it the list became bento tiles, each tab led by its own figure (6 brand websites, 3 product categories, 51 posts reviewed, 119 ads reviewed, 6 sign-up journeys followed). Open tabs are two wide tiles, gated tabs three tiles with an "Email to open" badge while locked, and Recommendations a full-width dark tile mirroring the panel, with 12 recommendations split by area (6 claims and conditions, 3 sign-up journeys, 3 social and ad content).
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

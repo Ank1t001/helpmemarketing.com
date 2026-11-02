@@ -706,7 +706,7 @@ dialog.bs-gate::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi .bs-gate-fine a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
 .msi.msi .bs-gate-close{margin-top:var(--s3);font:inherit;font-size:14px;font-weight:600;min-height:40px;padding:8px 16px;border:1px solid var(--border-strong);border-radius:999px;background:var(--bg);color:var(--text);cursor:pointer}
 @media print{.msi.msi dialog.bs-gate,.msi.msi .bs-gate-btn{display:none!important}}
-/* Overview, second look (founder, 2026-11-02; spacing pass the same day): a signature panel in the artwork's look (obsidian with a Signal Orange glow in light mode, the raised dark surface in dark mode) holding the heading as an eyebrow, one Fraunces line with an italic accent and the counts; then a numbered contents list in two groups (open tabs, then the full case study with lock marks shown only while html.bsi-locked), Recommendations featured last. Spec: Design System note "Business Spend Index Overview, second look". */
+/* Overview, second look (founder, 2026-11-02; spacing pass and bento tiles the same day): a signature panel in the artwork's look (obsidian with a Signal Orange glow in light mode, the raised dark surface in dark mode) holding the heading as an eyebrow, one Fraunces line with an italic accent and the counts; below it bento tiles in two groups, each tab led by its own figure (open tabs as two wide tiles, gated tabs as three tiles with an "Email to open" badge only while html.bsi-locked, Recommendations as a full-width dark feature mirroring the panel). Spec: Design System note "Business Spend Index Overview, second look". */
 .msi.msi #bs-overview .bs-ovhero{position:relative;overflow:hidden;margin:0 0 48px;padding:48px 48px 40px;border:1px solid rgba(255,255,255,.08);border-radius:var(--r2);background:radial-gradient(circle at 100% 0,rgba(255,92,26,.34),rgba(255,92,26,0) 50%),var(--obsidian,var(--bg-elevated));color:var(--paper,var(--text))}
 .msi.msi #bs-overview .bs-ovhero .sec-head{margin:0 0 16px;padding:0;border:0}
 .msi.msi #bs-overview .bs-ovhero h2{margin:0;font-family:var(--sans,Inter,sans-serif);font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:var(--cta)}
@@ -718,43 +718,51 @@ dialog.bs-gate::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi #bs-overview .bs-ovstats dd{font-size:clamp(40px,3.8vw,52px);color:inherit}
 .msi.msi #bs-overview .bs-ovstats dt{color:rgba(255,255,255,.74)}
 .msi.msi #bs-overview .bs-guide{display:block}
-.msi.msi #bs-overview .bs-ovlabel{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0;padding:0 20px 14px;font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:var(--text-tertiary)}
-.msi.msi #bs-overview .bs-toc{margin:0 0 48px;border-top:1px solid var(--border)}
-.msi.msi #bs-overview .bs-toc:last-child{margin-bottom:0}
+.msi.msi #bs-overview .bs-ovlabel{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0 0 16px;font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:var(--text-tertiary)}
 .msi.msi #bs-overview .bs-ovlock{display:none;align-items:center;gap:6px;font-size:13px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--cta-text,var(--cta))}
 html.bsi-locked .msi.msi #bs-overview .bs-ovlock{display:inline-flex}
-.msi.msi #bs-overview a.bs-gcard{display:grid;grid-template-columns:56px 40px minmax(0,1fr) auto;align-items:center;column-gap:20px;padding:22px 20px;border-bottom:1px solid var(--border);color:var(--text);text-decoration:none;transition:background-color .15s}
-.msi.msi #bs-overview a.bs-gcard:hover{background:var(--bg-elevated)}
-.msi.msi #bs-overview a.bs-gcard:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:-2px;border-radius:var(--r1)}
-.msi.msi #bs-overview .bs-gn{font-family:var(--font-display,Fraunces,serif);font-size:40px;font-weight:400;line-height:1;letter-spacing:-.03em;color:var(--text-tertiary);transition:color .15s}
-.msi.msi #bs-overview a.bs-gcard:hover .bs-gn{color:var(--cta-text,var(--cta))}
+.msi.msi #bs-overview .bs-toc{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;margin:0 0 48px}
+.msi.msi #bs-overview .bs-toc:last-child{margin-bottom:0}
+.msi.msi #bs-overview a.bs-gcard{grid-column:span 2;position:relative;display:flex;flex-direction:column;padding:24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated);color:var(--text);text-decoration:none;transition:border-color .15s,transform .15s,box-shadow .15s}
+.msi.msi #bs-overview .bs-toc-open a.bs-gcard{grid-column:span 3}
+.msi.msi #bs-overview a.bs-gcard:hover{border-color:var(--cta-text,var(--cta));transform:translateY(-2px);box-shadow:0 12px 28px rgba(var(--ink-rgb,255,255,255),.08)}
+.msi.msi #bs-overview a.bs-gcard:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
+.msi.msi #bs-overview .bs-gtop{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 28px}
 .msi.msi #bs-overview .bs-gchip{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:color-mix(in srgb,var(--cta) 12%,transparent);color:var(--cta-text,var(--cta))}
 .msi.msi #bs-overview .bs-gchip svg.bs-gi{display:block;width:22px;height:22px;margin:0;color:inherit}
-.msi.msi #bs-overview .bs-gbody{display:flex;flex-direction:column;gap:4px;min-width:0}
-.msi.msi #bs-overview .bs-gt{font-family:var(--font-display,Fraunces,serif);font-size:24px;font-weight:400;line-height:1.2;letter-spacing:-.015em}
-.msi.msi #bs-overview .bs-gd{font-size:15px;line-height:1.5;color:var(--text-muted)}
-.msi.msi #bs-overview .bs-gf{display:grid;grid-template-columns:200px 18px 20px;align-items:center;column-gap:10px}
-.msi.msi #bs-overview .bs-gfig{justify-self:end;padding:5px 12px;border:1px solid var(--border-strong);border-radius:999px;font-size:13px;font-weight:600;line-height:1.4;white-space:nowrap;color:var(--text)}
-.msi.msi #bs-overview .bs-glock{grid-column:2;display:none;line-height:0;color:var(--text-tertiary)}
-.msi.msi #bs-overview .bs-glock svg{width:16px;height:16px}
-html.bsi-locked .msi.msi #bs-overview .bs-glock{display:block}
-.msi.msi #bs-overview .bs-garrow{grid-column:3;font-size:20px;line-height:1;color:var(--cta-text,var(--cta));transition:transform .15s}
+.msi.msi #bs-overview .bs-gstate{display:none;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--border-strong);border-radius:999px;font-size:12.5px;font-weight:600;line-height:1.4;color:var(--text-muted)}
+.msi.msi #bs-overview .bs-gstate svg{width:14px;height:14px}
+html.bsi-locked .msi.msi #bs-overview .bs-gstate{display:inline-flex}
+.msi.msi #bs-overview .bs-gbig{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin:0 0 14px}
+.msi.msi #bs-overview .bs-gnum{font-family:var(--font-display,Fraunces,serif);font-size:56px;font-weight:400;line-height:.95;letter-spacing:-.03em;color:var(--text)}
+.msi.msi #bs-overview .bs-gunit{font-size:14px;font-weight:600;line-height:1.3;color:var(--text-muted)}
+.msi.msi #bs-overview .bs-gt{margin:0 0 6px;font-family:var(--font-display,Fraunces,serif);font-size:24px;font-weight:400;line-height:1.2;letter-spacing:-.015em}
+.msi.msi #bs-overview .bs-gd{margin:0 0 24px;font-size:15px;line-height:1.5;color:var(--text-muted)}
+.msi.msi #bs-overview .bs-gf{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:16px;border-top:1px solid var(--border);font-size:14px;font-weight:600;color:var(--cta-text,var(--cta))}
+.msi.msi #bs-overview .bs-garrow{font-size:18px;line-height:1;transition:transform .15s}
 .msi.msi #bs-overview a.bs-gcard:hover .bs-garrow{transform:translateX(4px)}
-.msi.msi #bs-overview a.bs-gcard:has(+a[data-feature]){border-bottom:0}
-.msi.msi #bs-overview a.bs-gcard[data-feature]{margin-top:12px;border:1px solid color-mix(in srgb,var(--cta) 45%,transparent);border-radius:var(--r2);background:color-mix(in srgb,var(--cta) 8%,var(--bg))}
-.msi.msi #bs-overview a.bs-gcard[data-feature]:hover{background:color-mix(in srgb,var(--cta) 14%,var(--bg))}
-.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gn{color:var(--cta-text,var(--cta))}
-.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gfig{border-color:color-mix(in srgb,var(--cta) 55%,transparent);color:var(--cta-text,var(--cta))}
+.msi.msi #bs-overview a.bs-gcard[data-feature]{grid-column:1/-1;flex-direction:row;align-items:stretch;gap:48px;padding:36px 40px;border-color:rgba(255,255,255,.08);background:radial-gradient(circle at 0 100%,rgba(255,92,26,.30),rgba(255,92,26,0) 55%),var(--obsidian,var(--bg-elevated));color:var(--paper,var(--text))}
+.msi.msi #bs-overview a.bs-gcard[data-feature]:hover{border-color:var(--cta)}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gmain{display:flex;flex-direction:column;flex:1 1 55%;min-width:0}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gside{display:flex;flex-direction:column;justify-content:center;flex:1 1 45%;padding-left:48px;border-left:1px solid rgba(255,255,255,.16)}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gtop{justify-content:flex-start;gap:16px}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gchip{background:rgba(255,92,26,.18);color:var(--cta)}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gstate{border-color:rgba(255,255,255,.24);color:rgba(255,255,255,.8)}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gt{font-size:32px}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gd{color:rgba(255,255,255,.74)}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gf{border-top-color:rgba(255,255,255,.16);color:var(--cta)}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gnum{font-size:72px;color:inherit}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gunit{color:rgba(255,255,255,.74)}
+.msi.msi #bs-overview .bs-gsplit{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.msi.msi #bs-overview .bs-gsplit-i{display:flex;align-items:baseline;gap:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.12);font-size:14.5px;line-height:1.4;color:rgba(255,255,255,.8)}
+.msi.msi #bs-overview .bs-gsplit-i b{min-width:24px;font-family:var(--font-display,Fraunces,serif);font-size:24px;font-weight:400;color:var(--cta)}
 @media(max-width:900px){
 .msi.msi #bs-overview .bs-ovhero{margin-bottom:40px;padding:40px 32px 32px}
-.msi.msi #bs-overview a.bs-gcard{grid-template-columns:48px 40px minmax(0,1fr) auto;column-gap:16px;padding:20px 16px}
-.msi.msi #bs-overview .bs-ovlabel{padding:0 16px 12px}
-.msi.msi #bs-overview .bs-gn{font-size:34px}
-.msi.msi #bs-overview .bs-gf{grid-template-columns:18px 20px}
-.msi.msi #bs-overview .bs-gfig{display:none}
-.msi.msi #bs-overview .bs-glock{grid-column:1}
-.msi.msi #bs-overview .bs-garrow{grid-column:2}
 .msi.msi #bs-overview .bs-toc{margin-bottom:40px}
+.msi.msi #bs-overview a.bs-gcard{padding:20px}
+.msi.msi #bs-overview .bs-gnum{font-size:46px}
+.msi.msi #bs-overview a.bs-gcard[data-feature]{gap:32px;padding:28px}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gside{padding-left:32px}
 }
 @media(max-width:720px){
 .msi.msi #bs-overview .bs-ovhero{margin-bottom:32px;padding:28px 20px 20px}
@@ -764,18 +772,19 @@ html.bsi-locked .msi.msi #bs-overview .bs-glock{display:block}
 .msi.msi #bs-overview .bs-ovstats .bs-stat:nth-child(even){padding-left:16px;border-left:1px solid rgba(255,255,255,.16)}
 .msi.msi #bs-overview .bs-ovstats .bs-stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.16)}
 .msi.msi #bs-overview .bs-ovstats dd{font-size:34px}
-.msi.msi #bs-overview .bs-ovlabel{padding:0 4px 10px}
-.msi.msi #bs-overview .bs-toc{margin-bottom:32px}
-.msi.msi #bs-overview a.bs-gcard{grid-template-columns:36px minmax(0,1fr) auto;column-gap:12px;align-items:start;padding:18px 4px}
-.msi.msi #bs-overview .bs-gchip{display:none}
-.msi.msi #bs-overview .bs-gn{font-size:28px;line-height:1.05}
-.msi.msi #bs-overview .bs-gt{font-size:21px}
-.msi.msi #bs-overview .bs-gd{font-size:14.5px}
-.msi.msi #bs-overview .bs-gf{grid-column:3;grid-row:1;padding-top:4px}
-.msi.msi #bs-overview a.bs-gcard[data-feature]{padding:18px 14px}
+.msi.msi #bs-overview .bs-toc{grid-template-columns:1fr;gap:12px;margin-bottom:32px}
+.msi.msi #bs-overview a.bs-gcard,.msi.msi #bs-overview .bs-toc-open a.bs-gcard{grid-column:1/-1}
+.msi.msi #bs-overview .bs-gtop{margin-bottom:20px}
+.msi.msi #bs-overview .bs-gnum{font-size:44px}
+.msi.msi #bs-overview .bs-gt{font-size:22px}
+.msi.msi #bs-overview .bs-gd{margin-bottom:18px;font-size:14.5px}
+.msi.msi #bs-overview a.bs-gcard[data-feature]{flex-direction:column;gap:24px;padding:24px 20px}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gside{order:-1;padding:0 0 20px;border-left:0;border-bottom:1px solid rgba(255,255,255,.16)}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gt{font-size:26px}
+.msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gnum{font-size:56px}
 }
-@media(prefers-reduced-motion:reduce){.msi.msi #bs-overview a.bs-gcard,.msi.msi #bs-overview .bs-gn,.msi.msi #bs-overview .bs-garrow{transition:none}.msi.msi #bs-overview a.bs-gcard:hover .bs-garrow{transform:none}}
-@media print{.msi.msi #bs-overview .bs-ovhero{background:none;color:inherit;border-color:var(--border)}.msi.msi #bs-overview .bs-ovstats dt{color:inherit}.msi.msi #bs-overview .bs-glock{display:none}}
+@media(prefers-reduced-motion:reduce){.msi.msi #bs-overview a.bs-gcard,.msi.msi #bs-overview .bs-garrow{transition:none}.msi.msi #bs-overview a.bs-gcard:hover,.msi.msi #bs-overview a.bs-gcard:hover .bs-garrow{transform:none}}
+@media print{.msi.msi #bs-overview .bs-ovhero,.msi.msi #bs-overview a.bs-gcard[data-feature]{background:none;color:inherit;border-color:var(--border)}.msi.msi #bs-overview .bs-ovstats dt{color:inherit}.msi.msi #bs-overview .bs-gstate{display:none}}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */
