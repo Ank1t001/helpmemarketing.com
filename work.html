@@ -47,7 +47,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://helpmemarketing.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://helpmemarketing.com/work"}]}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "ItemList", "name": "HelpMeMarketing work and results", "description": "Selected projects, creative work and tools by Ankit Kumar of HelpMeMarketing.", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Equiton: from leads to investor meetings", "description": "Paid campaigns, creative and budget testing, lead capture and follow-up, and reporting on booked and completed meetings. 40% lower cost per lead over nine months.", "url": "https://helpmemarketing.com/work#equiton"}, {"@type": "ListItem", "position": 2, "name": "Vanguard Pharmacy & Clinic: helping local patients find and connect with their clinic", "description": "Website, email journeys, video production and social media across Hanover and Georgetown. 92% more consultation requests over six months.", "url": "https://helpmemarketing.com/work#vanguard"}, {"@type": "ListItem", "position": 3, "name": "Café Vanguard: giving local people a reason to visit", "description": "Social content, coffee preparation reels, product videos and lifestyle content to build neighbourhood awareness.", "url": "https://helpmemarketing.com/work#cafe-vanguard"}, {"@type": "ListItem", "position": 4, "name": "AI Marketing Audit", "url": "https://helpmemarketing.com/tools/marketing-audit"}, {"@type": "ListItem", "position": 5, "name": "SEO Growth OS", "url": "https://helpmemarketing.com/seo-growth-os"}, {"@type": "ListItem", "position": 6, "name": "Meta Growth OS", "url": "https://helpmemarketing.com/meta-growth-os"}, {"@type": "ListItem", "position": 7, "name": "The HMM Index: Med Spa", "url": "https://helpmemarketing.com/medspa-index"}]}
+{"@context": "https://schema.org", "@type": "ItemList", "name": "HelpMeMarketing work and results", "description": "Selected projects, creative work and tools by Ankit Kumar of HelpMeMarketing.", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Equiton: from leads to investor meetings", "description": "Paid campaigns, creative and budget testing, lead capture and follow-up, and reporting on booked and completed meetings. 40% lower cost per lead over nine months.", "url": "https://helpmemarketing.com/work#equiton"}, {"@type": "ListItem", "position": 2, "name": "Vanguard Pharmacy & Clinic: helping local patients find and connect with their clinic", "description": "Website, email journeys, video production and social media across Hanover and Georgetown. 92% more consultation requests over six months.", "url": "https://helpmemarketing.com/work#vanguard"}, {"@type": "ListItem", "position": 3, "name": "Café Vanguard: giving local people a reason to visit", "description": "Social content, coffee preparation reels, product videos and lifestyle content to build neighbourhood awareness.", "url": "https://helpmemarketing.com/work#cafe-vanguard"}, {"@type": "ListItem", "position": 4, "name": "AI Marketing Audit", "url": "https://helpmemarketing.com/tools/marketing-audit"}, {"@type": "ListItem", "position": 5, "name": "SEO Growth OS", "url": "https://helpmemarketing.com/seo-growth-os"}, {"@type": "ListItem", "position": 6, "name": "Meta Growth OS", "url": "https://helpmemarketing.com/meta-growth-os"}, {"@type": "ListItem", "position": 7, "name": "The HMM Index", "url": "https://helpmemarketing.com/hmm-index"}]}
 </script>
 <script src="/consent.js" defer></script>
 <script src="/site.js" defer></script>
@@ -142,7 +142,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     </div>
     <div class="wk-projects">
       <article class="wk-project" id="equiton">
-        <div class="wk-shot wk-shot-tall"><img src="/assets/portfolio/reel-equiton.jpg" alt="Search bar motion graphic from an Equiton campaign video" width="720" height="900" loading="lazy" decoding="async"></div>
+        <div class="wk-shot wk-shot-art" aria-hidden="true"><span class="wk-art-k">What I reported on</span><span class="wk-art-steps"><span class="wk-art-step"><b>Leads</b><small>Cost per lead</small></span><span class="wk-art-step"><b>Booked meetings</b><small>Cost per booked meeting</small></span><span class="wk-art-step"><b>Meetings completed</b><small>Cost per completed meeting</small></span></span><span class="wk-art-s">Each stage tracked with its own cost, not just the cost of a lead.</span></div>
         <div class="wk-body">
           <p class="wk-meta"><img src="/assets/clients/equiton.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Equiton</span></p>
           <p class="wk-tag">Paid advertising / Funnel optimisation / Automation / Reporting</p>
@@ -164,7 +164,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         </div>
       </article>
       <article class="wk-project" id="cafe-vanguard">
-        <div class="wk-shot wk-shot-tall"><img src="/assets/portfolio/reel-cafe-open.jpg" alt="The Cafe Vanguard sign from the opening reel" width="720" height="900" loading="lazy" decoding="async"></div>
+        <div class="wk-shot wk-shot-fill"><img src="/assets/portfolio/reel-cafe-open.jpg" alt="The Cafe Vanguard sign from the opening reel" width="720" height="900" loading="lazy" decoding="async"></div>
         <div class="wk-body">
           <p class="wk-meta"><img src="/assets/clients/vanguard.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Caf&eacute; Vanguard</span></p>
           <p class="wk-tag">Local marketing / Social media / Video production</p>
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function show(i) {
     idx = Math.max(0, Math.min(cards.length - 1, i));
     cards.forEach(function (c, k) { c.classList.toggle('is-on', k === idx); c.setAttribute('aria-hidden', mode !== 'swipe' && k !== idx ? 'true' : 'false'); if ('inert' in c) c.inert = mode !== 'swipe' && k !== idx; });
-    [-1, 1].forEach(function (d, k) { var t = idx + d, b = btns[k]; b.disabled = t < 0 || t >= cards.length; b.querySelector('.wk-tour-name').textContent = b.disabled ? (d < 0 ? 'Previous' : 'Next') : names[t]; b.setAttribute('aria-label', b.disabled ? '' : (d < 0 ? 'Previous project: ' : 'Next project: ') + names[t]); });
+    [-1, 1].forEach(function (d, k) { var t = idx + d, b = btns[k]; b.disabled = t < 0 || t >= cards.length; b.querySelector('.wk-tour-name').textContent = b.disabled || window.innerWidth <= 720 ? (d < 0 ? 'Previous' : 'Next') : names[t]; b.setAttribute('aria-label', b.disabled ? '' : (d < 0 ? 'Previous project: ' : 'Next project: ') + names[t]); });
   }
   function navH() { var n = document.querySelector('.nav'); return n ? n.offsetHeight : 0; }
   function layout() {
@@ -285,13 +285,13 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </article>
       <article class="wk-tool">
-        <a class="wk-tool-shot" href="/hmm-index" tabindex="-1" aria-hidden="true"><img src="/assets/portfolio/gallery/research-medspa.webp" alt="" width="800" height="500" loading="lazy" decoding="async"></a>
+        <a class="wk-tool-shot" href="/hmm-index" tabindex="-1" aria-hidden="true"><img src="/assets/portfolio/gallery/tool-hmm-index.webp" alt="" width="800" height="500" loading="lazy" decoding="async"></a>
         <div class="wk-tool-body">
           <p class="wk-tool-kind">Original research</p>
           <h3 class="wk-tool-title">The HMM Index</h3>
-          <p class="wk-tool-who">For businesses that want to see what actually works on Instagram in their category.</p>
-          <ul class="wk-tool-pts"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Public benchmarks, refreshed on a schedule</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Every claim linked to its source post</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Real estate, hair loss and med spa editions</span></li></ul>
-          <div class="wk-tool-links"><a class="wk-tool-cta" href="/hmm-index">All editions &rarr;</a><a class="wk-tool-cta" href="/realestate-index">Real Estate &rarr;</a><a class="wk-tool-cta" href="/hair-loss-index">Hair Loss &rarr;</a><a class="wk-tool-cta" href="/medspa-index">Med Spa &rarr;</a></div>
+          <p class="wk-tool-who">For businesses that want to see how brands in their category market themselves.</p>
+          <ul class="wk-tool-pts"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Benchmarks and marketing case studies</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Every finding linked to its source</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Real estate, hair loss, med spa, finance</span></li></ul>
+          <div class="wk-tool-links"><a class="wk-tool-cta" href="/hmm-index">All research &rarr;</a><a class="wk-tool-cta" href="/business-spend-index">Latest case study &rarr;</a></div>
         </div>
       </article>
     </div>

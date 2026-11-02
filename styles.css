@@ -5722,6 +5722,19 @@ body.redesign-prototype .wk-tour.is-swipe .wk-projects { display: flex; gap: 16p
 body.redesign-prototype .wk-tour.is-swipe .wk-projects::-webkit-scrollbar { display: none; }
 body.redesign-prototype .wk-tour.is-swipe .wk-project { flex: 0 0 88%; scroll-snap-align: start; }
 @media (prefers-reduced-motion: reduce) { body.redesign-prototype .wk-tour .wk-project, body.redesign-prototype .wk-tour-btn { transition: none !important; } }
+/* Work page polish (2026-11-02): Equiton reporting panel in place of the reel still, Cafe sign filling its frame */
+body.redesign-prototype .wk-shot.wk-shot-art { display: flex; flex-direction: column; justify-content: center; gap: 18px; padding: 40px; background: radial-gradient(circle at 100% 0, color-mix(in srgb, var(--cta) 30%, transparent), transparent 55%), var(--obsidian, var(--bg-elevated)); color: var(--paper, var(--text)); }
+body.redesign-prototype .wk-art-k { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cta); }
+body.redesign-prototype .wk-art-steps { display: grid; gap: 10px; counter-reset: wkart; }
+body.redesign-prototype .wk-art-step { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 14px 18px; border: 1px solid color-mix(in srgb, var(--paper, var(--text)) 18%, transparent); border-radius: 12px; background: color-mix(in srgb, var(--paper, var(--text)) 5%, transparent); }
+body.redesign-prototype .wk-art-step:nth-child(2) { margin-left: 6%; }
+body.redesign-prototype .wk-art-step:nth-child(3) { margin-left: 12%; border-color: color-mix(in srgb, var(--cta) 60%, transparent); }
+body.redesign-prototype .wk-art-step b { font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.2; }
+body.redesign-prototype .wk-art-step small { font-size: 13px; color: color-mix(in srgb, var(--paper, var(--text)) 72%, transparent); text-align: right; }
+body.redesign-prototype .wk-art-s { font-size: 14px; line-height: 1.5; color: color-mix(in srgb, var(--paper, var(--text)) 78%, transparent); }
+body.redesign-prototype .wk-project .wk-shot.wk-shot-fill img { object-fit: cover; object-position: 50% 57%; }
+@media (max-width: 900px) { body.redesign-prototype .wk-project .wk-shot.wk-shot-art { aspect-ratio: auto; padding: 24px 20px; gap: 12px; } }
+@media (max-width: 720px) { body.redesign-prototype .wk-art-step { padding: 10px 14px; } body.redesign-prototype .wk-art-step b { font-size: 17px; } body.redesign-prototype .wk-art-step { flex-direction: column; gap: 2px; } body.redesign-prototype .wk-art-step small { font-size: 12px; text-align: left; } body.redesign-prototype .wk-art-step:nth-child(2) { margin-left: 4%; } body.redesign-prototype .wk-art-step:nth-child(3) { margin-left: 8%; } }
 /* Work tool cards (2026-10-11): preview, who it's for, what you get, one clear action. */
 body.redesign-prototype .wk-tools-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
 body.redesign-prototype .wk-tool { display: flex; flex-direction: column; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: border-color 0.2s ease; }
