@@ -822,12 +822,10 @@ def check_outputs(c, page, csvtext, extra_paths=()):
     jyv, f3 = c.n['journey'], c.n['findings']['items'][2]['summary']
     if '<dl class="bs-stats"' not in view_html(body, 'bs-journeys') or any(c.name(p) not in f3 for p in jyv.get('steps_listed', []) + jyv.get('routes_closed', [])):
         errs.append('page: Customer Journey opens with the at-a-glance strip, and its counted brands are named in the first-screen finding')
-    _toc = body[body.index('class="bs-reftoc"'):]
-    _toc = _toc[:_toc.index('</nav>')]
-    for _i, _t in re.findall(r'<li><a href="#(bs-[a-z-]+)">([^<]+)</a></li>', _toc):
-        _m = re.search(r'<details class="bs-refsec" id="%s"[^>]*><summary><h3>([^<]+)</h3>' % _i, body)
-        if _m and _m.group(1) != _t:
-            errs.append('page: Sources contents entry "%s" does not match its section title' % _t)
+    # Sources & evidence (2026-11-02): the numbered sections are the contents, all closed at load, with one Open all button.
+    _secs = re.findall(r'<details class="bs-refsec" id="(bs-[a-z-]+)"(\s[^>]*)?><summary><h3>([^<]+)</h3>', body)
+    if len(_secs) < 9 or any(_o for _, _o, _ in _secs) or 'class="bs-reftoc"' in body or 'data-bs-refall' not in body or 'bs-ref-downloads' not in [_i for _i, _, _ in _secs]:
+        errs.append('page: Sources & evidence lists its numbered sections, all closed at load, with the Open all button and no separate contents tiles')
     if '<dl class="bs-stats" aria-label="Sources and evidence at a glance">' not in body:
         errs.append('page: Sources & evidence opens with the at-a-glance strip')
     if 'booked' in body or 'after booking' in body:

@@ -484,7 +484,7 @@ def sources_view(c, views, start, end, draft):
     when = '%s, %s to %s Toronto time' % (long_date(start), toronto_time(start), toronto_time(end))
     parts = []
     toc = [('bs-ref-scope', 'Scope, dates and coverage'), ('bs-ref-web', 'Website evidence by provider'), ('bs-ref-social', 'Social accounts, posts, classifications and engagement'), ('bs-ref-paid', 'Paid ads: collection, creative review and records'),
-           ('bs-ref-journey', 'Customer-journey evidence'), ('bs-ref-tests', 'Findings and full test specifications'), ('bs-ref-status', 'Status definitions and reconciliation'),
+           ('bs-ref-journey', 'Sign-up journey evidence'), ('bs-ref-tests', 'Findings and full test specifications'), ('bs-ref-status', 'Status definitions and reconciliation'),
            ('bs-ref-images', 'Image provenance'), ('bs-ref-author', 'Author and relationship disclosure'), ('bs-cite', 'Citation'),
            ('bs-editions', 'Edition history and corrections'), ('bs-ref-downloads', 'Downloads')]
     if not c.social:
@@ -496,12 +496,17 @@ def sources_view(c, views, start, end, draft):
     back = '<p class="bs-ref-back"><a href="#bs-overview" data-bs-back>&larr; <span>Back to the case study</span></a></p>'
     v = views['sources']
     parts.append('<section id="bs-sources" class="bs-view bs-ref" aria-labelledby="bs-sources-h">%s<div class="sec-head"><h2 id="bs-sources-h">%s</h2><p class="dek">%s</p></div>'
-                 '<nav class="bs-reftoc" aria-label="Sources and evidence contents"><ol>%s</ol></nav>' % (
-                     back, E(v['title']), E(v['dek']), ''.join('<li><a href="#%s">%s</a></li>' % (i, E(t)) for i, t in toc)))
+                 '<p class="bs-refall-row"><button type="button" class="bs-refall" data-bs-refall aria-expanded="false" hidden>Open all sections</button></p>' % (
+                     back, E(v['title']), E(v['dek'])))
+    # The contents tiles were removed on 2026-11-02 (founder pass): with every section closed, the numbered section list is the contents.
+    titles = dict(toc)
 
-    # Expandable groups (founder, 2026-10-31, refinement brief): Scope stays open; a link to anything inside a closed group opens it (tab script openAround).
+    # Expandable groups (founder, 2026-10-31, refinement brief): a link to anything inside a closed group opens it (tab script openAround).
+    # Since 2026-11-02 (founder) every group starts closed, Scope included, so the contents and Downloads stay near the top; the
+    # "Open all sections" button (shown only with JavaScript) opens or closes them together.
     def sec(sid, title, html_):
-        parts.append('<details class="bs-refsec" id="%s"%s><summary><h3>%s</h3></summary><div class="bs-refbody">%s</div></details>' % (sid, ' open' if sid == 'bs-ref-scope' else '', E(title), html_))
+        assert titles.get(sid) == title, (sid, title)   # one list of section names
+        parts.append('<details class="bs-refsec" id="%s"><summary><h3>%s</h3></summary><div class="bs-refbody">%s</div></details>' % (sid, E(title), html_))
 
     # 1. Scope, dates and coverage
     about = ''.join('<div class="kind"><dt>%s</dt><dd>%s</dd></div>' % (E(a), E(b)) for a, b in n['about'])
@@ -556,7 +561,7 @@ def sources_view(c, views, start, end, draft):
     jy = n['journey']
     stage_ev = journey_followup_reference(c, n)
     e3 = [e for e in n['examples']['items'] if e.get('place') == 'journeys']
-    sec('bs-ref-journey', 'Customer-journey evidence',
+    sec('bs-ref-journey', 'Sign-up journey evidence',
         '<div id="bs-jt-evidence"><h4 class="t">First screens</h4><p class="dek">%s</p>%s%s</div>'
         '%s'
         '%s'
@@ -647,7 +652,7 @@ def sources_view(c, views, start, end, draft):
     # At-a-glance strip, as on the tabs (founder, 2026-11-01): counted from the sources, observations and downloads.
     rstats = [('Public sources', str(len(c.sources))), ('Recorded observations', str(len(c.obs))),
               ('Unresolved conflicts', str(sum(1 for o in c.obs.values() if o['status'] == 'conflicting'))), ('Downloadable files', str(len(dl)))]
-    parts[0] = parts[0].replace('<nav class="bs-reftoc"', '<dl class="bs-stats" aria-label="Sources and evidence at a glance">%s</dl><nav class="bs-reftoc"' % ''.join(
+    parts[0] = parts[0].replace('<p class="bs-refall-row">', '<dl class="bs-stats" aria-label="Sources and evidence at a glance">%s</dl><p class="bs-refall-row">' % ''.join(
         '<div class="bs-stat"><dt>%s</dt><dd>%s</dd></div>' % (E(l), E(v)) for l, v in rstats), 1)
     parts.append(back.replace('bs-ref-back', 'bs-ref-back bs-ref-back-end') + '</section>')
     return '\n'.join(parts)

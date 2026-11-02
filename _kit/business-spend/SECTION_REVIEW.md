@@ -475,6 +475,13 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - Brand names and recommendation titles are in Fraunces, with a "2 recommendations" count beside each brand.
 - More room between recommendations and before the closing note. Wording unchanged.
 
+## 38. Sources & evidence: closed sections, one list (founder, 2 November 2026; staging)
+
+- Every section now starts closed; Scope used to open by default and pushed the other eleven, including Downloads, about 1,800px down the page.
+- The contents tiles were removed: with every section closed, the numbered section list shows the same twelve titles, so the tiles repeated it. This reverses the tile grid added on 1 November; it can be restored if wanted.
+- An "Open all sections" button (shown only with JavaScript) opens or closes everything at once, for reading straight through or searching the page.
+- Section 5 is renamed "Sign-up journey evidence" to match the tab. Dated records that name the earlier "Customer Journey" tab are left as written.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

@@ -369,8 +369,6 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-ref-back{margin:0 0 var(--s3);font-size:14px}
 .msi.msi .bs-ref-back a{color:var(--cta-text,var(--cta));font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .msi.msi .bs-ref-back-end{margin-top:var(--s6)}
-.msi.msi .bs-reftoc ol{margin:0;padding-left:20px;columns:2;column-gap:32px;font-size:14.5px;line-height:1.9}
-.msi.msi .bs-reftoc a{color:var(--text);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .msi.msi .bs-refsec{margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--border)}
 .msi.msi .bs-refsec>h3{margin:0 0 var(--s3)}
 .msi.msi .bs-refsec h4.t{margin-top:var(--s4)}
@@ -378,7 +376,6 @@ html .app .msi.msi .bs-pfocus:focus-visible{outline:none}
 .msi.msi .bs-refsec .bs-fdetail,.msi.msi .bs-refsec .bs-tspec{margin-top:var(--s4)}
 .msi.msi .bs-refsec .bs-tspec .ktag{margin:0 0 0 8px;vertical-align:middle}
 @media(max-width:900px){
-.msi.msi .bs-reftoc ol{columns:1}
 }
 @media(max-width:720px){.msi.msi .bs-srcrow{margin-bottom:28px}}
 @media print{.msi.msi .bs-srcrow,.msi.msi .bs-ref-back{display:none!important}.msi.msi .bs-view[hidden]{display:block!important}}
@@ -596,18 +593,10 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi #bs-journeys p.bs-tlink{margin-top:var(--s4)}
 .msi.msi #bs-sources details.bs-refsec+details.bs-refsec{margin-top:var(--s4)}
 .msi.msi #bs-sources .bs-stats{margin-bottom:var(--s5)}
-.msi.msi #bs-sources .bs-reftoc ol{list-style:none;margin:0;padding:0;columns:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3);counter-reset:bsrt;line-height:1.35}
-.msi.msi #bs-sources .bs-reftoc li{margin:0;counter-increment:bsrt}
-.msi.msi #bs-sources .bs-reftoc a{display:flex;align-items:center;gap:var(--s3);height:100%;padding:14px var(--s4);border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated);color:var(--text);font-size:14.5px;font-weight:600;text-decoration:none;transition:border-color .15s}
-.msi.msi #bs-sources .bs-reftoc a::before{content:counter(bsrt);flex:none;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:color-mix(in srgb,var(--cta) 12%,transparent);color:var(--cta-text,var(--cta));font-size:13px;font-weight:650}
-.msi.msi #bs-sources .bs-reftoc a:hover{border-color:var(--cta-text,var(--cta))}
-.msi.msi #bs-sources .bs-reftoc a:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
-@media(max-width:900px){.msi.msi #bs-sources .bs-reftoc ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .msi.msi #bs-sources{counter-reset:bsrs}
 .msi.msi #bs-sources details.bs-refsec{counter-increment:bsrs}
 .msi.msi #bs-sources details.bs-refsec>summary>h3{display:flex;align-items:center;gap:var(--s3)}
 .msi.msi #bs-sources details.bs-refsec>summary>h3::before{content:counter(bsrs);flex:none;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:color-mix(in srgb,var(--cta) 12%,transparent);color:var(--cta-text,var(--cta));font-size:13px;font-weight:650}
-@media(max-width:720px){.msi.msi #bs-sources .bs-reftoc ol{grid-template-columns:1fr;gap:var(--s2)}.msi.msi #bs-sources .bs-reftoc a{padding:10px 14px}}
 .msi.msi #bs-sources details.bs-refsec,.msi.msi #bs-sources details.bs-refsec:last-of-type{padding:0 var(--s5)}
 .msi.msi #bs-sources details.bs-refsec[open]{padding-bottom:var(--s5)}
 .msi.msi #bs-sources details.bs-refsec>summary{margin:0 calc(-1*var(--s5));padding:20px var(--s5)}
@@ -875,6 +864,11 @@ html.bsi-locked .msi.msi #bs-overview .bs-gstate{display:inline-flex}
 .msi.msi #bs-lessons .bs-rec dd{margin:0;font-size:15px;line-height:1.55;font-weight:500;color:var(--text)}
 .msi.msi #bs-lessons #bs-tests>.pnote{margin-top:var(--s5)}
 @media(max-width:720px){.msi.msi #bs-lessons article.bs-lesson h3.bs-ttitle{font-size:25px}.msi.msi #bs-lessons article.bs-lesson li.bs-opp h4{font-size:20px}}
+/* Sources & evidence pass (founder, 2026-11-02): every section starts closed; an "Open all sections" text button under the contents tiles opens or closes them together (shown only with JavaScript). Spec: Design System note "Sources & evidence pass". */
+.msi.msi #bs-sources .bs-refall-row{display:flex;justify-content:flex-end;margin:-16px 0 12px}
+.msi.msi #bs-sources .bs-refall{min-height:40px;padding:6px 0;border:0;background:none;font:inherit;font-size:14px;font-weight:600;color:var(--cta-text,var(--cta));text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.msi.msi #bs-sources .bs-refall:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
+@media print{.msi.msi #bs-sources .bs-refall-row{display:none}}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */
@@ -1202,5 +1196,16 @@ document.addEventListener('DOMContentLoaded', function () {
   codeEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); verify(); } });
   form.querySelector('[data-gate-resend]').addEventListener('click', function () { step('email'); request(); });
   form.querySelector('[data-gate-change]').addEventListener('click', function () { show(''); step('email'); emailEl.select(); });
+});
+</script>
+<script data-bs-refall>
+/* Sources & evidence (2026-11-02): one button opens or closes every section; its label follows the sections' state. */
+document.addEventListener('DOMContentLoaded', function () {
+  var b = document.querySelector('button[data-bs-refall]'); if (!b) return;
+  var secs = [].slice.call(document.querySelectorAll('#bs-sources details.bs-refsec')); if (!secs.length) return;
+  function sync() { var all = secs.every(function (d) { return d.open; }); b.textContent = all ? 'Close all sections' : 'Open all sections'; b.setAttribute('aria-expanded', all ? 'true' : 'false'); }
+  b.hidden = false; sync();
+  b.addEventListener('click', function () { var open = !secs.every(function (d) { return d.open; }); secs.forEach(function (d) { d.open = open; }); sync(); });
+  secs.forEach(function (d) { d.addEventListener('toggle', sync); });
 });
 </script>
