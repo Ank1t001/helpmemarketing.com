@@ -31,7 +31,7 @@ Exact scoreboard headings (the head script reads them): Account, Score, Follower
 - Edition 004 is "the scoreboard dated 5 October 2026"; its publication on this website has not been verified.
 
 ## Layout (head styles in `site_shell.html`; keep them)
-Every expander is a bordered card, 24px inset (16px at 720), content 20px below the summary, 12px between stacked cards. Boxes use a 24px inset (16px sides at 720). 48px between sections (32px at 720). Grids use `minmax(min(…, 100%), 1fr)` so nothing overflows an expander on phones.
+Every expander is a bordered card, 24px inset (16px at 720), content 20px below the summary, 12px between stacked cards. Boxes use a 24px inset (16px sides at 720). 48px between sections (32px at 720). Grids use `minmax(min(…, 100%), 1fr)` so nothing overflows an expander on phones. Polish pass (founder, 2026-11-02): the section menu sticks at 92px, below the 83px site header; the top posts sit three to a row (two at 1000px, one at 560px) with a short last row centred, and the firm name and post label below the image, not over it; 12px between the Research cards and the first expander, 48px above the post log; the dataset email field uses the page background; links in `.pnote` are orange and underlined.
 
 ## Metadata and snapshots
 `dateModified` = `ig_cycle.json` `modified_at`, the recorded production deployment time of the last content change (ISO 8601 with timezone). No `datePublished`. Article image `/assets/index/real-estate/og.jpg`. Publish `output/edition-NNN.html` as `realestate-index/edition-NNN.html` (self canonical, one `noindex, follow`); never regenerate an earlier snapshot; record any later fix to one in its head comment and add a visible dated note when visible text is corrected.
