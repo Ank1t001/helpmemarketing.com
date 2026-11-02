@@ -854,6 +854,13 @@ html.bsi-locked .msi.msi #bs-overview .bs-gstate{display:inline-flex}
 .msi.msi .pd-brand .pd-n{display:block;margin:2px 0 0;font-size:12.5px}
 .msi.msi .pd-card .pd-brand{margin-bottom:12px}
 .msi.msi :is(.pd-ex,.bs-wex) .soc-tags{margin:0 0 8px;font-size:12px;font-weight:700;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;color:var(--cta-text,var(--cta))}
+/* Sign-up Journey pass (founder, 2026-11-02): in the comparison each source becomes a small uppercase label on its own line above the text (no border; "Not confirmed" in orange so gaps still stand out); the examples' "What stood out" matches the other tabs and the source label sits inline after the brand label. Spec: Design System note "Sign-up Journey pass". */
+.msi.msi #bs-journey-table .bs-jg .bs-src{display:block;width:fit-content;margin:0 0 2px;padding:0;border:0;border-radius:0;font-size:12px;font-weight:600;font-style:italic;letter-spacing:0;text-transform:none;color:var(--text-tertiary)}
+.msi.msi #bs-journey-table .bs-jg .bs-src-none{color:var(--cta-text,var(--cta))}
+.msi.msi #bs-journey-table .bs-jg{margin-bottom:12px}
+.msi.msi #bs-journey-table .bs-jg:last-child{margin-bottom:0}
+.msi.msi #bs-journeys .soc-stood{margin:0;font-size:14.5px;line-height:1.6;color:var(--text-body,var(--text))}
+.msi.msi .bs-jex .soc-tags .bs-src{display:block;width:fit-content;margin:3px 0 0;padding:0;border:0;border-radius:0;font-size:12px;font-weight:600;font-style:italic;letter-spacing:0;text-transform:none;color:var(--text-tertiary)}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */

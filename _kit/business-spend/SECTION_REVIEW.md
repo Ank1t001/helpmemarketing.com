@@ -463,6 +463,12 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - Example cards on every tab show the brand as the orange uppercase label used on the Website Messaging cards.
 - "Unclear / not assessed" is no longer listed under "Not observed".
 
+## 36. Sign-up Journey: quieter source labels (founder, 2 November 2026; staging)
+
+- The 24 comparison cells each began with a bordered source chip; the source is now a small italic note above the text (First screen, Help centre, Website), so the content reads first. "Not confirmed" stays in orange so the two gaps still stand out.
+- On phones the source note no longer looks like the column name above it.
+- Examples: the source sits on its own line under the brand label, and "What stood out" matches the size used on the other tabs.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:
