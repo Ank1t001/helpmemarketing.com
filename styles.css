@@ -5810,6 +5810,14 @@ body.redesign-prototype .ind2-note { margin: 16px 0 0; font-size: 14px; line-hei
 body.redesign-prototype [data-screen-label="industry"] .content-section { scroll-margin-top: 48px; }
 body.redesign-prototype .ind2-proof-body .ind2-k { margin: 0 0 8px; font-size: 12px; line-height: 1.4; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
 body.redesign-prototype .ind2-proof-solo { grid-template-columns: 1fr; max-width: 760px; }
+/* Finance page Equiton panel (founder, 2026-11-02): a branded panel in the case study artwork's look replaces the reel still (a search bar reading only "What"); wording from the Equiton entry on /work, no figure in the artwork. */
+body.redesign-prototype .ind2-proof-art { display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; padding: 32px; background: radial-gradient(circle at 100% 0, color-mix(in srgb, var(--cta) 32%, transparent), transparent 55%), var(--obsidian, var(--bg-elevated)); color: var(--paper, var(--text)); text-decoration: none; }
+body.redesign-prototype .ind2-art-k { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cta); }
+body.redesign-prototype .ind2-art-t { font-family: var(--serif); font-size: 44px; font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; }
+body.redesign-prototype .ind2-art-s { font-size: 15px; line-height: 1.5; color: color-mix(in srgb, var(--paper, var(--text)) 78%, transparent); }
+body.redesign-prototype .ind2-art-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+body.redesign-prototype .ind2-art-tags span { padding: 4px 10px; border: 1px solid color-mix(in srgb, var(--paper, var(--text)) 28%, transparent); border-radius: 999px; font-size: 12.5px; font-weight: 600; line-height: 1.4; color: color-mix(in srgb, var(--paper, var(--text)) 88%, transparent); }
+@media (max-width: 720px) { body.redesign-prototype .ind2-proof-art { padding: 20px; gap: 8px; } body.redesign-prototype .ind2-art-t { font-size: 34px; } }
 body.redesign-prototype .ind2-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 body.redesign-prototype .ind2-card-link { display: flex; flex-direction: column; height: 100%; text-decoration: none; color: inherit; transition: border-color 0.2s ease; }
 body.redesign-prototype .ind2-card-link:hover { border-color: var(--border-strong); }
