@@ -556,12 +556,70 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi .gate-form input{background:var(--bg);color:var(--text)}
 .msi.msi .gate-form input:focus{border-color:var(--cta)}
 .msi.msi .pnote a{color:var(--cta-text,var(--cta));font-weight:600;text-decoration:underline;text-underline-offset:3px}
-</style><script data-ri-reading>
+/* Views (founder, 2026-11-02): the report reads as six views (Overview, Rankings, Organic Social, Paid Social,
+   Recommendations, Sources & evidence) behind one tab bar. Every view is in the HTML: without JavaScript the bar is a
+   list of jump links and all views show; print shows all views. */
+.msi.msi .ri-tabs{position:sticky;top:92px;z-index:20;margin:0 0 48px;padding:6px;border:1px solid var(--border);border-radius:999px;background:var(--bg-elevated);overflow-x:auto;scrollbar-width:none}
+.msi.msi .ri-tabs::-webkit-scrollbar{display:none}
+.msi.msi .ri-tablist{display:flex;gap:4px;min-width:max-content}
+.msi.msi .ri-tablist a{padding:8px 16px;border-radius:999px;font-size:13.5px;font-weight:600;line-height:1.3;white-space:nowrap;text-decoration:none;color:var(--text-muted)}
+.msi.msi .ri-tablist a:hover{color:var(--text);background:var(--bg-raise)}
+.msi.msi .ri-tablist a:focus-visible{outline:2px solid var(--cta);outline-offset:2px}
+.msi.msi .ri-tablist a[aria-selected="true"]{background:var(--text);color:var(--bg)}
+.msi.msi .ri-tablist .ri-tab-src{margin-left:auto}
+.msi.msi .ri-view{scroll-margin-top:160px}
+.msi.msi .ri-view [id]{scroll-margin-top:160px}
+.msi.msi .ri-view>section:last-child{margin-bottom:0}
+.msi.msi .ri-view+.ri-view{margin-top:48px}
+.msi.msi .ri-view[hidden]{display:none}
+.msi.msi .ri-view:focus,.msi.msi .ri-view:target{outline:none;box-shadow:none}
+.msi.msi .ri-view .note+.pnote{margin-top:16px}
+.msi.msi .ri-view+section{margin-top:48px}
+.msi.msi .ri-guide{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:12px}
+.msi.msi .ri-gcard{display:flex;flex-direction:column;gap:6px;padding:20px 24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated);text-decoration:none;color:var(--text);transition:border-color .2s ease}
+.msi.msi .ri-gcard:hover{border-color:var(--text-tertiary)}
+.msi.msi .ri-gcard b{font-size:16px}
+.msi.msi .ri-gcard b::after{content:" \2192";color:var(--cta-text,var(--cta))}
+.msi.msi .ri-gcard span{font-size:14px;line-height:1.55;color:var(--text-muted)}
+@media(max-width:720px){.msi.msi .ri-tabs{margin-bottom:32px}.msi.msi .ri-view+.ri-view,.msi.msi .ri-view+section{margin-top:32px}.msi.msi .ri-gcard{padding:16px}}
+@media(max-width:560px){.msi.msi .ri-tabs{position:static;border-radius:var(--r2)}}
+@media print{.msi.msi .ri-tabs{display:none}.msi.msi .ri-view[hidden]{display:block!important}}
+</style><script data-ri-tabs-js>
+/* Views (2026-11-02): tabs over the report's views, with deep links (#ri-view-*, or any id inside a view), Back and
+   Forward, arrow keys, and links to a hidden view opening it. */
+document.addEventListener("DOMContentLoaded",function(){
+  var nav=document.querySelector("[data-ri-tabs]");if(!nav)return;
+  var list=nav.querySelector(".ri-tablist"),tabs=[].slice.call(list.querySelectorAll("a"));
+  var views=tabs.map(function(t){return document.getElementById(t.getAttribute("href").slice(1));});
+  if(views.indexOf(null)>-1)return;
+  list.setAttribute("role","tablist");
+  tabs.forEach(function(t,i){var v=views[i];t.setAttribute("role","tab");t.id="ri-tab-"+v.id.replace("ri-view-","");t.setAttribute("aria-controls",v.id);
+    v.setAttribute("role","tabpanel");v.setAttribute("aria-labelledby",t.id);v.tabIndex=-1;});
+  function viewOf(el){while(el&&!(el.classList&&el.classList.contains("ri-view")))el=el.parentElement;return el;}
+  function show(i){tabs.forEach(function(t,k){var on=k===i;t.setAttribute("aria-selected",on?"true":"false");t.tabIndex=on?0:-1;views[k].hidden=!on;});
+    var t=tabs[i];if(list.scrollWidth>nav.clientWidth)nav.scrollLeft+=t.getBoundingClientRect().left-nav.getBoundingClientRect().left-8;}
+  function top(){var r=nav.getBoundingClientRect().top;if(r<0||r>window.innerHeight)window.scrollTo(0,window.scrollY+r-110);}
+  function fromHash(scroll){var id=decodeURIComponent(location.hash.slice(1)),el=id&&document.getElementById(id),v=el&&viewOf(el),i=v?views.indexOf(v):0;
+    show(i<0?0:i);
+    if(el&&el!==v){for(var p=el;p;p=p.parentElement){if(p.tagName==="DETAILS")p.open=true;}var d=el.querySelector(":scope>details");if(d)d.open=true;if(scroll)el.scrollIntoView();}
+    else if(v&&scroll)top();}
+  tabs.forEach(function(t,i){
+    t.addEventListener("click",function(e){e.preventDefault();show(i);history.pushState(null,"","#"+views[i].id);top();});
+    t.addEventListener("keydown",function(e){var k=e.key,j=k==="ArrowRight"?i+1:k==="ArrowLeft"?i-1:k==="Home"?0:k==="End"?tabs.length-1:null;
+      if(j===null)return;e.preventDefault();j=(j+tabs.length)%tabs.length;show(j);tabs[j].focus();history.replaceState(null,"","#"+views[j].id);});});
+  document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||nav.contains(a))return;
+    var id=a.getAttribute("href").slice(1),el=id&&document.getElementById(id),v=el&&viewOf(el);if(!v||!v.hidden)return;
+    e.preventDefault();history.pushState(null,"","#"+id);fromHash(true);});
+  window.addEventListener("popstate",function(){fromHash(true);});
+  window.addEventListener("hashchange",function(){fromHash(true);});
+  fromHash(!!location.hash);
+});
+</script><script data-ri-reading>
 /* Reading levels (2026-10-12). Builds a section navigator from section ids and an interactive comparison from the
    scoreboard table the Build Kit emits; no data lives here, so it works for any cycle with the same table shape. */
 document.addEventListener("DOMContentLoaded",function(){
   var root=document.querySelector(".msi");if(!root)return;
-  var links=[["ri-overview","Overview"],["ri-rankings","Rankings"],["ri-creative","Creative"],["ri-insights","Insights"],["ri-download","Get the dataset"],["ri-advanced","Research"],["ri-data","Data"]].filter(function(x){return document.getElementById(x[0]);});
+  var links=document.querySelector("[data-ri-tabs]")?[]:[["ri-overview","Overview"],["ri-rankings","Rankings"],["ri-creative","Creative"],["ri-insights","Insights"],["ri-download","Get the dataset"],["ri-advanced","Research"],["ri-data","Data"]].filter(function(x){return document.getElementById(x[0]);});
   var bar=root.querySelector(".livebar");
   if(links.length>2&&bar){var nav=document.createElement("nav");nav.className="ri-nav";nav.setAttribute("aria-label","Report sections");
     links.forEach(function(x){var a=document.createElement("a");a.href="#"+x[0];a.textContent=x[1];nav.appendChild(a);});bar.parentNode.insertBefore(nav,bar.nextSibling);}

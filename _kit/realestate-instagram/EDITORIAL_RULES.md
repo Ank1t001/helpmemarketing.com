@@ -2,7 +2,18 @@
 
 `report_body.html` is the live, approved body. Each refresh updates its figures and editorial text from the new cycle's evidence and keeps everything below. `build_v2.py` fails on most of these; the rest are review checks.
 
-## Structure (in this order)
+## Views (founder, 2026-11-02)
+After the header and date bar, one tab bar (`nav.ri-tabs[data-ri-tabs]`, plain jump links in the HTML; the head script `data-ri-tabs-js` turns them into tabs) over six views, each a `div.ri-view`, in this order. Every view stays in the HTML, so search engines, readers without JavaScript and print see the whole report. `build_v2.py` checks the bar, the order and which sections sit in which view. No content is removed by the views; the numbered list below describes each block, and this list says where it sits.
+- `#ri-view-overview` Overview: `#ri-overview` (item 2), `#ri-pulse` Category pulse (shown open), `#ri-guide` "Inside this edition" (one card per view).
+- `#ri-view-rankings` Rankings: the metrics note (3), `#ri-rankings` (4), How to read the numbers (6), then expanders Compare the two firm groups, Firm summaries, Outside the category, for scale.
+- `#ri-view-organic` Organic Social: `#ri-creative` (5), `#ri-video` Video metrics comparison (shown open, never an expander), `#ri-insights` (7), formats (8), `#ri-series` Observed content series (the organic rows), then the Equiton expander.
+- `#ri-view-paid` Paid Social: `#ri-activity` Company posts and advertising activity, `#ri-distribution` Video distribution and advertising context (both shown open), `#ri-ads` Active ads found in the Meta Ad Library (the rows whose Signal says paid, the ad count note and the closing line).
+- `#ri-view-recs` Recommendations: `#ri-test` (9).
+- `#ri-view-sources` Sources & evidence: `#ri-download` (10), `#ri-advanced` with its cards (11), the expanders How this research was produced, Coverage, `#ri-editions` Edition history, then `#ri-data` (12).
+- FAQ and the report footer sit below the views (13).
+- Website Messaging is planned for edition 006 (Phase 2, founder approved 2026-11-02: website reads of the five firms and the Meta Ad Library via apify/facebook-ads-scraper). Add its view, between Rankings and Organic Social, only with dated, sourced data; never an empty or "coming soon" view. Which views are email-gated is still to be decided by the founder.
+
+## Blocks (descriptions; positions are set by the views above)
 1. Header: kicker "The HMM Index · Instagram"; H1 "The Real Estate Index"; the lede; byline row "Last {N} days ending {window end}" (tokens `{{WINDOW_DAYS}}` and `{{WINDOW_END_LONG}}`) · "For business owners and marketing leads." · "Research and analysis by Ankit Kumar (link /about) · Founder, HMM (link /)". Date bar: "Last verified data" and "Next scheduled refresh" in long dates ("13 October 2026"); no cycle number.
 2. `#ri-overview` "What stood out in the last {N} days": three tiles (Posts analysed, Comments recorded, Firms running Meta ads), a "Firms included" line, one card with three titled findings that name the firms, and the italic sample caveat.
 3. One-line metrics note: "Tap or hover over underlined metrics for a definition. Open the linked posts to see the evidence."

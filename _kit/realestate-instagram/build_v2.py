@@ -122,6 +122,23 @@ def validate(source, actual, rows, config):
     order=['ri-overview','ri-rankings','ri-creative','ri-insights','ri-test','ri-download','ri-advanced','ri-editions','ri-data']
     pos=[body.find('id="'+x+'"') for x in order]
     if -1 in pos or pos!=sorted(pos): raise ValueError('Section order must be '+', '.join(order))
+    # Views (founder, 2026-11-02): one tab bar over six views, in this order, each holding its sections. See EDITORIAL_RULES.md.
+    views=[('ri-view-overview',['ri-overview','ri-pulse','ri-guide']),('ri-view-rankings',['ri-rankings']),
+           ('ri-view-organic',['ri-creative','ri-video','ri-insights','ri-series']),('ri-view-paid',['ri-activity','ri-distribution','ri-ads']),
+           ('ri-view-recs',['ri-test']),('ri-view-sources',['ri-download','ri-advanced','ri-editions','ri-data'])]
+    if 'data-ri-tabs' not in body or 'data-ri-tabs-js' not in source: raise ValueError('Missing the view tab bar or its script')
+    tabbar=re.search(r'<nav class="ri-tabs" data-ri-tabs[^>]*>(.*?)</nav>',body,re.S)
+    if not tabbar or re.findall(r'href="#(ri-view-[a-z]+)"',tabbar.group(1))!=[v for v,_ in views]: raise ValueError('Tab bar must list the views in order: '+', '.join(v for v,_ in views))
+    vpos=[body.find('<div class="ri-view" id="'+v+'">') for v,_ in views]
+    if -1 in vpos or vpos!=sorted(vpos): raise ValueError('Views missing or out of order')
+    faq=body.find('<h2>Frequently asked</h2>')
+    for k,(v,need) in enumerate(views):
+        end=vpos[k+1] if k+1<len(vpos) else faq
+        for x in need:
+            at=body.find('id="'+x+'"')
+            if not vpos[k]<at<end: raise ValueError(x+' must sit in '+v)
+    vid=body[body.find('id="ri-video"'):]
+    if not vid.startswith('id="ri-video"><div class="sec-head"><h2>Video metrics comparison</h2>'): raise ValueError('Video metrics comparison must be shown open in Organic Social')
     text=re.sub(r'<script.*?</script>','',body,flags=re.S)
     text=re.sub(r'<table id="postlog">.*?</table>','',text,flags=re.S)   # caption excerpts are quoted evidence
     text=re.sub(r'<[^>]+>',' ',text)
