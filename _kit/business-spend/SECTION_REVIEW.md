@@ -435,6 +435,8 @@ Only the Selected examples cards changed. The four cards shown by default take t
 
 - Third look (founder, same day: "I like till the section we have the image but below that can you create something different"): the panel stays; below it the list became bento tiles, each tab led by its own figure (6 brand websites, 3 product categories, 51 posts reviewed, 119 ads reviewed, 6 sign-up journeys followed). Open tabs are two wide tiles, gated tabs three tiles with an "Email to open" badge while locked, and Recommendations a full-width dark tile mirroring the panel, with 12 recommendations split by area (6 claims and conditions, 3 sign-up journeys, 3 social and ad content).
 
+- Optimisation (founder, same day): open tiles side by side with the figure on the right; smaller icon row; Recommendations text centred with the link under it; on phones no icon tiles, the badge on its own line and tighter padding.
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:
