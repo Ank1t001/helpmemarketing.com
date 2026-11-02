@@ -17,6 +17,7 @@ import os
 import sys
 from datetime import datetime
 
+import gate
 import model
 import paid
 import social
@@ -635,7 +636,7 @@ def sources_view(c, views, start, end, draft):
     if c.paid:
         dl.append('<li><a href="/%s" download>Paid ads, version 1 (CSV)</a>: one row per active Meta ad collected on 30 October 2026 (%d), with the Ad Library link, start date, days running, format, versions, placements, button, destination page and headline, and flags for unfilled template text and card disclosures. Full ad copy and media are not in the file.</li>' % (
             paid.CSV_REL, len(c.paid['records'])))
-    sec('bs-ref-downloads', 'Downloads', '<ul class="dek dlinks">%s</ul>' % ''.join(dl))
+    sec('bs-ref-downloads', 'Downloads', gate.block('downloads', '<ul class="dek dlinks">%s</ul>' % ''.join(dl)))
     # At-a-glance strip, as on the tabs (founder, 2026-11-01): counted from the sources, observations and downloads.
     rstats = [('Public sources', str(len(c.sources))), ('Recorded observations', str(len(c.obs))),
               ('Unresolved conflicts', str(sum(1 for o in c.obs.values() if o['status'] == 'conflicting'))), ('Downloadable files', str(len(dl)))]
@@ -717,7 +718,7 @@ def body(c):
                      '<p class="soc-stood"><b>What stood out:</b> %s</p>%s</div></article>' % (
                          i, E(w['zoom_src']), w['zoom_width'], w['zoom_height'], E('%s, %s' % (c.name(w['pid']), x['label'].lower())),
                          E(w['src']), E(x['alt']), w['width'], w['height'], E(c.name(w['pid'])), E(iso_long(w['captured_at'][:10])), E(x['label']), E(c.name(w['pid'])), E(x['wording']), E(x['stood_out']),
-                         ('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(x['detail'])) if x.get('detail') else ''))
+                         gate.detail(('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(x['detail'])) if x.get('detail') else '')))
     # At-a-glance strip, as on the Overview (founder, 2026-11-01): counted from the platforms, sources and observations.
     unb = vm.get('unbased_claims', [])
     mstats = [('Brands compared', str(len(c.order))), ('Public sources reviewed', str(len(c.sources) if hasattr(c, 'sources') else len(model.load('sources.json')['sources']))),
@@ -781,7 +782,7 @@ def body(c):
                       '<p class="soc-stood"><b>What stood out:</b> %s</p>%s</div></article>' % (
                           i, E(w['zoom_src']), w['zoom_width'], w['zoom_height'], E('%s, %s' % (c.name(w['pid']), x['label'].lower())),
                           E(w['src']), E(x['alt']), w['width'], w['height'], E(c.name(w['pid'])), E(iso_long(w['captured_at'][:10])), E(c.name(w['pid'])), E(x['label']), E(jl['help']), E(x['stood_out']),
-                          ('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(x['detail'])) if x.get('detail') else ''))
+                          gate.detail(('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(x['detail'])) if x.get('detail') else '')))
     # At-a-glance strip, as on the Overview (founder, 2026-11-01); the two brand counts come from lists checked against the first-screen finding.
     jstats = [('First screens followed', str(len(c.order))),
               ('Help-centre pages read', str(sum(1 for r in jf['records'] if r['kind'] == 'help_centre' and r['http_status'] == 200))),
@@ -815,9 +816,9 @@ def body(c):
     lstrip = '<dl class="bs-stats" aria-label="Opportunities at a glance">%s</dl>' % ''.join(
         '<div class="bs-stat"><dt>%s</dt><dd>%s</dd></div>' % (E(l), E(v)) for l, v in lstats)
     V['lessons'] = (view_open('lessons', 'bs-lessons') + lstrip
-                    + '<div id="bs-tests" class="sub"><div id="bs-findings"></div><p class="soc-lim bs-lnote">%s</p><div class="bs-lessons">%s</div>'
+                    + '<div id="bs-tests" class="sub"><div id="bs-findings"></div><p class="soc-lim bs-lnote">%s</p>%s'
                       '<p class="pnote dlinks">%s Full test designs, sample planning and guardrails are in <a href="#bs-ref-tests">Sources &amp; evidence</a>.</p></div>'
-                      % (E(ls_['note']), cards, E(ls_['measure_note']))
+                      % (E(ls_['note']), gate.block('opps', '<div class="bs-lessons">%s</div>' % cards), E(ls_['measure_note']))
                     + view_close('lessons'))
 
     # ---------- Overview (founder, 2026-11-01): an at-a-glance strip of counts, then numbered cards, each with one figure from its tab ----------
@@ -850,6 +851,9 @@ def body(c):
                '<span class="bs-srcnote">Dates, methods, every observation, test designs and downloads.</span></p>')
     # One shared screenshot dialog outside the tab panels, so it opens from any tab (2026-10-31).
     out.append('<dialog class="bs-lightbox" id="bs-lightbox" aria-label="Enlarged screenshot"><figure><img src="" alt=""><figcaption></figcaption></figure><button type="button" class="bs-lightbox-close">Close</button></dialog>')
+    # The one unlock dialog for the email-code gate (founder, 2026-11-02), outside the panels like the screenshot dialog.
+    if gate.ON:
+        out.append(gate.dialog())
     out.append(sources_view(c, views, start, end, draft))
 
     hp = n['help']
@@ -911,6 +915,7 @@ def jsonld(c, desc):
                'image': {'@type': 'ImageObject', 'url': SITE + '/og-image.jpg', 'width': 1200, 'height': 630},
                'author': {'@type': 'Person', '@id': SITE + '/about#ankit-kumar', 'name': 'Ankit Kumar', 'url': SITE + '/about'},
                'publisher': {'@id': SITE + '/#organization'}, 'mainEntityOfPage': url, 'inLanguage': 'en-CA'}
+    article.update(gate.jsonld_parts())   # gated parts named for search engines (2026-11-02); none on the snapshot
     if c.mode != 'draft' and c.date_modified:
         # From the recorded production deployment of the last content change, never from a build.
         article['dateModified'] = c.date_modified
@@ -949,6 +954,7 @@ def render(c=None, mode=None, strict=True):
     c = c or Ctx()
     if mode:
         c.mode = mode
+    gate.ON = c.mode != 'snapshot'   # the fixed edition snapshot is never gated or rewritten
     errs = validate.check_inputs(c)
     if errs and strict:
         raise SystemExit('Build stopped:\n' + '\n'.join(errs))

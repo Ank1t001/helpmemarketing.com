@@ -1,3 +1,4 @@
+<script data-bsi-lock>/* Email-code gate (2026-11-02): lock the gated parts before paint unless this browser confirmed an email for this research. Without JavaScript nothing is locked. */(function(){var on=true;try{on=!JSON.parse(localStorage.getItem('hmm_research_unlock')||'{}')['business-spend-index'];}catch(e){}if(on)document.documentElement.classList.add('bsi-locked');})();</script>
 <style>
 /* Business Cards & Spend Management Index (draft, edition 001): page-scoped rules on top of the shared .msi block. Spec: Design System note "Business Cards & Spend Management Index" (2026-10-23). */
 /* Hero (founder brief, 2026-10-28): one text column, no cover image (the artwork stays on the research hub card); the glow is off as on the Med Spa Index. */
@@ -701,6 +702,38 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi .tw.cards tr{padding:20px}
 .msi.msi .bs-view .tw:not(.cards) table.bs th,.msi.msi .bs-view .tw:not(.cards) table.bs td{padding-left:8px;padding-right:8px}
 }
+/* Email-code gate (founder, 2026-11-02). Gated parts (.bs-gated) are in the HTML for search engines, AI crawlers and readers without JavaScript; the head script adds html.bsi-locked until a 6-digit email code is confirmed. Locked: a block shows a short faded preview and its unlock card, a "More detail" disclosure is replaced by a button. Spec: Design System note "Case study email-code gate". */
+.msi.msi .bs-gate-card{display:none}
+html.bsi-locked .msi.msi .bs-gated[data-gate="block"]{position:relative;max-height:280px;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 30%,rgba(0,0,0,0));mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 30%,rgba(0,0,0,0));pointer-events:none;user-select:none}
+html.bsi-locked .msi.msi .bs-gated[data-gate="detail"]{display:none}
+html.bsi-locked .msi.msi .bs-gate-card{display:block;position:relative;margin:-24px 0 0;padding:var(--s4);border:1px solid var(--border-strong);border-left:3px solid var(--cta);border-radius:var(--r2);background:var(--bg-elevated);max-width:640px}
+html.bsi-locked .msi.msi .bs-gate-card.is-inline{margin:var(--s2) 0 0;padding:0;border:0;background:none;max-width:none}
+.msi.msi .bs-gate-t{display:flex;align-items:center;gap:8px;margin:0 0 6px;font-weight:650;font-size:17px;line-height:1.35;color:var(--text)}
+.msi.msi .bs-gate-ic{flex:none;color:var(--cta-text,var(--cta))}
+.msi.msi .bs-gate-x{margin:0 0 var(--s3);font-size:15px;line-height:1.55;color:var(--text-body,var(--text-muted))}
+.msi.msi .bs-gate-btn{min-height:44px}
+.msi.msi .bs-gate-more{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:6px 0;border:0;background:none;font:inherit;font-size:14px;font-weight:600;color:var(--cta-text,var(--cta));cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.msi.msi .bs-gate-more:focus-visible,.msi.msi .bs-gate-link:focus-visible,.msi.msi .bs-gate-close:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
+.msi.msi dialog.bs-gate{position:fixed;inset:0;margin:auto;width:min(460px,calc(100vw - 32px));height:fit-content;max-height:92vh;overflow:auto;padding:var(--s5) var(--s4) var(--s4);border:1px solid var(--border-strong);border-radius:var(--r2);background:var(--bg-elevated);color:var(--text);box-sizing:border-box}
+dialog.bs-gate::backdrop{background:rgba(0,0,0,.72)}
+.msi.msi dialog.bs-gate h2{display:flex;align-items:center;gap:10px;margin:0 0 var(--s2);font-size:24px;line-height:1.25}
+.msi.msi .bs-gate-lead{margin:0 0 var(--s3);font-size:15px;line-height:1.55;color:var(--text-body,var(--text-muted))}
+.msi.msi .bs-gate-form label{display:block;margin:0 0 6px;font-size:14px;font-weight:600}
+.msi.msi .bs-gate-form input[type="email"],.msi.msi .bs-gate-form input[type="text"]{display:block;width:100%;box-sizing:border-box;min-height:46px;margin:0 0 var(--s3);padding:10px 12px;border:1px solid var(--border-strong);border-radius:var(--r1);background:var(--bg);color:var(--text);font:inherit;font-size:16px}
+.msi.msi .bs-gate-form #bs-gate-code{letter-spacing:.3em;font-variant-numeric:tabular-nums}
+.msi.msi .bs-gate-form input:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:1px}
+.msi.msi .bs-gate-form input[aria-invalid="true"]{border-color:var(--cta)}
+.msi.msi .bs-gate-form .btn{width:100%;min-height:46px;justify-content:center}
+.msi.msi .bs-gate-form .cf-slot:not(:empty){margin:0 0 12px}
+.msi.msi .bs-gate-alt{display:flex;flex-wrap:wrap;gap:4px 18px;margin:var(--s2) 0 0}
+.msi.msi .bs-gate-link{min-height:40px;padding:6px 0;border:0;background:none;font:inherit;font-size:14px;font-weight:600;color:var(--text);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.msi.msi .bs-gate-err{margin:var(--s3) 0 0;font-size:14px;line-height:1.5;color:var(--text)}
+.msi.msi .bs-gate-err:empty{display:none}
+.msi.msi .bs-gate-err:not(:empty){padding:10px 12px;border-left:3px solid var(--cta);background:var(--bg-raise);border-radius:0 var(--r1) var(--r1) 0}
+.msi.msi .bs-gate-fine{margin:var(--s3) 0 0;font-size:12.5px;line-height:1.5;color:var(--text-muted)}
+.msi.msi .bs-gate-fine a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
+.msi.msi .bs-gate-close{margin-top:var(--s3);font:inherit;font-size:14px;font-weight:600;min-height:40px;padding:8px 16px;border:1px solid var(--border-strong);border-radius:999px;background:var(--bg);color:var(--text);cursor:pointer}
+@media print{.msi.msi dialog.bs-gate,.msi.msi .bs-gate-btn,.msi.msi .bs-gate-more{display:none!important}}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */
@@ -914,5 +947,119 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-review-cta^="research_"]').forEach(function (a) {
     a.addEventListener('click', function () { push({ event: 'review_cta_click', entry_point: a.getAttribute('data-review-cta') }); });
   });
+});
+</script>
+<script data-bsi-gate>
+/* Email-code gate (founder, 2026-11-02). The head script locks the gated parts unless this browser confirmed an email for this research.
+   "Send my code" posts form=research-code (bot trap, Turnstile action research_unlock) and the forms script emails a 6-digit code;
+   "Open the full case study" posts form=research-verify. Only a reply of verified true opens the page; it is remembered in
+   localStorage hmm_research_unlock. Events: research_gate_open, research_code_request, research_unlock (no personal data). */
+document.addEventListener('DOMContentLoaded', function () {
+  var d = document, root = d.documentElement, dlg = d.getElementById('bs-gate'), form = d.getElementById('bs-gate-form');
+  if (!dlg || !form) return;
+  var KEY = 'hmm_research_unlock', R = form.getAttribute('data-research'), URL_ = form.getAttribute('data-endpoint');
+  var gated = [].slice.call(d.querySelectorAll('.bs-gated'));
+  function lock(on) {
+    root.classList.toggle('bsi-locked', on);
+    gated.forEach(function (g) { if (on) g.setAttribute('inert', ''); else g.removeAttribute('inert'); });
+  }
+  if (!root.classList.contains('bsi-locked')) return;
+  lock(true);
+  function track(o) { try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(o); } catch (e) {} }
+  var steps = { email: form.querySelector('[data-step="email"]'), code: form.querySelector('[data-step="code"]') };
+  var emailEl = d.getElementById('bs-gate-email'), codeEl = d.getElementById('bs-gate-code'), hp = d.getElementById('bs-gate-hp');
+  var err = form.querySelector('[data-gate-err]'), sentEl = form.querySelector('[data-gate-sent]');
+  var sendBtn = form.querySelector('[data-gate-send]'), verifyBtn = form.querySelector('[data-gate-verify]');
+  var sendText = sendBtn.textContent, verifyText = verifyBtn.textContent, email = '', opener = null, t0 = 0, human = false, busy = false;
+  function msg(k) { return form.getAttribute('data-err-' + k) || form.getAttribute('data-err-network'); }
+  function show(k, el) { err.textContent = k ? msg(k) : ''; [emailEl, codeEl].forEach(function (x) { x.removeAttribute('aria-invalid'); }); if (k && el) { el.setAttribute('aria-invalid', 'true'); el.focus(); } }
+  function step(s) { steps.email.hidden = s !== 'email'; steps.code.hidden = s !== 'code'; (s === 'code' ? codeEl : emailEl).focus(); }
+  function setBusy(b, on, label) { busy = on; b.disabled = on; if (on) b.setAttribute('aria-busy', 'true'); else b.removeAttribute('aria-busy'); b.textContent = label; }
+  var land = ''; try { land = sessionStorage.getItem('hmm_landing') || ''; } catch (e) {}
+  var q = new URLSearchParams(location.search), utm = {};
+  ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { var v = (q.get(k) || '').trim(); if (/^[\w.\-]{1,60}$/.test(v)) utm[k] = v; });
+  /* Cloudflare Turnstile, as on /contact: loads when the dialog opens, Managed widget shown only if Cloudflare wants a check. */
+  var ts = { key: (form.getAttribute('data-turnstile-sitekey') || '').trim(), started: false, token: '', interactive: false, failed: false, id: null };
+  function loadTs() {
+    if (!ts.key || ts.started) return; ts.started = true;
+    var sc = d.createElement('script'); sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; sc.async = true;
+    sc.addEventListener('error', function () { ts.failed = true; });
+    sc.addEventListener('load', function () {
+      if (!window.turnstile) { ts.failed = true; return; }
+      try { ts.id = window.turnstile.render('#bs-gate-ts', { sitekey: ts.key, action: 'research_unlock', theme: 'auto', size: 'flexible', appearance: 'interaction-only',
+        callback: function (t) { ts.token = t; ts.failed = false; ts.interactive = false; }, 'expired-callback': function () { ts.token = ''; },
+        'error-callback': function () { ts.failed = true; }, 'before-interactive-callback': function () { ts.interactive = true; },
+        'after-interactive-callback': function () { ts.interactive = false; } }); } catch (e) { ts.failed = true; }
+    });
+    d.head.appendChild(sc);
+  }
+  function resetTs() { ts.token = ''; if (window.turnstile && ts.id != null) { try { window.turnstile.reset(ts.id); ts.failed = false; } catch (e) {} } }
+  function waitTs() { return new Promise(function (res) { var s = Date.now(); (function p() { if (!ts.key || ts.token || ts.failed || ts.interactive || Date.now() - s > 10000) return res(); setTimeout(p, 150); })(); }); }
+  ['pointerdown', 'keydown', 'touchstart', 'input'].forEach(function (t) { form.addEventListener(t, function () { human = true; }, { passive: true }); });
+  function post(fields) {
+    var fd = new FormData(); Object.keys(fields).forEach(function (k) { fd.append(k, fields[k]); });
+    return fetch(URL_, { method: 'POST', body: fd }).then(function (r) { return r.json(); });
+  }
+  function open(b) {
+    opener = b; show('');
+    if (typeof dlg.showModal === 'function') { if (!dlg.open) dlg.showModal(); } else dlg.setAttribute('open', '');
+    t0 = t0 || Date.now(); loadTs(); step(email && !steps.code.hidden ? 'code' : 'email');
+    var cd = b && b.closest('[data-gate-card]'), part = cd && cd.previousElementSibling;
+    track({ event: 'research_gate_open', research: R, gate_kind: (part && part.getAttribute('data-gate-kind')) || 'detail' });
+  }
+  function close() { if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
+  d.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('[data-gate-open]'); if (b) { e.preventDefault(); open(b); } });
+  dlg.querySelector('[data-gate-close]').addEventListener('click', close);
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) close(); });
+  dlg.addEventListener('close', function () { if (opener && d.contains(opener) && root.classList.contains('bsi-locked')) opener.focus(); });
+  function request() {
+    if (busy) return;
+    var v = emailEl.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) || v.length > 254) return show('email', emailEl);
+    show(''); email = v;
+    var flag = (hp && hp.value) ? 'trap' : (Date.now() - t0 < 3000 && !human) ? 'no-input' : '';
+    setBusy(sendBtn, true, form.getAttribute('data-sending'));
+    waitTs().then(function () {
+      if (ts.key && !ts.token && ts.interactive) { setBusy(sendBtn, false, sendText); show('human'); return; }
+      var f = { form: 'research-code', research: R, email: email };
+      Object.keys(utm).forEach(function (k) { f[k] = utm[k]; }); if (land) f.landing_page = land;
+      if (flag) { f.client_flag = flag; if (hp && hp.value) f.trap_value = hp.value.slice(0, 100); }
+      if (ts.key) f['cf-turnstile-response'] = ts.token;
+      return post(f).then(function (j) {
+        resetTs(); setBusy(sendBtn, false, sendText);
+        if (j && j.result === 'ok' && j.saved === 'code_sent') {
+          track({ event: 'research_code_request', research: R });
+          sentEl.textContent = form.getAttribute('data-code-sent').replace('{email}', email); codeEl.value = ''; step('code'); return;
+        }
+        if (j && j.result === 'ok' && j.saved === 'limit') return show('limit', emailEl);
+        if (j && j.result === 'ok' && j.saved === 'spam') return show(/Disposable/.test(j.reason || '') ? 'disposable' : 'refused', emailEl);
+        throw new Error('reply');
+      });
+    }).catch(function () { resetTs(); setBusy(sendBtn, false, sendText); show('network'); });
+  }
+  function verify() {
+    if (busy) return;
+    var c = codeEl.value.replace(/\D/g, '');
+    if (c.length !== 6) return show('code', codeEl);
+    show(''); setBusy(verifyBtn, true, form.getAttribute('data-checking'));
+    post({ form: 'research-verify', research: R, email: email, code: c }).then(function (j) {
+      setBusy(verifyBtn, false, verifyText);
+      if (j && j.result === 'ok' && j.verified === true) {
+        try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); o[R] = Date.now(); localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {}
+        track({ event: 'research_unlock', research: R });
+        var card = opener && opener.closest('[data-gate-card]'), part = card && card.previousElementSibling;
+        lock(false); close();
+        if (part) { part.setAttribute('tabindex', '-1'); try { part.focus({ preventScroll: true }); } catch (e) { part.focus(); } part.scrollIntoView({ block: 'nearest' }); }
+        return;
+      }
+      if (j && j.result === 'ok' && j.verified === false) { var r = j.reason; return show(r === 'wrong' ? 'wrong' : r === 'too_many' ? 'too-many' : 'expired', codeEl); }
+      throw new Error('reply');
+    }).catch(function () { setBusy(verifyBtn, false, verifyText); show('check'); });
+  }
+  form.addEventListener('submit', function (e) { e.preventDefault(); if (steps.email.hidden) verify(); else request(); });
+  verifyBtn.addEventListener('click', verify);
+  codeEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); verify(); } });
+  form.querySelector('[data-gate-resend]').addEventListener('click', function () { step('email'); request(); });
+  form.querySelector('[data-gate-change]').addEventListener('click', function () { show(''); step('email'); emailEl.select(); });
 });
 </script>

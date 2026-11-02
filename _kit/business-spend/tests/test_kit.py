@@ -150,13 +150,26 @@ class KitTests(unittest.TestCase):
         self.assertIn('first screen', self.c.n['findings']['items'][2]['title'])
         self.assertNotIn('Registry', ' '.join(p['title'] for p in self.c.n['patterns']['items']))
 
+    def test_gate_checks_catch_a_missing_part(self):
+        body = self.page[self.page.index('REPORT BODY START'):]
+        self.assertEqual(validate.check_gate(self.c, self.page, body), [])
+        broken = self.page.replace('"cssSelector":".bs-gated"', '"cssSelector":".x"')
+        self.assertTrue(any('JSON-LD' in e for e in validate.check_gate(self.c, broken, body)))
+        nocard = re.sub(r'</div><div class="bs-gate-card[^"]*" data-gate-card>.*?</div>', '</div>', body, count=1)
+        self.assertTrue(any('unlock card' in e for e in validate.check_gate(self.c, self.page, nocard)))
+
     def test_release_dry_run_renders_without_touching_the_repo(self):
         import release
         before = {f: open(os.path.join(model.ROOT, f), encoding='utf-8').read() for f in ('hmm-index.html', 'sitemap.xml', 'business-spend-index.html')}
         c, gate, live, snap, csvtext, errs = release.render_all('2026-10-23', strict=False)
         self.assertEqual(errs, [])
         self.assertEqual(csvtext, self.csv)
-        self.assertEqual(live[live.index('REPORT BODY START'):], snap[snap.index('REPORT BODY START'):])
+        # The live page carries the email-code gate (2026-11-02); the fixed snapshot never does. Without the gate markup they match.
+        self.assertNotIn('class="bs-gated"', snap)
+        self.assertIn('class="bs-gated"', live)
+        ungated = re.sub(r'<div class="bs-gated"[^>]*>', '', re.sub(r'</div><div class="bs-gate-card[^"]*" data-gate-card>.*?</div>', '', live))
+        ungated = re.sub(r'<dialog class="bs-gate".*?</dialog>\n?', '', ungated, flags=re.S)
+        self.assertEqual(ungated[ungated.index('REPORT BODY START'):], snap[snap.index('REPORT BODY START'):])
         self.assertIn('content="index, follow', live)
         self.assertIn('<meta name="robots" content="noindex, follow">', snap)
         self.assertIn('href="https://helpmemarketing.com/business-spend-index/edition-001"', snap)

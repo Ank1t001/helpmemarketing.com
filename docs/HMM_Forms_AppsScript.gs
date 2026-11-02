@@ -13,6 +13,8 @@
  *   index-download       Index downloads       /gta-medspa-index, /hair-loss-index, /realestate-index
  *   growth-os-download   Growth OS downloads   /seo-growth-os (emails the bundle), /meta-growth-os
  *   subscribe            Subscribers           /blog newsletter, the audit's "Subscribe to updates"
+ *   research-code        Research unlocks      /business-spend-index, "Read the full case study" (emails a 6-digit code)
+ *   research-verify      Research unlocks      the same form, second step (checks the code; marks the row Verified)
  *   (anything that fails a check)  Spam
  *
  * Leads keeps the exact 13 columns and order of the old contact script, so nothing shifts. The
@@ -40,9 +42,15 @@
  *   8. Optional, once: run `importGrowthOsHistory` to copy past Growth OS downloads across, and
  *      `importIndexHistory` (fill in its sheet ID first) for past Index downloads.
  *
+ * Research unlocks (added 2026-11-02): after pasting this version, run `setup` once (it creates the Research unlocks
+ * tab and asks for the script cache permission), then `testResearchUnlock` and `testResearchVerify`, then redeploy
+ * the existing deployment as in step 6. Do this BEFORE the gated /business-spend-index goes live: until then the
+ * old script files research-code requests as "Unknown form" and no visitor can unlock the page.
+ *
  * Turnstile stays off until you add the script property TURNSTILE_SECRET (Project Settings →
- * Script properties). Put the site key on the page first, then the secret. Checked only on the
- * two lead forms, each with its own action: contact (/contact) and audit_help (the audit). Setup order and details: see the Cloudflare notes at the bottom of this file.
+ * Script properties). Put the site key on the page first, then the secret. Checked on the two lead
+ * forms and the research code request, each with its own action: contact (/contact), audit_help (the audit)
+ * and research_unlock (the case study's "Send my code"). Setup order and details: see the Cloudflare notes at the bottom of this file.
  */
 
 var SHEET_NAME = 'Leads';        // kept from the old script
@@ -54,6 +62,7 @@ var TABS = {
   'Index downloads': ['Received', 'Email', 'Report', 'Cycle', 'Source tag'],
   'Growth OS downloads': ['Received', 'Email', 'Product', 'Marketing consent', 'Consent timestamp', 'Bundle email', 'Referrer', 'User agent'],
   'Subscribers': ['Received', 'Email', 'Source', 'Consent'],
+  'Research unlocks': ['Last code sent', 'Email', 'Research', 'Status', 'Verified at', 'Codes sent', 'Source'],
   'Spam': ['Received', 'Form', 'Name', 'Email', 'Reason', 'Details']
 };
 
@@ -70,7 +79,7 @@ var DAY_MS = 24 * 60 * 60 * 1000;
 var INDEX_REPORTS = { 'gta-medspa': 'GTA MedSpa Index', 'hair-loss': 'Hair Loss Index', 'instagram': 'Real Estate Index (Instagram)' };
 // Turnstile action per protected form. 'contact' is also accepted from the audit form until its page
 // change (action 'audit_help') is live; it can be removed after that.
-var TURNSTILE_ACTIONS = { 'contact': ['contact'], 'audit-help': ['audit_help', 'contact'] };
+var TURNSTILE_ACTIONS = { 'contact': ['contact'], 'audit-help': ['audit_help', 'contact'], 'research-code': ['research_unlock'] };
 var TURNSTILE_HOSTS = ['helpmemarketing.com', 'www.helpmemarketing.com'];   // production only, never localhost
 var DRY_RUN = false;             // true only inside testRouting: rows are written, no email is sent
 
@@ -87,6 +96,19 @@ function doPost(e) {
 
     // Checks that need the network run before the lock, so one slow call never blocks other forms.
     var reason = spamReason_(form, data);
+
+    // Research unlocks (2026-11-02) reply with their own shape: the page needs to know whether a code went out
+    // and whether the code matched, not only whether a row was saved.
+    if (form === 'research-code' || form === 'research-verify') {
+      var rlock = LockService.getScriptLock();
+      rlock.waitLock(20000);
+      try {
+        if (reason) { spam_(form, data, reason); return jsonOut_({ result: 'ok', saved: 'spam', reason: String(reason).slice(0, 80) }); }
+        return jsonOut_(form === 'research-code' ? researchCode_(data) : researchVerify_(data));
+      } finally {
+        rlock.releaseLock();
+      }
+    }
 
     var lock = LockService.getScriptLock();
     lock.waitLock(20000);
@@ -142,6 +164,10 @@ function spamReason_(form, d) {
   if (form === 'unknown') return 'Unknown form';
   if (form === 'audit-feedback') return '';                       // no email address in it
   if (!isEmail_(pick_(d, 'email'))) return 'Invalid email';
+  if (form === 'research-code' || form === 'research-verify') {
+    if (!RESEARCH[pick_(d, 'research')]) return 'Unknown research';
+    if (form === 'research-code' && isDisposable_(pick_(d, 'email'))) return 'Disposable email domain';
+  }
   if (TURNSTILE_ACTIONS[form]) return turnstileReason_(form, d);
   return '';
 }
@@ -280,6 +306,131 @@ function spam_(form, d, reason) {
   Object.keys(d || {}).forEach(function (k) { if (k !== 'cf-turnstile-response' && k !== 'plan_text') copy[k] = d[k]; });
   tab_('Spam').appendRow([new Date(), form, pick_(d, 'name'), pick_(d, 'email'), reason, JSON.stringify(copy).slice(0, 2000)]);
   return 'spam';
+}
+
+/* ============================ research unlocks ============================ */
+
+// Gated sections of a research page open only after the visitor proves the email is theirs (founder, 2026-11-02):
+// research-code emails a 6-digit code, research-verify checks it. The code is never stored, only its salted SHA-256,
+// in the script cache for 15 minutes; five wrong tries end it. One row per address and research on Research unlocks.
+var RESEARCH = { 'business-spend-index': { label: 'How Six Business Finance Brands Market Their Products', path: '/business-spend-index' } };
+var CODE_TTL_S = 15 * 60;
+var CODE_MAX_TRIES = 5;
+var CODES_PER_EMAIL_HOUR = 3;
+var CODES_PER_DAY = 300;          // keeps MailApp quota for the other forms
+// Common throwaway inbox services. A short list on purpose: the code itself is the real check.
+var DISPOSABLE = ['mailinator.com', 'guerrillamail.com', 'guerrillamail.net', 'guerrillamail.org', 'sharklasers.com', 'grr.la', 'guerrillamailblock.com',
+  '10minutemail.com', '10minutemail.net', 'temp-mail.org', 'tempmail.com', 'tempmail.net', 'tempmailo.com', 'temp-mail.io', 'tempail.com',
+  'throwawaymail.com', 'yopmail.com', 'yopmail.net', 'yopmail.fr', 'getnada.com', 'nada.email', 'trashmail.com', 'trashmail.de', 'trashmail.net',
+  'dispostable.com', 'maildrop.cc', 'mailnesia.com', 'mintemail.com', 'mohmal.com', 'fakeinbox.com', 'fakemail.net', 'emailondeck.com',
+  'spamgourmet.com', 'mailcatch.com', 'mytemp.email', 'tempinbox.com', 'burnermail.io', 'moakt.com', 'tmail.ws', 'tmpmail.org', 'tmpmail.net',
+  'inboxkitten.com', 'emailfake.com', 'luxusmail.org', 'mail.tm', 'mail.gw', 'dropmail.me', '1secmail.com', '1secmail.org', '1secmail.net',
+  'mailpoof.com', 'spambox.us', 'discard.email', 'harakirimail.com', 'mailsac.com', 'tempr.email', 'linshiyouxiang.net', 'byom.de', 'trbvm.com',
+  'example.com', 'example.org', 'example.net', 'test.com'];
+
+function isDisposable_(email) {
+  var dom = String(email).toLowerCase().split('@').pop();
+  return DISPOSABLE.some(function (x) { return dom === x || dom.slice(-(x.length + 1)) === '.' + x; });
+}
+
+function sha256_(s) {
+  return Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, s, Utilities.Charset.UTF_8)
+    .map(function (b) { return ('0' + (b & 255).toString(16)).slice(-2); }).join('');
+}
+
+function codeKey_(email, research) { return 'rc_' + sha256_(email + '|' + research).slice(0, 40); }
+
+// Six digits from Apps Script's random UUID (Math.random is not meant for secrets).
+function newCode_() {
+  var hex = Utilities.getUuid().replace(/-/g, '');
+  return ('000000' + (parseInt(hex.slice(0, 12), 16) % 1000000)).slice(-6);
+}
+
+// Source column: the page, then its landing page and UTM tags, each checked against a pattern.
+function researchSource_(d) {
+  var parts = ['page ' + RESEARCH[pick_(d, 'research')].path];
+  ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) {
+    var v = pick_(d, k).replace(/[^\w.\-]/g, '').slice(0, 60);
+    if (v) parts.push(k.replace('utm_', '') + ' ' + v);
+  });
+  var lp = pick_(d, 'landing_page').replace(/[^\w\/.\-?=&]/g, '').slice(0, 160);
+  if (lp) parts.push('landing ' + lp);
+  return parts.join(' | ');
+}
+
+// The row for this address and research, or 0.
+function researchRow_(sh, email, label) {
+  var last = sh.getLastRow();
+  if (last < 2) return 0;
+  var rows = sh.getRange(2, 2, last - 1, 2).getValues();
+  for (var i = rows.length - 1; i >= 0; i--) if (String(rows[i][0]).toLowerCase() === email && rows[i][1] === label) return i + 2;
+  return 0;
+}
+
+function researchCode_(d) {
+  var email = pick_(d, 'email').toLowerCase(), key = pick_(d, 'research'), r = RESEARCH[key];
+  var cache = CacheService.getScriptCache(), props = PropertiesService.getScriptProperties();
+  var hourKey = 'rcn_' + sha256_(email).slice(0, 40), sentHour = parseInt(cache.get(hourKey) || '0', 10);
+  if (sentHour >= CODES_PER_EMAIL_HOUR) { spam_('research-code', d, 'Too many codes for this email in an hour'); return { result: 'ok', saved: 'limit' }; }
+  var today = Utilities.formatDate(new Date(), 'America/Toronto', 'yyyy-MM-dd'), day = (props.getProperty('rc_day') || '').split(':');
+  var sentDay = day[0] === today ? parseInt(day[1] || '0', 10) : 0;
+  if (sentDay >= CODES_PER_DAY) { spam_('research-code', d, 'Daily code limit reached'); return { result: 'ok', saved: 'limit' }; }
+
+  var code = newCode_(), salt = Utilities.getUuid();
+  var sent = send_(function () {
+    MailApp.sendEmail({ to: email, replyTo: REPLY_TO, name: FROM_NAME, subject: code + ' is your code for the HelpMeMarketing case study',
+      body: researchCodeText_(code, r), htmlBody: researchCodeHtml_(code, r) });
+  });
+  if (sent.indexOf('Failed') === 0) return { result: 'error' };
+  cache.put(codeKey_(email, key), JSON.stringify({ h: sha256_(salt + code), s: salt, n: 0, exp: Date.now() + CODE_TTL_S * 1000 }), CODE_TTL_S);
+  cache.put(hourKey, String(sentHour + 1), 3600);
+  props.setProperty('rc_day', today + ':' + (sentDay + 1));
+
+  var sh = tab_('Research unlocks'), row = researchRow_(sh, email, r.label);
+  if (row) {
+    var n = parseInt(sh.getRange(row, 6).getValue(), 10) || 0;
+    sh.getRange(row, 1).setValue(new Date());
+    sh.getRange(row, 6).setValue(n + 1);
+  } else {
+    sh.appendRow([new Date(), email, r.label, 'Code sent', '', 1, researchSource_(d)]);
+  }
+  return { result: 'ok', saved: 'code_sent' };
+}
+
+function researchVerify_(d) {
+  var email = pick_(d, 'email').toLowerCase(), key = pick_(d, 'research'), r = RESEARCH[key];
+  var code = pick_(d, 'code').replace(/\D/g, '');
+  var cache = CacheService.getScriptCache(), ck = codeKey_(email, key), raw = cache.get(ck);
+  if (!raw) return { result: 'ok', verified: false, reason: 'expired' };
+  var e = JSON.parse(raw);
+  if (code.length !== 6 || sha256_(e.s + code) !== e.h) {
+    e.n += 1;
+    var left = Math.floor((e.exp - Date.now()) / 1000);
+    if (e.n >= CODE_MAX_TRIES || left < 1) { cache.remove(ck); return { result: 'ok', verified: false, reason: 'too_many' }; }
+    cache.put(ck, JSON.stringify(e), left);
+    return { result: 'ok', verified: false, reason: 'wrong' };
+  }
+  cache.remove(ck);
+  var sh = tab_('Research unlocks'), row = researchRow_(sh, email, r.label);
+  if (row) { sh.getRange(row, 4).setValue('Verified'); sh.getRange(row, 5).setValue(new Date()); }
+  else sh.appendRow([new Date(), email, r.label, 'Verified', new Date(), 1, researchSource_(d)]);
+  return { result: 'ok', verified: true };
+}
+
+function researchCodeText_(code, r) {
+  return 'Your code: ' + code + '\n\nEnter it on the page to read the full case study "' + r.label + '". It works for 15 minutes.\n\n' +
+    'You asked for this code at ' + SITE_URL + r.path + '. If you did not, you can ignore this email; nothing happens without the code.\n\n' +
+    'Ankit Kumar\nHelpMeMarketing\n' + SENDER_POSTAL;
+}
+
+function researchCodeHtml_(code, r) {
+  return '<div style="max-width:560px;margin:0 auto;padding:24px;font:15px/1.6 Arial,sans-serif;color:#1A1A1A">' +
+    '<p style="margin:0 0 8px">Your code:</p>' +
+    '<p style="margin:0 0 20px;font:700 32px/1.2 Arial,sans-serif;letter-spacing:6px">' + esc_(code) + '</p>' +
+    '<p style="margin:0 0 12px">Enter it on the page to read the full case study &ldquo;' + esc_(r.label) + '&rdquo;. It works for 15 minutes.</p>' +
+    '<p style="margin:0 0 20px;color:#666;font-size:13px">You asked for this code at <a href="' + SITE_URL + r.path + '" style="color:#666">' + SITE_URL.replace('https://', '') + r.path + '</a>. ' +
+    'If you did not, you can ignore this email; nothing happens without the code.</p>' +
+    '<p style="margin:0;color:#666;font-size:13px">Ankit Kumar<br>HelpMeMarketing<br>' + esc_(SENDER_POSTAL) + '</p></div>';
 }
 
 /* ============================ Turnstile ============================ */
@@ -481,6 +632,7 @@ function jsonOut_(obj) {
 function setup() {
   Object.keys(TABS).forEach(function (name) { tab_(name); });
   MailApp.getRemainingDailyQuota();
+  CacheService.getScriptCache().put('setup_check', '1', 60);
   DriveApp.getFileById(SEO_ZIP_FILE_ID).getName();
   checkTurnstileSecret();
   Logger.log('Ready. Tabs: ' + Object.keys(TABS).join(', '));
@@ -511,13 +663,28 @@ function testRouting() {
     { parameters: { form: ['index-download'], email: [me], source: ['gta-medspa-cycle-001'] } },
     { json: { form: 'growth-os-download', product: 'seo', email: me, marketingConsent: false, source: '/seo-growth-os' } },
     { json: { form: 'subscribe', email: me, source: 'blog' } },
+    { parameters: { form: ['research-code'], email: ['test@mailinator.com'], research: ['business-spend-index'] } },
     { parameters: { form: ['contact'], name: ['TEST bot'], email: [me], company_url_secondary: ['http://spam.example'] } }
   ];
   cases.forEach(function (c) {
     var e = c.json ? { parameters: {}, postData: { contents: JSON.stringify(c.json) } } : { parameters: c.parameters };
     doPost(e);
   });
-  Logger.log('Wrote ' + cases.length + ' TEST rows: Leads 3 (one a free review, Source should read contact form | free review | entry home_hero | source test), Audit 2, Index downloads 1, Growth OS downloads 1, Subscribers 1, Spam 1. Delete them when checked.');
+  Logger.log('Wrote ' + cases.length + ' TEST rows: Leads 3 (one a free review, Source should read contact form | free review | entry home_hero | source test), Audit 2, Index downloads 1, Growth OS downloads 1, Subscribers 1, Spam 2 (one a disposable research email). Delete them when checked. Run testResearchUnlock for the code flow.');
+}
+
+// Runs the research unlock flow against your own address: sends a real code email, then checks a wrong code
+// and the real one. Writes one Research unlocks row (delete it after). Run after setup, before redeploying.
+function testResearchUnlock() {
+  var me = Session.getActiveUser().getEmail().toLowerCase(), d = { email: me, research: 'business-spend-index' };
+  Logger.log('code request -> ' + JSON.stringify(researchCode_(d)));
+  Logger.log('wrong code -> ' + JSON.stringify(researchVerify_({ email: me, research: 'business-spend-index', code: '000000' })));
+  Logger.log('Now open the email, then run testResearchVerify after typing the code into RESEARCH_TEST_CODE below.');
+}
+var RESEARCH_TEST_CODE = '';
+function testResearchVerify() {
+  var me = Session.getActiveUser().getEmail().toLowerCase();
+  Logger.log('real code -> ' + JSON.stringify(researchVerify_({ email: me, research: 'business-spend-index', code: RESEARCH_TEST_CODE })));
 }
 
 // Logs the Source text each review link would produce. Writes no row, sends no email and skips Turnstile,

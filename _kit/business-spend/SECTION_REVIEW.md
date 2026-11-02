@@ -410,6 +410,15 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - Contents tile 4 now reads "Paid ads: collection, creative review and records", the title of its section (it said "collection and records"); `validate.py` now fails if a contents entry and its section title differ.
 - Section content unchanged.
 
+## 29. Email-code gate for the full case study (founder, 2 November 2026; staging)
+
+- Founder decision: the whole case study stays indexable by Google and AI crawlers, while some parts open for visitors only after they confirm a real email ("any real email"; a work-email-only rule was offered and not chosen). The server-rendered version, which would take the gated text out of the page source, was offered and deferred.
+- Gated: the Opportunities cards, both "Audience and buying stage" sections (Social, Paid), every example "More detail" (Social, Website Messaging, Customer Journey) and the Downloads list in Sources & evidence. Open: the Overview, every strip, the creative mix, examples, engagement, Website Messaging, Product Comparison, Customer Journey and the rest of Sources & evidence.
+- Flow: email, 6-digit code by email (15 minutes, five tries), then the parts open on this browser and stay open on return. Disposable inboxes are refused; three codes per address per hour; 300 codes a day.
+- The gated text stays in the HTML and the Article JSON-LD names it (`isAccessibleForFree` false, `hasPart` `.bs-gated`); readers without JavaScript and print see the whole page; the edition 001 snapshot is unchanged.
+- Leads land on the Research unlocks tab of the forms sheet. Release order: paste and redeploy `/docs/HMM_Forms_AppsScript.gs` (run `setup`, `testResearchUnlock`, `testResearchVerify`) before the gated page goes live.
+- Privacy policy updated the same day (Information we collect; the spam-check line now names research forms).
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

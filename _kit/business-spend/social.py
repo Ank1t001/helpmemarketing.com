@@ -24,6 +24,8 @@ import os
 import re
 from datetime import date, datetime
 
+import gate
+
 KIT = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(KIT))
 PATH = os.path.join(KIT, 'social.json')
@@ -962,11 +964,11 @@ def strategy_html(c):
                % (head(1, tb['mix_title']), sel, panels, stood, ('<p class="soc-lim">Not compared: %s.</p>' % E(nocov)) if nocov else ''))
     asel = ''.join('<button type="button" class="pd-opt" data-dim="%s" aria-pressed="%s">%s</button>' % (k, 'true' if i == 0 else 'false', E(t))
                    for i, (k, t) in enumerate((('persona', 'Customer personas'), ('stage', 'Likely buying stage'))))
-    out.append('<div class="sub soc-sec pd-sec" id="bs-social-audience">%s<p class="soc-lim pd-lead">%s</p><div class="pd-sel" role="group" aria-label="Show audience by" hidden>%s</div>'
-               '<div class="pd-dims" data-pd-dims>%s%s</div><p class="soc-lim">%s</p></div>'
-               % (head(2, tb['audience_title']), E(tb['audience_note']), asel,
-                  paid._dim_panel(d, have, 'persona', 'Customer personas', True, cs_all, ctx),
-                  paid._dim_panel(d, have, 'stage', 'Likely buying stage', False, cs_all, ctx), E(tb['zero_note'])))
+    out.append('<div class="sub soc-sec pd-sec" id="bs-social-audience">%s<p class="soc-lim pd-lead">%s</p>%s</div>'
+               % (head(2, tb['audience_title']), E(tb['audience_note']), gate.block('audience',
+                  '<div class="pd-sel" role="group" aria-label="Show audience by" hidden>%s</div><div class="pd-dims" data-pd-dims>%s%s</div><p class="soc-lim">%s</p>'
+                  % (asel, paid._dim_panel(d, have, 'persona', 'Customer personas', True, cs_all, ctx),
+                     paid._dim_panel(d, have, 'stage', 'Likely buying stage', False, cs_all, ctx), E(tb['zero_note'])))))
     out.append('<div class="sub soc-sec pd-sec" id="bs-social-examples">%s%s</div>' % (head(3, tb['examples_title']), examples_html(s, d, tb)))
     # 4. Engagement by theme, within each brand
     eng = []
@@ -1008,7 +1010,7 @@ def examples_html(s, d, tb):
                      % (i, E(img['src']), E(ex['alt']), img['width'], img['height'], E(cap), E(NAMES[x['pid']]), E(theme_label(s, p and next(c['theme'] for c in s['analysis']['posts'] if c['post'] == ex['post']))),
                         E(x['hook']), chips, E(personas), E(dict(paid.STAGE_L)[x['stage']]), E(ex['stood_out']),
                         # Supporting detail behind a native disclosure, closed by default (founder, 2026-11-01).
-                        ('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(ex['detail'])) if ex.get('detail') else ''))
+                        gate.detail(('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(ex['detail'])) if ex.get('detail') else '')))
     first, rest = cards[:4], cards[4:]
     more = ('<details class="pd-more"><summary>More examples (%d)</summary><div class="pd-exs">%s</div></details>' % (len(rest), ''.join(rest))) if rest else ''
     return '<div class="pd-exs">%s</div>%s' % (''.join(first), more)

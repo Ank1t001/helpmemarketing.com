@@ -2366,5 +2366,54 @@
    "journey": "Sign-up journeys",
    "content": "Social and ad content"
   }
+ },
+ "gate": {
+  "_note": "Email-code gate (founder, 2026-11-02): the gated sections stay in the page for search engines and AI crawlers; a visitor opens them by confirming a 6-digit code sent to their email. Copy for the cards and the dialog.",
+  "research": "business-spend-index",
+  "title": "Read the full case study",
+  "body": "Enter your email and I’ll send you a 6-digit code. Once you enter it, the brand-by-brand opportunities, audience analysis, example notes and downloads open on this page.",
+  "email_label": "Email",
+  "send": "Send my code",
+  "sending": "Sending…",
+  "code_sent": "I sent a 6-digit code to {email}. It works for 15 minutes. If it hasn’t arrived in a minute, check your spam folder.",
+  "code_label": "6-digit code",
+  "verify": "Open the full case study",
+  "checking": "Checking…",
+  "resend": "Send a new code",
+  "change": "Use a different email",
+  "fine": "I use your email to send the code and to keep a record of who read the full study. I may follow up once about this research. You won’t be added to a newsletter.",
+  "privacy": "Privacy policy",
+  "close": "Close",
+  "errors": {
+   "email": "Please enter a valid email address.",
+   "disposable": "Please use a permanent email address. Temporary inboxes can’t be used for this.",
+   "refused": "I couldn’t send a code to this address. Check it, or email Hello@helpmemarketing.com.",
+   "limit": "Too many codes were requested for this address. Try again in an hour, or email Hello@helpmemarketing.com.",
+   "network": "The code couldn’t be sent. Please try again, or email Hello@helpmemarketing.com.",
+   "code": "Please enter the 6-digit code from the email.",
+   "wrong": "That code doesn’t match. Check the latest email and try again.",
+   "expired": "That code has expired. Send a new code.",
+   "too_many": "Too many tries with that code. Send a new code.",
+   "check": "The code couldn’t be checked. Please try again.",
+   "human": "Please tick the “Verify you are human” box, then press Send my code again."
+  },
+  "cards": {
+   "opps": {
+    "title": "Brand-by-brand opportunities",
+    "text": "Confirm your email to read every opportunity for the six brands."
+   },
+   "audience": {
+    "title": "Audience and buying stage",
+    "text": "Confirm your email to see the audience and buying stage breakdown for every brand."
+   },
+   "downloads": {
+    "title": "Downloads",
+    "text": "Confirm your email to download the CSV files."
+   },
+   "detail": {
+    "button": "More detail: confirm your email"
+   }
+  },
+  "button": "Read the full case study"
  }
 }

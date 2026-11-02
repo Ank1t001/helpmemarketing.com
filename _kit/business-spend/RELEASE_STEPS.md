@@ -12,6 +12,8 @@ Original status (24 October 2026): draft on `staging-business-spend`, `noindex`,
 4. **Optional captures** R1 and R2 in `CHROME_HANDOFF.md`. Without R1 the page keeps the bounded Ramp rewards wording; without R2 the Ramp card model and conversion margin stay omitted with the limitation stated (decision of 24 October 2026).
 5. **Forms script**: deploy `research_business_spend` using the steps in `CHROME_HANDOFF.md` and send the version number. Not a hard blocker (leads are saved either way), but attribution needs it.
 
+6a. **Email-code gate (2026-11-02)**: before any release that carries the gated page, paste `/docs/HMM_Forms_AppsScript.gs` into the forms script, run `setup`, `testResearchUnlock` and `testResearchVerify` (a code arrives at the owner's address and verifies), then redeploy the existing deployment (Deploy, Manage deployments, edit, New version). Until then the old script files `research-code` as "Unknown form" and no visitor can open the gated parts.
+
 ## Release (after the owner's explicit instruction)
 
 6. Record the instruction in `edition.json` by hand: `status: published`, `approvals.editorial` and `approvals.publication` with the date and the instruction's wording, `published_at` = the Toronto release date (YYYY-MM-DD). Nothing generates these.

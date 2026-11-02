@@ -698,6 +698,39 @@ def check_paid_creatives(c, body):
             errs.append('paid creatives: the old block %s is still in the tab' % old)
     return errs
 
+def check_gate(c, page, body):
+    """Email-code gate (founder, 2026-11-02): the gated parts stay in the HTML, each with its unlock card, the Article
+    JSON-LD names them, and the one dialog posts the research labels the forms script knows. Never on the snapshot."""
+    errs = []
+    if getattr(c, 'mode', '') == 'snapshot':
+        if 'class="bs-gated"' in body or 'id="bs-gate"' in body:
+            errs.append('gate: the edition snapshot is never gated')
+        return errs
+    import gate
+    kinds = re.findall(r'<div class="bs-gated" data-gate="block" data-gate-kind="([a-z]+)">', body)
+    if sorted(kinds) != ['audience', 'audience', 'downloads', 'opps']:
+        errs.append('gate: gated blocks are the two audience sections, the opportunities and the downloads (found %s)' % kinds)
+    if body.count('class="bs-gated"') != body.count('data-gate-card>'):
+        errs.append('gate: every gated part needs its unlock card')
+    if body.count('<div class="bs-gated" data-gate="detail">') != body.count('<details class="bs-more soc-detail">'):
+        errs.append('gate: every example "More detail" is gated')
+    if body.count('<dialog class="bs-gate" id="bs-gate"') != 1 or 'data-research="business-spend-index"' not in body:
+        errs.append('gate: one unlock dialog for business-spend-index')
+    if 'data-endpoint="%s"' % gate.FORMS_URL not in body or 'data-turnstile-sitekey="%s"' % gate.TURNSTILE_SITEKEY not in body:
+        errs.append('gate: the dialog posts to the forms script with the Turnstile site key')
+    for need in ("form: 'research-code'", "form: 'research-verify'", "action: 'research_unlock'", '<script data-bsi-lock>'):
+        if need not in page:
+            errs.append('gate: page script missing %s' % need)
+    m = re.search(r'"@type":"Article".*?</script>', page, re.S)
+    if not m or '"isAccessibleForFree":false' not in m.group(0) or '"cssSelector":".bs-gated"' not in m.group(0):
+        errs.append('gate: Article JSON-LD must mark the gated parts (isAccessibleForFree false, hasPart .bs-gated)')
+    # Gated text stays readable to search engines and AI crawlers: every opportunity card is still in the HTML.
+    for x in c.n['lessons']['items']:
+        if 'id="bs-lesson-%s"' % x['pid'] not in body:
+            errs.append('gate: opportunity card for %s missing from the HTML' % x['pid'])
+    return errs
+
+
 def check_outputs(c, page, csvtext, extra_paths=()):
     errs = []
     mode = getattr(c, 'mode', 'draft')
@@ -853,6 +886,7 @@ def check_outputs(c, page, csvtext, extra_paths=()):
             errs.append('page: reading guide label missing: %s' % label)
     if 'data-review-cta="research_business_spend"' not in body or 'entry=research_business_spend#contact-form' not in body:
         errs.append('page: review CTA must carry entry research_business_spend')
+    errs += check_gate(c, page, body)
     rows = list(csv.reader(io.StringIO(csvtext)))
     head, data = rows[0], rows[1:]
     want = [o for o in c.obs.values() if o['public']]
