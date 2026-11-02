@@ -36,10 +36,15 @@ def released(c):
 
 
 # Hub edits made after the edition 001 release by hand, outside this kit (founder, 2026-11-02: the cards go two by two
-# and the deck no longer says "Each is free to read, with no sign-up", since the case study gates some tabs).
+# and the deck no longer says "Each is free to read, with no sign-up", since the case study gates some tabs; the Real
+# Estate and Hair Loss cards use their own card artwork in the Med Spa pattern).
 HUB_LATER_EDITS = [
     ('<p class="section-deck">Pick the one closest to your business. Each is free to read, with no sign-up.</p>\n    <div class="wk-tools-grid">',
      '<p class="section-deck">Pick the one closest to your business.</p>\n    <div class="wk-tools-grid ix-grid">'),
+    ('<img src="/assets/index/real-estate/hero.webp" alt="" width="1056" height="591" loading="lazy" decoding="async">',
+     '<img src="/assets/index/real-estate/card.webp" srcset="/assets/index/real-estate/card-704.webp 704w, /assets/index/real-estate/card.webp 1056w" sizes="(max-width: 900px) calc(100vw - 40px), 576px" alt="" width="1056" height="591" loading="lazy" decoding="async">'),
+    ('<img src="/assets/index/hair-loss/hero.webp" alt="" width="1056" height="591" loading="lazy" decoding="async">',
+     '<img src="/assets/index/hair-loss/card.webp" srcset="/assets/index/hair-loss/card-704.webp 704w, /assets/index/hair-loss/card.webp 1056w" sizes="(max-width: 900px) calc(100vw - 40px), 576px" alt="" width="1056" height="591" loading="lazy" decoding="async">'),
 ]
 
 
