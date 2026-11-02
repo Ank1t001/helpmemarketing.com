@@ -5,8 +5,9 @@ in full without JavaScript. The page script locks them for visitors until a 6-di
 confirmed (form labels research-code and research-verify in /docs/HMM_Forms_AppsScript.gs). Every gated element
 carries class="bs-gated", the selector the Article JSON-LD names in hasPart.
 
-Kinds: "block" (a section shown as a short faded preview with an unlock card under it) and "detail" (a closed
-"More detail" disclosure, replaced by an unlock button while locked).
+Each gated part is a "block": a short faded preview with an unlock card under it. Since 2026-11-02 (founder, second)
+the Organic Social, Paid Social, Sign-up Journey and Recommendations tabs are gated whole below their at-a-glance
+strip, plus the Downloads list in Sources & evidence.
 """
 import json
 import os
@@ -31,7 +32,7 @@ LOCK_ICON = ('<svg class="bs-gate-ic" viewBox="0 0 24 24" width="18" height="18"
 
 
 def block(kind, html):
-    """A gated section with its unlock card. `kind` is a key of gate.cards (opps, audience, downloads)."""
+    """A gated section with its unlock card. `kind` is a key of gate.cards (social, paid, journeys, opps, downloads)."""
     if not ON:
         return html
     g = copy()
@@ -40,15 +41,6 @@ def block(kind, html):
             '<div class="bs-gate-card" data-gate-card><p class="bs-gate-t">%s%s</p><p class="bs-gate-x">%s</p>'
             '<button type="button" class="btn btn-primary bs-gate-btn" data-gate-open>%s</button></div>'
             % (kind, html, LOCK_ICON, E(cd['title']), E(cd['text']), E(g['button'])))
-
-
-def detail(html):
-    """A gated "More detail" disclosure: while locked, a button that opens the unlock dialog stands in its place."""
-    if not ON or not html:
-        return html
-    g = copy()
-    return ('<div class="bs-gated" data-gate="detail">%s</div><div class="bs-gate-card is-inline" data-gate-card>'
-            '<button type="button" class="bs-gate-more" data-gate-open>%s%s</button></div>' % (html, LOCK_ICON, E(g['cards']['detail']['button'])))
 
 
 def dialog():

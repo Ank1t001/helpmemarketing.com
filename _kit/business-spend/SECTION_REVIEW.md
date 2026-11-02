@@ -419,6 +419,12 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - Leads land on the Research unlocks tab of the forms sheet. Release order: paste and redeploy `/docs/HMM_Forms_AppsScript.gs` (run `setup`, `testResearchUnlock`, `testResearchVerify`) before the gated page goes live.
 - Privacy policy updated the same day (Information we collect; the spam-check line now names research forms).
 
+## 30. Tab names, order and whole-tab gating (founder, 2 November 2026; staging)
+
+- Names: Social Media Strategy became Organic Social and Paid Social Strategy became Paid Social (the tabs read public posts and ads, not the brands' internal strategy); Customer Journey became Sign-up Journey (the tab follows applications and first use); Opportunities became Recommendations (the founder's choice, made mid-change; each card's label reads "Recommendation"). Anchor ids are unchanged, so links keep working.
+- Order: Overview, Website Messaging, Product Comparison, Organic Social, Paid Social, Sign-up Journey, Recommendations. The Overview cards and Back/Next links follow it.
+- Gating: Organic Social, Paid Social, Sign-up Journey and Recommendations are gated whole below their heading, intro and at-a-glance strip, which stay open as the preview; the Downloads list stays gated. Website Messaging and Product Comparison are fully open, including "More detail".
+
 ## Sitewide spacing and padding (collected across sections)
 
 Measured on the local build at 1280px and 390px, 31 October 2026:

@@ -702,18 +702,15 @@ dialog.bs-lightbox::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi .tw.cards tr{padding:20px}
 .msi.msi .bs-view .tw:not(.cards) table.bs th,.msi.msi .bs-view .tw:not(.cards) table.bs td{padding-left:8px;padding-right:8px}
 }
-/* Email-code gate (founder, 2026-11-02). Gated parts (.bs-gated) are in the HTML for search engines, AI crawlers and readers without JavaScript; the head script adds html.bsi-locked until a 6-digit email code is confirmed. Locked: a block shows a short faded preview and its unlock card, a "More detail" disclosure is replaced by a button. Spec: Design System note "Case study email-code gate". */
+/* Email-code gate (founder, 2026-11-02). Gated parts (.bs-gated) are in the HTML for search engines, AI crawlers and readers without JavaScript; the head script adds html.bsi-locked until a 6-digit email code is confirmed. Locked: each gated part shows a short faded preview and its unlock card. Spec: Design System note "Case study email-code gate". */
 .msi.msi .bs-gate-card{display:none}
 html.bsi-locked .msi.msi .bs-gated[data-gate="block"]{position:relative;max-height:280px;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 30%,rgba(0,0,0,0));mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 30%,rgba(0,0,0,0));pointer-events:none;user-select:none}
-html.bsi-locked .msi.msi .bs-gated[data-gate="detail"]{display:none}
 html.bsi-locked .msi.msi .bs-gate-card{display:block;position:relative;margin:-24px 0 0;padding:var(--s4);border:1px solid var(--border-strong);border-left:3px solid var(--cta);border-radius:var(--r2);background:var(--bg-elevated);max-width:640px}
-html.bsi-locked .msi.msi .bs-gate-card.is-inline{margin:var(--s2) 0 0;padding:0;border:0;background:none;max-width:none}
 .msi.msi .bs-gate-t{display:flex;align-items:center;gap:8px;margin:0 0 6px;font-weight:650;font-size:17px;line-height:1.35;color:var(--text)}
 .msi.msi .bs-gate-ic{flex:none;color:var(--cta-text,var(--cta))}
 .msi.msi .bs-gate-x{margin:0 0 var(--s3);font-size:15px;line-height:1.55;color:var(--text-body,var(--text-muted))}
 .msi.msi .bs-gate-btn{min-height:44px}
-.msi.msi .bs-gate-more{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:6px 0;border:0;background:none;font:inherit;font-size:14px;font-weight:600;color:var(--cta-text,var(--cta));cursor:pointer;text-decoration:underline;text-underline-offset:3px}
-.msi.msi .bs-gate-more:focus-visible,.msi.msi .bs-gate-link:focus-visible,.msi.msi .bs-gate-close:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
+.msi.msi .bs-gate-link:focus-visible,.msi.msi .bs-gate-close:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
 .msi.msi dialog.bs-gate{position:fixed;inset:0;margin:auto;width:min(460px,calc(100vw - 32px));height:fit-content;max-height:92vh;overflow:auto;padding:var(--s5) var(--s4) var(--s4);border:1px solid var(--border-strong);border-radius:var(--r2);background:var(--bg-elevated);color:var(--text);box-sizing:border-box}
 dialog.bs-gate::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi dialog.bs-gate h2{display:flex;align-items:center;gap:10px;margin:0 0 var(--s2);font-size:24px;line-height:1.25}
@@ -733,7 +730,7 @@ dialog.bs-gate::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi .bs-gate-fine{margin:var(--s3) 0 0;font-size:12.5px;line-height:1.5;color:var(--text-muted)}
 .msi.msi .bs-gate-fine a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
 .msi.msi .bs-gate-close{margin-top:var(--s3);font:inherit;font-size:14px;font-weight:600;min-height:40px;padding:8px 16px;border:1px solid var(--border-strong);border-radius:999px;background:var(--bg);color:var(--text);cursor:pointer}
-@media print{.msi.msi dialog.bs-gate,.msi.msi .bs-gate-btn,.msi.msi .bs-gate-more{display:none!important}}
+@media print{.msi.msi dialog.bs-gate,.msi.msi .bs-gate-btn{display:none!important}}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */

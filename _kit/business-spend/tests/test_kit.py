@@ -194,7 +194,7 @@ class KitTests(unittest.TestCase):
 
     def test_five_views_and_content_kinds(self):
         body = self.page[self.page.index('REPORT BODY START'):]
-        pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-social', 'bs-paid', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons')]
+        pos = [body.index('<section id="%s" class="bs-view"' % v) for v in ('bs-overview', 'bs-messaging', 'bs-compare', 'bs-social', 'bs-paid', 'bs-journeys', 'bs-lessons')]
         self.assertEqual(pos, sorted(pos))
         self.assertEqual(body.count('class="note reading"'), 6)  # six provider evidence expanders (the journey reading went with the 2026-10-31 rebuild)
         self.assertEqual(body.count('<article class="bs-lesson"'), 6)   # one card per brand since 2026-11-01; the three test designs stay in Sources
@@ -209,7 +209,7 @@ class KitTests(unittest.TestCase):
         body = self.page[self.page.index('REPORT BODY START'):]
         tab = validate.view_html(body, 'bs-paid')
         d = self.c.paid
-        self.assertIn('<a href="#bs-paid" id="bs-tab-paid">Paid Social Strategy</a>', body)
+        self.assertIn('<a href="#bs-paid" id="bs-tab-paid">Paid Social</a>', body)
         self.assertEqual(len(d['records']), 119)
         self.assertEqual({p: sum(1 for r in d['records'] if r['platform'] == p) for p in self.c.order}, {'venn': 20, 'float': 11, 'ramp': 47, 'loop': 17, 'keep': 0, 'airwallex': 24})
         ref = validate.view_html(body, 'bs-sources')
@@ -314,20 +314,20 @@ class KitTests(unittest.TestCase):
         ov, so, pa, msg, cmp_, jr, ls = (validate.view_html(body, v) for v in ('bs-overview', 'bs-social', 'bs-paid', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'))
         ref = validate.view_html(body, 'bs-sources')
         self.assertIn('<h2 id="bs-overview-h">Inside this case study</h2>', ov)
-        self.assertEqual(re.findall(r'<a class="bs-gcard" href="#(bs-[a-z]+)"', ov), ['bs-social', 'bs-paid', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'])
+        self.assertEqual(re.findall(r'<a class="bs-gcard" href="#(bs-[a-z]+)"', ov), ['bs-messaging', 'bs-compare', 'bs-social', 'bs-paid', 'bs-journeys', 'bs-lessons'])
         self.assertNotIn('class="find"', ov)
         # Overview refinement (founder brief, 2026-10-31): no intro paragraph or provider list, the six blocks with the agreed copy.
         self.assertNotIn('bs-provs', ov)
         self.assertNotIn(self.c.n['views']['overview']['dek'], ov)
-        self.assertEqual(re.findall(r'<span class="bs-gt">([^<]+)</span>', ov), ['Social Media Strategy', 'Paid Social Strategy', 'Website Messaging', 'Product Comparison', 'Customer Journey', 'Opportunities'])
+        self.assertEqual(re.findall(r'<span class="bs-gt">([^<]+)</span>', ov), ['Website Messaging', 'Product Comparison', 'Organic Social', 'Paid Social', 'Sign-up Journey', 'Recommendations'])
         self.assertEqual(re.findall(r'<span class="bs-gd">([^<]+)</span>', ov), [
-            'The content brands post on Instagram, who it speaks to and the response it receives.',
-            'The creative approaches brands use, who they speak to and their likely buying stages.',
             'How brands explain their value and support their claims.',
             'Cards, rewards, fees and key conditions.',
+            'The content brands post on Instagram, who it speaks to and the response it receives.',
+            'The creative approaches brands use, who they speak to and their likely buying stages.',
             'How brands guide customers from their first click to getting started.',
             'One or two ideas for each brand to test.'])
-        self.assertIn('<h2 id="bs-paid-h">Paid Social Strategy</h2>', pa)
+        self.assertIn('<h2 id="bs-paid-h">Paid Social</h2>', pa)
         self.assertNotIn('Social Media Paid Ads Strategy', body)
         self.assertNotIn('</div></nav><p class="bs-srcrow">', body)
         self.assertLess(body.index('id="bs-srclink"'), body.index('<section id="bs-sources"'))
@@ -388,7 +388,7 @@ class KitTests(unittest.TestCase):
         self.assertEqual(cmp_.count('<span class="st st-not_checked">Not checked</span>'), 1)              # Ramp funding
         self.assertEqual(cmp_.count('<span class="st st-not_found">Not found in reviewed sources</span>'), 2)   # Ramp rewards and FX conversion
         self.assertIn('id="bs-recheck-RMP-RECHECK-2026-10-31"', ref)
-        self.assertIn('<h2 id="bs-journeys-h">Customer Journey</h2>', jr)
+        self.assertIn('<h2 id="bs-journeys-h">Sign-up Journey</h2>', jr)
         # Founder brief (2026-10-31, second): four stages, one labelled comparison, two help-page examples.
         self.assertIn('A look at how brands guide customers from their first click to getting started.', jr)
         self.assertEqual(re.findall(r'<h3[^>]*><span class="soc-n">\d</span>([^<]+)</h3>', jr), ['Journey overview', 'How the brands compare', 'Journey examples'])
@@ -419,16 +419,16 @@ class KitTests(unittest.TestCase):
         self.assertNotIn('<dialog', msg + jr)          # one shared dialog outside the tab panels
         for need in ('id="bs-journey-followup"', 'id="bs-journey-coverage"', 'id="bs-journey-captures"', 'id="jf-J-FLT-3"', 'Not readable from this review', 'id="bs-float-access"', 'id="bs-journey-dates"', 'id="jf-J-FLT-7"'):
             self.assertIn(need, ref)
-        self.assertIn('href="#bs-t3">See the opportunities for each brand', jr)
+        self.assertIn('href="#bs-t3">See the recommendations for each brand', jr)
         for pid in self.c.order:
             self.assertIn('id="bs-jt-%s"' % pid, ref)
         self.assertIn('id="bs-e3"', ref)
         self.assertEqual(re.findall(r'<h3 class="bs-ttitle">([^<]+)</h3>', ls), ['Venn', 'Float', 'Ramp', 'Loop', 'Keep', 'Airwallex'])
-        self.assertEqual(re.findall(r'<dt>([^<]+)</dt>', ls[ls.index('class="bs-lessons"'):]), ['What I saw', 'Opportunity'] * 12)
+        self.assertEqual(re.findall(r'<dt>([^<]+)</dt>', ls[ls.index('class="bs-lessons"'):]), ['What I saw', 'Recommendation'] * 12)
         self.assertEqual(ls.count('<li class="bs-opp">'), 12)
-        self.assertIn('<a href="#bs-lessons" id="bs-tab-lessons">Opportunities</a>', body)
-        self.assertEqual(re.findall(r'<div class="bs-stat"><dt>([^<]+)</dt><dd>([^<]+)</dd>', ls), [('Opportunities', '12'), ('Claims and conditions', '6'), ('Sign-up journeys', '3'), ('Social and ad content', '3')])
-        self.assertIn('One or two opportunities for each brand, drawn from the evidence in this case study.', ls)
+        self.assertIn('<a href="#bs-lessons" id="bs-tab-lessons">Recommendations</a>', body)
+        self.assertEqual(re.findall(r'<div class="bs-stat"><dt>([^<]+)</dt><dd>([^<]+)</dd>', ls), [('Recommendations', '12'), ('Claims and conditions', '6'), ('Sign-up journeys', '3'), ('Social and ad content', '3')])
+        self.assertIn('One or two recommendations for each brand, drawn from the evidence in this case study.', ls)
         self.assertEqual(ls.count('not proven improvements'), 1)
         for card, anchors in (('venn', ('bs-t1', 'bs-f1')), ('ramp', ('bs-t3', 'bs-f3')), ('keep', ('bs-t2', 'bs-f2'))):
             seg = ls[ls.index('id="bs-lesson-%s"' % card):]
@@ -511,7 +511,7 @@ class KitTests(unittest.TestCase):
         self.assertIn('<div class="bs-tablist">', nav)
         for k in ('overview', 'social', 'paid', 'messaging', 'compare', 'journeys', 'lessons'):
             self.assertIn('<a href="#bs-%s" id="bs-tab-%s">' % (k, k), nav)
-        self.assertEqual(re.findall(r'id="bs-tab-([a-z]+)"', nav), ['overview', 'social', 'paid', 'messaging', 'compare', 'journeys', 'lessons'])
+        self.assertEqual(re.findall(r'id="bs-tab-([a-z]+)"', nav), ['overview', 'messaging', 'compare', 'social', 'paid', 'journeys', 'lessons'])
         self.assertNotIn('role="tab', body)                  # roles come from the script: without it the page is a plain reading order
         self.assertNotRegex(body, r'<section id="bs-[a-z]+" class="bs-view"[^>]* hidden')
         self.assertEqual(body.count('<p class="bs-next">'), 7)
@@ -690,8 +690,8 @@ class SocialModuleTests(unittest.TestCase):
     def test_tab_order_and_labels(self):
         c = build.Ctx()
         body = build.body(c)
-        self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-social', 'bs-paid', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'])
-        self.assertIn('<a href="#bs-social" id="bs-tab-social">Social Media Strategy</a>', body)
+        self.assertEqual([v for _, v in build.view_order(c)], ['bs-overview', 'bs-messaging', 'bs-compare', 'bs-social', 'bs-paid', 'bs-journeys', 'bs-lessons'])
+        self.assertIn('<a href="#bs-social" id="bs-tab-social">Organic Social</a>', body)
         self.assertIn('A look at how brands present themselves on Instagram, the content they create and the engagement it receives.', body)
         self.assertIn('Official company Instagram accounts only, posts published 25 July to 22 October 2026', body)
         self.assertNotIn('<b>Instagram posts</b>', body.split('</header>')[0])  # dates live in Scope & sources, not the hero (2026-10-28)
@@ -773,7 +773,7 @@ class SocialModuleTests(unittest.TestCase):
         self.assertIn('text excerpt', errs(lambda m: m['examples'][0].pop('no_image_reason')))
         self.assertIn('not a claim', errs(lambda m: m['examples'][0].update(reading='This was the best performing post.')))
         self.assertIn('recorded hash', errs(lambda m: m['examples'][2]['image'].update(sha256='0' * 64)))
-        self.assertIn('Social Media Strategy', errs(lambda m: m['view'].update(title='Social content')))
+        self.assertIn('Organic Social', errs(lambda m: m['view'].update(title='Social content')))
         # a reel read from cover and caption cannot carry a claim about the whole post
         self.assertIn('overstates', errs(lambda m: m['examples'][2].update(reading='A reader cannot tell from the post where the card is offered.')))
         self.assertIn('overstates', errs(lambda m: m['examples'][2].update(reading='The post names no market. Second sentence.')))

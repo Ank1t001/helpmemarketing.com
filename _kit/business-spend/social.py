@@ -264,8 +264,8 @@ def check_narrative(s, n, asset_root=None):
     errs = []
     posts = {p['id']: p for p in s.get('posts', [])}
     accts = {a['platform']: a for a in s.get('accounts', [])}
-    if n.get('view', {}).get('title') != 'Social Media Strategy':
-        errs.append('social narrative: the view is titled "Social Media Strategy" (renamed 2026-10-30, case study)')
+    if n.get('view', {}).get('title') != 'Organic Social':
+        errs.append('social narrative: the view is titled "Organic Social" (renamed 2026-11-02, founder; was "Social Media Strategy")')
     if 'Instagram only.' not in n.get('view', {}).get('scope', ''):
         errs.append('social narrative: the view must say that it covers Instagram only')
     per = {}
@@ -419,7 +419,7 @@ def method_html(s):
     c = s['collection']
     return ('<h4 class="t">Instagram posts</h4><p class="dek">Official company Instagram accounts only, posts published %s, collected on %s, '
             'after the window closed. These dates are separate from the website observation dates above. %s %s</p>'
-            % (E(window_text()), E(c['text']), E(c['note'].split(' Displayed likes, comments and views')[0] + ' Displayed likes, comments and views were recorded with their own read times. Since 30 October 2026 likes and comments are compared only within each brand, in Social Media Strategy, with the limits stated there: posts had different ages at collection, and a collaboration\'s counts include the other account\'s audience.'), E(
+            % (E(window_text()), E(c['text']), E(c['note'].split(' Displayed likes, comments and views')[0] + ' Displayed likes, comments and views were recorded with their own read times. Since 30 October 2026 likes and comments are compared only within each brand, in Organic Social, with the limits stated there: posts had different ages at collection, and a collaboration\'s counts include the other account\'s audience.'), E(
                 ('%d posts were counted. @tryramp\u2019s 19 posts count as Ramp\u2019s since 1 November 2026, on the owner\u2019s confirmation; the edition 001 records keep them marked as unresolved, as collected.' % len(s['posts']))
                 if ramp_decision(s, 'ramp') else
                 ('%d records were counted: %d attributed posts and %d @tryramp records with unresolved provider attribution, which are listed and labelled but carry no conclusion about Ramp.'
@@ -951,6 +951,7 @@ def strategy_html(c):
              ('Reels', str(sum(1 for p in posts if p['format'] == 'video'))), ('Collaborations', str(sum(1 for p in posts if p.get('collaboration'))))]
     out.append('<dl class="bs-stats" aria-label="Instagram posts at a glance">%s</dl>' % ''.join(
         '<div class="bs-stat"><dt>%s</dt><dd>%s</dd></div>' % (E(l), E(v)) for l, v in stats))
+    open_parts = len(out)   # everything after the strip is gated (founder, 2026-11-02)
     sel = ''.join('<button type="button" class="pd-opt" data-dim="%s" aria-pressed="%s">%s</button>' % (k, 'true' if i == 0 else 'false', E(t))
                   for i, (k, t) in enumerate((('focus', 'Focus'), ('format', 'Format'), ('approach', 'Creative approach'), ('theme', 'Theme'))))
     panels = (paid._dim_panel(d, have, 'focus', 'Focus', False, cs_all, ctx) + paid._dim_panel(d, have, 'format', 'Format', False, cs_all, ctx)
@@ -964,11 +965,11 @@ def strategy_html(c):
                % (head(1, tb['mix_title']), sel, panels, stood, ('<p class="soc-lim">Not compared: %s.</p>' % E(nocov)) if nocov else ''))
     asel = ''.join('<button type="button" class="pd-opt" data-dim="%s" aria-pressed="%s">%s</button>' % (k, 'true' if i == 0 else 'false', E(t))
                    for i, (k, t) in enumerate((('persona', 'Customer personas'), ('stage', 'Likely buying stage'))))
-    out.append('<div class="sub soc-sec pd-sec" id="bs-social-audience">%s<p class="soc-lim pd-lead">%s</p>%s</div>'
-               % (head(2, tb['audience_title']), E(tb['audience_note']), gate.block('audience',
-                  '<div class="pd-sel" role="group" aria-label="Show audience by" hidden>%s</div><div class="pd-dims" data-pd-dims>%s%s</div><p class="soc-lim">%s</p>'
-                  % (asel, paid._dim_panel(d, have, 'persona', 'Customer personas', True, cs_all, ctx),
-                     paid._dim_panel(d, have, 'stage', 'Likely buying stage', False, cs_all, ctx), E(tb['zero_note'])))))
+    out.append('<div class="sub soc-sec pd-sec" id="bs-social-audience">%s<p class="soc-lim pd-lead">%s</p><div class="pd-sel" role="group" aria-label="Show audience by" hidden>%s</div>'
+               '<div class="pd-dims" data-pd-dims>%s%s</div><p class="soc-lim">%s</p></div>'
+               % (head(2, tb['audience_title']), E(tb['audience_note']), asel,
+                  paid._dim_panel(d, have, 'persona', 'Customer personas', True, cs_all, ctx),
+                  paid._dim_panel(d, have, 'stage', 'Likely buying stage', False, cs_all, ctx), E(tb['zero_note'])))
     out.append('<div class="sub soc-sec pd-sec" id="bs-social-examples">%s%s</div>' % (head(3, tb['examples_title']), examples_html(s, d, tb)))
     # 4. Engagement by theme, within each brand
     eng = []
@@ -988,7 +989,7 @@ def strategy_html(c):
                    '<p class="soc-stood"><b>What stood out:</b> %s</p></div>' % (pid, pid, E(NAMES[pid]), pid, rows, E(tb['engagement_takeaway'][pid])))
     out.append('<div class="sub soc-sec" id="bs-soc-engagement">%s<p class="soc-lim">%s</p><div class="soc-engs">%s</div></div>'
                % (head(4, tb['engagement_title']), E(tb['engagement_limit']), ''.join(eng)))
-    return '\n'.join(out)
+    return '\n'.join(out[:open_parts] + [gate.block('social', '\n'.join(out[open_parts:]))])
 
 
 def examples_html(s, d, tb):
@@ -1010,7 +1011,7 @@ def examples_html(s, d, tb):
                      % (i, E(img['src']), E(ex['alt']), img['width'], img['height'], E(cap), E(NAMES[x['pid']]), E(theme_label(s, p and next(c['theme'] for c in s['analysis']['posts'] if c['post'] == ex['post']))),
                         E(x['hook']), chips, E(personas), E(dict(paid.STAGE_L)[x['stage']]), E(ex['stood_out']),
                         # Supporting detail behind a native disclosure, closed by default (founder, 2026-11-01).
-                        gate.detail(('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(ex['detail'])) if ex.get('detail') else '')))
+                        ('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(ex['detail'])) if ex.get('detail') else ''))
     first, rest = cards[:4], cards[4:]
     more = ('<details class="pd-more"><summary>More examples (%d)</summary><div class="pd-exs">%s</div></details>' % (len(rest), ''.join(rest))) if rest else ''
     return '<div class="pd-exs">%s</div>%s' % (''.join(first), more)

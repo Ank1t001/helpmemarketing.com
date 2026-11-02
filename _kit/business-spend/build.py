@@ -295,7 +295,7 @@ def platform_block(c, pid):
     pages = sorted({s for o in obs for s in [r['source_id'] for r in o['sources']] + o.get('reviewed_sources', [])})
     dl = ''.join('<dt>%s</dt><dd>%s <span class="evlinks">(%s)</span></dd>' % (E(l), E(p[k]), id_links(p['ev'][k])) for k, l in PLAT_ROWS)
     links = ('<p class="pnote dlinks"><b>Product details:</b> %s&rsquo;s <a href="#bs-prod-%s">cards, rewards and costs</a>, <a href="#bs-xb-%s">currency fees</a> and '
-             '<a href="#bs-spend-%s">spending controls</a> rows in Product Comparison, and its <a href="#bs-jt-%s">first screen</a> in Customer Journey.</p>'
+             '<a href="#bs-spend-%s">spending controls</a> rows in Product Comparison, and its <a href="#bs-jt-%s">first screen</a> in Sign-up Journey.</p>'
              % (E(c.name(pid)), pid, pid, pid, pid))
     q = p['question']
     reading = ('<div class="note reading"><span class="lbl">My reading</span><p><b>Customer question:</b> &ldquo;%s&rdquo; <b class="ans">%s.</b> %s</p><p>%s</p></div>'
@@ -356,7 +356,8 @@ def cite_and_editions(c):
     return cite, table
 
 
-VIEW_ORDER = [('overview', 'bs-overview'), ('social', 'bs-social'), ('paid', 'bs-paid'), ('messaging', 'bs-messaging'), ('compare', 'bs-compare'), ('journeys', 'bs-journeys'), ('lessons', 'bs-lessons')]
+# Tab order (founder, 2026-11-02): Overview, Website Messaging, Product Comparison, Organic Social, Paid Social, Sign-up Journey, Recommendations (renamed from Opportunities the same day).
+VIEW_ORDER = [('overview', 'bs-overview'), ('messaging', 'bs-messaging'), ('compare', 'bs-compare'), ('social', 'bs-social'), ('paid', 'bs-paid'), ('journeys', 'bs-journeys'), ('lessons', 'bs-lessons')]
 
 
 def view_order(c):
@@ -718,7 +719,7 @@ def body(c):
                      '<p class="soc-stood"><b>What stood out:</b> %s</p>%s</div></article>' % (
                          i, E(w['zoom_src']), w['zoom_width'], w['zoom_height'], E('%s, %s' % (c.name(w['pid']), x['label'].lower())),
                          E(w['src']), E(x['alt']), w['width'], w['height'], E(c.name(w['pid'])), E(iso_long(w['captured_at'][:10])), E(x['label']), E(c.name(w['pid'])), E(x['wording']), E(x['stood_out']),
-                         gate.detail(('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(x['detail'])) if x.get('detail') else '')))
+                         ('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(x['detail'])) if x.get('detail') else ''))
     # At-a-glance strip, as on the Overview (founder, 2026-11-01): counted from the platforms, sources and observations.
     unb = vm.get('unbased_claims', [])
     mstats = [('Brands compared', str(len(c.order))), ('Public sources reviewed', str(len(c.sources) if hasattr(c, 'sources') else len(model.load('sources.json')['sources']))),
@@ -782,15 +783,16 @@ def body(c):
                       '<p class="soc-stood"><b>What stood out:</b> %s</p>%s</div></article>' % (
                           i, E(w['zoom_src']), w['zoom_width'], w['zoom_height'], E('%s, %s' % (c.name(w['pid']), x['label'].lower())),
                           E(w['src']), E(x['alt']), w['width'], w['height'], E(c.name(w['pid'])), E(iso_long(w['captured_at'][:10])), E(c.name(w['pid'])), E(x['label']), E(jl['help']), E(x['stood_out']),
-                          gate.detail(('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(x['detail'])) if x.get('detail') else '')))
+                          ('<details class="bs-more soc-detail"><summary>More detail</summary><p>%s</p></details>' % E(x['detail'])) if x.get('detail') else ''))
     # At-a-glance strip, as on the Overview (founder, 2026-11-01); the two brand counts come from lists checked against the first-screen finding.
     jstats = [('First screens followed', str(len(c.order))),
               ('Help-centre pages read', str(sum(1 for r in jf['records'] if r['kind'] == 'help_centre' and r['http_status'] == 200))),
               ('First screens listing the steps ahead', '%d of %d' % (len(jy.get('steps_listed', [])), len(c.order))),
               ('Self-serve routes closed', '%d of %d' % (len(jy.get('routes_closed', [])), len(c.order)))]
-    jstrip = '<dl class="bs-stats" aria-label="Customer journey at a glance">%s</dl>' % ''.join(
+    jstrip = '<dl class="bs-stats" aria-label="Sign-up journey at a glance">%s</dl>' % ''.join(
         '<div class="bs-stat"><dt>%s</dt><dd>%s</dd></div>' % (E(l), E(v)) for l, v in jstats)
-    V['journeys'] = (view_open('journeys', 'bs-journeys') + jstrip
+    # Gated after the strip (founder, 2026-11-02): the strip stays open as the preview.
+    V['journeys'] = (view_open('journeys', 'bs-journeys') + jstrip + gate.block('journeys', ''
                      + '<div class="sub soc-sec" id="bs-journey-map"><h3 id="bs-jmap-h"><span class="soc-n">1</span>%s</h3>'
                        '<ol class="bs-jstages" aria-label="Four journey stages">%s</ol><p class="soc-lim bs-jnote">%s</p></div>' % (E(jy['overview_title']), stages, E(jy['overview_note']))
                      + '<div class="sub soc-sec" id="bs-journey-table"><h3 id="bs-jm-h"><span class="soc-n">2</span>%s</h3><p class="soc-lim">%s</p>'
@@ -799,7 +801,7 @@ def body(c):
                            E(jy['compare_title']), E(jy['compare_note']), ''.join('<th scope="col">%s</th>' % E(l) for _, l in cols), jrows)
                      + '<div class="sub soc-sec" id="bs-journey-examples"><h3><span class="soc-n">3</span>%s</h3><p class="soc-lim">%s</p><div class="bs-wexs bs-jexs">%s</div>'
                        '<p class="dlinks bs-tlink"><a href="#bs-t3">%s<span aria-hidden="true"> &rarr;</span></a></p></div>' % (
-                           E(jy['examples_title']), E(jy['examples_note']), ''.join(jcards), E(jn['test_link']))
+                           E(jy['examples_title']), E(jy['examples_note']), ''.join(jcards), E(jn['test_link'])))
                      + view_close('journeys'))
 
     # ---------- Opportunities, the tab once called Lessons (anchor #bs-lessons kept; founder, 2026-11-01): one card per brand with one or two opportunities, each What I saw / Opportunity ----------
@@ -807,13 +809,13 @@ def body(c):
     ls_ = n['lessons']
     cards = ''.join('<article class="bs-lesson" id="bs-lesson-%s">%s<h3 class="bs-ttitle">%s</h3><ol class="bs-opps">%s</ol></article>' % (
                         x['pid'], ''.join('<span class="bs-anchor" id="%s"></span>' % a for a in x['anchors']), E(c.name(x['pid'])),
-                        ''.join('<li class="bs-opp"><p class="pd-chips"><span class="pd-chip">%s</span></p><h4>%s</h4><dl class="bs-tmain"><dt>What I saw</dt><dd>%s</dd><dt>Opportunity</dt><dd>%s</dd></dl></li>' % (
+                        ''.join('<li class="bs-opp"><p class="pd-chips"><span class="pd-chip">%s</span></p><h4>%s</h4><dl class="bs-tmain"><dt>What I saw</dt><dd>%s</dd><dt>Recommendation</dt><dd>%s</dd></dl></li>' % (
                             E(ls_['areas'][o['area']]), E(o['title']), E(o['saw']), E(o['opp'])) for o in x['opps']))
                     for x in ls_['items'])
     # At-a-glance strip, as on the other tabs (founder, 2026-11-01): opportunities counted by area.
     allo = [o for x in ls_['items'] for o in x['opps']]
-    lstats = [('Opportunities', str(len(allo)))] + [(l, str(sum(1 for o in allo if o['area'] == k))) for k, l in ls_['areas'].items()]
-    lstrip = '<dl class="bs-stats" aria-label="Opportunities at a glance">%s</dl>' % ''.join(
+    lstats = [('Recommendations', str(len(allo)))] + [(l, str(sum(1 for o in allo if o['area'] == k))) for k, l in ls_['areas'].items()]
+    lstrip = '<dl class="bs-stats" aria-label="Recommendations at a glance">%s</dl>' % ''.join(
         '<div class="bs-stat"><dt>%s</dt><dd>%s</dd></div>' % (E(l), E(v)) for l, v in lstats)
     V['lessons'] = (view_open('lessons', 'bs-lessons') + lstrip
                     + '<div id="bs-tests" class="sub"><div id="bs-findings"></div><p class="soc-lim bs-lnote">%s</p>%s'
@@ -832,7 +834,7 @@ def body(c):
     nb = len(c.order)
     figs = {'social': '%d posts reviewed' % n_posts, 'paid': '%d ads, %d distinct creatives' % (n_ads, n_cr),
             'messaging': '%d brand websites' % nb, 'compare': '%d categories, %d brands' % (n_cats, nb),
-            'journeys': '%d first screens followed' % nb, 'lessons': '%d opportunities' % n_opps}
+            'journeys': '%d first screens followed' % nb, 'lessons': '%d recommendations' % n_opps}
     stats = [(nb, 'Brands compared')] + ([(n_posts, 'Instagram posts')] if c.social else []) + ([(n_ads, 'Meta ads')] if c.paid else []) + [(len(c.obs), 'Recorded observations')]
     strip = '<dl class="bs-stats" aria-label="This case study at a glance">%s</dl>' % ''.join(
         '<div class="bs-stat"><dt>%s</dt><dd>%d</dd></div>' % (E(l), v) for v, l in stats)

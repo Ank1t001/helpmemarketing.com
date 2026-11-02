@@ -101,7 +101,7 @@
     "reading": "At most first screens, whether you qualify and what follows was on another page or not stated before the next step. This is a reading of six first screens, not of how many people start or finish an application.",
     "analysis": [
      [
-      "First-screen table in Customer Journey",
+      "First-screen table in Sign-up Journey",
       "bs-journey-table"
      ],
      [
@@ -1411,18 +1411,6 @@
    "scope_line": "Independent marketing research from dated public sources. Not a product recommendation.",
    "guide": [
     [
-     "social",
-     "Social Media Strategy",
-     "The content brands post on Instagram, who it speaks to and the response it receives.",
-     "post"
-    ],
-    [
-     "paid",
-     "Paid Social Strategy",
-     "The creative approaches brands use, who they speak to and their likely buying stages.",
-     "ads"
-    ],
-    [
      "messaging",
      "Website Messaging",
      "How brands explain their value and support their claims.",
@@ -1435,14 +1423,26 @@
      "grid"
     ],
     [
+     "social",
+     "Organic Social",
+     "The content brands post on Instagram, who it speaks to and the response it receives.",
+     "post"
+    ],
+    [
+     "paid",
+     "Paid Social",
+     "The creative approaches brands use, who they speak to and their likely buying stages.",
+     "ads"
+    ],
+    [
      "journeys",
-     "Customer Journey",
+     "Sign-up Journey",
      "How brands guide customers from their first click to getting started.",
      "steps"
     ],
     [
      "lessons",
-     "Opportunities",
+     "Recommendations",
      "One or two ideas for each brand to test.",
      "check"
     ]
@@ -1461,7 +1461,7 @@
    "evidence_title": "Evidence by provider",
    "evidence_dek": "The sources behind each reading: who the pages speak to, the problem, the benefit, the offer and its conditions, the proof, one customer question, missing evidence, and every observation with its exact wording, page and capture time.",
    "examples_title": "Messaging in practice",
-   "examples_note": "The steps after clicking are in Customer Journey.",
+   "examples_note": "The steps after clicking are in Sign-up Journey.",
    "unbased_claims": [
     "venn",
     "float",
@@ -1470,12 +1470,12 @@
    ]
   },
   "journeys": {
-   "title": "Customer Journey",
+   "title": "Sign-up Journey",
    "dek": "A look at how brands guide customers from their first click to getting started."
   },
   "lessons": {
-   "title": "Opportunities",
-   "dek": "One or two opportunities for each brand, drawn from the evidence in this case study."
+   "title": "Recommendations",
+   "dek": "One or two recommendations for each brand, drawn from the evidence in this case study."
   },
   "sources": {
    "title": "Sources & evidence",
@@ -1911,7 +1911,7 @@
     "What it tells you next"
    ]
   ],
-  "test_link": "See the opportunities for each brand"
+  "test_link": "See the recommendations for each brand"
  },
  "legend": [
   [
@@ -2241,7 +2241,7 @@
  ],
  "lessons": {
   "note": "Proposals to test from public pages, ads and posts, not proven improvements. I have no access to any brand’s own results.",
-  "measure_note": "Each brand can judge an opportunity in its own data, such as qualified applications per visitor and the questions customers ask.",
+  "measure_note": "Each brand can judge a recommendation in its own data, such as qualified applications per visitor and the questions customers ask.",
   "items": [
    {
     "pid": "venn",
@@ -2371,7 +2371,7 @@
   "_note": "Email-code gate (founder, 2026-11-02): the gated sections stay in the page for search engines and AI crawlers; a visitor opens them by confirming a 6-digit code sent to their email. Copy for the cards and the dialog.",
   "research": "business-spend-index",
   "title": "Read the full case study",
-  "body": "Enter your email and I’ll send you a 6-digit code. Once you enter it, the brand-by-brand opportunities, audience analysis, example notes and downloads open on this page.",
+  "body": "Enter your email and I’ll send you a 6-digit code. Once you enter it, the Organic Social, Paid Social, Sign-up Journey and Recommendations tabs and the downloads open on this page.",
   "email_label": "Email",
   "send": "Send my code",
   "sending": "Sending…",
@@ -2398,20 +2398,25 @@
    "human": "Please tick the “Verify you are human” box, then press Send my code again."
   },
   "cards": {
-   "opps": {
-    "title": "Brand-by-brand opportunities",
-    "text": "Confirm your email to read every opportunity for the six brands."
+   "social": {
+    "title": "Organic Social",
+    "text": "Confirm your email to see the creative mix, audiences, examples and engagement for every brand."
    },
-   "audience": {
-    "title": "Audience and buying stage",
-    "text": "Confirm your email to see the audience and buying stage breakdown for every brand."
+   "paid": {
+    "title": "Paid Social",
+    "text": "Confirm your email to see the ad mix, audiences and examples for every brand."
+   },
+   "journeys": {
+    "title": "Sign-up Journey",
+    "text": "Confirm your email to see how each brand’s sign-up works, from the first click to first use."
+   },
+   "opps": {
+    "title": "Recommendations",
+    "text": "Confirm your email to read every recommendation for the six brands."
    },
    "downloads": {
     "title": "Downloads",
     "text": "Confirm your email to download the CSV files."
-   },
-   "detail": {
-    "button": "More detail: confirm your email"
    }
   },
   "button": "Read the full case study"

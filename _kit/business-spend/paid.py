@@ -343,16 +343,16 @@ def tab_html(d, order, long_date):
     # Two views behind one switch (founder, 2026-10-31); without JavaScript and in print both show.
     asel = ''.join('<button type="button" class="pd-opt" data-dim="%s" aria-pressed="%s">%s</button>' % (k, 'true' if i == 0 else 'false', E(t))
                    for i, (k, t) in enumerate((('persona', 'Customer personas'), ('stage', 'Likely buying stage'))))
-    import gate
-    out.append('<div class="sub soc-sec pd-sec" id="bs-paid-audience">%s<p class="soc-lim pd-lead">%s</p>%s</div>'
-               % (head(2, cv['audience_title']), E(cv['audience_note']), gate.block('audience',
-                  '<div class="pd-sel" role="group" aria-label="Show audience by" hidden>%s</div><div class="pd-dims" data-pd-dims>%s%s</div><p class="soc-lim">%s</p>'
-                  % (asel, _dim_panel(d, have, 'persona', 'Customer personas', True, cs_all),
-                     _dim_panel(d, have, 'stage', 'Likely buying stage', False, cs_all),
-                     E(cv.get('zero_note', 'A zero means not observed in this reviewed sample, not absent from the brand\u2019s wider advertising.'))))))
+    out.append('<div class="sub soc-sec pd-sec" id="bs-paid-audience">%s<p class="soc-lim pd-lead">%s</p><div class="pd-sel" role="group" aria-label="Show audience by" hidden>%s</div>'
+               '<div class="pd-dims" data-pd-dims>%s%s</div><p class="soc-lim">%s</p></div>'
+               % (head(2, cv['audience_title']), E(cv['audience_note']), asel,
+                  _dim_panel(d, have, 'persona', 'Customer personas', True, cs_all),
+                  _dim_panel(d, have, 'stage', 'Likely buying stage', False, cs_all),
+                  E(cv.get('zero_note', 'A zero means not observed in this reviewed sample, not absent from the brand\u2019s wider advertising.'))))
     # 3. Selected creative examples
     out.append('<div class="sub soc-sec pd-sec" id="bs-paid-examples">%s%s</div>' % (head(3, cv['examples_title']), examples_html(d, cv)))
-    return '\n'.join(out)
+    import gate   # everything after the strip is gated (founder, 2026-11-02)
+    return '\n'.join(out[:1] + [gate.block('paid', '\n'.join(out[1:]))])
 
 
 def _chips(c):

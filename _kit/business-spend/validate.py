@@ -461,10 +461,10 @@ def check_social_outputs(c, body):
     s = c.social
     errs = []
     views = [v for _, v in build.view_order(c)]
-    if [v for v in views if v != 'bs-paid'] != ['bs-overview', 'bs-social', 'bs-messaging', 'bs-compare', 'bs-journeys', 'bs-lessons'] or ('bs-paid' in views and views.index('bs-paid') != 2):
-        errs.append('social: tab order is Overview, Social Media Strategy, Paid Social Strategy, Website Messaging, Product Comparison, Customer Journey, Opportunities')
-    if '<a href="#bs-social" id="bs-tab-social">Social Media Strategy</a>' not in body or html_escape(s['narrative']['view']['dek']) not in body:
-        errs.append('social: the tab is labelled "Social Media Strategy" and opens with its one-line introduction')
+    if views != [v for v in ['bs-overview', 'bs-messaging', 'bs-compare', 'bs-social', 'bs-paid', 'bs-journeys', 'bs-lessons'] if v != 'bs-paid' or 'bs-paid' in views]:
+        errs.append('social: tab order is Overview, Website Messaging, Product Comparison, Organic Social, Paid Social, Sign-up Journey, Recommendations')
+    if '<a href="#bs-social" id="bs-tab-social">Organic Social</a>' not in body or html_escape(s['narrative']['view']['dek']) not in body:
+        errs.append('social: the tab is labelled "Organic Social" and opens with its one-line introduction')
     sec = view_html(body, 'bs-social')
     ref = view_html(body, 'bs-sources') if '<section id="bs-sources"' in body else ''
     tab = sec
@@ -708,12 +708,17 @@ def check_gate(c, page, body):
         return errs
     import gate
     kinds = re.findall(r'<div class="bs-gated" data-gate="block" data-gate-kind="([a-z]+)">', body)
-    if sorted(kinds) != ['audience', 'audience', 'downloads', 'opps']:
-        errs.append('gate: gated blocks are the two audience sections, the opportunities and the downloads (found %s)' % kinds)
+    # Founder, 2026-11-02 (second): whole tabs after their strip: Organic Social, Paid Social, Sign-up Journey, Recommendations; plus the downloads.
+    if sorted(kinds) != ['downloads', 'journeys', 'opps', 'paid', 'social']:
+        errs.append('gate: gated blocks are the Organic Social, Paid Social, Sign-up Journey and Recommendations tabs and the downloads (found %s)' % kinds)
+    for kind, vid in (('social', 'bs-social'), ('paid', 'bs-paid'), ('journeys', 'bs-journeys'), ('opps', 'bs-lessons')):
+        sec = view_html(body, vid)
+        if 'data-gate-kind="%s"' % kind not in sec or sec.index('class="bs-stats"') > sec.index('data-gate-kind="%s"' % kind):
+            errs.append('gate: %s keeps its at-a-glance strip open above the gated part' % vid)
     if body.count('class="bs-gated"') != body.count('data-gate-card>'):
         errs.append('gate: every gated part needs its unlock card')
-    if body.count('<div class="bs-gated" data-gate="detail">') != body.count('<details class="bs-more soc-detail">'):
-        errs.append('gate: every example "More detail" is gated')
+    if 'data-gate="detail"' in body:
+        errs.append('gate: no separate "More detail" gates (the tabs are gated whole; Website Messaging stays open)')
     if body.count('<dialog class="bs-gate" id="bs-gate"') != 1 or 'data-research="business-spend-index"' not in body:
         errs.append('gate: one unlock dialog for business-spend-index')
     if 'data-endpoint="%s"' % gate.FORMS_URL not in body or 'data-turnstile-sitekey="%s"' % gate.TURNSTILE_SITEKEY not in body:
@@ -858,8 +863,8 @@ def check_outputs(c, page, csvtext, extra_paths=()):
     if body.count('id="bs-srclink"') != 1 or sl not in body or not (last_view < body.index(sl) < body.index('<section id="bs-sources"')) \
             or 'bs-srclink' in body[body.index('class="ri-nav bs-views"'):body.index('class="ri-nav bs-views"') + 3000]:
         errs.append('page: one Sources & evidence link sits below the tab content, before the Sources view')
-    if '<a href="#bs-paid" id="bs-tab-paid">' in body and '<a href="#bs-paid" id="bs-tab-paid">Paid Social Strategy</a>' not in body:
-        errs.append('page: the paid ads tab is labelled "Paid Social Strategy"')
+    if '<a href="#bs-paid" id="bs-tab-paid">' in body and '<a href="#bs-paid" id="bs-tab-paid">Paid Social</a>' not in body:
+        errs.append('page: the paid ads tab is labelled "Paid Social"')
     if ('bs-social' in views) != bool(getattr(c, 'social', None)) or ('id="bs-social"' in body) != bool(getattr(c, 'social', None)):
         errs.append('page: the Instagram view appears only with a derived module in review or reviewed')
     if getattr(c, 'social', None):
