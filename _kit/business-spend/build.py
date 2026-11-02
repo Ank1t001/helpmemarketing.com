@@ -844,8 +844,10 @@ def body(c):
     def row(i, k, t, desc, icon):
         return ('<a class="bs-gcard" href="#bs-%s"%s><span class="bs-gn" aria-hidden="true">%02d</span><span class="bs-gchip">%s</span>'
                 '<span class="bs-gbody"><span class="bs-gt">%s</span><span class="bs-gd">%s</span></span>'
-                '<span class="bs-gf"><span class="bs-gfig">%s</span><span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a>' % (
-                    k, ' data-feature' if k == 'lessons' else '', i, ICONS[icon], E(views[k]['title'] if k in views else t), E(desc), E(figs[k])))
+                '<span class="bs-gf"><span class="bs-gfig">%s</span>%s<span class="bs-garrow" aria-hidden="true">&rarr;</span></span></a>' % (
+                    k, ' data-feature' if k == 'lessons' else '', i, ICONS[icon], E(views[k]['title'] if k in views else t), E(desc), E(figs[k]),
+                    # a small lock on each gated row, shown only while html.bsi-locked (the group label carries the words)
+                    ('<span class="bs-glock" aria-hidden="true">%s</span>' % gate.LOCK_ICON) if k in gated_views else ''))
     rows = [(i, g) for i, g in enumerate(shown, 1)]
     open_rows = ''.join(row(i, *g) for i, g in rows if g[0] not in gated_views)
     gated_rows = ''.join(row(i, *g) for i, g in rows if g[0] in gated_views)

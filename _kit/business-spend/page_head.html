@@ -706,66 +706,76 @@ dialog.bs-gate::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi .bs-gate-fine a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
 .msi.msi .bs-gate-close{margin-top:var(--s3);font:inherit;font-size:14px;font-weight:600;min-height:40px;padding:8px 16px;border:1px solid var(--border-strong);border-radius:999px;background:var(--bg);color:var(--text);cursor:pointer}
 @media print{.msi.msi dialog.bs-gate,.msi.msi .bs-gate-btn{display:none!important}}
-/* Overview, second look (founder, 2026-11-02): a signature panel in the artwork's look (obsidian with a Signal Orange glow in light mode, the raised dark surface in dark mode) holding the heading as an eyebrow, one Fraunces line with an italic accent and the counts; then a numbered contents list in two groups (open tabs, then the full case study with a lock note shown only while html.bsi-locked), Recommendations featured last. Spec: Design System note "Business Spend Index Overview, second look". */
-.msi.msi #bs-overview .bs-ovhero{position:relative;overflow:hidden;margin:0 0 var(--s6);padding:44px 48px 40px;border:1px solid rgba(255,255,255,.08);border-radius:var(--r2);background:radial-gradient(circle at 100% 0,rgba(255,92,26,.34),rgba(255,92,26,0) 46%),var(--obsidian,var(--bg-elevated));color:var(--paper,var(--text))}
+/* Overview, second look (founder, 2026-11-02; spacing pass the same day): a signature panel in the artwork's look (obsidian with a Signal Orange glow in light mode, the raised dark surface in dark mode) holding the heading as an eyebrow, one Fraunces line with an italic accent and the counts; then a numbered contents list in two groups (open tabs, then the full case study with lock marks shown only while html.bsi-locked), Recommendations featured last. Spec: Design System note "Business Spend Index Overview, second look". */
+.msi.msi #bs-overview .bs-ovhero{position:relative;overflow:hidden;margin:0 0 48px;padding:48px 48px 40px;border:1px solid rgba(255,255,255,.08);border-radius:var(--r2);background:radial-gradient(circle at 100% 0,rgba(255,92,26,.34),rgba(255,92,26,0) 50%),var(--obsidian,var(--bg-elevated));color:var(--paper,var(--text))}
 .msi.msi #bs-overview .bs-ovhero .sec-head{margin:0 0 16px;padding:0;border:0}
 .msi.msi #bs-overview .bs-ovhero h2{margin:0;font-family:var(--sans,Inter,sans-serif);font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:var(--cta)}
-.msi.msi #bs-overview .bs-ovlead{max-width:24ch;margin:0;font-family:var(--font-display,Fraunces,serif);font-size:clamp(30px,3.4vw,44px);font-weight:400;line-height:1.1;letter-spacing:-.02em;color:inherit}
+.msi.msi #bs-overview .bs-ovlead{max-width:31ch;margin:0;font-family:var(--font-display,Fraunces,serif);font-size:clamp(28px,2.9vw,40px);font-weight:400;line-height:1.15;letter-spacing:-.02em;color:inherit;text-wrap:balance}
 .msi.msi #bs-overview .bs-ovlead em{font-style:italic;color:var(--cta)}
 .msi.msi #bs-overview .bs-ovstats{margin:40px 0 0;border:0;border-top:1px solid rgba(255,255,255,.16);border-radius:0;background:none}
-.msi.msi #bs-overview .bs-ovstats .bs-stat{padding:22px 24px 0 0}
+.msi.msi #bs-overview .bs-ovstats .bs-stat{padding:24px 24px 0 0}
 .msi.msi #bs-overview .bs-ovstats .bs-stat+.bs-stat{padding-left:24px;border-left:1px solid rgba(255,255,255,.16)}
-.msi.msi #bs-overview .bs-ovstats dd{font-size:clamp(40px,4vw,56px);color:inherit}
+.msi.msi #bs-overview .bs-ovstats dd{font-size:clamp(40px,3.8vw,52px);color:inherit}
 .msi.msi #bs-overview .bs-ovstats dt{color:rgba(255,255,255,.74)}
 .msi.msi #bs-overview .bs-guide{display:block}
-.msi.msi #bs-overview .bs-ovlabel{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0 0 12px;font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:var(--text-tertiary)}
-.msi.msi #bs-overview .bs-ovlabel+.bs-toc{margin-bottom:var(--s6)}
+.msi.msi #bs-overview .bs-ovlabel{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0;padding:0 20px 14px;font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:var(--text-tertiary)}
+.msi.msi #bs-overview .bs-toc{margin:0 0 48px;border-top:1px solid var(--border)}
+.msi.msi #bs-overview .bs-toc:last-child{margin-bottom:0}
 .msi.msi #bs-overview .bs-ovlock{display:none;align-items:center;gap:6px;font-size:13px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--cta-text,var(--cta))}
 html.bsi-locked .msi.msi #bs-overview .bs-ovlock{display:inline-flex}
-.msi.msi #bs-overview .bs-toc{border-top:1px solid var(--border)}
-.msi.msi #bs-overview a.bs-gcard{display:grid;grid-template-columns:72px 48px minmax(0,1fr) auto;align-items:center;gap:20px;padding:24px 20px;border-bottom:1px solid var(--border);color:var(--text);text-decoration:none;transition:background-color .15s}
+.msi.msi #bs-overview a.bs-gcard{display:grid;grid-template-columns:56px 40px minmax(0,1fr) auto;align-items:center;column-gap:20px;padding:22px 20px;border-bottom:1px solid var(--border);color:var(--text);text-decoration:none;transition:background-color .15s}
 .msi.msi #bs-overview a.bs-gcard:hover{background:var(--bg-elevated)}
-.msi.msi #bs-overview a.bs-gcard:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
-.msi.msi #bs-overview .bs-gn{font-family:var(--font-display,Fraunces,serif);font-size:44px;font-weight:400;line-height:1;letter-spacing:-.03em;color:var(--text-tertiary);transition:color .15s}
+.msi.msi #bs-overview a.bs-gcard:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:-2px;border-radius:var(--r1)}
+.msi.msi #bs-overview .bs-gn{font-family:var(--font-display,Fraunces,serif);font-size:40px;font-weight:400;line-height:1;letter-spacing:-.03em;color:var(--text-tertiary);transition:color .15s}
 .msi.msi #bs-overview a.bs-gcard:hover .bs-gn{color:var(--cta-text,var(--cta))}
-.msi.msi #bs-overview .bs-gchip{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:color-mix(in srgb,var(--cta) 12%,transparent);color:var(--cta-text,var(--cta))}
-.msi.msi #bs-overview .bs-gchip svg.bs-gi{display:block;width:26px;height:26px;margin:0;color:inherit}
+.msi.msi #bs-overview .bs-gchip{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:color-mix(in srgb,var(--cta) 12%,transparent);color:var(--cta-text,var(--cta))}
+.msi.msi #bs-overview .bs-gchip svg.bs-gi{display:block;width:22px;height:22px;margin:0;color:inherit}
 .msi.msi #bs-overview .bs-gbody{display:flex;flex-direction:column;gap:4px;min-width:0}
-.msi.msi #bs-overview .bs-gt{font-family:var(--font-display,Fraunces,serif);font-size:26px;font-weight:400;line-height:1.2;letter-spacing:-.015em}
-.msi.msi #bs-overview .bs-gd{max-width:60ch;font-size:15px;line-height:1.55;color:var(--text-muted)}
-.msi.msi #bs-overview .bs-gf{display:flex;align-items:center;gap:18px}
-.msi.msi #bs-overview .bs-gfig{padding:6px 12px;border:1px solid var(--border-strong);border-radius:999px;font-size:13px;font-weight:600;line-height:1.4;white-space:nowrap;color:var(--text)}
-.msi.msi #bs-overview .bs-garrow{font-size:20px;line-height:1;color:var(--cta-text,var(--cta));transition:transform .15s}
+.msi.msi #bs-overview .bs-gt{font-family:var(--font-display,Fraunces,serif);font-size:24px;font-weight:400;line-height:1.2;letter-spacing:-.015em}
+.msi.msi #bs-overview .bs-gd{font-size:15px;line-height:1.5;color:var(--text-muted)}
+.msi.msi #bs-overview .bs-gf{display:grid;grid-template-columns:200px 18px 20px;align-items:center;column-gap:10px}
+.msi.msi #bs-overview .bs-gfig{justify-self:end;padding:5px 12px;border:1px solid var(--border-strong);border-radius:999px;font-size:13px;font-weight:600;line-height:1.4;white-space:nowrap;color:var(--text)}
+.msi.msi #bs-overview .bs-glock{grid-column:2;display:none;line-height:0;color:var(--text-tertiary)}
+.msi.msi #bs-overview .bs-glock svg{width:16px;height:16px}
+html.bsi-locked .msi.msi #bs-overview .bs-glock{display:block}
+.msi.msi #bs-overview .bs-garrow{grid-column:3;font-size:20px;line-height:1;color:var(--cta-text,var(--cta));transition:transform .15s}
 .msi.msi #bs-overview a.bs-gcard:hover .bs-garrow{transform:translateX(4px)}
-.msi.msi #bs-overview a.bs-gcard[data-feature]{margin-top:16px;border:1px solid color-mix(in srgb,var(--cta) 45%,transparent);border-radius:var(--r2);background:color-mix(in srgb,var(--cta) 8%,var(--bg))}
+.msi.msi #bs-overview a.bs-gcard:has(+a[data-feature]){border-bottom:0}
+.msi.msi #bs-overview a.bs-gcard[data-feature]{margin-top:12px;border:1px solid color-mix(in srgb,var(--cta) 45%,transparent);border-radius:var(--r2);background:color-mix(in srgb,var(--cta) 8%,var(--bg))}
 .msi.msi #bs-overview a.bs-gcard[data-feature]:hover{background:color-mix(in srgb,var(--cta) 14%,var(--bg))}
 .msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gn{color:var(--cta-text,var(--cta))}
 .msi.msi #bs-overview a.bs-gcard[data-feature] .bs-gfig{border-color:color-mix(in srgb,var(--cta) 55%,transparent);color:var(--cta-text,var(--cta))}
-.msi.msi #bs-overview .bs-toc:last-child,.msi.msi #bs-overview .bs-toc:has(a[data-feature]){border-top:1px solid var(--border)}
-.msi.msi #bs-overview .bs-toc a.bs-gcard[data-feature]+*,.msi.msi #bs-overview .bs-toc a.bs-gcard:has(+a[data-feature]){border-bottom-color:var(--border)}
 @media(max-width:900px){
-.msi.msi #bs-overview .bs-ovhero{padding:36px 32px 32px}
-.msi.msi #bs-overview a.bs-gcard{grid-template-columns:56px 44px minmax(0,1fr) auto;gap:16px;padding:20px 12px}
-.msi.msi #bs-overview .bs-gn{font-size:36px}
+.msi.msi #bs-overview .bs-ovhero{margin-bottom:40px;padding:40px 32px 32px}
+.msi.msi #bs-overview a.bs-gcard{grid-template-columns:48px 40px minmax(0,1fr) auto;column-gap:16px;padding:20px 16px}
+.msi.msi #bs-overview .bs-ovlabel{padding:0 16px 12px}
+.msi.msi #bs-overview .bs-gn{font-size:34px}
+.msi.msi #bs-overview .bs-gf{grid-template-columns:18px 20px}
 .msi.msi #bs-overview .bs-gfig{display:none}
+.msi.msi #bs-overview .bs-glock{grid-column:1}
+.msi.msi #bs-overview .bs-garrow{grid-column:2}
+.msi.msi #bs-overview .bs-toc{margin-bottom:40px}
 }
 @media(max-width:720px){
-.msi.msi #bs-overview .bs-ovhero{padding:28px 20px 24px}
-.msi.msi #bs-overview .bs-ovstats{margin-top:28px}
+.msi.msi #bs-overview .bs-ovhero{margin-bottom:32px;padding:28px 20px 20px}
+.msi.msi #bs-overview .bs-ovlead{max-width:none;font-size:26px;line-height:1.2}
+.msi.msi #bs-overview .bs-ovstats{margin-top:24px}
 .msi.msi #bs-overview .bs-ovstats .bs-stat,.msi.msi #bs-overview .bs-ovstats .bs-stat+.bs-stat{padding:16px 12px 12px 0;border-left:0}
 .msi.msi #bs-overview .bs-ovstats .bs-stat:nth-child(even){padding-left:16px;border-left:1px solid rgba(255,255,255,.16)}
 .msi.msi #bs-overview .bs-ovstats .bs-stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.16)}
-.msi.msi #bs-overview a.bs-gcard{grid-template-columns:40px minmax(0,1fr) 20px;gap:4px 14px;padding:18px 8px;align-items:start}
+.msi.msi #bs-overview .bs-ovstats dd{font-size:34px}
+.msi.msi #bs-overview .bs-ovlabel{padding:0 4px 10px}
+.msi.msi #bs-overview .bs-toc{margin-bottom:32px}
+.msi.msi #bs-overview a.bs-gcard{grid-template-columns:36px minmax(0,1fr) auto;column-gap:12px;align-items:start;padding:18px 4px}
 .msi.msi #bs-overview .bs-gchip{display:none}
-.msi.msi #bs-overview .bs-gn{font-size:30px;grid-row:1/span 2}
-.msi.msi #bs-overview .bs-gt{font-size:22px}
-.msi.msi #bs-overview .bs-gf{display:contents}
-.msi.msi #bs-overview .bs-gfig{display:inline-block;grid-column:2;justify-self:start;margin-top:6px}
-.msi.msi #bs-overview .bs-garrow{grid-column:3;grid-row:1;align-self:center}
+.msi.msi #bs-overview .bs-gn{font-size:28px;line-height:1.05}
+.msi.msi #bs-overview .bs-gt{font-size:21px}
+.msi.msi #bs-overview .bs-gd{font-size:14.5px}
+.msi.msi #bs-overview .bs-gf{grid-column:3;grid-row:1;padding-top:4px}
 .msi.msi #bs-overview a.bs-gcard[data-feature]{padding:18px 14px}
 }
 @media(prefers-reduced-motion:reduce){.msi.msi #bs-overview a.bs-gcard,.msi.msi #bs-overview .bs-gn,.msi.msi #bs-overview .bs-garrow{transition:none}.msi.msi #bs-overview a.bs-gcard:hover .bs-garrow{transform:none}}
-@media print{.msi.msi #bs-overview .bs-ovhero{background:none;color:inherit;border-color:var(--border)}.msi.msi #bs-overview .bs-ovstats dt{color:inherit}}
+@media print{.msi.msi #bs-overview .bs-ovhero{background:none;color:inherit;border-color:var(--border)}.msi.msi #bs-overview .bs-ovstats dt{color:inherit}.msi.msi #bs-overview .bs-glock{display:none}}
 </style>
 <script data-bs-zoom>
 /* Website Messaging screenshots open larger in a dialog (2026-10-31). Without JavaScript or dialog support the link opens the image. */

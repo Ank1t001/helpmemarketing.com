@@ -431,6 +431,7 @@ Only the Selected examples cards changed. The four cards shown by default take t
 - A signature panel in the case study artwork's look (obsidian with a Signal Orange glow; the raised dark surface in dark mode): "Inside this case study" as an orange eyebrow, one Fraunces line, "Six business finance brands, *side by side*: what they say, what they offer, what they post and how people sign up.", and the four counts in large Fraunces figures.
 - The six cards became a numbered contents list in two groups: "Open to everyone" (Website Messaging, Product Comparison) and "Full case study" (Organic Social, Paid Social, Sign-up Journey, Recommendations), with "Confirm your email to open" beside the second label only while the page is locked. Each row: large Fraunces number, icon tile, Fraunces title, one line, figure pill, arrow. Recommendations is the last row, tinted orange.
 - Phone: the panel's counts sit two by two; rows drop the icon tile and put the figure pill under the line.
+- Spacing and UI pass (founder, same day): the line now fits in three lines on desktop; group labels line up with the row numbers; the figure pills, a small lock on each gated row (only while locked) and the arrows sit in fixed columns so they align; the stray line above Recommendations is gone; even 48px gaps between panel and groups. On phones the line is smaller, the pills are dropped and the lock and arrow sit beside each title, so rows are shorter.
 
 ## Sitewide spacing and padding (collected across sections)
 
