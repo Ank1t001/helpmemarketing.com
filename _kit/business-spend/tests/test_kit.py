@@ -35,6 +35,14 @@ def released(c):
     return c.edition['status'] == 'published'
 
 
+# Hub edits made after the edition 001 release by hand, outside this kit (founder, 2026-11-02: the cards go two by two
+# and the deck no longer says "Each is free to read, with no sign-up", since the case study gates some tabs).
+HUB_LATER_EDITS = [
+    ('<p class="section-deck">Pick the one closest to your business. Each is free to read, with no sign-up.</p>\n    <div class="wk-tools-grid">',
+     '<p class="section-deck">Pick the one closest to your business.</p>\n    <div class="wk-tools-grid ix-grid">'),
+]
+
+
 class KitTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -597,7 +605,11 @@ class KitTests(unittest.TestCase):
         self.assertEqual(issues, [])
         if released(self.c):
             # The card's Last updated follows the latest recorded production deployment (RELEASE_STEPS step 12), in Toronto time.
-            self.assertEqual(current, release.new_hub(hub, (self.c.edition.get('modified_at') or self.c.edition['published_at'])[:10])[0])
+            expected = release.new_hub(hub, (self.c.edition.get('modified_at') or self.c.edition['published_at'])[:10])[0]
+            for was, now in HUB_LATER_EDITS:  # hub edits made after the release, outside this kit
+                self.assertEqual(expected.count(was), 1, was)
+                expected = expected.replace(was, now)
+            self.assertEqual(current, expected)
         self.assertIn('<title>The HMM Index: Marketing Research | HelpMeMarketing</title>', new)
         self.assertNotIn('Instagram Benchmarks', new)
         self.assertIn('Sources accompany the observations, with my interpretation labelled separately.', new)
