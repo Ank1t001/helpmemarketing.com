@@ -37,13 +37,18 @@
    ],
    "checked": "2026-11-03T11:28:00-05:00 to 11:40",
    "destination": "Unverified",
-   "keep_unverified": true,
    "ads": "All 14 active. The Ad Library labels each \"This ad is from a URL link\" and shows a website button; the instant form appears only under See ad details, Additional assets from this ad (Form A asks \"Which of the following best describes your investor status\", Form B \"Are you actively seeking to invest $5,000 or more\"). Both a form and a website link, so the reader's path is not shown.",
    "links": {
     "lankin.com/investment/": "redirects to lankin.com/investment-solutions-partnerships/ (\"Institutional & Direct Private Partnership\")",
     "lankin.com/investing/": "The page can't be found.",
     "lankin.com/passive-real-estate-investing/": "The page can't be found.",
     "lankin.com/private-reit-canada/": "live page, heading \"The private Canadian REIT that generated 14.9% net return in 2025\""
+   },
+   "resolve_by_url_label": true,
+   "versions_check": {
+    "checked": "2026-11-03T12:20:00-05:00 to 12:45",
+    "result": "All 32 versions of the 14 ads point to the listed lankin.com address; none points to a form or fb.me link. The library labels each ad \"This ad is from a URL link\" (one label per ad). \"Additional assets from this ad\" lists the form text once per ad, unchanged across versions.",
+    "decision": "Founder, 2026-11-03: Meta's URL-link label decides; each ad is classified by the page its button points to, with a note that a form is attached as an extra asset and the live ad cannot be seen."
    }
   }
  ]

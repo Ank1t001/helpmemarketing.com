@@ -234,7 +234,7 @@ def dest_sources():
     def when(t):
         return '3 November, ' + t[11:16] + ((' to ' + t.split(' to ')[1]) if ' to ' in t else '') + ' Toronto time'
     checks = ''.join('<li>%s: %d ads, %s</li>' % (E(when(x['checked'])), len(x['ids']),
-                     'kept Unverified' if x.get('keep_unverified') else E(x['destination'])) for x in ck['checks'])
+                     'classified by the page the button points to (Meta labels them URL-link ads; all versions checked)' if x.get('resolve_by_url_label') else E(x['destination'])) for x in ck['checks'])
     return ('<h3>Ad destinations, 3 November 2026</h3>\n'
             '<p class="dek">The three investor advertiser pages were collected again with apify/facebook-ads-scraper (run %s, %s to %s Toronto time): %d investor ads (%s), %d of them in the %s review by ad ID. '
             'A Meta form is counted only where the library record shows the form&rsquo;s questions; a record with a form and a website link, or a page behind a bot check, stays Unverified and in the denominator. '
@@ -354,8 +354,8 @@ def rank_website(w):
             '<th class="r">Up front</th></tr></thead><tbody>' + body + '</tbody></table></div>\n'
             '<p class="pnote">Ad landing covers the Meta forms and pages the ads were verified to reach on 3 November; Greybrook and Centurion had no active investor ads. '
             'Equiton states its investor criteria only inside an image on five fund pages, so a text-only reader or search engine does not see them. '
-            'Lankin&rsquo;s numbers differ by place: two of its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo;, and a campaign page states a $25,000 minimum, '
-            'reached only from an ad whose path is unverified. &ldquo;Not found&rdquo; covers only the pages reviewed, listed in Sources &amp; evidence.</p>\n'
+            'Lankin&rsquo;s numbers differ by place: two of its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo;, and the campaign page one of its ads links to states a $25,000 minimum. '
+            '&ldquo;Not found&rdquo; covers only the pages reviewed, listed in Sources &amp; evidence.</p>\n'
             '<p class="ri-vlink"><a href="#ri-view-website">See the pages in Website Messaging <span aria-hidden="true">&rarr;</span></a></p></div>\n')
 
 
@@ -407,7 +407,7 @@ def rank_paid(a):
             '<p class="ri-vlink"><a href="#ri-view-paid">See the ads in Paid Social <span aria-hidden="true">&rarr;</span></a></p></section>\n')
 
 
-DEST_TYPES = ['Meta form', 'Campaign landing page', 'Fund or product page', 'Homepage or other general page', 'Booking page', 'Unverified']
+DEST_TYPES = ['Meta form', 'Campaign landing page', 'Fund or product page', 'Homepage or other general page', 'Booking page', 'Page not found', 'Unverified']
 
 
 def rank_dest(dd):
@@ -432,10 +432,11 @@ def rank_dest(dd):
     bridle = sum(r['offer_named'] == 'Bridleview Residences' and r['destination'] == 'Meta form' and r['presents_offer'] == 'No' for r in recs)
     lk = dd['listed_links_opened']
     nf = [u.replace('https://', '') for u, v in lk.items() if v['status'] == 404]
-    lr = [r for r in recs if r['firm'] == 'Lankin' and r['destination'] == 'Unverified']
-    n404 = sum((r['listed_link'] or '').replace('https://', '') in nf for r in lr)
+    lr = [r for r in recs if r['firm'] == 'Lankin' and 'URL link' in r['basis']]
+    n404 = sum(r['destination'] == 'Page not found' for r in lr)
     nred = sum((r['listed_link'] or '').endswith('lankin.com/investment/') for r in lr)
-    assert unv_form and bridle and len(nf) == 2 and n404 == 6 and nred == 7
+    ncamp = sum('private-reit' in (r['listed_link'] or '') for r in lr)
+    assert bridle and len(nf) == 2 and len(lr) == 14 and n404 == 6 and nred == 7 and ncamp == 1
     usf = [r for r in recs if r['offer_named'] == 'US Apartment Fund' and r['destination'] == 'Fund or product page']
     return ('<section id="ri-cmp-dest" class="ri-cblock"><div class="sec-head"><h2>Where does each investor ad take the reader?</h2>\n'
             '<p class="dek">Checked separately on 3 November 2026: %d active investor ads (%s), %d of them in the 2 November review. Unverified destinations stay in each firm&rsquo;s total.</p></div>\n'
@@ -445,10 +446,10 @@ def rank_dest(dd):
             '</tr></thead><tbody>' + t1 + '</tbody></table></div>\n'
             '<p class="ri-cmp-h">Ads that name a specific fund, development or event: does the destination name it too?</p>'
             '<div class="tw"><table class="ri-wtable ri-ptable"><thead><tr><th>Firm</th><th class="r">Ads naming an offer</th><th class="r">Destination names it</th><th class="r">Destination does not</th><th class="r">Unverified</th></tr></thead><tbody>' + t2 + '</tbody></table></div>\n'
-            '<p class="pnote">Meta form is counted only where the library record shows the form&rsquo;s questions. Unverified covers %d Lankin ads whose record shows a form and also lists a website link%s. '
+            '<p class="pnote">Meta form is counted only where the library record shows the form&rsquo;s questions.%s '
             'Equiton&rsquo;s %d Bridleview Residences forms show the 24%% target return and $25,000 minimum but name the development only in the disclaimer. '
-            'The booking page is a Calendly calendar that names no fund. Lankin&rsquo;s %d unverified ads were checked again in a browser on 3 November: the Ad Library labels them URL-link ads and lists the form only under &ldquo;Additional assets&rdquo;, so the reader&rsquo;s path is still not shown. Of their website links, %d show &ldquo;page not found&rdquo; (%s) and %d redirect to Lankin&rsquo;s partnerships page.</p>\n'
-            % (unv_form, (', and %d Equiton ads whose fund page showed a bot check' % unv_bot) if unv_bot else '', bridle, len(lr), n404, ' and '.join(nf), nred) +
+            'The booking page is a Calendly calendar that names no fund. Lankin&rsquo;s %d website-link ads are counted by the page their button points to: Meta labels each &ldquo;This ad is from a URL link&rdquo; and all their versions point to a lankin.com address (checked in a browser on 3 November), though a Meta form is attached to each as an extra asset and the live ad cannot be seen. %d point to an address that shows &ldquo;page not found&rdquo; (%s), %d to one that redirects to Lankin&rsquo;s partnerships page for institutional and direct partners, and %d to its campaign page.</p>\n'
+            % ((' Unverified covers %d ads.' % (unv_form + unv_bot)) if (unv_form + unv_bot) else '', bridle, len(lr), n404, ' and '.join(nf), nred, ncamp) +
             ('<p class="pnote">Equiton&rsquo;s %d US Apartment Fund ads lead to a landing page for that fund, which states the $25,000 minimum and the 8&ndash;12%% target return (read in a browser on 3 November, after the page showed a bot check to the collector). '
              'Two details differ: the ads say &ldquo;RRSP, TFSA &amp; RESP eligible&rdquo; while the page names RRSP and TFSA only, and the ads say &ldquo;qualified investors&rdquo; while the page does not say who can invest.</p>\n' % len(usf) if usf else '') +
             '<p class="ri-vlink"><a href="#ri-view-paid">See the ads in Paid Social <span aria-hidden="true">&rarr;</span></a></p></section>\n')

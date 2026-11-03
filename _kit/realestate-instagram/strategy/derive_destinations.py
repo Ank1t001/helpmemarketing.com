@@ -65,8 +65,16 @@ def derive(raw_path, pages_path):
             got = [n for n in named if n in offers(dest)]
             pres = 'Yes' if len(got) == len(named) else ('Partly' if got else 'No')
         c = checks.get(x['adArchiveID'])
-        if c and typ == 'Unverified' and c.get('keep_unverified'):  # checked in the author's browser; the library still shows both a form and a link
-            basis = basis + ' Checked in the author\'s own browser on 3 November 2026: the Ad Library labels it a URL-link ad and lists the form only under its additional assets, so it stays Unverified.'
+        if c and typ == 'Unverified' and c.get('resolve_by_url_label'):  # founder decision 2026-11-03: Meta's URL-link label decides
+            pg = pages.get(link, {})
+            typ = ('Page not found' if pg.get('status') == 404 else 'Campaign landing page' if 'private-reit' in link
+                   else 'Homepage or other general page')
+            dest = pg.get('text') if pg.get('status') == 200 else ''
+            pres = 'No specific offer named' if not named else ('Yes' if all(n in offers(dest) for n in named) else 'No')
+            basis = ('The Ad Library labels the ad &quot;This ad is from a URL link&quot; and all its versions point to this address (checked in the author\'s own browser on 3 November 2026); '
+                     'a Meta form is attached as an extra asset, and the live ad cannot be seen.').replace('&quot;', '"')
+            if pg.get('final') and pg['final'].split('?')[0] != link:
+                basis += ' The address redirects to ' + pg['final'].split('?')[0] + '.'
         elif c and typ == 'Unverified':  # resolved by a read-only check in the author's own browser (ad_destination_checks.json)
             typ, pres, listed = c['destination'], c['presents_offer'], c['final_url']
             basis = 'Read in the author\'s own browser with Claude in Chrome on 3 November 2026 at 11:25 a.m. Toronto time, after the page showed a bot check to the collector.'

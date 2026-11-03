@@ -124,8 +124,8 @@
      "Lankin Apartment REIT and Growth LP named"
     ],
     "minimum": [
-     "call",
-     "Its fund page says minimums are discussed on the call"
+     "ad",
+     "$25,000 on the campaign page one of its ads links to; its fund page says minimums are discussed on the call"
     ],
     "eligibility": [
      "ad",
@@ -243,7 +243,7 @@
   },
   {
    "date": "2026-11-03",
-   "text": "HMM Ranking website matrix: the cells now record where a reader first meets each answer (ad landing, homepage, product page, discussed on a call, not found), from read-only browser checks on 3 November. Equiton's minimum cell had said \"$25,000 shown for development offerings\"; its investor homepage and fund pages state no minimum, the Development Offerings page states $25,000 for development offerings, and its Meta forms and US fund landing page state $25,000. Lankin's minimum moves to \"Discussed on a call\": the only page stating $25,000 is a campaign page reached from an ad whose path is unverified."
+   "text": "HMM Ranking website matrix: the cells now record where a reader first meets each answer (ad landing, homepage, product page, discussed on a call, not found), from read-only browser checks on 3 November. Equiton's minimum cell had said \"$25,000 shown for development offerings\"; its investor homepage and fund pages state no minimum, the Development Offerings page states $25,000 for development offerings, and its Meta forms and US fund landing page state $25,000. Lankin's minimum cites its campaign page, which states $25,000 and is reached from one of its ads; its fund page says minimums are discussed on the call."
   }
  ],
  "examples": [
@@ -347,7 +347,7 @@
   },
   "others": {
    "Skyline": "Homepage lists the REITs, no minimum or criteria; fund pages \"$50,000 Minimum Investment\" and \"available to accredited and eligible investors\"",
-   "Lankin": "Homepage names the funds, no minimum or criteria; Apartment REIT and contact pages: \"discuss general fund details, qualification criteria, minimum investment values\" on a call; campaign page lankin.com/private-reit-canada/ \"from a minimum of $25,000\" (reached only from an ad whose path is unverified)",
+   "Lankin": "Homepage names the funds, no minimum or criteria; Apartment REIT and contact pages: \"discuss general fund details, qualification criteria, minimum investment values\" on a call; campaign page lankin.com/private-reit-canada/ \"from a minimum of $25,000\" (reached from one of its ads; the ads' URL-link destinations were accepted on 3 November)",
    "Greybrook": "No minimum on the homepage, investing, asset classes or fund page; only a US accredited-investor legal notice",
    "Centurion": "Homepage names the Apartment REIT only in footer links; Apartment REIT page \"The minimum investment is $25,000\" and \"open to qualified investors via Offering Memorandum\""
   },
