@@ -617,6 +617,50 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 @media(max-width:720px){.msi.msi .ri-wh{font-size:22px;margin-top:24px}.msi.msi .ri-wtable,.msi.msi .ri-wtable tbody,.msi.msi .ri-wtable tr,.msi.msi .ri-wtable td{display:block;width:auto}.msi.msi .ri-wtable thead{display:none}.msi.msi .ri-wtable tr{padding:14px 16px;border-bottom:1px solid var(--border)}.msi.msi .ri-wtable tr:last-child{border-bottom:0}.msi.msi .ri-wtable td{padding:0;border:0}.msi.msi .ri-wtable td.brandcell{margin:0 0 8px;font-weight:650;font-size:15px}.msi.msi .ri-wtable td+td{margin-top:8px}.msi.msi .ri-wtable td[data-label]::before{content:attr(data-label);display:block;margin:0 0 2px;font-size:11.5px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary)}}
 .msi.msi .ri-themedefs,.msi.msi #ri-video details ul{margin:0 0 16px;padding-left:20px}
 .msi.msi .ri-themedefs li,.msi.msi #ri-video details li{margin:0 0 6px;font-size:14.5px;line-height:1.55;color:var(--text-muted)}
+/* HMM Ranking comparisons (founder brief, 2026-11-03): website matrix, post-format bars, ad message themes and measures. Format colours are the dataviz reference slots 1 to 3 (validated as a set), dark and light steps. */
+.msi.msi #ri-rankings,.msi.msi #ri-cmp-paid{--ri-f1:#3987e5;--ri-f2:#d95926;--ri-f3:#199e70}
+html:not([data-theme="dark"]) .msi.msi #ri-rankings{--ri-f1:#2a78d6;--ri-f2:#eb6834;--ri-f3:#1baf7a}
+.msi.msi .ri-qnav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.msi.msi .ri-qnav a{padding:6px 14px;border:1px solid var(--border);border-radius:999px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;background:var(--bg-elevated)}
+.msi.msi .ri-qnav a:hover{border-color:var(--cta-text,var(--cta))}
+.msi.msi .ri-cblock{margin:40px 0 0}
+.msi.msi .ri-cblock>.sec-head,.msi.msi .ri-cblock-head{margin-bottom:16px}
+.msi.msi .ri-mxt th:nth-child(n){width:auto}
+.msi.msi .ri-mxs{display:block;font-size:13px;font-weight:650;color:var(--text)}
+.msi.msi .ri-mxs::before{content:"\25CF";margin-right:6px;color:var(--text)}
+.msi.msi .ri-mx-call .ri-mxs::before{content:"\25D0"}
+.msi.msi .ri-mx-not_found .ri-mxs{font-weight:400;color:var(--text-muted)}
+.msi.msi .ri-mx-not_found .ri-mxs::before{content:"\25CB";color:var(--text-muted)}
+.msi.msi .ri-mxd{display:block;margin-top:2px;font-size:13px;line-height:1.45;color:var(--text-muted)}
+.msi.msi .ri-mxn{font-weight:650;white-space:nowrap}
+.msi.msi .ri-fmt{margin:0 0 24px;padding:20px 24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
+.msi.msi .ri-flegend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 14px;padding:0;list-style:none;font-size:13px;color:var(--text-muted)}
+.msi.msi .ri-flegend i{display:inline-block;width:10px;height:10px;margin-right:6px;border-radius:3px;vertical-align:-1px}
+.msi.msi .ri-fbars{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.msi.msi .ri-frow{display:grid;grid-template-columns:170px 1fr 70px;align-items:center;column-gap:12px;font-size:14px}
+.msi.msi .ri-fname{font-weight:600;color:var(--text)}
+.msi.msi .ri-fbar{display:flex;gap:2px;height:14px}
+.msi.msi .ri-seg{display:block;width:0;height:100%}
+.msi.msi .ri-seg:first-child{border-radius:4px 0 0 4px}.msi.msi .ri-seg:last-child{border-radius:0 4px 4px 0}.msi.msi .ri-seg:only-child{border-radius:4px}
+.msi.msi .ri-seg-reels{background:var(--ri-f1)}.msi.msi .ri-seg-carousels{background:var(--ri-f2)}.msi.msi .ri-seg-static{background:var(--ri-f3)}
+.msi.msi .ri-fn{text-align:right;font-weight:650}
+.msi.msi .ri-ftxt{grid-column:2/-1;margin-top:4px;font-size:13px;color:var(--text-muted)}
+.msi.msi .ri-frow-none .ri-ftxt{grid-column:2/-1;margin:0}
+.msi.msi .ri-hmt td small,.msi.msi .ri-hmt th small,.msi.msi .ri-mbars small{font-weight:400;color:var(--text-muted)}
+.msi.msi .ri-hmt th small{display:block;font-size:12px;text-transform:none;letter-spacing:0}
+.msi.msi .ri-hmv{display:block;font-weight:650}
+.msi.msi .ri-hmb{display:block;height:6px;margin-top:6px;border-radius:4px;background:var(--bg-raise);overflow:hidden}
+.msi.msi .ri-hmb .bar-fill,.msi.msi .ri-mbars .bar-fill{display:block;height:100%;width:0;border-radius:4px;background:var(--cta)}
+.msi.msi .ri-measg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0 0}
+.msi.msi .ri-meas{padding:18px 20px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
+.msi.msi .ri-mbars{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.msi.msi .ri-mbars li{display:grid;grid-template-columns:1fr auto;gap:4px 8px;align-items:center;font-size:14px}
+.msi.msi .ri-mbars .ri-track{grid-column:1/-1;grid-row:2;height:8px}
+.msi.msi .ri-mbars .ri-val{text-align:right;font-weight:650}
+#ri-cmp-paid .ri-cmp-h{margin-top:0}
+@media(max-width:900px){.msi.msi .ri-measg{grid-template-columns:1fr}}
+@media(max-width:720px){.msi.msi .ri-frow{grid-template-columns:96px 1fr 58px;column-gap:8px}.msi.msi .ri-fmt{padding:16px}.msi.msi .ri-cblock{margin-top:32px}.msi.msi .ri-hmt{font-size:13px}}
+@media(forced-colors:active){.msi.msi .ri-seg{border:1px solid CanvasText}}
 /* Tablet (2026-11-03 audit): the Website and Organic glance tables use the phone card layout up to 900px. */
 @media(max-width:900px){.msi.msi .ri-wtable:not(.ri-ptable),.msi.msi .ri-wtable:not(.ri-ptable) tbody,.msi.msi .ri-wtable:not(.ri-ptable) tr,.msi.msi .ri-wtable:not(.ri-ptable) td{display:block;width:auto}.msi.msi .ri-wtable:not(.ri-ptable) thead{display:none}.msi.msi .ri-wtable:not(.ri-ptable) tr{padding:14px 16px;border-bottom:1px solid var(--border)}.msi.msi .ri-wtable:not(.ri-ptable) tr:last-child{border-bottom:0}.msi.msi .ri-wtable:not(.ri-ptable) td{padding:0;border:0}.msi.msi .ri-wtable:not(.ri-ptable) td.brandcell{margin:0 0 8px;font-weight:650;font-size:15px}.msi.msi .ri-wtable:not(.ri-ptable) td+td{margin-top:8px}.msi.msi .ri-wtable:not(.ri-ptable) td[data-label]::before{content:attr(data-label);display:block;margin:0 0 2px;font-size:11.5px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary)}}
 /* Organic Social (2026-11-03, founder): titled example cards and one link to the video chart in HMM Ranking. */
@@ -761,7 +805,7 @@ document.addEventListener("DOMContentLoaded",function(){
   var bar=root.querySelector(".livebar");
   if(links.length>2&&bar){var nav=document.createElement("nav");nav.className="ri-nav";nav.setAttribute("aria-label","Report sections");
     links.forEach(function(x){var a=document.createElement("a");a.href="#"+x[0];a.textContent=x[1];nav.appendChild(a);});bar.parentNode.insertBefore(nav,bar.nextSibling);}
-  var sec=document.getElementById("ri-rankings");var tb=sec&&sec.querySelector("table");if(!tb)return;
+  var sec=document.getElementById("ri-rankings");var tb=sec&&sec.querySelector("table.ri-board");if(!tb)return;
   var heads=[].map.call(tb.querySelectorAll("thead th"),function(th){return th.textContent.trim();});
   function col(n){return heads.indexOf(n);}
   /* Engagement comparison (founder, 2026-11-03): individual metrics only (the HMM score sits in its own disclosure), firms sorted by the selected
@@ -808,7 +852,7 @@ document.addEventListener("DOMContentLoaded",function(){
     [].forEach.call(mb.children,function(x){x.setAttribute("aria-pressed",x.getAttribute("data-h")===cur[0]?"true":"false");});detail();}
   tabs.forEach(function(t){var b=document.createElement("button");b.type="button";b.setAttribute("data-h",t[0]);b.textContent=t[1];
     b.addEventListener("click",function(){cur=t;draw();});mb.appendChild(b);});
-  var tw=sec.querySelector(".tw"),at=tw.closest("details")||tw;at.parentNode.insertBefore(box,at);draw();
+  var tw=tb.closest(".tw"),at=tw.closest("details")||tw;at.parentNode.insertBefore(box,at);draw();
 });
 </script><script data-bar-widths>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".msi [data-w]").forEach(function(el){var w=parseFloat(el.getAttribute("data-w"));if(!isNaN(w))el.style.width=Math.max(0,Math.min(100,w))+"%";});});</script>
 <script data-msi-frames>

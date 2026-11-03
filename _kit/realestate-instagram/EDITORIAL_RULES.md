@@ -60,3 +60,13 @@ Every expander is a bordered card, 24px inset (16px at 720), content 20px below 
 - The edition 005 window is stated as the 30 days ending 13 October 2026, posts dated 14 September to 13 October (no post in the sample is dated 13 September; `ig_cycle.json` keeps the 13 September start the build checks).
 - Ad collection wording: each investor-facing advertiser page's library total was recorded by page id and the listings returned were reviewed (never "read in full").
 
+## HMM Ranking as the comparison tab (founder brief, 2026-11-03)
+
+HMM Ranking is where readers compare the firms across Website, Organic Social and Paid Social; the other tabs hold the examples. Lead: "Compare the five firms on their websites, Instagram and Meta ads." A pill row jumps to three blocks, each a reader question rendered by `strategy/render.py` (markers `rankweb`, `rankorg`, `rankpaid`):
+
+1. `#ri-cmp-website` "What can an investor learn before enquiring?": a matrix (Identifies the fund, Minimum investment, Who can invest, Next step) with three statuses, Stated on the page, Discussed on a call, Not found on the pages reviewed, from `websites.json` `matrix`; sorted by how many are stated.
+2. `#ri-cmp-organic` "Which firms post most often, and what engagement do they receive?": a stacked bar per firm (reels, carousels, static, dataviz reference slots 1 to 3), then the HMM Instagram score strip, the metric selector (it reads `table.ri-board`), the full comparison and `#ri-video`. The HMM Instagram score stays inside this block; there is no overall cross-channel score (a separate weighting decision).
+3. `#ri-cmp-paid` "How does each firm vary its ads?": message theme shares per firm with counts and each firm's ad total, then video use, return figures and minimum mentions measured separately (one ad can carry all three), each sorted by share.
+
+Not yet shown: "Where does each investor ad take the reader?" The paid review recorded Meta short links without following them, so destinations are unverified. Add the block only after the links are followed; show fund or product page, campaign landing page, homepage or other general page, Meta form, and Unverified, with counts beside percentages.
+

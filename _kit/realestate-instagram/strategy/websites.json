@@ -26,6 +26,24 @@
     "offer": "Introduces five fund groups for individual investors and shows a targeted net return range for each. Equiton’s minimum investment is $25,000 across all products.",
     "evidence": "Assets under management, properties, number of investors and years in business.",
     "next": "Book a meeting with an Equiton Investment Specialist."
+   },
+   "matrix": {
+    "fund": [
+     "stated",
+     "Five fund groups named"
+    ],
+    "minimum": [
+     "stated",
+     "$25,000"
+    ],
+    "eligibility": [
+     "not_found",
+     ""
+    ],
+    "next": [
+     "stated",
+     "Book a meeting with an Investment Specialist"
+    ]
    }
   },
   "Skyline": {
@@ -55,6 +73,24 @@
     "offer": "Presents a range of real estate funds. Its Apartment REIT page names a $50,000 minimum.",
     "evidence": "Years in business, assets under management and investor testimonials.",
     "next": "Get started with a relationship manager."
+   },
+   "matrix": {
+    "fund": [
+     "stated",
+     "Apartment, Industrial and Retail REITs named"
+    ],
+    "minimum": [
+     "stated",
+     "$50,000 (Apartment REIT)"
+    ],
+    "eligibility": [
+     "stated",
+     "Accredited and eligible investors"
+    ],
+    "next": [
+     "stated",
+     "Get started; a relationship manager follows up"
+    ]
    }
   },
   "Lankin": {
@@ -81,6 +117,24 @@
     "offer": "Introduces its funds and lists a target return for each.",
     "evidence": "Assets under management, apartment count and number of Canadian investors.",
     "next": "Book a call to discuss eligibility and minimums."
+   },
+   "matrix": {
+    "fund": [
+     "stated",
+     "Apartment REIT and Growth LP named"
+    ],
+    "minimum": [
+     "call",
+     "Discussed on a call"
+    ],
+    "eligibility": [
+     "call",
+     "Qualification criteria discussed on a call"
+    ],
+    "next": [
+     "stated",
+     "Book a call"
+    ]
    }
   },
   "Greybrook": {
@@ -109,6 +163,24 @@
     "offer": "Explains its U.S. multifamily fund and its investment strategy, with a target total annualized return of 10% to 12% and a target annual distribution of 5.0% to 5.5%.",
     "evidence": "Firm news gives examples of its projects and activity.",
     "next": "Get in touch. The investor portal is a separate route."
+   },
+   "matrix": {
+    "fund": [
+     "stated",
+     "U.S. Multifamily Income & Growth Fund named"
+    ],
+    "minimum": [
+     "not_found",
+     ""
+    ],
+    "eligibility": [
+     "not_found",
+     ""
+    ],
+    "next": [
+     "stated",
+     "Get in touch; separate investor portal"
+    ]
    }
   },
   "Centurion": {
@@ -137,6 +209,24 @@
     "offer": "Leads with economic research and explains how qualified investors can access its funds. Its Apartment REIT page names a $25,000 minimum.",
     "evidence": "Research from its Chief Economist and the firm’s annual report.",
     "next": "Invest through an advisor. Permitted clients may buy directly."
+   },
+   "matrix": {
+    "fund": [
+     "stated",
+     "Apartment REIT named"
+    ],
+    "minimum": [
+     "stated",
+     "$25,000 (Apartment REIT)"
+    ],
+    "eligibility": [
+     "stated",
+     "Qualified investors, through an advisor"
+    ],
+    "next": [
+     "stated",
+     "Invest through an advisor"
+    ]
    }
   }
  },
@@ -177,5 +267,6 @@
    "captured": "3 November 2026",
    "sha256": "2af787cdd1f87cb7638190c3efb1fed295fdffa69e31896d474ab8ef11ae00a5"
   }
- ]
+ ],
+ "matrix_note": "Founder brief 2026-11-03: status per question from the pages reviewed (stated on the page, discussed on a call, not found on the pages reviewed). Equiton minimum: the website wording names $25,000 for development offerings; the author confirms it applies to all products."
 }

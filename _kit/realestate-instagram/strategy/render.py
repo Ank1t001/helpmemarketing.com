@@ -293,6 +293,81 @@ def put(body, name, html):
     return body[:i] + '\n' + html + body[j:]
 
 
+# HMM Ranking comparisons (founder brief, 2026-11-03): one place to compare the firms across websites, Instagram and Meta ads.
+# Each block answers one reader question and links to the tab with the examples. Ad destinations are added only once verified.
+STATUS = {'stated': 'Stated on the page', 'call': 'Discussed on a call', 'not_found': 'Not found on the pages reviewed'}
+MATRIX_COLS = [('fund', 'Identifies the fund'), ('minimum', 'Minimum investment'), ('eligibility', 'Who can invest'), ('next', 'Next step')]
+
+
+def rank_website(w):
+    rows = []
+    for k in FIRMS:
+        m = w['firms'][k]['matrix']
+        n = sum(m[c][0] == 'stated' for c, _ in MATRIX_COLS)
+        rows.append((-n, NAMES[k], k, m, n))
+    rows.sort()
+    body = ''
+    for _, name, k, m, n in rows:
+        cells = ''.join('<td class="ri-mx ri-mx-%s" data-label="%s"><span class="ri-mxs">%s</span>%s</td>'
+                        % (m[c][0], E(lab), STATUS[m[c][0]], ('<span class="ri-mxd">%s</span>' % E(m[c][1])) if m[c][1] and m[c][1] != STATUS[m[c][0]] else '')
+                        for c, lab in MATRIX_COLS)
+        body += '<tr><td class="brandcell">%s</td>%s<td class="r ri-mxn" data-label="Stated on the page">%d of %d</td></tr>' % (E(name), cells, n, len(MATRIX_COLS))
+    return ('<div id="ri-cmp-website" class="ri-cblock"><div class="sec-head"><h2>What can an investor learn before enquiring?</h2>\n'
+            '<p class="dek">What the reviewed pages of each firm&rsquo;s website state, read on ' + DATE + '. Sorted by how many of the four are stated on the page.</p></div>\n'
+            '<div class="tw"><table class="ri-wtable ri-mxt"><thead><tr><th>Firm</th>' + ''.join('<th>%s</th>' % E(l) for _, l in MATRIX_COLS) +
+            '<th class="r">Stated on the page</th></tr></thead><tbody>' + body + '</tbody></table></div>\n'
+            '<p class="pnote">&ldquo;Discussed on a call&rdquo; means the page says the detail is covered in a conversation. &ldquo;Not found&rdquo; covers only the pages reviewed, listed in Sources &amp; evidence.</p>\n'
+            '<p class="ri-vlink"><a href="#ri-view-website">See the pages in Website Messaging <span aria-hidden="true">&rarr;</span></a></p></div>\n')
+
+
+def rank_organic(o):
+    fm = {'Reel': 'reels', 'Carousel': 'carousels', 'Static': 'static'}
+    cnt = {k: collections.Counter(fm.get(p['format'], 'static') for p in o['posts'] if p['firm'] == k) for k in FIRMS if k != 'Centurion'}
+    assert sum(sum(c.values()) for c in cnt.values()) == len(o['posts'])
+    order = sorted(cnt, key=lambda k: (-sum(cnt[k].values()), NAMES[k]))
+    mx = max(sum(c.values()) for c in cnt.values())
+    li = ''
+    for k in order:
+        c = cnt[k]; n = sum(c.values())
+        segs = ''.join('<span class="ri-seg ri-seg-%s" data-w="%.1f" title="%s: %d"></span>' % (f, 100 * c[f] / mx, f.capitalize() if f != 'static' else 'Static posts', c[f]) for f in ('reels', 'carousels', 'static') if c[f])
+        txt = ' &middot; '.join('%d %s' % (c[f], {'reels': 'reel' if c[f] == 1 else 'reels', 'carousels': 'carousel' if c[f] == 1 else 'carousels', 'static': 'static'}[f]) for f in ('reels', 'carousels', 'static'))
+        li += '<li class="ri-frow"><span class="ri-fname">%s</span><span class="ri-fbar">%s</span><span class="ri-fn">%d posts</span><span class="ri-ftxt">%s</span></li>' % (E(NAMES[k]), segs, n, txt)
+    li += '<li class="ri-frow ri-frow-none"><span class="ri-fname">%s</span><span class="ri-ftxt">No corporate Instagram account found</span></li>' % E(NAMES['Centurion'])
+    return ('<div class="sec-head ri-cblock-head"><h2>Which firms post most often, and what engagement do they receive?</h2>\n'
+            '<p class="dek">Posts on each firm&rsquo;s own Instagram account in the reporting window, by format, then engagement by the metric you choose.</p></div>\n'
+            '<div class="ri-fmt"><p class="ri-cmp-h">Post formats</p><ul class="ri-flegend" aria-hidden="true"><li><i class="ri-seg-reels"></i>Reels</li><li><i class="ri-seg-carousels"></i>Carousels</li><li><i class="ri-seg-static"></i>Static posts</li></ul>'
+            '<ul class="ri-fbars">' + li + '</ul></div>\n')
+
+
+def rank_paid(a):
+    inv = collections.OrderedDict((k, [x for x in a['records'] if x['for_investors'] and x['firm'] == k]) for k in ('Equiton', 'Skyline', 'Lankin'))
+    firms = sorted(inv, key=lambda k: (-len(inv[k]), NAMES[k]))
+    themes = collections.Counter(x['focus'] for v in inv.values() for x in v)
+    head = ''.join('<th class="r">%s<small>%d ads</small></th>' % (E(NAMES[k]), len(inv[k])) for k in firms)
+    trs = ''
+    for t, _ in sorted(themes.items(), key=lambda p: (-p[1], p[0])):
+        tds = ''
+        for k in firms:
+            c = sum(x['focus'] == t for x in inv[k]); n = len(inv[k])
+            tds += '<td class="r ri-hm" data-label="%s"><span class="ri-hmv">%s <small>(%d)</small></span><span class="ri-hmb"><span class="bar-fill" data-w="%.1f"></span></span></td>' % (E(NAMES[k]), pct(c, n), c, 100 * c / n)
+        trs += '<tr><td>%s</td>%s</tr>' % (E(t[0].upper() + t[1:]), tds)
+    meas = [('Used video', lambda x: x['format'] == 'video'), ('Mentioned a return figure', lambda x: x['return_figure']), ('Stated a minimum investment', lambda x: x['minimum'])]
+    mb = ''
+    for lab, f in meas:
+        vals = sorted(((sum(f(x) for x in inv[k]), len(inv[k]), k) for k in firms), key=lambda p: (-p[0] / p[1], NAMES[p[2]]))
+        mb += '<div class="ri-meas"><p class="ri-cmp-h">%s</p><ol class="ri-mbars">%s</ol></div>' % (E(lab), ''.join(
+            '<li><span class="ri-fname">%s</span><span class="ri-track"><span class="bar-fill" data-w="%.1f"></span></span><span class="ri-val">%s <small>(%d of %d)</small></span></li>' % (E(NAMES[k]), 100 * c / n, pct(c, n), c, n) for c, n, k in vals))
+    total = sum(len(v) for v in inv.values())
+    return ('<section id="ri-cmp-paid" class="ri-cblock"><div class="sec-head"><h2>How does each firm vary its ads?</h2>\n'
+            '<p class="dek">The %d investor ads reviewed in the Meta Ad Library on %s. No active Canadian ads matched Greybrook in the search, and Centurion&rsquo;s ads were for recruitment.</p></div>\n' % (total, DATE) +
+            '<p class="ri-cmp-h">Message theme, share of each firm&rsquo;s ads</p>'
+            '<div class="tw"><table class="ri-hmt"><thead><tr><th>Message theme</th>' + head + '</tr></thead><tbody>' + trs + '</tbody></table></div>\n'
+            '<p class="pnote">Each ad has one main message theme, so a firm&rsquo;s column adds up to 100% (rounding aside). Counts in brackets.</p>\n'
+            '<div class="ri-measg">' + mb + '</div>\n'
+            '<p class="pnote">Measured separately because one ad can use video, name a return figure and state a minimum at once. Sorted by share, highest first.</p>\n'
+            '<p class="ri-vlink"><a href="#ri-view-paid">See the ads in Paid Social <span aria-hidden="true">&rarr;</span></a></p></section>\n')
+
+
 def main():
     a, o, w = load('ads.json'), load('organic.json'), load('websites.json')
     body = open(BODY, encoding='utf-8').read()
@@ -305,6 +380,9 @@ def main():
     body = put(body, 'paid', paid_section(a))
     body = put(body, 'paidsrc', paid_sources(a))
     body = put(body, 'recs', recs_section(a, o, w))
+    body = put(body, 'rankweb', rank_website(w))
+    body = put(body, 'rankorg', rank_organic(o))
+    body = put(body, 'rankpaid', rank_paid(a))
     if re.search(r'[–—]', body.split('<!-- STRATEGY:website START -->')[1].split('<!-- STRATEGY:website END -->')[0]):
         raise ValueError('Dash in the website view')
     with open(BODY, 'w', encoding='utf-8') as f:

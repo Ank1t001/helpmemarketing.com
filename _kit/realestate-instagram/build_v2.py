@@ -129,7 +129,7 @@ def validate(source, actual, rows, config):
     pos=[body.find('id="'+x+'"') for x in order]
     if -1 in pos or pos!=sorted(pos): raise ValueError('Section order must be '+', '.join(order))
     # Views (founder, 2026-11-02): one tab bar over seven views (Website Messaging and the five-firm comparisons added the same day), in this order, each holding its sections. See EDITORIAL_RULES.md.
-    views=[('ri-view-overview',['ri-overview']),('ri-view-rankings',['ri-rankings','ri-video']),
+    views=[('ri-view-overview',['ri-overview']),('ri-view-rankings',['ri-rankings','ri-video','ri-cmp-paid']),
            ('ri-view-website',['ri-website']),
            ('ri-view-organic',['ri-organic-compare','ri-creative','ri-insights']),('ri-view-paid',['ri-paid-compare']),
            ('ri-view-recs',['ri-recs-firms']),('ri-view-sources',['ri-sources-head','ri-advanced','ri-web-sources','ri-series','ri-ads','ri-corrections','ri-editions','ri-download','ri-data'])]
@@ -175,7 +175,7 @@ def validate(source, actual, rows, config):
         m=re.search(pat,text)
         if m: raise ValueError('Retired wording: '+label+' near "'+' '.join(text[max(0,m.start()-40):m.end()+20].split())+'"')
     if re.search(r'class="flag (?!neutral)',body): raise ValueError('Flags must use the neutral style')
-    board_rows=re.search(r'<section id="ri-rankings">.*?<tbody>(.*?)</tbody>',body,re.S)
+    board_rows=re.search(r'<section id="ri-rankings">.*?<table class="ri-board">.*?<tbody>(.*?)</tbody>',body,re.S)
     if not board_rows or board_rows.group(1).count('data-note="')!=board_rows.group(1).count('<tr'): raise ValueError('Every scoreboard row needs a data-note for the firm panel')
     for label,needle in {'ranking heading':'<h2>HMM Ranking</h2>','reading notes':'<h2>How to read the comparison</h2>','download heading':'<h2>Download the dataset</h2>',
                          'email label':'<label class="gate-label" for="gate-email">Email address</label>','status live region':'id="gate-msg" role="status" aria-live="polite"',
