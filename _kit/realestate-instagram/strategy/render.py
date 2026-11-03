@@ -313,7 +313,7 @@ def rank_website(w):
                         for c, lab in MATRIX_COLS)
         body += '<tr><td class="brandcell">%s</td>%s<td class="r ri-mxn" data-label="Stated on the page">%d of %d</td></tr>' % (E(name), cells, n, len(MATRIX_COLS))
     return ('<div id="ri-cmp-website" class="ri-cblock"><div class="sec-head"><h2>What can an investor learn before enquiring?</h2>\n'
-            '<p class="dek">What the reviewed pages of each firm&rsquo;s website state, read on ' + DATE + '. Sorted by how many of the four are stated on the page.</p></div>\n'
+            '<p class="dek">What the reviewed pages of each firm&rsquo;s website state. Based on website checks on 2 and 3 November 2026. Sorted by how many of the four are stated on the page.</p></div>\n'
             '<div class="tw"><table class="ri-wtable ri-mxt"><thead><tr><th>Firm</th>' + ''.join('<th>%s</th>' % E(l) for _, l in MATRIX_COLS) +
             '<th class="r">Stated on the page</th></tr></thead><tbody>' + body + '</tbody></table></div>\n'
             '<p class="pnote">&ldquo;Discussed on a call&rdquo; means the page says the detail is covered in a conversation. &ldquo;Not found&rdquo; covers only the pages reviewed, listed in Sources &amp; evidence.</p>\n'
