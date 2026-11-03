@@ -95,6 +95,8 @@ class Tables(HTMLParser):
             if self.depth==1: self.tables.append(self.current)
             self.depth-=1
 
+SITE_CSV=Path(__file__).resolve().parent.parent.parent/'assets/index/real-estate/data/realestate-index-postlog.csv'
+
 def validate(source, actual, rows, config):
     _,body,_=split_shell(source)
     if '\u2013' in source or '\u2014' in source: raise ValueError('Dash normalisation failed')
@@ -215,10 +217,9 @@ def validate(source, actual, rows, config):
     # HMM score strip under the chart (founder, 2026-11-03): every scored firm and its score, in score order.
     want=' &middot; '.join(f"{n} {m['score']}" for n,m in sorted(actual.items(),key=lambda p:p[1]['rank']))
     if f'<span class="ri-ss-l">HMM Instagram score (out of 100)</span><span class="ri-ss-v">{want}</span>' not in body: raise ValueError('Score strip must read: '+want)
-    parsed=json.loads(re.search(r'var GATED_CSV=("(?:\\.|[^"\\])*");',body).group(1))
-    embedded=list(csv.DictReader(io.StringIO(parsed)))
-    if embedded!=rows: raise ValueError('Embedded CSV mismatch')
-    if any(r['platform']!='Instagram' for r in embedded): raise ValueError('CSV platform mismatch')
+    # CSV by email (founder, 2026-11-03): the page no longer embeds the CSV; the forms script emails SITE_CSV, which main() writes.
+    if 'GATED_CSV' in body or 'var GATE_SOURCE="realestate-index-cycle-' not in body: raise ValueError('The CSV must be sent by email, not embedded in the page')
+    if any(r['platform']!='Instagram' for r in rows): raise ValueError('CSV platform mismatch')
     if any(r['cycle']!=config['cycle'] or r['scraped_at']!=config['scraped_at'] for r in rows): raise ValueError('CSV freshness mismatch')
     return {'scoreboard_contract':True,'reading_level_ids':True,'gate_transport_preserved':True,
             'instagram_only':True,'csv_rows':len(rows),'dash_normalisation':True}
@@ -290,6 +291,10 @@ def main():
         if f'"dateModified":"{config["modified_at"]}"' not in source or f'"dateModified":"{config["modified_at"]}"' not in snap: raise ValueError('dateModified must equal the recorded modified_at')
         if '"image":{"@type":"ImageObject","url":"https://helpmemarketing.com/assets/index/real-estate/og.jpg"' not in source: raise ValueError('Article image missing')
         (output/f"edition-{config['cycle']}.html").write_text(snap,encoding='utf-8')
+    if not args.verify_baseline:
+        # The CSV the forms script attaches to its email (founder, 2026-11-03). Fixed name, latest edition only.
+        SITE_CSV.parent.mkdir(parents=True,exist_ok=True); SITE_CSV.write_text(csv_text,encoding='utf-8')
+        if list(csv.DictReader(io.StringIO(SITE_CSV.read_text(encoding='utf-8'))))!=rows: raise ValueError('Site CSV mismatch')
     (output/'cycle_metrics.json').write_text(json.dumps(actual,indent=2))
     result={'cycle':config['cycle'],'scraped_at':config['scraped_at'],
             'status':'historical_qa_only' if args.verify_baseline else 'review_candidate',

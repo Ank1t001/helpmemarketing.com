@@ -348,7 +348,7 @@ def sources_head(a, o, w):
     posts = len(o['posts'])
     ads = sum(1 for x in a['records'] if x['for_investors'])
     sites = sum(1 for k in FIRMS if w['firms'][k]['read'])
-    stats = [('Instagram posts reviewed', '%d' % posts), ('Investor ads reviewed', '%d' % ads), ('Websites read', '%d of %d' % (sites, len(FIRMS))), ('Instagram and ads collected', DATE)]
+    stats = [('Instagram posts reviewed', '%d' % posts), ('Investor ads reviewed', '%d' % ads), ('Websites read', '%d of %d' % (sites, len(FIRMS))), ('Firms compared', '%d' % len(FIRMS))]
     ex_dates = sorted({x['captured'] for x in w['examples']})
     assert len(ex_dates) == 1, ex_dates
     return ('<section id="ri-sources-head"><div class="sec-head"><h2>Sources &amp; evidence</h2>\n'

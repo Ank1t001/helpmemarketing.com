@@ -10,7 +10,7 @@
  *   audit-help           Leads                 /tools/marketing-audit, "Get help with this"
  *   audit-plan           Audit                 /tools/marketing-audit, "Email my plan" (emails the plan)
  *   audit-feedback       Audit                 /tools/marketing-audit, "Do you know what to do next?"
- *   index-download       Index downloads       /gta-medspa-index, /hair-loss-index, /realestate-index
+ *   index-download       Index downloads       /gta-medspa-index, /hair-loss-index, /realestate-index (emails the CSV since 2026-11-03)
  *   growth-os-download   Growth OS downloads   /seo-growth-os (emails the bundle), /meta-growth-os
  *   subscribe            Subscribers           /blog newsletter, the audit's "Subscribe to updates"
  *   research-code        Research unlocks      /business-spend-index, /realestate-index, "Read the full case study" (emails a 6-digit code)
@@ -46,6 +46,9 @@
  * tab and asks for the script cache permission), then `testResearchUnlock` and `testResearchVerify`, then redeploy
  * the existing deployment as in step 6. Do this BEFORE the gated /business-spend-index goes live: until then the
  * old script files research-code requests as "Unknown form" and no visitor can unlock the page.
+ * CSV by email (added 2026-11-03): /realestate-index sends form=index-download and this script emails the CSV published at
+ * /assets/index/real-estate/data/realestate-index-postlog.csv (fetched at send time). Run `testIndexCsv` once after pasting
+ * (it asks for permission to fetch the file), then redeploy the existing deployment before the page change goes live.
  * The same applies to /realestate-index (gate added 2026-11-03): paste this version and redeploy before it goes live,
  * or its code requests come back "Unknown research".
  *
@@ -61,7 +64,7 @@ var TABS = {
           'What do you need help with?', 'Anything we should know?', 'Currently marketing',
           'Monthly investment', 'Desired outcome', 'Timeline', 'Source'],
   'Audit': ['Received', 'Type', 'Email', 'Priority', 'Path', 'Plan title', 'Answer', 'Plan link', 'Email sent'],
-  'Index downloads': ['Received', 'Email', 'Report', 'Cycle', 'Source tag'],
+  'Index downloads': ['Received', 'Email', 'Report', 'Cycle', 'Source tag', 'CSV email'],
   'Growth OS downloads': ['Received', 'Email', 'Product', 'Marketing consent', 'Consent timestamp', 'Bundle email', 'Referrer', 'User agent'],
   'Subscribers': ['Received', 'Email', 'Source', 'Consent'],
   'Research unlocks': ['Last code sent', 'Email', 'Research', 'Status', 'Verified at', 'Codes sent', 'Source'],
@@ -76,9 +79,12 @@ var REPLY_TO = 'hello@helpmemarketing.com';
 var SENDER_POSTAL = 'Help Me Marketing, Halton Hills, Ontario, Canada';
 var SEO_ZIP_FILE_ID = '1-ctzBnCzEve1LEpl0wpS_TTgCKOzD02X';   // the SEO Growth OS bundle in Drive
 var SEO_ZIP_FILENAME = 'seo-growth-os.zip';
-var RATE_LIMITS = { 'audit-plan': 5, 'growth-os-download': 3 };  // per email address, per 24 hours
+var RATE_LIMITS = { 'audit-plan': 5, 'growth-os-download': 3, 'index-download': 3 };  // per email address, per 24 hours
 var DAY_MS = 24 * 60 * 60 * 1000;
-var INDEX_REPORTS = { 'gta-medspa': 'GTA MedSpa Index', 'hair-loss': 'Hair Loss Index', 'instagram': 'Real Estate Index (Instagram)' };
+var INDEX_REPORTS = { 'gta-medspa': 'GTA MedSpa Index', 'hair-loss': 'Hair Loss Index', 'instagram': 'Real Estate Index (Instagram)', 'realestate-index': 'Real Estate Index' };
+// Index CSVs sent by email instead of downloading on the page (added 2026-11-03). The file is the published copy on the site.
+var INDEX_CSV = { 'realestate-index': { url: SITE_URL + '/assets/index/real-estate/data/realestate-index-postlog.csv',
+  name: 'realestate-index-postlog.csv', title: 'How Canadian Real Estate Investment Firms Market to Investors', path: '/realestate-index' } };
 // Turnstile action per protected form. 'contact' is also accepted from the audit form until its page
 // change (action 'audit_help') is live; it can be removed after that.
 var TURNSTILE_ACTIONS = { 'contact': ['contact'], 'audit-help': ['audit_help', 'contact'], 'research-code': ['research_unlock'] };
@@ -142,7 +148,7 @@ function formOf_(d) {
   if (d.action === 'feedback') return 'audit-feedback';
   if (d.action === 'subscribe') return 'subscribe';
   var src = String(d.source || '');
-  if (/^(gta-medspa|hair-loss|instagram)/.test(src)) return 'index-download';
+  if (/^(gta-medspa|hair-loss|instagram|realestate-index)/.test(src)) return 'index-download';
   if (/growth-os/.test(src)) return 'growth-os-download';
   var help = joinMulti_(d['help_with[]'] || d.help_with);
   if (help.indexOf('[From the marketing audit]') === 0) return 'audit-help';
@@ -177,7 +183,7 @@ function spamReason_(form, d) {
 function route_(form, d) {
   var email = pick_(d, 'email').toLowerCase();
   if (RATE_LIMITS[form]) {
-    var tab = form === 'audit-plan' ? 'Audit' : 'Growth OS downloads';
+    var tab = form === 'audit-plan' ? 'Audit' : form === 'index-download' ? 'Index downloads' : 'Growth OS downloads';
     var col = form === 'audit-plan' ? 3 : 2;
     if (countRecent_(tab, col, email) >= RATE_LIMITS[form]) return spam_(form, d, 'Too many requests from this email today');
   }
@@ -278,7 +284,25 @@ function addIndex_(d, email) {
   var src = pick_(d, 'source');
   var key = Object.keys(INDEX_REPORTS).filter(function (k) { return src.indexOf(k) === 0; })[0];
   var cycle = (src.match(/cycle-(\d+)/) || [])[1] || '';
-  tab_('Index downloads').appendRow([new Date(), email, key ? INDEX_REPORTS[key] : src, cycle, src]);
+  var c = key && INDEX_CSV[key], sent = c ? send_(function () { sendIndexCsv_(email, c, cycle); }) : 'Not needed (downloads on the page)';
+  tab_('Index downloads').appendRow([new Date(), email, key ? INDEX_REPORTS[key] : src, cycle, src, sent]);
+}
+
+// The CSV is fetched from the site at send time, so the email always carries the published edition.
+function sendIndexCsv_(email, c, cycle) {
+  var res = UrlFetchApp.fetch(c.url, { muteHttpExceptions: true, followRedirects: true });
+  if (res.getResponseCode() !== 200) throw new Error('CSV fetch returned ' + res.getResponseCode());
+  var blob = Utilities.newBlob(res.getContentText('UTF-8'), 'text/csv', c.name);
+  var ed = cycle ? ' (edition ' + cycle + ')' : '';
+  MailApp.sendEmail({ to: email, name: FROM_NAME, replyTo: REPLY_TO, subject: 'Your CSV: ' + c.title, attachments: [blob],
+    body: 'The CSV for "' + c.title + '"' + ed + ' is attached: every post in the comparison with its recorded metrics and source link.\n\n' +
+      'Read the case study: ' + SITE_URL + c.path + '\n\n' +
+      'You asked for this file at ' + SITE_URL + c.path + '. I will email you when a new edition is published. Reply to this email if you have a question about the data.\n\nAnkit Kumar, HelpMeMarketing',
+    htmlBody: '<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#1a1a1a;max-width:560px">' +
+      '<p style="margin:0 0 12px">The CSV for &ldquo;' + esc_(c.title) + '&rdquo;' + esc_(ed) + ' is attached: every post in the comparison with its recorded metrics and source link.</p>' +
+      '<p style="margin:0 0 12px"><a href="' + SITE_URL + c.path + '" style="color:#c2410c">Read the case study</a></p>' +
+      '<p style="margin:0 0 12px;color:#666;font-size:13px">You asked for this file at ' + SITE_URL.replace('https://', '') + c.path + '. I will email you when a new edition is published. Reply to this email if you have a question about the data.</p>' +
+      '<p style="margin:0">Ankit Kumar, HelpMeMarketing</p></div>' });
 }
 
 function addGrowthOs_(d, email) {
@@ -686,6 +710,13 @@ function testResearchUnlock() {
   Logger.log('wrong code -> ' + JSON.stringify(researchVerify_({ email: me, research: 'business-spend-index', code: '000000' })));
   Logger.log('Now open the email, then run testResearchVerify after typing the code into RESEARCH_TEST_CODE below.');
 }
+// Sends the Real Estate Index CSV to you (the account running the script) and adds a row to Index downloads.
+function testIndexCsv() {
+  var me = Session.getActiveUser().getEmail().toLowerCase();
+  Logger.log('index csv -> ' + JSON.stringify(route_('index-download', { form: 'index-download', email: me, source: 'realestate-index-cycle-005' })));
+  Logger.log('Check your inbox for the CSV.');
+}
+
 var RESEARCH_TEST_CODE = '';
 function testResearchVerify() {
   var me = Session.getActiveUser().getEmail().toLowerCase();
