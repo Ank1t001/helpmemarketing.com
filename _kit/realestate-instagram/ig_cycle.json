@@ -17,8 +17,8 @@
   "prior_cycle": "004",
   "prior_verification": "history/cycle004-verification.json",
   "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv",
-  "modified_at": "2026-11-03T17:27:30+00:00",
-  "modified_at_source": "Vercel production deployment dpl_CFH1GHUXN2P5jsRWosRTgUm2siyF (commit 7b00780) ready time (1793726850971 ms): HMM Ranking spacing and cross-tab consistency fixes, the last content change to /realestate-index. Earlier value: 2026-11-03T17:18:50+00:00; earlier releases are listed in the git history of this file.",
+  "modified_at": "2026-11-03T17:48:15+00:00",
+  "modified_at_source": "Vercel production deployment dpl_2sEL6MLm1gtubriwHvEmpqapWgDE (commit 113f6fa) ready time (1793728095536 ms): Lankin URL-link ads classified by their pages, the last content change to /realestate-index. Earlier value: 2026-11-03T17:27:30+00:00; earlier releases are listed in the git history of this file.",
   "revision": {
     "date": "2026-11-02",
     "by": "founder",
