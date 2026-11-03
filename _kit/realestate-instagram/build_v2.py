@@ -126,11 +126,15 @@ def validate(source, actual, rows, config):
     pos=[body.find('id="'+x+'"') for x in order]
     if -1 in pos or pos!=sorted(pos): raise ValueError('Section order must be '+', '.join(order))
     # Views (founder, 2026-11-02): one tab bar over seven views (Website Messaging and the five-firm comparisons added the same day), in this order, each holding its sections. See EDITORIAL_RULES.md.
-    views=[('ri-view-overview',['ri-overview','ri-pulse','ri-guide']),('ri-view-rankings',['ri-rankings']),
+    views=[('ri-view-overview',['ri-overview']),('ri-view-rankings',['ri-rankings']),
            ('ri-view-website',['ri-website']),
            ('ri-view-organic',['ri-organic-compare','ri-creative','ri-video','ri-insights','ri-series']),('ri-view-paid',['ri-paid-compare','ri-activity','ri-distribution','ri-ads']),
            ('ri-view-recs',['ri-test','ri-recs-firms']),('ri-view-sources',['ri-download','ri-advanced','ri-editions','ri-data'])]
     if 'data-ri-tabs' not in body or 'data-ri-tabs-js' not in source: raise ValueError('Missing the view tab bar or its script')
+    # Overview as navigation (founder, 2026-11-03): a heading, one sentence and five cards to the other tabs; no statistics, findings, pulse or roster note.
+    ov=body[body.find('<div class="ri-view" id="ri-view-overview">'):body.find('<div class="ri-view" id="ri-view-rankings">')]
+    if '<h2>Explore the case study</h2>' not in ov or re.findall(r'<a class="ri-ocard" href="#(ri-view-[a-z]+)"',ov)!=['ri-view-rankings','ri-view-website','ri-view-organic','ri-view-paid','ri-view-recs'] or 'class="tile' in ov or 'Firms included' in ov: raise ValueError('Overview must be the heading, one sentence and the five view cards only')
+    if body.find('<h2>Frequently asked</h2>')<body.find('<div class="ri-view" id="ri-view-sources">'): raise ValueError('The FAQ sits once, inside Sources & evidence')
     tabbar=re.search(r'<nav class="ri-tabs" data-ri-tabs[^>]*>(.*?)</nav>',body,re.S)
     # Sources & evidence (founder, 2026-11-03): not a tab; one link below the tab content, before the view, with return links.
     if not tabbar or re.findall(r'href="#(ri-view-[a-z]+)"',tabbar.group(1))!=[v for v,_ in views[:-1]]: raise ValueError('Tab bar must list the views in order, without Sources & evidence: '+', '.join(v for v,_ in views[:-1]))

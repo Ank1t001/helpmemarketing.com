@@ -524,7 +524,6 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 /* UX spacing pass 2 (2026-10-13): content 20px below an open summary, 24px between blocks, 12px between stacked boxes, one 24px box inset (16px sides at 720). */
 .msi.msi.msi details>summary+*{margin-top:20px}
 .msi.msi.msi details>summary+.sec-head:not(:has(>:not(h2)))+*{margin-top:20px}
-.msi.msi #ri-overview .tiles+.pnote{margin-bottom:24px}
 .msi.msi.msi .gate{padding:24px}
 .msi.msi .gate+.pnote{margin-top:24px}
 .msi.msi .band.card .bandbar{margin-bottom:0}
@@ -574,14 +573,24 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi .ri-view:focus,.msi.msi .ri-view:target{outline:none;box-shadow:none}
 .msi.msi .ri-view .note+.pnote{margin-top:16px}
 .msi.msi .ri-view+section{margin-top:48px}
-.msi.msi .ri-guide{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:12px}
-.msi.msi .ri-gcard{display:flex;flex-direction:column;gap:6px;padding:20px 24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated);text-decoration:none;color:var(--text);transition:border-color .2s ease}
-.msi.msi .ri-gcard:hover{border-color:var(--text-tertiary)}
-.msi.msi .ri-gcard b{font-size:16px}
-.msi.msi .ri-gcard b::after{content:" \2192";color:var(--cta-text,var(--cta))}
-.msi.msi .ri-gcard span{font-size:14px;line-height:1.55;color:var(--text-muted)}
-@media(max-width:720px){.msi.msi .ri-tabs{margin-bottom:32px}.msi.msi .ri-view+.ri-view,.msi.msi .ri-view+section{margin-top:32px}.msi.msi .ri-gcard{padding:16px}}
+@media(max-width:720px){.msi.msi .ri-tabs{margin-bottom:32px}.msi.msi .ri-view+.ri-view,.msi.msi .ri-view+section{margin-top:32px}}
 @media(max-width:560px){.msi.msi .ri-tabs{position:static;border-radius:var(--r2)}}
+/* Overview as navigation (2026-11-03, founder): "Explore the case study", one sentence and five whole-card links in the Business index card style; no statistics. */
+.msi.msi .ri-otoc{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;margin:8px 0 0}
+.msi.msi a.ri-ocard{grid-column:span 2;display:flex;flex-direction:column;padding:24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated);color:var(--text);text-decoration:none;transition:border-color .15s,transform .15s,box-shadow .15s}
+.msi.msi a.ri-ocard:nth-child(n+4){grid-column:span 3}
+.msi.msi a.ri-ocard:hover{border-color:var(--cta-text,var(--cta));transform:translateY(-2px);box-shadow:0 12px 28px rgba(var(--ink-rgb,255,255,255),.08)}
+.msi.msi a.ri-ocard:focus-visible{outline:2px solid var(--cta-text,var(--cta));outline-offset:2px}
+.msi.msi .ri-ochip{display:flex;align-items:center;justify-content:center;width:36px;height:36px;margin:0 0 20px;border-radius:10px;background:color-mix(in srgb,var(--cta) 12%,transparent);color:var(--cta-text,var(--cta))}
+.msi.msi .ri-ochip svg{display:block;width:20px;height:20px}
+.msi.msi .ri-ot{margin:0 0 6px;font-family:var(--font-display,Fraunces,serif);font-size:24px;font-weight:400;line-height:1.2;letter-spacing:-.015em}
+.msi.msi .ri-od{margin:0 0 20px;font-size:15px;line-height:1.5;color:var(--text-muted)}
+.msi.msi .ri-of{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:14px;border-top:1px solid var(--border);font-size:14px;font-weight:600;color:var(--cta-text,var(--cta))}
+.msi.msi .ri-oarrow{font-size:18px;line-height:1;transition:transform .15s}
+.msi.msi a.ri-ocard:hover .ri-oarrow{transform:translateX(4px)}
+@media(max-width:900px){.msi.msi a.ri-ocard,.msi.msi a.ri-ocard:nth-child(n+4){grid-column:span 3}.msi.msi a.ri-ocard:last-child{grid-column:1/-1}}
+@media(max-width:720px){.msi.msi .ri-otoc{grid-template-columns:1fr;gap:12px}.msi.msi a.ri-ocard,.msi.msi a.ri-ocard:nth-child(n+4),.msi.msi a.ri-ocard:last-child{grid-column:1/-1;padding:18px 18px 16px}.msi.msi .ri-ochip{margin-bottom:14px}.msi.msi .ri-ot{font-size:22px}.msi.msi .ri-od{margin-bottom:14px;font-size:14.5px}}
+@media(prefers-reduced-motion:reduce){.msi.msi a.ri-ocard,.msi.msi .ri-oarrow{transition:none}.msi.msi a.ri-ocard:hover,.msi.msi a.ri-ocard:hover .ri-oarrow{transform:none}}
 /* Header without the image, as on the Business index, and Sources & evidence (2026-11-03, founder): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
 .msi.msi header{background:none;grid-template-columns:1fr;max-width:760px}
 .msi.msi header::after{display:none}

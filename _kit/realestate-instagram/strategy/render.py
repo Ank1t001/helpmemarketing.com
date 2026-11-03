@@ -233,7 +233,7 @@ def main():
     body = put(body, 'organic', organic_section(o))
     body = put(body, 'paid', paid_section(a))
     body = put(body, 'recs', recs_section(a, o, w))
-    body = put(body, 'overview', roster_note() + '\n')
+    body = put(body, 'roster', roster_note() + '\n')
     if re.search(r'[–—]', body.split('<!-- STRATEGY:website START -->')[1].split('<!-- STRATEGY:website END -->')[0]):
         raise ValueError('Dash in the website view')
     with open(BODY, 'w', encoding='utf-8') as f:
