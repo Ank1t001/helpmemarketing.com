@@ -17,8 +17,8 @@
   "prior_cycle": "004",
   "prior_verification": "history/cycle004-verification.json",
   "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv",
-  "modified_at": "2026-11-03T03:23:41+00:00",
-  "modified_at_source": "Vercel production deployment dpl_GBAvraugLzs3iLrpKacJEVBnsDU6 (commit 9d95f58) ready time (1793676221000 ms): Website Messaging as one comparison table and two examples, the last content change to /realestate-index. Earlier value: 2026-11-03T03:08:57+00:00; earlier releases are listed in the git history of this file.",
+  "modified_at": "2026-11-03T03:33:21+00:00",
+  "modified_at_source": "Vercel production deployment dpl_CnibPhAhnJED7vfaBM1mro7GtqsS (commit 3042f60) ready time (1793676801786 ms): Equiton's $25,000 minimum, the last content change to /realestate-index. Earlier value: 2026-11-03T03:23:41+00:00; earlier releases are listed in the git history of this file.",
   "revision": {
     "date": "2026-11-02",
     "by": "founder",
