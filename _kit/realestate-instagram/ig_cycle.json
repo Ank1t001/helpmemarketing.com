@@ -17,8 +17,8 @@
   "prior_cycle": "004",
   "prior_verification": "history/cycle004-verification.json",
   "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv",
-  "modified_at": "2026-11-03T16:08:53+00:00",
-  "modified_at_source": "Vercel production deployment dpl_CZEpww6qBYnTGjCK9P8MNY9mK6yf (commit 153c3be) ready time (1793722133480 ms): HMM Ranking compares the firms across website, Instagram and ads, the last content change to /realestate-index. Earlier value: 2026-11-03T15:52:16+00:00; earlier releases are listed in the git history of this file.",
+  "modified_at": "2026-11-03T16:20:41+00:00",
+  "modified_at_source": "Vercel production deployment dpl_6m7cdnUXZT3evzpJLErxKM7eB5Pt (commit 45ceaf7) ready time (1793722841810 ms): ad destinations added to HMM Ranking as the 3 November update, the last content change to /realestate-index. Earlier value: 2026-11-03T16:08:53+00:00; earlier releases are listed in the git history of this file.",
   "revision": {
     "date": "2026-11-02",
     "by": "founder",
