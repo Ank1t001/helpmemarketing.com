@@ -582,7 +582,9 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi .ri-gcard span{font-size:14px;line-height:1.55;color:var(--text-muted)}
 @media(max-width:720px){.msi.msi .ri-tabs{margin-bottom:32px}.msi.msi .ri-view+.ri-view,.msi.msi .ri-view+section{margin-top:32px}.msi.msi .ri-gcard{padding:16px}}
 @media(max-width:560px){.msi.msi .ri-tabs{position:static;border-radius:var(--r2)}}
-/* Sources & evidence (2026-11-03, founder): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
+/* Header without the image, as on the Business index, and Sources & evidence (2026-11-03, founder): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
+.msi.msi header{background:none;grid-template-columns:1fr;max-width:760px}
+.msi.msi header::after{display:none}
 .msi.msi header .ri-subtitle{margin:-4px 0 10px;font-family:var(--font-display,Fraunces,serif);font-style:italic;font-size:20px;line-height:1.3;color:var(--text-muted)}
 .msi.msi .ri-srcrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:56px 0 0;padding-top:24px;border-top:1px solid var(--border)}
 .msi.msi .ri-srcrow[hidden]{display:none}
