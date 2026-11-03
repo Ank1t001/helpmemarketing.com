@@ -251,10 +251,19 @@ def recs_section(a, o, w):
         ('Centurion', 'Its website featured the Chief Economist&rsquo;s research. All %s active ads found were for recruitment.' % words[len(ce)],
          'Promote one research article to investors and link it to the Apartment REIT page.',
          'Share of ad-referred article visitors who continue to the REIT page.')]
-    html = ''.join('<article class="ri-rcard"><h3>%s</h3><p class="ri-robs">%s</p><dl><div class="ri-rtest"><dt>Test</dt><dd>%s</dd></div>'
-                   '<div class="ri-rmeasure"><dt>Measure</dt><dd>%s</dd></div></dl></article>' % (E(NAMES[k]), obs, test, meas) for k, obs, test, meas in cards)
+    # Second Lankin test (founder, 2026-11-03): one minimum across ads, form and page, from the 3 November checks.
+    al = w['matrix_check_2']['ad_landing']
+    assert '$10,000' in al and '$5,000 or more' in al and 'from a minimum of $25,000' in w['matrix_check_2']['others']['Lankin']
+    extra = {'Lankin': ('Its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo;, and a campaign page states a $25,000 minimum; its website leaves the minimum to the call.',
+                        'Show one minimum in the ad, the form and the page it links to. Compare enquiries with the current mixed figures over the same period.',
+                        'Share of enquiries that meet the minimum.')}
+    def block(obs, test, meas):
+        return ('<p class="ri-robs">%s</p><dl><div class="ri-rtest"><dt>Test</dt><dd>%s</dd></div>'
+                '<div class="ri-rmeasure"><dt>Measure</dt><dd>%s</dd></div></dl>' % (obs, test, meas))
+    html = ''.join('<article class="ri-rcard"><h3>%s</h3>%s%s</article>' % (E(NAMES[k]), block(obs, test, meas),
+                   ('<div class="ri-rsecond">' + block(*extra[k]) + '</div>') if k in extra else '') for k, obs, test, meas in cards)
     return ('<section id="ri-recs-firms"><div class="ri-ovhero"><div class="sec-head"><h2>Recommendations</h2></div>\n'
-            '<p class="ri-ovlead">One <em>marketing test</em> for each firm, from its website, Instagram and Meta ads.</p></div>\n'
+            '<p class="ri-ovlead">A <em>marketing test</em> for each firm, from its website, Instagram and Meta ads.</p></div>\n'
             '<div class="ri-rgrid">' + html + '</div>\n'
             '<p class="pnote m0">Each measure is a proposed metric for the firm to track. The public research supplies the observation behind each test, not its result.</p></section>\n')
 
