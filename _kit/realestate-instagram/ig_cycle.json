@@ -1,6 +1,6 @@
 {
   "cycle": "005",
-  "scraped_at": "2026-10-13",
+  "scraped_at": "2026-11-02",
   "window": [
     "2026-09-13",
     "2026-10-13"
@@ -18,5 +18,17 @@
   "prior_verification": "history/cycle004-verification.json",
   "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv",
   "modified_at": "2026-10-13T19:27:21+00:00",
-  "modified_at_source": "Vercel production deployment dpl_C8nDoa9BhHNrjhXVnudCZJkFXSUc (commit 7ec76de) ready time, the last content change to /realestate-index"
+  "modified_at_source": "Vercel production deployment dpl_C8nDoa9BhHNrjhXVnudCZJkFXSUc (commit 7ec76de) ready time, the last content change to /realestate-index",
+  "revision": {
+    "date": "2026-11-02",
+    "by": "founder",
+    "reason": "Roster changed to Equiton, Skyline, Lankin, Greybrook Realty Partners and Centurion Asset Management; every account re-collected on 2 November 2026 for the same window, so all firms share one collection date.",
+    "runs": {
+      "posts": "dfN9H7QBCXbpjMbnu",
+      "profiles": "a47HIlg0Lva9uQ76o",
+      "reference_posts": "SXFGVHtv66TYUWhaH",
+      "reference_profile": "8FAPqN0HZshFLvNxt"
+    },
+    "original_edition": "The edition 005 snapshot (/realestate-index/edition-005) keeps the scoreboard as first published on 13 October 2026, with Pier 4 and McGillivray Capital."
+  }
 }

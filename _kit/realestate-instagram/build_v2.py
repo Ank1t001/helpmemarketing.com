@@ -42,14 +42,16 @@ def metrics():
         posts=[p for p in data.IG if p[0]==brand]
         followers=meta['ig_foll']
         if not followers: raise ValueError('Missing followers: '+brand)
-        likes=[p[2] for p in posts]; comments=[p[3] for p in posts]
-        videos=[p for p in posts if p[5]]
+        # Hidden like counts (None, 2026-11-02) are left out of every like-based figure, never read as zero.
+        shown=[p for p in posts if p[2] is not None]
+        likes=[p[2] for p in shown]; comments=[p[3] for p in shown]
+        videos=[p for p in shown if p[5]]
         out[brand]={'n':len(posts),'followers':followers,'median_likes':st.median(likes) if likes else 0,
             'median_comments':st.median(comments) if comments else 0,'er':(st.median(likes) if likes else 0)/followers*100,
             'cl':sum(comments)/sum(likes)*100 if sum(likes) else 0,
             'lv':st.median(p[2]/p[5]*100 for p in videos) if videos else None,
-            'peak':max(p[5] for p in videos)/followers if videos else 0,
-            'has_video':bool(videos)}
+            'peak':max(p[5] for p in posts if p[5])/followers if any(p[5] for p in posts) else 0,
+            'has_video':any(p[5] for p in posts),'hidden':len(posts)-len(shown)}
     eligible=[v for v in out.values() if v['n']>=5]
     for brand, m in out.items():
         m['score']=round(.45*percentile(m['er'],[v['er'] for v in eligible])+
@@ -212,6 +214,10 @@ def main():
         pw=config.get('prior_window')
         if not pw or date.fromisoformat(pw[1])+timedelta(days=1)!=window[0]: raise ValueError('prior_window missing, or the window does not start the day after the previous edition ended')
         peak_end=window[1]
+    elif config.get('revision'):
+        # Roster revision (founder, 2026-11-02): the same 30-day window re-collected later, so collection date and window end differ.
+        if (window[1]-window[0]).days!=30 or not window[1]<scraped: raise ValueError('A revision keeps the 30-day window and is collected after it ends')
+        peak_end=window[1]
     else:
         if window[1]!=scraped or (window[1]-window[0]).days!=30: raise ValueError('Expected explicit 30-day window ending at scrape date')
         peak_end=scraped
@@ -237,7 +243,7 @@ def main():
     bycode={p[7]:p for p in data.IG}
     for row in ranked:
         code=row['url'].rstrip('/').split('/')[-1]; p=bycode.get(code)
-        if p is None or row['brand']!=p[0] or int(row['likes'])!=p[2] or int(row['comments'])!=p[3]: raise ValueError('Postlog metric mismatch')
+        if p is None or row['brand']!=p[0] or (int(row['likes']) if row['likes'] else None)!=p[2] or int(row['comments'])!=p[3]: raise ValueError('Postlog metric mismatch')
     next_date=date.fromisoformat(config['next_scheduled_refresh'])
     if next_date.day!=14 or next_date<=scraped: raise ValueError('Next scheduled refresh must be a future monthly 14th')
     source=normalise(render(csv_text,config['cycle'],config['scraped_at'],next_date.isoformat(),args.as_of.isoformat(),config.get('modified_at'),config['window'],config.get('window_days',30)))

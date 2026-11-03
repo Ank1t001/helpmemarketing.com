@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Organic strategy records for the five-firm comparison (founder, 2026-11-02).
 
-Equiton, Skyline and Lankin: edition 005 posts (ig_postlog.json, themes as reviewed, captions in ig_caps.json).
-Greybrook: its posts in the same window, collected 2 November 2026 with apify/instagram-scraper (run novyprGfO7wfqQuVf;
-the collector output, with comments and commenter names, stays private); themes assigned by the author from the caption.
+All four scored accounts: the kit post log (ig_postlog.json, ig_caps.json), re-collected 2 November 2026 for the edition
+window with apify/instagram-scraper (run dfN9H7QBCXbpjMbnu; collector output with comments stays private). GREYBROOK below
+holds the author's fund reading of Greybrook's captions; themes are in the post log.
 Centurion: no corporate Instagram account found (centurion.ca links none; four likely handles do not exist; a name search
 returned only an unrelated account; run thCyg7lmfVVuUAqgT and xI9l37BBtL4ekfSd6).
 """
@@ -29,26 +29,24 @@ GREYBROOK = [
  ('DePUKGskWWC', '2026-10-08', 'Static', 'Brand / other', 31, 0, None, False)]
 
 def build():
+    """All four accounts from the kit's post log, re-collected 2 November 2026 for the edition window."""
     pl = json.load(open(os.path.join(KIT, 'ig_postlog.json'))); caps = json.load(open(os.path.join(KIT, 'ig_caps.json')))
     import sys; sys.path.insert(0, KIT); import reindex_data as d
     plays = {p[7]: p[5] for p in d.IG}
+    fund = {g[0]: g[7] for g in GREYBROOK}
     posts = []
     for b, date, fmt, theme, hook, likes, comments, _, code in pl:
-        if b not in ('Equiton', 'Skyline', 'Lankin'): continue
         cap = (caps.get(code) or {}).get('cap') or hook
+        named = fund[code] if code in fund else bool(FUND.search(cap))
         posts.append({'firm': b, 'code': code, 'date': date, 'format': fmt, 'theme': theme, 'likes': likes, 'comments': comments,
-                      'plays': plays.get(code), 'names_fund': bool(FUND.search(cap)), 'return_figure': bool(RET.search(cap))})
-    for code, date, fmt, theme, likes, comments, plays_, fund in GREYBROOK:
-        posts.append({'firm': 'Greybrook', 'code': code, 'date': date, 'format': fmt, 'theme': theme, 'likes': likes, 'comments': comments,
-                      'plays': plays_, 'names_fund': fund, 'return_figure': False})
-    followers = {b: d.IG_BRANDS[b]['ig_foll'] for b in ('Equiton', 'Skyline', 'Lankin')}
-    followers['Greybrook'] = 2687
+                      'plays': plays.get(code), 'names_fund': named, 'return_figure': bool(RET.search(cap))})
+    followers = {b: d.IG_BRANDS[b]['ig_foll'] for b in d.IG_BRANDS}
     out = {'window': WINDOW, 'accounts': {'Equiton': '@equitoninc', 'Skyline': '@skylinegroupofcompanies', 'Lankin': '@lankin_investments', 'Greybrook': '@greybrook', 'Centurion': None},
-           'followers': followers, 'followers_note': 'Equiton, Skyline and Lankin at the edition 005 collection (13 October 2026); Greybrook on 2 November 2026.',
+           'followers': followers, 'followers_note': 'All four read on 2 November 2026.',
            'centurion': 'No corporate Instagram account found on 2 November 2026: centurion.ca links none, four likely handles do not exist and a name search returned only an unrelated account.',
-           'sources': {'edition_005': 'ig_postlog.json, ig_caps.json', 'greybrook_run': 'novyprGfO7wfqQuVf', 'profile_runs': ['thCyg7lmfVVuUAqgT', 'xI9l37BBtL4ekfSd6']},
+           'sources': {'posts_run': 'dfN9H7QBCXbpjMbnu', 'profiles_run': 'a47HIlg0Lva9uQ76o', 'centurion_runs': ['thCyg7lmfVVuUAqgT', 'xI9l37BBtL4ekfSd6']},
            'posts': posts}
-    with open(os.path.join(HERE, 'organic.json'), 'w', encoding='utf-8') as f: f.write(json.dumps(out, indent=1, ensure_ascii=False) + '\n')
+    with open(os.path.join(HERE, 'organic.json'), 'w', encoding='utf-8') as f: f.write(json.dumps(out, indent=1, ensure_ascii=False) + chr(10))
     return out
 
 if __name__ == '__main__':

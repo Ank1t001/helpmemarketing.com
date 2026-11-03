@@ -1,6 +1,6 @@
 # Five-firm strategy comparison (founder, 2 November 2026)
 
-The roster from edition 006 is **Equiton, Skyline, Lankin Investments, Greybrook Realty Partners and Centurion Asset Management** (founder, 2026-11-02; Pier 4 and McGillivray Capital leave the board at the 14 November refresh). This folder holds the website, organic and paid comparison of those five, shown on `/realestate-index` in the Website Messaging view, at the top of Organic Social and Paid Social, and as "Recommendations for the five firms".
+The roster is **Equiton, Skyline, Lankin Investments, Greybrook Realty Partners and Centurion Asset Management** (founder, 2026-11-02; applied the same day to the whole page as a revision of edition 005; Pier 4 and McGillivray Capital left the board). This folder holds the website, organic and paid comparison of those five, shown on `/realestate-index` in the Website Messaging view, at the top of Organic Social and Paid Social, and as "Recommendations for the five firms".
 
 | File | What it is |
 |---|---|

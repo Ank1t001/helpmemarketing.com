@@ -35,10 +35,10 @@ def plural(n, one, many=None):
 
 
 def roster_note():
-    return ('<p class="pnote ri-roster"><b>Five firms, compared on ' + DATE + '.</b> From edition 006 the index compares '
-            'Equiton, Skyline, Lankin Investments, Greybrook Realty Partners and Centurion Asset Management. The website, '
-            'organic and paid comparisons already use these five; the scoreboard and the other sections describe edition '
-            '005&rsquo;s five firms until the 14 November refresh.</p>')
+    return ('<p class="pnote ri-roster"><b>Five firms throughout.</b> Since ' + DATE + ' the index compares '
+            'Equiton, Skyline, Lankin Investments, Greybrook Realty Partners and Centurion Asset Management in every section. '
+            'Instagram, the Meta Ad Library and the websites were all read on ' + DATE + '; Centurion has no corporate Instagram account, '
+            'so it is compared on its website and advertising.</p>')
 
 
 def website_view(w):
@@ -104,7 +104,7 @@ def organic_section(o):
     gtop = max(g, key=lambda x: x['likes'])
     s = stats
     points = [
-        'Equiton leaned on reels (%d of %d posts) and market commentary; Skyline on development and leasing milestones (%d of %d); '
+        'Equiton leaned on reels (%d of %d posts), market commentary and lifestyle reels; Skyline on development and leasing milestones (%d of %d); '
         'Lankin on market updates (%d of %d); Greybrook on community sponsorships, events and its investment strategy series.'
         % (s['Equiton']['reels'], s['Equiton']['n'], s['Skyline']['top'][1], s['Skyline']['n'], s['Lankin']['top'][1], s['Lankin']['n']),
         'Equiton, Lankin and Greybrook each named a fund or offering in %s post; Skyline named one of its funds in %d of %d, as the owner of a building in a milestone post, '
@@ -114,16 +114,15 @@ def organic_section(o):
         'Four of its posts hide their like counts, so its median uses the %d posts that show them.' % (gtop['likes'], len(g)),
         'Centurion has no corporate Instagram account that could be found, so it is compared on its website and ads only.']
     return ('<section id="ri-organic-compare"><div class="sec-head"><h2>Organic strategy compared</h2>\n'
-            '<p class="dek">What each firm posts on its own Instagram account, 13 September to 13 October 2026. Equiton, Skyline and Lankin '
-            'use edition 005&rsquo;s posts; Greybrook&rsquo;s posts for the same window were collected on ' + DATE + '.</p></div>\n' + roster_note() +
+            '<p class="dek">What each firm posts on its own Instagram account, 13 September to 13 October 2026, collected for all four accounts on ' + DATE + '.</p></div>\n' + roster_note() +
             '\n<div class="card ri-points"><h3>What stood out</h3><ul>' + ''.join('<li>%s</li>' % p for p in points) + '</ul></div>\n'
             '<div class="tw"><table class="ri-cmpt"><thead><tr><th>Firm</th><th class="r">Posts</th><th class="r">Reels / carousels / static</th>'
             '<th>Main themes</th><th class="r">Names a fund or offering</th><th class="r">Median likes</th><th class="r">Followers</th></tr></thead><tbody>'
             + ''.join(rows) + '</tbody></table></div>\n'
             '<div class="tw"><table class="ri-cmpt ri-mix"><thead><tr><th>Theme, posts</th>' + ''.join('<th class="r">%s</th>' % E(k) for k in FIRMS[:4]) +
             '</tr></thead><tbody>' + mixrows + '</tbody></table></div>\n'
-            '<p class="pnote">Themes for Equiton, Skyline and Lankin are edition 005&rsquo;s reviewed themes; Greybrook&rsquo;s were assigned from each caption on the '
-            'same scheme. Likes are not adjusted for follower count. Followers: %s</p></section>\n' % E(o['followers_note']))
+            '<p class="pnote">Themes are the page&rsquo;s reviewed themes; Greybrook&rsquo;s were assigned from each caption on the same scheme. '
+            'Likes are not adjusted for follower count. Followers: %s</p></section>\n' % E(o['followers_note']))
 
 
 def paid_section(a):

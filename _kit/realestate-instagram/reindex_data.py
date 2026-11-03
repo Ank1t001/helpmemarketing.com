@@ -35,17 +35,20 @@ BRANDS = {
 # track the same firms: Marlin Spring left the Instagram board at cycle 003 and
 # McGillivray Capital entered it. The LinkedIn index still uses BRANDS.
 IG_BRANDS = {
- "Skyline": dict(cohort="MID", ig_foll=2292, ig="skylinegroupofcompanies",
-      igurl="https://www.instagram.com/skylinegroupofcompanies/"),
- "Equiton": dict(cohort="MID", ig_foll=18409, ig="equitoninc",
+ "Equiton": dict(cohort="MID", ig_foll=18643, ig="equitoninc",
       igurl="https://www.instagram.com/equitoninc/"),
- "Lankin": dict(cohort="MID", ig_foll=4142, ig="lankin_investments",
+ "Skyline": dict(cohort="MID", ig_foll=2335, ig="skylinegroupofcompanies",
+      igurl="https://www.instagram.com/skylinegroupofcompanies/"),
+ "Lankin": dict(cohort="MID", ig_foll=4299, ig="lankin_investments",
       igurl="https://www.instagram.com/lankin_investments/"),
- "Pier 4": dict(cohort="BOUTIQUE", ig_foll=690, ig="pier4ltd",
-      igurl="https://www.instagram.com/pier4ltd/"),
- "McGillivray Capital": dict(cohort="BOUTIQUE", ig_foll=646, ig="mcgillivraycapital",
-      igurl="https://www.instagram.com/mcgillivraycapital/"),
+ "Greybrook": dict(cohort="DEV", ig_foll=2687, ig="greybrook",
+      igurl="https://www.instagram.com/greybrook/"),
 }
+# Roster from the 2 November 2026 revision (founder): Equiton, Skyline, Lankin, Greybrook Realty Partners and
+# Centurion Asset Management. Centurion has no corporate Instagram account that could be found, so it is not scored.
+# Followers read 2 November 2026. Pier 4 and McGillivray Capital left the board; edition 005's original roster is in
+# history/reindex_data_edition005.py.
+IG_UNSCORED = {"Centurion": "No corporate Instagram account found on 2 November 2026."}
 
 COHORTS = {
  "LARGE":    ("Large private REIT / institutional", ["Starlight", "Centurion", "Hazelview"]),
@@ -171,64 +174,58 @@ LI = [
 
 # Instagram, cycle 005 window 2026-09-13 .. 2026-10-13 (scraped 2026-10-13). Company-owned posts only;
 # maisonriverain coauthored posts count for Equiton. (brand, date, likes, comments, fmt, plays, views, shortcode)
-IG = [
- ("Skyline","2026-09-15",18,0,"Static",None,None,"DdUW1WsjH9Y"),
- ("Skyline","2026-09-17",21,0,"Static",None,None,"DdZggysnAqt"),
- ("Skyline","2026-09-21",37,0,"Static",None,None,"Ddjbu8snTk8"),
- ("Skyline","2026-09-22",23,0,"Reel",518,135,"DdmHayNDQOG"),
- ("Skyline","2026-09-23",19,0,"Static",None,None,"Ddo539eIGg4"),
- ("Skyline","2026-09-25",8,0,"Static",None,None,"DduKVu2m3Xi"),
- ("Skyline","2026-09-29",47,0,"Static",None,None,"Dd4I7T2iOS5"),
- ("Skyline","2026-09-30",11,0,"Static",None,None,"Dd6f_yyCJDo"),
- ("Skyline","2026-10-01",14,0,"Reel",321,95,"Dd9SuZWEtTe"),
- ("Skyline","2026-10-02",47,0,"Carousel",None,None,"Dd_po8gFfdg"),
- ("Skyline","2026-10-06",19,0,"Reel",745,182,"DeKigCsDVYb"),
- ("Skyline","2026-10-07",17,0,"Static",None,None,"DeMvRx6l_Gy"),
- ("Skyline","2026-10-08",63,0,"Carousel",None,None,"DePGaUAjZDQ"),
- ("Equiton","2026-09-14",9,0,"Carousel",None,None,"DdSUQipjRDi"),
- ("Equiton","2026-09-15",11,1,"Reel",644,194,"DdUvAQrBq0Y"),
- ("Equiton","2026-09-16",7,0,"Reel",710,255,"DdXPMwLhhL7"),
- ("Equiton","2026-09-17",19,0,"Reel",687,166,"DdZ5qiABO6v"),
- ("Equiton","2026-09-21",7,0,"Carousel",None,None,"DdkHp5vH1ch"),
- ("Equiton","2026-09-22",11,0,"Reel",396,91,"Ddm3chfh4pN"),
- ("Equiton","2026-09-23",13,0,"Carousel",None,None,"DdpEGqDCCM5"),
- ("Equiton","2026-09-25",17,0,"Reel",580,141,"DduMR6gD_ft"),
- ("Equiton","2026-09-30",12,0,"Carousel",None,None,"Dd7WfZPH8hT"),
- ("Equiton","2026-10-01",25,0,"Reel",901,319,"Dd97qTEBugi"),
- ("Equiton","2026-10-05",13,0,"Carousel",None,None,"DeIJCYSH76m"),
- ("Equiton","2026-10-06",22,0,"Carousel",None,None,"DeKom6BH-XD"),
- ("Equiton","2026-10-07",8,0,"Reel",256,126,"DeNKvwFBTrJ"),
- ("Equiton","2026-10-09",9,0,"Reel",371,83,"DeSPY-GgTyQ"),
- ("Lankin","2026-09-15",3,3,"Static",None,None,"DdUu78BjlA-"),
- ("Lankin","2026-09-16",8,3,"Carousel",None,None,"DdXVfINDZzU"),
- ("Lankin","2026-09-18",1,3,"Static",None,None,"DdcgwFTl6L3"),
- ("Lankin","2026-09-22",5,1,"Static",None,None,"DdmtD5aDO_t"),
- ("Lankin","2026-09-24",2,3,"Reel",215,50,"Ddr2qKmCJun"),
- ("Lankin","2026-09-25",20,2,"Static",None,None,"Ddubcjql_R7"),
- ("Lankin","2026-09-29",3,3,"Static",None,None,"Dd4uoE3l32W"),
- ("Lankin","2026-09-30",4,3,"Reel",139,30,"Dd7TbYvCmSG"),
- ("Lankin","2026-10-08",2,2,"Static",None,None,"DeP5x4zFySD"),
- ("Lankin","2026-10-09",9,4,"Static",None,None,"DeSekxJF68A"),
- ("Pier 4","2026-09-14",11,0,"Static",None,None,"DdRQSBERs0w"),
- ("Pier 4","2026-09-16",4,0,"Carousel",None,None,"DdWbDJNEV0-"),
- ("Pier 4","2026-09-17",3,0,"Carousel",None,None,"DdZA4lFERxn"),
- ("Pier 4","2026-09-18",0,0,"Carousel",None,None,"DdblkNOkXPi"),
- ("Pier 4","2026-09-21",1,1,"Static",None,None,"DdjhivAkUMg"),
- ("Pier 4","2026-09-23",3,0,"Static",None,None,"DdobY8axfu6"),
- ("Pier 4","2026-09-24",8,0,"Static",None,None,"DdrKDz5x1YE"),
- ("Pier 4","2026-09-28",7,2,"Carousel",None,None,"Dd2AbaKmJsW"),
- ("Pier 4","2026-09-29",2,0,"Static",None,None,"Dd4GuGfReic"),
- ("Pier 4","2026-09-30",5,0,"Carousel",None,None,"Dd6jbLFkSOD"),
- ("Pier 4","2026-10-01",19,1,"Carousel",None,None,"Dd9B-u9EdaH"),
- ("Pier 4","2026-10-02",5,0,"Carousel",None,None,"Dd_vtn4kcMx"),
- ("Pier 4","2026-10-06",10,1,"Static",None,None,"DeJ44b0x5W5"),
- ("Pier 4","2026-10-07",2,0,"Carousel",None,None,"DeMe_yQERwm"),
- ("Pier 4","2026-10-09",5,0,"Static",None,None,"DePGcehR-pv"),
- ("McGillivray Capital","2026-09-18",12,2,"Carousel",None,None,"DdcB_U8jPN5"),
- ("McGillivray Capital","2026-09-29",11,0,"Carousel",None,None,"Dd4kEjtF6V8"),
- ("McGillivray Capital","2026-10-02",9,0,"Reel",318,127,"DeABpMZiFLa"),
- ("McGillivray Capital","2026-10-06",789,18,"Reel",43066,20996,"DeJ8U40jH7J"),
- ("McGillivray Capital","2026-10-09",8,1,"Carousel",None,None,"DeSGq5Kl4Mn"),
+IG = [  # (brand, Toronto date, likes or None when hidden, comments, format, plays, views, shortcode); re-collected 2 November 2026
+ ('Equiton','2026-09-14',9,0,'Carousel',None,None,'DdSUQipjRDi'),
+ ('Equiton','2026-09-15',12,1,'Reel',712,None,'DdUvAQrBq0Y'),
+ ('Equiton','2026-09-16',9,0,'Reel',791,None,'DdXPMwLhhL7'),
+ ('Equiton','2026-09-17',19,0,'Reel',748,None,'DdZ5qiABO6v'),
+ ('Equiton','2026-09-21',7,0,'Carousel',None,None,'DdkHp5vH1ch'),
+ ('Equiton','2026-09-22',11,0,'Reel',477,None,'Ddm3chfh4pN'),
+ ('Equiton','2026-09-23',13,0,'Carousel',None,None,'DdpEGqDCCM5'),
+ ('Equiton','2026-09-25',29,0,'Reel',1089,None,'DduMR6gD_ft'),
+ ('Equiton','2026-09-30',12,0,'Carousel',None,None,'Dd7WfZPH8hT'),
+ ('Equiton','2026-10-01',26,0,'Reel',1041,None,'Dd97qTEBugi'),
+ ('Equiton','2026-10-05',14,0,'Carousel',None,None,'DeIJCYSH76m'),
+ ('Equiton','2026-10-06',22,0,'Carousel',None,None,'DeKom6BH-XD'),
+ ('Equiton','2026-10-07',12,0,'Reel',667,None,'DeNKvwFBTrJ'),
+ ('Equiton','2026-10-09',11,0,'Reel',569,None,'DeSPY-GgTyQ'),
+ ('Skyline','2026-09-15',18,0,'Static',None,None,'DdUW1WsjH9Y'),
+ ('Skyline','2026-09-17',21,0,'Static',None,None,'DdZggysnAqt'),
+ ('Skyline','2026-09-21',37,0,'Static',None,None,'Ddjbu8snTk8'),
+ ('Skyline','2026-09-22',23,0,'Reel',532,None,'DdmHayNDQOG'),
+ ('Skyline','2026-09-23',19,0,'Static',None,None,'Ddo539eIGg4'),
+ ('Skyline','2026-09-25',8,0,'Static',None,None,'DduKVu2m3Xi'),
+ ('Skyline','2026-09-29',47,0,'Static',None,None,'Dd4I7T2iOS5'),
+ ('Skyline','2026-09-30',12,0,'Static',None,None,'Dd6f_yyCJDo'),
+ ('Skyline','2026-10-01',14,0,'Reel',358,None,'Dd9SuZWEtTe'),
+ ('Skyline','2026-10-02',50,0,'Carousel',None,None,'Dd_po8gFfdg'),
+ ('Skyline','2026-10-06',22,0,'Reel',817,None,'DeKigCsDVYb'),
+ ('Skyline','2026-10-07',19,0,'Static',None,None,'DeMvRx6l_Gy'),
+ ('Skyline','2026-10-08',65,0,'Carousel',None,None,'DePGaUAjZDQ'),
+ ('Skyline','2026-10-13',16,0,'Static',None,None,'DecMEdciGzM'),
+ ('Lankin','2026-09-15',3,3,'Static',None,None,'DdUu78BjlA-'),
+ ('Lankin','2026-09-16',8,3,'Carousel',None,None,'DdXVfINDZzU'),
+ ('Lankin','2026-09-18',1,3,'Static',None,None,'DdcgwFTl6L3'),
+ ('Lankin','2026-09-22',5,2,'Static',None,None,'DdmtD5aDO_t'),
+ ('Lankin','2026-09-24',2,3,'Reel',321,None,'Ddr2qKmCJun'),
+ ('Lankin','2026-09-25',21,3,'Static',None,None,'Ddubcjql_R7'),
+ ('Lankin','2026-09-29',4,3,'Static',None,None,'Dd4uoE3l32W'),
+ ('Lankin','2026-09-30',5,3,'Reel',245,None,'Dd7TbYvCmSG'),
+ ('Lankin','2026-10-08',3,2,'Static',None,None,'DeP5x4zFySD'),
+ ('Lankin','2026-10-09',11,4,'Static',None,None,'DeSekxJF68A'),
+ ('Greybrook','2026-09-14',None,0,'Carousel',None,None,'DdRxt_TFDCc'),
+ ('Greybrook','2026-09-15',None,0,'Reel',427,None,'DdUToJwh0R5'),
+ ('Greybrook','2026-09-17',None,0,'Carousel',None,None,'DdZOvK7Eehx'),
+ ('Greybrook','2026-09-21',5,0,'Reel',497,None,'DdjqT1yo9qs'),
+ ('Greybrook','2026-09-23',3,0,'Carousel',None,None,'DdpEtOBlFF-'),
+ ('Greybrook','2026-09-24',None,0,'Static',None,None,'DdrOcccDBfT'),
+ ('Greybrook','2026-09-25',1,1,'Carousel',None,None,'DduJjOolANz'),
+ ('Greybrook','2026-09-26',24,0,'Reel',1104,None,'DdwB4nvIqg6'),
+ ('Greybrook','2026-09-30',8,0,'Reel',416,None,'Dd6rKEaI8Hr'),
+ ('Greybrook','2026-10-02',19,1,'Reel',792,None,'Dd_rxuxI19r'),
+ ('Greybrook','2026-10-06',116,6,'Carousel',None,None,'DeJ9DvgkbLy'),
+ ('Greybrook','2026-10-07',26,3,'Carousel',None,None,'DeMoUy3kYoH'),
+ ('Greybrook','2026-10-08',31,0,'Static',None,None,'DePUKGskWWC'),
 ]
 
 
@@ -242,26 +239,25 @@ EXCLUDED = [
 ]
 
 # Highest single Instagram video published inside the last 90 days, rebuilt every cycle.
-IG_PEAK_90D = {
- "Skyline": dict(plays=911, views=291, likes=33, date="2026-09-03", code="Dc1Z_rfDluh"),
- "Equiton": dict(plays=1298, views=344, likes=15, date="2026-08-26", code="DchSjAGhTEs"),
- "Lankin": dict(plays=264, views=38, likes=2, date="2026-08-13", code="Db_tSUKE7Uo"),
- "Pier 4": dict(plays=2168, views=657, likes=41, date="2026-08-20", code="DcQ-Ty1xR6L"),
- "McGillivray Capital": dict(plays=43066, views=20996, likes=789, date="2026-10-06", code="DeJ8U40jH7J"),
+IG_PEAK_90D = {  # 15 July to 13 October 2026, re-collected 2 November 2026
+ 'Skyline': dict(plays=930, views=None, likes=33, date='2026-09-03', code='Dc1Z_rfDluh'),
+ 'Greybrook': dict(plays=2854, views=None, likes=None, date='2026-07-30', code='DbbIvqoiEd1'),
+ 'Lankin': dict(plays=321, views=None, likes=2, date='2026-09-24', code='Ddr2qKmCJun'),
+ 'Equiton': dict(plays=1400, views=None, likes=26, date='2026-08-25', code='DcexI1vB9JL'),
 }
 
 # Out of category reference account. Wealthsimple is NOT a real estate firm and is
 # NEVER pooled into any category median, percentile or score. It exists on the page
 # as a comparison of what an investor facing Canadian brand does on this platform.
-IG_REF = dict(
+IG_REF = dict(  # re-collected 2 November 2026, 13 September to 13 October 2026
  name="Wealthsimple", handle="wealthsimple",
  url="https://www.instagram.com/wealthsimple/",
- foll=245370, n=12, n90=46,
- medL=398.0, medC=15.0,
- sumL=4660, sumC=200,
- er=0.1622, cl=4.29,
- mix="5C·1S·6R",
- top=1089, topcode="Dd16_hyN0sH",
+ foll=249456, n=13, n90=48,
+ medL=456.0, medC=20.0,
+ sumL=5498, sumC=273,
+ er=0.1828, cl=4.97,
+ mix="5C·1S·7R",
+ top=1116, topcode="Dd16_hyN0sH",
 )
 
 

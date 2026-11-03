@@ -39,6 +39,8 @@ def released(c):
 # and the deck no longer says "Each is free to read, with no sign-up", since the case study gates some tabs; the Real
 # Estate and Hair Loss cards use their own card artwork in the Med Spa pattern).
 HUB_LATER_EDITS = [
+    ('<p class="wk-tool-who">Five Canadian private real estate investment firms, ranked on public Instagram likes, comments and recorded plays.</p>',
+     '<p class="wk-tool-who">Five Canadian private real estate investment firms compared on Instagram, Meta ads and their websites, with four ranked on public Instagram engagement.</p>'),
     ('<p class="section-deck">Pick the one closest to your business. Each is free to read, with no sign-up.</p>\n    <div class="wk-tools-grid">',
      '<p class="section-deck">Pick the one closest to your business.</p>\n    <div class="wk-tools-grid ix-grid">'),
     ('<img src="/assets/index/real-estate/hero.webp" alt="" width="1056" height="591" loading="lazy" decoding="async">',
