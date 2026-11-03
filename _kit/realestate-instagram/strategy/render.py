@@ -311,7 +311,7 @@ def recs_section(a, o, w):
         ('Lankin', 'The reviewed ads and website cited different target return ranges. The research could not confirm whether they referred to the same fund.',
          'First verify which fund each figure describes. Then test naming the fund in the ad headline, with both versions linking to the same verified fund page.',
          'Qualified enquiries per 100 landing-page visits.'),
-        ('Greybrook', 'Its hockey sponsorship received %d visible likes. Its fund post received %s.' % (gb_top, words[gb_fund[0]]),
+        ('Greybrook', 'Its hockey sponsorship post received %d visible likes. Its one fund post in the window received %s.' % (gb_top, words[gb_fund[0]]),
          'Explain the same fund topic in two carousels. Open one with a member of the investment team and the other with the existing fund headline. Give each a trackable route to the fund page.',
          'Fund-page visits per 1,000 accounts reached.'),
         ('Centurion', 'Its website featured the Chief Economist&rsquo;s research. All %s active ads found were for recruitment.' % words[len(ce)],
@@ -323,7 +323,7 @@ def recs_section(a, o, w):
     assert l404 == 6
     extra = {'Lankin': ('%s of its %d ad records checked on 3 November had button links to pages that showed &ldquo;page not found&rdquo;.' % ('Six' if l404 == 6 else l404, sum(r['firm'] == 'Lankin' for r in dl)),
                         'Check those ads in Ads Manager and replace any active broken link with the relevant offer page.',
-                        'Share of active investor ads whose button opens the intended page.', 'Action')}
+                        'Share of active investor ads whose button opens the intended page.', 'Fix')}
     def block(obs, test, meas, label='Test'):
         return ('<p class="ri-robs">%s</p><dl><div class="ri-rtest"><dt>%s</dt><dd>%s</dd></div>'
                 '<div class="ri-rmeasure"><dt>Measure</dt><dd>%s</dd></div></dl>' % (obs, label, test, meas))
@@ -331,9 +331,9 @@ def recs_section(a, o, w):
     html = ''.join('<article class="ri-rcard"><h3>%s</h3>%s%s</article>' % (E(NAMES[k]), block(*extra[k]) if k in extra else block(obs, test, meas),
                    ('<div class="ri-rsecond">' + block(obs, test, meas) + '</div>') if k in extra else '') for k, obs, test, meas in cards)
     return ('<section id="ri-recs-firms"><div class="ri-ovhero"><div class="sec-head"><h2>Recommendations</h2></div>\n'
-            '<p class="ri-ovlead">A <em>marketing test</em> for each firm, from its website, Instagram and Meta ads.</p></div>\n'
+            '<p class="ri-ovlead">What each firm could <em>fix or test</em> next, from its website, Instagram and Meta ads.</p></div>\n'
             '<div class="ri-rgrid">' + html + '</div>\n'
-            '<p class="pnote m0">Each measure is a proposed metric for the firm to track. The public research supplies the observation behind each test, not its result.</p></section>\n')
+            '<p class="pnote m0">Each measure is a proposed metric for the firm to track. The public research supplies the observation behind each fix and test, not its result.</p></section>\n')
 
 
 
