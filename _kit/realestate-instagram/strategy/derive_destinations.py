@@ -34,6 +34,7 @@ def derive(raw_path, pages_path):
     raw = open(raw_path, 'rb').read()
     pages = json.load(open(pages_path))
     orig = {x['id'] for x in json.load(open(os.path.join(HERE, 'ads.json')))['records']}
+    checks = {i: c for c in json.load(open(os.path.join(HERE, 'ad_destination_checks.json')))['checks'] for i in c['ids']}
     recs = []
     for x in json.loads(raw):
         s = x['snapshot']; firm = FIRMS[x['pageID']]; cards = s.get('cards') or []
@@ -63,8 +64,12 @@ def derive(raw_path, pages_path):
         else:
             got = [n for n in named if n in offers(dest)]
             pres = 'Yes' if len(got) == len(named) else ('Partly' if got else 'No')
+        c = checks.get(x['adArchiveID'])
+        if c and typ == 'Unverified':  # resolved by a read-only check in the author's own browser (ad_destination_checks.json)
+            typ, pres, listed = c['destination'], c['presents_offer'], c['final_url']
+            basis = 'Read in the author\'s own browser with Claude in Chrome on 3 November 2026 at 11:25 a.m. Toronto time, after the page showed a bot check to the collector.'
         recs.append({'id': x['adArchiveID'], 'firm': firm, 'check_date': '2026-11-03', 'destination': typ, 'listed_link': listed, 'basis': basis,
-                     'offer_named': '; '.join(named) or None, 'presents_offer': pres, 'in_2_november_review': x['adArchiveID'] in orig,
+                     'offer_named': '; '.join(named) or None, 'presents_offer': pres, 'differences': (c or {}).get('differences') if c else None, 'in_2_november_review': x['adArchiveID'] in orig,
                      'library_url': 'https://www.facebook.com/ads/library/?id=' + x['adArchiveID']})
     links = {}
     for u, v in pages.items():

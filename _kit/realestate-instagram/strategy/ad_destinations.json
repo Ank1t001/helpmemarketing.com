@@ -68,6 +68,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=991228250530788"
   },
@@ -80,6 +81,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1339909528018466"
   },
@@ -92,6 +94,7 @@
    "basis": "Calendly booking page opened on 3 November 2026.",
    "offer_named": "Apartment Fund",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=4275206899420559"
   },
@@ -104,6 +107,7 @@
    "basis": "Calendly booking page opened on 3 November 2026.",
    "offer_named": "Apartment Fund",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=4389299428014828"
   },
@@ -116,6 +120,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2973625956172565"
   },
@@ -128,6 +133,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1022297636914544"
   },
@@ -135,11 +141,15 @@
    "id": "1366940528951811",
    "firm": "Equiton",
    "check_date": "2026-11-03",
-   "destination": "Unverified",
+   "destination": "Fund or product page",
    "listed_link": "https://equiton.com/us-residential-income-fund/",
-   "basis": "The listed link showed a bot check when opened on 3 November 2026; it was not bypassed.",
+   "basis": "Read in the author's own browser with Claude in Chrome on 3 November 2026 at 11:25 a.m. Toronto time, after the page showed a bot check to the collector.",
    "offer_named": "US Apartment Fund",
-   "presents_offer": "Unverified",
+   "presents_offer": "Yes",
+   "differences": [
+    "The ads say \"RRSP, TFSA & RESP eligible\"; the page names RRSP and TFSA only.",
+    "The ads say \"qualified investors\"; the page does not say who can invest."
+   ],
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1366940528951811"
   },
@@ -152,6 +162,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1679891496792599"
   },
@@ -164,6 +175,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1822785365821707"
   },
@@ -176,6 +188,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=962419690158985"
   },
@@ -188,6 +201,7 @@
    "basis": "Calendly booking page opened on 3 November 2026.",
    "offer_named": "Wilson Station Condos",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1117242854180760"
   },
@@ -200,6 +214,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1604583384780841"
   },
@@ -212,6 +227,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1678488510503209"
   },
@@ -224,6 +240,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2832810440453183"
   },
@@ -236,6 +253,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=4022759677858448"
   },
@@ -248,6 +266,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1674838930871329"
   },
@@ -260,6 +279,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1047751188266992"
   },
@@ -272,6 +292,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1080413174628491"
   },
@@ -279,11 +300,15 @@
    "id": "1778125306515953",
    "firm": "Equiton",
    "check_date": "2026-11-03",
-   "destination": "Unverified",
+   "destination": "Fund or product page",
    "listed_link": "https://equiton.com/us-residential-income-fund/",
-   "basis": "The listed link showed a bot check when opened on 3 November 2026; it was not bypassed.",
+   "basis": "Read in the author's own browser with Claude in Chrome on 3 November 2026 at 11:25 a.m. Toronto time, after the page showed a bot check to the collector.",
    "offer_named": "US Apartment Fund",
-   "presents_offer": "Unverified",
+   "presents_offer": "Yes",
+   "differences": [
+    "The ads say \"RRSP, TFSA & RESP eligible\"; the page names RRSP and TFSA only.",
+    "The ads say \"qualified investors\"; the page does not say who can invest."
+   ],
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1778125306515953"
   },
@@ -296,6 +321,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1529952102244122"
   },
@@ -308,6 +334,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1789059662145194"
   },
@@ -320,6 +347,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2624411051311677"
   },
@@ -332,6 +360,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": "Lankin Apartment REIT",
    "presents_offer": "Unverified",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1447371477569402"
   },
@@ -344,6 +373,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2144021036197185"
   },
@@ -356,6 +386,7 @@
    "basis": "Page opened on 3 November 2026.",
    "offer_named": "At the Turning Point event",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2183433305872408"
   },
@@ -368,6 +399,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1159818246706051"
   },
@@ -380,6 +412,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1625356719325274"
   },
@@ -392,6 +425,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": "Lankin Apartment REIT",
    "presents_offer": "Unverified",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=954354520672577"
   },
@@ -404,6 +438,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": false,
    "library_url": "https://www.facebook.com/ads/library/?id=28598713626467451"
   },
@@ -416,6 +451,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2441863423285866"
   },
@@ -428,6 +464,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=4159242460874283"
   },
@@ -440,6 +477,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1111563848524138"
   },
@@ -452,6 +490,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1452935236788640"
   },
@@ -464,6 +503,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1741153916984700"
   },
@@ -476,6 +516,7 @@
    "basis": "Page opened on 3 November 2026.",
    "offer_named": "At the Turning Point event",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1756025042323395"
   },
@@ -488,6 +529,7 @@
    "basis": "Page opened on 3 November 2026.",
    "offer_named": "At the Turning Point event",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1613170070614774"
   },
@@ -500,6 +542,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=4631904367130884"
   },
@@ -512,6 +555,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Lankin Apartment REIT",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1110691005024782"
   },
@@ -524,6 +568,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=4554574738119587"
   },
@@ -536,6 +581,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1601948921206285"
   },
@@ -548,6 +594,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1366127968980481"
   },
@@ -560,6 +607,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1058426163482606"
   },
@@ -572,6 +620,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2063735124512686"
   },
@@ -579,11 +628,15 @@
    "id": "2143131283079878",
    "firm": "Equiton",
    "check_date": "2026-11-03",
-   "destination": "Unverified",
+   "destination": "Fund or product page",
    "listed_link": "https://equiton.com/us-residential-income-fund/",
-   "basis": "The listed link showed a bot check when opened on 3 November 2026; it was not bypassed.",
+   "basis": "Read in the author's own browser with Claude in Chrome on 3 November 2026 at 11:25 a.m. Toronto time, after the page showed a bot check to the collector.",
    "offer_named": "US Apartment Fund",
-   "presents_offer": "Unverified",
+   "presents_offer": "Yes",
+   "differences": [
+    "The ads say \"RRSP, TFSA & RESP eligible\"; the page names RRSP and TFSA only.",
+    "The ads say \"qualified investors\"; the page does not say who can invest."
+   ],
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2143131283079878"
   },
@@ -596,6 +649,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1105531238494867"
   },
@@ -608,6 +662,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1081267964687772"
   },
@@ -620,6 +675,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1894595355024690"
   },
@@ -632,6 +688,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=957688440370065"
   },
@@ -644,6 +701,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1615306530052838"
   },
@@ -656,6 +714,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2995524560800019"
   },
@@ -668,6 +727,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=893795470390280"
   },
@@ -680,6 +740,7 @@
    "basis": "Page opened on 3 November 2026.",
    "offer_named": "At the Turning Point event",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1113319551293851"
   },
@@ -692,6 +753,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1121946593581783"
   },
@@ -704,6 +766,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1053478334404222"
   },
@@ -716,6 +779,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2690893264661161"
   },
@@ -728,6 +792,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1203676132828528"
   },
@@ -740,6 +805,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1375085997831608"
   },
@@ -752,6 +818,7 @@
    "basis": "The library record shows an instant form and also lists a website link; the record does not show which the reader reaches.",
    "offer_named": "Lankin Apartment REIT",
    "presents_offer": "Unverified",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2383206172485260"
   },
@@ -764,6 +831,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": false,
    "library_url": "https://www.facebook.com/ads/library/?id=1543367270877381"
   },
@@ -776,6 +844,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": false,
    "library_url": "https://www.facebook.com/ads/library/?id=1814915889858026"
   },
@@ -788,6 +857,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1447482374183194"
   },
@@ -800,6 +870,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1601531007768211"
   },
@@ -812,6 +883,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1705563274516252"
   },
@@ -824,6 +896,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Skyline Retail REIT",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1406385857756462"
   },
@@ -836,6 +909,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Skyline Clean Energy Fund",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1797758508140358"
   },
@@ -848,6 +922,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1567938922042766"
   },
@@ -860,6 +935,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Skyline Retail REIT",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1705502717182701"
   },
@@ -872,6 +948,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Skyline Retail REIT",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1079714618171046"
   },
@@ -884,6 +961,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Skyline Apartment REIT",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2349813049170357"
   },
@@ -896,6 +974,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Skyline Clean Energy Fund",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2418119378718677"
   },
@@ -908,6 +987,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Skyline Retail REIT",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1125176097115718"
   },
@@ -920,6 +1000,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1255038076788247"
   },
@@ -932,6 +1013,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1109483745329755"
   },
@@ -944,6 +1026,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Skyline Apartment REIT",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=963536426194014"
   },
@@ -956,6 +1039,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Skyline Industrial REIT",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1138075571880728"
   },
@@ -968,6 +1052,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Skyline Apartment REIT",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1650429746478655"
   },
@@ -980,6 +1065,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Skyline Industrial REIT",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1470249924993736"
   },
@@ -992,6 +1078,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Skyline Industrial REIT",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1105321099025757"
   },
@@ -1004,6 +1091,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Skyline Apartment REIT",
    "presents_offer": "Yes",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1673691954336402"
   },
@@ -1016,6 +1104,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1085119831107642"
   },
@@ -1028,6 +1117,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=978490151581231"
   },
@@ -1040,6 +1130,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=4384783865108311"
   },
@@ -1052,6 +1143,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=904520299053764"
   },
@@ -1064,6 +1156,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1103008065534781"
   },
@@ -1076,6 +1169,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1514227393661213"
   },
@@ -1088,6 +1182,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2041530466435750"
   },
@@ -1100,6 +1195,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1703771984642936"
   },
@@ -1112,6 +1208,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1666645021124523"
   },
@@ -1124,6 +1221,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1089877047186504"
   },
@@ -1136,6 +1234,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Apartment Fund",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2023996484913940"
   },
@@ -1148,6 +1247,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1106980608646181"
   },
@@ -1160,6 +1260,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1129979113053501"
   },
@@ -1172,6 +1273,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1097420079676630"
   },
@@ -1184,6 +1286,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2829231440756601"
   },
@@ -1196,6 +1299,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": null,
    "presents_offer": "No specific offer named",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1962662867743935"
   },
@@ -1208,6 +1312,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2079289376339052"
   },
@@ -1220,6 +1325,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=1003859648771028"
   },
@@ -1232,6 +1338,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=2031456411125945"
   },
@@ -1244,6 +1351,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": false,
    "library_url": "https://www.facebook.com/ads/library/?id=2074024483525953"
   },
@@ -1256,6 +1364,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": false,
    "library_url": "https://www.facebook.com/ads/library/?id=2922245564808817"
   },
@@ -1268,6 +1377,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": false,
    "library_url": "https://www.facebook.com/ads/library/?id=2131109837792063"
   },
@@ -1280,6 +1390,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": false,
    "library_url": "https://www.facebook.com/ads/library/?id=4729617330661221"
   },
@@ -1292,6 +1403,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": true,
    "library_url": "https://www.facebook.com/ads/library/?id=992401003185810"
   },
@@ -1304,6 +1416,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": false,
    "library_url": "https://www.facebook.com/ads/library/?id=1295697512731554"
   },
@@ -1316,6 +1429,7 @@
    "basis": "The library record shows the instant form and its questions.",
    "offer_named": "Bridleview Residences",
    "presents_offer": "No",
+   "differences": null,
    "in_2_november_review": false,
    "library_url": "https://www.facebook.com/ads/library/?id=951260494392468"
   }

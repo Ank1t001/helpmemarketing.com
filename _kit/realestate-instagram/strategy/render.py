@@ -393,7 +393,8 @@ def rank_dest(dd):
     bridle = sum(r['offer_named'] == 'Bridleview Residences' and r['destination'] == 'Meta form' and r['presents_offer'] == 'No' for r in recs)
     lk = dd['listed_links_opened']
     nf = [u.replace('https://', '') for u, v in lk.items() if v['status'] == 404]
-    assert unv_form and unv_bot and bridle and len(nf) == 2
+    assert unv_form and bridle and len(nf) == 2
+    usf = [r for r in recs if r['offer_named'] == 'US Apartment Fund' and r['destination'] == 'Fund or product page']
     return ('<section id="ri-cmp-dest" class="ri-cblock"><div class="sec-head"><h2>Where does each investor ad take the reader?</h2>\n'
             '<p class="dek">A separately dated check: the three firms&rsquo; active investor ads were collected again on 3 November 2026 and each destination was recorded. '
             '%d ads (%s); %d of them were in the 2 November review, matched by ad ID. Unverified destinations stay in each firm&rsquo;s total.</p></div>\n'
@@ -403,10 +404,12 @@ def rank_dest(dd):
             '</tr></thead><tbody>' + t1 + '</tbody></table></div>\n'
             '<p class="ri-cmp-h">Ads that name a specific fund, development or event: does the destination name it too?</p>'
             '<div class="tw"><table class="ri-wtable ri-ptable"><thead><tr><th>Firm</th><th class="r">Ads naming an offer</th><th class="r">Destination names it</th><th class="r">Destination does not</th><th class="r">Unverified</th></tr></thead><tbody>' + t2 + '</tbody></table></div>\n'
-            '<p class="pnote">Meta form is counted only where the library record shows the form&rsquo;s questions. Unverified covers %d Lankin ads whose record shows a form and also lists a website link, and %d Equiton ads whose fund page showed a bot check. '
+            '<p class="pnote">Meta form is counted only where the library record shows the form&rsquo;s questions. Unverified covers %d Lankin ads whose record shows a form and also lists a website link%s. '
             'Equiton&rsquo;s %d Bridleview Residences forms show the 24%% target return and $25,000 minimum but name the development only in the disclaimer. '
             'The booking page is a Calendly calendar that names no fund. Of the website links listed on Lankin records, %s returned &ldquo;page not found&rdquo; on 3 November; the record does not show that readers land there.</p>\n'
-            % (unv_form, unv_bot, bridle, ' and '.join(nf)) +
+            % (unv_form, (', and %d Equiton ads whose fund page showed a bot check' % unv_bot) if unv_bot else '', bridle, ' and '.join(nf)) +
+            ('<p class="pnote">Equiton&rsquo;s %d US Apartment Fund ads lead to a landing page for that fund, which states the $25,000 minimum and the 8&ndash;12%% target return (read in a browser on 3 November, after the page showed a bot check to the collector). '
+             'Two details differ: the ads say &ldquo;RRSP, TFSA &amp; RESP eligible&rdquo; while the page names RRSP and TFSA only, and the ads say &ldquo;qualified investors&rdquo; while the page does not say who can invest.</p>\n' % len(usf) if usf else '') +
             '<p class="ri-vlink"><a href="#ri-view-paid">See the ads in Paid Social <span aria-hidden="true">&rarr;</span></a></p></section>\n')
 
 

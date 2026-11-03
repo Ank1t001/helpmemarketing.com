@@ -1,0 +1,15 @@
+{
+ "note": "Destinations checked by the author in their own browser with Claude in Chrome (founder, 2026-11-03). Read only: nothing clicked, filled in or submitted; no page text kept beyond the short quotes here.",
+ "checks": [
+  {
+   "ids": ["1366940528951811", "1778125306515953", "2143131283079878"],
+   "checked": "2026-11-03T11:25:00-05:00",
+   "ads": "All three active since 12 August 2026, headline \"Canadian discipline. American scale.\", each names \"The Equiton US Apartment Fund (US Residential Income Fund Trust)\"; button \"See Details\" links to equiton.com/us-residential-income-fund/ (tracking parameters left out). Each ad has multiple versions; the version shown was read.",
+   "final_url": "https://equiton.com/us-residential-income-fund/",
+   "destination": "Fund or product page",
+   "page": "Title \"US Apartment Fund\"; heading \"US Real Estate Opportunities. Canadian Expertise.\"; names \"Equiton US Residential Income Fund\" and \"US Apartment Fund\"; a landing page for this one fund. States \"Minimum $25,000.\" and \"8–12%* TARGETED ANNUAL NET RETURN\"; does not state who can invest. Next step: a \"SPEAK WITH A SPECIALIST\" call-request form and a \"BOOK A CALL\" button.",
+   "presents_offer": "Yes",
+   "differences": ["The ads say \"RRSP, TFSA & RESP eligible\"; the page names RRSP and TFSA only.", "The ads say \"qualified investors\"; the page does not say who can invest."]
+  }
+ ]
+}
