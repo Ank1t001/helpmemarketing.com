@@ -46,6 +46,10 @@ def website_view(w):
         else:
             rows.append('<tr><td class="brandcell">%s</td><td class="wrap-cell" data-label="How it presents the offer">%s</td><td class="wrap-cell" data-label="Evidence it shows">%s</td><td class="wrap-cell" data-label="Next step">%s</td></tr>'
                         % (E(NAMES[k]), E(g['offer']), E(g['evidence']), E(g['next'])))
+    # What stood out (founder, 2026-11-03): checked against the evidence fields so the wording fails loudly if they change.
+    assert 'Development Offerings' in f['Equiton']['minimum'] and '$50,000' in f['Skyline']['minimum'] and f['Centurion']['matrix']['minimum'] == ['product', '$25,000 on the Apartment REIT page']
+    assert 'discussed on the call' in f['Lankin']['matrix']['minimum'][1] and '$25,000' in f['Lankin']['matrix']['minimum'][1] and f['Greybrook']['minimum'].startswith('Not stated')
+    assert all('assets under management' in f[k]['glance']['evidence'].lower() for k in ('Equiton', 'Skyline', 'Lankin')) and 'Chief Economist' in f['Centurion']['glance']['evidence']
     figs = ''.join('<figure class="ri-wfig"><img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async">'
                    '<figcaption><b>%s &middot; %s</b>%s <span>%s page, %s.</span></figcaption></figure>'
                    % (x['src'], E(x['alt']), x['width'], x['height'], E(NAMES[x['firm']] if x['firm'] != 'Centurion' else 'Centurion'), E(x['title']),
@@ -55,7 +59,11 @@ def website_view(w):
             '<h3 class="ri-wh">Messaging at a glance</h3>\n'
             '<div class="tw"><table class="ri-wtable"><thead><tr><th>Firm</th><th>How it presents the offer</th><th>Evidence it shows</th><th>Next step</th></tr></thead>'
             '<tbody>' + ''.join(rows) + '</tbody></table></div>\n'
-            '<h3 class="ri-wh">Messaging in practice</h3>\n<div class="ri-wex">' + figs + '</div>\n'
+            '<h3 class="ri-wh">How two firms explain what it takes to invest</h3>\n<div class="ri-wex">' + figs + '</div>\n'
+            '<h3 class="ri-wh">What stood out</h3>\n'
+            '<p class="dek">Equiton, Skyline and Centurion state a minimum investment on their main website pages ($25,000, $50,000 and $25,000). Lankin&rsquo;s fund pages leave it to a call, though a campaign page reached from one of its ads states $25,000, and the Greybrook pages reviewed do not state one.</p>\n'
+            '<p class="dek">Equiton, Skyline and Lankin lead their evidence with scale: assets under management, properties or apartments, and investor numbers. Centurion leads with its Chief Economist&rsquo;s research instead.</p>\n'
+            '<p class="ri-vlink"><a href="#ri-cmp-website">See what each firm tells an investor before an enquiry in HMM Ranking <span aria-hidden="true">&rarr;</span></a></p>\n'
             '<p class="pnote m0">Exact quotes, return wording, notices and collection dates are in <a href="#ri-web-sources">Sources &amp; evidence</a>. '
             'Figures are the firms&rsquo; own and were not verified.</p>'
             '</section>\n</div>\n')
