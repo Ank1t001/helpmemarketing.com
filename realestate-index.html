@@ -593,13 +593,14 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 @media(prefers-reduced-motion:reduce){.msi.msi a.ri-ocard,.msi.msi .ri-oarrow{transition:none}.msi.msi a.ri-ocard:hover,.msi.msi a.ri-ocard:hover .ri-oarrow{transform:none}}
 /* Engagement comparison (2026-11-03, founder): three blocks; bars carry no rank column; the three reading notes as a definition list. */
 .msi.msi .ri-bar{grid-template-columns:170px 1fr 80px}
-.msi.msi .ri-h3{margin:32px 0 16px;font-family:var(--font-display,Fraunces,serif);font-size:24px;font-weight:400;line-height:1.2}
+.msi.msi #ri-rankings>.sec-head{margin-bottom:16px;padding-bottom:0;border-bottom:0}
+.msi.msi #ri-rankings>.sec-head .dek{margin-bottom:0}
 .msi.msi .ri-read{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 16px}
 .msi.msi .ri-read>div{padding:20px 24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
 .msi.msi .ri-read dt{margin:0 0 6px;font-weight:650;font-size:15px}
 .msi.msi .ri-read dd{margin:0;font-size:14.5px;line-height:1.55;color:var(--text-muted)}
 @media(max-width:900px){.msi.msi .ri-read{grid-template-columns:1fr}}
-@media(max-width:720px){.msi.msi .ri-bar{grid-template-columns:104px 1fr 60px}.msi.msi .ri-h3{font-size:22px;margin-top:24px}.msi.msi .ri-read>div{padding:16px}}
+@media(max-width:720px){.msi.msi .ri-bar{grid-template-columns:104px 1fr 60px}.msi.msi .ri-read>div{padding:16px}}
 /* Header without the image, as on the Business index, and Sources & evidence (2026-11-03, founder; since the same day one compact row and the last thing in the report, the old report footer removed): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
 .msi.msi header{background:none;grid-template-columns:1fr;max-width:760px}
 .msi.msi header::after{display:none}
@@ -802,10 +803,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </div>
 <div class="ri-view" id="ri-view-rankings">
 <section id="ri-rankings"><div class="sec-head"><h2>Engagement comparison</h2>
-<p class="dek">Compare posting activity and visible Instagram engagement across the firms reviewed.</p>
-<p class="pnote">Four Instagram accounts compared. No corporate account was found for Centurion.</p>
-<p class="pnote m0">Posts published in the 30 days ending 13 October 2026, collected on 2 November 2026.</p></div>
-<h3 class="ri-h3">Compare the firms</h3>
+<p class="dek">Explore posting activity, likes, comments and video plays across four Instagram accounts.</p></div>
 <details class="ri-adv"><summary>View the full comparison</summary>
 <p class="pnote mb12">All metrics for the same reporting window, in alphabetical order. Post formats: R reel, C carousel, S static. Residential fund and Development-led are HMM&rsquo;s editorial firm groups.</p>
 <div class="tw"><table><thead><tr><th>Firm</th><th class="r"><span class="tip d" tabindex="0" data-tip="Follower count recorded at collection on 2 November 2026.">Followers</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="Company posts reviewed in the reporting window.">Posts</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="Post formats: R reels, C carousels, S static posts. Formats a firm did not publish are left out rather than shown as zero.">Post formats</span></th>
@@ -1131,6 +1129,7 @@ body:new URLSearchParams({form:'index-download',email:em,source:GATE_SOURCE})})
 <p class="dek m0"><b>Review.</b> Data collection, calculations and a first draft are prepared with automated tools and AI assistance. Ankit Kumar reviews the findings and approves each edition before it is published. Corrections are recorded in &ldquo;Coverage, previous-edition comparison and correction&rdquo; and in the edition history.</p>
 </details></section>
 <section><details class="ri-adv"><summary>Engagement measures: formulas, exclusions and reference bands</summary>
+<p class="pnote">Engagement comparison coverage: four Instagram accounts compared. No corporate account was found for Centurion. Posts published in the 30 days ending 13 October 2026, collected on 2 November 2026.</p>
 <h3>HMM score components</h3>
 <div class="ri-method"><p><b>Median likes relative to followers, 45%</b>Each firm&rsquo;s median visible likes per post divided by its follower count, ranked against the other scored firms.</p>
 <p><b>Comment-to-like ratio, 30%</b>Comments divided by likes, both counted on the posts that show their likes, so comments on posts that hide likes are left out. The ratio is scored in HMM&rsquo;s bands, and ratios above 5% score lower. It counts comments; it does not measure investor intent.</p>
