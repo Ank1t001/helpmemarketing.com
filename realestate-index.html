@@ -604,7 +604,7 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 @media(max-width:720px){.msi.msi .ri-bar{grid-template-columns:104px 1fr 60px}.msi.msi .ri-read>div{padding:16px}}
 /* Website Messaging (2026-11-03, founder): one glance table and two captioned crops, as on the Business index. */
 .msi.msi .ri-wh{margin:32px 0 14px;font-family:var(--font-display,Fraunces,serif);font-size:24px;font-weight:400;line-height:1.2}
-.msi.msi #ri-website>.sec-head+.ri-wh{margin-top:8px}
+.msi.msi #ri-website>.ri-ovhero+.ri-wh{margin-top:0}
 .msi.msi .ri-wtable th:first-child{width:16%}
 .msi.msi .ri-wtable th:nth-child(2){width:32%}
 .msi.msi .ri-wtable td{vertical-align:top}
@@ -655,19 +655,21 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi .ri-corr li{margin:0 0 10px;font-size:14.5px;line-height:1.55;color:var(--text-body,var(--text))}
 @media(max-width:720px){.msi.msi .ri-sstats{grid-template-columns:repeat(2,minmax(0,1fr))}.msi.msi .ri-sstats>div{padding:14px 16px}.msi.msi .ri-sstats>div:nth-child(odd){border-left:0}.msi.msi .ri-sstats>div:nth-child(n+3){border-top:1px solid var(--border)}.msi.msi .ri-sstats dd{font-size:22px}.msi.msi .ri-sgroup{margin-top:28px}}
 /* Overview look as on the Business index (2026-11-03, founder): dark intro panel with an orange label and a serif lead, a section label above the cards. */
-.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero{position:relative;overflow:hidden;margin:0 0 48px;padding:48px 48px 44px;border:1px solid rgba(255,255,255,.08);border-radius:var(--r2);background:radial-gradient(circle at 100% 0,rgba(255,92,26,.34),rgba(255,92,26,0) 50%),var(--obsidian,var(--bg-elevated));color:var(--paper,var(--text))}
-.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero .sec-head{margin:0 0 16px;padding:0;border:0}
-.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero h2{margin:0;font-family:var(--sans,Inter,sans-serif);font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:var(--cta)}
-.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero h2::before{display:none}
-.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovlead{max-width:32ch;margin:0;font-family:var(--font-display,Fraunces,serif);font-size:clamp(28px,2.9vw,40px);font-weight:400;line-height:1.15;letter-spacing:-.02em;color:inherit;text-wrap:balance}
-.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovlead em{font-style:italic;color:var(--cta)}
+.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero{position:relative;overflow:hidden;margin:0 0 48px;padding:48px 48px 44px;border:1px solid rgba(255,255,255,.08);border-radius:var(--r2);background:radial-gradient(circle at 100% 0,rgba(255,92,26,.34),rgba(255,92,26,0) 50%),var(--obsidian,var(--bg-elevated));color:var(--paper,var(--text))}
+.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero .sec-head{margin:0 0 16px;padding:0;border:0}
+.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero h2{margin:0;font-family:var(--sans,Inter,sans-serif);font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:var(--cta)}
+.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero h2::before{display:none}
+.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovlead{max-width:32ch;margin:0;font-family:var(--font-display,Fraunces,serif);font-size:clamp(28px,2.9vw,40px);font-weight:400;line-height:1.15;letter-spacing:-.02em;color:inherit;text-wrap:balance}
+.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovlead em{font-style:italic;color:var(--cta)}
 .msi.msi #ri-overview .ri-ovlabel{margin:0 0 16px;font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:var(--text-tertiary)}
 .msi.msi #ri-overview .ri-otoc{margin-top:0}
-@media(max-width:900px){.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero{margin-bottom:40px;padding:40px 32px 36px}}
-@media(max-width:720px){.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero{margin-bottom:32px;padding:28px 20px 24px}.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovlead{max-width:none;font-size:26px;line-height:1.2}.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovlabel{margin-bottom:12px}}
-@media print{.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero{background:none;color:inherit;border-color:var(--border)}}
+@media(max-width:900px){.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero{margin-bottom:40px;padding:40px 32px 36px}}
+@media(max-width:720px){.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero{margin-bottom:32px;padding:28px 20px 24px}.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovlead{max-width:none;font-size:26px;line-height:1.2}.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovlabel{margin-bottom:12px}}
+@media print{.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero{background:none;color:inherit;border-color:var(--border)}}
 .msi.msi #ri-rankings .ri-ovhero{margin-bottom:24px}
 @media(max-width:720px){.msi.msi #ri-rankings .ri-ovhero{margin-bottom:20px}}
+.msi.msi #ri-website .ri-ovhero{margin-bottom:40px}
+@media(max-width:720px){.msi.msi #ri-website .ri-ovhero{margin-bottom:28px}}
 /* Header without the image, as on the Business index, and Sources & evidence (2026-11-03, founder; since the same day one compact row and the last thing in the report, the old report footer removed): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
 .msi.msi header{background:none;grid-template-columns:1fr;max-width:760px}
 .msi.msi header::after{display:none}
@@ -935,8 +937,8 @@ document.addEventListener('DOMContentLoaded', function () {
 </div>
 <!-- STRATEGY:website START -->
 <div class="ri-view" id="ri-view-website">
-<section id="ri-website"><div class="sec-head"><h2>Website messaging</h2>
-<p class="dek">How each firm explains its investment offer and guides prospective investors to the next step.</p></div>
+<section id="ri-website"><div class="ri-ovhero"><div class="sec-head"><h2>Website messaging</h2></div>
+<p class="ri-ovlead">How each firm explains its <em>investment offer</em> and guides prospective investors to the next step.</p></div>
 <h3 class="ri-wh">Messaging at a glance</h3>
 <div class="tw"><table class="ri-wtable"><thead><tr><th>Firm</th><th>How it presents the offer</th><th>Evidence it shows</th><th>Next step</th></tr></thead><tbody><tr><td class="brandcell">Equiton</td><td class="wrap-cell" data-label="How it presents the offer">Introduces five fund groups for individual investors and shows a targeted net return range for each. Its minimum investment is $25,000.</td><td class="wrap-cell" data-label="Evidence it shows">Assets under management, properties, number of investors and years in business.</td><td class="wrap-cell" data-label="Next step">Book a meeting with an Equiton Investment Specialist.</td></tr><tr><td class="brandcell">Skyline</td><td class="wrap-cell" data-label="How it presents the offer">Presents a range of real estate funds. Its Apartment REIT page names a $50,000 minimum.</td><td class="wrap-cell" data-label="Evidence it shows">Years in business, assets under management and investor testimonials.</td><td class="wrap-cell" data-label="Next step">Get started with a relationship manager.</td></tr><tr><td class="brandcell">Lankin Investments</td><td class="wrap-cell" data-label="How it presents the offer">Introduces its funds and lists a target return for each.</td><td class="wrap-cell" data-label="Evidence it shows">Assets under management, apartment count and number of Canadian investors.</td><td class="wrap-cell" data-label="Next step">Book a call to discuss eligibility and minimums.</td></tr><tr><td class="brandcell">Greybrook Realty Partners</td><td class="wrap-cell" data-label="How it presents the offer">Explains its U.S. multifamily fund and its investment strategy.</td><td class="wrap-cell" data-label="Evidence it shows">The fund page sets out its targets. Firm news gives examples of its activity.</td><td class="wrap-cell" data-label="Next step">Get in touch. The investor portal is a separate route.</td></tr><tr><td class="brandcell">Centurion Asset Management</td><td class="wrap-cell" data-label="How it presents the offer">Leads with economic research and explains how qualified investors can access its funds. Its Apartment REIT page names a $25,000 minimum.</td><td class="wrap-cell" data-label="Evidence it shows">Research from its Chief Economist and the firm’s annual report.</td><td class="wrap-cell" data-label="Next step">Invest through an advisor. Permitted clients may buy directly.</td></tr></tbody></table></div>
 <h3 class="ri-wh">Messaging in practice</h3>

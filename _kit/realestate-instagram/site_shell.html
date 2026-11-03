@@ -604,7 +604,7 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 @media(max-width:720px){.msi.msi .ri-bar{grid-template-columns:104px 1fr 60px}.msi.msi .ri-read>div{padding:16px}}
 /* Website Messaging (2026-11-03, founder): one glance table and two captioned crops, as on the Business index. */
 .msi.msi .ri-wh{margin:32px 0 14px;font-family:var(--font-display,Fraunces,serif);font-size:24px;font-weight:400;line-height:1.2}
-.msi.msi #ri-website>.sec-head+.ri-wh{margin-top:8px}
+.msi.msi #ri-website>.ri-ovhero+.ri-wh{margin-top:0}
 .msi.msi .ri-wtable th:first-child{width:16%}
 .msi.msi .ri-wtable th:nth-child(2){width:32%}
 .msi.msi .ri-wtable td{vertical-align:top}
@@ -655,19 +655,21 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi .ri-corr li{margin:0 0 10px;font-size:14.5px;line-height:1.55;color:var(--text-body,var(--text))}
 @media(max-width:720px){.msi.msi .ri-sstats{grid-template-columns:repeat(2,minmax(0,1fr))}.msi.msi .ri-sstats>div{padding:14px 16px}.msi.msi .ri-sstats>div:nth-child(odd){border-left:0}.msi.msi .ri-sstats>div:nth-child(n+3){border-top:1px solid var(--border)}.msi.msi .ri-sstats dd{font-size:22px}.msi.msi .ri-sgroup{margin-top:28px}}
 /* Overview look as on the Business index (2026-11-03, founder): dark intro panel with an orange label and a serif lead, a section label above the cards. */
-.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero{position:relative;overflow:hidden;margin:0 0 48px;padding:48px 48px 44px;border:1px solid rgba(255,255,255,.08);border-radius:var(--r2);background:radial-gradient(circle at 100% 0,rgba(255,92,26,.34),rgba(255,92,26,0) 50%),var(--obsidian,var(--bg-elevated));color:var(--paper,var(--text))}
-.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero .sec-head{margin:0 0 16px;padding:0;border:0}
-.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero h2{margin:0;font-family:var(--sans,Inter,sans-serif);font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:var(--cta)}
-.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero h2::before{display:none}
-.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovlead{max-width:32ch;margin:0;font-family:var(--font-display,Fraunces,serif);font-size:clamp(28px,2.9vw,40px);font-weight:400;line-height:1.15;letter-spacing:-.02em;color:inherit;text-wrap:balance}
-.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovlead em{font-style:italic;color:var(--cta)}
+.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero{position:relative;overflow:hidden;margin:0 0 48px;padding:48px 48px 44px;border:1px solid rgba(255,255,255,.08);border-radius:var(--r2);background:radial-gradient(circle at 100% 0,rgba(255,92,26,.34),rgba(255,92,26,0) 50%),var(--obsidian,var(--bg-elevated));color:var(--paper,var(--text))}
+.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero .sec-head{margin:0 0 16px;padding:0;border:0}
+.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero h2{margin:0;font-family:var(--sans,Inter,sans-serif);font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:var(--cta)}
+.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero h2::before{display:none}
+.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovlead{max-width:32ch;margin:0;font-family:var(--font-display,Fraunces,serif);font-size:clamp(28px,2.9vw,40px);font-weight:400;line-height:1.15;letter-spacing:-.02em;color:inherit;text-wrap:balance}
+.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovlead em{font-style:italic;color:var(--cta)}
 .msi.msi #ri-overview .ri-ovlabel{margin:0 0 16px;font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:var(--text-tertiary)}
 .msi.msi #ri-overview .ri-otoc{margin-top:0}
-@media(max-width:900px){.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero{margin-bottom:40px;padding:40px 32px 36px}}
-@media(max-width:720px){.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero{margin-bottom:32px;padding:28px 20px 24px}.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovlead{max-width:none;font-size:26px;line-height:1.2}.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovlabel{margin-bottom:12px}}
-@media print{.msi.msi :is(#ri-overview,#ri-rankings) .ri-ovhero{background:none;color:inherit;border-color:var(--border)}}
+@media(max-width:900px){.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero{margin-bottom:40px;padding:40px 32px 36px}}
+@media(max-width:720px){.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero{margin-bottom:32px;padding:28px 20px 24px}.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovlead{max-width:none;font-size:26px;line-height:1.2}.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovlabel{margin-bottom:12px}}
+@media print{.msi.msi :is(#ri-overview,#ri-rankings,#ri-website) .ri-ovhero{background:none;color:inherit;border-color:var(--border)}}
 .msi.msi #ri-rankings .ri-ovhero{margin-bottom:24px}
 @media(max-width:720px){.msi.msi #ri-rankings .ri-ovhero{margin-bottom:20px}}
+.msi.msi #ri-website .ri-ovhero{margin-bottom:40px}
+@media(max-width:720px){.msi.msi #ri-website .ri-ovhero{margin-bottom:28px}}
 /* Header without the image, as on the Business index, and Sources & evidence (2026-11-03, founder; since the same day one compact row and the last thing in the report, the old report footer removed): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
 .msi.msi header{background:none;grid-template-columns:1fr;max-width:760px}
 .msi.msi header::after{display:none}

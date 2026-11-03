@@ -50,8 +50,8 @@ def website_view(w):
                    '<figcaption><b>%s &middot; %s</b>%s <span>%s page, %s.</span></figcaption></figure>'
                    % (x['src'], E(x['alt']), x['width'], x['height'], E(NAMES[x['firm']] if x['firm'] != 'Centurion' else 'Centurion'), E(x['title']),
                       E(x['caption']), 'Apartment REIT', x['captured']) for x in w['examples'])
-    return ('<div class="ri-view" id="ri-view-website">\n<section id="ri-website"><div class="sec-head"><h2>Website messaging</h2>\n'
-            '<p class="dek">How each firm explains its investment offer and guides prospective investors to the next step.</p></div>\n'
+    return ('<div class="ri-view" id="ri-view-website">\n<section id="ri-website"><div class="ri-ovhero"><div class="sec-head"><h2>Website messaging</h2></div>\n'
+            '<p class="ri-ovlead">How each firm explains its <em>investment offer</em> and guides prospective investors to the next step.</p></div>\n'
             '<h3 class="ri-wh">Messaging at a glance</h3>\n'
             '<div class="tw"><table class="ri-wtable"><thead><tr><th>Firm</th><th>How it presents the offer</th><th>Evidence it shows</th><th>Next step</th></tr></thead>'
             '<tbody>' + ''.join(rows) + '</tbody></table></div>\n'
