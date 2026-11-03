@@ -17,8 +17,8 @@
   "prior_cycle": "004",
   "prior_verification": "history/cycle004-verification.json",
   "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv",
-  "modified_at": "2026-11-03T01:15:39+00:00",
-  "modified_at_source": "Vercel production deployment dpl_Hg6oNopMXfj88Ny3DErWT2Dyab6r (commit ee72275) ready time (1793668539996 ms): the case study title, Sources & evidence below the tabs and the header without its image, the last content change to /realestate-index. Earlier value: 2026-11-03T00:59:54+00:00; earlier releases are listed in the git history of this file.",
+  "modified_at": "2026-11-03T01:21:00+00:00",
+  "modified_at_source": "Vercel production deployment dpl_3zD8RawPMUjnGBkXMtTcNXsyVycE (commit 3746069) ready time (1793668860236 ms): the header meta line, the last content change to /realestate-index. Earlier value: 2026-11-03T01:15:39+00:00; earlier releases are listed in the git history of this file.",
   "revision": {
     "date": "2026-11-02",
     "by": "founder",
