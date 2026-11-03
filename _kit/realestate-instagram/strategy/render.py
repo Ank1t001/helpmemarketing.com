@@ -250,6 +250,7 @@ def paid_sources(a):
             % (sum(len(v) for v in inv.values()), listed, listed, tot['Equiton']['active'], tot['Skyline']['active'], tot['Lankin']['active'], sum(len(v) for v in read.values()),
                tot['Equiton']['active'] - len(read['Equiton']), E(other[0]['headline']) if other else '', sum(len(v) for v in inv.values())) +
             '<p class="pnote">On ' + DATE + ' most ad links pointed to a Meta short link (fb.me) and were not followed. Where the ads send people was checked separately on 3 November 2026; see &ldquo;Ad destinations&rdquo; below and the last block of HMM Ranking.</p>\n' + dest_sources() +
+            '<p class="pnote"><b>Follow-up, Lankin minimums:</b> two of its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo; and a campaign page states a $25,000 minimum. A form&rsquo;s qualifying question can serve a different purpose from a product minimum, so each ad will be traced to its own form, destination and product before any wording change is recommended.</p>\n'
             '<p class="pnote m0"><b>Examples in Paid Social (the longest-running investor ad from each firm):</b> ' + ex + '</p>\n</div>\n')
 
 
@@ -265,13 +266,24 @@ def dest_sources():
         return '3 November, ' + t[11:16] + ((' to ' + t.split(' to ')[1]) if ' to ' in t else '') + ' Toronto time'
     checks = ''.join('<li>%s: %d ads, %s</li>' % (E(when(x['checked'])), len(x['ids']),
                      'classified by the page the button points to (Meta labels them URL-link ads; all versions checked)' if x.get('resolve_by_url_label') else E(x['destination'])) for x in ck['checks'])
+    recs = dd['records']
+    bridle = sum(r['offer_named'] == 'Bridleview Residences' and r['destination'] == 'Meta form' and r['presents_offer'] == 'No' for r in recs)
+    nf = [u.replace('https://', '') for u, v in dd['listed_links_opened'].items() if v['status'] == 404]
+    lr = [r for r in recs if r['firm'] == 'Lankin' and 'URL link' in r['basis']]
+    usf = [r for r in recs if r['offer_named'] == 'US Apartment Fund' and r['destination'] == 'Fund or product page']
+    detail = ('<p class="pnote">Equiton&rsquo;s %d Bridleview Residences forms show the 24%% target return and $25,000 minimum but name the development only in the disclaimer, so they count as absent from main content. '
+              'Equiton&rsquo;s booking page is a Calendly calendar that names no fund. '
+              'Lankin&rsquo;s %d website-link ads are counted by the page their button points to: Meta labels each &ldquo;This ad is from a URL link&rdquo; and all their versions point to a lankin.com address (checked in a browser on 3 November), though a Meta form is attached to each as an extra asset and the live ad cannot be seen. '
+              'The &ldquo;page not found&rdquo; addresses were %s.</p>\n' % (bridle, len(lr), ' and '.join(nf)) +
+              ('<p class="pnote">Equiton&rsquo;s %d US Apartment Fund ads lead to a landing page for that fund, which states the $25,000 minimum and the 8&ndash;12%% target return (read in a browser on 3 November, after the page showed a bot check to the collector). '
+               'Two details differ: the ads say &ldquo;RRSP, TFSA &amp; RESP eligible&rdquo; while the page names RRSP and TFSA only, and the ads say &ldquo;qualified investors&rdquo; while the page does not say who can invest.</p>\n' % len(usf) if usf else ''))
     return ('<h3>Ad destinations, 3 November 2026</h3>\n'
             '<p class="dek">The three investor advertiser pages were collected again with apify/facebook-ads-scraper (run %s, %s to %s Toronto time): %d investor ads (%s), %d of them in the %s review by ad ID. '
-            'A Meta form is counted only where the library record shows the form&rsquo;s questions; a record with a form and a website link, or a page behind a bot check, stays Unverified and in the denominator. '
-            '&ldquo;Names the offer&rdquo; compares the fund, development or event named in the ad with the visible destination text, form disclaimers excluded. Raw output and page text are private; SHA-256 %s&hellip;.</p>\n'
+            'A Meta form is counted only where the library record shows the form&rsquo;s questions. When a record contained both a form and a website link, the verified button URL was used where available; otherwise the destination was recorded as Unverified. A page behind a bot check also stayed Unverified until it was read in a browser. Unverified destinations stay in the denominator; after the checks below, none remained. '
+            '&ldquo;Named in main content&rdquo; compares the fund, development or event named in the ad with the destination&rsquo;s main content; names appearing only in disclaimers are excluded. Raw output and page text are private; SHA-256 %s&hellip;.</p>\n'
             % (E(c['run']), c['started'][11:16], c['finished'][11:16], len(dd['records']), ', '.join('%s %d' % (E(NAMES[k]), v) for k, v in sorted(n.items())), prior, DATE, dd['raw_sha256'][:12]) +
             '<p class="pnote mb12"><b>Read-only checks in the author&rsquo;s own browser:</b></p><ul class="ri-themedefs">' + checks + '</ul>\n'
-            '<p class="pnote mb12"><b>Listed links opened on 3 November:</b></p><ul class="ri-themedefs">' + links + '</ul>\n')
+            '<p class="pnote mb12"><b>Listed links opened on 3 November:</b></p><ul class="ri-themedefs">' + links + '</ul>\n' + detail)
 
 
 def recs_section(a, o, w):
@@ -305,17 +317,19 @@ def recs_section(a, o, w):
         ('Centurion', 'Its website featured the Chief Economist&rsquo;s research. All %s active ads found were for recruitment.' % words[len(ce)],
          'Promote one research article to investors and link it to the Apartment REIT page.',
          'Share of ad-referred article visitors who continue to the REIT page.')]
-    # Second Lankin test (founder, 2026-11-03): one minimum across ads, form and page, from the 3 November checks.
-    al = w['matrix_check_2']['ad_landing']
-    assert '$10,000' in al and '$5,000 or more' in al and 'from a minimum of $25,000' in w['matrix_check_2']['others']['Lankin']
-    extra = {'Lankin': ('Two of its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo;, and a campaign page states a $25,000 minimum; its website leaves the minimum to the call.',
-                        'Show one minimum in the ad, the form and the page it links to. Compare enquiries with the current mixed figures over the same period.',
-                        'Share of enquiries that meet the minimum.')}
-    def block(obs, test, meas):
-        return ('<p class="ri-robs">%s</p><dl><div class="ri-rtest"><dt>Test</dt><dd>%s</dd></div>'
-                '<div class="ri-rmeasure"><dt>Measure</dt><dd>%s</dd></div></dl>' % (obs, test, meas))
-    html = ''.join('<article class="ri-rcard"><h3>%s</h3>%s%s</article>' % (E(NAMES[k]), block(obs, test, meas),
-                   ('<div class="ri-rsecond">' + block(*extra[k]) + '</div>') if k in extra else '') for k, obs, test, meas in cards)
+    # Lankin second block (founder, 2026-11-03, after the destination review): the broken button links, an action rather than a test.
+    dl = load('ad_destinations.json')['records']
+    l404 = sum(r['firm'] == 'Lankin' and r['destination'] == 'Page not found' for r in dl)
+    assert l404 == 6
+    extra = {'Lankin': ('%s of its %d ad records checked on 3 November had button links to pages that showed &ldquo;page not found&rdquo;.' % ('Six' if l404 == 6 else l404, sum(r['firm'] == 'Lankin' for r in dl)),
+                        'Check those ads in Ads Manager and replace any active broken link with the relevant offer page.',
+                        'Share of active investor ads whose button opens the intended page.', 'Action')}
+    def block(obs, test, meas, label='Test'):
+        return ('<p class="ri-robs">%s</p><dl><div class="ri-rtest"><dt>%s</dt><dd>%s</dd></div>'
+                '<div class="ri-rmeasure"><dt>Measure</dt><dd>%s</dd></div></dl>' % (obs, label, test, meas))
+    # Lankin leads with the broken-link action (founder, 2026-11-03); its return-range test follows.
+    html = ''.join('<article class="ri-rcard"><h3>%s</h3>%s%s</article>' % (E(NAMES[k]), block(*extra[k]) if k in extra else block(obs, test, meas),
+                   ('<div class="ri-rsecond">' + block(obs, test, meas) + '</div>') if k in extra else '') for k, obs, test, meas in cards)
     return ('<section id="ri-recs-firms"><div class="ri-ovhero"><div class="sec-head"><h2>Recommendations</h2></div>\n'
             '<p class="ri-ovlead">A <em>marketing test</em> for each firm, from its website, Instagram and Meta ads.</p></div>\n'
             '<div class="ri-rgrid">' + html + '</div>\n'
@@ -368,25 +382,26 @@ def rank_website(w):
     for k in FIRMS:
         m = w['firms'][k]['matrix']
         assert all(m[c][0] in LEVEL for c, _ in MATRIX_COLS), k
-        up = sum(m[c][0] in ('ad', 'home') for c, _ in MATRIX_COLS)
-        deep = sum(m[c][0] == 'product' for c, _ in MATRIX_COLS)
-        rows.append((-up, -deep, NAMES[k], k, m, up))
+        # Founder, 2026-11-03: an answer counts wherever it is explicitly available before an enquiry (ad landing, homepage or product page).
+        found = sum(m[c][0] in ('ad', 'home', 'product') for c, _ in MATRIX_COLS)
+        rows.append((-found, NAMES[k], k, m, found))
     rows.sort()
     body = ''
-    for _, _, name, k, m, up in rows:
+    for _, name, k, m, up in rows:
         cells = ''.join('<td class="ri-mx ri-mx-%s" data-label="%s"><span class="ri-mxs">%s</span>%s</td>'
                         % (m[c][0], E(lab), LEVEL[m[c][0]], ('<span class="ri-mxd">%s</span>' % E(m[c][1])) if m[c][1] else '')
                         for c, lab in MATRIX_COLS)
-        body += '<tr><td class="brandcell">%s</td>%s<td class="r ri-mxn" data-label="Up front">%d of %d</td></tr>' % (E(name), cells, up, len(MATRIX_COLS))
+        body += '<tr><td class="brandcell">%s</td>%s<td class="r ri-mxn" data-label="Answers found before enquiry">%d of %d</td></tr>' % (E(name), cells, up, len(MATRIX_COLS))
     return ('<div id="ri-cmp-website" class="ri-cblock"><div class="sec-head"><h2>What can an investor learn before enquiring?</h2>\n'
-            '<p class="dek">Where a reader first meets each answer: the ad landing, the homepage, a product page, or only on a call. Checked 2 and 3 November 2026; sorted by answers up front.</p></div>\n'
+            '<p class="dek">Where a reader first meets each answer: the ad landing, the homepage, a product page, or only on a call. An answer counts wherever it is stated before someone submits an enquiry; the label shows where. Checked 2 and 3 November 2026.</p></div>\n'
             '<div class="tw"><table class="ri-wtable ri-mxt"><thead><tr><th>Firm</th>' + ''.join('<th>%s</th>' % E(l) for _, l in MATRIX_COLS) +
-            '<th class="r">Up front</th></tr></thead><tbody>' + body + '</tbody></table></div>\n'
-            '<p class="pnote">Ad landing covers the Meta forms and pages the ads were verified to reach on 3 November; Greybrook and Centurion had no active investor ads. '
+            '<th class="r">Answers found before enquiry</th></tr></thead><tbody>' + body + '</tbody></table></div>\n'
+            '<p class="pnote">Answers can sit on different routes: Lankin&rsquo;s four come from its homepage, a campaign page and a Meta form, so a reader on one route may not see all four. '
+            'Ad landing covers the Meta forms and pages the ads were verified to reach on 3 November; Greybrook and Centurion had no active investor ads. '
             'Equiton states its investor criteria only inside an image on five fund pages, so a text-only reader or search engine does not see them. '
-            'Lankin&rsquo;s numbers differ by place: two of its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo;, and the campaign page one of its ads links to states a $25,000 minimum. '
+            'Lankin&rsquo;s numbers differ by place: two of its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo;, and the campaign page one of its ads links to states a $25,000 minimum; the research has not traced these figures to one offer. '
             '&ldquo;Not found&rdquo; covers only the pages reviewed, listed in Sources &amp; evidence.</p>\n'
-            '<p class="ri-vlink"><a href="#ri-view-website">See the pages in Website Messaging <span aria-hidden="true">&rarr;</span></a></p></div>\n')
+            '<p class="ri-vlink"><a href="#ri-view-website">See the pages in Website Messaging <span aria-hidden="true">&rarr;</span></a><a class="ri-backcmp" href="#ri-cmpnav">Back to comparisons <span aria-hidden="true">&uarr;</span></a></p></div>\n')
 
 
 def rank_organic(o):
@@ -434,7 +449,7 @@ def rank_paid(a):
             '<p class="pnote">Each ad has one main message theme, so a firm&rsquo;s column adds up to 100% (rounding aside). Counts in brackets.</p>\n'
             '<div class="ri-measg">' + mb + '</div>\n'
             '<p class="pnote">Measured separately because one ad can use video, name a return figure and state a minimum at once. Sorted by share, highest first.</p>\n'
-            '<p class="ri-vlink"><a href="#ri-view-paid">See the ads in Paid Social <span aria-hidden="true">&rarr;</span></a></p></section>\n')
+            '<p class="ri-vlink"><a href="#ri-view-paid">See the ads in Paid Social <span aria-hidden="true">&rarr;</span></a><a class="ri-backcmp" href="#ri-cmpnav">Back to comparisons <span aria-hidden="true">&uarr;</span></a></p></section>\n')
 
 
 DEST_TYPES = ['Meta form', 'Campaign landing page', 'Fund or product page', 'Homepage or other general page', 'Booking page', 'Page not found', 'Unverified']
@@ -455,7 +470,7 @@ def rank_dest(dd):
         c = collections.Counter(r['presents_offer'] for r in nm)
         t2 += '<tr><td class="brandcell">%s</td><td class="r" data-label="Ads naming an offer">%d of %d</td>%s</tr>' % (E(NAMES[k]), len(nm), n[k], ''.join(
             '<td class="r" data-label="%s">%s <small>(%d)</small></td>' % (lab, pct(c[v], len(nm)), c[v]) if nm else '<td class="r" data-label="%s">&middot;</td>' % lab
-            for v, lab in (('Yes', 'Destination names it'), ('No', 'Destination does not'), ('Unverified', 'Unverified'))))
+            for v, lab in (('Yes', 'Named in main content'), ('No', 'Absent from main content'), ('Unverified', 'Unverified'))))
     total = len(recs); prior = sum(r['in_2_november_review'] for r in recs)
     unv_form = sum(r['destination'] == 'Unverified' and 'instant form' in r['basis'] for r in recs)
     unv_bot = sum(r['destination'] == 'Unverified' and 'bot check' in r['basis'] for r in recs)
@@ -468,21 +483,28 @@ def rank_dest(dd):
     ncamp = sum('private-reit' in (r['listed_link'] or '') for r in lr)
     assert bridle and len(nf) == 2 and len(lr) == 14 and n404 == 6 and nred == 7 and ncamp == 1
     usf = [r for r in recs if r['offer_named'] == 'US Apartment Fund' and r['destination'] == 'Fund or product page']
+    lc = collections.Counter(r['destination'] for r in recs if r['firm'] == 'Lankin')
+    sk = [r for r in recs if r['firm'] == 'Skyline']
+    assert all(r['destination'] == 'Meta form' for r in sk) and usf
+    obs = [
+        ('Equiton', '%d of %d ads lead to Meta forms. Its %d Bridleview Residences forms show the 24%% target return and $25,000 minimum but name the development only in the disclaimer. Its %d US Apartment Fund ads lead to a page for that fund.'
+         % (sum(r['firm'] == 'Equiton' and r['destination'] == 'Meta form' for r in recs), n['Equiton'], bridle, len(usf))),
+        ('Skyline', 'All %d ads lead to Meta forms, which ask whether the reader has $50,000 to invest; the minimum appeared in only 1 of 16 reviewed ad texts.' % len(sk)),
+        ('Lankin', '%d of %d ads lead to Meta forms and %d to its campaign page. The other %d are counted by the website address their button points to: %d show &ldquo;page not found&rdquo;, %d redirect to a partnerships page for institutional and direct partners and %d %s to the campaign page.'
+         % (lc['Meta form'], n['Lankin'], lc['Campaign landing page'] - ncamp, len(lr), n404, nred, ncamp, 'goes' if ncamp == 1 else 'go'))]
+    assert lc['Meta form'] + lc['Campaign landing page'] - ncamp + len(lr) == n['Lankin']
     return ('<section id="ri-cmp-dest" class="ri-cblock"><div class="sec-head"><h2>Where does each investor ad take the reader?</h2>\n'
-            '<p class="dek">Checked separately on 3 November 2026: %d active investor ads (%s), %d of them in the 2 November review. Unverified destinations stay in each firm&rsquo;s total.</p></div>\n'
+            '<p class="dek">Checked separately on 3 November 2026: %d active investor ads (%s), %d of them in the 2 November review. Every ad stays in its firm&rsquo;s total.</p></div>\n'
             % (total, ', '.join('%s %d' % (E(NAMES[k]), n[k]) for k in firms), prior) +
             '<p class="ri-cmp-h">Destination, share of each firm&rsquo;s ads</p>'
             '<div class="tw"><table class="ri-hmt"><thead><tr><th>Destination</th>' + ''.join('<th class="r">%s<small>%d ads</small></th>' % (E(NAMES[k]), n[k]) for k in firms) +
             '</tr></thead><tbody>' + t1 + '</tbody></table></div>\n'
-            '<p class="ri-cmp-h">Ads that name a specific fund, development or event: does the destination name it too?</p>'
-            '<div class="tw"><table class="ri-wtable ri-ptable"><thead><tr><th>Firm</th><th class="r">Ads naming an offer</th><th class="r">Destination names it</th><th class="r">Destination does not</th><th class="r">Unverified</th></tr></thead><tbody>' + t2 + '</tbody></table></div>\n'
-            '<p class="pnote">Meta form is counted only where the library record shows the form&rsquo;s questions.%s '
-            'Equiton&rsquo;s %d Bridleview Residences forms show the 24%% target return and $25,000 minimum but name the development only in the disclaimer. '
-            'The booking page is a Calendly calendar that names no fund. Lankin&rsquo;s %d website-link ads are counted by the page their button points to: Meta labels each &ldquo;This ad is from a URL link&rdquo; and all their versions point to a lankin.com address (checked in a browser on 3 November), though a Meta form is attached to each as an extra asset and the live ad cannot be seen. %d point to an address that shows &ldquo;page not found&rdquo; (%s), %d to one that redirects to Lankin&rsquo;s partnerships page for institutional and direct partners, and %d to its campaign page.</p>\n'
-            % ((' Unverified covers %d ads.' % (unv_form + unv_bot)) if (unv_form + unv_bot) else '', bridle, len(lr), n404, ' and '.join(nf), nred, ncamp) +
-            ('<p class="pnote">Equiton&rsquo;s %d US Apartment Fund ads lead to a landing page for that fund, which states the $25,000 minimum and the 8&ndash;12%% target return (read in a browser on 3 November, after the page showed a bot check to the collector). '
-             'Two details differ: the ads say &ldquo;RRSP, TFSA &amp; RESP eligible&rdquo; while the page names RRSP and TFSA only, and the ads say &ldquo;qualified investors&rdquo; while the page does not say who can invest.</p>\n' % len(usf) if usf else '') +
-            '<p class="ri-vlink"><a href="#ri-view-paid">See the ads in Paid Social <span aria-hidden="true">&rarr;</span></a></p></section>\n')
+            '<p class="ri-cmp-h">Does the destination name the advertised offer in its main content?</p>'
+            '<div class="tw"><table class="ri-wtable ri-ptable"><thead><tr><th>Firm</th><th class="r">Ads naming an offer</th><th class="r">Named in main content</th><th class="r">Absent from main content</th><th class="r">Unverified</th></tr></thead><tbody>' + t2 + '</tbody></table></div>\n'
+            '<p class="pnote">Names appearing only in disclaimers are excluded.</p>\n'
+            '<ul class="ri-themedefs ri-dobs">' + ''.join('<li><b>%s.</b> %s</li>' % (E(NAMES[k]), t) for k, t in obs) + '</ul>\n'
+            '<p class="pnote">How each destination was checked, including the rule for ads with both a form and a website link, is in Sources &amp; evidence.</p>\n'
+            '<p class="ri-vlink"><a href="#ri-view-paid">See the ads in Paid Social <span aria-hidden="true">&rarr;</span></a><a class="ri-backcmp" href="#ri-cmpnav">Back to comparisons <span aria-hidden="true">&uarr;</span></a></p></section>\n')
 
 
 def main():

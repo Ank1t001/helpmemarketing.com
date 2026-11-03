@@ -31,6 +31,13 @@ def render(csv_text, cycle, verified_date, next_date, as_of, modified_at=None, w
     body = body.replace('{{WINDOW_END_LONG}}', long_date(window[1] if window else verified_date))
     body = body.replace('{{LAST_VERIFIED_LONG}}', long_date(verified_date))
     body = body.replace('{{NEXT_REFRESH_LONG}}', long_date(next_date))
+    # Hero "Last Updated" (founder, 2026-11-03): the Toronto date of the last content change (modified_at), not the collection date.
+    upd = verified_date
+    if modified_at:
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        upd = max(verified_date, datetime.fromisoformat(modified_at).astimezone(ZoneInfo('America/Toronto')).date().isoformat())
+    body = body.replace('{{UPDATED_SHORT}}', short_date(upd))
     body = body.replace('{{LAST_VERIFIED_SHORT}}', short_date(verified_date))
     body = body.replace('{{NEXT_REFRESH_SHORT}}', short_date(next_date))
     body = body.replace('{{LAST_VERIFIED}}', verified_date)

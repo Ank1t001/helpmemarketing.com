@@ -710,6 +710,10 @@ dialog.bs-gate::backdrop{background:rgba(0,0,0,.72)}
 @media(max-width:720px){.msi.msi #ri-creative .frames{grid-template-columns:1fr}}
 .msi.msi .ri-vlink{margin:24px 0 0;font-size:15px;font-weight:600}
 .msi.msi .ri-vlink a{color:var(--cta-text,var(--cta));text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+/* Back to comparisons (founder, 2026-11-03): one quiet link after each HMM Ranking block, back to the four jump links. */
+.msi.msi .ri-vlink:has(.ri-backcmp){display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+.msi.msi .ri-vlink a.ri-backcmp{color:var(--text-muted);font-weight:500;font-size:14px}
+@media print{.msi.msi .ri-backcmp{display:none}}
 .msi.msi #ri-video{scroll-margin-top:160px}
 @media(max-width:560px){.msi.msi #ri-video{scroll-margin-top:96px}}
 /* Paid Social (2026-11-03, founder): glance table, collapsed breakdown, one ad card per firm. */
