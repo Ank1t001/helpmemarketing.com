@@ -99,49 +99,54 @@ def website_sources(w):
 
 
 def organic_section(o):
+    """Organic Social tab (founder, 2026-11-03): the glance table only; the detailed tables are in organic_sources."""
+    posts = o['posts']
+    glance = []
+    words = {'Reel': ('reel', 'reels'), 'Carousel': ('carousel', 'carousels'), 'Static': ('image', 'images')}
+    for k in FIRMS[:4]:
+        p = [x for x in posts if x['firm'] == k]
+        fm = collections.Counter(x['format'] for x in p).most_common()
+        mixtxt = ', '.join('%d %s' % (n, words[f][n != 1]) for f, n in fm)
+        nf = sum(x['names_fund'] for x in p)
+        fund = ('%d of %d named a fund as the property owner.' % (nf, len(p))) if k == 'Skyline' else ('%d of %d posts named a fund or offering.' % (nf, len(p)))
+        glance.append('<tr><td class="brandcell">%s</td><td class="wrap-cell" data-label="What it posts">%s</td><td class="wrap-cell" data-label="Creative mix">%s</td>'
+                      '<td class="wrap-cell" data-label="How funds appear">%s</td></tr>' % (E(NAMES[k]), E(o['glance_posts'][k]), mixtxt, fund))
+    return ('<section id="ri-organic-compare"><div class="sec-head"><h2>Social Media Strategy</h2>\n'
+            '<p class="dek">How four real estate investment firms present themselves on Instagram and which posts drew the most visible likes.</p></div>\n'
+            '<h3 class="ri-wh">Strategy at a glance</h3>\n'
+            '<div class="tw"><table class="ri-wtable"><thead><tr><th>Firm</th><th>What it posts</th><th>Creative mix</th><th>How funds appear</th></tr></thead><tbody>'
+            + ''.join(glance) + '</tbody></table></div></section>\n')
+
+
+def organic_sources(o):
+    """Sources & evidence: the detailed organic table, theme counts by firm, collection and Centurion notes (moved 2026-11-03)."""
     posts = o['posts']
     themes = ['Market / macro', 'Investor education', 'Development / asset', 'CSR / community', 'Culture / people', 'Team / hire', 'Brand / other']
     rows, mix = [], []
-    stats = {}
     for k in FIRMS[:4]:
         p = [x for x in posts if x['firm'] == k]
         lk = [x['likes'] for x in p if x['likes'] is not None]
         fm = collections.Counter(x['format'] for x in p)
         th = collections.Counter(x['theme'] for x in p)
-        top = ', '.join('%s (%d)' % (t, n) for t, n in th.most_common(2))
         hidden = len(p) - len(lk)
         med = ('%g' % st.median(lk)) + (' <small>%d hidden</small>' % hidden if hidden else '')
-        stats[k] = {'n': len(p), 'fund': sum(x['names_fund'] for x in p), 'reels': fm['Reel'], 'top': th.most_common(1)[0]}
         rows.append('<tr><td class="brandcell">%s<br><small>%s</small></td><td class="r">%d</td><td class="r">%d / %d / %d</td><td class="wrap-cell">%s</td>'
                     '<td class="r">%d of %d</td><td class="r">%s</td><td class="r">%s</td></tr>'
-                    % (E(NAMES[k]), E(o['accounts'][k]), len(p), fm['Reel'], fm['Carousel'], fm['Static'], E(top), stats[k]['fund'], len(p), med, '{:,}'.format(o['followers'][k])))
+                    % (E(NAMES[k]), E(o['accounts'][k]), len(p), fm['Reel'], fm['Carousel'], fm['Static'],
+                       E(', '.join('%s (%d)' % (t, n) for t, n in th.most_common(2))), sum(x['names_fund'] for x in p), len(p), med, '{:,}'.format(o['followers'][k])))
         mix.append([th.get(t, 0) for t in themes])
-    rows.append('<tr><td class="brandcell">%s</td><td colspan="6" class="wrap-cell">%s</td></tr>' % (E(NAMES['Centurion']), E(o['centurion'])))
     mixrows = ''.join('<tr><td>%s</td>%s</tr>' % (E(t), ''.join('<td class="r">%s</td>' % (mix[j][i] or '&middot;') for j in range(4)))
                       for i, t in enumerate(themes) if any(m[i] for m in mix))
-    g = [x for x in posts if x['firm'] == 'Greybrook' and x['likes'] is not None]
-    gtop = max(g, key=lambda x: x['likes'])
-    s = stats
-    points = [
-        'Equiton leaned on reels (%d of %d posts), market commentary and lifestyle reels; Skyline on development and leasing milestones (%d of %d); '
-        'Lankin on market updates (%d of %d); Greybrook on community sponsorships, events and its investment strategy series.'
-        % (s['Equiton']['reels'], s['Equiton']['n'], s['Skyline']['top'][1], s['Skyline']['n'], s['Lankin']['top'][1], s['Lankin']['n']),
-        'Equiton, Lankin and Greybrook each named a fund or offering in %s post; Skyline named one of its funds in %d of %d, as the owner of a building in a milestone post, '
-        'not as an invitation to invest. Their ads name a fund or offering in almost every case (see Paid Social).'
-        % ('one' if all(s[k]['fund'] == 1 for k in ('Equiton', 'Lankin', 'Greybrook')) else 'few', s['Skyline']['fund'], s['Skyline']['n']),
-        'Greybrook&rsquo;s post with the most likes was a York University hockey sponsorship (%d likes); its fund post drew 1 like. '
-        'Four of its posts hide their like counts, so its median uses the %d posts that show them.' % (gtop['likes'], len(g)),
-        'Centurion has no corporate Instagram account that could be found, so it is compared on its website and ads only.']
-    return ('<section id="ri-organic-compare"><div class="sec-head"><h2>Organic strategy compared</h2>\n'
-            '<p class="dek">What each firm posts on its own Instagram account, 13 September to 13 October 2026, collected for all four accounts on ' + DATE + '.</p></div>\n' + roster_note() +
-            '\n<div class="card ri-points"><h3>What stood out</h3><ul>' + ''.join('<li>%s</li>' % p for p in points) + '</ul></div>\n'
+    return ('<section id="ri-org-sources"><details class="ri-adv"><summary>Organic Social: posts, themes and coverage</summary>\n'
+            '<p class="dek">Posts published on each firm&rsquo;s own Instagram account, 13 September to 13 October 2026, collected for all four accounts on ' + DATE + '. '
+            + E(o['centurion']) + '</p>\n'
             '<div class="tw"><table class="ri-cmpt"><thead><tr><th>Firm</th><th class="r">Posts</th><th class="r">Reels / carousels / static</th>'
             '<th>Main themes</th><th class="r">Names a fund or offering</th><th class="r">Median likes</th><th class="r">Followers</th></tr></thead><tbody>'
             + ''.join(rows) + '</tbody></table></div>\n'
             '<div class="tw"><table class="ri-cmpt ri-mix"><thead><tr><th>Theme, posts</th>' + ''.join('<th class="r">%s</th>' % E(k) for k in FIRMS[:4]) +
             '</tr></thead><tbody>' + mixrows + '</tbody></table></div>\n'
-            '<p class="pnote">Themes are the page&rsquo;s reviewed themes; Greybrook&rsquo;s were assigned from each caption on the same scheme. '
-            'Likes are not adjusted for follower count. Followers: %s</p></section>\n' % E(o['followers_note']))
+            '<p class="pnote m0">Themes are the page&rsquo;s reviewed themes; Greybrook&rsquo;s were assigned from each caption on the same scheme. '
+            'Likes are not adjusted for follower count. Followers: %s</p></details></section>\n' % E(o['followers_note']))
 
 
 def paid_section(a):
@@ -251,6 +256,7 @@ def main():
     body = put(body, 'website', website_view(w))
     body = put(body, 'websrc', website_sources(w))
     body = put(body, 'organic', organic_section(o))
+    body = put(body, 'orgsrc', organic_sources(o))
     body = put(body, 'paid', paid_section(a))
     body = put(body, 'recs', recs_section(a, o, w))
     body = put(body, 'roster', roster_note() + '\n')

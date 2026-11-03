@@ -128,10 +128,10 @@ def validate(source, actual, rows, config):
     pos=[body.find('id="'+x+'"') for x in order]
     if -1 in pos or pos!=sorted(pos): raise ValueError('Section order must be '+', '.join(order))
     # Views (founder, 2026-11-02): one tab bar over seven views (Website Messaging and the five-firm comparisons added the same day), in this order, each holding its sections. See EDITORIAL_RULES.md.
-    views=[('ri-view-overview',['ri-overview']),('ri-view-rankings',['ri-rankings']),
+    views=[('ri-view-overview',['ri-overview']),('ri-view-rankings',['ri-rankings','ri-video']),
            ('ri-view-website',['ri-website']),
-           ('ri-view-organic',['ri-organic-compare','ri-creative','ri-video','ri-insights','ri-series']),('ri-view-paid',['ri-paid-compare','ri-activity','ri-distribution','ri-ads']),
-           ('ri-view-recs',['ri-test','ri-recs-firms']),('ri-view-sources',['ri-download','ri-advanced','ri-editions','ri-data'])]
+           ('ri-view-organic',['ri-organic-compare','ri-creative','ri-insights']),('ri-view-paid',['ri-paid-compare','ri-activity','ri-distribution','ri-ads']),
+           ('ri-view-recs',['ri-test','ri-recs-firms']),('ri-view-sources',['ri-download','ri-advanced','ri-series','ri-editions','ri-data'])]
     if 'data-ri-tabs' not in body or 'data-ri-tabs-js' not in source: raise ValueError('Missing the view tab bar or its script')
     # Block nesting (2026-11-03): a stray closing tag once ended the hidden Sources view early and showed its content under every tab.
     depth=[]
@@ -156,8 +156,10 @@ def validate(source, actual, rows, config):
         for x in need:
             at=body.find('id="'+x+'"')
             if not vpos[k]<at<end: raise ValueError(x+' must sit in '+v)
+    # Organic Social (founder, 2026-11-03) ends with one link to the video chart, which sits in HMM Ranking below the main comparison.
+    if '<p class="ri-vlink"><a href="#ri-video">View video metrics comparison' not in body: raise ValueError('Organic Social must link to the video metrics comparison')
     vid=body[body.find('id="ri-video"'):]
-    if not vid.startswith('id="ri-video"><div class="sec-head"><h2>Video metrics comparison</h2>'): raise ValueError('Video metrics comparison must be shown open in Organic Social')
+    if not vid.startswith('id="ri-video"><div class="sec-head"><h2>Video metrics comparison</h2>'): raise ValueError('Video metrics comparison must be shown open in HMM Ranking')
     text=re.sub(r'<script.*?</script>','',body,flags=re.S)
     text=re.sub(r'<table id="postlog">.*?</table>','',text,flags=re.S)   # caption excerpts are quoted evidence
     text=re.sub(r'<[^>]+>',' ',text)

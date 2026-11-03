@@ -639,5 +639,11 @@
    "names_fund": false,
    "return_figure": false
   }
- ]
+ ],
+ "glance_posts": {
+  "Equiton": "Market updates, investor education and reels about everyday property problems.",
+  "Skyline": "Construction, leasing and acquisition updates made up 10 of 14 posts.",
+  "Lankin": "Half its posts covered the market. Others introduced team members or promoted live discussions.",
+  "Greybrook": "Community sponsorships and events appeared alongside a series explaining its investment strategies."
+ }
 }
