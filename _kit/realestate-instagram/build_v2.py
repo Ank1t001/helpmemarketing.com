@@ -154,14 +154,15 @@ def validate(source, actual, rows, config):
             r'\d percent\b':'"percent" (use %)',r'\bcycle\b':'"cycle" in visible text (use edition)',r'Advanced research':'old Research heading',
             r'media buy|honest end|PAID PUSH|reach beyond the base':'loaded distribution wording',r'whole category':'"whole category"',
             r'\bverbatim\b':'"verbatim"',r'Your takeaway':'old takeaway label',r'pooled median':'"pooled median"',r'thirty days':'"thirty days"',
-            r'\bhealthy band\b':'"healthy band" (use index target band)'}
+            r'\bhealthy band\b':'"healthy band"',r'index target band':'"index target band" (use HMM&rsquo;s historical reference band)',
+            r'Which firm leads|lower is better|Lower is better|Resonance, 45%|Intent, 30%':'retired score wording (2026-11-03 review)'}
     for pat,label in banned.items():
         m=re.search(pat,text)
         if m: raise ValueError('Retired wording: '+label+' near "'+' '.join(text[max(0,m.start()-40):m.end()+20].split())+'"')
     if re.search(r'class="flag (?!neutral)',body): raise ValueError('Flags must use the neutral style')
     board_rows=re.search(r'<section id="ri-rankings">.*?<tbody>(.*?)</tbody>',body,re.S)
     if not board_rows or board_rows.group(1).count('data-note="')!=board_rows.group(1).count('<tr'): raise ValueError('Every scoreboard row needs a data-note for the firm panel')
-    for label,needle in {'metrics note':'Tap or hover over underlined metrics for a definition.','download heading':'<h2>Download the dataset</h2>',
+    for label,needle in {'metrics note':'Select a metric to compare firms. Select a firm to explore its results.','download heading':'<h2>Download the dataset</h2>',
                          'email label':'<label class="gate-label" for="gate-email">Email address</label>','status live region':'id="gate-msg" role="status" aria-live="polite"',
                          'current edition history row':f'<b>{cyc}</b> (this page)','post log expander':'<summary>Open the post log</summary>'}.items():
         if needle not in body: raise ValueError('Missing '+label)
@@ -170,7 +171,8 @@ def validate(source, actual, rows, config):
         if marker not in shell_css or marker not in source: raise ValueError('Layout rules missing from the shell: '+marker)
     # Search-facing answers and head (SEO, AEO, GEO), 2026-10-13.
     leader=min(actual.items(),key=lambda p:p[1]['rank'])
-    if f'<b>Which firm leads this edition?</b> {leader[0]} leads with a score of {leader[1]["score"]}' not in body: raise ValueError('Leader answer must name '+leader[0]+' and score '+str(leader[1]['score']))
+    # Engagement comparison (founder review, 2026-11-03): the score leader is stated as a score fact, not as the edition's leader.
+    if f'<b>Highest HMM score:</b> {leader[0]} has the highest score, {leader[1]["score"]}, under the current HMM scoring method.' not in body: raise ValueError('Highest score line must name '+leader[0]+' and score '+str(leader[1]['score']))
     if 'Firms included: ' not in body: raise ValueError('Missing the firms included line')
     ph=source.split('</head>')[0]
     if '<link rel="canonical" href="https://helpmemarketing.com/realestate-index">' not in ph: raise ValueError('Canonical changed')
@@ -180,7 +182,7 @@ def validate(source, actual, rows, config):
     if '"@id":"https://helpmemarketing.com/about#ankit-kumar"' not in head or '"@id":"https://helpmemarketing.com/#organization"' not in head: raise ValueError('Article author/publisher not linked')
     for blk in re.findall(r'<script type="application/ld\+json">(.*?)</script>',source,re.S): json.loads(blk)
     parser=Tables(); parser.feed(body)
-    headings=['Account','Score','Followers','Posts','Mix','Median likes','Med comm','Like/play','Peak','Flag','Top post']
+    headings=['Firm','HMM score','Followers','Posts','Post formats','Median likes','Median comments','Median likes \u00f7 plays','Peak plays \u00f7 followers','Most-liked post']
     board=next((t for t in parser.tables if t and t[0]==headings),None)
     if not board or len(board)-1!=len(actual): raise ValueError('Scoreboard headings or row count changed')
     for row,(brand,m) in zip(board[1:],sorted(actual.items(),key=lambda p:p[1]['rank'])):
