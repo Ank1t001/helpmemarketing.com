@@ -688,7 +688,7 @@ document.addEventListener("DOMContentLoaded",function(){
    scoreboard table the Build Kit emits; no data lives here, so it works for any cycle with the same table shape. */
 document.addEventListener("DOMContentLoaded",function(){
   var root=document.querySelector(".msi");if(!root)return;
-  var links=document.querySelector("[data-ri-tabs]")?[]:[["ri-overview","Overview"],["ri-rankings","Engagement comparison"],["ri-creative","Creative"],["ri-insights","Insights"],["ri-download","Get the dataset"],["ri-advanced","Research"],["ri-data","Data"]].filter(function(x){return document.getElementById(x[0]);});
+  var links=document.querySelector("[data-ri-tabs]")?[]:[["ri-overview","Overview"],["ri-rankings","HMM Ranking"],["ri-creative","Creative"],["ri-insights","Insights"],["ri-download","Get the dataset"],["ri-advanced","Research"],["ri-data","Data"]].filter(function(x){return document.getElementById(x[0]);});
   var bar=root.querySelector(".livebar");
   if(links.length>2&&bar){var nav=document.createElement("nav");nav.className="ri-nav";nav.setAttribute("aria-label","Report sections");
     links.forEach(function(x){var a=document.createElement("a");a.href="#"+x[0];a.textContent=x[1];nav.appendChild(a);});bar.parentNode.insertBefore(nav,bar.nextSibling);}
