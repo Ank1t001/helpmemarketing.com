@@ -34,13 +34,6 @@ def plural(n, one, many=None):
     return '%d %s' % (n, one if n == 1 else (many or one + 's'))
 
 
-def roster_note():
-    return ('<p class="pnote ri-roster"><b>Five firms throughout.</b> Since ' + DATE + ' the index compares '
-            'Equiton, Skyline, Lankin Investments, Greybrook Realty Partners and Centurion Asset Management in every section. '
-            'Instagram, the Meta Ad Library and the websites were all read on ' + DATE + '; Centurion has no corporate Instagram account, '
-            'so it is compared on its website and advertising.</p>')
-
-
 def website_view(w):
     """Website Messaging tab (founder, 2026-11-03): one glance table (offer, evidence, next step) and two visual examples.
     The per-firm detail, exact quotes, notices, dates and corrections are in Sources & evidence (website_sources)."""
@@ -309,7 +302,6 @@ def main():
     body = put(body, 'paid', paid_section(a))
     body = put(body, 'paidsrc', paid_sources(a))
     body = put(body, 'recs', recs_section(a, o, w))
-    body = put(body, 'roster', roster_note() + '\n')
     if re.search(r'[–—]', body.split('<!-- STRATEGY:website START -->')[1].split('<!-- STRATEGY:website END -->')[0]):
         raise ValueError('Dash in the website view')
     with open(BODY, 'w', encoding='utf-8') as f:
