@@ -17,8 +17,8 @@
   "prior_cycle": "004",
   "prior_verification": "history/cycle004-verification.json",
   "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv",
-  "modified_at": "2026-11-03T20:43:29+00:00",
-  "modified_at_source": "Vercel production deployment dpl_ATqiY8EqCbX1SPg69pywBBYUfZk2 (commit ce1637e) ready time (1793738609679 ms): Wealthsimple block removed and spacing pass, the last content change to /realestate-index. Earlier value: 2026-11-03T20:34:00+00:00; earlier releases are listed in the git history of this file.",
+  "modified_at": "2026-11-03T20:46:56+00:00",
+  "modified_at_source": "Vercel production deployment dpl_49kwWKEyUc6WC7mgNz6Q6w7cKhyH (commit 104d681) ready time (1793738816027 ms): Overview card wording, the last content change to /realestate-index. Earlier value: 2026-11-03T20:43:29+00:00; earlier releases are listed in the git history of this file.",
   "revision": {
     "date": "2026-11-02",
     "by": "founder",
