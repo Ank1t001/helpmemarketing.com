@@ -122,10 +122,11 @@ def validate(source, actual, rows, config):
     order=['ri-overview','ri-rankings','ri-creative','ri-insights','ri-test','ri-download','ri-advanced','ri-editions','ri-data']
     pos=[body.find('id="'+x+'"') for x in order]
     if -1 in pos or pos!=sorted(pos): raise ValueError('Section order must be '+', '.join(order))
-    # Views (founder, 2026-11-02): one tab bar over six views, in this order, each holding its sections. See EDITORIAL_RULES.md.
+    # Views (founder, 2026-11-02): one tab bar over seven views (Website Messaging and the five-firm comparisons added the same day), in this order, each holding its sections. See EDITORIAL_RULES.md.
     views=[('ri-view-overview',['ri-overview','ri-pulse','ri-guide']),('ri-view-rankings',['ri-rankings']),
-           ('ri-view-organic',['ri-creative','ri-video','ri-insights','ri-series']),('ri-view-paid',['ri-activity','ri-distribution','ri-ads']),
-           ('ri-view-recs',['ri-test']),('ri-view-sources',['ri-download','ri-advanced','ri-editions','ri-data'])]
+           ('ri-view-website',['ri-website']),
+           ('ri-view-organic',['ri-organic-compare','ri-creative','ri-video','ri-insights','ri-series']),('ri-view-paid',['ri-paid-compare','ri-activity','ri-distribution','ri-ads']),
+           ('ri-view-recs',['ri-test','ri-recs-firms']),('ri-view-sources',['ri-download','ri-advanced','ri-editions','ri-data'])]
     if 'data-ri-tabs' not in body or 'data-ri-tabs-js' not in source: raise ValueError('Missing the view tab bar or its script')
     tabbar=re.search(r'<nav class="ri-tabs" data-ri-tabs[^>]*>(.*?)</nav>',body,re.S)
     if not tabbar or re.findall(r'href="#(ri-view-[a-z]+)"',tabbar.group(1))!=[v for v,_ in views]: raise ValueError('Tab bar must list the views in order: '+', '.join(v for v,_ in views))

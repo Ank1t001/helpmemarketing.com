@@ -556,8 +556,8 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi .gate-form input{background:var(--bg);color:var(--text)}
 .msi.msi .gate-form input:focus{border-color:var(--cta)}
 .msi.msi .pnote a{color:var(--cta-text,var(--cta));font-weight:600;text-decoration:underline;text-underline-offset:3px}
-/* Views (founder, 2026-11-02): the report reads as six views (Overview, Rankings, Organic Social, Paid Social,
-   Recommendations, Sources & evidence) behind one tab bar. Every view is in the HTML: without JavaScript the bar is a
+/* Views (founder, 2026-11-02): the report reads as seven views (Overview, Rankings, Website Messaging, Organic Social,
+   Paid Social, Recommendations, Sources & evidence) behind one tab bar. Every view is in the HTML: without JavaScript the bar is a
    list of jump links and all views show; print shows all views. */
 .msi.msi .ri-tabs{position:sticky;top:92px;z-index:20;margin:0 0 48px;padding:6px;border:1px solid var(--border);border-radius:999px;background:var(--bg-elevated);overflow-x:auto;scrollbar-width:none}
 .msi.msi .ri-tabs::-webkit-scrollbar{display:none}
@@ -584,6 +584,28 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 @media(max-width:720px){.msi.msi .ri-tabs{margin-bottom:32px}.msi.msi .ri-view+.ri-view,.msi.msi .ri-view+section{margin-top:32px}.msi.msi .ri-gcard{padding:16px}}
 @media(max-width:560px){.msi.msi .ri-tabs{position:static;border-radius:var(--r2)}}
 @media print{.msi.msi .ri-tabs{display:none}.msi.msi .ri-view[hidden]{display:block!important}}
+/* Five-firm strategy comparison (founder, 2026-11-02): Website Messaging cards, Organic and Paid comparison tables,
+   per-firm recommendation cards. Rendered by strategy/render.py. */
+.msi.msi .ri-roster{margin:0 0 20px;padding:14px 18px;border-left:3px solid var(--cta);border-radius:0 var(--r2) var(--r2) 0;background:var(--bg-elevated)}
+.msi.msi .ri-points{margin:0 0 20px}
+.msi.msi .ri-points h3,.msi.msi .ri-ex+h3{margin:0 0 10px;font-size:16px}
+.msi.msi .ri-points ul,.msi.msi .ri-ex{margin:0;padding-left:20px;display:grid;gap:8px}
+.msi.msi .ri-points li,.msi.msi .ri-ex li{font-size:14.5px;line-height:1.6;color:var(--text-body,var(--text-muted))}
+.msi.msi .ri-ex a{color:var(--cta-text,var(--cta));font-weight:600}
+.msi.msi .ri-cmpt td small,.msi.msi .ri-cmpt td.brandcell small{display:block;font-size:12px;font-weight:400;color:var(--text-muted)}
+.msi.msi .ri-cmpt+.pnote,.msi.msi .tw+.tw,.msi.msi .tw+.card,.msi.msi .card+.note{margin-top:16px}
+.msi.msi .ri-wgrid,.msi.msi .ri-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:16px}
+.msi.msi .ri-wcard,.msi.msi .ri-rcard{padding:24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
+.msi.msi .ri-wcard h3,.msi.msi .ri-rcard h3{margin:0;font-size:18px}
+.msi.msi .ri-wsite,.msi.msi .ri-rarea{margin:2px 0 14px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted)}
+.msi.msi .ri-wcard dl,.msi.msi .ri-rcard dl{margin:0;display:grid;gap:10px}
+.msi.msi .ri-wcard dt,.msi.msi .ri-rcard dt{font-size:12px;font-weight:600;color:var(--text-muted)}
+.msi.msi .ri-wcard dd,.msi.msi .ri-rcard dd{margin:2px 0 0;font-size:14px;line-height:1.55;color:var(--text)}
+.msi.msi .ri-wnote{margin:12px 0 0;font-size:13px;line-height:1.55;color:var(--text-muted)}
+.msi.msi .ri-wcard.is-unread{border-style:dashed}
+.msi.msi .ri-rcard .ri-rtest{padding:12px 14px;border-left:3px solid var(--cta);border-radius:0 8px 8px 0;background:color-mix(in srgb,var(--cta) 8%,transparent)}
+.msi.msi .ri-rgrid{margin-top:4px}
+@media(max-width:720px){.msi.msi .ri-wcard,.msi.msi .ri-rcard{padding:18px 16px}}
 </style><script data-ri-tabs-js>
 /* Views (2026-11-02): tabs over the report's views, with deep links (#ri-view-*, or any id inside a view), Back and
    Forward, arrow keys, and links to a hidden view opening it. */

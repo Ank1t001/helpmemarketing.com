@@ -1,0 +1,106 @@
+{
+ "captured_at": "2026-11-02, about 7:45 p.m. Toronto time",
+ "tool": "Chromium (Playwright) run by the author; page text kept privately, hashed here",
+ "scope": "Homepage and the main investor page of each firm. Quotes are short excerpts; figures are the firms' own and were not verified.",
+ "firms": {
+  "Equiton": {
+   "site": "equiton.com",
+   "read": false,
+   "pages": [
+    "https://www.equiton.com/"
+   ],
+   "note": "Not read. The site showed a bot check to an automated browser on 2 November 2026, and the check was not bypassed."
+  },
+  "Skyline": {
+   "site": "skylinewealthmanagement.ca",
+   "read": true,
+   "pages": [
+    "https://www.skylinewealthmanagement.ca/",
+    "https://www.skylinewealthmanagement.ca/what-are-alternatives/skyline-apartment-reit/",
+    "https://www.skylinewealthmanagement.ca/faq/"
+   ],
+   "sha256": [
+    "3877121efdf0a8ff6fc387a3001cac22afb7e820bb8c26dbee610411cacd976b",
+    "73d1c1c2246a580419f45b242afd0886a75c54c4624198d4ad8bfcb45201340f",
+    "32482b1ae9ab4eed9dee8b1a11223f18ff81fb2a3de7c48816e82b54e798b63a"
+   ],
+   "also": "skylinegroupofcompanies.ca, the corporate site, leads with \"A capital management company offering 100% Canadian private alternative investments.\"",
+   "headline": "Real Assets. Real Potential. Invest For Your Future.",
+   "products": "Apartment, Industrial and Retail REITs, Clean Energy Fund, SkyDev",
+   "returns": "\"historical annualized returns of 8-13% since inception\" (homepage, footnoted)",
+   "minimum": "\"$50,000 Minimum Investment\" (Apartment REIT page)",
+   "who": "\"available to accredited and eligible investors\" (Apartment REIT page)",
+   "registered": "Its FAQ asks \"Can I invest my registered accounts (RRSP, RRIF, TFSA …)?\"",
+   "cta": "Get started, Start your journey, Start investing; a Relationship Manager follows up",
+   "proof": "25+ years, $10 billion assets under management, investor testimonials on the homepage",
+   "notice": "Footnoted figures; one homepage testimonial calls the REITs \"a safe alternative for investing\""
+  },
+  "Lankin": {
+   "site": "lankin.com",
+   "read": true,
+   "pages": [
+    "https://lankin.com/",
+    "https://lankin.com/contact-us/individual-investor/"
+   ],
+   "sha256": [
+    "a93982e21160ccc13b137f75d19a05f4e6cb04fad9f1e013d0952f15086f50c9",
+    "29874c855b9da59ff65a258ea9a4e2e18d3c278124b3d44e862a3a218e878388"
+   ],
+   "headline": "Transforming Bold Ambitions Into Tangible Results",
+   "products": "Lankin Apartment REIT, Lankin Real Estate Growth LP, Private Partnerships",
+   "returns": "\"10%-14% Targeted Annual Net Returns\" (Apartment REIT) and \"10%-12%\" (Growth LP)",
+   "minimum": "Not stated on the pages read; discussed on a call (\"minimum investment values\")",
+   "who": "Not stated on the pages read; \"qualification criteria\" discussed on a call",
+   "registered": "Not stated on the pages read (its ads name RRSP and TFSA)",
+   "cta": "Book A Call",
+   "proof": "$2 Billion+ under management, 6,700+ apartments, 4,000+ Canadian investors",
+   "notice": "Not an offer; past performance note; fees named (30% profit sharing on the REIT, 7% performance fee on the LP); return of capital note"
+  },
+  "Greybrook": {
+   "site": "greybrook.com",
+   "read": true,
+   "pages": [
+    "https://greybrook.com/",
+    "https://greybrook.com/investing-in-real-estate/",
+    "https://greybrook.com/us-multifamily-fund/"
+   ],
+   "sha256": [
+    "8bab8867b10dfa0068e8adeb12dc64ee49fa509a968477026b74b7c5b2e082af",
+    "31f141466ee262739dd8c1744f2b8650fbf089b688a0dd150a8229f8a76b8611",
+    "9299f7c52e4b5656397fefb04f0b43fb8184c47adc7302016149a2729d3e8a53"
+   ],
+   "headline": "Vision. Capital. Execution.",
+   "products": "U.S. Multifamily Income & Growth Fund (featured on the homepage); development and value-add strategies",
+   "returns": "A target total annualized return of 10% to 12% and a target annual distribution of 5.0% to 5.5%, paid monthly (fund page)",
+   "minimum": "Not stated on the pages read",
+   "who": "Not stated on the pages read; the site has a section for advisors",
+   "registered": "Not stated on the pages read",
+   "cta": "Get in touch, Invest in Real Estate, Investor Portal",
+   "proof": "Fund page and firm news; no investor count on the pages read",
+   "notice": "\"This website does not constitute an offer to sell\""
+  },
+  "Centurion": {
+   "site": "centurion.ca",
+   "read": true,
+   "pages": [
+    "https://www.centurion.ca/",
+    "https://www.centurion.ca/investment-solutions/overview",
+    "https://www.centurion.ca/investment-solutions/centurion-apartment-reit"
+   ],
+   "sha256": [
+    "d9a31a4fa603f67ec18930f40f85d694e3f46df845ab7aec8717085cfd6dc91e",
+    "48d4f1678c73d49985390afe0f15b18168bf7ebedfb66219951f4f12765c8917",
+    "a3c16d968af06046ac77c7c036df04954634f5a3a8cebc50c927b3eabeee924c"
+   ],
+   "headline": "Research first: the homepage leads with articles by its Chief Economist (\"Why Real Estate, Why Now\") and its 2025 annual report",
+   "products": "Centurion Apartment REIT, Centurion Financial Trust",
+   "returns": "\"7% - 12% Targeted Annual Total Returns\" (overview)",
+   "minimum": "Not stated on the pages read",
+   "who": "\"open to qualified investors via Offering Memorandum\", bought \"through their Investment Advisor\"; permitted clients may buy directly",
+   "registered": "\"RRSP, RRIF, and TFSA eligible\"",
+   "cta": "Learn More, Contact, Investor Login",
+   "proof": "22,000+ apartment units, medical offices and student housing beds; growth of $100,000 since inception shown on the REIT page",
+   "notice": "Important notice and terms of use on the homepage; Offering Memorandum linked"
+  }
+ }
+}
