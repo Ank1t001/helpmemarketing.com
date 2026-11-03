@@ -15,7 +15,7 @@
    "headline": "No H1; the hero reads \"Professionally managed real estate. Built for individual investors.\" with \"Grow your wealth with private real estate investing from Equiton.\"",
    "products": "Monthly Income Fund, Apartment Fund, US Apartment Fund, Residential Growth Fund I, Income & Development Fund (fund page only), and development offerings (TEN99 Broadview, Wilson Station Condos, Bridleview Residences; Sandstones and Vicinity labelled funded or closed)",
    "returns": "All labelled targets, on the investor page: \"7-9%\" Monthly Income Fund, \"8-12%\" Apartment Fund and US Apartment Fund, \"10-14%\" Residential Growth Fund I (\"Over 5+ years\"), \"16-20%\" development offerings (\"Targeted Average Annual Net Return (Realized upon project completion)\")",
-   "minimum": "\"Investing in an Equiton development requires a $25,000 minimum investment\" (Equiton website, development offerings; wording supplied by the author on 3 November 2026, page address not recorded). Not stated for the other funds on the three pages read.",
+   "minimum": "$25,000 for all its funds, according to the author, who has worked with Equiton. The website wording seen names it for development offerings: \"Investing in an Equiton development requires a $25,000 minimum investment\" (supplied by the author on 3 November 2026, page address not recorded); the three pages read state no minimum for the other funds.",
    "who": "Not stated on the pages read; the investor page says it makes it \"easier for everyday investors to invest in private real estate\"",
    "registered": "\"our solutions are registered plan eligible\" (fund page); RRSP, TFSA and RRIF are not named; the development offerings wording adds \"the ability to use your registered funds\"",
    "cta": "Learn more, Investment Solutions, Contact Us, Investor Login; the fund page's \"Book a meeting today\" with an Equiton Investment Specialist",
@@ -23,7 +23,7 @@
    "notice": "\"Targets/illustrative scenarios are not guarantees; actual results may differ.\" Footer: past performance is not an indicator of future performance",
    "also": "The root domain redirects to the investor page. The Canadian page includes a US Apartment Fund and news of a Dallas headquarters; asset values are shown in \"$\" with no currency stated.",
    "glance": {
-    "offer": "Introduces five fund groups for individual investors and shows a targeted net return range for each. Its development offerings name a $25,000 minimum.",
+    "offer": "Introduces five fund groups for individual investors and shows a targeted net return range for each. Its minimum investment is $25,000.",
     "evidence": "Assets under management, properties, number of investors and years in business.",
     "next": "Book a meeting with an Equiton Investment Specialist."
    }
@@ -149,7 +149,7 @@
   {
    "date": "2026-11-03",
    "firm": "Equiton",
-   "text": "The development offerings minimum ($25,000) was added from wording on Equiton's website supplied by the author; the three pages read on 2 November do not state a minimum."
+   "text": "The $25,000 minimum was added on the author's information: Equiton's website wording names it for development offerings, and the author reports it applies to all its funds. The three pages read on 2 November do not state a minimum."
   }
  ],
  "examples": [
