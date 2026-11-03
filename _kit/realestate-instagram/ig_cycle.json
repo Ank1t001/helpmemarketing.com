@@ -17,8 +17,8 @@
   "prior_cycle": "004",
   "prior_verification": "history/cycle004-verification.json",
   "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv",
-  "modified_at": "2026-11-03T16:28:34+00:00",
-  "modified_at_source": "Vercel production deployment dpl_592pxRy4yxwsGtmLAB17gkGAfV1D (commit 00e5619) ready time (1793723314750 ms): Equiton US Apartment Fund ad destinations verified, the last content change to /realestate-index. Earlier value: 2026-11-03T16:20:41+00:00; earlier releases are listed in the git history of this file.",
+  "modified_at": "2026-11-03T17:09:31+00:00",
+  "modified_at_source": "Vercel production deployment dpl_X374A5P6JqjfPjRkBvfAVhYEpT7f (commit fdc4a37) ready time (1793725771372 ms): website matrix by where each answer first appears, with the Lankin destination checks, the last content change to /realestate-index. Earlier value: 2026-11-03T16:28:34+00:00; earlier releases are listed in the git history of this file.",
   "revision": {
     "date": "2026-11-02",
     "by": "founder",
