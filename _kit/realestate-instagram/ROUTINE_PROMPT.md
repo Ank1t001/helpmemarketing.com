@@ -51,7 +51,7 @@ SCORING (do not change)
 
 CONSISTENCY RULES (build_v2.py enforces most; still check)
 1. "Top post" badges and "times the firm's median likes" come only from the card post's likes against that account's window median. Craft critique goes in the text.
-2. Download and gate counts come from the embedded CSV.
+2. Download counts come from the post log CSV (the page no longer embeds it; build_v2.py writes the published copy that the forms script emails).
 3. No video prints "No video" / "no video", never 0.00% or 0.0x.
 4. Any generalisation names its exceptions on the same board.
 5. No "proves", "proof that", "only variable" or "every frame". Write single comparisons as Observation, Possible interpretation, Suggested test.
