@@ -89,7 +89,7 @@ if __name__ == '__main__':
                                  ('1757263535428694', '2026-07-15', 'See details'), ('1028958226729065', '2026-07-16', 'See details')]]
     out = {'source': 'Meta Ad Library, country Canada, active ads only', 'collected_at': COLLECTED,
            'tool': 'Apify actor apify/facebook-ads-scraper (official), run by the author',
-           'method': 'Exact-phrase keyword searches for each firm name found the advertiser pages; each investor-facing page was then read in full by page id. Unrelated advertisers that matched a name were excluded.',
+           'method': 'Exact-phrase keyword searches for each firm name found the advertiser pages; each investor-facing advertiser page's library total was then recorded by page id and the listings returned were reviewed. Unrelated advertisers that matched a name were excluded.',
            'runs': {'keyword_search': ['hOYiJNytTODyh34ej', 'KnCD4k6pSjelNxonj'], 'pages': ['IoWOR4yVVOgrIQuFm', 'p3UKHx9XoCgN60Bnk'], 'library_totals': ['WM8F3Fp9YtUvKZO0H']},
            'raw_sha256': {'page_ads': hashlib.sha256(raw1).hexdigest(), 'snapshots': hashlib.sha256(raw2).hexdigest()}, 'raw_kept': 'Private; not in this repository',
            'library_totals': {'Equiton': {'page': 'Equiton Inc.', 'active': 56, 'complete': False},

@@ -51,7 +51,7 @@ def website_view(w):
                    % (x['src'], E(x['alt']), x['width'], x['height'], E(NAMES[x['firm']] if x['firm'] != 'Centurion' else 'Centurion'), E(x['title']),
                       E(x['caption']), 'Apartment REIT', x['captured']) for x in w['examples'])
     return ('<div class="ri-view" id="ri-view-website">\n<section id="ri-website"><div class="ri-ovhero"><div class="sec-head"><h2>Website messaging</h2></div>\n'
-            '<p class="ri-ovlead">How each firm explains its <em>investment offer</em> and guides prospective investors to the next step.</p></div>\n'
+            '<p class="ri-ovlead">How each firm explains its <em>offer</em> and guides investors.</p></div>\n'
             '<h3 class="ri-wh">Messaging at a glance</h3>\n'
             '<div class="tw"><table class="ri-wtable"><thead><tr><th>Firm</th><th>How it presents the offer</th><th>Evidence it shows</th><th>Next step</th></tr></thead>'
             '<tbody>' + ''.join(rows) + '</tbody></table></div>\n'
@@ -104,7 +104,7 @@ def organic_section(o):
         glance.append('<tr><td class="brandcell">%s</td><td class="wrap-cell" data-label="What it posts">%s</td><td class="wrap-cell" data-label="Creative mix">%s</td>'
                       '<td class="wrap-cell" data-label="How funds appear">%s</td></tr>' % (E(NAMES[k]), E(o['glance_posts'][k]), mixtxt, fund))
     return ('<section id="ri-organic-compare"><div class="ri-ovhero"><div class="sec-head"><h2>Social Media Strategy</h2></div>\n'
-            '<p class="ri-ovlead">How four real estate investment firms present themselves on <em>Instagram</em> and which posts drew the most visible likes.</p></div>\n'
+            '<p class="ri-ovlead">How four firms present themselves on <em>Instagram</em> and which posts drew the most likes.</p></div>\n'
             '<h3 class="ri-wh">Strategy at a glance</h3>\n'
             '<div class="tw"><table class="ri-wtable"><thead><tr><th>Firm</th><th>What it posts</th><th>Creative mix</th><th>How funds appear</th></tr></thead><tbody>'
             + ''.join(glance) + '</tbody></table></div></section>\n')
@@ -130,7 +130,7 @@ def organic_sources(o):
     mixrows = ''.join('<tr><td>%s</td>%s</tr>' % (E(t), ''.join('<td class="r">%s</td>' % (mix[j][i] or '&middot;') for j in range(4)))
                       for i, t in enumerate(themes) if any(m[i] for m in mix))
     return ('<div id="ri-org-sources"><h3>Posts and themes</h3>\n'
-            '<p class="dek">Posts published on each firm&rsquo;s own Instagram account, 13 September to 13 October 2026, collected for all four accounts on ' + DATE + '. '
+            '<p class="dek">Posts published on each firm&rsquo;s own Instagram account in the 30 days ending 13 October 2026 (posts dated 14 September to 13 October), collected for all four accounts on ' + DATE + '. '
             + E(o['centurion']) + '</p>\n'
             '<div class="tw"><table class="ri-cmpt"><thead><tr><th>Firm</th><th class="r">Posts</th><th class="r">Reels / carousels / static</th>'
             '<th>Main themes</th><th class="r">Names a fund or offering</th><th class="r">Median likes</th><th class="r">Followers</th></tr></thead><tbody>'
@@ -162,7 +162,7 @@ def paid_section(a):
         second = '%s, %s' % (fc[1][0], pct(fc[1][1], n)) if len(fc) > 1 else '&middot;'
         brk.append('<tr><td class="brandcell">%s</td><td class="r">%s</td><td class="wrap-cell">%s</td>%s</tr>'
                    % (E(names[k]), pct(sum(x['registered_accounts'] for x in v), n), second,
-                      ''.join('<td class="r">%s</td>' % pct(sc.get(s, 0), n) for s in ('awareness', 'consideration', 'decision'))))
+                      ''.join('<td class="r">%s (%d)</td>' % (pct(sc.get(s, 0), n), sc.get(s, 0)) for s in ('awareness', 'consideration', 'decision'))))
     exs = ''.join('<article class="ri-adex"><h4>%s &middot; %s</h4><p class="ri-adq">&ldquo;%s&rdquo;</p><p>%s</p>'
                   '<p class="ri-adsrc"><a href="https://www.facebook.com/ads/library/?id=%s" target="_blank" rel="noopener nofollow">Open in the Meta Ad Library</a></p></article>'
                   % (E(x['firm']), E(x['title']), E(x['headline']), E('The headline ' + x['caption']), x['id']) for x in a['examples'])
@@ -170,13 +170,13 @@ def paid_section(a):
     mn = lambda v: pct(sum(x['minimum'] for x in v), len(v))
     same = mn(s_) == mn(l)
     return ('<section id="ri-paid-compare"><div class="ri-ovhero"><div class="sec-head"><h2>Paid Social Strategy</h2></div>\n'
-            '<p class="ri-ovlead">Compare the messages and formats three firms used in <em>%d investor ads</em> reviewed in Canada on %s.</p></div>\n' % (total, DATE) +
+            '<p class="ri-ovlead">Messages and formats in <em>%d investor ads</em> from three firms, reviewed %s.</p></div>\n' % (total, DATE) +
             '<h3 class="ri-wh">Ad strategy at a glance</h3>\n'
             '<div class="tw"><table class="ri-wtable ri-ptable"><thead><tr><th>Firm</th><th class="r">Investor ads reviewed</th><th>Most common message</th><th class="r">Used video</th>'
             '<th class="r">Mentioned a return figure</th><th class="r">Stated a minimum investment</th></tr></thead><tbody>' + ''.join(rows) + '</tbody></table></div>\n'
             '<p class="pnote">No active Canadian ads matched Greybrook in the search. Centurion&rsquo;s four ads were for recruitment.</p>\n'
             '<details class="ri-adv"><summary>View ad breakdown</summary>\n'
-            '<p class="dek">Each percentage uses the firm&rsquo;s reviewed investor ads as its denominator. The buying stage is an interpretation of each ad&rsquo;s wording and call to action, not a measured result.</p>\n'
+            '<p class="dek">Each percentage uses the firm&rsquo;s reviewed investor ads as its denominator; stage columns show the number of ads in brackets, and rounding can make a row total 99% or 101%. The buying stage is an interpretation of each ad&rsquo;s wording and call to action, not a measured result.</p>\n'
             '<div class="tw"><table class="ri-cmpt"><thead><tr><th>Firm</th><th class="r">Named RRSP or TFSA</th><th>Second most common message</th>'
             '<th class="r">Awareness stage</th><th class="r">Consideration stage</th><th class="r">Decision stage</th></tr></thead><tbody>' + ''.join(brk) + '</tbody></table></div>\n'
             '</details>\n'
@@ -240,7 +240,7 @@ def recs_section(a, o, w):
          'Turn one apartment fund ad message into a short explainer reel. Compare it with a market-update reel of similar length.',
          'Saves per 1,000 accounts reached.'),
         ('Skyline', 'Its Apartment REIT page states a $50,000 minimum. Only %d of %d reviewed investor ads mentioned a minimum.' % (sk_min, sk_n),
-         'Test two versions of the Apartment REIT ad. Add the minimum to one and keep the audience, creative and budget comparable.',
+         'Run two versions of the Apartment REIT ad. Add the minimum to one and keep the audience, creative and budget comparable.',
          'Cost per enquiry that meets the fund&rsquo;s eligibility criteria.'),
         ('Lankin', 'The reviewed ads and website cited different target return ranges. The research could not confirm whether they referred to the same fund.',
          'First verify which fund each figure describes. Then test naming the fund in the ad headline, with both versions linking to the same verified fund page.',
@@ -249,12 +249,12 @@ def recs_section(a, o, w):
          'Explain the same fund topic in two carousels. Open one with a member of the investment team and the other with the existing fund headline. Give each a trackable route to the fund page.',
          'Fund-page visits per 1,000 accounts reached.'),
         ('Centurion', 'Its website featured the Chief Economist&rsquo;s research. All %s active ads found were for recruitment.' % words[len(ce)],
-         'Test an investor ad that leads to one research article. Give readers a relevant next step from that article to the Apartment REIT page.',
+         'Promote one research article to investors and link it to the Apartment REIT page.',
          'Share of ad-referred article visitors who continue to the REIT page.')]
     html = ''.join('<article class="ri-rcard"><h3>%s</h3><p class="ri-robs">%s</p><dl><div class="ri-rtest"><dt>Test</dt><dd>%s</dd></div>'
                    '<div class="ri-rmeasure"><dt>Measure</dt><dd>%s</dd></div></dl></article>' % (E(NAMES[k]), obs, test, meas) for k, obs, test, meas in cards)
     return ('<section id="ri-recs-firms"><div class="ri-ovhero"><div class="sec-head"><h2>Recommendations</h2></div>\n'
-            '<p class="ri-ovlead">One <em>marketing test</em> for each firm, based on its website, Instagram posts and Meta ads.</p></div>\n'
+            '<p class="ri-ovlead">One <em>marketing test</em> for each firm, from its website, Instagram and Meta ads.</p></div>\n'
             '<div class="ri-rgrid">' + html + '</div>\n'
             '<p class="pnote m0">Each measure is a proposed metric for the firm to track. The public research supplies the observation behind each test, not its result.</p></section>\n')
 
@@ -265,9 +265,12 @@ def sources_head(a, o, w):
     posts = len(o['posts'])
     ads = sum(1 for x in a['records'] if x['for_investors'])
     sites = sum(1 for k in FIRMS if w['firms'][k]['read'])
-    stats = [('Instagram posts reviewed', '%d' % posts), ('Investor ads reviewed', '%d' % ads), ('Websites read', '%d of %d' % (sites, len(FIRMS))), ('Collected', DATE)]
+    stats = [('Instagram posts reviewed', '%d' % posts), ('Investor ads reviewed', '%d' % ads), ('Websites read', '%d of %d' % (sites, len(FIRMS))), ('Instagram and ads collected', DATE)]
+    ex_dates = sorted({x['captured'] for x in w['examples']})
+    assert len(ex_dates) == 1, ex_dates
     return ('<section id="ri-sources-head"><div class="sec-head"><h2>Sources &amp; evidence</h2>\n'
-            '<p class="dek">The evidence behind each tab, how it was collected and calculated, what changed, and the data to download.</p></div>\n'
+            '<p class="dek">The evidence behind each tab, how it was collected and calculated, what changed, and the data to download.</p>\n'
+            '<p class="dek">Each date has one purpose: Instagram posts and Meta ads were collected, and the five websites read, on ' + DATE + '; the two website examples were captured, and the Centurion minimum verified, on ' + E(ex_dates[0]) + '.</p></div>\n'
             '<dl class="ri-sstats" aria-label="Sources and evidence at a glance">' + ''.join('<div><dt>%s</dt><dd>%s</dd></div>' % (E(k), v) for k, v in stats) + '</dl></section>\n')
 
 

@@ -119,7 +119,8 @@ def validate(source, actual, rows, config):
     # Header meta line (founder, 2026-11-03), as on the Business index: author, edition, last updated, next update.
     need={'linked byline':f'<p class="ri-meta">By <a href="/about">Ankit Kumar</a> &middot; Edition {cyc} &middot; <span class="ri-meta-date">Last Updated ',
           'researcher profile':'<h4>About the researcher</h4>','profile links':'<a href="/about">About Ankit</a> &middot; <a href="/work">Explore HMM&rsquo;s work</a>',
-          'cite block':f'Edition {cyc}. Data collected {when}.','snapshot link':f'href="/realestate-index/edition-{cyc}"',
+          # A revised edition (2026-11-03 audit) cites the revision date and points to the snapshot as the original edition.
+          'cite block':(f'Edition {cyc}, revised {long_date(config["revision"]["date"])} (Instagram posts and Meta ads collected {when};' if config.get('revision') else f'Edition {cyc}. Data collected {when}.'),'snapshot link':f'href="/realestate-index/edition-{cyc}"',
           'edition history':'id="ri-editions"','methodology':'<summary>How this research was produced</summary>'}
     for label,text in need.items():
         if text not in body: raise ValueError('Missing '+label)

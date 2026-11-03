@@ -84,6 +84,10 @@ def snapshot(page, cycle, verified_date):
         (f'This address always shows the latest edition. For a fixed version, cite the <a href="/realestate-index/edition-{cycle}">edition {cycle} snapshot</a>.',
          f'This is the fixed snapshot of edition {cycle}. The <a href="/realestate-index">current edition</a> lives at /realestate-index.'),
     ]
+    # A revised edition (2026-11-03 audit) names the snapshot as the original edition instead.
+    rev = re.search(r'This address always shows the latest edition\. The <a href="/realestate-index/edition-%s">original [^<]*</a> is a fixed snapshot of the first publication, with a different set of firms, so it does not support the revised comparison\.' % cycle, page)
+    if rev:
+        swaps[-1] = (rev.group(0), f'This is the fixed snapshot of edition {cycle}. The <a href="/realestate-index">current edition</a> lives at /realestate-index.')
     page, robots = re.subn(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex, follow">', page)
     if robots != 1:
         raise ValueError('Expected one robots meta tag in the page')

@@ -48,3 +48,15 @@ Every expander is a bordered card, 24px inset (16px at 720), content 20px below 
 
 ## Metadata and snapshots
 `dateModified` = `ig_cycle.json` `modified_at`, the recorded production deployment time of the last content change (ISO 8601 with timezone). No `datePublished`. Article image `/assets/index/real-estate/og.jpg`. Publish `output/edition-NNN.html` as `realestate-index/edition-NNN.html` (self canonical, one `noindex, follow`); never regenerate an earlier snapshot; record any later fix to one in its head comment and add a visible dated note when visible text is corrected.
+
+## Audit pass (2026-11-03)
+
+- Detail tabs keep the dark intro panel in a compact form (shorter lead, 19px lead on phones, 16px to the first comparison); the Overview keeps the large panel. Overview lead: "How five Canadian real estate investment firms present their offers and reach investors." Overview cards carry no "Explore" row: icon, title and arrow share one row on phones.
+- Website Messaging and Organic Social glance tables use the card layout up to 900px (tablets included).
+- Video metrics comparison: one axis sentence, one table (Firm, 30-day peak, 90-day peak, Median likes per play), peak posts in an expander, a two-number finding. On phones `#ri-video` has a 96px scroll margin so the heading clears the sticky header.
+- Organic theme definitions live once, in Sources & evidence (`ul.ri-themedefs` under the Organic expander); the tab keeps the theme table and its exceptions. Static-post sentence states the association only (no cause).
+- Paid ad breakdown shows stage counts beside percentages.
+- Citation for a revised edition: "Edition NNN, revised <revision date> (Instagram posts and Meta ads collected <date>; website examples verified <date>)", and the snapshot is named the original edition. `build_v2.py` requires this form while `ig_cycle.json` carries `revision`; an edition without a revision returns to "Edition NNN. Data collected <date>." and "cite the edition NNN snapshot".
+- The edition 005 window is stated as the 30 days ending 13 October 2026, posts dated 14 September to 13 October (no post in the sample is dated 13 September; `ig_cycle.json` keeps the 13 September start the build checks).
+- Ad collection wording: each investor-facing advertiser page's library total was recorded by page id and the listings returned were reviewed (never "read in full").
+

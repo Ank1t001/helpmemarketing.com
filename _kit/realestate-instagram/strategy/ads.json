@@ -2,7 +2,7 @@
  "source": "Meta Ad Library, country Canada, active ads only",
  "collected_at": "2026-11-02T19:46:18-05:00",
  "tool": "Apify actor apify/facebook-ads-scraper (official), run by the author",
- "method": "Exact-phrase keyword searches for each firm name found the advertiser pages; each investor-facing page was then read in full by page id. Unrelated advertisers that matched a name were excluded.",
+ "method": "Exact-phrase keyword searches for each firm name found the advertiser pages; each investor-facing advertiser page's library total was then recorded by page id and the listings returned were reviewed. Unrelated advertisers that matched a name were excluded.",
  "runs": {
   "keyword_search": [
    "hOYiJNytTODyh34ej",

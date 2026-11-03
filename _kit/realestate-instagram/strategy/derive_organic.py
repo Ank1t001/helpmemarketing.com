@@ -12,7 +12,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); KIT = os.path.dirname(HERE)
 WINDOW = ['2026-09-13', '2026-10-13']
 FUND = re.compile(r'\b(fund|REIT|invest with|invest in (our|the)|offering|RRSP|TFSA|minimum investment|accredited)\b', re.I)
 RET = re.compile(r'\d+(\.\d+)?\s*%[^.]{0,40}(return|distribution|yield)', re.I)
-# Greybrook, 13 posts 13 September to 13 October 2026: shortcode, date, format, theme, likes (None = hidden), comments, plays, names a fund
+# Greybrook, 13 posts in the 30 days ending 13 October 2026 (14 September to 13 October): shortcode, date, format, theme, likes (None = hidden), comments, plays, names a fund
 GREYBROOK = [
  ('DdRxt_TFDCc', '2026-09-14', 'Carousel', 'Brand / other', None, 0, None, False),
  ('DdUToJwh0R5', '2026-09-15', 'Reel', 'Development / asset', None, 0, 427, False),
