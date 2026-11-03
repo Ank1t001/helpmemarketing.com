@@ -131,6 +131,12 @@ def validate(source, actual, rows, config):
            ('ri-view-organic',['ri-organic-compare','ri-creative','ri-video','ri-insights','ri-series']),('ri-view-paid',['ri-paid-compare','ri-activity','ri-distribution','ri-ads']),
            ('ri-view-recs',['ri-test','ri-recs-firms']),('ri-view-sources',['ri-download','ri-advanced','ri-editions','ri-data'])]
     if 'data-ri-tabs' not in body or 'data-ri-tabs-js' not in source: raise ValueError('Missing the view tab bar or its script')
+    # Block nesting (2026-11-03): a stray closing tag once ended the hidden Sources view early and showed its content under every tab.
+    depth=[]
+    for m in re.finditer(r'<(/?)(div|section|details)\b',re.sub(r'<script.*?</script>','',body,flags=re.S)):
+        if not m.group(1): depth.append(m.group(2))
+        elif not depth or depth.pop()!=m.group(2): raise ValueError('Unbalanced </'+m.group(2)+'> near offset '+str(m.start()))
+    if depth: raise ValueError('Unclosed blocks: '+', '.join(depth[-3:]))
     # Overview as navigation (founder, 2026-11-03): a heading, one sentence and five cards to the other tabs; no statistics, findings, pulse or roster note.
     ov=body[body.find('<div class="ri-view" id="ri-view-overview">'):body.find('<div class="ri-view" id="ri-view-rankings">')]
     if '<h2>Explore the case study</h2>' not in ov or re.findall(r'<a class="ri-ocard" href="#(ri-view-[a-z]+)"',ov)!=['ri-view-rankings','ri-view-website','ri-view-organic','ri-view-paid','ri-view-recs'] or 'class="tile' in ov or 'Firms included' in ov: raise ValueError('Overview must be the heading, one sentence and the five view cards only')
@@ -166,7 +172,7 @@ def validate(source, actual, rows, config):
     if re.search(r'class="flag (?!neutral)',body): raise ValueError('Flags must use the neutral style')
     board_rows=re.search(r'<section id="ri-rankings">.*?<tbody>(.*?)</tbody>',body,re.S)
     if not board_rows or board_rows.group(1).count('data-note="')!=board_rows.group(1).count('<tr'): raise ValueError('Every scoreboard row needs a data-note for the firm panel')
-    for label,needle in {'metrics note':'Select a metric to compare firms. Select a firm to explore its results.','download heading':'<h2>Download the dataset</h2>',
+    for label,needle in {'engagement heading':'<h2>Engagement comparison</h2>','score disclosure':'<summary>HMM score (under review)</summary>','reading notes':'<h2>How to read the comparison</h2>','download heading':'<h2>Download the dataset</h2>',
                          'email label':'<label class="gate-label" for="gate-email">Email address</label>','status live region':'id="gate-msg" role="status" aria-live="polite"',
                          'current edition history row':f'<b>{cyc}</b> (this page)','post log expander':'<summary>Open the post log</summary>'}.items():
         if needle not in body: raise ValueError('Missing '+label)
@@ -186,13 +192,18 @@ def validate(source, actual, rows, config):
     if '"@id":"https://helpmemarketing.com/about#ankit-kumar"' not in head or '"@id":"https://helpmemarketing.com/#organization"' not in head: raise ValueError('Article author/publisher not linked')
     for blk in re.findall(r'<script type="application/ld\+json">(.*?)</script>',source,re.S): json.loads(blk)
     parser=Tables(); parser.feed(body)
-    headings=['Firm','HMM score','Followers','Posts','Post formats','Median likes','Median comments','Median likes \u00f7 plays','Peak plays \u00f7 followers','Most-liked post']
+    # Engagement comparison (founder, 2026-11-03): the full table is alphabetical with no score column; the HMM score sits in its own two-column table.
+    headings=['Firm','Followers','Posts','Post formats','Median likes','Median comments','Median likes \u00f7 followers','Median likes \u00f7 plays','Peak plays \u00f7 followers','Most-liked post']
     board=next((t for t in parser.tables if t and t[0]==headings),None)
-    if not board or len(board)-1!=len(actual): raise ValueError('Scoreboard headings or row count changed')
-    for row,(brand,m) in zip(board[1:],sorted(actual.items(),key=lambda p:p[1]['rank'])):
-        if not row[0].startswith(brand) or int(row[1].split()[0])!=m['score']: raise ValueError('Body score mismatch: '+brand)
-        if int(row[2].replace(',',''))!=m['followers'] or int(row[3])!=m['n']: raise ValueError('Body sample mismatch: '+brand)
+    if not board or len(board)-1!=len(actual): raise ValueError('Comparison table headings or row count changed')
+    if [r[0].split()[0] for r in board[1:]]!=sorted(actual): raise ValueError('Comparison table rows must be alphabetical')
+    for row,(brand,m) in zip(board[1:],sorted(actual.items())):
+        if not row[0].startswith(brand): raise ValueError('Comparison row mismatch: '+brand)
+        if int(row[1].replace(',',''))!=m['followers'] or int(row[2])!=m['n']: raise ValueError('Body sample mismatch: '+brand)
+        if row[6]!='%.2f%%'%m['er']: raise ValueError('Likes relative to followers mismatch: '+brand)
         if not m['has_video'] and (row[7]!='no video' or row[8]!='no video'): raise ValueError('No-video display mismatch')
+    sb=next((t for t in parser.tables if t and t[0]==['Firm','HMM score']),None)
+    if not sb or [(r[0],int(r[1])) for r in sb[1:]]!=[(b,m['score']) for b,m in sorted(actual.items(),key=lambda p:p[1]['rank'])]: raise ValueError('HMM score table must list every scored firm with its score, in score order')
     parsed=json.loads(re.search(r'var GATED_CSV=("(?:\\.|[^"\\])*");',body).group(1))
     embedded=list(csv.DictReader(io.StringIO(parsed)))
     if embedded!=rows: raise ValueError('Embedded CSV mismatch')

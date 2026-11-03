@@ -591,6 +591,15 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 @media(max-width:900px){.msi.msi a.ri-ocard,.msi.msi a.ri-ocard:nth-child(n+4){grid-column:span 3}.msi.msi a.ri-ocard:last-child{grid-column:1/-1}}
 @media(max-width:720px){.msi.msi .ri-otoc{grid-template-columns:1fr;gap:12px}.msi.msi a.ri-ocard,.msi.msi a.ri-ocard:nth-child(n+4),.msi.msi a.ri-ocard:last-child{grid-column:1/-1;padding:18px 18px 16px}.msi.msi .ri-ochip{margin-bottom:14px}.msi.msi .ri-ot{font-size:22px}.msi.msi .ri-od{margin-bottom:14px;font-size:14.5px}}
 @media(prefers-reduced-motion:reduce){.msi.msi a.ri-ocard,.msi.msi .ri-oarrow{transition:none}.msi.msi a.ri-ocard:hover,.msi.msi a.ri-ocard:hover .ri-oarrow{transform:none}}
+/* Engagement comparison (2026-11-03, founder): three blocks; bars carry no rank column; the three reading notes as a definition list. */
+.msi.msi .ri-bar{grid-template-columns:170px 1fr 80px}
+.msi.msi .ri-h3{margin:32px 0 16px;font-family:var(--font-display,Fraunces,serif);font-size:24px;font-weight:400;line-height:1.2}
+.msi.msi .ri-read{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 16px}
+.msi.msi .ri-read>div{padding:20px 24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
+.msi.msi .ri-read dt{margin:0 0 6px;font-weight:650;font-size:15px}
+.msi.msi .ri-read dd{margin:0;font-size:14.5px;line-height:1.55;color:var(--text-muted)}
+@media(max-width:900px){.msi.msi .ri-read{grid-template-columns:1fr}}
+@media(max-width:720px){.msi.msi .ri-bar{grid-template-columns:104px 1fr 60px}.msi.msi .ri-h3{font-size:22px;margin-top:24px}.msi.msi .ri-read>div{padding:16px}}
 /* Header without the image, as on the Business index, and Sources & evidence (2026-11-03, founder; since the same day one compact row and the last thing in the report, the old report footer removed): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
 .msi.msi header{background:none;grid-template-columns:1fr;max-width:760px}
 .msi.msi header::after{display:none}
@@ -682,11 +691,13 @@ document.addEventListener("DOMContentLoaded",function(){
   var sec=document.getElementById("ri-rankings");var tb=sec&&sec.querySelector("table");if(!tb)return;
   var heads=[].map.call(tb.querySelectorAll("thead th"),function(th){return th.textContent.trim();});
   function col(n){return heads.indexOf(n);}
-  var S="HMM score",LP="Median likes \u00f7 plays",PK="Peak plays \u00f7 followers";
-  var tabs=[[S,"HMM score"],["Followers","Followers"],["Posts","Posts reviewed"],["Median likes","Median likes per post"],["Median comments","Median comments per post"],[LP,LP],[PK,PK]].filter(function(t){return col(t[0])>-1;});
-  function parts(td){return td?[].map.call(td.childNodes,function(n){return (n.textContent||"").replace(/\s+/g," ").trim();}).filter(function(t){return t&&t!=="open";}):[];}
+  /* Engagement comparison (founder, 2026-11-03): individual metrics only (the HMM score sits in its own disclosure), firms sorted by the selected
+     metric with no rank numbers, a compact summary and one observation for the selected firm. */
+  var LF="Median likes \u00f7 followers",LP="Median likes \u00f7 plays",PK="Peak plays \u00f7 followers";
+  var tabs=[["Followers","Followers"],["Posts","Posts reviewed"],["Median likes","Median likes per post"],["Median comments","Median comments per post"],[LF,"Median likes relative to followers"],[LP,"Median likes relative to video plays"],[PK,"Peak video plays relative to followers"]].filter(function(t){return col(t[0])>-1;});
+  function parts(td){return td?[].map.call(td.childNodes,function(n){return (n.textContent||"").replace(/\s+/g," ").trim();}).filter(function(t){return t&&t!=="view";}):[];}
   function main(td){var p=parts(td);return p[0]||"";}
-  function sub(td){var p=parts(td);return p.slice(1).join(" · ");}
+  function sub(td){var p=parts(td);return p.slice(1).join(" \u00b7 ");}
   function num(t){var m=String(t).replace(/,/g,"").match(/-?\d+(\.\d+)?/);return m?parseFloat(m[0]):null;}
   function shown(t){return /no video/i.test(t)?"No video":t;}
   var rows=[].map.call(tb.querySelectorAll("tbody tr"),function(tr){var c=tr.children,a=c[0].querySelector("a"),tp=c[col("Most-liked post")],ta=tp&&tp.querySelector("a");
@@ -694,33 +705,33 @@ document.addEventListener("DOMContentLoaded",function(){
   if(!rows.length)return;
   function cell(r,h){return r.cells[col(h)];}
   var box=document.createElement("div");box.className="ri-cmp";
-  box.innerHTML='<div class="ri-cmp-top"><p class="ri-cmp-h">Choose a metric</p><span class="ri-hint">Select a firm below to explore its results</span></div><div class="ri-metrics" role="group" aria-label="Comparison metric"></div><ol class="ri-bars"></ol><div class="ri-scale" aria-hidden="true"><span></span><span></span></div><p class="ri-note"></p><p class="ri-disc">These figures describe visible Instagram activity. They do not measure investor interest, leads or revenue.</p><div class="ri-detail" aria-live="polite"></div>';
+  box.innerHTML='<div class="ri-cmp-top"><p class="ri-cmp-h">Choose a metric</p><span class="ri-hint">Select a firm to explore its results</span></div><div class="ri-metrics" role="group" aria-label="Comparison metric"></div><ol class="ri-bars"></ol><div class="ri-scale" aria-hidden="true"><span></span><span></span></div><p class="ri-note"></p><div class="ri-detail" aria-live="polite"></div>';
   var mb=box.querySelector(".ri-metrics"),ol=box.querySelector(".ri-bars"),note=box.querySelector(".ri-note"),det=box.querySelector(".ri-detail"),sc=box.querySelectorAll(".ri-scale span");
-  var cur=tabs[0],sel=0;
+  var cur=tabs.filter(function(t){return t[0]===LF;})[0]||tabs[0],sel=rows[0].name;
   function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML;}
   function stat(l,v,s){return '<div class="ri-stat"><dt>'+esc(l)+'</dt><dd>'+v+(s?'<small>'+s+'</small>':'')+'</dd></div>';}
-  /* Engagement comparison (founder review, 2026-11-03): literal labels, rank only for the HMM score, formats spelled out. */
   function mix(t){var n={R:["reel","reels"],C:["carousel","carousels"],S:["static post","static posts"]};return t.split("\u00b7").map(function(x){var m=x.trim().match(/^(\d+)([RCS])$/);return m?m[1]+" "+n[m[2]][m[1]==="1"?0:1]:x;}).join(" \u00b7 ");}
-  function detail(){var r=rows[sel],rk=sub(cell(r,S)).match(/(\d+) of (\d+)/),er=sub(cell(r,"Median likes"));
-    var h='<div class="ri-firm-top"><div><h3>'+esc(r.name)+'</h3>'+(rk?'<span class="ri-pill">HMM score rank: '+rk[1]+' of '+rk[2]+'</span>':'')+'</div>'+(r.url?'<a href="'+r.url+'" target="_blank" rel="noopener">View Instagram ↗</a>':'')+'</div><dl class="ri-stats">';
-    h+=stat("HMM index score",esc(main(cell(r,S)))+" / 100");
+  function detail(){var r=rows.filter(function(x){return x.name===sel;})[0];
+    var h='<div class="ri-firm-top"><div><h3>'+esc(r.name)+'</h3></div>'+(r.url?'<a href="'+r.url+'" target="_blank" rel="noopener">View Instagram ↗</a>':'')+'</div><dl class="ri-stats">';
     h+=stat("Followers",esc(main(cell(r,"Followers"))));
     h+=stat("Posts reviewed",esc(main(cell(r,"Posts"))),esc(mix(main(cell(r,"Post formats")))));
-    h+=stat("Median likes per post",esc(main(cell(r,"Median likes"))),er?esc(er.replace(" of followers"," median likes \u00f7 followers")):"");
+    h+=stat("Median likes per post",esc(main(cell(r,"Median likes"))),esc(sub(cell(r,"Median likes"))));
     h+=stat("Median comments per post",esc(main(cell(r,"Median comments"))));
-    h+=stat(LP,esc(shown(main(cell(r,LP)))),"video posts with visible likes");
-    h+=stat(PK,esc(shown(main(cell(r,PK)))));
+    h+=stat("Median likes relative to followers",esc(main(cell(r,LF))));
+    h+=stat("Median likes relative to video plays",esc(shown(main(cell(r,LP)))),"video posts with visible likes");
+    h+=stat("Peak video plays relative to followers",esc(shown(main(cell(r,PK)))));
     if(col("Most-liked post")>-1)h+=stat("Most-liked post",esc(main(cell(r,"Most-liked post")))+" likes",r.post?'<a href="'+r.post+'" target="_blank" rel="noopener">View post ↗</a>':"");
     det.innerHTML=h+'</dl>'+(r.note?'<p class="ri-firm-note">'+esc(r.note)+'</p>':'');}
-  function draw(){var txt=rows.map(function(r){return main(cell(r,cur[0]));}),vals=txt.map(function(t){return /no video/i.test(t)?null:num(t);});
-    var max=cur[0]===S?100:Math.max.apply(null,vals.filter(function(v){return v!==null;}).concat([0]))||1;
-    ol.innerHTML="";rows.forEach(function(r,k){var li=document.createElement("li");var b=document.createElement("button");b.type="button";b.className="ri-bar";b.setAttribute("aria-pressed",k===sel?"true":"false");
-      var v=vals[k];b.setAttribute("aria-label",r.name+", "+cur[1]+": "+shown(txt[k]));
-      b.innerHTML='<span class="ri-rank">'+(cur[0]===S?k+1:"")+'</span><span>'+esc(r.name)+'</span><span class="ri-track"><span class="ri-fill"></span></span><span class="ri-val">'+esc(shown(txt[k]))+'</span>';
-      b.querySelector(".ri-fill").style.width=(v===null?0:Math.max(2,v/max*100))+"%";
-      b.addEventListener("click",function(){sel=k;draw();});li.appendChild(b);ol.appendChild(li);});
-    sc[0].textContent="0";sc[1].textContent=cur[0]===S?"100":(txt[vals.indexOf(max)]||String(max));
-    note.textContent=cur[0]===S?"The HMM score weights median likes relative to followers (45%), the comment-to-like ratio (30%) and peak plays relative to followers (25%). The weights are HMM\u2019s editorial choices.":"Firms stay in HMM score order; the numbers show the selected metric only.";
+  function draw(){var list=rows.map(function(r){var t=main(cell(r,cur[0]));return {r:r,t:t,v:/no video/i.test(t)?null:num(t)};});
+    list.sort(function(a,b){if(a.v===null||b.v===null)return a.v===null?(b.v===null?a.r.name.localeCompare(b.r.name):1):-1;return b.v-a.v||a.r.name.localeCompare(b.r.name);});
+    var max=Math.max.apply(null,list.map(function(x){return x.v;}).filter(function(v){return v!==null;}).concat([0]))||1;
+    ol.innerHTML="";list.forEach(function(x){var li=document.createElement("li");var b=document.createElement("button");b.type="button";b.className="ri-bar";b.setAttribute("aria-pressed",x.r.name===sel?"true":"false");
+      b.setAttribute("aria-label",x.r.name+", "+cur[1]+": "+shown(x.t));
+      b.innerHTML='<span>'+esc(x.r.name)+'</span><span class="ri-track"><span class="ri-fill"></span></span><span class="ri-val">'+esc(shown(x.t))+'</span>';
+      b.querySelector(".ri-fill").style.width=(x.v===null?0:Math.max(2,x.v/max*100))+"%";
+      b.addEventListener("click",function(){sel=x.r.name;draw();});li.appendChild(b);ol.appendChild(li);});
+    sc[0].textContent="0";sc[1].textContent=list[0].t;
+    note.textContent="Sorted by the selected metric, highest first.";
     [].forEach.call(mb.children,function(x){x.setAttribute("aria-pressed",x.getAttribute("data-h")===cur[0]?"true":"false");});detail();}
   tabs.forEach(function(t){var b=document.createElement("button");b.type="button";b.setAttribute("data-h",t[0]);b.textContent=t[1];
     b.addEventListener("click",function(){cur=t;draw();});mb.appendChild(b);});

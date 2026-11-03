@@ -591,6 +591,15 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 @media(max-width:900px){.msi.msi a.ri-ocard,.msi.msi a.ri-ocard:nth-child(n+4){grid-column:span 3}.msi.msi a.ri-ocard:last-child{grid-column:1/-1}}
 @media(max-width:720px){.msi.msi .ri-otoc{grid-template-columns:1fr;gap:12px}.msi.msi a.ri-ocard,.msi.msi a.ri-ocard:nth-child(n+4),.msi.msi a.ri-ocard:last-child{grid-column:1/-1;padding:18px 18px 16px}.msi.msi .ri-ochip{margin-bottom:14px}.msi.msi .ri-ot{font-size:22px}.msi.msi .ri-od{margin-bottom:14px;font-size:14.5px}}
 @media(prefers-reduced-motion:reduce){.msi.msi a.ri-ocard,.msi.msi .ri-oarrow{transition:none}.msi.msi a.ri-ocard:hover,.msi.msi a.ri-ocard:hover .ri-oarrow{transform:none}}
+/* Engagement comparison (2026-11-03, founder): three blocks; bars carry no rank column; the three reading notes as a definition list. */
+.msi.msi .ri-bar{grid-template-columns:170px 1fr 80px}
+.msi.msi .ri-h3{margin:32px 0 16px;font-family:var(--font-display,Fraunces,serif);font-size:24px;font-weight:400;line-height:1.2}
+.msi.msi .ri-read{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 16px}
+.msi.msi .ri-read>div{padding:20px 24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
+.msi.msi .ri-read dt{margin:0 0 6px;font-weight:650;font-size:15px}
+.msi.msi .ri-read dd{margin:0;font-size:14.5px;line-height:1.55;color:var(--text-muted)}
+@media(max-width:900px){.msi.msi .ri-read{grid-template-columns:1fr}}
+@media(max-width:720px){.msi.msi .ri-bar{grid-template-columns:104px 1fr 60px}.msi.msi .ri-h3{font-size:22px;margin-top:24px}.msi.msi .ri-read>div{padding:16px}}
 /* Header without the image, as on the Business index, and Sources & evidence (2026-11-03, founder; since the same day one compact row and the last thing in the report, the old report footer removed): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
 .msi.msi header{background:none;grid-template-columns:1fr;max-width:760px}
 .msi.msi header::after{display:none}
@@ -682,11 +691,13 @@ document.addEventListener("DOMContentLoaded",function(){
   var sec=document.getElementById("ri-rankings");var tb=sec&&sec.querySelector("table");if(!tb)return;
   var heads=[].map.call(tb.querySelectorAll("thead th"),function(th){return th.textContent.trim();});
   function col(n){return heads.indexOf(n);}
-  var S="HMM score",LP="Median likes \u00f7 plays",PK="Peak plays \u00f7 followers";
-  var tabs=[[S,"HMM score"],["Followers","Followers"],["Posts","Posts reviewed"],["Median likes","Median likes per post"],["Median comments","Median comments per post"],[LP,LP],[PK,PK]].filter(function(t){return col(t[0])>-1;});
-  function parts(td){return td?[].map.call(td.childNodes,function(n){return (n.textContent||"").replace(/\s+/g," ").trim();}).filter(function(t){return t&&t!=="open";}):[];}
+  /* Engagement comparison (founder, 2026-11-03): individual metrics only (the HMM score sits in its own disclosure), firms sorted by the selected
+     metric with no rank numbers, a compact summary and one observation for the selected firm. */
+  var LF="Median likes \u00f7 followers",LP="Median likes \u00f7 plays",PK="Peak plays \u00f7 followers";
+  var tabs=[["Followers","Followers"],["Posts","Posts reviewed"],["Median likes","Median likes per post"],["Median comments","Median comments per post"],[LF,"Median likes relative to followers"],[LP,"Median likes relative to video plays"],[PK,"Peak video plays relative to followers"]].filter(function(t){return col(t[0])>-1;});
+  function parts(td){return td?[].map.call(td.childNodes,function(n){return (n.textContent||"").replace(/\s+/g," ").trim();}).filter(function(t){return t&&t!=="view";}):[];}
   function main(td){var p=parts(td);return p[0]||"";}
-  function sub(td){var p=parts(td);return p.slice(1).join(" · ");}
+  function sub(td){var p=parts(td);return p.slice(1).join(" \u00b7 ");}
   function num(t){var m=String(t).replace(/,/g,"").match(/-?\d+(\.\d+)?/);return m?parseFloat(m[0]):null;}
   function shown(t){return /no video/i.test(t)?"No video":t;}
   var rows=[].map.call(tb.querySelectorAll("tbody tr"),function(tr){var c=tr.children,a=c[0].querySelector("a"),tp=c[col("Most-liked post")],ta=tp&&tp.querySelector("a");
@@ -694,33 +705,33 @@ document.addEventListener("DOMContentLoaded",function(){
   if(!rows.length)return;
   function cell(r,h){return r.cells[col(h)];}
   var box=document.createElement("div");box.className="ri-cmp";
-  box.innerHTML='<div class="ri-cmp-top"><p class="ri-cmp-h">Choose a metric</p><span class="ri-hint">Select a firm below to explore its results</span></div><div class="ri-metrics" role="group" aria-label="Comparison metric"></div><ol class="ri-bars"></ol><div class="ri-scale" aria-hidden="true"><span></span><span></span></div><p class="ri-note"></p><p class="ri-disc">These figures describe visible Instagram activity. They do not measure investor interest, leads or revenue.</p><div class="ri-detail" aria-live="polite"></div>';
+  box.innerHTML='<div class="ri-cmp-top"><p class="ri-cmp-h">Choose a metric</p><span class="ri-hint">Select a firm to explore its results</span></div><div class="ri-metrics" role="group" aria-label="Comparison metric"></div><ol class="ri-bars"></ol><div class="ri-scale" aria-hidden="true"><span></span><span></span></div><p class="ri-note"></p><div class="ri-detail" aria-live="polite"></div>';
   var mb=box.querySelector(".ri-metrics"),ol=box.querySelector(".ri-bars"),note=box.querySelector(".ri-note"),det=box.querySelector(".ri-detail"),sc=box.querySelectorAll(".ri-scale span");
-  var cur=tabs[0],sel=0;
+  var cur=tabs.filter(function(t){return t[0]===LF;})[0]||tabs[0],sel=rows[0].name;
   function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML;}
   function stat(l,v,s){return '<div class="ri-stat"><dt>'+esc(l)+'</dt><dd>'+v+(s?'<small>'+s+'</small>':'')+'</dd></div>';}
-  /* Engagement comparison (founder review, 2026-11-03): literal labels, rank only for the HMM score, formats spelled out. */
   function mix(t){var n={R:["reel","reels"],C:["carousel","carousels"],S:["static post","static posts"]};return t.split("\u00b7").map(function(x){var m=x.trim().match(/^(\d+)([RCS])$/);return m?m[1]+" "+n[m[2]][m[1]==="1"?0:1]:x;}).join(" \u00b7 ");}
-  function detail(){var r=rows[sel],rk=sub(cell(r,S)).match(/(\d+) of (\d+)/),er=sub(cell(r,"Median likes"));
-    var h='<div class="ri-firm-top"><div><h3>'+esc(r.name)+'</h3>'+(rk?'<span class="ri-pill">HMM score rank: '+rk[1]+' of '+rk[2]+'</span>':'')+'</div>'+(r.url?'<a href="'+r.url+'" target="_blank" rel="noopener">View Instagram ↗</a>':'')+'</div><dl class="ri-stats">';
-    h+=stat("HMM index score",esc(main(cell(r,S)))+" / 100");
+  function detail(){var r=rows.filter(function(x){return x.name===sel;})[0];
+    var h='<div class="ri-firm-top"><div><h3>'+esc(r.name)+'</h3></div>'+(r.url?'<a href="'+r.url+'" target="_blank" rel="noopener">View Instagram ↗</a>':'')+'</div><dl class="ri-stats">';
     h+=stat("Followers",esc(main(cell(r,"Followers"))));
     h+=stat("Posts reviewed",esc(main(cell(r,"Posts"))),esc(mix(main(cell(r,"Post formats")))));
-    h+=stat("Median likes per post",esc(main(cell(r,"Median likes"))),er?esc(er.replace(" of followers"," median likes \u00f7 followers")):"");
+    h+=stat("Median likes per post",esc(main(cell(r,"Median likes"))),esc(sub(cell(r,"Median likes"))));
     h+=stat("Median comments per post",esc(main(cell(r,"Median comments"))));
-    h+=stat(LP,esc(shown(main(cell(r,LP)))),"video posts with visible likes");
-    h+=stat(PK,esc(shown(main(cell(r,PK)))));
+    h+=stat("Median likes relative to followers",esc(main(cell(r,LF))));
+    h+=stat("Median likes relative to video plays",esc(shown(main(cell(r,LP)))),"video posts with visible likes");
+    h+=stat("Peak video plays relative to followers",esc(shown(main(cell(r,PK)))));
     if(col("Most-liked post")>-1)h+=stat("Most-liked post",esc(main(cell(r,"Most-liked post")))+" likes",r.post?'<a href="'+r.post+'" target="_blank" rel="noopener">View post ↗</a>':"");
     det.innerHTML=h+'</dl>'+(r.note?'<p class="ri-firm-note">'+esc(r.note)+'</p>':'');}
-  function draw(){var txt=rows.map(function(r){return main(cell(r,cur[0]));}),vals=txt.map(function(t){return /no video/i.test(t)?null:num(t);});
-    var max=cur[0]===S?100:Math.max.apply(null,vals.filter(function(v){return v!==null;}).concat([0]))||1;
-    ol.innerHTML="";rows.forEach(function(r,k){var li=document.createElement("li");var b=document.createElement("button");b.type="button";b.className="ri-bar";b.setAttribute("aria-pressed",k===sel?"true":"false");
-      var v=vals[k];b.setAttribute("aria-label",r.name+", "+cur[1]+": "+shown(txt[k]));
-      b.innerHTML='<span class="ri-rank">'+(cur[0]===S?k+1:"")+'</span><span>'+esc(r.name)+'</span><span class="ri-track"><span class="ri-fill"></span></span><span class="ri-val">'+esc(shown(txt[k]))+'</span>';
-      b.querySelector(".ri-fill").style.width=(v===null?0:Math.max(2,v/max*100))+"%";
-      b.addEventListener("click",function(){sel=k;draw();});li.appendChild(b);ol.appendChild(li);});
-    sc[0].textContent="0";sc[1].textContent=cur[0]===S?"100":(txt[vals.indexOf(max)]||String(max));
-    note.textContent=cur[0]===S?"The HMM score weights median likes relative to followers (45%), the comment-to-like ratio (30%) and peak plays relative to followers (25%). The weights are HMM\u2019s editorial choices.":"Firms stay in HMM score order; the numbers show the selected metric only.";
+  function draw(){var list=rows.map(function(r){var t=main(cell(r,cur[0]));return {r:r,t:t,v:/no video/i.test(t)?null:num(t)};});
+    list.sort(function(a,b){if(a.v===null||b.v===null)return a.v===null?(b.v===null?a.r.name.localeCompare(b.r.name):1):-1;return b.v-a.v||a.r.name.localeCompare(b.r.name);});
+    var max=Math.max.apply(null,list.map(function(x){return x.v;}).filter(function(v){return v!==null;}).concat([0]))||1;
+    ol.innerHTML="";list.forEach(function(x){var li=document.createElement("li");var b=document.createElement("button");b.type="button";b.className="ri-bar";b.setAttribute("aria-pressed",x.r.name===sel?"true":"false");
+      b.setAttribute("aria-label",x.r.name+", "+cur[1]+": "+shown(x.t));
+      b.innerHTML='<span>'+esc(x.r.name)+'</span><span class="ri-track"><span class="ri-fill"></span></span><span class="ri-val">'+esc(shown(x.t))+'</span>';
+      b.querySelector(".ri-fill").style.width=(x.v===null?0:Math.max(2,x.v/max*100))+"%";
+      b.addEventListener("click",function(){sel=x.r.name;draw();});li.appendChild(b);ol.appendChild(li);});
+    sc[0].textContent="0";sc[1].textContent=list[0].t;
+    note.textContent="Sorted by the selected metric, highest first.";
     [].forEach.call(mb.children,function(x){x.setAttribute("aria-pressed",x.getAttribute("data-h")===cur[0]?"true":"false");});detail();}
   tabs.forEach(function(t){var b=document.createElement("button");b.type="button";b.setAttribute("data-h",t[0]);b.textContent=t[1];
     b.addEventListener("click",function(){cur=t;draw();});mb.appendChild(b);});
@@ -790,120 +801,66 @@ document.addEventListener('DOMContentLoaded', function () {
 </nav></section>
 </div>
 <div class="ri-view" id="ri-view-rankings">
-<div class="metrics-note">Select a metric to compare firms. Select a firm to explore its results.</div>
-<section id="ri-rankings"><div class="sec-head"><h2>Compare the firms</h2>
-<p class="dek">Compare posting activity and visible Instagram engagement across four firms in the 30 days ending 13 October 2026, collected on 2 November 2026.</p>
-<p class="pnote">Centurion is excluded from the Instagram comparison because no corporate account was found on 2 November 2026.</p>
-<p class="pnote"><b>Highest HMM score:</b> Greybrook has the highest score, 61, under the current HMM scoring method. Each metric below orders the firms differently.</p></div>
+<section id="ri-rankings"><div class="sec-head"><h2>Engagement comparison</h2>
+<p class="dek">Compare posting activity and visible Instagram engagement across the firms reviewed.</p>
+<p class="pnote">Four Instagram accounts compared. No corporate account was found for Centurion.</p>
+<p class="pnote m0">Posts published in the 30 days ending 13 October 2026, collected on 2 November 2026.</p></div>
+<h3 class="ri-h3">Compare the firms</h3>
 <details class="ri-adv"><summary>View the full comparison</summary>
-<p class="pnote mb12">All metrics for the same reporting window, in HMM score order. Post formats: R reel, C carousel, S static. Residential fund and Development-led are HMM&rsquo;s editorial firm groups.</p>
-<div class="tw"><table><thead><tr><th>Firm</th><th class="r"><span class="tip d" tabindex="0" data-tip="HMM&rsquo;s own score from 0 to 100: 45% median likes relative to followers, 30% comment-to-like ratio and 25% peak plays relative to followers. The weights are editorial choices.">HMM score</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="Follower count recorded at collection on 2 November 2026.">Followers</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="Company posts reviewed in the 30 day reporting window. Accounts with fewer than five posts are left out of the score comparison and their score is capped at 30.">Posts</span></th>
-<th class="r"><span class="tip d" tabindex="0" data-tip="Post formats: R reels, C carousels, S static posts. Formats a firm did not publish are left out rather than shown as zero.">Post formats</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="The middle value of visible likes per post, with median likes as a share of followers beneath it. Posts that hide their likes are left out.">Median likes</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="The middle value of comments per post, on posts that show their likes.">Median comments</span></th><th class="r"><span class="tip d dr" tabindex="0" data-tip="The median of likes divided by recorded plays, across video posts that show their likes. An account with no video shows no video, not zero.">Median likes &divide; plays</span></th>
+<p class="pnote mb12">All metrics for the same reporting window, in alphabetical order. Post formats: R reel, C carousel, S static. Residential fund and Development-led are HMM&rsquo;s editorial firm groups.</p>
+<div class="tw"><table><thead><tr><th>Firm</th><th class="r"><span class="tip d" tabindex="0" data-tip="Follower count recorded at collection on 2 November 2026.">Followers</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="Company posts reviewed in the reporting window.">Posts</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="Post formats: R reels, C carousels, S static posts. Formats a firm did not publish are left out rather than shown as zero.">Post formats</span></th>
+<th class="r"><span class="tip d" tabindex="0" data-tip="The middle value of visible likes per post. Posts that hide their likes are left out.">Median likes</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="The middle value of comments per post, on posts that show their likes.">Median comments</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="Median visible likes per post divided by the follower count.">Median likes &divide; followers</span></th><th class="r"><span class="tip d dr" tabindex="0" data-tip="The median of likes divided by recorded plays, across video posts that show their likes. An account with no video shows no video, not zero.">Median likes &divide; plays</span></th>
 <th class="r"><span class="tip d dr" tabindex="0" data-tip="The highest recorded video play count in the window divided by the follower count. Plays can include repeat viewing. An account with no video shows no video.">Peak plays &divide; followers</span></th><th class="r"><span class="tip d dr" tabindex="0" data-tip="The post with the most likes in the reporting window, linked to the source.">Most-liked post</span></th></tr></thead>
-<tbody><tr data-note="Median likes were 19 across nine posts with visible counts. Four additional posts hid their likes.">
-<td class="brandcell"><a href="https://www.instagram.com/greybrook/" target="_blank" rel="noopener">Greybrook</a>
-<span class="handle">@greybrook</span>
-<div><span class="chip DEV">Development-led</span></div></td>
-<td class="r"><span class="score">61</span><div class="cell-sub">Rank 1 of 4</div></td>
-<td class="r vanity">2,687</td><td class="r">13</td><td class="r">5R·6C·2S</td>
-<td class="r">19<div class="cell-sub">0.71% of followers</div><div class="cell-sub">9 of 13 posts show likes</div></td>
-<td class="r">0</td><td class="r">2.05%</td><td class="r">0.41x</td>
-<td class="r"><b>116</b><div class="cell-sub"><a href="https://www.instagram.com/p/DeJ9DvgkbLy/" target="_blank" rel="noopener">view</a></div></td></tr><tr data-note="Skyline had the highest median likes per post, at 20. No comments were recorded across its 14 posts.">
-<td class="brandcell"><a href="https://www.instagram.com/skylinegroupofcompanies/" target="_blank" rel="noopener">Skyline</a>
-<span class="handle">@skylinegroupofcompanies</span>
-<div><span class="chip MID">Residential fund</span></div></td>
-<td class="r"><span class="score">49</span><div class="cell-sub">Rank 2 of 4</div></td>
-<td class="r vanity">2,335</td><td class="r">14</td><td class="r">3R·2C·9S</td>
-<td class="r">20<div class="cell-sub">0.86% of followers</div></td>
-<td class="r">0</td><td class="r">3.91%</td><td class="r">0.35x</td>
-<td class="r"><b>65</b><div class="cell-sub"><a href="https://www.instagram.com/p/DePGaUAjZDQ/" target="_blank" rel="noopener">view</a></div></td></tr><tr data-note="Lankin received 29 of the sample&rsquo;s 41 comments, with a median of three comments per post.">
-<td class="brandcell"><a href="https://www.instagram.com/lankin_investments/" target="_blank" rel="noopener">Lankin</a>
-<span class="handle">@lankin_investments</span>
-<div><span class="chip MID">Residential fund</span></div></td>
-<td class="r"><span class="score">44</span><div class="cell-sub">Rank 3 of 4</div></td>
-<td class="r vanity">4,299</td><td class="r">10</td><td class="r">2R·1C·7S</td>
-<td class="r">4.5<div class="cell-sub">0.10% of followers</div></td>
-<td class="r">3</td><td class="r">1.33%</td><td class="r">0.07x</td>
-<td class="r"><b>21</b><div class="cell-sub"><a href="https://www.instagram.com/p/Ddubcjql_R7/" target="_blank" rel="noopener">view</a></div></td></tr><tr data-note="Equiton had the largest follower count. Its most-liked post received 29 likes, compared with a median of 12.">
+<tbody><tr data-note="Equiton had the largest follower count. Its most-liked post received 29 likes, against a median of 12.">
 <td class="brandcell"><a href="https://www.instagram.com/equitoninc/" target="_blank" rel="noopener">Equiton</a>
 <span class="handle">@equitoninc</span>
 <div><span class="chip MID">Residential fund</span></div></td>
-<td class="r"><span class="score">34</span><div class="cell-sub">Rank 4 of 4</div></td>
 <td class="r vanity">18,643</td><td class="r">14</td><td class="r">8R·6C</td>
-<td class="r">12<div class="cell-sub">0.06% of followers</div></td>
-<td class="r">0</td><td class="r">2.12%</td><td class="r">0.06x</td>
-<td class="r"><b>29</b><div class="cell-sub"><a href="https://www.instagram.com/p/DduMR6gD_ft/" target="_blank" rel="noopener">view</a></div></td></tr></tbody></table></div>
-<p class="pnote">Centurion Asset Management has no row: no corporate Instagram account was found on 2 November 2026. Sources &amp; evidence describes the search. Advertising counts are in Paid Social.</p>
+<td class="r">12</td>
+<td class="r">0</td><td class="r">0.06%</td><td class="r">2.12%</td><td class="r">0.06x</td>
+<td class="r"><b>29</b><div class="cell-sub"><a href="https://www.instagram.com/p/DduMR6gD_ft/" target="_blank" rel="noopener">view</a></div></td></tr><tr data-note="Median likes were 19 across nine posts with visible counts. Four posts hid their likes.">
+<td class="brandcell"><a href="https://www.instagram.com/greybrook/" target="_blank" rel="noopener">Greybrook</a>
+<span class="handle">@greybrook</span>
+<div><span class="chip DEV">Development-led</span></div></td>
+<td class="r vanity">2,687</td><td class="r">13</td><td class="r">5R·6C·2S</td>
+<td class="r">19<div class="cell-sub">9 of 13 posts show likes</div></td>
+<td class="r">0</td><td class="r">0.71%</td><td class="r">2.05%</td><td class="r">0.41x</td>
+<td class="r"><b>116</b><div class="cell-sub"><a href="https://www.instagram.com/p/DeJ9DvgkbLy/" target="_blank" rel="noopener">view</a></div></td></tr><tr data-note="Lankin received 29 of the sample&rsquo;s 41 comments, with a median of three per post.">
+<td class="brandcell"><a href="https://www.instagram.com/lankin_investments/" target="_blank" rel="noopener">Lankin</a>
+<span class="handle">@lankin_investments</span>
+<div><span class="chip MID">Residential fund</span></div></td>
+<td class="r vanity">4,299</td><td class="r">10</td><td class="r">2R·1C·7S</td>
+<td class="r">4.5</td>
+<td class="r">3</td><td class="r">0.10%</td><td class="r">1.33%</td><td class="r">0.07x</td>
+<td class="r"><b>21</b><div class="cell-sub"><a href="https://www.instagram.com/p/Ddubcjql_R7/" target="_blank" rel="noopener">view</a></div></td></tr><tr data-note="Skyline had the highest median likes, at 20. No comments were recorded across its 14 posts.">
+<td class="brandcell"><a href="https://www.instagram.com/skylinegroupofcompanies/" target="_blank" rel="noopener">Skyline</a>
+<span class="handle">@skylinegroupofcompanies</span>
+<div><span class="chip MID">Residential fund</span></div></td>
+<td class="r vanity">2,335</td><td class="r">14</td><td class="r">3R·2C·9S</td>
+<td class="r">20</td>
+<td class="r">0</td><td class="r">0.86%</td><td class="r">3.91%</td><td class="r">0.35x</td>
+<td class="r"><b>65</b><div class="cell-sub"><a href="https://www.instagram.com/p/DePGaUAjZDQ/" target="_blank" rel="noopener">view</a></div></td></tr></tbody></table></div>
+<p class="pnote">Centurion Asset Management has no row: no corporate Instagram account was found on 2 November 2026. Advertising counts are in Paid Social.</p>
 </details>
-<details class="ri-adv"><summary>How the HMM score is calculated</summary>
-<div class="ri-method"><p><b>Median likes relative to followers, 45%</b>Each firm&rsquo;s median visible likes per post divided by its follower count, ranked against the other scored firms.</p>
-<p><b>Comment-to-like ratio, 30%</b>Comments divided by likes, both counted on the posts that show their likes, so comments on posts that hide likes are left out. The ratio is scored in HMM&rsquo;s bands, and ratios above 5% score lower. It counts comments; it does not measure investor intent.</p>
-<p><b>Peak plays relative to followers, 25%</b>The highest recorded video play count divided by the follower count, ranked against the other scored firms. Lower ratios receive higher scores under the current method.</p></div>
-<p class="dek">The weights and scoring bands are HMM&rsquo;s editorial choices. The score is not a validated measure of marketing effectiveness.</p>
-<p class="dek"><b>Why Greybrook has the highest score:</b> its comment-to-like ratio, 4.72%, is the only one inside HMM&rsquo;s historical reference band of 1.5 to 5%, which gives it the highest result on that component, and its median likes relative to followers are second to Skyline&rsquo;s. Its peak plays relative to followers, 0.41x, is the highest of the four, which lowers that component under the current method.</p>
-<p class="dek"><b>A small comment sample:</b> 41 comments were recorded across 51 posts. Lankin received 29, Greybrook 11, Equiton 1 and Skyline none. Small differences can change the scores.</p>
-<p class="dek m0"><b>No movement column this edition:</b> the firms included changed on 2 November 2026 and every account was re-collected that day, so scores are not compared with the edition 005 version first published on 13 October. Two components are percentiles, so they depend on which firms are included. The scoring method has not changed since edition 003; posts that hide their like counts are left out of like-based figures, never counted as zero.</p>
+<details class="ri-adv"><summary>HMM score (under review)</summary>
+<p class="dek">HMM&rsquo;s own 0 to 100 score from earlier editions, kept here while its weights and assumptions are reviewed. It combines median likes relative to followers (45%), the comment-to-like ratio (30%) and peak plays relative to followers (25%). The weights are editorial choices, not a validated measure of marketing effectiveness; the formulas are in Sources &amp; evidence.</p>
+<div class="tw"><table><thead><tr><th>Firm</th><th class="r">HMM score</th></tr></thead><tbody><tr><td>Greybrook</td><td class="r">61</td></tr><tr><td>Skyline</td><td class="r">49</td></tr><tr><td>Lankin</td><td class="r">44</td></tr><tr><td>Equiton</td><td class="r">34</td></tr></tbody></table></div>
+<p class="pnote m0"><b>Highest HMM score:</b> Greybrook has the highest score, 61, under the current HMM scoring method. Each metric above orders the firms differently.</p>
 </details>
 </section>
 
-<section><div class="sec-head"><h2>How to read the numbers</h2>
-<p class="dek">Definitions of the three measures, with HMM&rsquo;s historical reference bands from earlier editions of this index. The bands are not targets or industry benchmarks.</p></div>
-<div class="band card"><h4>Median likes relative to followers</h4><p class="pnote mb12">Median visible likes per post divided by the follower count recorded at collection.</p>
-<div class="bandbar neutral"><span class="bl fx1">below 0.06%</span><span class="bm fx12">0.06 to 0.35%</span><span class="bh fx1">above 0.35%</span></div></div>
-<div class="band card"><h4>Comment-to-like ratio</h4><p class="pnote mb12">Recorded comments divided by recorded likes, on the posts that show their likes.</p>
-<div class="bandbar neutral"><span class="bl fx1">below 1.5%</span><span class="bm fx14">1.5 to 5%</span><span class="bh fx1">above 5%</span></div></div>
-<div class="band card"><h4>Peak plays relative to followers</h4><p class="pnote mb12">The highest recorded video play count divided by the follower count. Plays can include repeat viewing. This ratio does not identify unique viewers or distinguish paid distribution from other sources.</p>
-<div class="bandbar neutral"><span class="bl fx1">below 10x</span><span class="bm fx12">10 to 50x</span><span class="bh fx1">above 50x</span></div></div>
-<details class="ri-adv"><summary>What the comparison shows</summary>
-<p class="micro">Skyline had the highest median likes relative to followers, 0.86%, followed by Greybrook at 0.71%.</p>
-<p class="micro">Lankin received the most recorded comments: 29 of the 41 in the sample.</p>
-<p class="micro">Greybrook had the highest peak plays relative to followers, 0.41x. All four firms were below 0.5x.</p>
-<div class="note"><span class="lbl">What to check in your own account</span>
-<p>Compare accounts with similar audiences and use the same definitions and reporting window.</p></div>
-</details></section>
-<section><details class="ri-adv"><summary>Results by firm group</summary>
-<div class="sec-head"><h2>Results by firm group</h2>
-<p class="dek">Median likes relative to followers in each group; accounts with fewer than five posts are excluded. The groups are HMM&rsquo;s editorial groupings by strategy and fund structure, not equivalent market segments: three residential-fund firms and one development-led firm.</p></div>
-<div class="grid2">
-<div class="card coh-card"><h4>Residential-fund firms</h4>
-<div class="bigno">0.105%</div><p class="micro">median across three firms</p>
-<p class="members">Equiton, Skyline, Lankin</p>
-<p class="dek m0">Within this group, median likes relative to followers ranged from 0.064% to 0.857%. Audience size and content mix differ.</p></div>
-<div class="card coh-card"><h4>Development-led firm</h4>
-<div class="bigno">0.707%</div><p class="micro">one firm</p>
-<p class="members">Greybrook Realty Partners</p>
-<p class="dek m0">One firm, so this is Greybrook&rsquo;s own result, not a group benchmark.</p></div></div>
-<div class="note"><span class="lbl">What to check in your own account</span>
-<p>Use the category median alongside group and individual-firm results. A single summary can conceal substantial differences.</p></div></details></section>
-<section><details class="ri-adv"><summary>Firm summaries</summary>
-<p class="dek">A short summary of each firm&rsquo;s Instagram posts in this edition.</p>
-<div class="grid2">
-<div class="card"><h4>Greybrook</h4>
-<p class="dek m0">Its hockey sponsorship received 116 likes, the highest visible count in the sample. Four of its 13 posts hid likes, limiting the comparison.</p></div>
-<div class="card"><h4>Skyline</h4>
-<p class="dek m0">Its 14 posts received a median of 20 likes, with no comments recorded. Construction and leasing updates made up most of its content.</p></div>
-<div class="card"><h4>Lankin</h4>
-<p class="dek m0">Its ten posts received 29 comments and a median of 4.5 likes. The two Meet the Team posts exceeded its median likes.</p></div>
-<div class="card"><h4>Equiton</h4>
-<p class="dek m0">Its 14 posts received a median of 12 likes. Lifestyle reels about property-management problems were its most-liked posts.</p></div>
-<div class="card"><h4>Centurion Asset Management</h4>
-<p class="dek m0">No corporate Instagram account found on 2 November 2026. Its website and ads are reviewed in the other sections.</p></div>
-</div>
-<div class="note"><span class="lbl">What to check in your own account</span>
-<p>Before interpreting a change in score, check the sample size and the score components that changed.</p></div></details></section>
+<section id="ri-read"><div class="sec-head"><h2>How to read the comparison</h2></div>
+<dl class="ri-read">
+<div><dt>Median likes and comments</dt><dd>The middle result across eligible posts, reducing the influence of one unusually popular post.</dd></div>
+<div><dt>Likes relative to followers</dt><dd>Visible likes in relation to audience size. It does not measure how many followers saw the post.</dd></div>
+<div><dt>Plays relative to followers</dt><dd>Recorded video plays in relation to audience size. It does not identify unique viewers or paid distribution.</dd></div>
+</dl>
+<p class="pnote m0">Public engagement does not establish investor interest, leads or revenue.</p>
+</section>
 <section><details class="ri-adv"><summary>External reference: Wealthsimple</summary>
-<div class="sec-head"><h2>External reference: Wealthsimple</h2>
-<p class="dek">One account that is <b>not a real estate firm</b>, shown for comparison only. <b>Wealthsimple is never pooled into any
-median, percentile or score on this page</b> and does not appear in the comparison above.</p></div>
-<div class="grid2">
-<div class="card"><h4>Wealthsimple, reference only</h4><h3>A Canadian investing brand at a different scale</h3>
-<p class="dek m0">249,456 followers, 13 posts in the same 30-day window, a median of
-456 likes and a median of 20 comments. Its most-liked post of the window received 1,116 likes. Post formats 5C·1S·7R.</p></div>
-<div class="card"><h4>Recorded comments in the same window</h4><h3>273 against 41</h3>
-<p class="dek m0">Wealthsimple received 273 recorded comments on 13 posts. The four scored real estate firms received 41 on 51 posts.
-The accounts differ in size, audience and post volume, so this does not show which marketing is more effective.</p></div></div>
-<div class="note crit"><span class="lbl">Why this is a reference and not a competitor</span>
-<p>Wealthsimple is shown as an external reference. Its audience, products and account size differ, so these figures are not a performance target for the real estate firms.</p></div></details></section>
+<p class="dek">Wealthsimple recorded a median of 456 likes and 20 comments across 13 posts. It is included as an external reference and excluded from the real estate comparison.</p>
+<p class="dek m0">Its audience, products and account size differ, so these figures are not a performance target for the firms reviewed.</p>
+</details></section>
 </div>
 <!-- STRATEGY:website START -->
 <div class="ri-view" id="ri-view-website">
@@ -1173,6 +1130,36 @@ body:new URLSearchParams({form:'index-download',email:em,source:GATE_SOURCE})})
 <p class="dek"><b>Creative review.</b> The opening frame or cover of each firm&rsquo;s most liked post is described with AI assistance and checked editorially. Frames that cannot be read are labelled unreviewed and not described.</p>
 <p class="dek m0"><b>Review.</b> Data collection, calculations and a first draft are prepared with automated tools and AI assistance. Ankit Kumar reviews the findings and approves each edition before it is published. Corrections are recorded in &ldquo;Coverage, previous-edition comparison and correction&rdquo; and in the edition history.</p>
 </details></section>
+<section><details class="ri-adv"><summary>Engagement measures: formulas, exclusions and reference bands</summary>
+<h3>HMM score components</h3>
+<div class="ri-method"><p><b>Median likes relative to followers, 45%</b>Each firm&rsquo;s median visible likes per post divided by its follower count, ranked against the other scored firms.</p>
+<p><b>Comment-to-like ratio, 30%</b>Comments divided by likes, both counted on the posts that show their likes, so comments on posts that hide likes are left out. The ratio is scored in HMM&rsquo;s bands, and ratios above 5% score lower. It counts comments; it does not measure investor intent.</p>
+<p><b>Peak plays relative to followers, 25%</b>The highest recorded video play count divided by the follower count, ranked against the other scored firms. Lower ratios receive higher scores under the current method.</p></div>
+<p class="dek">The weights and scoring bands are HMM&rsquo;s editorial choices. The score is not a validated measure of marketing effectiveness.</p>
+<p class="dek"><b>Why Greybrook has the highest score:</b> its comment-to-like ratio, 4.72%, is the only one inside HMM&rsquo;s historical reference band of 1.5 to 5%, which gives it the highest result on that component, and its median likes relative to followers are second to Skyline&rsquo;s. Its peak plays relative to followers, 0.41x, is the highest of the four, which lowers that component under the current method.</p>
+<p class="dek"><b>A small comment sample:</b> 41 comments were recorded across 51 posts. Lankin received 29, Greybrook 11, Equiton 1 and Skyline none. Small differences can change the scores.</p>
+<h3>Historical reference bands</h3>
+<p class="dek">HMM&rsquo;s historical reference bands from earlier editions of this index. They are not targets or industry benchmarks.</p>
+<div class="band card"><h4>Median likes relative to followers</h4><p class="pnote mb12">Median visible likes per post divided by the follower count recorded at collection.</p>
+<div class="bandbar neutral"><span class="bl fx1">below 0.06%</span><span class="bm fx12">0.06 to 0.35%</span><span class="bh fx1">above 0.35%</span></div></div>
+<div class="band card"><h4>Comment-to-like ratio</h4><p class="pnote mb12">Recorded comments divided by recorded likes, on the posts that show their likes.</p>
+<div class="bandbar neutral"><span class="bl fx1">below 1.5%</span><span class="bm fx14">1.5 to 5%</span><span class="bh fx1">above 5%</span></div></div>
+<div class="band card"><h4>Peak plays relative to followers</h4><p class="pnote mb12">The highest recorded video play count divided by the follower count. Plays can include repeat viewing. This ratio does not identify unique viewers or distinguish paid distribution from other sources.</p>
+<div class="bandbar neutral"><span class="bl fx1">below 10x</span><span class="bm fx12">10 to 50x</span><span class="bh fx1">above 50x</span></div></div>
+<h3>Results by firm group</h3>
+<p class="dek">Median likes relative to followers in each group; accounts with fewer than five posts are excluded. The groups are HMM&rsquo;s editorial groupings by strategy and fund structure, not equivalent market segments: three residential-fund firms and one development-led firm.</p>
+<div class="grid2">
+<div class="card coh-card"><h4>Residential-fund firms</h4>
+<div class="bigno">0.105%</div><p class="micro">median across three firms</p>
+<p class="members">Equiton, Skyline, Lankin</p>
+<p class="dek m0">Within this group, median likes relative to followers ranged from 0.064% to 0.857%. Audience size and content mix differ.</p></div>
+<div class="card coh-card"><h4>Development-led firm</h4>
+<div class="bigno">0.707%</div><p class="micro">one firm</p>
+<p class="members">Greybrook Realty Partners</p>
+<p class="dek m0">One firm, so this is Greybrook&rsquo;s own result, not a group benchmark.</p></div></div>
+<div class="note"><span class="lbl">What to check in your own account</span>
+<p>Use the category median alongside group and individual-firm results. A single summary can conceal substantial differences.</p></div>
+</details></section>
 <section><details class="ri-adv"><summary>Coverage, previous-edition comparison and correction</summary>
 <p class="pnote">Firms included: Equiton, Skyline, Lankin, Greybrook Realty Partners and Centurion Asset Management. Four have a corporate Instagram account and are scored; Centurion has none that could be found. Every account was collected on 2 November 2026 for the window ending 13 October 2026, and active Meta ads were checked the same day.</p>
 <!-- STRATEGY:roster START -->
@@ -1185,6 +1172,7 @@ body:new URLSearchParams({form:'index-download',email:em,source:GATE_SOURCE})})
 <p><b>The first publication is kept.</b> The edition 005 snapshot keeps the scoreboard and findings as first published on 13 October 2026, with Pier 4 and McGillivray Capital.</p></div></details></section>
 <section id="ri-editions"><details class="ri-adv"><summary>Edition history</summary>
 <p class="pnote mb12">This edition: <b>005</b>. Last verified data <b>2 November 2026</b>. Next scheduled refresh <b>14 November 2026</b>.</p>
+<p class="pnote mb12"><b>No movement column this edition:</b> the firms included changed on 2 November 2026 and every account was re-collected that day, so scores are not compared with the edition 005 version first published on 13 October. Two components are percentiles, so they depend on which firms are included. The scoring method has not changed since edition 003; posts that hide their like counts are left out of like-based figures, never counted as zero.</p>
 <div class="tw"><table><thead><tr><th>Edition</th><th>Dates</th><th>What changed</th></tr></thead><tbody>
 <tr><td><b>005</b> (this page)</td><td class="wrap-cell">Revised 2 November 2026: every account re-collected that day for the window ending 13 October 2026.</td><td class="wrap-cell">The revised board: Equiton, Skyline, Lankin, Greybrook Realty Partners and Centurion Asset Management (not scored, no Instagram account found). Website Messaging and the five-firm organic and paid comparisons added. Scoring unchanged; hidden like counts are left out, never counted as zero.</td></tr>
 <tr><td><b>005</b>, first publication</td><td class="wrap-cell">Data collected 13 October 2026; published 13 October 2026. <a href="/realestate-index/edition-005">Snapshot</a></td><td class="wrap-cell">Fresh 30-day data for Skyline, Equiton, Lankin, Pier 4 and McGillivray Capital. Meta Ad Library checks added for all five, which corrected an edition 003 statement.</td></tr>
