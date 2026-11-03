@@ -17,8 +17,8 @@
   "prior_cycle": "004",
   "prior_verification": "history/cycle004-verification.json",
   "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv",
-  "modified_at": "2026-11-03T04:16:34+00:00",
-  "modified_at_source": "Vercel production deployment dpl_6rqeuzMJWFCxM1EcKcQLjDb1HpLZ (commit 37729fe) ready time (1793679394158 ms): the Overview styled as on the Business index, the last content change to /realestate-index. Earlier value: 2026-11-03T04:04:52+00:00; earlier releases are listed in the git history of this file.",
+  "modified_at": "2026-11-03T04:22:21+00:00",
+  "modified_at_source": "Vercel production deployment dpl_WFJTTKkSP9zxTkXGBakgUqZddJhu (commit 483b8b5) ready time (1793679741371 ms): the Five firms throughout roster note removed, the last content change to /realestate-index. Earlier value: 2026-11-03T04:16:34+00:00; earlier releases are listed in the git history of this file.",
   "revision": {
     "date": "2026-11-02",
     "by": "founder",
