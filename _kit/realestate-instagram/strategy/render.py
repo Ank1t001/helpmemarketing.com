@@ -103,8 +103,8 @@ def organic_section(o):
         fund = ('%d of %d named a fund as the property owner.' % (nf, len(p))) if k == 'Skyline' else ('%d of %d posts named a fund or offering.' % (nf, len(p)))
         glance.append('<tr><td class="brandcell">%s</td><td class="wrap-cell" data-label="What it posts">%s</td><td class="wrap-cell" data-label="Creative mix">%s</td>'
                       '<td class="wrap-cell" data-label="How funds appear">%s</td></tr>' % (E(NAMES[k]), E(o['glance_posts'][k]), mixtxt, fund))
-    return ('<section id="ri-organic-compare"><div class="sec-head"><h2>Social Media Strategy</h2>\n'
-            '<p class="dek">How four real estate investment firms present themselves on Instagram and which posts drew the most visible likes.</p></div>\n'
+    return ('<section id="ri-organic-compare"><div class="ri-ovhero"><div class="sec-head"><h2>Social Media Strategy</h2></div>\n'
+            '<p class="ri-ovlead">How four real estate investment firms present themselves on <em>Instagram</em> and which posts drew the most visible likes.</p></div>\n'
             '<h3 class="ri-wh">Strategy at a glance</h3>\n'
             '<div class="tw"><table class="ri-wtable"><thead><tr><th>Firm</th><th>What it posts</th><th>Creative mix</th><th>How funds appear</th></tr></thead><tbody>'
             + ''.join(glance) + '</tbody></table></div></section>\n')
