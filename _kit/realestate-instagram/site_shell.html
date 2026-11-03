@@ -595,6 +595,9 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi .ri-bar{grid-template-columns:170px 1fr 80px}
 .msi.msi #ri-rankings>.sec-head{margin-bottom:16px;padding-bottom:0;border-bottom:0}
 .msi.msi #ri-rankings>.sec-head .dek{margin-bottom:0}
+.msi.msi .ri-scorestrip{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 16px;padding:12px 16px;border:1px solid var(--border);border-radius:var(--r2);font-size:14.5px}
+.msi.msi .ri-ss-l{font-weight:650;color:var(--text)}
+.msi.msi .ri-ss-v{color:var(--text-muted)}
 .msi.msi .ri-read{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 16px}
 .msi.msi .ri-read>div{padding:20px 24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
 .msi.msi .ri-read dt{margin:0 0 6px;font-weight:650;font-size:15px}
@@ -736,7 +739,7 @@ document.addEventListener("DOMContentLoaded",function(){
     [].forEach.call(mb.children,function(x){x.setAttribute("aria-pressed",x.getAttribute("data-h")===cur[0]?"true":"false");});detail();}
   tabs.forEach(function(t){var b=document.createElement("button");b.type="button";b.setAttribute("data-h",t[0]);b.textContent=t[1];
     b.addEventListener("click",function(){cur=t;draw();});mb.appendChild(b);});
-  var tw=sec.querySelector(".tw"),at=tw.closest("details")||tw;at.parentNode.insertBefore(box,at);draw();
+  var tw=sec.querySelector(".tw"),at=sec.querySelector(".ri-scorestrip")||tw.closest("details")||tw;at.parentNode.insertBefore(box,at);draw();
 });
 </script><script data-bar-widths>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".msi [data-w]").forEach(function(el){var w=parseFloat(el.getAttribute("data-w"));if(!isNaN(w))el.style.width=Math.max(0,Math.min(100,w))+"%";});});</script>
 <script data-msi-frames>

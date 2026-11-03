@@ -172,7 +172,7 @@ def validate(source, actual, rows, config):
     if re.search(r'class="flag (?!neutral)',body): raise ValueError('Flags must use the neutral style')
     board_rows=re.search(r'<section id="ri-rankings">.*?<tbody>(.*?)</tbody>',body,re.S)
     if not board_rows or board_rows.group(1).count('data-note="')!=board_rows.group(1).count('<tr'): raise ValueError('Every scoreboard row needs a data-note for the firm panel')
-    for label,needle in {'engagement heading':'<h2>Engagement comparison</h2>','score disclosure':'<summary>HMM score (under review)</summary>','reading notes':'<h2>How to read the comparison</h2>','download heading':'<h2>Download the dataset</h2>',
+    for label,needle in {'engagement heading':'<h2>Engagement comparison</h2>','reading notes':'<h2>How to read the comparison</h2>','download heading':'<h2>Download the dataset</h2>',
                          'email label':'<label class="gate-label" for="gate-email">Email address</label>','status live region':'id="gate-msg" role="status" aria-live="polite"',
                          'current edition history row':f'<b>{cyc}</b> (this page)','post log expander':'<summary>Open the post log</summary>'}.items():
         if needle not in body: raise ValueError('Missing '+label)
@@ -182,7 +182,6 @@ def validate(source, actual, rows, config):
     # Search-facing answers and head (SEO, AEO, GEO), 2026-10-13.
     leader=min(actual.items(),key=lambda p:p[1]['rank'])
     # Engagement comparison (founder review, 2026-11-03): the score leader is stated as a score fact, not as the edition's leader.
-    if f'<b>Highest HMM score:</b> {leader[0]} has the highest score, {leader[1]["score"]}, under the current HMM scoring method.' not in body: raise ValueError('Highest score line must name '+leader[0]+' and score '+str(leader[1]['score']))
     if 'Firms included: ' not in body: raise ValueError('Missing the firms included line')
     ph=source.split('</head>')[0]
     if '<link rel="canonical" href="https://helpmemarketing.com/realestate-index">' not in ph: raise ValueError('Canonical changed')
@@ -202,8 +201,9 @@ def validate(source, actual, rows, config):
         if int(row[1].replace(',',''))!=m['followers'] or int(row[2])!=m['n']: raise ValueError('Body sample mismatch: '+brand)
         if row[6]!='%.2f%%'%m['er']: raise ValueError('Likes relative to followers mismatch: '+brand)
         if not m['has_video'] and (row[7]!='no video' or row[8]!='no video'): raise ValueError('No-video display mismatch')
-    sb=next((t for t in parser.tables if t and t[0]==['Firm','HMM score']),None)
-    if not sb or [(r[0],int(r[1])) for r in sb[1:]]!=[(b,m['score']) for b,m in sorted(actual.items(),key=lambda p:p[1]['rank'])]: raise ValueError('HMM score table must list every scored firm with its score, in score order')
+    # HMM score strip under the chart (founder, 2026-11-03): every scored firm and its score, in score order.
+    want=' &middot; '.join(f"{n} {m['score']}" for n,m in sorted(actual.items(),key=lambda p:p[1]['rank']))
+    if f'<span class="ri-ss-l">HMM Instagram score (out of 100)</span><span class="ri-ss-v">{want}</span>' not in body: raise ValueError('Score strip must read: '+want)
     parsed=json.loads(re.search(r'var GATED_CSV=("(?:\\.|[^"\\])*");',body).group(1))
     embedded=list(csv.DictReader(io.StringIO(parsed)))
     if embedded!=rows: raise ValueError('Embedded CSV mismatch')

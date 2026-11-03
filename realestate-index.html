@@ -595,6 +595,9 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi .ri-bar{grid-template-columns:170px 1fr 80px}
 .msi.msi #ri-rankings>.sec-head{margin-bottom:16px;padding-bottom:0;border-bottom:0}
 .msi.msi #ri-rankings>.sec-head .dek{margin-bottom:0}
+.msi.msi .ri-scorestrip{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 16px;padding:12px 16px;border:1px solid var(--border);border-radius:var(--r2);font-size:14.5px}
+.msi.msi .ri-ss-l{font-weight:650;color:var(--text)}
+.msi.msi .ri-ss-v{color:var(--text-muted)}
 .msi.msi .ri-read{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 16px}
 .msi.msi .ri-read>div{padding:20px 24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
 .msi.msi .ri-read dt{margin:0 0 6px;font-weight:650;font-size:15px}
@@ -736,7 +739,7 @@ document.addEventListener("DOMContentLoaded",function(){
     [].forEach.call(mb.children,function(x){x.setAttribute("aria-pressed",x.getAttribute("data-h")===cur[0]?"true":"false");});detail();}
   tabs.forEach(function(t){var b=document.createElement("button");b.type="button";b.setAttribute("data-h",t[0]);b.textContent=t[1];
     b.addEventListener("click",function(){cur=t;draw();});mb.appendChild(b);});
-  var tw=sec.querySelector(".tw"),at=tw.closest("details")||tw;at.parentNode.insertBefore(box,at);draw();
+  var tw=sec.querySelector(".tw"),at=sec.querySelector(".ri-scorestrip")||tw.closest("details")||tw;at.parentNode.insertBefore(box,at);draw();
 });
 </script><script data-bar-widths>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".msi [data-w]").forEach(function(el){var w=parseFloat(el.getAttribute("data-w"));if(!isNaN(w))el.style.width=Math.max(0,Math.min(100,w))+"%";});});</script>
 <script data-msi-frames>
@@ -804,6 +807,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div class="ri-view" id="ri-view-rankings">
 <section id="ri-rankings"><div class="sec-head"><h2>Engagement comparison</h2>
 <p class="dek">Explore posting activity, likes, comments and video plays across four Instagram accounts.</p></div>
+<p class="ri-scorestrip"><span class="ri-ss-l">HMM Instagram score (out of 100)</span><span class="ri-ss-v">Greybrook 61 &middot; Skyline 49 &middot; Lankin 44 &middot; Equiton 34</span></p>
 <details class="ri-adv"><summary>View the full comparison</summary>
 <p class="pnote mb12">All metrics for the same reporting window, in alphabetical order. Post formats: R reel, C carousel, S static. Residential fund and Development-led are HMM&rsquo;s editorial firm groups.</p>
 <div class="tw"><table><thead><tr><th>Firm</th><th class="r"><span class="tip d" tabindex="0" data-tip="Follower count recorded at collection on 2 November 2026.">Followers</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="Company posts reviewed in the reporting window.">Posts</span></th><th class="r"><span class="tip d" tabindex="0" data-tip="Post formats: R reels, C carousels, S static posts. Formats a firm did not publish are left out rather than shown as zero.">Post formats</span></th>
@@ -839,11 +843,6 @@ document.addEventListener('DOMContentLoaded', function () {
 <td class="r">0</td><td class="r">0.86%</td><td class="r">3.91%</td><td class="r">0.35x</td>
 <td class="r"><b>65</b><div class="cell-sub"><a href="https://www.instagram.com/p/DePGaUAjZDQ/" target="_blank" rel="noopener">view</a></div></td></tr></tbody></table></div>
 <p class="pnote">Centurion Asset Management has no row: no corporate Instagram account was found on 2 November 2026. Advertising counts are in Paid Social.</p>
-</details>
-<details class="ri-adv"><summary>HMM score (under review)</summary>
-<p class="dek">HMM&rsquo;s own 0 to 100 score from earlier editions, kept here while its weights and assumptions are reviewed. It combines median likes relative to followers (45%), the comment-to-like ratio (30%) and peak plays relative to followers (25%). The weights are editorial choices, not a validated measure of marketing effectiveness; the formulas are in Sources &amp; evidence.</p>
-<div class="tw"><table><thead><tr><th>Firm</th><th class="r">HMM score</th></tr></thead><tbody><tr><td>Greybrook</td><td class="r">61</td></tr><tr><td>Skyline</td><td class="r">49</td></tr><tr><td>Lankin</td><td class="r">44</td></tr><tr><td>Equiton</td><td class="r">34</td></tr></tbody></table></div>
-<p class="pnote m0"><b>Highest HMM score:</b> Greybrook has the highest score, 61, under the current HMM scoring method. Each metric above orders the firms differently.</p>
 </details>
 </section>
 
