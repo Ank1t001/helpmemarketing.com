@@ -299,6 +299,7 @@ Standard discipline for any non-trivial change:
 1. **Audit-first.** Read the relevant files and diagnose before prescribing. Don't propose a fix until you understand the cascade.
 2. **Checkpoint discipline.** For multi-step changes (especially Phase 2 migrations), pause at each checkpoint for founder approval before proceeding. Don't bundle.
 3. **Single copy-pasteable briefs.** Briefs from the founder should be self-contained, no surrounding chat commentary above or below the brief content.
+5. **Release lanes (founder, 2026-11-03).** Wording-only changes: edit, rebuild through the kit, run the build checks, push straight to live on request and confirm the live page; no screenshots, preview or doc updates unless a rule changes. Layout, new sections or new data: full path with local browser checks and a staging preview first. Batch small edits into one release and one dateModified commit.
 4. **Followup logging.** Known followups go in commit message footers AND in working memory. Update `/docs/HMM_Design_System.md` Section 15 (Open Items) when followups become permanent canon decisions.
 
 ## Common gotchas (prototype-specific)
