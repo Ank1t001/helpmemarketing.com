@@ -24,3 +24,5 @@ The roster is **Equiton, Skyline, Lankin Investments, Greybrook Realty Partners 
 ## Website Messaging (2026-11-03, founder)
 
 `website_view` renders one glance table from each firm's `glance` (offer, evidence, next) and the two `examples` (captioned crops in `/assets/index/real-estate/website/`, SHA-256 recorded). `website_sources` renders the nine per-firm fields, collection notes, `corrections` and the unresolved Lankin comparison into Sources & evidence between the `STRATEGY:websrc` markers. Equiton's site shows a bot check to Chromium; on 2 November 2026 it was read in the founder's own browser with Claude in Chrome (`read_by`), with no page text or hash kept. The Centurion minimum was corrected on 3 November 2026 after the Apartment REIT page was read again.
+
+`paid_section` (Paid Social, 2026-11-03) also reads `ad_destinations.json`: the running-time, button and destination table and the longest-running ad per firm are counted there; `ads.json` `examples` is kept as a record but no longer rendered.

@@ -166,12 +166,35 @@ def paid_section(a):
         brk.append('<tr><td class="brandcell">%s</td><td class="r">%s</td><td class="wrap-cell">%s</td>%s</tr>'
                    % (E(names[k]), pct(sum(x['registered_accounts'] for x in v), n), second,
                       ''.join('<td class="r">%s (%d)</td>' % (pct(sc.get(s, 0), n), sc.get(s, 0)) for s in ('awareness', 'consideration', 'decision'))))
-    exs = ''.join('<article class="ri-adex"><h4>%s &middot; %s</h4><p class="ri-adq">&ldquo;%s&rdquo;</p><p>%s</p>'
-                  '<p class="ri-adsrc"><a href="https://www.facebook.com/ads/library/?id=%s" target="_blank" rel="noopener nofollow">Open in the Meta Ad Library</a></p></article>'
-                  % (E(x['firm']), E(x['title']), E(x['headline']), E('The headline ' + x['caption']), x['id']) for x in a['examples'])
+    # Running time, buttons, destinations and the longest-running ad per firm (founder, 2026-11-03, "all four").
+    dd = load('ad_destinations.json')['records']; dmap = {r['id']: r for r in dd}
+    DEST = {'Meta form': 'a Meta form', 'Booking page': 'a booking page (a Calendly calendar that names no fund)',
+            'Page not found': 'an address that showed &ldquo;page not found&rdquo;', 'Fund or product page': 'a fund page',
+            'Campaign landing page': 'a campaign landing page', 'Homepage or other general page': 'a general page on its website'}
+    MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    short = {'Equiton': 'Equiton', 'Skyline': 'Skyline', 'Lankin': 'Lankin'}
+    med = lambda v: '%g' % st.median([x['days_running'] for x in v])
+    run, exs, longest = [], [], {}
+    for k, v in inv.items():
+        n = len(v); d = [r for r in dd if r['firm'] == k]
+        b1, bc = collections.Counter(x['cta'] for x in v).most_common(1)[0]
+        d1, dc = collections.Counter(r['destination'] for r in d).most_common(1)[0]
+        l90 = sum(x['days_running'] >= 90 for x in v)
+        run.append('<tr><td class="brandcell">%s</td><td class="r" data-label="Median days running">%s</td><td class="r" data-label="Running 90 days or more">%d of %d</td>'
+                   '<td class="wrap-cell" data-label="Most common button">&ldquo;%s&rdquo;, %s (%d of %d)</td><td class="wrap-cell" data-label="Most common destination">%s, %s (%d of %d)</td></tr>'
+                   % (E(names[k]), med(v), l90, n, E(b1), pct(bc, n), bc, n, E(d1), pct(dc, len(d)), dc, len(d)))
+        top = sorted(v, key=lambda x: (-x['days_running'], -x['versions'], x['id']))[0]; longest[k] = top
+        twins = sum(x['headline'] == top['headline'] and x['start'] == top['start'] for x in v)
+        y, m, dday = top['start'].split('-')
+        dest = dmap.get(top['id'])
+        lead = (' On 3 November its button %s %s.' % ('pointed to' if 'URL link' in dest['basis'] else 'led to', DEST[dest['destination']])) if dest and dest['destination'] in DEST else ''
+        exs.append('<article class="ri-adex"><h4>%s &middot; %d days</h4><p class="ri-adq">&ldquo;%s&rdquo;</p><p>Started %d %s %s%s. %s, button &ldquo;%s&rdquo;, message: %s.%s</p>'
+                   '<p class="ri-adsrc"><a href="https://www.facebook.com/ads/library/?id=%s" target="_blank" rel="noopener nofollow">Open in the Meta Ad Library</a></p></article>'
+                   % (short[k], top['days_running'], E(top['headline']).replace('\u2013', '&ndash;'), int(dday), MONTHS[int(m) - 1], y,
+                      (' (%d ads with this headline started that day)' % twins) if twins > 1 else '', top['format'].capitalize(), E(top['cta']), E(top['focus']), lead, top['id']))
+    exs = ''.join(exs)
+    dn = {k: sum(r['firm'] == k for r in dd) for k in inv}
     e, s_, l = (inv[k] for k in ('Equiton', 'Skyline', 'Lankin'))
-    mn = lambda v: pct(sum(x['minimum'] for x in v), len(v))
-    same = mn(s_) == mn(l)
     return ('<section id="ri-paid-compare"><div class="ri-ovhero"><div class="sec-head"><h2>Paid Social Strategy</h2></div>\n'
             '<p class="ri-ovlead">Messages and formats in <em>%d investor ads</em> from three firms, reviewed %s.</p></div>\n' % (total, DATE) +
             '<h3 class="ri-wh">Ad strategy at a glance</h3>\n'
@@ -183,10 +206,16 @@ def paid_section(a):
             '<div class="tw"><table class="ri-cmpt"><thead><tr><th>Firm</th><th class="r">Named RRSP or TFSA</th><th>Second most common message</th>'
             '<th class="r">Awareness stage</th><th class="r">Consideration stage</th><th class="r">Decision stage</th></tr></thead><tbody>' + ''.join(brk) + '</tbody></table></div>\n'
             '</details>\n'
-            '<h3 class="ri-wh">One ad from each firm</h3>\n<div class="ri-adexs">' + exs + '</div>\n'
+            '<h3 class="ri-wh">How long the ads have run, and where they lead</h3>\n'
+            '<div class="tw"><table class="ri-wtable ri-ptable"><thead><tr><th>Firm</th><th class="r">Median days running</th><th class="r">Running 90 days or more</th><th>Most common button</th><th>Most common destination</th></tr></thead><tbody>' + ''.join(run) + '</tbody></table></div>\n'
+            '<p class="pnote">Days running count from each ad&rsquo;s start date to %s, when the ads were collected. The library shows that an ad is live, not what it spent or achieved. Destinations come from the separate check on 3 November 2026 (%s), so their totals differ from the 2 November review. <a href="#ri-cmp-dest">See every destination in HMM Ranking</a>.</p>\n'
+            % (DATE, ', '.join('%s %d ads' % (short[k], dn[k]) for k in inv)) +
+            '<h3 class="ri-wh">The longest-running ad from each firm</h3>\n<div class="ri-adexs">' + exs + '</div>\n'
             '<h3 class="ri-wh">What stood out</h3>\n'
-            '<p class="dek">Equiton stated a minimum investment in %s of its reviewed investor ads, compared with %s. That gives a prospective investor a concrete detail to check before enquiring. These shares count the ad text only: Skyline&rsquo;s lead forms ask whether the reader has $50,000 to invest (see HMM Ranking).</p>\n'
-            % (mn(e), ('%s for both Skyline and Lankin' % mn(s_)) if same else ('%s for Skyline and %s for Lankin' % (mn(s_), mn(l)))) +
+            '<p class="dek">Equiton kept %d of its %d investor ads running for 90 days or more, and its longest had run %d days. Every Skyline Wealth Management ad had started within the previous %d days, and half of Lankin&rsquo;s within the previous %s days. A long run shows that a firm kept an ad live; the library does not show whether it worked.</p>\n'
+            % (sum(x['days_running'] >= 90 for x in e), len(e), max(x['days_running'] for x in e), max(x['days_running'] for x in s_), med(l)) +
+            ('<p class="dek">Lankin&rsquo;s longest-running ad (%d days) had a button that pointed, on 3 November, to an address showing &ldquo;page not found&rdquo;. Meta also attaches a form to the ad, and the live ad could not be seen, so a reader may reach the form instead; see the ad destinations in HMM Ranking.</p>\n' % longest['Lankin']['days_running']
+             if (dmap.get(longest['Lankin']['id']) or {}).get('destination') == 'Page not found' else '') +
             '<p class="dek m0">The feed and the ads can tell different stories: Skyline&rsquo;s corporate Instagram feed featured construction and leasing updates, while Skyline Wealth Management advertised individual funds.</p>'
             '</section>\n')
 
@@ -210,7 +239,8 @@ def paid_sources(a):
     sl = tot['Skyline Living (resident leasing)']
     rows.append('<tr><td class="brandcell">Skyline</td><td>%s</td><td class="r">%d</td><td class="r">&middot;</td><td class="r">0</td><td class="wrap-cell">Resident leasing ads, not investor-facing</td></tr>' % (E(sl['page']), sl['active']))
     other = [x for x in read['Equiton'] if not x['for_investors']]
-    ex = ' '.join('<a href="https://www.facebook.com/ads/library/?id=%s" target="_blank" rel="noopener nofollow">%s &middot; %s</a>.' % (x['id'], E(x['firm']), E(x['title'])) for x in a['examples'])
+    ex = ' '.join('<a href="https://www.facebook.com/ads/library/?id=%s" target="_blank" rel="noopener nofollow">%s &middot; %d days</a>.' % (x['id'], E(x['firm']), x['days_running'])
+                  for x in (sorted(v, key=lambda x: (-x['days_running'], -x['versions'], x['id']))[0] for v in inv.values()))
     return ('<div id="ri-paid-sources"><h3>Advertisers and ad counts</h3>\n'
             '<p class="dek">Active ads in the Meta Ad Library in Canada, collected on ' + DATE + '. ' + E(a['method']) + ' The library shows that an ad is live; it does not show spend, reach or results. '
             'Raw output is kept privately and recorded by hash in the kit.</p>\n'
@@ -220,7 +250,7 @@ def paid_sources(a):
             % (sum(len(v) for v in inv.values()), listed, listed, tot['Equiton']['active'], tot['Skyline']['active'], tot['Lankin']['active'], sum(len(v) for v in read.values()),
                tot['Equiton']['active'] - len(read['Equiton']), E(other[0]['headline']) if other else '', sum(len(v) for v in inv.values())) +
             '<p class="pnote">On ' + DATE + ' most ad links pointed to a Meta short link (fb.me) and were not followed. Where the ads send people was checked separately on 3 November 2026; see &ldquo;Ad destinations&rdquo; below and the last block of HMM Ranking.</p>\n' + dest_sources() +
-            '<p class="pnote m0"><b>Examples in Paid Social:</b> ' + ex + '</p>\n</div>\n')
+            '<p class="pnote m0"><b>Examples in Paid Social (the longest-running investor ad from each firm):</b> ' + ex + '</p>\n</div>\n')
 
 
 def dest_sources():

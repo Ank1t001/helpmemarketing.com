@@ -1,7 +1,7 @@
 {
   "cycle": "005",
   "dataset_sha256": "8fb2d78a60a200b265b29fb7a164fba986a1b3e01f910358d9d81668cfe30dd5",
-  "body_sha256": "aa83541c99df802a9efd879722e6e4d09c98c1b65e5143cd486bc055ed485408",
+  "body_sha256": "5929b00a47b4054526ca4b37ade51208c64f79cddbfc31a83de647ca1478a131",
   "publication_review": "complete",
   "note": "Verify all claims, frames, advertising and raw inputs before marking complete.",
   "source": "Roster revision (founder, 2026-11-02): Equiton, Skyline, Lankin, Greybrook and the Wealthsimple reference re-collected 2 November 2026 with apify/instagram-scraper (posts dfN9H7QBCXbpjMbnu, profiles a47HIlg0Lva9uQ76o, reference SXFGVHtv66TYUWhaH and 8FAPqN0HZshFLvNxt); Meta Ad Library via apify/facebook-ads-scraper (hOYiJNytTODyh34ej, KnCD4k6pSjelNxonj, IoWOR4yVVOgrIQuFm, p3UKHx9XoCgN60Bnk, WM8F3Fp9YtUvKZO0H); Centurion Instagram checks thCyg7lmfVVuUAqgT and xI9l37BBtL4ekfSd6; two new frames read (Equiton, Greybrook). First publication: Fresh Apify scrape 2026-10-13 (posts T48E9Efh1vFH6UDd9, profiles FKv4hasHTzLv5e3OR), Meta ad library via apify/facebook-ads-scraper (LSzuwA31KCmxyaCYK, oPGV81tjCBZpS4k5k, T4fsgUNKgyYbG2Ha3), five frames read",
