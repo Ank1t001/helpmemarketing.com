@@ -26,6 +26,11 @@ def load(n):
         return json.load(f)
 
 
+def ldate(iso, year=True):
+    y, m, d = iso.split('-')
+    return '%d %s%s' % (int(d), ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][int(m) - 1], (' ' + y) if year else '')
+
+
 def pct(a, b):
     return '%d%%' % round(100 * a / b) if b else '0%'
 
@@ -108,6 +113,8 @@ def organic_section(o):
                       '<td class="wrap-cell" data-label="How funds appear">%s</td></tr>' % (E(NAMES[k]), E(o['glance_posts'][k]), mixtxt, fund))
     return ('<section id="ri-organic-compare"><div class="ri-ovhero"><div class="sec-head"><h2>Social Media Strategy</h2></div>\n'
             '<p class="ri-ovlead">How four firms present themselves on <em>Instagram</em> and which posts drew the most likes.</p></div>\n'
+            '<p class="pnote ri-orgwin">Posts published %s to %s, collected %s. Centurion has no corporate Instagram account.</p>\n'
+            % (ldate(o['window'][0], False), ldate(o['window'][1]), DATE) +
             '<h3 class="ri-wh">Strategy at a glance</h3>\n'
             '<div class="tw"><table class="ri-wtable"><thead><tr><th>Firm</th><th>What it posts</th><th>Creative mix</th><th>How funds appear</th></tr></thead><tbody>'
             + ''.join(glance) + '</tbody></table></div></section>\n')
