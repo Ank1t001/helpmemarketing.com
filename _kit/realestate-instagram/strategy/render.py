@@ -253,8 +253,8 @@ def recs_section(a, o, w):
          'Share of ad-referred article visitors who continue to the REIT page.')]
     html = ''.join('<article class="ri-rcard"><h3>%s</h3><p class="ri-robs">%s</p><dl><div class="ri-rtest"><dt>Test</dt><dd>%s</dd></div>'
                    '<div class="ri-rmeasure"><dt>Measure</dt><dd>%s</dd></div></dl></article>' % (E(NAMES[k]), obs, test, meas) for k, obs, test, meas in cards)
-    return ('<section id="ri-recs-firms"><div class="sec-head"><h2>Recommendations</h2>\n'
-            '<p class="dek">One marketing test for each firm, based on its website, Instagram posts and Meta ads.</p></div>\n'
+    return ('<section id="ri-recs-firms"><div class="ri-ovhero"><div class="sec-head"><h2>Recommendations</h2></div>\n'
+            '<p class="ri-ovlead">One <em>marketing test</em> for each firm, based on its website, Instagram posts and Meta ads.</p></div>\n'
             '<div class="ri-rgrid">' + html + '</div>\n'
             '<p class="pnote m0">Each measure is a proposed metric for the firm to track. The public research supplies the observation behind each test, not its result.</p></section>\n')
 
