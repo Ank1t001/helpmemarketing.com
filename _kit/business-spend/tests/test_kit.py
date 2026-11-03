@@ -49,6 +49,8 @@ HUB_LATER_EDITS = [
      '<img src="/assets/index/real-estate/card.webp" srcset="/assets/index/real-estate/card-704.webp 704w, /assets/index/real-estate/card.webp 1056w" sizes="(max-width: 900px) calc(100vw - 40px), 576px" alt="" width="1056" height="591" loading="lazy" decoding="async">'),
     ('<img src="/assets/index/hair-loss/hero.webp" alt="" width="1056" height="591" loading="lazy" decoding="async">',
      '<img src="/assets/index/hair-loss/card.webp" srcset="/assets/index/hair-loss/card-704.webp 704w, /assets/index/hair-loss/card.webp 1056w" sizes="(max-width: 900px) calc(100vw - 40px), 576px" alt="" width="1056" height="591" loading="lazy" decoding="async">'),
+    ('{"@type":"WebPage","name":"The Real Estate Index: Instagram","description":"Five Canadian private real estate investment firms, ranked on public Instagram likes, comments and recorded plays."',
+     '{"@type":"WebPage","name":"How Canadian Real Estate Investment Firms Market to Investors","description":"Five Canadian private real estate investment firms compared on Instagram, Meta ads and their websites, with four ranked on public Instagram engagement."'),
 ]
 
 

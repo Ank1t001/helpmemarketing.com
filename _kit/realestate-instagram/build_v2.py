@@ -131,7 +131,10 @@ def validate(source, actual, rows, config):
            ('ri-view-recs',['ri-test','ri-recs-firms']),('ri-view-sources',['ri-download','ri-advanced','ri-editions','ri-data'])]
     if 'data-ri-tabs' not in body or 'data-ri-tabs-js' not in source: raise ValueError('Missing the view tab bar or its script')
     tabbar=re.search(r'<nav class="ri-tabs" data-ri-tabs[^>]*>(.*?)</nav>',body,re.S)
-    if not tabbar or re.findall(r'href="#(ri-view-[a-z]+)"',tabbar.group(1))!=[v for v,_ in views]: raise ValueError('Tab bar must list the views in order: '+', '.join(v for v,_ in views))
+    # Sources & evidence (founder, 2026-11-03): not a tab; one link below the tab content, before the view, with return links.
+    if not tabbar or re.findall(r'href="#(ri-view-[a-z]+)"',tabbar.group(1))!=[v for v,_ in views[:-1]]: raise ValueError('Tab bar must list the views in order, without Sources & evidence: '+', '.join(v for v,_ in views[:-1]))
+    srow=body.find('<p class="ri-srcrow" id="ri-srcrow"><a class="ri-srclink" href="#ri-view-sources"')
+    if srow<0 or not body.find('<div class="ri-view" id="ri-view-recs">')<srow<body.find('<div class="ri-view" id="ri-view-sources">') or body.count('data-ri-back')!=2: raise ValueError('Sources & evidence link must sit below the tab content, before its view, with two return links')
     vpos=[body.find('<div class="ri-view" id="'+v+'">') for v,_ in views]
     if -1 in vpos or vpos!=sorted(vpos): raise ValueError('Views missing or out of order')
     faq=body.find('<h2>Frequently asked</h2>')
