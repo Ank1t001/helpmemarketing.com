@@ -40,7 +40,7 @@ def released(c):
 # Estate and Hair Loss cards use their own card artwork in the Med Spa pattern).
 HUB_LATER_EDITS = [
     ('<dl class="ix-dates"><div><dt>Last updated</dt><dd>October 13, 2026</dd></div>',
-     '<dl class="ix-dates"><div><dt>Last updated</dt><dd>November 2, 2026</dd></div>'),
+     '<dl class="ix-dates"><div><dt>Last updated</dt><dd>November 3, 2026</dd></div>'),
     ('<p class="wk-tool-who">Five Canadian private real estate investment firms, ranked on public Instagram likes, comments and recorded plays.</p>',
      '<p class="wk-tool-who">Five Canadian private real estate investment firms compared on Instagram, Meta ads and their websites, with four ranked on public Instagram engagement.</p>'),
     ('<p class="section-deck">Pick the one closest to your business. Each is free to read, with no sign-up.</p>\n    <div class="wk-tools-grid">',
