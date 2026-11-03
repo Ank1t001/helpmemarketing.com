@@ -13,7 +13,7 @@
  *   index-download       Index downloads       /gta-medspa-index, /hair-loss-index, /realestate-index
  *   growth-os-download   Growth OS downloads   /seo-growth-os (emails the bundle), /meta-growth-os
  *   subscribe            Subscribers           /blog newsletter, the audit's "Subscribe to updates"
- *   research-code        Research unlocks      /business-spend-index, "Read the full case study" (emails a 6-digit code)
+ *   research-code        Research unlocks      /business-spend-index, /realestate-index, "Read the full case study" (emails a 6-digit code)
  *   research-verify      Research unlocks      the same form, second step (checks the code; marks the row Verified)
  *   (anything that fails a check)  Spam
  *
@@ -46,6 +46,8 @@
  * tab and asks for the script cache permission), then `testResearchUnlock` and `testResearchVerify`, then redeploy
  * the existing deployment as in step 6. Do this BEFORE the gated /business-spend-index goes live: until then the
  * old script files research-code requests as "Unknown form" and no visitor can unlock the page.
+ * The same applies to /realestate-index (gate added 2026-11-03): paste this version and redeploy before it goes live,
+ * or its code requests come back "Unknown research".
  *
  * Turnstile stays off until you add the script property TURNSTILE_SECRET (Project Settings →
  * Script properties). Put the site key on the page first, then the secret. Checked on the two lead
@@ -313,7 +315,10 @@ function spam_(form, d, reason) {
 // Gated sections of a research page open only after the visitor proves the email is theirs (founder, 2026-11-02):
 // research-code emails a 6-digit code, research-verify checks it. The code is never stored, only its salted SHA-256,
 // in the script cache for 15 minutes; five wrong tries end it. One row per address and research on Research unlocks.
-var RESEARCH = { 'business-spend-index': { label: 'How Six Business Finance Brands Market Their Products', path: '/business-spend-index' } };
+var RESEARCH = {
+  'business-spend-index': { label: 'How Six Business Finance Brands Market Their Products', path: '/business-spend-index' },
+  'realestate-index': { label: 'How Canadian Real Estate Investment Firms Market to Investors', path: '/realestate-index' }
+};
 var CODE_TTL_S = 15 * 60;
 var CODE_MAX_TRIES = 5;
 var CODES_PER_EMAIL_HOUR = 3;

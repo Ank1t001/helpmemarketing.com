@@ -88,6 +88,13 @@ def snapshot(page, cycle, verified_date):
     rev = re.search(r'This address always shows the latest edition\. The <a href="/realestate-index/edition-%s">original [^<]*</a> is a fixed snapshot of the first publication, with a different set of firms, so it does not support the revised comparison\.' % cycle, page)
     if rev:
         swaps[-1] = (rev.group(0), f'This is the fixed snapshot of edition {cycle}. The <a href="/realestate-index">current edition</a> lives at /realestate-index.')
+    # The email-code gate (2026-11-03) never applies to a fixed snapshot: drop the lock, dialog, cards, script and markup.
+    page = re.sub(r'<script data-bsi-lock>.*?</script>', '', page, flags=re.S)
+    page = re.sub(r'<script data-bsi-gate>.*?</script>', '', page, flags=re.S)
+    page = re.sub(r'<!-- Email-code gate dialog.*?-->\n?<dialog class="bs-gate".*?</dialog>\n?', '', page, flags=re.S)
+    page = re.sub(r'<div class="bs-gate-card" data-gate-card>.*?</button></div>\n?', '', page, flags=re.S)
+    page = page.replace('<div class="bs-gated" data-gate="block"', '<div data-gate="none"')
+    page = page.replace('"isAccessibleForFree":false,"hasPart":{"@type":"WebPageElement","isAccessibleForFree":false,"cssSelector":".bs-gated"}', '"isAccessibleForFree":true')
     page, robots = re.subn(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex, follow">', page)
     if robots != 1:
         raise ValueError('Expected one robots meta tag in the page')

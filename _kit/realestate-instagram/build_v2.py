@@ -128,12 +128,18 @@ def validate(source, actual, rows, config):
     order=['ri-overview','ri-rankings','ri-creative','ri-insights','ri-recs-firms','ri-advanced','ri-editions','ri-download','ri-data']
     pos=[body.find('id="'+x+'"') for x in order]
     if -1 in pos or pos!=sorted(pos): raise ValueError('Section order must be '+', '.join(order))
-    # Views (founder, 2026-11-02): one tab bar over seven views (Website Messaging and the five-firm comparisons added the same day), in this order, each holding its sections. See EDITORIAL_RULES.md.
-    views=[('ri-view-overview',['ri-overview']),('ri-view-rankings',['ri-rankings','ri-video','ri-cmp-paid','ri-cmp-dest']),
-           ('ri-view-website',['ri-website']),
+    # Views (founder, 2026-11-02; order Overview, Website Messaging, HMM Ranking, Organic, Paid, Recommendations since 2026-11-03): one tab bar over seven views (Website Messaging and the five-firm comparisons added the same day), in this order, each holding its sections. See EDITORIAL_RULES.md.
+    views=[('ri-view-overview',['ri-overview']),('ri-view-website',['ri-website']),
+           ('ri-view-rankings',['ri-rankings','ri-video','ri-cmp-paid','ri-cmp-dest']),
            ('ri-view-organic',['ri-organic-compare','ri-creative','ri-insights']),('ri-view-paid',['ri-paid-compare']),
            ('ri-view-recs',['ri-recs-firms']),('ri-view-sources',['ri-sources-head','ri-advanced','ri-web-sources','ri-series','ri-ads','ri-corrections','ri-editions','ri-download','ri-data'])]
     if 'data-ri-tabs' not in body or 'data-ri-tabs-js' not in source: raise ValueError('Missing the view tab bar or its script')
+    # Email-code gate (founder, 2026-11-03): HMM Ranking, Organic Social, Paid Social and Recommendations, each wrapped whole with its unlock card.
+    for v,k in (('rankings','ranking'),('organic','organic'),('paid','paid'),('recs','recs')):
+        if f'<div class="ri-view" id="ri-view-{v}">\n<div class="bs-gated" data-gate="block" data-gate-kind="{k}">' not in body: raise ValueError('Gate missing on '+v)
+    if body.count('data-gate-card')!=4 or 'data-research="realestate-index"' not in body or "['realestate-index']" not in source or '"cssSelector":".bs-gated"' not in source: raise ValueError('Gate parts incomplete')
+    for v in ('overview','website','sources'):
+        if f'<div class="ri-view" id="ri-view-{v}">\n<div class="bs-gated"' in body: raise ValueError('Open view gated: '+v)
     # Block nesting (2026-11-03): a stray closing tag once ended the hidden Sources view early and showed its content under every tab.
     depth=[]
     for m in re.finditer(r'<(/?)(div|section|details)\b',re.sub(r'<script.*?</script>','',body,flags=re.S)):
@@ -141,8 +147,8 @@ def validate(source, actual, rows, config):
         elif not depth or depth.pop()!=m.group(2): raise ValueError('Unbalanced </'+m.group(2)+'> near offset '+str(m.start()))
     if depth: raise ValueError('Unclosed blocks: '+', '.join(depth[-3:]))
     # Overview as navigation (founder, 2026-11-03): a heading, one sentence and five cards to the other tabs; no statistics, findings, pulse or roster note.
-    ov=body[body.find('<div class="ri-view" id="ri-view-overview">'):body.find('<div class="ri-view" id="ri-view-rankings">')]
-    if '<h2>Explore the case study</h2>' not in ov or re.findall(r'<a class="ri-ocard" href="#(ri-view-[a-z]+)"',ov)!=['ri-view-rankings','ri-view-website','ri-view-organic','ri-view-paid','ri-view-recs'] or 'class="tile' in ov or 'Firms included' in ov: raise ValueError('Overview must be the heading, one sentence and the five view cards only')
+    ov=body[body.find('<div class="ri-view" id="ri-view-overview">'):body.find('<div class="ri-view" id="ri-view-website">')]
+    if '<h2>Explore the case study</h2>' not in ov or re.findall(r'<a class="ri-ocard" href="#(ri-view-[a-z]+)"',ov)!=['ri-view-website','ri-view-rankings','ri-view-organic','ri-view-paid','ri-view-recs'] or 'class="tile' in ov or 'Firms included' in ov: raise ValueError('Overview must be the heading, one sentence and the five view cards only')
     if body.find('<h2>Frequently asked</h2>')<body.find('<div class="ri-view" id="ri-view-sources">'): raise ValueError('The FAQ sits once, inside Sources & evidence')
     tabbar=re.search(r'<nav class="ri-tabs" data-ri-tabs[^>]*>(.*?)</nav>',body,re.S)
     # Sources & evidence (founder, 2026-11-03): not a tab; one link below the tab content, before the view, with return links.
