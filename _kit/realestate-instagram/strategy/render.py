@@ -169,8 +169,8 @@ def paid_section(a):
     e, s_, l = (inv[k] for k in ('Equiton', 'Skyline', 'Lankin'))
     mn = lambda v: pct(sum(x['minimum'] for x in v), len(v))
     same = mn(s_) == mn(l)
-    return ('<section id="ri-paid-compare"><div class="sec-head"><h2>Paid Social Strategy</h2>\n'
-            '<p class="dek">Compare the messages and formats three firms used in %d investor ads reviewed in Canada on %s.</p></div>\n' % (total, DATE) +
+    return ('<section id="ri-paid-compare"><div class="ri-ovhero"><div class="sec-head"><h2>Paid Social Strategy</h2></div>\n'
+            '<p class="ri-ovlead">Compare the messages and formats three firms used in <em>%d investor ads</em> reviewed in Canada on %s.</p></div>\n' % (total, DATE) +
             '<h3 class="ri-wh">Ad strategy at a glance</h3>\n'
             '<div class="tw"><table class="ri-wtable ri-ptable"><thead><tr><th>Firm</th><th class="r">Investor ads reviewed</th><th>Most common message</th><th class="r">Used video</th>'
             '<th class="r">Mentioned a return figure</th><th class="r">Stated a minimum investment</th></tr></thead><tbody>' + ''.join(rows) + '</tbody></table></div>\n'
