@@ -644,6 +644,18 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi .ri-rcard .ri-robs{margin:6px 0 14px;font-size:14.5px;line-height:1.55;color:var(--text-muted)}
 .msi.msi .ri-rcard .ri-rmeasure dd{font-weight:600}
 .msi.msi #ri-recs-firms .ri-rgrid+.pnote{margin-top:14px}
+/* Sources & evidence (2026-11-03, founder): header with an at-a-glance strip, groups in tab order, one corrections list. */
+.msi.msi .ri-sstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
+.msi.msi .ri-sstats>div{padding:18px 22px;border-left:1px solid var(--border)}
+.msi.msi .ri-sstats>div:first-child{border-left:0}
+.msi.msi .ri-sstats dt{margin:0 0 6px;font-size:12px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted)}
+.msi.msi .ri-sstats dd{margin:0;font-family:var(--font-display,Fraunces,serif);font-size:28px;line-height:1.15;color:var(--text)}
+.msi.msi .ri-sgroup{margin:40px 0 0}
+.msi.msi .ri-sgroup+section{margin-top:0}
+.msi.msi #ri-download{margin-top:40px}
+.msi.msi .ri-corr{margin:0;padding-left:18px}
+.msi.msi .ri-corr li{margin:0 0 10px;font-size:14.5px;line-height:1.55;color:var(--text-body,var(--text))}
+@media(max-width:720px){.msi.msi .ri-sstats{grid-template-columns:repeat(2,minmax(0,1fr))}.msi.msi .ri-sstats>div{padding:14px 16px}.msi.msi .ri-sstats>div:nth-child(odd){border-left:0}.msi.msi .ri-sstats>div:nth-child(n+3){border-top:1px solid var(--border)}.msi.msi .ri-sstats dd{font-size:22px}.msi.msi .ri-sgroup{margin-top:28px}}
 /* Header without the image, as on the Business index, and Sources & evidence (2026-11-03, founder; since the same day one compact row and the last thing in the report, the old report footer removed): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
 .msi.msi header{background:none;grid-template-columns:1fr;max-width:760px}
 .msi.msi header::after{display:none}

@@ -645,5 +645,11 @@
   "Skyline": "Construction, leasing and acquisition updates made up 10 of 14 posts.",
   "Lankin": "Half its posts covered the market. Others introduced team members or promoted live discussions.",
   "Greybrook": "Community sponsorships and events appeared alongside a series explaining its investment strategies."
- }
+ },
+ "corrections": [
+  {
+   "date": "2026-11-03",
+   "text": "The development and assets theme note said ten of eleven posts came from Skyline. The theme has twelve posts, ten from Skyline and two from Greybrook; one Greybrook post hides its likes, so the median uses eleven."
+  }
+ ]
 }

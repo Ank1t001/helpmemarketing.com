@@ -124,14 +124,14 @@ def validate(source, actual, rows, config):
     for label,text in need.items():
         if text not in body: raise ValueError('Missing '+label)
     # Founder-approved structure, wording and layout (2026-10-13). See EDITORIAL_RULES.md.
-    order=['ri-overview','ri-rankings','ri-creative','ri-insights','ri-recs-firms','ri-download','ri-advanced','ri-editions','ri-data']
+    order=['ri-overview','ri-rankings','ri-creative','ri-insights','ri-recs-firms','ri-advanced','ri-editions','ri-download','ri-data']
     pos=[body.find('id="'+x+'"') for x in order]
     if -1 in pos or pos!=sorted(pos): raise ValueError('Section order must be '+', '.join(order))
     # Views (founder, 2026-11-02): one tab bar over seven views (Website Messaging and the five-firm comparisons added the same day), in this order, each holding its sections. See EDITORIAL_RULES.md.
     views=[('ri-view-overview',['ri-overview']),('ri-view-rankings',['ri-rankings','ri-video']),
            ('ri-view-website',['ri-website']),
            ('ri-view-organic',['ri-organic-compare','ri-creative','ri-insights']),('ri-view-paid',['ri-paid-compare']),
-           ('ri-view-recs',['ri-recs-firms']),('ri-view-sources',['ri-download','ri-advanced','ri-series','ri-ads','ri-editions','ri-data'])]
+           ('ri-view-recs',['ri-recs-firms']),('ri-view-sources',['ri-sources-head','ri-advanced','ri-web-sources','ri-series','ri-ads','ri-corrections','ri-editions','ri-download','ri-data'])]
     if 'data-ri-tabs' not in body or 'data-ri-tabs-js' not in source: raise ValueError('Missing the view tab bar or its script')
     # Block nesting (2026-11-03): a stray closing tag once ended the hidden Sources view early and showed its content under every tab.
     depth=[]

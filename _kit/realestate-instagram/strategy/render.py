@@ -85,15 +85,14 @@ def website_sources(w):
         notes = ''.join('<p class="ri-wnote">%s</p>' % E(x[n]) for n in ('also', 'read_by') if x.get(n))
         cards.append('<article class="ri-wcard"><h3>%s</h3><p class="ri-wsite">%s</p><dl>%s</dl>%s</article>'
                      % (E(NAMES[k]), E(x['site']), dl, notes))
-    corr = ''.join('<p class="pnote"><b>Correction, %s:</b> %s</p>' % (E(c['date']), E(c['text'])) for c in w.get('corrections', []))
     ex = ' '.join('%s (%s, captured %s, SHA-256 %s&hellip;).' % (E(x['title']), E(x['page']), x['captured'], x['sha256'][:12]) for x in w['examples'])
-    return ('<section id="ri-web-sources"><details class="ri-adv"><summary>Website messaging: quotes, notices and collection</summary>\n'
+    return ('<section id="ri-web-sources"><details class="ri-adv"><summary>Website Messaging: firm profiles, quotes and collection</summary>\n'
             '<p class="dek">Skyline, Lankin, Greybrook and Centurion were read with Chromium on ' + DATE + ' (' + E(w['captured_at'].split(', ')[1]) + '): '
             'the homepage and the main investor page. Page text is kept privately and recorded by hash in the kit. Equiton showed a bot check to that browser; '
             'it was read the same evening in the author&rsquo;s own browser. Quotes are short excerpts; figures are the firms&rsquo; own and were not verified.</p>\n'
             '<div class="ri-wgrid">' + ''.join(cards) + '</div>\n'
             '<p class="pnote"><b>Unresolved:</b> Lankin&rsquo;s ads read the same day cite a 12% to 16% targeted net return, while its homepage lists 10% to 14% '
-            'for the Apartment REIT and 10% to 12% for the Growth LP. The ads may describe a different fund; this was not resolved.</p>\n' + corr +
+            'for the Apartment REIT and 10% to 12% for the Growth LP. The ads may describe a different fund; this was not resolved.</p>\n' +
             '<p class="pnote m0"><b>Examples in Website Messaging:</b> ' + ex + '</p>\n'
             '</details></section>\n')
 
@@ -137,7 +136,7 @@ def organic_sources(o):
         mix.append([th.get(t, 0) for t in themes])
     mixrows = ''.join('<tr><td>%s</td>%s</tr>' % (E(t), ''.join('<td class="r">%s</td>' % (mix[j][i] or '&middot;') for j in range(4)))
                       for i, t in enumerate(themes) if any(m[i] for m in mix))
-    return ('<section id="ri-org-sources"><details class="ri-adv"><summary>Organic Social: posts, themes and coverage</summary>\n'
+    return ('<div id="ri-org-sources"><h3>Posts and themes</h3>\n'
             '<p class="dek">Posts published on each firm&rsquo;s own Instagram account, 13 September to 13 October 2026, collected for all four accounts on ' + DATE + '. '
             + E(o['centurion']) + '</p>\n'
             '<div class="tw"><table class="ri-cmpt"><thead><tr><th>Firm</th><th class="r">Posts</th><th class="r">Reels / carousels / static</th>'
@@ -146,7 +145,7 @@ def organic_sources(o):
             '<div class="tw"><table class="ri-cmpt ri-mix"><thead><tr><th>Theme, posts</th>' + ''.join('<th class="r">%s</th>' % E(k) for k in FIRMS[:4]) +
             '</tr></thead><tbody>' + mixrows + '</tbody></table></div>\n'
             '<p class="pnote m0">Themes are the page&rsquo;s reviewed themes; Greybrook&rsquo;s were assigned from each caption on the same scheme. '
-            'Likes are not adjusted for follower count. Followers: %s</p></details></section>\n' % E(o['followers_note']))
+            'Likes are not adjusted for follower count. Followers: %s</p></div>\n' % E(o['followers_note']))
 
 
 def paid_section(a):
@@ -215,9 +214,8 @@ def paid_sources(a):
     sl = tot['Skyline Living (resident leasing)']
     rows.append('<tr><td class="brandcell">Skyline</td><td>%s</td><td class="r">%d</td><td class="r">&middot;</td><td class="r">0</td><td class="wrap-cell">Resident leasing ads, not investor-facing</td></tr>' % (E(sl['page']), sl['active']))
     other = [x for x in read['Equiton'] if not x['for_investors']]
-    corr = ''.join('<p class="pnote"><b>Correction, %s:</b> %s</p>' % (E(c['date']), E(c['text'])) for c in a.get('corrections', []))
     ex = ' '.join('<a href="https://www.facebook.com/ads/library/?id=%s" target="_blank" rel="noopener nofollow">%s &middot; %s</a>.' % (x['id'], E(x['firm']), E(x['title'])) for x in a['examples'])
-    return ('<section id="ri-paid-sources"><details class="ri-adv"><summary>Paid Social: advertisers, ad counts and method</summary>\n'
+    return ('<div id="ri-paid-sources"><h3>Advertisers and ad counts</h3>\n'
             '<p class="dek">Active ads in the Meta Ad Library in Canada, collected on ' + DATE + '. ' + E(a['method']) + ' The library shows that an ad is live; it does not show spend, reach or results. '
             'Raw output is kept privately and recorded by hash in the kit.</p>\n'
             '<div class="tw"><table class="ri-cmpt"><thead><tr><th>Firm</th><th>Advertiser page</th><th class="r">Active ads listed</th><th class="r">Read</th><th class="r">Investor ads reviewed</th><th>Messages, investor ads</th></tr></thead><tbody>'
@@ -226,7 +224,7 @@ def paid_sources(a):
             % (sum(len(v) for v in inv.values()), listed, listed, tot['Equiton']['active'], tot['Skyline']['active'], tot['Lankin']['active'], sum(len(v) for v in read.values()),
                tot['Equiton']['active'] - len(read['Equiton']), E(other[0]['headline']) if other else '', sum(len(v) for v in inv.values())) +
             '<p class="pnote">Each ad&rsquo;s link points to a Meta short link (fb.me); the links were not followed, so where the ads finally send people is not recorded here.</p>\n'
-            + corr + '<p class="pnote m0"><b>Examples in Paid Social:</b> ' + ex + '</p>\n</details></section>\n')
+            '<p class="pnote m0"><b>Examples in Paid Social:</b> ' + ex + '</p>\n</div>\n')
 
 
 def recs_section(a, o, w):
@@ -268,6 +266,29 @@ def recs_section(a, o, w):
             '<p class="pnote m0">Each measure is a proposed metric for the firm to track. The public research supplies the observation behind each test, not its result.</p></section>\n')
 
 
+
+def sources_head(a, o, w):
+    """Sources & evidence header (founder, 2026-11-03): title, one line and an at-a-glance strip, as on the Business index."""
+    posts = len(o['posts'])
+    ads = sum(1 for x in a['records'] if x['for_investors'])
+    sites = sum(1 for k in FIRMS if w['firms'][k]['read'])
+    stats = [('Instagram posts reviewed', '%d' % posts), ('Investor ads reviewed', '%d' % ads), ('Websites read', '%d of %d' % (sites, len(FIRMS))), ('Collected', DATE)]
+    return ('<section id="ri-sources-head"><div class="sec-head"><h2>Sources &amp; evidence</h2>\n'
+            '<p class="dek">The evidence behind each tab, how it was collected and calculated, what changed, and the data to download.</p></div>\n'
+            '<dl class="ri-sstats" aria-label="Sources and evidence at a glance">' + ''.join('<div><dt>%s</dt><dd>%s</dd></div>' % (E(k), v) for k, v in stats) + '</dl></section>\n')
+
+
+def corrections(a, o, w):
+    """One list of dated corrections from the evidence files (websites, ads, organic)."""
+    items = []
+    for src, label in ((w, 'Website Messaging'), (a, 'Paid Social'), (o, 'Organic Social')):
+        for c in src.get('corrections', []):
+            items.append((c['date'], label, c['text']))
+    items.sort()
+    return ('<section id="ri-corrections"><details class="ri-adv"><summary>Corrections</summary>\n'
+            '<p class="dek">Changes made to this edition&rsquo;s figures or wording after publication, with the date and the tab each affects.</p>\n<ul class="ri-corr">'
+            + ''.join('<li><b>%s, %s.</b> %s</li>' % (E(d), E(l), E(t)) for d, l, t in items) + '</ul></details></section>\n')
+
 def put(body, name, html):
     a, b = '<!-- STRATEGY:%s START -->' % name, '<!-- STRATEGY:%s END -->' % name
     if body.count(a) != 1 or body.count(b) != 1:
@@ -281,6 +302,8 @@ def main():
     body = open(BODY, encoding='utf-8').read()
     body = put(body, 'website', website_view(w))
     body = put(body, 'websrc', website_sources(w))
+    body = put(body, 'srchead', sources_head(a, o, w))
+    body = put(body, 'corr', corrections(a, o, w))
     body = put(body, 'organic', organic_section(o))
     body = put(body, 'orgsrc', organic_sources(o))
     body = put(body, 'paid', paid_section(a))
