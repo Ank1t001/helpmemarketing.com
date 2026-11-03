@@ -17,8 +17,8 @@
   "prior_cycle": "004",
   "prior_verification": "history/cycle004-verification.json",
   "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv",
-  "modified_at": "2026-11-03T19:13:57+00:00",
-  "modified_at_source": "Vercel production deployment dpl_8RHPbRKjZw4XGJE1LTYLXqdChWAt (commit bd789c2) ready time (1793733237499 ms): Organic Social wording pass, the last content change to /realestate-index. Earlier value: 2026-11-03T19:01:16+00:00; earlier releases are listed in the git history of this file.",
+  "modified_at": "2026-11-03T19:25:11+00:00",
+  "modified_at_source": "Vercel production deployment dpl_5kMzxcym48X9JksACTXyCp7ijZXh (commit 2cbb4bf) ready time (1793733911808 ms): Website Messaging pass, the last content change to /realestate-index. Earlier value: 2026-11-03T19:13:57+00:00; earlier releases are listed in the git history of this file.",
   "revision": {
     "date": "2026-11-02",
     "by": "founder",
