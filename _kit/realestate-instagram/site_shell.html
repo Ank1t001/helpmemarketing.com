@@ -627,10 +627,12 @@ html:not([data-theme="dark"]) .msi.msi #ri-rankings{--ri-f1:#2a78d6;--ri-f2:#eb6
 .msi.msi .ri-cblock>.sec-head,.msi.msi .ri-cblock-head{margin-bottom:16px}
 .msi.msi .ri-mxt th:nth-child(n){width:auto}
 .msi.msi .ri-mxs{display:block;font-size:13px;font-weight:650;color:var(--text)}
-.msi.msi .ri-mxs::before{content:"\25CF";margin-right:6px;color:var(--text)}
-.msi.msi .ri-mx-call .ri-mxs::before{content:"\25D0"}
-.msi.msi .ri-mx-not_found .ri-mxs{font-weight:400;color:var(--text-muted)}
-.msi.msi .ri-mx-not_found .ri-mxs::before{content:"\25CB";color:var(--text-muted)}
+.msi.msi .ri-mxs::before{content:"";display:inline-block;width:9px;height:9px;margin-right:7px;border:1.5px solid var(--text);border-radius:50%;background:var(--text);vertical-align:0}
+.msi.msi .ri-mx-product .ri-mxs::before{background:linear-gradient(90deg,var(--text) 50%,transparent 50%)}
+.msi.msi .ri-mx-call .ri-mxs::before{background:none;border-style:dashed;border-color:var(--text-muted)}
+.msi.msi .ri-mx-not_found .ri-mxs::before{background:none;border-color:var(--text-muted)}
+@media(forced-colors:active){.msi.msi .ri-mxs::before{forced-color-adjust:none}}
+.msi.msi :is(.ri-mx-call,.ri-mx-not_found) .ri-mxs{font-weight:400;color:var(--text-muted)}
 .msi.msi .ri-mxd{display:block;margin-top:2px;font-size:13px;line-height:1.45;color:var(--text-muted)}
 .msi.msi .ri-mxn{font-weight:650;white-space:nowrap}
 .msi.msi .ri-fmt{margin:0 0 24px;padding:20px 24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}

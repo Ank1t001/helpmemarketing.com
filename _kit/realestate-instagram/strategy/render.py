@@ -295,28 +295,35 @@ def put(body, name, html):
 
 # HMM Ranking comparisons (founder brief, 2026-11-03): one place to compare the firms across websites, Instagram and Meta ads.
 # Each block answers one reader question and links to the tab with the examples. Ad destinations are added only once verified.
-STATUS = {'stated': 'Stated on the page', 'call': 'Discussed on a call', 'not_found': 'Not found on the pages reviewed'}
-MATRIX_COLS = [('fund', 'Identifies the fund'), ('minimum', 'Minimum investment'), ('eligibility', 'Who can invest'), ('next', 'Next step')]
+LEVEL = {'ad': 'Ad landing', 'home': 'Homepage', 'product': 'Product page', 'call': 'Discussed on a call', 'not_found': 'Not found'}
+MATRIX_COLS = [('fund', 'Names the fund'), ('minimum', 'Minimum investment'), ('eligibility', 'Who can invest'), ('next', 'Next step')]
 
 
 def rank_website(w):
+    """Where a reader first meets each answer (founder, 2026-11-03): ad landing, homepage, product page, a call, or not found."""
     rows = []
     for k in FIRMS:
         m = w['firms'][k]['matrix']
-        n = sum(m[c][0] == 'stated' for c, _ in MATRIX_COLS)
-        rows.append((-n, NAMES[k], k, m, n))
+        assert all(m[c][0] in LEVEL for c, _ in MATRIX_COLS), k
+        up = sum(m[c][0] in ('ad', 'home') for c, _ in MATRIX_COLS)
+        deep = sum(m[c][0] == 'product' for c, _ in MATRIX_COLS)
+        rows.append((-up, -deep, NAMES[k], k, m, up))
     rows.sort()
     body = ''
-    for _, name, k, m, n in rows:
+    for _, _, name, k, m, up in rows:
         cells = ''.join('<td class="ri-mx ri-mx-%s" data-label="%s"><span class="ri-mxs">%s</span>%s</td>'
-                        % (m[c][0], E(lab), STATUS[m[c][0]], ('<span class="ri-mxd">%s</span>' % E(m[c][1])) if m[c][1] and m[c][1] != STATUS[m[c][0]] else '')
+                        % (m[c][0], E(lab), LEVEL[m[c][0]], ('<span class="ri-mxd">%s</span>' % E(m[c][1])) if m[c][1] else '')
                         for c, lab in MATRIX_COLS)
-        body += '<tr><td class="brandcell">%s</td>%s<td class="r ri-mxn" data-label="Stated on the page">%d of %d</td></tr>' % (E(name), cells, n, len(MATRIX_COLS))
+        body += '<tr><td class="brandcell">%s</td>%s<td class="r ri-mxn" data-label="Up front">%d of %d</td></tr>' % (E(name), cells, up, len(MATRIX_COLS))
     return ('<div id="ri-cmp-website" class="ri-cblock"><div class="sec-head"><h2>What can an investor learn before enquiring?</h2>\n'
-            '<p class="dek">What the reviewed pages of each firm&rsquo;s website state. Based on website checks on 2 and 3 November 2026. Sorted by how many of the four are stated on the page.</p></div>\n'
+            '<p class="dek">Where a reader first meets each answer: where the ad sends them (ad landing), the homepage, a product page one or more clicks in, or only on a call. '
+            'Based on browser checks on 2 and 3 November 2026. Sorted by how many of the four are up front, on the ad landing or the homepage.</p></div>\n'
             '<div class="tw"><table class="ri-wtable ri-mxt"><thead><tr><th>Firm</th>' + ''.join('<th>%s</th>' % E(l) for _, l in MATRIX_COLS) +
-            '<th class="r">Stated on the page</th></tr></thead><tbody>' + body + '</tbody></table></div>\n'
-            '<p class="pnote">&ldquo;Discussed on a call&rdquo; means the page says the detail is covered in a conversation. &ldquo;Not found&rdquo; covers only the pages reviewed, listed in Sources &amp; evidence. Rechecked on 3 November 2026: Equiton&rsquo;s and Lankin&rsquo;s minimums are stated on a fund landing page and a campaign page, and the cell names the page.</p>\n'
+            '<th class="r">Up front</th></tr></thead><tbody>' + body + '</tbody></table></div>\n'
+            '<p class="pnote">Ad landing covers the Meta forms and pages the ads were verified to reach on 3 November; Greybrook and Centurion had no active investor ads. '
+            'Equiton states its investor criteria only inside an image on five fund pages, so a text-only reader or search engine does not see them. '
+            'Lankin&rsquo;s numbers differ by place: its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo;, and a campaign page states a $25,000 minimum, '
+            'reached only from an ad whose path is unverified. &ldquo;Not found&rdquo; covers only the pages reviewed, listed in Sources &amp; evidence.</p>\n'
             '<p class="ri-vlink"><a href="#ri-view-website">See the pages in Website Messaging <span aria-hidden="true">&rarr;</span></a></p></div>\n')
 
 
