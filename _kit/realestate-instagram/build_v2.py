@@ -129,7 +129,7 @@ def validate(source, actual, rows, config):
     pos=[body.find('id="'+x+'"') for x in order]
     if -1 in pos or pos!=sorted(pos): raise ValueError('Section order must be '+', '.join(order))
     # Views (founder, 2026-11-02): one tab bar over seven views (Website Messaging and the five-firm comparisons added the same day), in this order, each holding its sections. See EDITORIAL_RULES.md.
-    views=[('ri-view-overview',['ri-overview']),('ri-view-rankings',['ri-rankings','ri-video','ri-cmp-paid']),
+    views=[('ri-view-overview',['ri-overview']),('ri-view-rankings',['ri-rankings','ri-video','ri-cmp-paid','ri-cmp-dest']),
            ('ri-view-website',['ri-website']),
            ('ri-view-organic',['ri-organic-compare','ri-creative','ri-insights']),('ri-view-paid',['ri-paid-compare']),
            ('ri-view-recs',['ri-recs-firms']),('ri-view-sources',['ri-sources-head','ri-advanced','ri-web-sources','ri-series','ri-ads','ri-corrections','ri-editions','ri-download','ri-data'])]

@@ -368,6 +368,48 @@ def rank_paid(a):
             '<p class="ri-vlink"><a href="#ri-view-paid">See the ads in Paid Social <span aria-hidden="true">&rarr;</span></a></p></section>\n')
 
 
+DEST_TYPES = ['Meta form', 'Campaign landing page', 'Fund or product page', 'Homepage or other general page', 'Booking page', 'Unverified']
+
+
+def rank_dest(dd):
+    """Ad destinations (founder brief, 2026-11-03): a separately dated update; unverified destinations stay in the denominator."""
+    recs = dd['records']
+    firms = sorted({r['firm'] for r in recs}, key=lambda k: (-sum(r['firm'] == k for r in recs), NAMES[k]))
+    n = {k: sum(r['firm'] == k for r in recs) for k in firms}
+    assert set(r['destination'] for r in recs) <= set(DEST_TYPES)
+    def cell(c, tot, lab):
+        return '<td class="r ri-hm" data-label="%s"><span class="ri-hmv">%s <small>(%d)</small></span><span class="ri-hmb"><span class="bar-fill" data-w="%.1f"></span></span></td>' % (E(lab), pct(c, tot), c, 100 * c / tot if tot else 0)
+    t1 = ''.join('<tr><td>%s</td>%s</tr>' % (E(t), ''.join(cell(sum(r['firm'] == k and r['destination'] == t for r in recs), n[k], NAMES[k]) for k in firms)) for t in DEST_TYPES)
+    t2 = ''
+    for k in firms:
+        nm = [r for r in recs if r['firm'] == k and r['offer_named']]
+        c = collections.Counter(r['presents_offer'] for r in nm)
+        t2 += '<tr><td class="brandcell">%s</td><td class="r" data-label="Ads naming an offer">%d of %d</td>%s</tr>' % (E(NAMES[k]), len(nm), n[k], ''.join(
+            '<td class="r" data-label="%s">%s <small>(%d)</small></td>' % (lab, pct(c[v], len(nm)), c[v]) if nm else '<td class="r" data-label="%s">&middot;</td>' % lab
+            for v, lab in (('Yes', 'Destination names it'), ('No', 'Destination does not'), ('Unverified', 'Unverified'))))
+    total = len(recs); prior = sum(r['in_2_november_review'] for r in recs)
+    unv_form = sum(r['destination'] == 'Unverified' and 'instant form' in r['basis'] for r in recs)
+    unv_bot = sum(r['destination'] == 'Unverified' and 'bot check' in r['basis'] for r in recs)
+    bridle = sum(r['offer_named'] == 'Bridleview Residences' and r['destination'] == 'Meta form' and r['presents_offer'] == 'No' for r in recs)
+    lk = dd['listed_links_opened']
+    nf = [u.replace('https://', '') for u, v in lk.items() if v['status'] == 404]
+    assert unv_form and unv_bot and bridle and len(nf) == 2
+    return ('<section id="ri-cmp-dest" class="ri-cblock"><div class="sec-head"><h2>Where does each investor ad take the reader?</h2>\n'
+            '<p class="dek">A separately dated check: the three firms&rsquo; active investor ads were collected again on 3 November 2026 and each destination was recorded. '
+            '%d ads (%s); %d of them were in the 2 November review, matched by ad ID. Unverified destinations stay in each firm&rsquo;s total.</p></div>\n'
+            % (total, ', '.join('%s %d' % (E(NAMES[k]), n[k]) for k in firms), prior) +
+            '<p class="ri-cmp-h">Destination, share of each firm&rsquo;s ads</p>'
+            '<div class="tw"><table class="ri-hmt"><thead><tr><th>Destination</th>' + ''.join('<th class="r">%s<small>%d ads</small></th>' % (E(NAMES[k]), n[k]) for k in firms) +
+            '</tr></thead><tbody>' + t1 + '</tbody></table></div>\n'
+            '<p class="ri-cmp-h">Ads that name a specific fund, development or event: does the destination name it too?</p>'
+            '<div class="tw"><table class="ri-wtable ri-ptable"><thead><tr><th>Firm</th><th class="r">Ads naming an offer</th><th class="r">Destination names it</th><th class="r">Destination does not</th><th class="r">Unverified</th></tr></thead><tbody>' + t2 + '</tbody></table></div>\n'
+            '<p class="pnote">Meta form is counted only where the library record shows the form&rsquo;s questions. Unverified covers %d Lankin ads whose record shows a form and also lists a website link, and %d Equiton ads whose fund page showed a bot check. '
+            'Equiton&rsquo;s %d Bridleview Residences forms show the 24%% target return and $25,000 minimum but name the development only in the disclaimer. '
+            'The booking page is a Calendly calendar that names no fund. Of the website links listed on Lankin records, %s returned &ldquo;page not found&rdquo; on 3 November; the record does not show that readers land there.</p>\n'
+            % (unv_form, unv_bot, bridle, ' and '.join(nf)) +
+            '<p class="ri-vlink"><a href="#ri-view-paid">See the ads in Paid Social <span aria-hidden="true">&rarr;</span></a></p></section>\n')
+
+
 def main():
     a, o, w = load('ads.json'), load('organic.json'), load('websites.json')
     body = open(BODY, encoding='utf-8').read()
@@ -383,6 +425,7 @@ def main():
     body = put(body, 'rankweb', rank_website(w))
     body = put(body, 'rankorg', rank_organic(o))
     body = put(body, 'rankpaid', rank_paid(a))
+    body = put(body, 'rankdest', rank_dest(json.load(open(os.path.join(HERE, 'ad_destinations.json')))))
     if re.search(r'[–—]', body.split('<!-- STRATEGY:website START -->')[1].split('<!-- STRATEGY:website END -->')[0]):
         raise ValueError('Dash in the website view')
     with open(BODY, 'w', encoding='utf-8') as f:
