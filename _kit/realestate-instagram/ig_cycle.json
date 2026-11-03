@@ -17,8 +17,8 @@
   "prior_cycle": "004",
   "prior_verification": "history/cycle004-verification.json",
   "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv",
-  "modified_at": "2026-11-03T15:36:12+00:00",
-  "modified_at_source": "Vercel production deployment dpl_3PW68aCBkE5UyQNc4gxPTRJ4sL8f (commit 0fb3988) ready time (1793720172903 ms): Recommendations opens with the dark intro panel, the last content change to /realestate-index. Earlier value: 2026-11-03T15:13:38+00:00; earlier releases are listed in the git history of this file.",
+  "modified_at": "2026-11-03T15:52:16+00:00",
+  "modified_at_source": "Vercel production deployment dpl_8oVarnb9a3N1srhq9xjyj9EhGJnP (commit 8a0b6d4) ready time (1793721136430 ms): the audit pass (anchor, compact intros, copy and evidence fixes), the last content change to /realestate-index. Earlier value: 2026-11-03T15:36:12+00:00; earlier releases are listed in the git history of this file.",
   "revision": {
     "date": "2026-11-02",
     "by": "founder",
