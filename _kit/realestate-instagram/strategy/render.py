@@ -390,22 +390,22 @@ def rank_website(w):
         assert all(m[c][0] in LEVEL for c, _ in MATRIX_COLS), k
         # Founder, 2026-11-03: an answer counts wherever it is explicitly available before an enquiry (ad landing, homepage or product page).
         found = sum(m[c][0] in ('ad', 'home', 'product') for c, _ in MATRIX_COLS)
-        rows.append((-found, NAMES[k], k, m, found))
+        # Ties broken by answers on the homepage or ad landing (founder, 2026-11-03), so firms that show answers up front come first.
+        early = sum(m[c][0] in ('ad', 'home') for c, _ in MATRIX_COLS)
+        rows.append((-found, -early, NAMES[k], k, m, found))
     rows.sort()
     body = ''
-    for _, name, k, m, up in rows:
+    for _, _, name, k, m, up in rows:
         cells = ''.join('<td class="ri-mx ri-mx-%s" data-label="%s"><span class="ri-mxs">%s</span>%s</td>'
                         % (m[c][0], E(lab), LEVEL[m[c][0]], ('<span class="ri-mxd">%s</span>' % E(m[c][1])) if m[c][1] else '')
                         for c, lab in MATRIX_COLS)
         body += '<tr><td class="brandcell">%s</td>%s<td class="r ri-mxn" data-label="Answers found before enquiry">%d of %d</td></tr>' % (E(name), cells, up, len(MATRIX_COLS))
     return ('<div id="ri-cmp-website" class="ri-cblock"><div class="sec-head"><h2>What can an investor learn before enquiring?</h2>\n'
-            '<p class="dek">Where a reader first meets each answer: the ad landing, the homepage, a product page, or only on a call. An answer counts wherever it is stated before someone submits an enquiry; the label shows where. Checked 2 and 3 November 2026.</p></div>\n'
+            '<p class="dek">Where a reader first meets each answer: the ad landing, the homepage, a product page, or only on a call. An answer counts wherever it is stated before someone submits an enquiry; the label shows where. Ties are ordered by answers on the homepage or ad landing. Checked 2 and 3 November 2026.</p></div>\n'
             '<div class="tw"><table class="ri-wtable ri-mxt"><thead><tr><th>Firm</th>' + ''.join('<th>%s</th>' % E(l) for _, l in MATRIX_COLS) +
             '<th class="r">Answers found before enquiry</th></tr></thead><tbody>' + body + '</tbody></table></div>\n'
             '<p class="pnote">Answers can sit on different routes: Lankin&rsquo;s four come from its homepage, a campaign page and a Meta form, so a reader on one route may not see all four. '
-            'Ad landing covers the Meta forms and pages the ads were verified to reach on 3 November; Greybrook and Centurion had no active investor ads. '
             'Equiton states its investor criteria only inside an image on five fund pages, so a text-only reader or search engine does not see them. '
-            'Lankin&rsquo;s numbers differ by place: two of its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo;, and the campaign page one of its ads links to states a $25,000 minimum; the research has not traced these figures to one offer. '
             '&ldquo;Not found&rdquo; covers only the pages reviewed, listed in Sources &amp; evidence.</p>\n'
             '<p class="ri-vlink"><a href="#ri-view-website">See the pages in Website Messaging <span aria-hidden="true">&rarr;</span></a><a class="ri-backcmp" href="#ri-cmpnav">Back to comparisons <span aria-hidden="true">&uarr;</span></a></p></div>\n')
 

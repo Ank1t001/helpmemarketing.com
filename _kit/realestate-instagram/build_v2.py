@@ -183,7 +183,7 @@ def validate(source, actual, rows, config):
     if re.search(r'class="flag (?!neutral)',body): raise ValueError('Flags must use the neutral style')
     board_rows=re.search(r'<section id="ri-rankings">.*?<table class="ri-board">.*?<tbody>(.*?)</tbody>',body,re.S)
     if not board_rows or board_rows.group(1).count('data-note="')!=board_rows.group(1).count('<tr'): raise ValueError('Every scoreboard row needs a data-note for the firm panel')
-    for label,needle in {'ranking heading':'<h2>HMM Ranking</h2>','reading notes':'<h2>How to read the comparison</h2>','download heading':'<h2>Download the dataset</h2>',
+    for label,needle in {'ranking heading':'<h2>HMM Ranking</h2>','reading notes':'<section id="ri-read"><details class="ri-adv"><summary>View definitions</summary>','download heading':'<h2>Download the dataset</h2>',
                          'email label':'<label class="gate-label" for="gate-email">Email address</label>','status live region':'id="gate-msg" role="status" aria-live="polite"',
                          'current edition history row':f'<b>{cyc}</b> (this page)','post log expander':'<summary>Open the post log</summary>'}.items():
         if needle not in body: raise ValueError('Missing '+label)

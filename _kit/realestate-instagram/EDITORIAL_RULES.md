@@ -85,3 +85,7 @@ The four jump links carry `id="ri-cmpnav"`; each of the four comparison blocks e
 
 ## Recommendations pass (founder, 2026-11-03)
 Lead: "What each firm could *fix or test* next, from its website, Instagram and Meta ads."; Overview card "Practical fixes and tests for each firm, based on the research."; gate card "Confirm your email to read the fixes and tests for each firm.". Each block is labelled Fix (a broken or missing element: Lankin's six broken ad links) or Test (an experiment). Greybrook's observation names the single fund post: "Its one fund post in the window received one." Per-card evidence links were considered and declined (founder), as was a form-naming fix for Equiton (not a recommendation); Equiton keeps its reel test. Firm order matches every other tab.
+
+## HMM Ranking pass (founder, 2026-11-03)
+Website table ties are ordered by answers on the homepage or ad landing (the dek says so). The note under it keeps only Lankin's separate routes, Equiton's image-only criteria and the "Not found" scope; Lankin's dollar figures live in the Sources follow-up. The video chart has no 10x line and two labels (Higher like ratio, Lower like ratio) above and below the dashed midline; "What to check in your own account" is gone. The reading notes are a closed `details.ri-adv` "View definitions" inside `#ri-read` (build check updated).
+
