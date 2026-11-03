@@ -1,15 +1,32 @@
 {
  "captured_at": "2026-11-02, about 7:45 p.m. Toronto time",
  "tool": "Chromium (Playwright) run by the author; page text kept privately, hashed here",
- "scope": "Homepage and the main investor page of each firm. Quotes are short excerpts; figures are the firms' own and were not verified.",
+ "scope": "Homepage and the main investor page of each firm. Quotes are short excerpts; figures are the firms' own and were not verified. Equiton was read separately through the founder's browser the same evening (see its read_by note).",
  "firms": {
   "Equiton": {
    "site": "equiton.com",
-   "read": false,
+   "read": true,
    "pages": [
-    "https://www.equiton.com/"
+    "https://equiton.com/ (redirects to /individual-investors/)",
+    "https://equiton.com/individual-investors/",
+    "https://equiton.com/individual-investors/our-funds/investment-solutions/"
    ],
-   "note": "Not read. The site showed a bot check to an automated browser on 2 November 2026, and the check was not bypassed."
+   "read_by": "Claude in Chrome in the founder's own browser, 2 November 2026, 10:13 to 10:14 p.m. Toronto time, Canadian site (country selector CA); nothing clicked, filled in or dismissed. No page text or hash was kept, unlike the other four sites, which were read with Chromium the same evening.",
+   "headline": "No H1; the hero reads \"Professionally managed real estate. Built for individual investors.\" with \"Grow your wealth with private real estate investing from Equiton.\"",
+   "products": "Monthly Income Fund, Apartment Fund, US Apartment Fund, Residential Growth Fund I, Income & Development Fund (fund page only), and development offerings (TEN99 Broadview, Wilson Station Condos, Bridleview Residences; Sandstones and Vicinity labelled funded or closed)",
+   "returns": "All labelled targets, on the investor page: \"7-9%\" Monthly Income Fund, \"8-12%\" Apartment Fund and US Apartment Fund, \"10-14%\" Residential Growth Fund I (\"Over 5+ years\"), \"16-20%\" development offerings (\"Targeted Average Annual Net Return (Realized upon project completion)\")",
+   "minimum": "Not stated on the pages read",
+   "who": "Not stated on the pages read; the investor page says it makes it \"easier for everyday investors to invest in private real estate\"",
+   "registered": "\"our solutions are registered plan eligible\" (fund page); RRSP, TFSA and RRIF are not named",
+   "cta": "Learn more, Investment Solutions, Contact Us, Investor Login; the fund page's \"Book a meeting today\" with an Equiton Investment Specialist",
+   "proof": "As at June 30, 2026: $1.7 billion assets under management, 52 properties, 19 communities, 17,000+ investors, 250+ employees, $1.8 billion development value (estimated completion value); \"Growing since 2015\"; a growing-companies news item",
+   "notice": "\"Targets/illustrative scenarios are not guarantees; actual results may differ.\" Footer: past performance is not an indicator of future performance",
+   "also": "The root domain redirects to the investor page. The Canadian page includes a US Apartment Fund and news of a Dallas headquarters; asset values are shown in \"$\" with no currency stated.",
+   "glance": {
+    "offer": "Introduces five fund groups for individual investors and shows a targeted net return range for each.",
+    "evidence": "Assets under management, properties, number of investors and years in business.",
+    "next": "Book a meeting with an Equiton Investment Specialist."
+   }
   },
   "Skyline": {
    "site": "skylinewealthmanagement.ca",
@@ -30,10 +47,15 @@
    "returns": "\"historical annualized returns of 8-13% since inception\" (homepage, footnoted)",
    "minimum": "\"$50,000 Minimum Investment\" (Apartment REIT page)",
    "who": "\"available to accredited and eligible investors\" (Apartment REIT page)",
-   "registered": "Its FAQ asks \"Can I invest my registered accounts (RRSP, RRIF, TFSA …)?\"",
+   "registered": "Its FAQ asks \"Can I invest my registered accounts (RRSP, RRIF, TFSA …)?\"; the Apartment REIT page lists \"Registered Account Eligible (RRSP, TFSA, RRIF)\" (seen 3 November 2026)",
    "cta": "Get started, Start your journey, Start investing; a Relationship Manager follows up",
    "proof": "25+ years, $10 billion assets under management, investor testimonials on the homepage",
-   "notice": "Footnoted figures; one homepage testimonial calls the REITs \"a safe alternative for investing\""
+   "notice": "Footnoted figures; one homepage testimonial calls the REITs \"a safe alternative for investing\"",
+   "glance": {
+    "offer": "Presents a range of real estate funds. Its Apartment REIT page names a $50,000 minimum.",
+    "evidence": "Years in business, assets under management and investor testimonials.",
+    "next": "Get started with a relationship manager."
+   }
   },
   "Lankin": {
    "site": "lankin.com",
@@ -54,7 +76,12 @@
    "registered": "Not stated on the pages read (its ads name RRSP and TFSA)",
    "cta": "Book A Call",
    "proof": "$2 Billion+ under management, 6,700+ apartments, 4,000+ Canadian investors",
-   "notice": "Not an offer; past performance note; fees named (30% profit sharing on the REIT, 7% performance fee on the LP); return of capital note"
+   "notice": "Not an offer; past performance note; fees named (30% profit sharing on the REIT, 7% performance fee on the LP); return of capital note",
+   "glance": {
+    "offer": "Introduces its funds and lists a target return for each.",
+    "evidence": "Assets under management, apartment count and number of Canadian investors.",
+    "next": "Book a call to discuss eligibility and minimums."
+   }
   },
   "Greybrook": {
    "site": "greybrook.com",
@@ -77,7 +104,12 @@
    "registered": "Not stated on the pages read",
    "cta": "Get in touch, Invest in Real Estate, Investor Portal",
    "proof": "Fund page and firm news; no investor count on the pages read",
-   "notice": "\"This website does not constitute an offer to sell\""
+   "notice": "\"This website does not constitute an offer to sell\"",
+   "glance": {
+    "offer": "Explains its U.S. multifamily fund and its investment strategy.",
+    "evidence": "The fund page sets out its targets. Firm news gives examples of its activity.",
+    "next": "Get in touch. The investor portal is a separate route."
+   }
   },
   "Centurion": {
    "site": "centurion.ca",
@@ -95,12 +127,50 @@
    "headline": "Research first: the homepage leads with articles by its Chief Economist (\"Why Real Estate, Why Now\") and its 2025 annual report",
    "products": "Centurion Apartment REIT, Centurion Financial Trust",
    "returns": "\"7% - 12% Targeted Annual Total Returns\" (overview)",
-   "minimum": "Not stated on the pages read",
+   "minimum": "\"The minimum investment is $25,000.\" (Apartment REIT page; found when the page was read again on 3 November 2026, see the correction note)",
    "who": "\"open to qualified investors via Offering Memorandum\", bought \"through their Investment Advisor\"; permitted clients may buy directly",
    "registered": "\"RRSP, RRIF, and TFSA eligible\"",
    "cta": "Learn More, Contact, Investor Login",
    "proof": "22,000+ apartment units, medical offices and student housing beds; growth of $100,000 since inception shown on the REIT page",
-   "notice": "Important notice and terms of use on the homepage; Offering Memorandum linked"
+   "notice": "Important notice and terms of use on the homepage; Offering Memorandum linked",
+   "glance": {
+    "offer": "Leads with economic research and explains how qualified investors can access its funds.",
+    "evidence": "Research from its Chief Economist and the firm’s annual report.",
+    "next": "Invest through an advisor. Permitted clients may buy directly."
+   }
   }
- }
+ },
+ "corrections": [
+  {
+   "date": "2026-11-03",
+   "firm": "Centurion",
+   "text": "The 2 November record said the pages read stated no minimum investment. Read again on 3 November 2026, the Centurion Apartment REIT page states \"The minimum investment is $25,000.\" The record was corrected; the glance table wording is unchanged."
+  }
+ ],
+ "examples": [
+  {
+   "firm": "Skyline",
+   "title": "Making the minimum visible",
+   "caption": "The Apartment REIT page states the $50,000 minimum before an investor speaks with a relationship manager.",
+   "src": "/assets/index/real-estate/website/skyline-minimum.webp",
+   "width": 900,
+   "height": 293,
+   "alt": "Skyline Apartment REIT page highlights: $50,000 minimum investment; registered account eligible (RRSP, TFSA, RRIF).",
+   "page": "https://www.skylinewealthmanagement.ca/what-are-alternatives/skyline-apartment-reit/",
+   "captured": "3 November 2026",
+   "sha256": "9f0ab86f40f8619dcaf68363875789ce7fa3a56abdb6e3c6671e27345c553201"
+  },
+  {
+   "firm": "Centurion",
+   "title": "Explaining how to invest",
+   "caption": "Centurion tells qualified investors to go through their advisor and identifies who can approach the firm directly.",
+   "src": "/assets/index/real-estate/website/centurion-how-to-invest.webp",
+   "width": 900,
+   "height": 285,
+   "alt": "Centurion Apartment REIT page text: the REIT is open to qualified investors via Offering Memorandum; investors may purchase units through their Investment Advisor; permitted clients may purchase directly; the minimum investment is $25,000.",
+   "page": "https://www.centurion.ca/investment-solutions/centurion-apartment-reit",
+   "captured": "3 November 2026",
+   "sha256": "2af787cdd1f87cb7638190c3efb1fed295fdffa69e31896d474ab8ef11ae00a5"
+  }
+ ]
 }

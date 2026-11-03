@@ -42,6 +42,34 @@ def roster_note():
 
 
 def website_view(w):
+    """Website Messaging tab (founder, 2026-11-03): one glance table (offer, evidence, next step) and two visual examples.
+    The per-firm detail, exact quotes, notices, dates and corrections are in Sources & evidence (website_sources)."""
+    f = w['firms']
+    rows = []
+    for k in FIRMS:
+        g = f[k].get('glance')
+        if not f[k]['read'] or not g:
+            rows.append('<tr><td class="brandcell">%s</td><td colspan="3" class="em">Website messaging unavailable in this review.</td></tr>' % E(NAMES[k]))
+        else:
+            rows.append('<tr><td class="brandcell">%s</td><td class="wrap-cell" data-label="How it presents the offer">%s</td><td class="wrap-cell" data-label="Evidence it shows">%s</td><td class="wrap-cell" data-label="Next step">%s</td></tr>'
+                        % (E(NAMES[k]), E(g['offer']), E(g['evidence']), E(g['next'])))
+    figs = ''.join('<figure class="ri-wfig"><img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async">'
+                   '<figcaption><b>%s &middot; %s</b>%s <span>%s page, %s.</span></figcaption></figure>'
+                   % (x['src'], E(x['alt']), x['width'], x['height'], E(NAMES[x['firm']] if x['firm'] != 'Centurion' else 'Centurion'), E(x['title']),
+                      E(x['caption']), 'Apartment REIT', x['captured']) for x in w['examples'])
+    return ('<div class="ri-view" id="ri-view-website">\n<section id="ri-website"><div class="sec-head"><h2>Website messaging</h2>\n'
+            '<p class="dek">How each firm explains its investment offer and guides prospective investors to the next step.</p></div>\n'
+            '<h3 class="ri-wh">Messaging at a glance</h3>\n'
+            '<div class="tw"><table class="ri-wtable"><thead><tr><th>Firm</th><th>How it presents the offer</th><th>Evidence it shows</th><th>Next step</th></tr></thead>'
+            '<tbody>' + ''.join(rows) + '</tbody></table></div>\n'
+            '<h3 class="ri-wh">Messaging in practice</h3>\n<div class="ri-wex">' + figs + '</div>\n'
+            '<p class="pnote m0">Exact quotes, return wording, notices and collection dates are in <a href="#ri-web-sources">Sources &amp; evidence</a>. '
+            'Figures are the firms&rsquo; own and were not verified.</p>'
+            '</section>\n</div>\n')
+
+
+def website_sources(w):
+    """Sources & evidence: every firm's nine fields, collection notes, corrections and the unresolved Lankin comparison."""
     f = w['firms']
     rows = [('Headline message', 'headline'), ('Products named', 'products'), ('Return language', 'returns'),
             ('Minimum investment', 'minimum'), ('Who can invest', 'who'), ('Registered accounts', 'registered'),
@@ -50,33 +78,24 @@ def website_view(w):
     for k in FIRMS:
         x = f[k]
         if not x['read']:
-            cards.append('<article class="ri-wcard is-unread" id="ri-web-%s"><h3>%s</h3><p class="ri-wsite">%s</p><p class="ri-wnote">%s</p></article>'
-                         % (k.lower(), E(NAMES[k]), E(x['site']), E(x['note'])))
+            cards.append('<article class="ri-wcard is-unread"><h3>%s</h3><p class="ri-wsite">%s</p><p class="ri-wnote">%s</p></article>'
+                         % (E(NAMES[k]), E(x['site']), E(x['note'])))
             continue
         dl = ''.join('<div><dt>%s</dt><dd>%s</dd></div>' % (E(t), E(x[key])) for t, key in rows if x.get(key))
-        also = '<p class="ri-wnote">%s</p>' % E(x['also']) if x.get('also') else ''
-        cards.append('<article class="ri-wcard" id="ri-web-%s"><h3>%s</h3><p class="ri-wsite">%s</p><dl>%s</dl>%s</article>'
-                     % (k.lower(), E(NAMES[k]), E(x['site']), dl, also))
-    read = [k for k in FIRMS if f[k]['read']]
-    states_min = [k for k in read if not f[k]['minimum'].startswith('Not stated')]
-    states_ret = [k for k in read if f[k].get('returns')]
-    points = [
-        ('All %s sites read' % ['no', 'one', 'two', 'three', 'four', 'five'][len(read)] if len(states_ret) == len(read) else '%d of the %d sites read' % (len(states_ret), len(read)))
-        + ' state a targeted or historical return range on the pages read.',
-        'Only %s stated a minimum investment on the pages read (%s); Lankin says minimums are discussed on a call.'
-        % (' and '.join(NAMES[k] for k in states_min) or 'none', '; '.join(re.search(r'\$[\d,]+', f[k]['minimum']).group(0) + ', ' + re.sub(r'^.*\((.*)\)$', r'on its \1', f[k]['minimum']) for k in states_min)),
-        'The next step differs: Lankin asks visitors to book a call, Skyline to get started with a relationship manager, '
-        'Greybrook to get in touch, and Centurion sells through investment advisors under an Offering Memorandum.',
-        'Lankin&rsquo;s ads read the same day cite a 12% to 16% targeted net return, while its homepage lists 10% to 14% '
-        'for the Apartment REIT and 10% to 12% for the Growth LP. The ads may describe a different fund; this was not resolved.',
-        'Equiton&rsquo;s site could not be read: it showed a bot check to an automated browser, which was not bypassed.']
-    return ('<div class="ri-view" id="ri-view-website">\n<section id="ri-website"><div class="sec-head"><h2>Website messaging compared</h2>\n'
-            '<p class="dek">What each firm&rsquo;s own website tells a prospective investor, read on ' + DATE + ': the homepage and the main '
-            'investor page. Figures are the firms&rsquo; own and were not verified.</p></div>\n' + roster_note() +
-            '\n<div class="card ri-points"><h3>What stood out</h3><ul>' + ''.join('<li>%s</li>' % p for p in points) + '</ul></div>\n'
+        notes = ''.join('<p class="ri-wnote">%s</p>' % E(x[n]) for n in ('also', 'read_by') if x.get(n))
+        cards.append('<article class="ri-wcard"><h3>%s</h3><p class="ri-wsite">%s</p><dl>%s</dl>%s</article>'
+                     % (E(NAMES[k]), E(x['site']), dl, notes))
+    corr = ''.join('<p class="pnote"><b>Correction, %s:</b> %s</p>' % (E(c['date']), E(c['text'])) for c in w.get('corrections', []))
+    ex = ' '.join('%s (%s, captured %s, SHA-256 %s&hellip;).' % (E(x['title']), E(x['page']), x['captured'], x['sha256'][:12]) for x in w['examples'])
+    return ('<section id="ri-web-sources"><details class="ri-adv"><summary>Website messaging: quotes, notices and collection</summary>\n'
+            '<p class="dek">Skyline, Lankin, Greybrook and Centurion were read with Chromium on ' + DATE + ' (' + E(w['captured_at'].split(', ')[1]) + '): '
+            'the homepage and the main investor page. Page text is kept privately and recorded by hash in the kit. Equiton showed a bot check to that browser; '
+            'it was read the same evening in the author&rsquo;s own browser. Quotes are short excerpts; figures are the firms&rsquo; own and were not verified.</p>\n'
             '<div class="ri-wgrid">' + ''.join(cards) + '</div>\n'
-            '<p class="pnote">Read with Chromium on %s (%s). Page text is kept privately and recorded by hash in the kit; quotes are short excerpts.</p>'
-            '</section>\n</div>\n' % (DATE, E(w['captured_at'].split(', ')[1])))
+            '<p class="pnote"><b>Unresolved:</b> Lankin&rsquo;s ads read the same day cite a 12% to 16% targeted net return, while its homepage lists 10% to 14% '
+            'for the Apartment REIT and 10% to 12% for the Growth LP. The ads may describe a different fund; this was not resolved.</p>\n' + corr +
+            '<p class="pnote m0"><b>Examples in Website Messaging:</b> ' + ex + '</p>\n'
+            '</details></section>\n')
 
 
 def organic_section(o):
@@ -230,6 +249,7 @@ def main():
     a, o, w = load('ads.json'), load('organic.json'), load('websites.json')
     body = open(BODY, encoding='utf-8').read()
     body = put(body, 'website', website_view(w))
+    body = put(body, 'websrc', website_sources(w))
     body = put(body, 'organic', organic_section(o))
     body = put(body, 'paid', paid_section(a))
     body = put(body, 'recs', recs_section(a, o, w))

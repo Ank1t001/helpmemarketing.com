@@ -20,3 +20,7 @@ The roster is **Equiton, Skyline, Lankin Investments, Greybrook Realty Partners 
 2. Read each website (homepage and main investor page) and update `websites.json`, with hashes of the page text. Never bypass a bot check: record the site as not read.
 3. Update `derive_organic.py` for the edition's posts and run it.
 4. `python3 render.py`, record the new body hash in `../body_review.json`, then build. The body's wording rules (`../EDITORIAL_RULES.md`) apply here too: active ads found, never spend; a stage is a reading of wording, not a result.
+
+## Website Messaging (2026-11-03, founder)
+
+`website_view` renders one glance table from each firm's `glance` (offer, evidence, next) and the two `examples` (captioned crops in `/assets/index/real-estate/website/`, SHA-256 recorded). `website_sources` renders the nine per-firm fields, collection notes, `corrections` and the unresolved Lankin comparison into Sources & evidence between the `STRATEGY:websrc` markers. Equiton's site shows a bot check to Chromium; on 2 November 2026 it was read in the founder's own browser with Claude in Chrome (`read_by`), with no page text or hash kept. The Centurion minimum was corrected on 3 November 2026 after the Apartment REIT page was read again.
