@@ -30,11 +30,11 @@
    "matrix": {
     "fund": [
      "stated",
-     "Five fund groups named"
+     "Funds named on its investment solutions page"
     ],
     "minimum": [
      "stated",
-     "$25,000 shown for development offerings"
+     "$25,000 on its US Apartment Fund landing page"
     ],
     "eligibility": [
      "not_found",
@@ -42,7 +42,7 @@
     ],
     "next": [
      "stated",
-     "Book a meeting with an Investment Specialist"
+     "Contact Us; Book a meeting today"
     ]
    }
   },
@@ -85,11 +85,11 @@
     ],
     "eligibility": [
      "stated",
-     "Accredited and eligible investors"
+     "Accredited and eligible investors; FAQ gives income thresholds"
     ],
     "next": [
      "stated",
-     "Get started; a relationship manager follows up"
+     "Start investing; Download Fund Fact Sheet"
     ]
    }
   },
@@ -121,19 +121,19 @@
    "matrix": {
     "fund": [
      "stated",
-     "Apartment REIT and Growth LP named"
+     "Lankin Apartment REIT named on its homepage"
     ],
     "minimum": [
-     "call",
-     "Discussed on a call"
+     "stated",
+     "$25,000 on its campaign page; its contact page says minimums are discussed on a call"
     ],
     "eligibility": [
      "call",
-     "Qualification criteria discussed on a call"
+     "Qualification discussed on a call"
     ],
     "next": [
      "stated",
-     "Book a call"
+     "Book A Call"
     ]
    }
   },
@@ -175,11 +175,11 @@
     ],
     "eligibility": [
      "not_found",
-     ""
+     "Only a US legal notice on accredited investors"
     ],
     "next": [
      "stated",
-     "Get in touch; separate investor portal"
+     "Get in touch"
     ]
    }
   },
@@ -217,15 +217,15 @@
     ],
     "minimum": [
      "stated",
-     "$25,000 (Apartment REIT)"
+     "$25,000 (Apartment REIT, permitted clients buying directly)"
     ],
     "eligibility": [
      "stated",
-     "Qualified investors, through an advisor"
+     "Qualified investors via Offering Memorandum; permitted clients may buy directly"
     ],
     "next": [
      "stated",
-     "Invest through an advisor"
+     "Learn More; Fund Fact Sheet"
     ]
    }
   }
@@ -240,6 +240,10 @@
    "date": "2026-11-03",
    "firm": "Equiton",
    "text": "The $25,000 minimum was added on the author's information: Equiton's website wording names it for development offerings, and the author reports it applies to all its funds. The three pages read on 2 November do not state a minimum."
+  },
+  {
+   "date": "2026-11-03",
+   "text": "HMM Ranking website matrix: Equiton's minimum cell said \"$25,000 shown for development offerings\". A read-only check of its investor and fund pages on 3 November found no minimum on either; the cell now cites the $25,000 stated on its US Apartment Fund landing page. Lankin's minimum cell now cites the $25,000 on its campaign page (its contact page says minimums are discussed on a call), and Greybrook's eligibility cell notes the US accredited-investor notice."
   }
  ],
  "examples": [
@@ -268,5 +272,62 @@
    "sha256": "2af787cdd1f87cb7638190c3efb1fed295fdffa69e31896d474ab8ef11ae00a5"
   }
  ],
- "matrix_note": "Founder brief 2026-11-03: status per question from the pages reviewed (stated on the page, discussed on a call, not found on the pages reviewed). Equiton minimum: the website wording names $25,000 for development offerings; the author confirms it applies to all products."
+ "matrix_note": "Founder brief 2026-11-03: status per question from the pages reviewed (stated on the page, discussed on a call, not found on the pages reviewed). Equiton minimum: the website wording names $25,000 for development offerings; the author confirms it applies to all products. Rechecked 3 November 2026 (matrix_check): landing and campaign pages count, and the cell names them.",
+ "matrix_check": {
+  "checked": "2026-11-03T11:40:00-05:00 to 11:44",
+  "by": "The author, in their own browser with Claude in Chrome, read only (no form submitted, no human-verification box ticked; cookie banners on Skyline and Lankin left alone)",
+  "pages": {
+   "Equiton": [
+    "equiton.com/individual-investors/",
+    "equiton.com/individual-investors/our-funds/investment-solutions/",
+    "equiton.com/us-residential-income-fund/ (read 11:25 for the ad destinations)"
+   ],
+   "Skyline": [
+    "skylinewealthmanagement.ca/",
+    "skylinewealthmanagement.ca/what-are-alternatives/skyline-apartment-reit/",
+    "skylinewealthmanagement.ca/faq/"
+   ],
+   "Lankin": [
+    "lankin.com/",
+    "lankin.com/contact-us/individual-investor/",
+    "lankin.com/private-reit-canada/ (campaign page)"
+   ],
+   "Greybrook": [
+    "greybrook.com/",
+    "greybrook.com/investing-in-real-estate/",
+    "greybrook.com/us-multifamily-fund/"
+   ],
+   "Centurion": [
+    "centurion.ca/",
+    "centurion.ca/investment-solutions/overview",
+    "centurion.ca/investment-solutions/centurion-apartment-reit"
+   ]
+  },
+  "quotes": {
+   "Equiton": [
+    "\"Equiton Monthly Income Fund Trust\"",
+    "no minimum and no investor criteria on the investor or fund page",
+    "US fund page: \"Minimum $25,000.\""
+   ],
+   "Skyline": [
+    "\"$50,000 Minimum Investment\"",
+    "\"available to accredited and eligible investors\"",
+    "\"net income before taxes exceeded $75,000\""
+   ],
+   "Lankin": [
+    "\"Lankin Apartment REIT\" (homepage)",
+    "\"discuss general fund details, qualification criteria, minimum investment values\"",
+    "\"from a minimum of $25,000\" (campaign page)",
+    "\"Information & Qualifying Call\""
+   ],
+   "Greybrook": [
+    "\"Greybrook U.S. Multifamily Income & Growth Fund\"",
+    "\"can only be made to accredited investors\" (for private placements in the United States)"
+   ],
+   "Centurion": [
+    "\"The minimum investment is $25,000\"",
+    "\"open to qualified investors via Offering Memorandum\""
+   ]
+  }
+ }
 }

@@ -316,7 +316,7 @@ def rank_website(w):
             '<p class="dek">What the reviewed pages of each firm&rsquo;s website state. Based on website checks on 2 and 3 November 2026. Sorted by how many of the four are stated on the page.</p></div>\n'
             '<div class="tw"><table class="ri-wtable ri-mxt"><thead><tr><th>Firm</th>' + ''.join('<th>%s</th>' % E(l) for _, l in MATRIX_COLS) +
             '<th class="r">Stated on the page</th></tr></thead><tbody>' + body + '</tbody></table></div>\n'
-            '<p class="pnote">&ldquo;Discussed on a call&rdquo; means the page says the detail is covered in a conversation. &ldquo;Not found&rdquo; covers only the pages reviewed, listed in Sources &amp; evidence.</p>\n'
+            '<p class="pnote">&ldquo;Discussed on a call&rdquo; means the page says the detail is covered in a conversation. &ldquo;Not found&rdquo; covers only the pages reviewed, listed in Sources &amp; evidence. Rechecked on 3 November 2026: Equiton&rsquo;s and Lankin&rsquo;s minimums are stated on a fund landing page and a campaign page, and the cell names the page.</p>\n'
             '<p class="ri-vlink"><a href="#ri-view-website">See the pages in Website Messaging <span aria-hidden="true">&rarr;</span></a></p></div>\n')
 
 
@@ -393,7 +393,10 @@ def rank_dest(dd):
     bridle = sum(r['offer_named'] == 'Bridleview Residences' and r['destination'] == 'Meta form' and r['presents_offer'] == 'No' for r in recs)
     lk = dd['listed_links_opened']
     nf = [u.replace('https://', '') for u, v in lk.items() if v['status'] == 404]
-    assert unv_form and bridle and len(nf) == 2
+    lr = [r for r in recs if r['firm'] == 'Lankin' and r['destination'] == 'Unverified']
+    n404 = sum((r['listed_link'] or '').replace('https://', '') in nf for r in lr)
+    nred = sum((r['listed_link'] or '').endswith('lankin.com/investment/') for r in lr)
+    assert unv_form and bridle and len(nf) == 2 and n404 == 6 and nred == 7
     usf = [r for r in recs if r['offer_named'] == 'US Apartment Fund' and r['destination'] == 'Fund or product page']
     return ('<section id="ri-cmp-dest" class="ri-cblock"><div class="sec-head"><h2>Where does each investor ad take the reader?</h2>\n'
             '<p class="dek">A separately dated check: the three firms&rsquo; active investor ads were collected again on 3 November 2026 and each destination was recorded. '
@@ -406,8 +409,8 @@ def rank_dest(dd):
             '<div class="tw"><table class="ri-wtable ri-ptable"><thead><tr><th>Firm</th><th class="r">Ads naming an offer</th><th class="r">Destination names it</th><th class="r">Destination does not</th><th class="r">Unverified</th></tr></thead><tbody>' + t2 + '</tbody></table></div>\n'
             '<p class="pnote">Meta form is counted only where the library record shows the form&rsquo;s questions. Unverified covers %d Lankin ads whose record shows a form and also lists a website link%s. '
             'Equiton&rsquo;s %d Bridleview Residences forms show the 24%% target return and $25,000 minimum but name the development only in the disclaimer. '
-            'The booking page is a Calendly calendar that names no fund. Of the website links listed on Lankin records, %s returned &ldquo;page not found&rdquo; on 3 November; the record does not show that readers land there.</p>\n'
-            % (unv_form, (', and %d Equiton ads whose fund page showed a bot check' % unv_bot) if unv_bot else '', bridle, ' and '.join(nf)) +
+            'The booking page is a Calendly calendar that names no fund. Lankin&rsquo;s %d unverified ads were checked again in a browser on 3 November: the Ad Library labels them URL-link ads and lists the form only under &ldquo;Additional assets&rdquo;, so the reader&rsquo;s path is still not shown. Of their website links, %d show &ldquo;page not found&rdquo; (%s) and %d redirect to Lankin&rsquo;s partnerships page.</p>\n'
+            % (unv_form, (', and %d Equiton ads whose fund page showed a bot check' % unv_bot) if unv_bot else '', bridle, len(lr), n404, ' and '.join(nf), nred) +
             ('<p class="pnote">Equiton&rsquo;s %d US Apartment Fund ads lead to a landing page for that fund, which states the $25,000 minimum and the 8&ndash;12%% target return (read in a browser on 3 November, after the page showed a bot check to the collector). '
              'Two details differ: the ads say &ldquo;RRSP, TFSA &amp; RESP eligible&rdquo; while the page names RRSP and TFSA only, and the ads say &ldquo;qualified investors&rdquo; while the page does not say who can invest.</p>\n' % len(usf) if usf else '') +
             '<p class="ri-vlink"><a href="#ri-view-paid">See the ads in Paid Social <span aria-hidden="true">&rarr;</span></a></p></section>\n')

@@ -2,14 +2,49 @@
  "note": "Destinations checked by the author in their own browser with Claude in Chrome (founder, 2026-11-03). Read only: nothing clicked, filled in or submitted; no page text kept beyond the short quotes here.",
  "checks": [
   {
-   "ids": ["1366940528951811", "1778125306515953", "2143131283079878"],
+   "ids": [
+    "1366940528951811",
+    "1778125306515953",
+    "2143131283079878"
+   ],
    "checked": "2026-11-03T11:25:00-05:00",
    "ads": "All three active since 12 August 2026, headline \"Canadian discipline. American scale.\", each names \"The Equiton US Apartment Fund (US Residential Income Fund Trust)\"; button \"See Details\" links to equiton.com/us-residential-income-fund/ (tracking parameters left out). Each ad has multiple versions; the version shown was read.",
    "final_url": "https://equiton.com/us-residential-income-fund/",
    "destination": "Fund or product page",
    "page": "Title \"US Apartment Fund\"; heading \"US Real Estate Opportunities. Canadian Expertise.\"; names \"Equiton US Residential Income Fund\" and \"US Apartment Fund\"; a landing page for this one fund. States \"Minimum $25,000.\" and \"8–12%* TARGETED ANNUAL NET RETURN\"; does not state who can invest. Next step: a \"SPEAK WITH A SPECIALIST\" call-request form and a \"BOOK A CALL\" button.",
    "presents_offer": "Yes",
-   "differences": ["The ads say \"RRSP, TFSA & RESP eligible\"; the page names RRSP and TFSA only.", "The ads say \"qualified investors\"; the page does not say who can invest."]
+   "differences": [
+    "The ads say \"RRSP, TFSA & RESP eligible\"; the page names RRSP and TFSA only.",
+    "The ads say \"qualified investors\"; the page does not say who can invest."
+   ]
+  },
+  {
+   "ids": [
+    "1789059662145194",
+    "2624411051311677",
+    "1447371477569402",
+    "2144021036197185",
+    "1159818246706051",
+    "1625356719325274",
+    "954354520672577",
+    "4631904367130884",
+    "1121946593581783",
+    "1053478334404222",
+    "2690893264661161",
+    "1203676132828528",
+    "1375085997831608",
+    "2383206172485260"
+   ],
+   "checked": "2026-11-03T11:28:00-05:00 to 11:40",
+   "destination": "Unverified",
+   "keep_unverified": true,
+   "ads": "All 14 active. The Ad Library labels each \"This ad is from a URL link\" and shows a website button; the instant form appears only under See ad details, Additional assets from this ad (Form A asks \"Which of the following best describes your investor status\", Form B \"Are you actively seeking to invest $5,000 or more\"). Both a form and a website link, so the reader's path is not shown.",
+   "links": {
+    "lankin.com/investment/": "redirects to lankin.com/investment-solutions-partnerships/ (\"Institutional & Direct Private Partnership\")",
+    "lankin.com/investing/": "The page can't be found.",
+    "lankin.com/passive-real-estate-investing/": "The page can't be found.",
+    "lankin.com/private-reit-canada/": "live page, heading \"The private Canadian REIT that generated 14.9% net return in 2025\""
+   }
   }
  ]
 }
