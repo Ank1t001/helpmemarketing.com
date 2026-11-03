@@ -114,7 +114,8 @@ def validate(source, actual, rows, config):
     if -1 in positions or positions!=sorted(positions): raise ValueError('Reading-level section contract failed')
     # Authorship and citation (2026-10-13): byline linked to /about, researcher profile, cite block and edition history.
     cyc,when=config['cycle'],long_date(config['scraped_at'])
-    need={'linked byline':'Research and analysis by <b><a href="/about">Ankit Kumar</a></b>',
+    # Header meta line (founder, 2026-11-03), as on the Business index: author, edition, last updated, next update.
+    need={'linked byline':f'<p class="ri-meta">By <a href="/about">Ankit Kumar</a> &middot; Edition {cyc} &middot; <span class="ri-meta-date">Last Updated ',
           'researcher profile':'<h4>About the researcher</h4>','profile links':'<a href="/about">About Ankit</a> &middot; <a href="/work">Explore HMM&rsquo;s work</a>',
           'cite block':f'Edition {cyc}. Data collected {when}.','snapshot link':f'href="/realestate-index/edition-{cyc}"',
           'edition history':'id="ri-editions"','methodology':'<summary>How this research was produced</summary>'}

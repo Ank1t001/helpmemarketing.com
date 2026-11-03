@@ -31,6 +31,8 @@ def render(csv_text, cycle, verified_date, next_date, as_of, modified_at=None, w
     body = body.replace('{{WINDOW_END_LONG}}', long_date(window[1] if window else verified_date))
     body = body.replace('{{LAST_VERIFIED_LONG}}', long_date(verified_date))
     body = body.replace('{{NEXT_REFRESH_LONG}}', long_date(next_date))
+    body = body.replace('{{LAST_VERIFIED_SHORT}}', short_date(verified_date))
+    body = body.replace('{{NEXT_REFRESH_SHORT}}', short_date(next_date))
     body = body.replace('{{LAST_VERIFIED}}', verified_date)
     body = body.replace('{{NEXT_REFRESH}}', next_date)
     body = body.replace('{{OVERDUE}}', ', not yet published' if as_of > next_date else '')
@@ -62,6 +64,11 @@ def long_date(iso):
     y, m, d = iso.split('-')
     return f'{int(d)} {MONTHS[int(m) - 1]} {y}'
 
+def short_date(iso):
+    """Header date as on the Business index (2026-11-03): Nov 2, 2026."""
+    y, m, d = iso.split('-')
+    return f'{MONTHS[int(m) - 1][:3]} {int(d)}, {y}'
+
 CANON = 'https://helpmemarketing.com/realestate-index'
 
 def snapshot(page, cycle, verified_date):
@@ -71,7 +78,8 @@ def snapshot(page, cycle, verified_date):
         (f'<link rel="canonical" href="{CANON}">', f'<link rel="canonical" href="{snap_url}">'),
         (f'<meta property="og:url" content="{CANON}">', f'<meta property="og:url" content="{snap_url}">'),
         (f'"url":"{CANON}","isAccessibleForFree"', f'"url":"{snap_url}","isAccessibleForFree"'),
-        ('<div class="livebar">', f'<div class="note warn"><span class="lbl">Archived edition {cycle}</span><p>Data collected {long_date(verified_date)}. This snapshot does not change. <a href="/realestate-index">See the current edition</a>.</p></div>\n<div class="livebar">'),
+        # Header meta line since 2026-11-03 (was the livebar); the archived note follows the header.
+        ('</p></header>\n', f'</p></header>\n<div class="note warn"><span class="lbl">Archived edition {cycle}</span><p>Data collected {long_date(verified_date)}. This snapshot does not change. <a href="/realestate-index">See the current edition</a>.</p></div>\n'),
         (f'<a href="{CANON}">{CANON}</a></p>', f'<a href="{snap_url}">{snap_url}</a></p>'),
         (f'This address always shows the latest edition. For a fixed version, cite the <a href="/realestate-index/edition-{cycle}">edition {cycle} snapshot</a>.',
          f'This is the fixed snapshot of edition {cycle}. The <a href="/realestate-index">current edition</a> lives at /realestate-index.'),
