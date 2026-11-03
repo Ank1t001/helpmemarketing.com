@@ -89,3 +89,6 @@ Lead: "What each firm could *fix or test* next, from its website, Instagram and 
 ## HMM Ranking pass (founder, 2026-11-03)
 Website table ties are ordered by answers on the homepage or ad landing (the dek says so). The note under it keeps only Lankin's separate routes, Equiton's image-only criteria and the "Not found" scope; Lankin's dollar figures live in the Sources follow-up. The video chart has no 10x line and two labels (Higher like ratio, Lower like ratio) above and below the dashed midline; "What to check in your own account" is gone. The reading notes are a closed `details.ri-adv` "View definitions" inside `#ri-read` (build check updated).
 
+## Spacing pass and Wealthsimple block (founder, 2026-11-03)
+The collapsed "External reference: Wealthsimple" block is removed from HMM Ranking; Wealthsimple stays a labelled reference in the CSV, the post log, the method notes and the FAQ. One rhythm across the tabs: sub-sections inside a tab 32px apart (24px on phones; Organic's sections no longer add 48px), the tab link 24px after the content, notes 16px, Sources & evidence groups 40px apart (32px on phones; expanders inside a group stay 12px apart), and every card padded 24px (18px by 16px on phones). Rules in `site_shell.html` under "Spacing pass" and "Card padding".
+
