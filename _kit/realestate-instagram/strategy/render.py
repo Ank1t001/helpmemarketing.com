@@ -86,6 +86,9 @@ def website_sources(w):
             '<div class="ri-wgrid">' + ''.join(cards) + '</div>\n'
             '<p class="pnote"><b>Unresolved:</b> Lankin&rsquo;s ads read the same day cite a 12% to 16% targeted net return, while its homepage lists 10% to 14% '
             'for the Apartment REIT and 10% to 12% for the Growth LP. The ads may describe a different fund; this was not resolved.</p>\n' +
+            '<p class="pnote"><b>Checks on 3 November 2026 (HMM Ranking matrix):</b> %s Other firms: %s</p>\n' % (
+                ' '.join('%s: %s.' % (E(p), E(v)) for p, v in w['matrix_check_2']['equiton_pages'].items()).replace('/individual-investors/', 'Equiton /individual-investors/', 1),
+                ' '.join('%s: %s.' % (E(k), E(v)) for k, v in w['matrix_check_2']['others'].items())) +
             '<p class="pnote m0"><b>Examples in Website Messaging:</b> ' + ex + '</p>\n'
             '</details></section>\n')
 
@@ -182,7 +185,7 @@ def paid_section(a):
             '</details>\n'
             '<h3 class="ri-wh">One ad from each firm</h3>\n<div class="ri-adexs">' + exs + '</div>\n'
             '<h3 class="ri-wh">What stood out</h3>\n'
-            '<p class="dek">Equiton stated a minimum investment in %s of its reviewed investor ads, compared with %s. That gives a prospective investor a concrete detail to check before enquiring.</p>\n'
+            '<p class="dek">Equiton stated a minimum investment in %s of its reviewed investor ads, compared with %s. That gives a prospective investor a concrete detail to check before enquiring. These shares count the ad text only: Skyline&rsquo;s lead forms ask whether the reader has $50,000 to invest (see HMM Ranking).</p>\n'
             % (mn(e), ('%s for both Skyline and Lankin' % mn(s_)) if same else ('%s for Skyline and %s for Lankin' % (mn(s_), mn(l)))) +
             '<p class="dek m0">The feed and the ads can tell different stories: Skyline&rsquo;s corporate Instagram feed featured construction and leasing updates, while Skyline Wealth Management advertised individual funds.</p>'
             '</section>\n')
@@ -216,8 +219,29 @@ def paid_sources(a):
             '<p class="pnote"><b>%d and %d:</b> the three investor advertiser pages listed %d active ads (Equiton %d, Skyline Wealth Management %d, Lankin %d). %d were read; %d of Equiton&rsquo;s listings were not returned, and one Equiton ad (&ldquo;%s&rdquo;) was a home sale, not an investor ad, leaving %d reviewed investor ads.</p>\n'
             % (sum(len(v) for v in inv.values()), listed, listed, tot['Equiton']['active'], tot['Skyline']['active'], tot['Lankin']['active'], sum(len(v) for v in read.values()),
                tot['Equiton']['active'] - len(read['Equiton']), E(other[0]['headline']) if other else '', sum(len(v) for v in inv.values())) +
-            '<p class="pnote">Each ad&rsquo;s link points to a Meta short link (fb.me); the links were not followed, so where the ads finally send people is not recorded here.</p>\n'
+            '<p class="pnote">On ' + DATE + ' most ad links pointed to a Meta short link (fb.me) and were not followed. Where the ads send people was checked separately on 3 November 2026; see &ldquo;Ad destinations&rdquo; below and the last block of HMM Ranking.</p>\n' + dest_sources() +
             '<p class="pnote m0"><b>Examples in Paid Social:</b> ' + ex + '</p>\n</div>\n')
+
+
+def dest_sources():
+    """Sources & evidence: the 3 November ad-destination check (collection, rules, browser checks, listed links)."""
+    dd = json.load(open(os.path.join(HERE, 'ad_destinations.json')))
+    ck = json.load(open(os.path.join(HERE, 'ad_destination_checks.json')))
+    c = dd['collected']; n = dd['counts']
+    prior = sum(r['in_2_november_review'] for r in dd['records'])
+    links = ''.join('<li>%s: %s</li>' % (E(u.replace('https://', '')), E(('redirects to ' + v['final_url'].replace('https://', '') + '; ' if v['final_url'] != u else '') + ('&ldquo;page not found&rdquo;' if v['status'] == 404 else ('bot check shown to the collector' if v['status'] == 403 else v['title']))).replace('&amp;ldquo;', '&ldquo;').replace('&amp;rdquo;', '&rdquo;'))
+                    for u, v in dd['listed_links_opened'].items())
+    def when(t):
+        return '3 November, ' + t[11:16] + ((' to ' + t.split(' to ')[1]) if ' to ' in t else '') + ' Toronto time'
+    checks = ''.join('<li>%s: %d ads, %s</li>' % (E(when(x['checked'])), len(x['ids']),
+                     'kept Unverified' if x.get('keep_unverified') else E(x['destination'])) for x in ck['checks'])
+    return ('<h3>Ad destinations, 3 November 2026</h3>\n'
+            '<p class="dek">The three investor advertiser pages were collected again with apify/facebook-ads-scraper (run %s, %s to %s Toronto time): %d investor ads (%s), %d of them in the %s review by ad ID. '
+            'A Meta form is counted only where the library record shows the form&rsquo;s questions; a record with a form and a website link, or a page behind a bot check, stays Unverified and in the denominator. '
+            '&ldquo;Names the offer&rdquo; compares the fund, development or event named in the ad with the visible destination text, form disclaimers excluded. Raw output and page text are private; SHA-256 %s&hellip;.</p>\n'
+            % (E(c['run']), c['started'][11:16], c['finished'][11:16], len(dd['records']), ', '.join('%s %d' % (E(NAMES[k]), v) for k, v in sorted(n.items())), prior, DATE, dd['raw_sha256'][:12]) +
+            '<p class="pnote mb12"><b>Read-only checks in the author&rsquo;s own browser:</b></p><ul class="ri-themedefs">' + checks + '</ul>\n'
+            '<p class="pnote mb12"><b>Listed links opened on 3 November:</b></p><ul class="ri-themedefs">' + links + '</ul>\n')
 
 
 def recs_section(a, o, w):
@@ -239,7 +263,7 @@ def recs_section(a, o, w):
         ('Equiton', 'Its investor ads featured specific offerings, while only %d of %d Instagram posts named a fund.' % (eq_fund, eq_n),
          'Turn one apartment fund ad message into a short explainer reel. Compare it with a market-update reel of similar length.',
          'Saves per 1,000 accounts reached.'),
-        ('Skyline', 'Its Apartment REIT page states a $50,000 minimum. Only %d of %d reviewed investor ads mentioned a minimum.' % (sk_min, sk_n),
+        ('Skyline', 'Its Apartment REIT page states a $50,000 minimum. Only %d of %d reviewed investor ads mentioned a minimum, although its lead forms ask whether the reader has $50,000 to invest.' % (sk_min, sk_n),
          'Run two versions of the Apartment REIT ad. Add the minimum to one and keep the audience, creative and budget comparable.',
          'Cost per enquiry that meets the fund&rsquo;s eligibility criteria.'),
         ('Lankin', 'The reviewed ads and website cited different target return ranges. The research could not confirm whether they referred to the same fund.',
@@ -254,7 +278,7 @@ def recs_section(a, o, w):
     # Second Lankin test (founder, 2026-11-03): one minimum across ads, form and page, from the 3 November checks.
     al = w['matrix_check_2']['ad_landing']
     assert '$10,000' in al and '$5,000 or more' in al and 'from a minimum of $25,000' in w['matrix_check_2']['others']['Lankin']
-    extra = {'Lankin': ('Its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo;, and a campaign page states a $25,000 minimum; its website leaves the minimum to the call.',
+    extra = {'Lankin': ('Two of its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo;, and a campaign page states a $25,000 minimum; its website leaves the minimum to the call.',
                         'Show one minimum in the ad, the form and the page it links to. Compare enquiries with the current mixed figures over the same period.',
                         'Share of enquiries that meet the minimum.')}
     def block(obs, test, meas):
@@ -279,7 +303,7 @@ def sources_head(a, o, w):
     assert len(ex_dates) == 1, ex_dates
     return ('<section id="ri-sources-head"><div class="sec-head"><h2>Sources &amp; evidence</h2>\n'
             '<p class="dek">The evidence behind each tab, how it was collected and calculated, what changed, and the data to download.</p>\n'
-            '<p class="dek">Each date has one purpose: Instagram posts and Meta ads were collected, and the five websites read, on ' + DATE + '; the two website examples were captured, and the Centurion minimum verified, on ' + E(ex_dates[0]) + '.</p></div>\n'
+            '<p class="dek">Each date has one purpose: Instagram posts and Meta ads were collected, and the five websites read, on ' + DATE + '; the two website examples were captured, the Centurion minimum verified, and the ad destinations and the HMM Ranking website matrix checked, on ' + E(ex_dates[0]) + '.</p></div>\n'
             '<dl class="ri-sstats" aria-label="Sources and evidence at a glance">' + ''.join('<div><dt>%s</dt><dd>%s</dd></div>' % (E(k), v) for k, v in stats) + '</dl></section>\n')
 
 
@@ -325,13 +349,12 @@ def rank_website(w):
                         for c, lab in MATRIX_COLS)
         body += '<tr><td class="brandcell">%s</td>%s<td class="r ri-mxn" data-label="Up front">%d of %d</td></tr>' % (E(name), cells, up, len(MATRIX_COLS))
     return ('<div id="ri-cmp-website" class="ri-cblock"><div class="sec-head"><h2>What can an investor learn before enquiring?</h2>\n'
-            '<p class="dek">Where a reader first meets each answer: where the ad sends them (ad landing), the homepage, a product page one or more clicks in, or only on a call. '
-            'Based on browser checks on 2 and 3 November 2026. Sorted by how many of the four are up front, on the ad landing or the homepage.</p></div>\n'
+            '<p class="dek">Where a reader first meets each answer: the ad landing, the homepage, a product page, or only on a call. Checked 2 and 3 November 2026; sorted by answers up front.</p></div>\n'
             '<div class="tw"><table class="ri-wtable ri-mxt"><thead><tr><th>Firm</th>' + ''.join('<th>%s</th>' % E(l) for _, l in MATRIX_COLS) +
             '<th class="r">Up front</th></tr></thead><tbody>' + body + '</tbody></table></div>\n'
             '<p class="pnote">Ad landing covers the Meta forms and pages the ads were verified to reach on 3 November; Greybrook and Centurion had no active investor ads. '
             'Equiton states its investor criteria only inside an image on five fund pages, so a text-only reader or search engine does not see them. '
-            'Lankin&rsquo;s numbers differ by place: its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo;, and a campaign page states a $25,000 minimum, '
+            'Lankin&rsquo;s numbers differ by place: two of its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo;, and a campaign page states a $25,000 minimum, '
             'reached only from an ad whose path is unverified. &ldquo;Not found&rdquo; covers only the pages reviewed, listed in Sources &amp; evidence.</p>\n'
             '<p class="ri-vlink"><a href="#ri-view-website">See the pages in Website Messaging <span aria-hidden="true">&rarr;</span></a></p></div>\n')
 
@@ -415,8 +438,7 @@ def rank_dest(dd):
     assert unv_form and bridle and len(nf) == 2 and n404 == 6 and nred == 7
     usf = [r for r in recs if r['offer_named'] == 'US Apartment Fund' and r['destination'] == 'Fund or product page']
     return ('<section id="ri-cmp-dest" class="ri-cblock"><div class="sec-head"><h2>Where does each investor ad take the reader?</h2>\n'
-            '<p class="dek">A separately dated check: the three firms&rsquo; active investor ads were collected again on 3 November 2026 and each destination was recorded. '
-            '%d ads (%s); %d of them were in the 2 November review, matched by ad ID. Unverified destinations stay in each firm&rsquo;s total.</p></div>\n'
+            '<p class="dek">Checked separately on 3 November 2026: %d active investor ads (%s), %d of them in the 2 November review. Unverified destinations stay in each firm&rsquo;s total.</p></div>\n'
             % (total, ', '.join('%s %d' % (E(NAMES[k]), n[k]) for k in firms), prior) +
             '<p class="ri-cmp-h">Destination, share of each firm&rsquo;s ads</p>'
             '<div class="tw"><table class="ri-hmt"><thead><tr><th>Destination</th>' + ''.join('<th class="r">%s<small>%d ads</small></th>' % (E(NAMES[k]), n[k]) for k in firms) +

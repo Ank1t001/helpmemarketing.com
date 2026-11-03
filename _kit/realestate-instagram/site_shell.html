@@ -623,7 +623,12 @@ html:not([data-theme="dark"]) .msi.msi #ri-rankings{--ri-f1:#2a78d6;--ri-f2:#eb6
 .msi.msi .ri-qnav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
 .msi.msi .ri-qnav a{padding:6px 14px;border:1px solid var(--border);border-radius:999px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;background:var(--bg-elevated)}
 .msi.msi .ri-qnav a:hover{border-color:var(--cta-text,var(--cta))}
-.msi.msi .ri-cblock{margin:40px 0 0}
+.msi.msi .ri-cblock{margin:56px 0 0;padding-top:40px;border-top:1px solid var(--border)}
+.msi.msi .ri-qnav+.ri-cblock{margin-top:24px;padding-top:0;border-top:0}
+.msi.msi .ri-cblock>section{margin:40px 0 0}
+.msi.msi .ri-cblock>section>.sec-head h2{font-size:22px;line-height:1.25}
+.msi.msi .ri-cblock>section>.sec-head h2::before{display:none}
+.msi.msi .ri-cblock .ri-measg+.pnote,.msi.msi #ri-video details+.pnote{margin-top:12px}
 .msi.msi .ri-cblock>.sec-head,.msi.msi .ri-cblock-head{margin-bottom:16px}
 .msi.msi .ri-mxt th:nth-child(n){width:auto}
 .msi.msi .ri-mxs{display:block;font-size:13px;font-weight:650;color:var(--text)}
@@ -662,7 +667,8 @@ html:not([data-theme="dark"]) .msi.msi #ri-rankings{--ri-f1:#2a78d6;--ri-f2:#eb6
 #ri-cmp-paid .ri-cmp-h{margin-top:0}
 .msi.msi .ri-cblock .tw+.ri-cmp-h{margin-top:24px}
 @media(max-width:900px){.msi.msi .ri-measg{grid-template-columns:1fr}}
-@media(max-width:720px){.msi.msi .ri-frow{grid-template-columns:96px 1fr 58px;column-gap:8px}.msi.msi .ri-fmt{padding:16px}.msi.msi .ri-cblock{margin-top:32px}.msi.msi .ri-hmt{font-size:13px}}
+@media(max-width:720px){.msi.msi .ri-frow{grid-template-columns:96px 1fr 58px;column-gap:8px}.msi.msi .ri-fmt{padding:16px}.msi.msi .ri-cblock{margin-top:40px;padding-top:32px}.msi.msi .ri-qnav+.ri-cblock{margin-top:20px;padding-top:0}.msi.msi .ri-cblock>section{margin-top:32px}.msi.msi .ri-hmt{font-size:13px}
+.msi.msi .ri-qnav{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px 8px;padding:0 16px 4px;scrollbar-width:none}.msi.msi .ri-qnav::-webkit-scrollbar{display:none}.msi.msi .ri-qnav a{flex:none;font-size:12.5px;padding:6px 12px}}
 @media(forced-colors:active){.msi.msi .ri-seg{border:1px solid CanvasText}}
 /* Tablet (2026-11-03 audit): the Website and Organic glance tables use the phone card layout up to 900px. */
 @media(max-width:900px){.msi.msi .ri-wtable:not(.ri-ptable),.msi.msi .ri-wtable:not(.ri-ptable) tbody,.msi.msi .ri-wtable:not(.ri-ptable) tr,.msi.msi .ri-wtable:not(.ri-ptable) td{display:block;width:auto}.msi.msi .ri-wtable:not(.ri-ptable) thead{display:none}.msi.msi .ri-wtable:not(.ri-ptable) tr{padding:14px 16px;border-bottom:1px solid var(--border)}.msi.msi .ri-wtable:not(.ri-ptable) tr:last-child{border-bottom:0}.msi.msi .ri-wtable:not(.ri-ptable) td{padding:0;border:0}.msi.msi .ri-wtable:not(.ri-ptable) td.brandcell{margin:0 0 8px;font-weight:650;font-size:15px}.msi.msi .ri-wtable:not(.ri-ptable) td+td{margin-top:8px}.msi.msi .ri-wtable:not(.ri-ptable) td[data-label]::before{content:attr(data-label);display:block;margin:0 0 2px;font-size:11.5px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary)}}
