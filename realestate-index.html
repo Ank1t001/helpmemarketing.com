@@ -591,23 +591,25 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 @media(max-width:900px){.msi.msi a.ri-ocard,.msi.msi a.ri-ocard:nth-child(n+4){grid-column:span 3}.msi.msi a.ri-ocard:last-child{grid-column:1/-1}}
 @media(max-width:720px){.msi.msi .ri-otoc{grid-template-columns:1fr;gap:12px}.msi.msi a.ri-ocard,.msi.msi a.ri-ocard:nth-child(n+4),.msi.msi a.ri-ocard:last-child{grid-column:1/-1;padding:18px 18px 16px}.msi.msi .ri-ochip{margin-bottom:14px}.msi.msi .ri-ot{font-size:22px}.msi.msi .ri-od{margin-bottom:14px;font-size:14.5px}}
 @media(prefers-reduced-motion:reduce){.msi.msi a.ri-ocard,.msi.msi .ri-oarrow{transition:none}.msi.msi a.ri-ocard:hover,.msi.msi a.ri-ocard:hover .ri-oarrow{transform:none}}
-/* Header without the image, as on the Business index, and Sources & evidence (2026-11-03, founder): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
+/* Header without the image, as on the Business index, and Sources & evidence (2026-11-03, founder; since the same day one compact row and the last thing in the report, the old report footer removed): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
 .msi.msi header{background:none;grid-template-columns:1fr;max-width:760px}
 .msi.msi header::after{display:none}
 .msi.msi header .ri-meta{margin:0;font-size:13.5px;line-height:1.55;color:var(--text-muted)}
 .msi.msi header .ri-meta a{color:var(--text);font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .msi.msi header .ri-meta-date{white-space:nowrap}
 .msi.msi header .ri-subtitle{margin:-4px 0 10px;font-family:var(--font-display,Fraunces,serif);font-style:italic;font-size:20px;line-height:1.3;color:var(--text-muted)}
-.msi.msi .ri-srcrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:56px 0 0;padding-top:24px;border-top:1px solid var(--border)}
+.msi.msi .ri-srcrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:40px 0 0;padding-top:16px;border-top:1px solid var(--border)}
 .msi.msi .ri-srcrow[hidden]{display:none}
+.msi.msi .wrap{padding-bottom:8px}
 .msi.msi .ri-srclink{font-size:15px;font-weight:600;color:var(--text);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;white-space:nowrap}
+.msi.msi .ri-srclink span{display:inline-block;margin-left:6px;color:var(--cta-text,var(--cta));text-decoration:none}
 .msi.msi .ri-srclink:focus-visible,.msi.msi .ri-ref-back a:focus-visible{outline:2px solid var(--cta);outline-offset:2px}
 .msi.msi .ri-srcnote{font-size:14px;line-height:1.5;color:var(--text-muted)}
 .msi.msi .ri-srcrow+.ri-view{margin-top:48px}
 .msi.msi .ri-ref-back{margin:0 0 24px;font-size:14px}
 .msi.msi .ri-ref-back a{color:var(--cta-text,var(--cta));font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .msi.msi .ri-ref-back-end{margin:40px 0 0}
-@media(max-width:720px){.msi.msi .ri-srcrow{margin-top:40px;padding-top:20px}.msi.msi .ri-srcrow+.ri-view{margin-top:32px}}
+@media(max-width:720px){.msi.msi .ri-srcrow{margin-top:32px;padding-top:14px}.msi.msi .ri-srcrow+.ri-view{margin-top:32px}}
 @media print{.msi.msi .ri-tabs,.msi.msi .ri-srcrow,.msi.msi .ri-ref-back{display:none}.msi.msi .ri-view[hidden]{display:block!important}}
 /* Five-firm strategy comparison (founder, 2026-11-02): Website Messaging cards, Organic and Paid comparison tables,
    per-firm recommendation cards. Rendered by strategy/render.py. */
@@ -1110,7 +1112,7 @@ message draw more than the round-ups do.</p>
 <div class="ri-rgrid"><article class="ri-rcard"><h3>Equiton</h3><p class="ri-rarea">Paid Social and Organic Social</p><dl><div><dt>What I saw</dt><dd>Its ads lead with offerings and targeted returns (49 investor ads read), while 1 of its 14 posts named a fund.</dd></div><div class="ri-rtest"><dt>Recommendation</dt><dd>Bring one ad message into the feed, for example the apartment fund explainer as a reel, and compare its likes and comments with similar market posts. Read the website by hand to complete the comparison.</dd></div></dl></article><article class="ri-rcard"><h3>Skyline</h3><p class="ri-rarea">Paid Social and Website Messaging</p><dl><div><dt>What I saw</dt><dd>None of its 16 ads states a return figure, only one names the $50,000 minimum that its own website shows, and every one sends people to a Meta link.</dd></div><div class="ri-rtest"><dt>Recommendation</dt><dd>Test a version of one fund ad that states the minimum and who can invest, as the website already does, against the current version, and compare enquiries per ad.</dd></div></dl></article><article class="ri-rcard"><h3>Lankin Investments</h3><p class="ri-rarea">Paid Social and Website Messaging</p><dl><div><dt>What I saw</dt><dd>Its ads cite a 12% to 16% targeted net return; its homepage lists 10% to 14% and 10% to 12% for two funds.</dd></div><div class="ri-rtest"><dt>Recommendation</dt><dd>Make sure the page each ad sends people to names the fund behind the figure in the ad, then compare the RRSP and TFSA year-end messages on enquiries.</dd></div></dl></article><article class="ri-rcard"><h3>Greybrook Realty Partners</h3><p class="ri-rarea">Organic Social</p><dl><div><dt>What I saw</dt><dd>No active ads were found. Its sponsorship and community posts drew the most likes; its fund post drew 1.</dd></div><div class="ri-rtest"><dt>Recommendation</dt><dd>Test telling the U.S. Multifamily fund story through the team and the communities it already posts about, and link that post to the fund page.</dd></div></dl></article><article class="ri-rcard"><h3>Centurion Asset Management</h3><p class="ri-rarea">Website Messaging and Paid Social</p><dl><div><dt>What I saw</dt><dd>No corporate Instagram account was found, its four active ads recruit staff, and its homepage leads with its Chief Economist&rsquo;s research.</dd></div><div class="ri-rtest"><dt>Recommendation</dt><dd>Test promoting one research article to investors, sending readers to the article, and measure visits from there to the REIT page.</dd></div></dl></article></div></section>
 <!-- STRATEGY:recs END -->
 </div>
-<p class="ri-srcrow" id="ri-srcrow"><a class="ri-srclink" href="#ri-view-sources" id="ri-srclink">Sources &amp; evidence</a><span class="ri-srcnote">The dataset, methodology, coverage notes, edition history, the full post log and frequently asked questions.</span></p>
+<p class="ri-srcrow" id="ri-srcrow"><a class="ri-srclink" href="#ri-view-sources" id="ri-srclink">Sources &amp; evidence<span aria-hidden="true">&rarr;</span></a><span class="ri-srcnote">Data, methodology and research notes.</span></p>
 <div class="ri-view" id="ri-view-sources">
 <p class="ri-ref-back"><a href="#ri-view-overview" data-ri-back>&larr; <span>Back to the report</span></a></p>
 <section id="ri-download"><div class="sec-head"><h2>Download the dataset</h2>
@@ -1182,6 +1184,7 @@ body:new URLSearchParams({form:'index-download',email:em,source:GATE_SOURCE})})
 <p><b>Earlier correction, kept for the record.</b> Edition 003 said McGillivray Capital&rsquo;s ads were the only documented live paid social in this index. Edition 005&rsquo;s first publication, on 13 October 2026, found active ads for all five of that board&rsquo;s firms, so the earlier statement was incomplete.</p>
 <p><b>The first publication is kept.</b> The edition 005 snapshot keeps the scoreboard and findings as first published on 13 October 2026, with Pier 4 and McGillivray Capital.</p></div></details></section>
 <section id="ri-editions"><details class="ri-adv"><summary>Edition history</summary>
+<p class="pnote mb12">This edition: <b>005</b>. Last verified data <b>2 November 2026</b>. Next scheduled refresh <b>14 November 2026</b>.</p>
 <div class="tw"><table><thead><tr><th>Edition</th><th>Dates</th><th>What changed</th></tr></thead><tbody>
 <tr><td><b>005</b> (this page)</td><td class="wrap-cell">Revised 2 November 2026: every account re-collected that day for the window ending 13 October 2026.</td><td class="wrap-cell">The revised board: Equiton, Skyline, Lankin, Greybrook Realty Partners and Centurion Asset Management (not scored, no Instagram account found). Website Messaging and the five-firm organic and paid comparisons added. Scoring unchanged; hidden like counts are left out, never counted as zero.</td></tr>
 <tr><td><b>005</b>, first publication</td><td class="wrap-cell">Data collected 13 October 2026; published 13 October 2026. <a href="/realestate-index/edition-005">Snapshot</a></td><td class="wrap-cell">Fresh 30-day data for Skyline, Equiton, Lankin, Pier 4 and McGillivray Capital. Meta Ad Library checks added for all five, which corrected an edition 003 statement.</td></tr>
@@ -1226,18 +1229,7 @@ document.querySelectorAll('.logtab').forEach(function(btn){
   });
 });
 </script>
-<footer>
-<div class="about"><p><b>About this index.</b> The Real Estate Index is part of <b>The HMM Index</b> by Help Me Marketing. It compares the websites, Instagram posts and Meta ads of five Canadian private real estate investment firms, with source posts and methodology available on this page.</p></div>
-<div class="byline-block">
-<p><b>The Real Estate Index</b> · an instance of <b>The HMM Index</b> by HMM · built and reviewed by
-<b>Ankit Kumar</b>, Founder, HMM ·
-<a href="https://www.instagram.com/helpmemarketing1/" target="_blank" rel="noopener">@helpmemarketing1</a> · <a href="#ri-advanced">methodology</a></p>
-<div class="socials">
-<a href="https://www.instagram.com/helpmemarketing1/" target="_blank" rel="noopener">Instagram</a>
-<a href="https://www.linkedin.com/company/helpmemarketing/" target="_blank" rel="noopener">LinkedIn</a>
-<a href="https://www.facebook.com/helpmemarketing1" target="_blank" rel="noopener">Facebook</a></div>
-<p>Last verified data <b>2 November 2026</b> · edition <b>005</b> · Next scheduled refresh <b>14 November 2026</b></p>
-</div></footer></div>
+</div>
 
 <!-- ===== REINDEX REPORT BODY END ===== -->
 </div>

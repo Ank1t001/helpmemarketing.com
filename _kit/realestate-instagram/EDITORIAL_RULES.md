@@ -28,7 +28,7 @@ After the header and date bar, one tab bar over seven views since the same day's
 10. `#ri-download` "Download the dataset": visible "Email address" label, `role="status" aria-live="polite"` message, privacy link, the review invite.
 11. `#ri-advanced` "Research and methodology": "About the researcher" and "Cite this research" cards, then expanders: How this research was produced, Firm summaries (all five firms), Coverage, previous-edition comparison and correction, `#ri-editions` Edition history (add this edition's row as "(this page)"), and the evidence sections.
 12. `#ri-data` "The full post log" inside "Open the post log" (caption excerpts, "View post" links, filters).
-13. FAQ, once, at the end of Sources & evidence (since 2026-11-03), then the report footer below the views with the short "About this index" and the methodology link.
+13. FAQ, once, at the end of Sources & evidence (since 2026-11-03). The report ends with the Sources & evidence row ("Sources & evidence →", note "Data, methodology and research notes."); there is no report footer (founder, 2026-11-03: the About box, the "instance of The HMM Index" byline, @helpmemarketing1, the social buttons and the dates line were removed; the site footer carries the social links, the hero the edition and update dates, and Edition history the exact dates line "This edition: NNN. Last verified data ... Next scheduled refresh ...").
 
 Exact comparison table headings (the head script reads them; since 2026-11-03): Firm, HMM score, Followers, Posts, Post formats, Median likes, Median comments, Median likes ÷ plays, Peak plays ÷ followers, Most-liked post. The score cell carries "Rank N of 4"; the median likes cell carries "N.NN% of followers" (two decimals).
 

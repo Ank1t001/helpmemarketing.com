@@ -591,23 +591,25 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 @media(max-width:900px){.msi.msi a.ri-ocard,.msi.msi a.ri-ocard:nth-child(n+4){grid-column:span 3}.msi.msi a.ri-ocard:last-child{grid-column:1/-1}}
 @media(max-width:720px){.msi.msi .ri-otoc{grid-template-columns:1fr;gap:12px}.msi.msi a.ri-ocard,.msi.msi a.ri-ocard:nth-child(n+4),.msi.msi a.ri-ocard:last-child{grid-column:1/-1;padding:18px 18px 16px}.msi.msi .ri-ochip{margin-bottom:14px}.msi.msi .ri-ot{font-size:22px}.msi.msi .ri-od{margin-bottom:14px;font-size:14.5px}}
 @media(prefers-reduced-motion:reduce){.msi.msi a.ri-ocard,.msi.msi .ri-oarrow{transition:none}.msi.msi a.ri-ocard:hover,.msi.msi a.ri-ocard:hover .ri-oarrow{transform:none}}
-/* Header without the image, as on the Business index, and Sources & evidence (2026-11-03, founder): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
+/* Header without the image, as on the Business index, and Sources & evidence (2026-11-03, founder; since the same day one compact row and the last thing in the report, the old report footer removed): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
 .msi.msi header{background:none;grid-template-columns:1fr;max-width:760px}
 .msi.msi header::after{display:none}
 .msi.msi header .ri-meta{margin:0;font-size:13.5px;line-height:1.55;color:var(--text-muted)}
 .msi.msi header .ri-meta a{color:var(--text);font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .msi.msi header .ri-meta-date{white-space:nowrap}
 .msi.msi header .ri-subtitle{margin:-4px 0 10px;font-family:var(--font-display,Fraunces,serif);font-style:italic;font-size:20px;line-height:1.3;color:var(--text-muted)}
-.msi.msi .ri-srcrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:56px 0 0;padding-top:24px;border-top:1px solid var(--border)}
+.msi.msi .ri-srcrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:40px 0 0;padding-top:16px;border-top:1px solid var(--border)}
 .msi.msi .ri-srcrow[hidden]{display:none}
+.msi.msi .wrap{padding-bottom:8px}
 .msi.msi .ri-srclink{font-size:15px;font-weight:600;color:var(--text);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;white-space:nowrap}
+.msi.msi .ri-srclink span{display:inline-block;margin-left:6px;color:var(--cta-text,var(--cta));text-decoration:none}
 .msi.msi .ri-srclink:focus-visible,.msi.msi .ri-ref-back a:focus-visible{outline:2px solid var(--cta);outline-offset:2px}
 .msi.msi .ri-srcnote{font-size:14px;line-height:1.5;color:var(--text-muted)}
 .msi.msi .ri-srcrow+.ri-view{margin-top:48px}
 .msi.msi .ri-ref-back{margin:0 0 24px;font-size:14px}
 .msi.msi .ri-ref-back a{color:var(--cta-text,var(--cta));font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .msi.msi .ri-ref-back-end{margin:40px 0 0}
-@media(max-width:720px){.msi.msi .ri-srcrow{margin-top:40px;padding-top:20px}.msi.msi .ri-srcrow+.ri-view{margin-top:32px}}
+@media(max-width:720px){.msi.msi .ri-srcrow{margin-top:32px;padding-top:14px}.msi.msi .ri-srcrow+.ri-view{margin-top:32px}}
 @media print{.msi.msi .ri-tabs,.msi.msi .ri-srcrow,.msi.msi .ri-ref-back{display:none}.msi.msi .ri-view[hidden]{display:block!important}}
 /* Five-firm strategy comparison (founder, 2026-11-02): Website Messaging cards, Organic and Paid comparison tables,
    per-firm recommendation cards. Rendered by strategy/render.py. */
