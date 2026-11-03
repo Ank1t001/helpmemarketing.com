@@ -150,67 +150,83 @@ def organic_sources(o):
 
 
 def paid_section(a):
+    """Paid Social tab (founder, 2026-11-03): one glance table, a collapsed breakdown, one ad per firm and one finding.
+    Counts, advertisers, links and method are in Sources & evidence (paid_sources)."""
     rec = a['records']
-    tot = a['library_totals']
-    order = ['development offering', 'fund offer', 'registered accounts and tax', 'track record', 'investor event', 'investor education']
-    rows, st_rows, ex = [], [], []
-    info = {}
+    inv = {k: [x for x in rec if x['firm'] == k and x['for_investors']] for k in ('Equiton', 'Skyline', 'Lankin')}
+    total = sum(len(v) for v in inv.values())
+    names = {'Equiton': 'Equiton', 'Skyline': 'Skyline Wealth Management', 'Lankin': 'Lankin Investments'}
+    rows, brk = [], []
+    for k, v in inv.items():
+        n = len(v); g = a['glance'][k]
+        m = sum(x['focus'] == g['focus'] for x in v)
+        fc = collections.Counter(x['focus'] for x in v).most_common()
+        assert fc[0][0] == g['focus'], k
+        rows.append('<tr><td class="brandcell">%s</td><td class="r" data-label="Investor ads reviewed">%d</td><td class="wrap-cell" data-label="Most common message">%s, %s (%d of %d)</td>'
+                    '<td class="r" data-label="Used video">%s</td><td class="r" data-label="Mentioned a return figure">%s</td><td class="r" data-label="Stated a minimum investment">%s</td></tr>'
+                    % (E(names[k]), n, E(g['label']), pct(m, n), m, n, pct(sum(x['format'] == 'video' for x in v), n),
+                       pct(sum(x['return_figure'] for x in v), n), pct(sum(x['minimum'] for x in v), n)))
+        sc = collections.Counter(x['stage'] for x in v)
+        second = '%s, %s' % (fc[1][0], pct(fc[1][1], n)) if len(fc) > 1 else '&middot;'
+        brk.append('<tr><td class="brandcell">%s</td><td class="r">%s</td><td class="wrap-cell">%s</td>%s</tr>'
+                   % (E(names[k]), pct(sum(x['registered_accounts'] for x in v), n), second,
+                      ''.join('<td class="r">%s</td>' % pct(sc.get(s, 0), n) for s in ('awareness', 'consideration', 'decision'))))
+    exs = ''.join('<article class="ri-adex"><h4>%s &middot; %s</h4><p class="ri-adq">&ldquo;%s&rdquo;</p><p>%s</p>'
+                  '<p class="ri-adsrc"><a href="https://www.facebook.com/ads/library/?id=%s" target="_blank" rel="noopener nofollow">Open in the Meta Ad Library</a></p></article>'
+                  % (E(x['firm']), E(x['title']), E(x['headline']), E('The headline ' + x['caption']), x['id']) for x in a['examples'])
+    e, s_, l = (inv[k] for k in ('Equiton', 'Skyline', 'Lankin'))
+    mn = lambda v: pct(sum(x['minimum'] for x in v), len(v))
+    same = mn(s_) == mn(l)
+    return ('<section id="ri-paid-compare"><div class="sec-head"><h2>Paid Social Strategy</h2>\n'
+            '<p class="dek">Compare the messages and formats three firms used in %d investor ads reviewed in Canada on %s.</p></div>\n' % (total, DATE) +
+            '<h3 class="ri-wh">Ad strategy at a glance</h3>\n'
+            '<div class="tw"><table class="ri-wtable ri-ptable"><thead><tr><th>Firm</th><th class="r">Investor ads reviewed</th><th>Most common message</th><th class="r">Used video</th>'
+            '<th class="r">Mentioned a return figure</th><th class="r">Stated a minimum investment</th></tr></thead><tbody>' + ''.join(rows) + '</tbody></table></div>\n'
+            '<p class="pnote">No active Canadian ads matched Greybrook in the search. Centurion&rsquo;s four ads were for recruitment.</p>\n'
+            '<details class="ri-adv"><summary>View ad breakdown</summary>\n'
+            '<p class="dek">Each percentage uses the firm&rsquo;s reviewed investor ads as its denominator. The buying stage is an interpretation of each ad&rsquo;s wording and call to action, not a measured result.</p>\n'
+            '<div class="tw"><table class="ri-cmpt"><thead><tr><th>Firm</th><th class="r">Named RRSP or TFSA</th><th>Second most common message</th>'
+            '<th class="r">Awareness stage</th><th class="r">Consideration stage</th><th class="r">Decision stage</th></tr></thead><tbody>' + ''.join(brk) + '</tbody></table></div>\n'
+            '</details>\n'
+            '<h3 class="ri-wh">One ad from each firm</h3>\n<div class="ri-adexs">' + exs + '</div>\n'
+            '<h3 class="ri-wh">What stood out</h3>\n'
+            '<p class="dek">Equiton stated a minimum investment in %s of its reviewed investor ads, compared with %s. That gives a prospective investor a concrete detail to check before enquiring.</p>\n'
+            % (mn(e), ('%s for both Skyline and Lankin' % mn(s_)) if same else ('%s for Skyline and %s for Lankin' % (mn(s_), mn(l)))) +
+            '<p class="dek m0">The feed and the ads can tell different stories: Skyline&rsquo;s corporate Instagram feed featured construction and leasing updates, while Skyline Wealth Management advertised individual funds.</p>'
+            '</section>\n')
+
+
+def paid_sources(a):
+    """Sources & evidence: advertiser pages, library counts and their reconciliation, the detailed per-firm table, examples and method."""
+    rec = a['records']; tot = a['library_totals']
+    inv = {k: [x for x in rec if x['firm'] == k and x['for_investors']] for k in ('Equiton', 'Skyline', 'Lankin')}
+    read = {k: [x for x in rec if x['firm'] == k] for k in ('Equiton', 'Skyline', 'Lankin')}
+    listed = sum(tot[k]['active'] for k in inv)
+    rows = []
     for k in FIRMS:
-        r = [x for x in rec if x['firm'] == k]
-        inv = [x for x in r if x['for_investors']]
-        info[k] = (r, inv)
-        total = tot[k]['active']
-        if not r:
-            rows.append('<tr><td class="brandcell">%s</td><td class="r">0</td><td colspan="6" class="wrap-cell">%s</td></tr>' % (E(NAMES[k]), E(tot[k]['note'])))
+        t = tot[k]
+        if k == 'Greybrook':
+            rows.append('<tr><td class="brandcell">%s</td><td>&middot;</td><td class="r">0</td><td class="r">&middot;</td><td class="r">&middot;</td><td class="wrap-cell">%s</td></tr>' % (E(NAMES[k]), E(t['note'])))
             continue
-        if not inv:
-            rows.append('<tr><td class="brandcell">%s</td><td class="r">%d</td><td colspan="6" class="wrap-cell">All %d active ads are recruitment ads (&ldquo;%s&rdquo;), running since %s. '
-                        'None was aimed at investors.</td></tr>' % (E(NAMES[k]), total, len(r), E(r[0]['headline']), E(min(x['start'] for x in r))))
-            continue
-        fc = collections.Counter(x['focus'] for x in inv)
-        focus = ', '.join('%s (%d)' % (f, n) for f, n in fc.most_common(2))
-        dest = collections.Counter(x['destination'] for x in inv).most_common(1)[0]
-        n = len(inv)
-        more = '' if tot[k].get('complete', True) else '<br><small>library total; %d read</small>' % len(r)
-        rows.append('<tr><td class="brandcell">%s<br><small>%s</small></td><td class="r">%d%s</td><td class="wrap-cell">%s</td><td class="r">%s</td><td class="r">%s</td>'
-                    '<td class="r">%s</td><td class="r">%s</td><td class="wrap-cell">%s (%d of %d)</td></tr>'
-                    % (E(NAMES[k]), E(tot[k]['page']), total, more, E(focus), pct(sum(x['format'] == 'video' for x in inv), n),
-                       pct(sum(x['return_figure'] for x in inv), n), pct(sum(x['registered_accounts'] for x in inv), n),
-                       pct(sum(x['minimum'] for x in inv), n), E(dest[0]), dest[1], n))
-        sc = collections.Counter(x['stage'] for x in inv)
-        st_rows.append('<tr><td>%s</td>%s<td class="r">%d</td></tr>' % (E(NAMES[k]), ''.join('<td class="r">%d</td>' % sc.get(s, 0) for s in ('awareness', 'consideration', 'decision')), n))
-        top = [x for x in inv if x['headline']][:1] or inv[:1]
-        if top:
-            x = sorted([y for y in inv if y['headline']] or inv, key=lambda y: (-y['versions'], y['start']))[0]
-            ex.append('<li><b>%s</b>: &ldquo;%s&rdquo;, %s, running since %s. <a href="%s" target="_blank" rel="noopener nofollow">Open in the Ad Library</a></li>'
-                      % (E(NAMES[k]), E(x['headline'] or 'untitled'), E(x['focus']), E(x['start']), E(x['library_url'])))
-    eq_r, eq = info['Equiton']; sk_r, sk = info['Skyline']; la_r, la = info['Lankin']
-    fc_e = collections.Counter(x['focus'] for x in eq)
-    points = [
-        'Three of the five firms had investor ads running in Canada on %s. No active ads matched Greybrook, and Centurion&rsquo;s four were recruitment ads.' % DATE,
-        'Each ran a different message. Equiton&rsquo;s most common was its luxury development offering (%d of %d investor ads), headlined with a targeted return; '
-        'Lankin&rsquo;s was registered accounts at year-end, RRSP and TFSA (%d of %d); Skyline promoted its funds one by one (%d of %d).'
-        % (fc_e['development offering'], len(eq), collections.Counter(x['focus'] for x in la)['registered accounts and tax'], len(la),
-           collections.Counter(x['focus'] for x in sk)['fund offer'], len(sk)),
-        'Return figures appear in %s of Lankin&rsquo;s and %s of Equiton&rsquo;s investor ads, and in none of Skyline&rsquo;s, which describe &ldquo;historically stable returns&rdquo; instead.'
-        % (pct(sum(x['return_figure'] for x in la), len(la)), pct(sum(x['return_figure'] for x in eq), len(eq))),
-        'Most ads send people to a Meta link (fb.me) rather than the firm&rsquo;s site: all %d of Skyline&rsquo;s and %d of Equiton&rsquo;s %d. %d of Skyline&rsquo;s ads name a town (Oakville or Orangeville).'
-        % (len(sk), sum(x['destination'] == 'Meta link (fb.me)' for x in eq), len(eq), sum(x['local'] for x in sk)),
-        'Equiton also ran %s for a home sale and Skyline Living ran %d resident leasing ads; neither is counted as investor-facing.'
-        % (plural(sum(1 for x in eq_r if not x['for_investors']), 'ad'), tot['Skyline Living (resident leasing)']['active'])]
-    return ('<section id="ri-paid-compare"><div class="sec-head"><h2>Paid strategy compared</h2>\n'
-            '<p class="dek">Active ads in the Meta Ad Library in Canada on ' + DATE + ', read for each firm&rsquo;s advertiser pages. The library shows that an ad is live; '
-            'it does not show spend, reach or results.</p></div>\n' + roster_note() +
-            '\n<div class="card ri-points"><h3>What stood out</h3><ul>' + ''.join('<li>%s</li>' % p for p in points) + '</ul></div>\n'
-            '<div class="tw"><table class="ri-cmpt"><thead><tr><th>Firm</th><th class="r">Active ads</th><th>Main focus, investor ads</th><th class="r">Video</th>'
-            '<th class="r">Return figure</th><th class="r">RRSP or TFSA</th><th class="r">Minimum named</th><th>Where ads send people</th></tr></thead><tbody>'
+        r = [x for x in rec if x['firm'] == k]; v = [x for x in r if x['for_investors']]
+        fc = ', '.join('%s (%d)' % (f, n) for f, n in collections.Counter(x['focus'] for x in v).most_common(3)) or 'recruitment, not investor-facing'
+        rows.append('<tr><td class="brandcell">%s</td><td>%s</td><td class="r">%d</td><td class="r">%d</td><td class="r">%d</td><td class="wrap-cell">%s</td></tr>'
+                    % (E(NAMES[k]), E(t['page']), t['active'], len(r), len(v), E(fc)))
+    sl = tot['Skyline Living (resident leasing)']
+    rows.append('<tr><td class="brandcell">Skyline</td><td>%s</td><td class="r">%d</td><td class="r">&middot;</td><td class="r">0</td><td class="wrap-cell">Resident leasing ads, not investor-facing</td></tr>' % (E(sl['page']), sl['active']))
+    other = [x for x in read['Equiton'] if not x['for_investors']]
+    corr = ''.join('<p class="pnote"><b>Correction, %s:</b> %s</p>' % (E(c['date']), E(c['text'])) for c in a.get('corrections', []))
+    ex = ' '.join('<a href="https://www.facebook.com/ads/library/?id=%s" target="_blank" rel="noopener nofollow">%s &middot; %s</a>.' % (x['id'], E(x['firm']), E(x['title'])) for x in a['examples'])
+    return ('<section id="ri-paid-sources"><details class="ri-adv"><summary>Paid Social: advertisers, ad counts and method</summary>\n'
+            '<p class="dek">Active ads in the Meta Ad Library in Canada, collected on ' + DATE + '. ' + E(a['method']) + ' The library shows that an ad is live; it does not show spend, reach or results. '
+            'Raw output is kept privately and recorded by hash in the kit.</p>\n'
+            '<div class="tw"><table class="ri-cmpt"><thead><tr><th>Firm</th><th>Advertiser page</th><th class="r">Active ads listed</th><th class="r">Read</th><th class="r">Investor ads reviewed</th><th>Messages, investor ads</th></tr></thead><tbody>'
             + ''.join(rows) + '</tbody></table></div>\n'
-            '<div class="tw"><table class="ri-cmpt ri-mix"><thead><tr><th>Likely buying stage, investor ads</th><th class="r">Awareness</th><th class="r">Consideration</th>'
-            '<th class="r">Decision</th><th class="r">Ads</th></tr></thead><tbody>' + ''.join(st_rows) + '</tbody></table></div>\n'
-            '<div class="card"><h3>One example per firm</h3><ul class="ri-ex">' + ''.join(ex) + '</ul></div>\n'
-            '<div class="note"><span class="lbl">How the ads were read</span><p>%s Percentages are of each firm&rsquo;s investor-facing ads read; '
-            'a stage is a reading of the ad&rsquo;s wording and call to action, not a measured result. Equiton&rsquo;s and Lankin&rsquo;s pages hold more ads than were returned; '
-            'the library total is shown with the number read.</p></div></section>\n' % E(a['method']))
+            '<p class="pnote"><b>%d and %d:</b> the three investor advertiser pages listed %d active ads (Equiton %d, Skyline Wealth Management %d, Lankin %d). %d were read; %d of Equiton&rsquo;s listings were not returned, and one Equiton ad (&ldquo;%s&rdquo;) was a home sale, not an investor ad, leaving %d reviewed investor ads.</p>\n'
+            % (sum(len(v) for v in inv.values()), listed, listed, tot['Equiton']['active'], tot['Skyline']['active'], tot['Lankin']['active'], sum(len(v) for v in read.values()),
+               tot['Equiton']['active'] - len(read['Equiton']), E(other[0]['headline']) if other else '', sum(len(v) for v in inv.values())) +
+            '<p class="pnote">Each ad&rsquo;s link points to a Meta short link (fb.me); the links were not followed, so where the ads finally send people is not recorded here.</p>\n'
+            + corr + '<p class="pnote m0"><b>Examples in Paid Social:</b> ' + ex + '</p>\n</details></section>\n')
 
 
 def recs_section(a, o, w):
@@ -223,7 +239,7 @@ def recs_section(a, o, w):
          'Its ads lead with offerings and targeted returns (%d investor ads read), while %d of its %d posts named a fund.' % ((len(eq),) + pf('Equiton')),
          'Bring one ad message into the feed, for example the apartment fund explainer as a reel, and compare its likes and comments with similar market posts. Read the website by hand to complete the comparison.'),
         ('Skyline', 'Paid Social and Website Messaging',
-         'None of its %d ads states a return figure, %s names the $50,000 minimum that its own website shows, and every one sends people to a Meta link.'
+         'None of its %d ads states a return figure, and %s names the $50,000 minimum that its own website shows.'
          % (len(sk), 'only one' if sum(x['minimum'] for x in sk) == 1 else '%d' % sum(x['minimum'] for x in sk)),
          'Test a version of one fund ad that states the minimum and who can invest, as the website already does, against the current version, and compare enquiries per ad.'),
         ('Lankin', 'Paid Social and Website Messaging',
@@ -258,6 +274,7 @@ def main():
     body = put(body, 'organic', organic_section(o))
     body = put(body, 'orgsrc', organic_sources(o))
     body = put(body, 'paid', paid_section(a))
+    body = put(body, 'paidsrc', paid_sources(a))
     body = put(body, 'recs', recs_section(a, o, w))
     body = put(body, 'roster', roster_note() + '\n')
     if re.search(r'[–—]', body.split('<!-- STRATEGY:website START -->')[1].split('<!-- STRATEGY:website END -->')[0]):

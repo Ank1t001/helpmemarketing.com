@@ -95,7 +95,7 @@ if __name__ == '__main__':
            'library_totals': {'Equiton': {'page': 'Equiton Inc.', 'active': 56, 'complete': False},
                               'Skyline': {'page': 'Skyline Wealth Management Inc.', 'active': 16, 'complete': True},
                               'Skyline Living (resident leasing)': {'page': 'Skyline Living', 'active': 6, 'complete': True},
-                              'Lankin': {'page': 'Lankin', 'active': 36, 'complete': False},
+                              'Lankin': {'page': 'Lankin', 'active': 36, 'complete': True},
                               'Greybrook': {'page': None, 'active': 0, 'note': 'No active ads in Canada matched "Greybrook".'},
                               'Centurion': {'page': 'Centurion Asset Management Inc.', 'active': 4, 'complete': True}},
            'records': recs + centurion}

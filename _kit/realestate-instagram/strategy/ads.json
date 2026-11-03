@@ -40,7 +40,7 @@
   "Lankin": {
    "page": "Lankin",
    "active": 36,
-   "complete": false
+   "complete": true
   },
   "Greybrook": {
    "page": null,
@@ -2777,6 +2777,49 @@
    "minimum": false,
    "local": false,
    "for_investors": false
+  }
+ ],
+ "corrections": [
+  {
+   "date": "2026-11-03",
+   "text": "Lankin was marked as having more ads than were read. The library showed 36 active ads on its page and all 36 were read, so its count is complete; only Equiton's page (56 listed, 50 read) was incomplete."
+  }
+ ],
+ "glance": {
+  "Equiton": {
+   "label": "Development offering",
+   "focus": "development offering"
+  },
+  "Skyline": {
+   "label": "Individual fund offer",
+   "focus": "fund offer"
+  },
+  "Lankin": {
+   "label": "Year-end RRSP or TFSA message",
+   "focus": "registered accounts and tax"
+  }
+ },
+ "examples": [
+  {
+   "firm": "Equiton",
+   "title": "Location",
+   "id": "1106980608646181",
+   "headline": "Invest Steps From the Bridle Path",
+   "caption": "introduces the development through a recognisable location."
+  },
+  {
+   "firm": "Skyline",
+   "title": "Fund",
+   "id": "1105321099025757",
+   "headline": "Canadian REIT. Real Assets.",
+   "caption": "leads with the investment category. Individual fund offers accounted for 15 of Skyline’s 16 ads."
+  },
+  {
+   "firm": "Lankin",
+   "title": "Registered account",
+   "id": "1159818246706051",
+   "headline": "Invest your RRSP in Private Real Estate",
+   "caption": "opens with the account an investor could use. Registered accounts were the main message in 15 of 36 ads."
   }
  ]
 }

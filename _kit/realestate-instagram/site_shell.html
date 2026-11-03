@@ -629,6 +629,17 @@ html body .msi.msi.msi .bandbar.neutral span.bl.fx1,.msi.msi .bandbar.neutral sp
 .msi.msi .ri-vlink a{color:var(--cta-text,var(--cta));text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .msi.msi #ri-video{scroll-margin-top:160px}
 @media(max-width:560px){.msi.msi #ri-video{scroll-margin-top:24px}}
+/* Paid Social (2026-11-03, founder): glance table, collapsed breakdown, one ad card per firm. */
+.msi.msi .ri-ptable td.r{white-space:nowrap}
+.msi.msi .ri-adexs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 8px}
+.msi.msi .ri-adex{display:flex;flex-direction:column;padding:20px 22px;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
+.msi.msi .ri-adex h4{margin:0 0 10px;font-size:13px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted)}
+.msi.msi .ri-adex .ri-adq{margin:0 0 10px;font-family:var(--font-display,Fraunces,serif);font-size:21px;line-height:1.25;color:var(--text)}
+.msi.msi .ri-adex p{margin:0 0 12px;font-size:14.5px;line-height:1.55;color:var(--text-muted)}
+.msi.msi .ri-adex .ri-adsrc{margin:auto 0 0;padding-top:10px;border-top:1px solid var(--border);font-size:13.5px}
+.msi.msi .ri-adex .ri-adsrc a{color:var(--cta-text,var(--cta));font-weight:600}
+@media(max-width:900px){.msi.msi .ri-adexs{grid-template-columns:1fr}}
+@media(max-width:720px){.msi.msi .ri-wtable td.r[data-label]{text-align:left;white-space:normal}.msi.msi .ri-wtable td.r[data-label]::before{display:block}}
 /* Header without the image, as on the Business index, and Sources & evidence (2026-11-03, founder; since the same day one compact row and the last thing in the report, the old report footer removed): out of the tab bar; one link below the tab content, hidden while the view is open, with return links. */
 .msi.msi header{background:none;grid-template-columns:1fr;max-width:760px}
 .msi.msi header::after{display:none}

@@ -130,8 +130,8 @@ def validate(source, actual, rows, config):
     # Views (founder, 2026-11-02): one tab bar over seven views (Website Messaging and the five-firm comparisons added the same day), in this order, each holding its sections. See EDITORIAL_RULES.md.
     views=[('ri-view-overview',['ri-overview']),('ri-view-rankings',['ri-rankings','ri-video']),
            ('ri-view-website',['ri-website']),
-           ('ri-view-organic',['ri-organic-compare','ri-creative','ri-insights']),('ri-view-paid',['ri-paid-compare','ri-activity','ri-distribution','ri-ads']),
-           ('ri-view-recs',['ri-test','ri-recs-firms']),('ri-view-sources',['ri-download','ri-advanced','ri-series','ri-editions','ri-data'])]
+           ('ri-view-organic',['ri-organic-compare','ri-creative','ri-insights']),('ri-view-paid',['ri-paid-compare']),
+           ('ri-view-recs',['ri-test','ri-recs-firms']),('ri-view-sources',['ri-download','ri-advanced','ri-series','ri-ads','ri-editions','ri-data'])]
     if 'data-ri-tabs' not in body or 'data-ri-tabs-js' not in source: raise ValueError('Missing the view tab bar or its script')
     # Block nesting (2026-11-03): a stray closing tag once ended the hidden Sources view early and showed its content under every tab.
     depth=[]
