@@ -230,32 +230,42 @@ def paid_sources(a):
 
 
 def recs_section(a, o, w):
-    eq = [x for x in a['records'] if x['firm'] == 'Equiton' and x['for_investors']]
-    sk = [x for x in a['records'] if x['firm'] == 'Skyline']
-    la = [x for x in a['records'] if x['firm'] == 'Lankin']
-    pf = lambda k: (sum(x['names_fund'] for x in o['posts'] if x['firm'] == k), sum(1 for x in o['posts'] if x['firm'] == k))
+    """Recommendations tab (founder, 2026-11-03): one card per firm with what stood out, a test and a proposed measure.
+    The figures in each observation are checked against the evidence files here."""
+    rec = a['records']
+    inv = lambda k: [x for x in rec if x['firm'] == k and x['for_investors']]
+    posts = lambda k: [x for x in o['posts'] if x['firm'] == k]
+    eq_fund = sum(x['names_fund'] for x in posts('Equiton')); eq_n = len(posts('Equiton'))
+    sk_min = sum(x['minimum'] for x in inv('Skyline')); sk_n = len(inv('Skyline'))
+    gb = [x for x in posts('Greybrook') if x['likes'] is not None]
+    gb_top = max(x['likes'] for x in gb); gb_fund = [x['likes'] for x in posts('Greybrook') if x['names_fund']]
+    ce = [x for x in rec if x['firm'] == 'Centurion']
+    assert (eq_fund, eq_n) == (1, 14) and (sk_min, sk_n) == (1, 16) and gb_top == 116 and gb_fund == [1], (eq_fund, eq_n, sk_min, sk_n, gb_top, gb_fund)
+    assert len(ce) == 4 and not any(x['for_investors'] for x in ce)
+    assert '$50,000' in w['firms']['Skyline']['minimum']
+    words = {1: 'one', 4: 'four'}
     cards = [
-        ('Equiton', 'Paid Social and Organic Social',
-         'Its ads lead with offerings and targeted returns (%d investor ads read), while %d of its %d posts named a fund.' % ((len(eq),) + pf('Equiton')),
-         'Bring one ad message into the feed, for example the apartment fund explainer as a reel, and compare its likes and comments with similar market posts. Read the website by hand to complete the comparison.'),
-        ('Skyline', 'Paid Social and Website Messaging',
-         'None of its %d ads states a return figure, and %s names the $50,000 minimum that its own website shows.'
-         % (len(sk), 'only one' if sum(x['minimum'] for x in sk) == 1 else '%d' % sum(x['minimum'] for x in sk)),
-         'Test a version of one fund ad that states the minimum and who can invest, as the website already does, against the current version, and compare enquiries per ad.'),
-        ('Lankin', 'Paid Social and Website Messaging',
-         'Its ads cite a 12% to 16% targeted net return; its homepage lists 10% to 14% and 10% to 12% for two funds.',
-         'Make sure the page each ad sends people to names the fund behind the figure in the ad, then compare the RRSP and TFSA year-end messages on enquiries.'),
-        ('Greybrook', 'Organic Social',
-         'No active ads were found. Its sponsorship and community posts drew the most likes; its fund post drew 1.',
-         'Test telling the U.S. Multifamily fund story through the team and the communities it already posts about, and link that post to the fund page.'),
-        ('Centurion', 'Website Messaging and Paid Social',
-         'No corporate Instagram account was found, its four active ads recruit staff, and its homepage leads with its Chief Economist&rsquo;s research.',
-         'Test promoting one research article to investors, sending readers to the article, and measure visits from there to the REIT page.')]
-    html = ''.join('<article class="ri-rcard"><h3>%s</h3><p class="ri-rarea">%s</p><dl><div><dt>What I saw</dt><dd>%s</dd></div>'
-                   '<div class="ri-rtest"><dt>Recommendation</dt><dd>%s</dd></div></dl></article>' % (E(NAMES[k]), E(area), saw, E(test)) for k, area, saw, test in cards)
-    return ('<section id="ri-recs-firms"><div class="sec-head"><h2>Recommendations for the five firms</h2>\n'
-            '<p class="dek">One test per firm, from the website, organic and paid comparisons of ' + DATE + '. Each is a proposal to test, not a promise of better results.</p></div>\n'
-            '<div class="ri-rgrid">' + html + '</div></section>\n')
+        ('Equiton', 'Its investor ads featured specific offerings, while only %d of %d Instagram posts named a fund.' % (eq_fund, eq_n),
+         'Turn one apartment fund ad message into a short explainer reel. Compare it with a market-update reel of similar length.',
+         'Saves per 1,000 accounts reached.'),
+        ('Skyline', 'Its Apartment REIT page states a $50,000 minimum. Only %d of %d reviewed investor ads mentioned a minimum.' % (sk_min, sk_n),
+         'Test two versions of the Apartment REIT ad. Add the minimum to one and keep the audience, creative and budget comparable.',
+         'Cost per enquiry that meets the fund&rsquo;s eligibility criteria.'),
+        ('Lankin', 'The reviewed ads and website cited different target return ranges. The research could not confirm whether they referred to the same fund.',
+         'First verify which fund each figure describes. Then test naming the fund in the ad headline, with both versions linking to the same verified fund page.',
+         'Qualified enquiries per 100 landing-page visits.'),
+        ('Greybrook', 'Its hockey sponsorship received %d visible likes. Its fund post received %s.' % (gb_top, words[gb_fund[0]]),
+         'Explain the same fund topic in two carousels. Open one with a member of the investment team and the other with the existing fund headline. Give each a trackable route to the fund page.',
+         'Fund-page visits per 1,000 accounts reached.'),
+        ('Centurion', 'Its website featured the Chief Economist&rsquo;s research. All %s active ads found were for recruitment.' % words[len(ce)],
+         'Test an investor ad that leads to one research article. Give readers a relevant next step from that article to the Apartment REIT page.',
+         'Share of ad-referred article visitors who continue to the REIT page.')]
+    html = ''.join('<article class="ri-rcard"><h3>%s</h3><p class="ri-robs">%s</p><dl><div class="ri-rtest"><dt>Test</dt><dd>%s</dd></div>'
+                   '<div class="ri-rmeasure"><dt>Measure</dt><dd>%s</dd></div></dl></article>' % (E(NAMES[k]), obs, test, meas) for k, obs, test, meas in cards)
+    return ('<section id="ri-recs-firms"><div class="sec-head"><h2>Recommendations</h2>\n'
+            '<p class="dek">One marketing test for each firm, based on its website, Instagram posts and Meta ads.</p></div>\n'
+            '<div class="ri-rgrid">' + html + '</div>\n'
+            '<p class="pnote m0">Each measure is a proposed metric for the firm to track. The public research supplies the observation behind each test, not its result.</p></section>\n')
 
 
 def put(body, name, html):

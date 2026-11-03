@@ -111,7 +111,7 @@ def validate(source, actual, rows, config):
         pattern=r'var '+name+r'=("[^"\n]+")'
         if re.search(pattern,source).group(1)!=re.search(pattern,shell).group(1): raise ValueError('Gate endpoint changed')
     if "form:'index-download'" not in source: raise ValueError('Current gate payload missing')
-    ids=['ri-overview','ri-rankings','ri-creative','ri-insights','ri-test','ri-advanced','ri-data']
+    ids=['ri-overview','ri-rankings','ri-creative','ri-insights','ri-recs-firms','ri-advanced','ri-data']
     positions=[body.find('id="'+x+'"') for x in ids]
     if -1 in positions or positions!=sorted(positions): raise ValueError('Reading-level section contract failed')
     # Authorship and citation (2026-10-13): byline linked to /about, researcher profile, cite block and edition history.
@@ -124,14 +124,14 @@ def validate(source, actual, rows, config):
     for label,text in need.items():
         if text not in body: raise ValueError('Missing '+label)
     # Founder-approved structure, wording and layout (2026-10-13). See EDITORIAL_RULES.md.
-    order=['ri-overview','ri-rankings','ri-creative','ri-insights','ri-test','ri-download','ri-advanced','ri-editions','ri-data']
+    order=['ri-overview','ri-rankings','ri-creative','ri-insights','ri-recs-firms','ri-download','ri-advanced','ri-editions','ri-data']
     pos=[body.find('id="'+x+'"') for x in order]
     if -1 in pos or pos!=sorted(pos): raise ValueError('Section order must be '+', '.join(order))
     # Views (founder, 2026-11-02): one tab bar over seven views (Website Messaging and the five-firm comparisons added the same day), in this order, each holding its sections. See EDITORIAL_RULES.md.
     views=[('ri-view-overview',['ri-overview']),('ri-view-rankings',['ri-rankings','ri-video']),
            ('ri-view-website',['ri-website']),
            ('ri-view-organic',['ri-organic-compare','ri-creative','ri-insights']),('ri-view-paid',['ri-paid-compare']),
-           ('ri-view-recs',['ri-test','ri-recs-firms']),('ri-view-sources',['ri-download','ri-advanced','ri-series','ri-ads','ri-editions','ri-data'])]
+           ('ri-view-recs',['ri-recs-firms']),('ri-view-sources',['ri-download','ri-advanced','ri-series','ri-ads','ri-editions','ri-data'])]
     if 'data-ri-tabs' not in body or 'data-ri-tabs-js' not in source: raise ValueError('Missing the view tab bar or its script')
     # Block nesting (2026-11-03): a stray closing tag once ended the hidden Sources view early and showed its content under every tab.
     depth=[]
