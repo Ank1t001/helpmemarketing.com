@@ -741,6 +741,12 @@ dialog.bs-gate::backdrop{background:rgba(0,0,0,.72)}
 .msi.msi .ri-rcard .ri-rmeasure dd{font-weight:600}
 .msi.msi .ri-rcard .ri-rsecond{margin-top:18px;padding-top:4px;border-top:1px solid var(--border)}
 .msi.msi #ri-recs-firms .ri-rgrid+.pnote{margin-top:16px}
+.msi.msi #ri-recs-firms .ri-rgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.msi.msi #ri-recs-firms .ri-rwide{grid-column:1/-1}
+.msi.msi .ri-rcard .ri-rpair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
+.msi.msi .ri-rcard .ri-rpair>.ri-rsecond{margin-top:0;padding:0 0 0 24px;border-top:0;border-left:1px solid var(--border)}
+.msi.msi .ri-rstart{margin:0 0 16px;font-size:15px;line-height:1.55;color:var(--text)}
+@media(max-width:900px){.msi.msi #ri-recs-firms .ri-rgrid,.msi.msi .ri-rcard .ri-rpair{grid-template-columns:1fr}.msi.msi .ri-rcard .ri-rpair>.ri-rsecond{margin-top:18px;padding:4px 0 0;border-left:0;border-top:1px solid var(--border)}}
 /* Sources & evidence (2026-11-03, founder): header with an at-a-glance strip, groups in tab order, one corrections list. */
 .msi.msi .ri-sstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;border:1px solid var(--border);border-radius:var(--r2);background:var(--bg-elevated)}
 .msi.msi .ri-sstats>div{padding:18px 22px;border-left:1px solid var(--border)}

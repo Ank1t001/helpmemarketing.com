@@ -135,6 +135,23 @@
      "home",
      "Book A Call"
     ]
+   },
+   "followup_2026_11_04": {
+    "checked": "2026-11-04T01:20:40Z",
+    "method": "Read-only page load in Chromium (no form, no sign-in); page text not kept, SHA-256 of the visible text recorded.",
+    "pages": {
+     "https://lankin.com/private-reit/": {
+      "sha256": "4696f21129fd2acd45a84bdda1d8c4bbe4ce285a47e800fbfa68e3edf4c05e3d",
+      "quote": "Targeted total return of 12–16%",
+      "names_fund_in_main_content": false
+     },
+     "https://lankin.com/lankin-apartment-reit/": {
+      "sha256": "1463742171f3cfbae2693befa6e70759837c0ca9498ca317f035e15de4c93014",
+      "quote": "10%-14% Targeted Annual Net Return",
+      "names_fund_in_main_content": true
+     }
+    },
+    "ads_quote": "12%–16% Targeted Annual Net Return"
    }
   },
   "Greybrook": {

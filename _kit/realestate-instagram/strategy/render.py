@@ -313,6 +313,13 @@ def recs_section(a, o, w):
     sk_form = sum(r['firm'] == 'Skyline' and r['destination'] == 'Meta form' for r in load('ad_destinations.json')['records'])
     gb = [x for x in posts('Greybrook') if x['likes'] is not None]
     gb_top = max(x['likes'] for x in gb); gb_fund = [x['likes'] for x in posts('Greybrook') if x['names_fund']]
+    gb_n = len(posts('Greybrook'))
+    gb_comm = sorted(x['likes'] for x in gb if x['theme'] == 'CSR / community')
+    gb_edu = sorted(x['likes'] for x in gb if x['theme'] == 'Investor education')
+    gb_edu_hidden = sum(x['theme'] == 'Investor education' and x['likes'] is None for x in posts('Greybrook'))
+    assert (gb_n, gb_comm, gb_edu, gb_edu_hidden) == (13, [19, 24, 116], [1, 3], 1), (gb_n, gb_comm, gb_edu, gb_edu_hidden)
+    lf = w['firms']['Lankin']['followup_2026_11_04']['pages']
+    assert not lf['https://lankin.com/private-reit/']['names_fund_in_main_content'] and '10%-14%' in lf['https://lankin.com/lankin-apartment-reit/']['quote']
     ce = [x for x in rec if x['firm'] == 'Centurion']
     assert (eq_fund, eq_n) == (1, 14) and (sk_min, sk_n, sk_form) == (16, 16, 16) and gb_top == 116 and gb_fund == [1], (eq_fund, eq_n, sk_min, sk_n, gb_top, gb_fund)
     assert len(ce) == 4 and not any(x['for_investors'] for x in ce)
@@ -325,10 +332,10 @@ def recs_section(a, o, w):
         ('Skyline', 'All %d reviewed investor ads printed the fund&rsquo;s historical return and the $50,000 minimum on the image. Every ad led to a Meta form that asks again whether the reader has $50,000 to invest.' % sk_n,
          'Send half of the Apartment REIT ads to the fund&rsquo;s own page instead of the form. Keep the creative, audience and budget the same.',
          'Cost per enquiry that meets the fund&rsquo;s eligibility criteria.'),
-        ('Lankin', 'The reviewed ads and website cited different target return ranges. The research could not confirm whether they referred to the same fund.',
-         'First verify which fund each figure describes. Then test naming the fund in the ad headline, with both versions linking to the same verified fund page.',
-         'Qualified enquiries per 100 landing-page visits.'),
-        ('Greybrook', 'Its hockey sponsorship post received %d visible likes. Its one fund post in the window received %s.' % (gb_top, words[gb_fund[0]]),
+        ('Lankin', 'Its ads state a &ldquo;12%&ndash;16% Targeted Annual Net Return&rdquo;. Its Apartment REIT page states 10%&ndash;14% under the same label, and the campaign page the ads link to calls 12&ndash;16% a targeted total return without naming the fund in its main text (both pages read on 4 November).',
+         'Name the fund on the campaign page and use one target range, with the same label, in the ads and on the fund pages.',
+         'Qualified enquiries per 100 campaign-page visits.', 'Fix'),
+        ('Greybrook', 'Only %d of its %d posts named a fund. Its three community posts drew %d to %d visible likes; its investor education posts drew %d and %d (one more hid its count).' % (len(gb_fund), gb_n, gb_comm[0], gb_comm[-1], gb_edu[0], gb_edu[1]),
          'Explain the same fund topic in two carousels. Open one with a member of the investment team and the other with the existing fund headline. Give each a trackable route to the fund page.',
          'Fund-page visits per 1,000 accounts reached.'),
         ('Centurion', 'Its website featured the Chief Economist&rsquo;s research. All %s active ads found were for recruitment.' % words[len(ce)],
@@ -341,14 +348,18 @@ def recs_section(a, o, w):
     extra = {'Lankin': ('%s of its %d ad records checked on 3 November had button links to pages that showed &ldquo;page not found&rdquo;.' % ('Six' if l404 == 6 else l404, sum(r['firm'] == 'Lankin' for r in dl)),
                         'Check those ads in Ads Manager and replace any active broken link with the relevant offer page.',
                         'Share of active investor ads whose button opens the intended page.', 'Fix')}
-    def block(obs, test, meas, label='Test'):
+    def block(obs, test, meas, label='Test'):  # label 'Fix' for an action rather than a test
         return ('<p class="ri-robs">%s</p><dl><div class="ri-rtest"><dt>%s</dt><dd>%s</dd></div>'
                 '<div class="ri-rmeasure"><dt>Measure</dt><dd>%s</dd></div></dl>' % (obs, label, test, meas))
     # Lankin leads with the broken-link action (founder, 2026-11-03); its return-range test follows.
-    html = ''.join('<article class="ri-rcard"><h3>%s</h3>%s%s</article>' % (E(NAMES[k]), block(*extra[k]) if k in extra else block(obs, test, meas),
-                   ('<div class="ri-rsecond">' + block(obs, test, meas) + '</div>') if k in extra else '') for k, obs, test, meas in cards)
+    # Lankin first and full width (founder, 2026-11-04): its two fixes side by side, then the four tests in two columns.
+    cards.sort(key=lambda c: c[0] != 'Lankin')
+    html = ''.join('<article class="ri-rcard%s"><h3>%s</h3>%s%s</article>' % (' ri-rwide' if k in extra else '', E(NAMES[k]),
+                   ('<div class="ri-rpair"><div>' + block(*extra[k]) + '</div><div class="ri-rsecond">' + block(*rest) + '</div></div>') if k in extra else block(*rest), '')
+                   for k, *rest in cards)
     return ('<section id="ri-recs-firms"><div class="ri-ovhero"><div class="sec-head"><h2>Recommendations</h2></div>\n'
             '<p class="ri-ovlead">What each firm could <em>fix or test</em> next, from its website, Instagram and Meta ads.</p></div>\n'
+            '<p class="ri-rstart">Start with Lankin Investments: its two items are fixes to make now. The other four firms each have one test to run.</p>\n'
             '<div class="ri-rgrid">' + html + '</div>\n'
             '<p class="pnote m0">Each measure is a proposed metric for the firm to track. The public research supplies the observation behind each fix and test, not its result.</p></section>\n')
 
@@ -364,7 +375,7 @@ def sources_head(a, o, w):
     assert len(ex_dates) == 1, ex_dates
     return ('<section id="ri-sources-head"><div class="sec-head"><h2>Sources &amp; evidence</h2>\n'
             '<p class="dek">The evidence behind each tab, how it was collected and calculated, what changed, and the data to download.</p>\n'
-            '<p class="dek">Each date has one purpose: Instagram posts and Meta ads were collected, and the five websites read, on ' + DATE + '; the two website examples were captured, the Centurion minimum verified, and the ad destinations and the HMM Ranking website matrix checked, on ' + E(ex_dates[0]) + '.</p></div>\n'
+            '<p class="dek">Each date has one purpose: Instagram posts and Meta ads were collected, and the five websites read, on ' + DATE + '; the two website examples were captured, the Centurion minimum verified, and the ad destinations and the HMM Ranking website matrix checked, on ' + E(ex_dates[0]) + '; Lankin&rsquo;s campaign and Apartment REIT pages were re-read on 4 November 2026 for the Recommendations tab.</p></div>\n'
             '<dl class="ri-sstats" aria-label="Sources and evidence at a glance">' + ''.join('<div><dt>%s</dt><dd>%s</dd></div>' % (E(k), v) for k, v in stats) + '</dl></section>\n')
 
 
