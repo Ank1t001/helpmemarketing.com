@@ -39,6 +39,10 @@ def released(c):
 # and the deck no longer says "Each is free to read, with no sign-up", since the case study gates some tabs; the Real
 # Estate and Hair Loss cards use their own card artwork in the Med Spa pattern).
 HUB_LATER_EDITS = [
+    ('<p class="wk-tool-kind">Benchmark &middot; Canada &middot; Monthly</p>\n          <h3 class="wk-tool-title">The Real Estate Index</h3>',
+     '<p class="wk-tool-kind">Case study &middot; Canada &middot; Monthly</p>\n          <h3 class="wk-tool-title">How Canadian Real Estate Investment Firms Market to Investors</h3>'),
+    ('<a class="wk-tool-cta" href="/realestate-index">Read the Real Estate Index &rarr;</a>',
+     '<a class="wk-tool-cta" href="/realestate-index">Read the case study &rarr;</a>'),
     ('<dl class="ix-dates"><div><dt>Last updated</dt><dd>October 13, 2026</dd></div>',
      '<dl class="ix-dates"><div><dt>Last updated</dt><dd>November 3, 2026</dd></div>'),
     ('<p class="wk-tool-who">Five Canadian private real estate investment firms, ranked on public Instagram likes, comments and recorded plays.</p>',
