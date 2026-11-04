@@ -17,8 +17,8 @@
   "prior_cycle": "004",
   "prior_verification": "history/cycle004-verification.json",
   "prior_scoreboard": "history/reindex-cycle004-ig-scoreboard.csv",
-  "modified_at": "2026-11-04T01:11:44+00:00",
-  "modified_at_source": "Vercel production deployment dpl_4VWBcMtgw2WBgsLgCJrdzHsSkUAJ (commit 3207c7e) ready time (1793754704204 ms): Paid Social recount of return figures and minimums printed on ad creatives, example ad images and the rewritten Skyline recommendation, the last content change to /realestate-index. Earlier value: 2026-11-03T21:00:25+00:00; earlier releases are listed in the git history of this file.",
+  "modified_at": "2026-11-04T01:32:53+00:00",
+  "modified_at_source": "Vercel production deployment dpl_CaVwNSPg1HTZSPy5QwPT6DAgJzdq (commit 6b1b48d) ready time (1793755973481 ms): Recommendations pass (Lankin first with two fixes, Greybrook pattern, start line, two-column layout), the last content change to /realestate-index. Earlier value: 2026-11-04T01:11:44+00:00; earlier releases are listed in the git history of this file.",
   "revision": {
     "date": "2026-11-02",
     "by": "founder",
