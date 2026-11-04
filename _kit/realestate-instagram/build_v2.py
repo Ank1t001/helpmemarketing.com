@@ -103,8 +103,12 @@ def validate(source, actual, rows, config):
     if 'linkedin.com/posts/' in body: raise ValueError('Other-platform research output found')
     if re.search(r'\b(?:Reach|Impressions)\s*</th>',body,re.I): raise ValueError('Private metric column')
     for src in re.findall(r'<img\b[^>]*\bsrc="([^"]+)"',body):
-        # Self-hosted only: post frames, and the Website Messaging crops (2026-11-03), whose hashes are in strategy/websites.json.
-        if not src.startswith(('/assets/index/real-estate/frames/','/assets/index/real-estate/website/')): raise ValueError('Invalid report image path: '+src)
+        # Self-hosted only: post frames, the Website Messaging crops (2026-11-03, hashes in strategy/websites.json) and the
+        # Paid Social example ads (2026-11-04, hashes in strategy/ad_creative_review.json).
+        if not src.startswith(('/assets/index/real-estate/frames/','/assets/index/real-estate/website/','/assets/index/real-estate/ads/')): raise ValueError('Invalid report image path: '+src)
+        if src.startswith('/assets/index/real-estate/ads/'):
+            want=json.loads((BASE/'strategy/ad_creative_review.json').read_text())['example_images'].get(src.rsplit('/',1)[1])
+            if want!=hashlib.sha256((BASE.parent.parent/src.lstrip('/')).read_bytes()).hexdigest(): raise ValueError('Example ad image hash mismatch: '+src)
         if not (BASE.parent.parent/src.lstrip('/')).exists(): raise ValueError('Missing report image: '+src)
     if 'api.apify.com' in source: raise ValueError('Signed image URL found')
     # Gate transport is copied from the current repository page, never rebuilt from the old kit.

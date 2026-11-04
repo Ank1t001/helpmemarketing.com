@@ -2783,6 +2783,10 @@
   {
    "date": "2026-11-03",
    "text": "Lankin was marked as having more ads than were read. The library showed 36 active ads on its page and all 36 were read, so its count is complete; only Equiton's page (56 listed, 50 read) was incomplete."
+  },
+  {
+   "date": "2026-11-04",
+   "text": "The return-figure and minimum counts first came from ad text only. They now also count figures printed on the ad images and video frames: Skyline Wealth Management showed a return figure and the $50,000 minimum on all 16 investor ads (counted as 0 and 1 before), and Lankin showed a return figure on 32 of 36 (28 before). The Skyline recommendation and the Skyline destination note were rewritten to match."
   }
  ],
  "glance": {

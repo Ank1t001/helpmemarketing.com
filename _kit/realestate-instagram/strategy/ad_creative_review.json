@@ -1,0 +1,862 @@
+{
+ "reviewed_on": "2026-11-04",
+ "source": "Ad images and videos from the Meta Ad Library collection of 3 November 2026 (apify/facebook-ads-scraper, official); media files private, hashes only.",
+ "method": "Every investor ad whose text did not already show both a return figure and a minimum was reviewed: images in full, videos as frames across their full length with on-screen text read (audio not heard). A creative counts when the figure is printed on it. Return figure: any percentage return, target return or distribution rate, as in the text rule. Minimum: a stated minimum or an amount the reader is asked to invest.",
+ "note": "Every Skyline Wealth Management image prints the fund's historical return (13%+, 11%+ or a 9.26% five-year return) and \"Minimum investment $50,000\". Lankin: one image shows the 14.9% 2025 net return and three show a targeted 6% annual cash distribution; no Lankin creative states a minimum. Equiton: no creative adds either figure. Five Lankin ads had no media in the collection and are counted from text only.",
+ "records": [
+  {
+   "id": "1366940528951811",
+   "firm": "Equiton",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "b13b5dd91c739c24fba491910e83e91158370504b736ccf4fa0dc61ebf663830",
+    "e645c9106d566793247ffc1b88a013a120b36089eb14873140e86ee4e57e614d"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1778125306515953",
+   "firm": "Equiton",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "8e90c3f00907eb414c59bcc89f5ca9ad29d60c9c1bb943a909a0941a9ada1352",
+    "acc74f78cd11d88e2bd86b9c946359e98cf9ba1c7ca65d881f54824cbbc74264"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "2143131283079878",
+   "firm": "Equiton",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "36e265d9b3b96013be76102a7db3a061a7dd29003a4cab3513f869b28e28e696",
+    "3806e5b608fccc2264c1c35f3849a83a9f8b8ed10eef3ee0a2972c676330d350"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1103008065534781",
+   "firm": "Equiton",
+   "reviewed": "image",
+   "media_sha256": [
+    "f99846e946672afc6d7f9b05fb4ebc3a43daf609f13d53e50bd1ba4028fbeac3",
+    "6080116fc7a75a7d22a5afc5a765d0b89d892d043cbcccbf8f8d3cc3321d299a"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1674838930871329",
+   "firm": "Equiton",
+   "reviewed": "image",
+   "media_sha256": [
+    "30fe83df602f499e2db6d94282d24f2eac891e5fc23d1c047d7eada2a6cf3c00",
+    "78dc998365ce7ff49b66532f2bb535cb52213a5ffe3f933b654d5fc7eb9c713c"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "2023996484913940",
+   "firm": "Equiton",
+   "reviewed": "image",
+   "media_sha256": [
+    "f99846e946672afc6d7f9b05fb4ebc3a43daf609f13d53e50bd1ba4028fbeac3",
+    "6080116fc7a75a7d22a5afc5a765d0b89d892d043cbcccbf8f8d3cc3321d299a"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "4022759677858448",
+   "firm": "Equiton",
+   "reviewed": "image",
+   "media_sha256": [
+    "30fe83df602f499e2db6d94282d24f2eac891e5fc23d1c047d7eada2a6cf3c00",
+    "78dc998365ce7ff49b66532f2bb535cb52213a5ffe3f933b654d5fc7eb9c713c"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "4384783865108311",
+   "firm": "Equiton",
+   "reviewed": "image",
+   "media_sha256": [
+    "30fe83df602f499e2db6d94282d24f2eac891e5fc23d1c047d7eada2a6cf3c00",
+    "78dc998365ce7ff49b66532f2bb535cb52213a5ffe3f933b654d5fc7eb9c713c"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "904520299053764",
+   "firm": "Equiton",
+   "reviewed": "image",
+   "media_sha256": [
+    "f99846e946672afc6d7f9b05fb4ebc3a43daf609f13d53e50bd1ba4028fbeac3",
+    "6080116fc7a75a7d22a5afc5a765d0b89d892d043cbcccbf8f8d3cc3321d299a"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1047751188266992",
+   "firm": "Equiton",
+   "reviewed": "image",
+   "media_sha256": [
+    "a58560212f2ba52aeca14e28d07896701ffb3018ff178585e388381e6bc686f5",
+    "2f95016a39bfaec9c9f0d0caff91709505c3c0497a029991f92477718dbbac57"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1080413174628491",
+   "firm": "Equiton",
+   "reviewed": "image",
+   "media_sha256": [
+    "a6be53620bba4d07f31ada6963777f0a99642eb0a3905e5c61b1c6c785b48082"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1081267964687772",
+   "firm": "Equiton",
+   "reviewed": "image",
+   "media_sha256": [
+    "553946b339c8e23bab379c77111819732fafa50facf27fd1c5559593a8383745",
+    "a60a9f502fed04a3932ab5b52bf28627ccbb89348a0d346c2ebca18097935d65"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1089877047186504",
+   "firm": "Equiton",
+   "reviewed": "image",
+   "media_sha256": [
+    "699c5d3d4eb8646369efc1249fa0fb63be7a59008c63da4ce1d476dff5c3498f",
+    "6295733ab0cbba1b9444e4f26232ad927fb409789116dc2bc1e995ca16df7636"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1678488510503209",
+   "firm": "Equiton",
+   "reviewed": "image",
+   "media_sha256": [
+    "ae80ddf8f68aee549feb8e485ccb349bb74f4fc5ebaa9379785194552a4e6c2b",
+    "7da527dcc8cbc241e149c5def6740d9ddd31d890063d0b5e7d3152a31351cddd"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1703771984642936",
+   "firm": "Equiton",
+   "reviewed": "image",
+   "media_sha256": [
+    "80b03b114bf82a4c1d0e2a460a2e26dbb0266a5047397d0bdcf6ccdc31da635f",
+    "294f069bc4b6c8290fc334c5a576a6da2e0bbfd00a2d17be4d5a588afc84c1f5"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1822785365821707",
+   "firm": "Equiton",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "c4a186968f49c42346f5953d1b97ca92f19c0d72a52754c570947ed661104cb0",
+    "7ad5bd944304e92e6fdc444fd11e1429c478ca3e8ecab93916bcb8379eb50626"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1962662867743935",
+   "firm": "Equiton",
+   "reviewed": "image",
+   "media_sha256": [
+    "9b496684eb98fbb34b8ddd8eadc6be4b9086283e8b66aedb35a0e091d6526453",
+    "3208720441417963d5bdb9203e777390f38d8f387d58999e74e8fe0f897a5ee5"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "2832810440453183",
+   "firm": "Equiton",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "eaff83f67bc2065b7913a696fed0c43eb6b2ed3ad3572e05a7c76c0059c7f2c6",
+    "61dbb740bd9f4c452f316817dd1ebaf2698a0fa9043f568a358d18e1c3589558"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1117242854180760",
+   "firm": "Equiton",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "ab1cd72727ab2928d4991471b2f69217fc8c885ead662a362e2b25b2f02e6238",
+    "bb71fbeb4668c779d17f5df07348d7a94083f5726e13d1a80fa8cd9eb973e996"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1085119831107642",
+   "firm": "Equiton",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "cb1213dfed96bfb8310f210e57564cb689c5e0bbd29f4d0994040d55b92cec67",
+    "ebb4e1f8ad1d1c52cf3601f1e1dbb7c97e6ae4c97b1454ccf34e8dafe17c3ef7"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1097420079676630",
+   "firm": "Equiton",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "cb1213dfed96bfb8310f210e57564cb689c5e0bbd29f4d0994040d55b92cec67",
+    "ebb4e1f8ad1d1c52cf3601f1e1dbb7c97e6ae4c97b1454ccf34e8dafe17c3ef7"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1106980608646181",
+   "firm": "Equiton",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "cb1213dfed96bfb8310f210e57564cb689c5e0bbd29f4d0994040d55b92cec67",
+    "ebb4e1f8ad1d1c52cf3601f1e1dbb7c97e6ae4c97b1454ccf34e8dafe17c3ef7"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1129979113053501",
+   "firm": "Equiton",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "cb1213dfed96bfb8310f210e57564cb689c5e0bbd29f4d0994040d55b92cec67",
+    "ebb4e1f8ad1d1c52cf3601f1e1dbb7c97e6ae4c97b1454ccf34e8dafe17c3ef7"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1894595355024690",
+   "firm": "Equiton",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "cb1213dfed96bfb8310f210e57564cb689c5e0bbd29f4d0994040d55b92cec67",
+    "ebb4e1f8ad1d1c52cf3601f1e1dbb7c97e6ae4c97b1454ccf34e8dafe17c3ef7"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1105321099025757",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "8e2b9522626c030f6dc087bf455c4f57d28d24a2c0d30a8ff071be87d4648c12",
+    "fa05bd17d4cd4d5d7dfce39042d394af03223285fbb72e581e12e1fc555d727b",
+    "87db4860349a8d584cc850133163a36305e59b94c6cd672ad9da08c3c39be3f7",
+    "d9a0df321691e08bf8489e3c48bf55c92ca7f8d8dc4eb6107015f03f286ec395"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "1673691954336402",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "334fb734bc94bd5744805d4bb335f78127851e4c78d0be76f9dec2485b2ec6eb",
+    "f0df00fbd67463f9f9d69693bcda9982735393610060f304bc49e6eb38d5dcc1",
+    "f2aa2850a07ec0af08d9d496531e23be46bf7ab82488f161dcc246c8327a1294",
+    "d9a0df321691e08bf8489e3c48bf55c92ca7f8d8dc4eb6107015f03f286ec395"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "1705502717182701",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "4db377d83ced6bffdd4d7a0c3a904e890ac66b5e3c40b7dd776dfaf8b4abe417",
+    "a5140c835f350e2e517811e0b6b8ce82785fef85d0a6c5f9629216b4f08ebb40",
+    "59fdebde30011d076cb0f334d94ccf2563f36587e5ff306fc63452c8839512f2",
+    "d9a0df321691e08bf8489e3c48bf55c92ca7f8d8dc4eb6107015f03f286ec395"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "1109483745329755",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "4de87cba2ee669e8102607bcbdd02a5bd696557952aa710554cca799b8ae2d22",
+    "bab8a69d42b0a5956c75a2de556928734bf3bd47b38c012f61c3975a4ca18393",
+    "c4f21c2de7890b88a2571357191dd61d208ef9928d6f86c8b99e46b864b7ab68",
+    "d9a0df321691e08bf8489e3c48bf55c92ca7f8d8dc4eb6107015f03f286ec395"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "1125176097115718",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "5ee11b50e544ce161c1c75afa062514e3b9223d2a5ee6a6e902965df1e49c517",
+    "fa21a3dbf290cf4f974dff7b83cfb8d2423f206e0c4d1fdaca4168b8f12f7848",
+    "8ccbf2e29c1dde4779132e3a8a0179d6bb8d8977259eea44adaee9039f623d55",
+    "d9a0df321691e08bf8489e3c48bf55c92ca7f8d8dc4eb6107015f03f286ec395"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "1138075571880728",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "12c693c42d583b21bace5637afbfa4ed4a189787f443db0483618b5e0ae799af",
+    "da34e03b94e073348b790243f8f19f4ccd7acdc4d8daea0cc8cb721f248ead8a",
+    "74b0e0fb00692595bd8ea35ea94af3c4bfe661d0e9378e53c74576f6a3689bbb",
+    "d9a0df321691e08bf8489e3c48bf55c92ca7f8d8dc4eb6107015f03f286ec395"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "1650429746478655",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "467235508ed5d4980e077c0eadfc610aa0f465d60d93a97984dfa0895350f93e",
+    "2befb0bf26adc1ec397bf167b5385bffeca9f4e01694080cff9e6b67ced77cb3",
+    "083310b109c942b906fd2ec99c9100b0ddfce125050ff8e6d23c51c37d072745",
+    "d9a0df321691e08bf8489e3c48bf55c92ca7f8d8dc4eb6107015f03f286ec395"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "2418119378718677",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "7d169d6470e51e8c3ddd06b7dae1e4ab73800d262bf749b72bc65239bc15cfce",
+    "533bf0b4ece254b499bcd9717b31e9dd391c72ff1baabb52117c5f1b8877b767",
+    "14d197f59fd400e1faa584911c0d7d9be493b21a5ed11e4b6f2972ca45c02206",
+    "d9a0df321691e08bf8489e3c48bf55c92ca7f8d8dc4eb6107015f03f286ec395"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "1079714618171046",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "4b14ab34c6d358b905fa99a69a62fded66987cc5acec1804483d6a119448e92e",
+    "1a5b9e73da982f48cd221196cc54c399e12833102a688b1f3ac963c3303a8ade",
+    "a1e47048d819897b1dd71b06f5c682b38df034314976a35dc15187886f91c449",
+    "d9a0df321691e08bf8489e3c48bf55c92ca7f8d8dc4eb6107015f03f286ec395"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "1255038076788247",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "a80a8086e98ccb97e6c47cea3119563366e6febd9e4f0c11c71d24c0d1352fed",
+    "7537915f097ed461fca204748cbe1b071a2f9eac9b35f7d6c68c91f1792a40be",
+    "7b8709a9d83120fa9619112f0c52608a189953e9f38eb5fa04a4f9ecb6850479",
+    "d9a0df321691e08bf8489e3c48bf55c92ca7f8d8dc4eb6107015f03f286ec395"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "1406385857756462",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "d3793c284b60192e9d131fc692c5f0055c2cfaa32e63aee41b237c731ccaf452",
+    "fc1e0851ec247dca88d74ff3f4a69095c2fe3738f9ea9ab484c2e8673700514e",
+    "86e530cdeda16e7e53e7a4d6654e7389ce722f8690e95db3b38e2b30943623c4",
+    "83df4d1ed235f6d2cad87199e1d93f732943eaa61c32ef9b62199f9137e5fae9",
+    "3080ca0b66d585fb08aea04d512c0ede2657993482dcfc863c4076360846e781"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "1470249924993736",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "d620db6e98567920d378c0f6a94961f23c6cc7b02fe9a53146b561085fe4884e",
+    "b3bf43d6a906fb6f2a0c1ca3aa223aa437be8768a18c1e0d7c6cd7c57b5d5fbf",
+    "3ffa9573dea920bb92a9592394fddaebd3dbdc716c96127de38b72a2491eff17",
+    "d9a0df321691e08bf8489e3c48bf55c92ca7f8d8dc4eb6107015f03f286ec395"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "1567938922042766",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "e11cd9fe500afa9355be220e3d46777344c21d0b596e15fff31949085fb793c9",
+    "c6ec9c4667108071be78c0f3969968515e04285f8385fa6bd31f49dc9f4f25e7",
+    "941501a14353867ff8480f77d7acdd4d59ff16b493d70b9164c74b04b4b06f56",
+    "d8c040c579baa4847cc26464ba73bcdc96103ebb910f0427b4d6560ea945cb26",
+    "8782be080dc456e15780a3210b50d9699fb49e6dcc74741b00fc6209eaeae6bd"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "1797758508140358",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "de43148eb2d3c4a65d37a2fb809a7854437a5d186744e153e84fdffe3fc7a50e",
+    "318f24dd4d61febc272aff2f9ef019aa96b48d3427cba86e0a79255f26e67207",
+    "cb044f0f32378fd8272cd81b76b21228d3c661663df3866f45f3f9aa994861a2",
+    "e179e46af8c6f64cb7d8f941dad04940a5f1ae5182998a5b6e18ae0bbffc3bb8"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "2349813049170357",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "6ea89ed8af272dcddc45608828aca15923ebc34c9e6056edb94feb81dd1540d7",
+    "cbba4fcabdb5f848f6826d2ba69252d9e18049d4546025f3189c8424348321ee",
+    "03ce2005a1396b275413efb7a981da3b3a7cdcb5c3ffb176ed35bb75bbe960ca",
+    "d9a0df321691e08bf8489e3c48bf55c92ca7f8d8dc4eb6107015f03f286ec395"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "963536426194014",
+   "firm": "Skyline",
+   "reviewed": "image",
+   "media_sha256": [
+    "fe94529dbece06ec0a0fb0ded9937cd3d6bb2c34ab060cc2721d62623f645500",
+    "ca9a146f375530c0d4926da4224bf10471d4c97f9c69821a4eebaf6d7409e7d1",
+    "55b74865a5ca48cb066f66a3677324bf33a999a426ccdf6b7d76f24ebc81d013",
+    "d9a0df321691e08bf8489e3c48bf55c92ca7f8d8dc4eb6107015f03f286ec395"
+   ],
+   "adds_return": true,
+   "adds_minimum": true
+  },
+  {
+   "id": "1203676132828528",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "c6a3c27a0b95c2a217e4bd6fe92d88cc8ef3e3b04459b0defeb2676d7cab99ee",
+    "91299abd15dbbbe423a5eeace38f80e0f437dfdb71960d0c9c099d5226611d91"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1375085997831608",
+   "firm": "Lankin",
+   "reviewed": "image",
+   "media_sha256": [
+    "15b87254e5a4bafe0fc6a7a7046725dc1dbd93b486d5341c23dd47dc6d4b7914",
+    "c198abe71563f443a38bcde5b2769ff336eae03bcc3aa0311b9efe15eb078a81"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1110691005024782",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "8aae9b0e071a24433e43dcd20208bb356e98e3e681252672003f42997f9be966",
+    "8aae9b0e071a24433e43dcd20208bb356e98e3e681252672003f42997f9be966",
+    "7cad613db0df5529b59c98f36d17fc96277f797676a342b46d7e8b41e73010c0",
+    "8aae9b0e071a24433e43dcd20208bb356e98e3e681252672003f42997f9be966"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "2441863423285866",
+   "firm": "Lankin",
+   "reviewed": "image",
+   "media_sha256": [
+    "5664ae3cd37c8161f770733df66037dd59aa6a1822ed056fa7eec90773ea6edd",
+    "879d5567a8d3793cc9ef8c165fe369959218103f21ec39451788376ac0131e2f",
+    "879d5567a8d3793cc9ef8c165fe369959218103f21ec39451788376ac0131e2f",
+    "879d5567a8d3793cc9ef8c165fe369959218103f21ec39451788376ac0131e2f"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "2624411051311677",
+   "firm": "Lankin",
+   "reviewed": "image",
+   "media_sha256": [
+    "f307df4b51788170d223ea810f690d07e07a6e98fddd9715d5f0998f47c826ae",
+    "f6514177ab98402269f847c4f90a8816dd6ef0dfb9eb36c397fa12637fcf3ea7",
+    "f6514177ab98402269f847c4f90a8816dd6ef0dfb9eb36c397fa12637fcf3ea7",
+    "f6514177ab98402269f847c4f90a8816dd6ef0dfb9eb36c397fa12637fcf3ea7",
+    "f6514177ab98402269f847c4f90a8816dd6ef0dfb9eb36c397fa12637fcf3ea7"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "4159242460874283",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "d7962e5df702cdb1f3c6dbff6d4ad64e5daacfeef5d064f29796e340c231f593",
+    "ed6a2383f5a6f1cd287f3fa6ef4249e36a551abf97db5c735ff0b49ce3772c25"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "4554574738119587",
+   "firm": "Lankin",
+   "reviewed": "image",
+   "media_sha256": [
+    "e6caabd9a58d619b6708daeb754f26ac0a095a1af0bd071f37260f6dd02927a1",
+    "da1b00c2d0c2c54e689aa085affff76d4b03b3f0f993afc5f03dc577824b8504",
+    "db3cc8878681ef4a63a78c774d14a386011912a72b6ca774dad5ac10eb1ecb09",
+    "da1b00c2d0c2c54e689aa085affff76d4b03b3f0f993afc5f03dc577824b8504",
+    "da1b00c2d0c2c54e689aa085affff76d4b03b3f0f993afc5f03dc577824b8504",
+    "9aaab8dc11f839d7aeaac2f3402119cf99418a08f66e9ec9724e6841880697c6"
+   ],
+   "adds_return": true,
+   "adds_minimum": false
+  },
+  {
+   "id": "1106196105604300",
+   "firm": "Lankin",
+   "reviewed": "text only (no media in the 3 November collection)",
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1590288926182530",
+   "firm": "Lankin",
+   "reviewed": "text only (no media in the 3 November collection)",
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1128130162928803",
+   "firm": "Lankin",
+   "reviewed": "text only (no media in the 3 November collection)",
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1159818246706051",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "b0cd6b2eb51d6c49d1ebb5e423b049c2a57fd379be6e587e8932467fd76edad0",
+    "5c4ec60f1d05098b5d38f5e3ceb264f6ae6bef50222a0d85c7fb6540c0b97696"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1447371477569402",
+   "firm": "Lankin",
+   "reviewed": "image",
+   "media_sha256": [
+    "428a2e4eddb9f969f39df90a2ca774eb7837426558196c695a5d16f7f930b10d",
+    "ef22bd75cd9ca48b5d191528ab43b317d17c0e301626b1c1c6d997b13d96952f",
+    "428a2e4eddb9f969f39df90a2ca774eb7837426558196c695a5d16f7f930b10d"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1894686268571643",
+   "firm": "Lankin",
+   "reviewed": "text only (no media in the 3 November collection)",
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "2144021036197185",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "e2af3343961054cfe464e28bac2a52439893832dd4a4714a2e1246f0db315c0c",
+    "66e5596665d1ea768a6022f8333082f93fcca5d635289bc9da1e3882231c3074"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "954354520672577",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "7b0612a73fa83249b7933ba7bd609a54bd6a48c5aa5bb698ac52e4c906e34c76",
+    "2d3cc23dd60e31fc5040359b20f38cc3cf42c66e302e39b01847fcdb0427c52e"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "999549016510817",
+   "firm": "Lankin",
+   "reviewed": "text only (no media in the 3 November collection)",
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1053478334404222",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "b0cd6b2eb51d6c49d1ebb5e423b049c2a57fd379be6e587e8932467fd76edad0",
+    "5c4ec60f1d05098b5d38f5e3ceb264f6ae6bef50222a0d85c7fb6540c0b97696"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1111563848524138",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "931fdd3b7ae1ebdf4f69feebf6a5a30765def4610f5643d33ebca61add8172d2",
+    "556833ded9bd7da4bc4ff416d99818eab655b5e767140dfab75cfbf9cd3c2b3c"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1447482374183194",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "3793ecddaf04a1f897434ccae3d707ba3113fe8562d0d8d49925288dccd87efd",
+    "9cc06824222db4c607d5a0706bc8422978908f39b63a44e0f5cc4c9b7c18d49c"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1452935236788640",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "931fdd3b7ae1ebdf4f69feebf6a5a30765def4610f5643d33ebca61add8172d2",
+    "556833ded9bd7da4bc4ff416d99818eab655b5e767140dfab75cfbf9cd3c2b3c"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1601531007768211",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "3793ecddaf04a1f897434ccae3d707ba3113fe8562d0d8d49925288dccd87efd",
+    "9cc06824222db4c607d5a0706bc8422978908f39b63a44e0f5cc4c9b7c18d49c"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1601948921206285",
+   "firm": "Lankin",
+   "reviewed": "image",
+   "media_sha256": [
+    "744bd3460379cbeb55ba66267261c1dab321588a9568cc146b18746a5a9b7eb9",
+    "722d37cb7ad3cb02723bc275f6b354bc8b1a9f4062e7cbf710f22585b994e85b",
+    "722d37cb7ad3cb02723bc275f6b354bc8b1a9f4062e7cbf710f22585b994e85b",
+    "722d37cb7ad3cb02723bc275f6b354bc8b1a9f4062e7cbf710f22585b994e85b",
+    "722d37cb7ad3cb02723bc275f6b354bc8b1a9f4062e7cbf710f22585b994e85b"
+   ],
+   "adds_return": true,
+   "adds_minimum": false
+  },
+  {
+   "id": "1705563274516252",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "3793ecddaf04a1f897434ccae3d707ba3113fe8562d0d8d49925288dccd87efd",
+    "9cc06824222db4c607d5a0706bc8422978908f39b63a44e0f5cc4c9b7c18d49c"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1741153916984700",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "931fdd3b7ae1ebdf4f69feebf6a5a30765def4610f5643d33ebca61add8172d2",
+    "556833ded9bd7da4bc4ff416d99818eab655b5e767140dfab75cfbf9cd3c2b3c"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "2383206172485260",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "7b0612a73fa83249b7933ba7bd609a54bd6a48c5aa5bb698ac52e4c906e34c76",
+    "2d3cc23dd60e31fc5040359b20f38cc3cf42c66e302e39b01847fcdb0427c52e"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "2690893264661161",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "b0cd6b2eb51d6c49d1ebb5e423b049c2a57fd379be6e587e8932467fd76edad0",
+    "5c4ec60f1d05098b5d38f5e3ceb264f6ae6bef50222a0d85c7fb6540c0b97696"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "2995524560800019",
+   "firm": "Lankin",
+   "reviewed": "image",
+   "media_sha256": [
+    "744bd3460379cbeb55ba66267261c1dab321588a9568cc146b18746a5a9b7eb9",
+    "722d37cb7ad3cb02723bc275f6b354bc8b1a9f4062e7cbf710f22585b994e85b",
+    "722d37cb7ad3cb02723bc275f6b354bc8b1a9f4062e7cbf710f22585b994e85b",
+    "722d37cb7ad3cb02723bc275f6b354bc8b1a9f4062e7cbf710f22585b994e85b",
+    "722d37cb7ad3cb02723bc275f6b354bc8b1a9f4062e7cbf710f22585b994e85b"
+   ],
+   "adds_return": true,
+   "adds_minimum": false
+  },
+  {
+   "id": "4631904367130884",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "b0cd6b2eb51d6c49d1ebb5e423b049c2a57fd379be6e587e8932467fd76edad0",
+    "5c4ec60f1d05098b5d38f5e3ceb264f6ae6bef50222a0d85c7fb6540c0b97696"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "893795470390280",
+   "firm": "Lankin",
+   "reviewed": "image",
+   "media_sha256": [
+    "744bd3460379cbeb55ba66267261c1dab321588a9568cc146b18746a5a9b7eb9",
+    "722d37cb7ad3cb02723bc275f6b354bc8b1a9f4062e7cbf710f22585b994e85b",
+    "722d37cb7ad3cb02723bc275f6b354bc8b1a9f4062e7cbf710f22585b994e85b",
+    "722d37cb7ad3cb02723bc275f6b354bc8b1a9f4062e7cbf710f22585b994e85b",
+    "722d37cb7ad3cb02723bc275f6b354bc8b1a9f4062e7cbf710f22585b994e85b"
+   ],
+   "adds_return": true,
+   "adds_minimum": false
+  },
+  {
+   "id": "1113319551293851",
+   "firm": "Lankin",
+   "reviewed": "image",
+   "media_sha256": [
+    "7d589619fb35f9b3e9607fd4228330d027c83b9860e44a894da3242c627997aa",
+    "23a09f53048842c714ae54abf21d18df2edf48b41c5b6bdbb1e034b0279bdd89",
+    "23a09f53048842c714ae54abf21d18df2edf48b41c5b6bdbb1e034b0279bdd89"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1121946593581783",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "1bb3c21243257ef92fb493f5def80de6845156f0e9fefb60e65efb7ca57830a5"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1613170070614774",
+   "firm": "Lankin",
+   "reviewed": "image",
+   "media_sha256": [
+    "e100d2e7fb7b25c09e26c8371a3795e628058689cab75ded35eb8ea74f41e5b7",
+    "bc4dd953bd98b07411679d7e34f98a3baf996a389e3f1a94418b638bfd9e7877"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "1756025042323395",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "e5a740de3b2e71109319aa94354f3aaad64da34169010c9f7304e0e536424807",
+    "d672b1346b6fe7f44096b6e91229f8e4052d151017c87662d15336fcdecc5d8f"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  },
+  {
+   "id": "2183433305872408",
+   "firm": "Lankin",
+   "reviewed": "video frames",
+   "media_sha256": [
+    "ed521e264a209b951207c41a04fb5d879e7af36a033e19eec9934b3cc71d1d0d",
+    "f032900eed65a3affc1c6d3df0a191b0a793c54a4cfe31105334a86e0ef93e44"
+   ],
+   "adds_return": false,
+   "adds_minimum": false
+  }
+ ],
+ "example_images": {
+  "equiton-4275206899420559.webp": "c03fdac9302f7ecad4fad5777e349503a2f8180b2ed75e3d042466adb9f9b5b3",
+  "skyline-1105321099025757.webp": "08d1c0705310b3f576b339a55cf1b3763d31cc21bfd87fce4659701c7892e464",
+  "lankin-1203676132828528.webp": "4c3c70ac367d135b0705af389fd16782a1205a35e2f14bf4e24f770ed5af1086"
+ },
+ "example_images_note": "Paid Social cards, longest-running investor ad per firm, 440x550 WebP crops. Equiton and Lankin: a frame from the video (15.4 s and 1.3 s in); Skyline: the ad image. Source media private."
+}

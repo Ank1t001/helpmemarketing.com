@@ -19,6 +19,7 @@ NAMES = {'Equiton': 'Equiton', 'Skyline': 'Skyline', 'Lankin': 'Lankin Investmen
          'Centurion': 'Centurion Asset Management'}
 DATE = '2 November 2026'
 E = lambda s: _e(str(s), quote=True)
+long_date = lambda d: '%d %s %s' % (int(d[8:10]), ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][int(d[5:7]) - 1], d[:4])
 
 
 def load(n):
@@ -150,6 +151,11 @@ def organic_sources(o):
             'Likes are not adjusted for follower count. Followers: %s</p></div>\n' % E(o['followers_note']))
 
 
+ADALT = {'Equiton': 'a presenter with the caption \u201cYou get the cash flow from monthly rental income\u201d and a disclaimer',
+         'Skyline': '\u201cOakville Invests in industrial real estate\u201d, Skyline Industrial REIT, 13%+ historical annualized returns, minimum investment $50,000',
+         'Lankin': 'Toshi Okada, Director, Private Capital Markets, with the caption \u201cWhy do sophisticated investors\u201d'}
+
+
 def paid_section(a):
     """Paid Social tab (founder, 2026-11-03): one glance table, a collapsed breakdown, one ad per firm and one finding.
     Counts, advertisers, links and method are in Sources & evidence (paid_sources)."""
@@ -179,7 +185,7 @@ def paid_section(a):
             'Campaign landing page': 'a campaign landing page', 'Homepage or other general page': 'a general page on its website'}
     MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     short = {'Equiton': 'Equiton', 'Skyline': 'Skyline', 'Lankin': 'Lankin'}
-    med = lambda v: '%g' % st.median([x['days_running'] for x in v])
+    med = lambda v: '%d' % int(st.median([x['days_running'] for x in v]) + 0.5)  # whole days, halves rounded up
     run, exs, longest = [], [], {}
     for k, v in inv.items():
         n = len(v); d = [r for r in dd if r['firm'] == k]
@@ -194,9 +200,12 @@ def paid_section(a):
         y, m, dday = top['start'].split('-')
         dest = dmap.get(top['id'])
         lead = (' On 3 November its button %s %s.' % ('pointed to' if 'URL link' in dest['basis'] else 'led to', DEST[dest['destination']])) if dest and dest['destination'] in DEST else ''
-        exs.append('<article class="ri-adex"><h4>%s &middot; %d days</h4><p class="ri-adq">&ldquo;%s&rdquo;</p><p>Started %d %s %s%s. %s, button &ldquo;%s&rdquo;, message: %s.%s</p>'
+        img = 'ads/%s-%s.webp' % (k.lower(), top['id'])
+        assert img.split('/')[1] in a['creative_review']['example_images'], img
+        alt = '%s ad%s: %s' % (short[k], ' (frame from the video)' if top['format'] == 'video' else '', ADALT[k])
+        exs.append('<article class="ri-adex"><h4>%s &middot; %d days</h4><img class="ri-adimg" src="/assets/index/real-estate/%s" width="440" height="550" loading="lazy" decoding="async" alt="%s"><p class="ri-adq">&ldquo;%s&rdquo;</p><p>Started %d %s %s%s. %s, button &ldquo;%s&rdquo;, message: %s.%s</p>'
                    '<p class="ri-adsrc"><a href="https://www.facebook.com/ads/library/?id=%s" target="_blank" rel="noopener nofollow">Open in the Meta Ad Library</a></p></article>'
-                   % (short[k], top['days_running'], E(top['headline']).replace('\u2013', '&ndash;'), int(dday), MONTHS[int(m) - 1], y,
+                   % (short[k], top['days_running'], img, E(alt), E(top['headline']).replace('\u2013', '&ndash;'), int(dday), MONTHS[int(m) - 1], y,
                       (' (%d ads with this headline started that day)' % twins) if twins > 1 else '', top['format'].capitalize(), E(top['cta']), E(top['focus']), lead, top['id']))
     exs = ''.join(exs)
     dn = {k: sum(r['firm'] == k for r in dd) for k in inv}
@@ -206,7 +215,7 @@ def paid_section(a):
             '<h3 class="ri-wh">Ad strategy at a glance</h3>\n'
             '<div class="tw"><table class="ri-wtable ri-ptable"><thead><tr><th>Firm</th><th class="r">Investor ads reviewed</th><th>Most common message</th><th class="r">Used video</th>'
             '<th class="r">Mentioned a return figure</th><th class="r">Stated a minimum investment</th></tr></thead><tbody>' + ''.join(rows) + '</tbody></table></div>\n'
-            '<p class="pnote">No active Canadian ads matched Greybrook in the search. Centurion&rsquo;s four ads were for recruitment.</p>\n'
+            '<p class="pnote">Return figures and minimums are counted from the ad text and the words printed on each image or video. No active Canadian ads matched Greybrook in the search. Centurion&rsquo;s four ads were for recruitment.</p>\n'
             '<details class="ri-adv"><summary>View ad breakdown</summary>\n'
             '<p class="dek">Each percentage uses the firm&rsquo;s reviewed investor ads as its denominator; stage columns show the number of ads in brackets, and rounding can make a row total 99% or 101%. The buying stage is an interpretation of each ad&rsquo;s wording and call to action, not a measured result.</p>\n'
             '<div class="tw"><table class="ri-cmpt"><thead><tr><th>Firm</th><th class="r">Named RRSP or TFSA</th><th>Second most common message</th>'
@@ -255,6 +264,7 @@ def paid_sources(a):
             '<p class="pnote"><b>%d and %d:</b> the three investor advertiser pages listed %d active ads (Equiton %d, Skyline Wealth Management %d, Lankin %d). %d were read; %d of Equiton&rsquo;s listings were not returned, and one Equiton ad (&ldquo;%s&rdquo;) was a home sale, not an investor ad, leaving %d reviewed investor ads.</p>\n'
             % (sum(len(v) for v in inv.values()), listed, listed, tot['Equiton']['active'], tot['Skyline']['active'], tot['Lankin']['active'], sum(len(v) for v in read.values()),
                tot['Equiton']['active'] - len(read['Equiton']), E(other[0]['headline']) if other else '', sum(len(v) for v in inv.values())) +
+            '<p class="pnote"><b>Return figures and minimums, %s:</b> %s %s</p>\n' % (long_date(a['creative_review']['reviewed_on']), E(a['creative_review']['method']), E(a['creative_review']['note'])) +
             '<p class="pnote">On ' + DATE + ' most ad links pointed to a Meta short link (fb.me) and were not followed. Where the ads send people was checked separately on 3 November 2026; see &ldquo;Ad destinations&rdquo; below and the last block of HMM Ranking.</p>\n' + dest_sources() +
             '<p class="pnote"><b>Follow-up, Lankin minimums:</b> two of its ads say &ldquo;Invest in Private Real Estate with $10,000&rdquo;, one of its forms asks about &ldquo;$5,000 or more&rdquo; and a campaign page states a $25,000 minimum. A form&rsquo;s qualifying question can serve a different purpose from a product minimum, so each ad will be traced to its own form, destination and product before any wording change is recommended.</p>\n'
             '<p class="pnote m0"><b>Examples in Paid Social (the longest-running investor ad from each firm):</b> ' + ex + '</p>\n</div>\n')
@@ -299,11 +309,12 @@ def recs_section(a, o, w):
     inv = lambda k: [x for x in rec if x['firm'] == k and x['for_investors']]
     posts = lambda k: [x for x in o['posts'] if x['firm'] == k]
     eq_fund = sum(x['names_fund'] for x in posts('Equiton')); eq_n = len(posts('Equiton'))
-    sk_min = sum(x['minimum'] for x in inv('Skyline')); sk_n = len(inv('Skyline'))
+    sk_min = sum(x['minimum'] and x['return_figure'] for x in inv('Skyline')); sk_n = len(inv('Skyline'))
+    sk_form = sum(r['firm'] == 'Skyline' and r['destination'] == 'Meta form' for r in load('ad_destinations.json')['records'])
     gb = [x for x in posts('Greybrook') if x['likes'] is not None]
     gb_top = max(x['likes'] for x in gb); gb_fund = [x['likes'] for x in posts('Greybrook') if x['names_fund']]
     ce = [x for x in rec if x['firm'] == 'Centurion']
-    assert (eq_fund, eq_n) == (1, 14) and (sk_min, sk_n) == (1, 16) and gb_top == 116 and gb_fund == [1], (eq_fund, eq_n, sk_min, sk_n, gb_top, gb_fund)
+    assert (eq_fund, eq_n) == (1, 14) and (sk_min, sk_n, sk_form) == (16, 16, 16) and gb_top == 116 and gb_fund == [1], (eq_fund, eq_n, sk_min, sk_n, gb_top, gb_fund)
     assert len(ce) == 4 and not any(x['for_investors'] for x in ce)
     assert '$50,000' in w['firms']['Skyline']['minimum']
     words = {1: 'one', 4: 'four'}
@@ -311,8 +322,8 @@ def recs_section(a, o, w):
         ('Equiton', 'Its investor ads featured specific offerings, while only %d of %d Instagram posts named a fund.' % (eq_fund, eq_n),
          'Turn one apartment fund ad message into a short explainer reel. Compare it with a market-update reel of similar length.',
          'Saves per 1,000 accounts reached.'),
-        ('Skyline', 'Its Apartment REIT page states a $50,000 minimum. Only %d of %d reviewed investor ads mentioned a minimum, although its lead forms ask whether the reader has $50,000 to invest.' % (sk_min, sk_n),
-         'Run two versions of the Apartment REIT ad. Add the minimum to one and keep the audience, creative and budget comparable.',
+        ('Skyline', 'All %d reviewed investor ads printed the fund&rsquo;s historical return and the $50,000 minimum on the image. Every ad led to a Meta form that asks again whether the reader has $50,000 to invest.' % sk_n,
+         'Send half of the Apartment REIT ads to the fund&rsquo;s own page instead of the form. Keep the creative, audience and budget the same.',
          'Cost per enquiry that meets the fund&rsquo;s eligibility criteria.'),
         ('Lankin', 'The reviewed ads and website cited different target return ranges. The research could not confirm whether they referred to the same fund.',
          'First verify which fund each figure describes. Then test naming the fund in the ad headline, with both versions linking to the same verified fund page.',
@@ -454,7 +465,7 @@ def rank_paid(a):
             '<div class="tw"><table class="ri-hmt"><thead><tr><th>Message theme</th>' + head + '</tr></thead><tbody>' + trs + '</tbody></table></div>\n'
             '<p class="pnote">Each ad has one main message theme, so a firm&rsquo;s column adds up to 100% (rounding aside). Counts in brackets.</p>\n'
             '<div class="ri-measg">' + mb + '</div>\n'
-            '<p class="pnote">Measured separately because one ad can use video, name a return figure and state a minimum at once. Sorted by share, highest first.</p>\n'
+            '<p class="pnote">Measured separately because one ad can use video, name a return figure and state a minimum at once. Return figures and minimums count when they are in the ad text or printed on the image or video. Sorted by share, highest first.</p>\n'
             '<p class="ri-vlink"><a href="#ri-view-paid">See the ads in Paid Social <span aria-hidden="true">&rarr;</span></a><a class="ri-backcmp" href="#ri-cmpnav">Back to comparisons <span aria-hidden="true">&uarr;</span></a></p></section>\n')
 
 
@@ -495,7 +506,7 @@ def rank_dest(dd):
     obs = [
         ('Equiton', '%d of %d ads lead to Meta forms. Its %d Bridleview Residences forms show the 24%% target return and $25,000 minimum but name the development only in the disclaimer. Its %d US Apartment Fund ads lead to a page for that fund.'
          % (sum(r['firm'] == 'Equiton' and r['destination'] == 'Meta form' for r in recs), n['Equiton'], bridle, len(usf))),
-        ('Skyline', 'All %d ads lead to Meta forms, which ask whether the reader has $50,000 to invest; the minimum appeared in only 1 of 16 reviewed ad texts.' % len(sk)),
+        ('Skyline', 'All %d ads lead to Meta forms, which ask whether the reader has $50,000 to invest. Every Skyline ad image also printed that minimum.' % len(sk)),
         ('Lankin', '%d of %d ads lead to Meta forms and %d to its campaign page. The other %d are counted by the website address their button points to: %d show &ldquo;page not found&rdquo;, %d redirect to a partnerships page for institutional and direct partners and %d %s to the campaign page.'
          % (lc['Meta form'], n['Lankin'], lc['Campaign landing page'] - ncamp, len(lr), n404, nred, ncamp, 'goes' if ncamp == 1 else 'go'))]
     assert lc['Meta form'] + lc['Campaign landing page'] - ncamp + len(lr) == n['Lankin']
@@ -513,8 +524,23 @@ def rank_dest(dd):
             '<p class="ri-vlink"><a href="#ri-view-paid">See the ads in Paid Social <span aria-hidden="true">&rarr;</span></a><a class="ri-backcmp" href="#ri-cmpnav">Back to comparisons <span aria-hidden="true">&uarr;</span></a></p></section>\n')
 
 
+def apply_creative_review(a):
+    """Return figures and minimums count when they are in the ad text or printed on the image or video frames (review of 4 November 2026)."""
+    cr = load('ad_creative_review.json')
+    by = {r['id']: r for r in a['records']}
+    for r in cr['records']:
+        x = by[r['id']]
+        x['return_figure'] = x['return_figure'] or r['adds_return']
+        x['minimum'] = x['minimum'] or r['adds_minimum']
+    inv = lambda k: [x for x in a['records'] if x['firm'] == k and x['for_investors']]
+    got = {k: (sum(x['return_figure'] for x in inv(k)), sum(x['minimum'] for x in inv(k)), len(inv(k))) for k in ('Equiton', 'Skyline', 'Lankin')}
+    assert got == {'Equiton': (25, 40, 49), 'Skyline': (16, 16, 16), 'Lankin': (32, 2, 36)}, got
+    a['creative_review'] = cr
+
+
 def main():
     a, o, w = load('ads.json'), load('organic.json'), load('websites.json')
+    apply_creative_review(a)
     body = open(BODY, encoding='utf-8').read()
     body = put(body, 'website', website_view(w))
     body = put(body, 'websrc', website_sources(w))
