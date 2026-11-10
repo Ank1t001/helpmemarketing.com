@@ -239,7 +239,7 @@
     {
       "source": "/instagram-reindex",
       "destination": "/realestate-index",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pricing",
@@ -254,7 +254,7 @@
     {
       "source": "/gta-medspa-index",
       "destination": "/medspa-index",
-      "permanent": true
+      "statusCode": 301
     }
   ],
   "headers": [
