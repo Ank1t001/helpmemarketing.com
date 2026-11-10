@@ -333,6 +333,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
   background:transparent;color:var(--text-tertiary);font-size:20px;line-height:1;cursor:pointer}
 .sgos .gate .x:hover{color:var(--text);background:var(--bg-sunk)}
 .sgos .gate .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.sgos .gate .ts-slot:not(:empty){margin:12px 0 0}
 .sgos .gate .done{display:none}
 .sgos .gate.sent .form{display:none}
 .sgos .gate.sent .done{display:block}
@@ -875,7 +876,7 @@ No CDN, no external images, no server. It must open on a laptop with no internet
       <h3 id="gate-h">Where should I send it?</h3>
       <p class="n">Enter your email and the release 2.2.1 bundle arrives in your inbox: 39 skills, a README and a setup guide. It isn&rsquo;t a one-click app: you install it with a supported AI tool, and some checks need data sources connected.</p>
 
-      <form id="gate-form" novalidate>
+      <form id="gate-form" data-turnstile-sitekey="0x4AAAAAAFKhXJ31AZeh2wp1" novalidate>
         <label class="f" for="gate-email">Email address</label>
         <input type="email" id="gate-email" name="email" autocomplete="email"
                placeholder="you@company.com" required>
@@ -889,6 +890,8 @@ No CDN, no external images, no server. It must open on a laptop with no internet
           <input type="checkbox" id="gate-consent">
           <span>Send me occasional SEO notes and updates. Optional, and you can stop any time.</span>
         </label>
+
+        <div class="ts-slot" id="gate-turnstile"></div>
 
         <button class="go" type="submit" id="gate-go">Send me the download</button>
         <p class="err" id="gate-err"></p>
@@ -997,6 +1000,34 @@ document.getElementById('cp').addEventListener('click', function(){
 
   function fail(msg){ err.textContent = msg; err.classList.add('on'); }
 
+  // Cloudflare Turnstile, the same set-up as /contact (d2, 2026-11-10): off while data-turnstile-sitekey is empty;
+  // the script loads on the first focus or tap inside the form, so the token is usually ready by submit.
+  var TS_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit', TS_WAIT_MS = 10000;
+  var ts = { key: '', started: false, token: '', interactive: false, failed: false, id: null };
+  function loadTurnstile(){
+    ts.key = (form.getAttribute('data-turnstile-sitekey') || '').trim();
+    if (!ts.key || ts.started) return; ts.started = true;
+    var sc = document.createElement('script'); sc.src = TS_SRC; sc.async = true;
+    sc.addEventListener('error', function(){ ts.failed = true; });
+    sc.addEventListener('load', function(){
+      if (!window.turnstile) { ts.failed = true; return; }
+      try { ts.id = window.turnstile.render('#gate-turnstile', {
+        sitekey: ts.key, action: 'growth_os_download', theme: 'auto', size: 'flexible', appearance: 'interaction-only',
+        callback: function(t){ ts.token = t; ts.failed = false; ts.interactive = false; },
+        'expired-callback': function(){ ts.token = ''; },
+        'error-callback': function(){ ts.failed = true; },
+        'before-interactive-callback': function(){ ts.interactive = true; },
+        'after-interactive-callback': function(){ ts.interactive = false; }
+      }); } catch (e) { ts.failed = true; }
+    });
+    document.head.appendChild(sc);
+  }
+  // Tokens are single-use: reset the widget after every attempt so a retry gets a fresh one.
+  function resetTurnstile(){ ts.token = ''; if (window.turnstile && ts.id != null) { try { window.turnstile.reset(ts.id); ts.failed = false; } catch (e) {} } }
+  function waitForToken(){ return new Promise(function(res){ var start = Date.now(); (function poll(){ if (ts.token || ts.failed || ts.interactive || Date.now() - start > TS_WAIT_MS) return res(); setTimeout(poll, 150); })(); }); }
+  form.addEventListener('focusin', loadTurnstile);
+  form.addEventListener('pointerdown', loadTurnstile);
+
   function open(e){
     if (e) { e.preventDefault(); opener = e.currentTarget; }
     gate.classList.add('on'); back.classList.add('on');
@@ -1037,15 +1068,11 @@ document.getElementById('cp').addEventListener('click', function(){
       email.focus();
       return;
     }
-    if (hp.value.trim()) { return; }   // bot: silently stop
 
     if (GATE_URL.indexOf('PASTE_') === 0) {
       fail('The download is not wired up yet. Email Hello@helpmemarketing.com and we will send it over.');
       return;
     }
-
-    go.disabled = true;
-    go.textContent = 'Sending...';
 
     var payload = {
       form: 'growth-os-download',
@@ -1058,21 +1085,56 @@ document.getElementById('cp').addEventListener('click', function(){
       userAgent: navigator.userAgent || ''
     };
 
-    // text/plain avoids a CORS preflight, matching /contact and /tools/marketing-audit
-    fetch(GATE_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload)
-    }).then(done).catch(done);
-
-    function done(){
-      // no-cors responses are opaque, so success cannot be read back; the
-      // contact form makes the same assumption.
+    // Bot guard, as on /contact: a filled trap field is still sent, flagged, so the forms script files it on the
+    // Spam tab with the reason; the visitor sees the usual confirmation.
+    if (hp.value) {
+      payload.client_flag = 'trap';
+      payload.trap_value = hp.value.slice(0, 100);
+      fetch(GATE_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload) }).catch(function(){});
       sentTo.textContent = value;
       gate.classList.add('sent');
-      go.disabled = false;
-      go.textContent = 'Send me the download';
+      return;
+    }
+
+    go.disabled = true;
+    go.textContent = 'Sending...';
+    loadTurnstile();
+
+    (ts.key ? waitForToken() : Promise.resolve()).then(function(){
+      // A visitor Turnstile wants to check by hand must tick the box first. If Turnstile failed to load,
+      // the request is sent without a token and the forms script files it on the Spam tab, not lost.
+      if (ts.key && !ts.token && ts.interactive) {
+        go.disabled = false; go.textContent = 'Send me the download';
+        fail('Please tick the \u201cVerify you are human\u201d box, then press Send again.');
+        return;
+      }
+      if (ts.key) payload['cf-turnstile-response'] = ts.token;
+      // text/plain avoids a CORS preflight; the forms script replies with readable JSON, as for /contact.
+      return fetch(GATE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      }).then(function(r){ return r.json(); }).then(function(j){
+        if (!j || j.result !== 'ok' || (j.saved !== 'lead' && j.saved !== 'spam')) throw new Error('not saved');
+        resetTurnstile();
+        go.disabled = false; go.textContent = 'Send me the download';
+        if (j.saved === 'spam') {
+          // Filed on the Spam tab: no bundle email was sent, so never show the "sent" panel.
+          fail('I need to check this request by hand. Email Hello@helpmemarketing.com and I will send the download.');
+          return;
+        }
+        done();
+      });
+    }).catch(function(){
+      resetTurnstile();
+      go.disabled = false; go.textContent = 'Send me the download';
+      fail('The download could not be sent. Please try again, or email Hello@helpmemarketing.com and I will send it over.');
+    });
+
+    function done(){
+      sentTo.textContent = value;
+      gate.classList.add('sent');
       if (window.dataLayer) {
         window.dataLayer.push({
           event: 'growth_os_download',

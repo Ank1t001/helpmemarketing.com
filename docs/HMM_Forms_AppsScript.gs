@@ -87,7 +87,8 @@ var INDEX_CSV = { 'realestate-index': { url: SITE_URL + '/assets/index/real-esta
   name: 'realestate-index-postlog.csv', title: 'How Canadian Real Estate Investment Firms Market to Investors', path: '/realestate-index' } };
 // Turnstile action per protected form. 'contact' is also accepted from the audit form until its page
 // change (action 'audit_help') is live; it can be removed after that.
-var TURNSTILE_ACTIONS = { 'contact': ['contact'], 'audit-help': ['audit_help', 'contact'], 'research-code': ['research_unlock'] };
+var TURNSTILE_ACTIONS = { 'contact': ['contact'], 'audit-help': ['audit_help', 'contact'], 'research-code': ['research_unlock'],
+  'growth-os-download': ['growth_os_download'] };   // SEO bundle only (d2, 2026-11-10); see spamReason_
 var TURNSTILE_HOSTS = ['helpmemarketing.com', 'www.helpmemarketing.com'];   // production only, never localhost
 var DRY_RUN = false;             // true only inside testRouting: rows are written, no email is sent
 
@@ -176,6 +177,9 @@ function spamReason_(form, d) {
     if (!RESEARCH[pick_(d, 'research')]) return 'Unknown research';
     if (form === 'research-code' && isDisposable_(pick_(d, 'email'))) return 'Disposable email domain';
   }
+  // The Meta Growth OS page downloads on the page, sends no email and carries no Turnstile widget, so only the
+  // SEO bundle, which is emailed, needs a token (d2, 2026-11-10).
+  if (form === 'growth-os-download' && growthOsProduct_(d) !== 'SEO Growth OS') return '';
   if (TURNSTILE_ACTIONS[form]) return turnstileReason_(form, d);
   return '';
 }
@@ -305,9 +309,12 @@ function sendIndexCsv_(email, c, cycle) {
       '<p style="margin:0">Ankit Kumar, HelpMeMarketing</p></div>' });
 }
 
+function growthOsProduct_(d) {
+  return (pick_(d, 'product') === 'meta' || /meta/.test(pick_(d, 'source'))) ? 'Meta Growth OS' : 'SEO Growth OS';
+}
+
 function addGrowthOs_(d, email) {
-  var src = pick_(d, 'source');
-  var product = (pick_(d, 'product') === 'meta' || /meta/.test(src)) ? 'Meta Growth OS' : 'SEO Growth OS';
+  var product = growthOsProduct_(d);
   var consent = d.marketingConsent === true || d.marketingConsent === 'true';
   // The SEO bundle is emailed as an attachment; the Meta bundle downloads on the page, so it gets no email.
   var sent = product === 'SEO Growth OS' ? send_(function () { sendSeoBundle_(email); }) : 'Not needed (downloads on the page)';
