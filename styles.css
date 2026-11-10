@@ -2885,6 +2885,7 @@ body.blog-dark .blog-faq {
 body.blog-dark .dark-cta .btn {
   border-radius: 8px;
 }
+@media (max-width: 720px) { body.blog-dark :is(.dark-cta, .final-cta) .btn { flex-shrink: 0; max-width: 100%; padding-left: 20px; padding-right: 20px; white-space: normal; justify-content: center; text-align: center; } } /* long CTA labels wrap inside their box on 320px phones (2026-11-10) */
 body.blog-dark .sidebar-cta .cta-title {
   font-family: 'Fraunces', Georgia, serif;
   font-size: 20px;
