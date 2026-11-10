@@ -521,9 +521,15 @@
         if (ts.key && !ts.token && ts.interactive) { busy(false); show('Please tick the \u201cVerify you are human\u201d box, then press Send again.'); return; }
         var fd = payload();
         if (ts.key) fd.append('cf-turnstile-response', ts.token);
-        return fetch(CONTACT_URL, { method: 'POST', mode: 'no-cors', body: fd }).then(function () {
+        /* As on /contact (2026-11-10): read the forms script's JSON reply and count the lead only when it says
+           saved 'lead'. A request it filed on Spam gets a neutral message and no audit_contact_submit event, so
+           GA4's generate_lead never counts a Spam filing. A bad reply or result 'error' falls to the catch below. */
+        return fetch(CONTACT_URL, { method: 'POST', body: fd }).then(function (r) { return r.json(); }).then(function (j) {
+          if (!j || j.result !== 'ok' || (j.saved !== 'lead' && j.saved !== 'spam')) throw new Error('not saved');
+          resetTurnstile();
+          if (j.saved === 'spam') { busy(false); show('I need to check this request by hand. If you do not hear from me, email Hello@helpmemarketing.com.'); return; }
           track('audit_contact_submit', { audit_priority: last && last.pid, audit_path: last && last.pk });
-          resetTurnstile(); done(first);
+          done(first);
         });
       }).catch(function () {
         resetTurnstile(); busy(false);
