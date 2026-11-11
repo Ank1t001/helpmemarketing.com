@@ -11,7 +11,7 @@
  *   audit-plan           Audit                 /tools/marketing-audit, "Email my plan" (emails the plan)
  *   audit-feedback       Audit                 /tools/marketing-audit, "Do you know what to do next?"
  *   index-download       Index downloads       /gta-medspa-index, /hair-loss-index, /realestate-index (emails the CSV since 2026-11-03)
- *   growth-os-download   Growth OS downloads   /seo-growth-os (emails the bundle), /meta-growth-os
+ *   growth-os-download   Growth OS downloads   /seo-growth-os (emails the checklist PDF), /meta-growth-os
  *   subscribe            Subscribers           /blog newsletter, the audit's "Subscribe to updates"
  *   research-code        Research unlocks      /business-spend-index, /realestate-index, "Read the full case study" (emails a 6-digit code)
  *   research-verify      Research unlocks      the same form, second step (checks the code; marks the row Verified)
@@ -34,7 +34,7 @@
  *      It creates the five new tabs with header rows and leaves Leads as it is.
  *   4. Run `testRouting`. It writes one test row to each tab (emails are skipped) and logs where
  *      each went. Check the tabs, then delete the rows marked TEST.
- *   5. Run `testEmails`. It sends the SEO Growth OS bundle and a sample audit plan to your own
+ *   5. Run `testEmails`. It sends the SEO Growth OS checklist and a sample audit plan to your own
  *      address. Check both arrived.
  *   6. Deploy → Manage deployments → edit the EXISTING deployment (pencil) → Version: New
  *      version → Deploy. Do not pick "New deployment": that makes a new URL.
@@ -77,8 +77,10 @@ var AUDIT_URL = SITE_URL + '/tools/marketing-audit';
 var FROM_NAME = 'HelpMeMarketing';
 var REPLY_TO = 'hello@helpmemarketing.com';
 var SENDER_POSTAL = 'Help Me Marketing, Halton Hills, Ontario, Canada';
-var SEO_ZIP_FILE_ID = '1-ctzBnCzEve1LEpl0wpS_TTgCKOzD02X';   // the SEO Growth OS bundle in Drive
-var SEO_ZIP_FILENAME = 'seo-growth-os.zip';
+// The SEO Growth OS checklist PDF in Drive (2026-11-11: replaces the bundle zip, which is no longer sent publicly).
+// Upload docs/growth-os-checklist/HMM-SEO-Growth-OS-Checklist.pdf to Drive and paste its file ID here before deploying.
+var SEO_CHECKLIST_FILE_ID = 'PASTE_CHECKLIST_PDF_FILE_ID_HERE';
+var SEO_CHECKLIST_FILENAME = 'HMM-SEO-Growth-OS-Checklist.pdf';
 var RATE_LIMITS = { 'audit-plan': 5, 'growth-os-download': 3, 'index-download': 3 };  // per email address, per 24 hours
 var DAY_MS = 24 * 60 * 60 * 1000;
 var INDEX_REPORTS = { 'gta-medspa': 'GTA MedSpa Index', 'hair-loss': 'Hair Loss Index', 'instagram': 'Real Estate Index (Instagram)', 'realestate-index': 'Real Estate Index' };
@@ -88,7 +90,7 @@ var INDEX_CSV = { 'realestate-index': { url: SITE_URL + '/assets/index/real-esta
 // Turnstile action per protected form. 'contact' is also accepted from the audit form until its page
 // change (action 'audit_help') is live; it can be removed after that.
 var TURNSTILE_ACTIONS = { 'contact': ['contact'], 'audit-help': ['audit_help', 'contact'], 'research-code': ['research_unlock'],
-  'growth-os-download': ['growth_os_download'] };   // SEO bundle only (d2, 2026-11-10); see spamReason_
+  'growth-os-download': ['growth_os_download'] };   // SEO checklist only (was the bundle until 2026-11-11; d2, 2026-11-10); see spamReason_
 var TURNSTILE_HOSTS = ['helpmemarketing.com', 'www.helpmemarketing.com'];   // production only, never localhost
 var DRY_RUN = false;             // true only inside testRouting: rows are written, no email is sent
 
@@ -178,7 +180,7 @@ function spamReason_(form, d) {
     if (form === 'research-code' && isDisposable_(pick_(d, 'email'))) return 'Disposable email domain';
   }
   // The Meta Growth OS page downloads on the page, sends no email and carries no Turnstile widget, so only the
-  // SEO bundle, which is emailed, needs a token (d2, 2026-11-10).
+  // SEO checklist, which is emailed, needs a token (d2, 2026-11-10).
   if (form === 'growth-os-download' && growthOsProduct_(d) !== 'SEO Growth OS') return '';
   if (TURNSTILE_ACTIONS[form]) return turnstileReason_(form, d);
   return '';
@@ -254,7 +256,7 @@ function leadSource_(form, d) {
   if (form === 'audit-help') return /^fast$/.test(pick_(d, 'client_signal')) ? 'marketing audit | signal fast' : 'marketing audit';
   var parts = ['contact form', pick_(d, 'contact_intent') === 'review' ? 'free review' : 'general'];
   var entry = pick_(d, 'entry_point');
-  if (/^(home_hero|home_final|home_journey|work_final|industry_(healthcare|finance|dtc|saas)_(hero|final)|research_(hub|gta_medspa|gta_medspa_help|business_spend)|direct)$/.test(entry)) parts.push('entry ' + entry);
+  if (/^(home_hero|home_final|home_journey|work_final|industry_(healthcare|finance|dtc|saas)_(hero|final)|research_(hub|gta_medspa|gta_medspa_help|business_spend)|seo_automation|ai_seo_setup|direct)$/.test(entry)) parts.push('entry ' + entry);
   ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) {
     var v = pick_(d, k).replace(/[^\w.\-]/g, '').slice(0, 60);
     if (v) parts.push(k.replace('utm_', '') + ' ' + v);
@@ -316,11 +318,11 @@ function growthOsProduct_(d) {
 function addGrowthOs_(d, email) {
   var product = growthOsProduct_(d);
   var consent = d.marketingConsent === true || d.marketingConsent === 'true';
-  // The SEO bundle is emailed as an attachment; the Meta bundle downloads on the page, so it gets no email.
-  var sent = product === 'SEO Growth OS' ? send_(function () { sendSeoBundle_(email); }) : 'Not needed (downloads on the page)';
+  // The SEO checklist is emailed as an attachment; the Meta bundle downloads on the page, so it gets no email.
+  var sent = product === 'SEO Growth OS' ? send_(function () { sendSeoChecklist_(email); }) : 'Not needed (downloads on the page)';
   tab_('Growth OS downloads').appendRow([new Date(), email, product, consent ? 'TRUE' : 'FALSE', consent ? new Date() : '',
     sent, pick_(d, 'referrer').slice(0, 300), pick_(d, 'userAgent').slice(0, 300)]);
-  if (consent) addSubscriber_(email, product + ' download', 'Yes, ticked the box');
+  if (consent) addSubscriber_(email, product + (product === 'SEO Growth OS' ? ' checklist' : ' download'), 'Yes, ticked the box');
 }
 
 // One row per address: a repeat sign-up is ignored, not duplicated.
@@ -523,14 +525,14 @@ function planHtml_(text, url) {
     html + '<p style="margin:24px 0 0;font:13px/1.5 Arial,sans-serif;color:#666">' + esc_(planFooter_()).replace(/\n/g, '<br>') + '</p></div>';
 }
 
-function sendSeoBundle_(email) {
-  var blob = DriveApp.getFileById(SEO_ZIP_FILE_ID).getBlob().setName(SEO_ZIP_FILENAME);
-  MailApp.sendEmail({ to: email, name: FROM_NAME, replyTo: REPLY_TO, subject: 'Your SEO Growth OS download',
-    htmlBody: seoBundleHtml_(), body: seoBundleText_(), attachments: [blob] });
+function sendSeoChecklist_(email) {
+  var blob = DriveApp.getFileById(SEO_CHECKLIST_FILE_ID).getBlob().setName(SEO_CHECKLIST_FILENAME);
+  MailApp.sendEmail({ to: email, name: FROM_NAME, replyTo: REPLY_TO, subject: 'Your SEO Growth OS checklist',
+    htmlBody: seoChecklistHtml_(), body: seoChecklistText_(), attachments: [blob] });
 }
 
-// Same email as the old Growth OS script, word for word.
-function seoBundleHtml_() {
+// Checklist email (2026-11-11). Same layout as the old bundle email; first person, no em dashes.
+function seoChecklistHtml_() {
   var font = 'Arial,Helvetica,sans-serif', bg = '#0E0E0E', card = '#1A1A1A', text = '#FFFFFF', muted = '#999999',
     cta = '#FF5C1A', mint = '#00D4AA', border = 'rgba(255,255,255,0.10)';
   return (
@@ -542,41 +544,40 @@ function seoBundleHtml_() {
 '<tr><td align="center">' +
 '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:' + card + ';border:1px solid ' + border + ';border-radius:14px;padding:32px;">' +
 '<tr><td style="font-family:' + font + ';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:' + mint + ';font-weight:bold;padding-bottom:12px;">' +
-'HMM &middot; Search Growth, Engineered</td></tr>' +
+'HelpMeMarketing &middot; SEO Growth OS</td></tr>' +
 '<tr><td style="font-family:' + font + ';font-size:26px;line-height:1.25;color:' + text + ';font-weight:bold;padding-bottom:16px;">' +
-'Your SEO Growth OS is attached.</td></tr>' +
+'Your SEO Growth OS checklist is attached.</td></tr>' +
 '<tr><td style="font-family:' + font + ';font-size:15px;line-height:1.6;color:' + muted + ';padding-bottom:20px;">' +
-'The bundle is the zip on this email: 32 skills, a README, and a SETUP file. ' +
-'Unzip it, open SETUP.md, and it will walk you through installing the skills and running the first audit. ' +
-'It runs on your own machine. Nothing is sent to us.</td></tr>' +
+'The PDF on this email lists the checks SEO Growth OS can cover: what each one looks at, the information it needs, ' +
+'and whether it can repeat on a schedule or needs a person to review it.</td></tr>' +
 '<tr><td style="font-family:' + font + ';font-size:15px;line-height:1.6;color:' + muted + ';padding-bottom:24px;">' +
-'Start with the six-node command in the README. Point it at your own site, and it will produce a health score, ' +
-'a root-cause gap inventory, and a ranked roadmap before it touches anything.</td></tr>' +
+'It is a list of checks, not an audit: nothing has been run on your website. If you would like these checks set up for your business, ' +
+'I can help connect your data, configure the checks and set a schedule around your website and goals.</td></tr>' +
 '<tr><td style="padding-bottom:26px;">' +
-'<a href="' + CONTACT_URL + '" style="display:inline-block;font-family:' + font + ';font-size:15px;font-weight:bold;color:#ffffff;background:' + cta + ';border-radius:8px;padding:14px 24px;text-decoration:none;">' +
-'Need help with setup? Book a call</a></td></tr>' +
+'<a href="' + CONTACT_URL + '" style="display:inline-block;font-family:' + font + ';font-size:15px;font-weight:bold;color:#0E0E0E;background:' + cta + ';border-radius:8px;padding:14px 24px;text-decoration:none;">' +
+'Enquire about SEO automation</a></td></tr>' +
 '<tr><td style="border-top:1px solid ' + border + ';padding-top:18px;font-family:' + font + ';font-size:12px;line-height:1.6;color:#8A8A8A;">' +
-'You are getting this because you asked for the SEO Growth OS download at ' + SITE_URL + '/seo-growth-os.<br>' +
+'You are getting this because you asked for the SEO Growth OS checklist at ' + SITE_URL + '/seo-growth-os.<br>' +
 SENDER_POSTAL + '<br>' +
-'Prefer not to hear from us again? Reply with "unsubscribe" and you are off the list.' +
+'Prefer not to hear from me again? Reply with "unsubscribe" and you are off the list.' +
 '</td></tr>' +
 '</table></td></tr></table></body></html>'
   );
 }
 
-function seoBundleText_() {
+function seoChecklistText_() {
   return [
-    'Your SEO Growth OS is attached.', '',
-    'The bundle is the zip on this email: 32 skills, a README, and a SETUP file.',
-    'Unzip it, open SETUP.md, and it will walk you through installing the skills',
-    'and running the first audit. It runs on your own machine. Nothing is sent to us.', '',
-    'Start with the six-node command in the README. Point it at your own site, and',
-    'it will produce a health score, a root-cause gap inventory, and a ranked',
-    'roadmap before it touches anything.', '',
-    'Need help with setup? Book a call: ' + CONTACT_URL, '', '---',
-    'You are getting this because you asked for the SEO Growth OS download at',
+    'Your SEO Growth OS checklist is attached.', '',
+    'The PDF on this email lists the checks SEO Growth OS can cover: what each one',
+    'looks at, the information it needs, and whether it can repeat on a schedule or',
+    'needs a person to review it.', '',
+    'It is a list of checks, not an audit: nothing has been run on your website.',
+    'If you would like these checks set up for your business, I can help connect',
+    'your data, configure the checks and set a schedule around your website and goals.', '',
+    'Enquire about SEO automation: ' + CONTACT_URL, '', '---',
+    'You are getting this because you asked for the SEO Growth OS checklist at',
     SITE_URL + '/seo-growth-os.', SENDER_POSTAL,
-    'Prefer not to hear from us again? Reply with "unsubscribe" and you are off the list.'
+    'Prefer not to hear from me again? Reply with "unsubscribe" and you are off the list.'
   ].join('\n');
 }
 
@@ -669,7 +670,7 @@ function setup() {
   Object.keys(TABS).forEach(function (name) { tab_(name); });
   MailApp.getRemainingDailyQuota();
   CacheService.getScriptCache().put('setup_check', '1', 60);
-  DriveApp.getFileById(SEO_ZIP_FILE_ID).getName();
+  DriveApp.getFileById(SEO_CHECKLIST_FILE_ID).getName();   // fails until the checklist file ID is pasted in
   checkTurnstileSecret();
   Logger.log('Ready. Tabs: ' + Object.keys(TABS).join(', '));
 }
@@ -738,13 +739,13 @@ function testLeadSources() {
   });
 }
 
-// Step 5. Sends the SEO bundle and a sample plan to your own address.
+// Step 5. Sends the SEO checklist and a sample plan to your own address.
 function testEmails() {
   var me = Session.getActiveUser().getEmail();
-  sendSeoBundle_(me);
+  sendSeoChecklist_(me);
   MailApp.sendEmail({ to: me, replyTo: REPLY_TO, name: FROM_NAME, subject: 'Your marketing plan: Cut missed appointments (test)',
     body: 'YOUR MARKETING PLAN\nTest', htmlBody: planHtml_('YOUR MARKETING PLAN\nFrom the HelpMeMarketing marketing audit\n\nYOUR FIRST PRIORITY\nCut missed appointments\n\nYOUR FIRST ACTION\n1. Send a confirmation right after every booking.', AUDIT_URL + '#plan=buy.appointment~goal.convert~stage.active~a_fit.most~a_wait.week~a_how.online~a_finish.most~a_remind.none~a_noshow.some~who.self') });
-  Logger.log('Sent the SEO bundle and a sample plan to ' + me);
+  Logger.log('Sent the SEO checklist and a sample plan to ' + me);
 }
 
 // Step 8, optional and once. Copies past rows from the old Growth OS sheet; opt-ins also go to Subscribers.

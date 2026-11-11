@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO Growth OS Checklist</title>
+<!-- Source for the emailed checklist PDF (2026-11-11). Print to PDF with Letter size; render with
+     docs/growth-os-checklist/build_pdf.mjs. Plain language, Canadian spelling, no em dashes. -->
+<style>
+  :root { --ink: #121212; --body: #3a3a3a; --muted: #6b6b6b; --line: #e4e1da; --tint: #f6f4ef; --orange: #c2410c; --mint: #007a62; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Inter, "Helvetica Neue", Arial, sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--body); background: #fff; }
+  .page { max-width: 7.2in; margin: 0 auto; padding: 0.2in 0; }
+  h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: 26pt; line-height: 1.15; color: var(--ink); }
+  h1 em { color: var(--orange); }
+  h2 { margin: 26px 0 4px; font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: 15pt; color: var(--ink); page-break-after: avoid; }
+  .kicker { margin: 0 0 10px; font-size: 8.5pt; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .lead { margin: 10px 0 0; font-size: 11.5pt; color: var(--ink); }
+  .note { margin: 14px 0 0; padding: 10px 14px; border-left: 3px solid var(--orange); background: var(--tint); }
+  .sec-sub { margin: 0 0 8px; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; margin-top: 6px; page-break-inside: auto; }
+  tr { page-break-inside: avoid; }
+  th, td { text-align: left; vertical-align: top; padding: 7px 8px; border-bottom: 1px solid var(--line); }
+  thead th { font-size: 8pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; border-bottom: 1.5px solid var(--ink); }
+  td.c { width: 27%; font-weight: 600; color: var(--ink); }
+  td.n { width: 22%; }
+  td.r { width: 15%; }
+  .tag { display: inline-block; padding: 1px 7px; border-radius: 99px; font-size: 8pt; font-weight: 600; white-space: nowrap; }
+  .t-rep { background: #e3f1ec; color: var(--mint); }
+  .t-man { background: #f3ece4; color: #8a4b12; }
+  .t-evt { background: #ecebf3; color: #43407a; }
+  .legend { margin-top: 12px; font-size: 9pt; color: var(--muted); }
+  .legend .tag { margin-right: 4px; }
+  ul { margin: 6px 0 0; padding-left: 18px; }
+  li { margin: 3px 0; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .foot { margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 9pt; color: var(--muted); }
+  .cta { margin-top: 22px; padding: 14px 16px; background: var(--tint); border-radius: 10px; }
+  .cta b { color: var(--ink); }
+  a { color: var(--orange); }
+</style>
+</head>
+<body>
+<div class="page">
+
+<p class="kicker">HelpMeMarketing &middot; SEO Growth OS</p>
+<h1>The SEO Growth OS <em>checklist</em></h1>
+<p class="lead">What the system checks, what each check looks at, the information it needs, and whether it can repeat on a schedule or needs a person to review it.</p>
+
+<p class="note"><b>This is a list of checks, not an audit.</b> Requesting it does not run anything on your website. Which checks apply depends on your business, the tools you connect and the data available. Website changes are always reviewed and approved by you before anything goes live.</p>
+
+<p class="legend">
+  <span class="tag t-rep">Can repeat</span> can run again on a schedule once it is set up
+  &nbsp;&nbsp;<span class="tag t-man">Manual review</span> needs a person to judge or approve
+  &nbsp;&nbsp;<span class="tag t-evt">When needed</span> run around a specific event or request
+</p>
+
+<h2>1. Website health</h2>
+<p class="sec-sub">Is the website reachable, working and easy for search engines to read?</p>
+<table>
+  <thead><tr><th>Check</th><th>What it looks at</th><th>What it needs</th><th>Repeat</th></tr></thead>
+  <tbody>
+    <tr><td class="c">Crawl access and indexing signals</td><td>Robots rules, noindex tags, canonical tags and status codes on important pages</td><td class="n">Your public website; Search Console for Google's index state</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Broken links and redirects</td><td>Links that fail, and redirects that chain through several steps</td><td class="n">Your public website</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Sitemaps and discovery</td><td>Whether important pages are listed in your sitemap and reachable through links</td><td class="n">Your public website</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Page speed</td><td>Lab tests on key pages, plus real-visitor speed data where Google has enough of it</td><td class="n">Your public website; Google's field data where available</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Forms, navigation and devices</td><td>Whether key journeys, such as an enquiry or booking, work on phones and desktops</td><td class="n">Your public website; test submissions only with your permission</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+    <tr><td class="c">Structured data</td><td>Whether page markup is valid and suits the type of page</td><td class="n">Your public website; drafts need your developer to review and test</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Images and alt text</td><td>Missing or unhelpful image descriptions, and media that slows pages down</td><td class="n">Your public website</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Launch and redesign checks</td><td>Before-and-after comparison around a redesign, migration or release, to catch regressions</td><td class="n">Your public website; deployment details where available</td><td class="r"><span class="tag t-evt">When needed</span></td></tr>
+  </tbody>
+</table>
+
+<h2>2. Search performance</h2>
+<p class="sec-sub">Which pages and searches bring visibility and visits, and how is that changing?</p>
+<table>
+  <thead><tr><th>Check</th><th>What it looks at</th><th>What it needs</th><th>Repeat</th></tr></thead>
+  <tbody>
+    <tr><td class="c">Search Console review</td><td>Which pages and searches bring impressions and clicks, compared across reporting periods</td><td class="n">Access to Google Search Console</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Page and search match</td><td>Whether a page matches what people searching for it actually want</td><td class="n">Your public website and Search Console</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+    <tr><td class="c">Competitor and opportunity research</td><td>Which competitor pages appear for your topics, and where the gaps are</td><td class="n">Third-party search data, which may have its own cost</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+    <tr><td class="c">Backlink review</td><td>Who links to you and to competitors, investigated only when there is a reason to</td><td class="n">Third-party link data, which may have its own cost</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+    <tr><td class="c">Local search and maps</td><td>For local and service-area businesses: profile details, categories and local visibility</td><td class="n">Your Google Business Profile</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Online store listings</td><td>For product businesses: product pages, product markup and Merchant Center issues</td><td class="n">Your public website; Merchant Center access</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Language and country versions</td><td>For sites in more than one language or market: whether each version is set up correctly</td><td class="n">Your public website</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+  </tbody>
+</table>
+
+<h2>3. Content</h2>
+<p class="sec-sub">Do your pages explain what you offer and answer the questions customers ask?</p>
+<table>
+  <thead><tr><th>Check</th><th>What it looks at</th><th>What it needs</th><th>Repeat</th></tr></thead>
+  <tbody>
+    <tr><td class="c">Page basics</td><td>Titles, descriptions, headings and links on important pages</td><td class="n">Your public website</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Content quality and freshness</td><td>Whether pages answer real customer questions clearly and are still accurate</td><td class="n">Your public website and your knowledge of the business</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+    <tr><td class="c">Site structure and internal links</td><td>Whether important pages are easy to reach from related pages</td><td class="n">Your public website</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Draft recommendations and briefs</td><td>Suggested page changes and outlines for new or updated pages, prepared for your review</td><td class="n">The findings above; your approval before anything is published</td><td class="r"><span class="tag t-evt">When needed</span></td></tr>
+  </tbody>
+</table>
+
+<h2>4. AI visibility</h2>
+<p class="sec-sub">Can AI tools understand your pages, and does your business appear for the questions that matter?</p>
+<table>
+  <thead><tr><th>Check</th><th>What it looks at</th><th>What it needs</th><th>Repeat</th></tr></thead>
+  <tbody>
+    <tr><td class="c">Answer suitability</td><td>Whether key pages give clear, direct answers that AI tools can understand and cite</td><td class="n">Your public website</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+    <tr><td class="c">Google AI visibility</td><td>Whether your business appears in Google's AI features for an agreed set of questions, recorded as dated observations</td><td class="n">An agreed question list; some tools may have their own cost</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Mentions in other AI tools</td><td>Whether other AI assistants mention or cite your business, and whether what they say is accurate</td><td class="n">An agreed question list</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+  </tbody>
+</table>
+
+<h2>5. Measurement</h2>
+<p class="sec-sub">Can the figures be trusted before anyone draws conclusions from them?</p>
+<table>
+  <thead><tr><th>Check</th><th>What it looks at</th><th>What it needs</th><th>Repeat</th></tr></thead>
+  <tbody>
+    <tr><td class="c">What counts as a result</td><td>Which actions count as an enquiry, booking or sale for your business</td><td class="n">A conversation with you</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+    <tr><td class="c">Tracking that actually fires</td><td>Whether analytics events work as intended, not just whether they are configured</td><td class="n">Google Analytics and Tag Manager access</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+    <tr><td class="c">Consent behaviour</td><td>How tracking behaves when visitors accept or decline cookies</td><td class="n">Your public website</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+    <tr><td class="c">Matching analytics to real records</td><td>Whether enquiries in analytics match your CRM, booking or sales records</td><td class="n">CRM or booking access, with your permission</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+    <tr><td class="c">Data quality</td><td>Test traffic, filters, time zones and date ranges that can distort reports</td><td class="n">Google Analytics access</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+  </tbody>
+</table>
+
+<h2>6. Progress</h2>
+<p class="sec-sub">What changed, what is still open, and what needs your approval?</p>
+<table>
+  <thead><tr><th>Check</th><th>What it looks at</th><th>What it needs</th><th>Repeat</th></tr></thead>
+  <tbody>
+    <tr><td class="c">Change record</td><td>A dated record of findings, recommendations and what was changed</td><td class="n">Built from each run</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Change verification</td><td>Whether an approved change was put in place as intended</td><td class="n">Your public website and any connected data</td><td class="r"><span class="tag t-evt">When needed</span></td></tr>
+    <tr><td class="c">Monitoring and alerts</td><td>Repeating agreed checks and flagging regressions or notable changes</td><td class="n">A schedule set up for your site</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Recurring summaries</td><td>Short updates on what changed, what remains unresolved and what needs approval</td><td class="n">The change record</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+  </tbody>
+</table>
+
+<div class="two">
+  <div>
+    <h2>How findings are organised</h2>
+    <ul>
+      <li>Each issue is grouped as broken, missing or underperforming, with shared causes combined.</li>
+      <li>Priorities weigh severity, opportunity, how strong the evidence is, risk and effort, without combining them into one number.</li>
+      <li>There is no overall score. Checks that could not run are listed as missing evidence, never estimated.</li>
+      <li>Every recommendation includes a way to check whether it was done.</li>
+    </ul>
+  </div>
+  <div>
+    <h2>What it does not do</h2>
+    <ul>
+      <li>Promise rankings, traffic or AI citations.</li>
+      <li>Publish website changes without your approval.</li>
+      <li>Run without setup and the data access each check needs.</li>
+      <li>Fill gaps with estimates when data is not available.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta">
+  <b>Want these checks set up for your business?</b> I can help connect your data, configure the checks and set a schedule around your website and goals. Enquire at <a href="https://helpmemarketing.com/contact">helpmemarketing.com/contact</a>.
+</div>
+
+<p class="foot">SEO Growth OS checklist &middot; HelpMeMarketing &middot; Ankit Kumar, Halton Hills, Ontario &middot; November 2026. Describes the checks the system is designed to run; availability depends on your setup and connected data.</p>
+</div>
+</body>
+</html>
