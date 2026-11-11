@@ -5950,7 +5950,10 @@ body.redesign-prototype [data-screen-label="ai-seo-agency"] #help .seoa-after a 
 }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-cap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] a.seoa-inline { color: var(--cta-text, var(--cta)); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-body.redesign-prototype [data-screen-label="ai-seo-agency"] .pm-fitacc > p:last-child { margin: 16px 0 0; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .pm-fitacc > p:last-child { margin: 16px 0 0; font-size: 15.5px; line-height: 1.65; color: var(--text-muted); }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-faq .ind2-faq { margin-top: 8px; max-width: none; }
+@media (max-width: 900px) { body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-faq .ind2-faq { margin-top: 0; } }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-ask { margin-top: 16px; }
 @media (max-width: 900px) { body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-split { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
 @media (max-width: 720px) { body.redesign-prototype [data-screen-label="ai-seo-agency"] :is(.ind2-card, .ind2-step, .pm-check, .ma-wizard, .seoa-result) { padding: 20px; } body.redesign-prototype [data-screen-label="ai-seo-agency"] .final-cta-section .final-cta { padding: 32px 20px; } }
 @media (max-width: 900px) {
