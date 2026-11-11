@@ -82,14 +82,16 @@
 
   function content(key, action) {
     var act = ACTION[action] || ACTION.other;
+    // 'search visits' + 'calls and enquiries' reads as 'search visits, calls and enquiries', not a double 'and'.
+    var plus = function (x) { return x + (act.indexOf(' and ') > -1 ? ', ' : ' and ') + act; };
     var R = {
       baseline: {
         title: 'Establish your search starting point',
         check: 'Whether Search Console and website analytics are available, and whether genuine ' + act + ' are recorded.',
         first: 'Create a dated baseline of search visits and real ' + act + ' using the information available.',
         follow: ['Identify the pages people arrive on from search.', 'Separate test activity from genuine ' + act + '.'],
-        monitor: 'Whether search visits and ' + act + ' are being recorded consistently.',
-        note: 'Missing figures are not the same as no search traffic or no demand. They only mean the starting point isn’t measured yet.'
+        monitor: 'Whether ' + plus('search visits') + ' are being recorded consistently.',
+        note: 'Missing figures are not the same as no search traffic or no demand. They mean there isn’t yet a reliable starting point for this assessment.'
       },
       enquiry_path: {
         title: 'Review the path from a search visit to an enquiry',
@@ -97,14 +99,14 @@
         first: 'Review one important landing page and its next step from the customer’s perspective.',
         follow: ['Clarify the service, evidence and next action where needed.', 'Verify that genuine ' + act + ' are recorded correctly.'],
         monitor: 'Relevant search visits and completed ' + act + ' over comparable periods.',
-        note: 'This doesn’t mean your website converts poorly. That needs real figures for visits and ' + act + '.'
+        note: 'This doesn’t mean your website converts poorly. That needs real figures for ' + plus('visits') + '.'
       },
       ai_answers: {
         title: 'Check how AI answers describe your business',
         check: 'Which real questions customers ask when researching the service.',
         first: 'Choose a small, relevant set of questions and record dated answers, mentions and cited sources.',
         follow: ['Compare those answers with your actual services and location.', 'Review unclear or inconsistent information on relevant pages and business profiles.'],
-        monitor: 'Changes across repeated checks, plus identifiable referral visits and ' + act + ' where available.',
+        monitor: 'Changes across repeated checks, plus identifiable ' + plus('referral visits') + ' where available.',
         note: 'AI answers vary by tool, question and timing. A single missing mention doesn’t show a site-wide visibility problem.'
       },
       service_pages: {
