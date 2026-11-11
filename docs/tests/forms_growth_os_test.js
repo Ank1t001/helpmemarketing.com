@@ -77,7 +77,7 @@ test('normal submission with a valid token: saved, checklist PDF emailed, reply 
   const env = load({ secret: 'x', siteverify });
   const r = env.post({ ...base, email: 'e@example.com', 'cf-turnstile-response': 'good-token' });
   assert.deepStrictEqual([r.result, r.saved, r.email], ['ok', 'lead', 'sent']);
-  assert.strictEqual(env.attachments[0][0].name, 'HMM-SEO-Growth-OS-Checklist.pdf');
+  assert.strictEqual(env.attachments[0][0].name, 'HMM-SEO-Growth-OS-Visual-Guide.pdf');
   assert.strictEqual(rows(env, 'Growth OS downloads')[0][5], 'Sent');
   assert.deepStrictEqual(env.mails, ['e@example.com']);
   assert.strictEqual(rows(env, 'Growth OS downloads').length, 1); assert.strictEqual(rows(env, 'Subscribers').length, 1); assert.strictEqual(rows(env, 'Spam').length, 0);

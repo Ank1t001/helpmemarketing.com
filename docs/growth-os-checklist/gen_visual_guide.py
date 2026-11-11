@@ -14,7 +14,7 @@ E = html.escape
 
 # Labels: key -> (text, css class)
 L = {
-    'R': ('Repeat', 'b-rep', 'refresh'),
+    'R': ('Scheduled check', 'b-rep', 'refresh'),
     'D': ('Draft + review', 'b-draft', 'pen'),
     'H': ('Human review', 'b-human', 'eye'),
     'C': ('On change', 'b-change', 'swap'),
@@ -106,6 +106,10 @@ AREAS = [
             ('Internal links & site structure', 'D', 'How priority pages connect and where relevant links could help visitors.', 'Suggested source page, destination and link wording for approval.'),
             ('Content briefs & recommendations', 'D', 'Evidence from the review, page purpose and the intended customer action.', 'A draft brief with proposed changes, supporting evidence and acceptance checks.'),
          ],
+         optional=[
+            ('Location & service pages at scale', 'H', 'Pages built from one template: useful differences between pages, factual consistency, internal links and indexing directives.', 'Pages to improve, merge, link or keep out of the index, with the reason for each.'),
+            ('Conversion review', 'H', 'Offer clarity, calls to action and enquiry friction on key pages.', 'Recommendations or test ideas, each with the reason behind it.'),
+         ],
          needs='Public pages, business knowledge and connected search data where relevant. All proposed changes require review.'),
     dict(n='04', key='ai', name='AI visibility', cover='Record mentions and citations.',
          sub='Keep a dated record of what AI answers show.', layout='rows',
@@ -156,7 +160,32 @@ CARD_ICON = {
     'Define a meaningful result': 'flag', 'Check actual event behaviour': 'click', 'Consent behaviour': 'shield',
     'Match leads to real records': 'database', 'Data quality': 'filter', 'A dated change record': 'history',
     'Implementation verification': 'checkc', 'Monitoring & alerts': 'bell', 'Recurring summaries': 'report',
+    'Location & service pages at scale': 'pin', 'Conversion review': 'click',
 }
+
+AUTO = {
+    'Crawl access & indexing': 'Repeats the agreed URL checks and compares the results with the previous run.',
+    'Broken links & redirects': 'Retests links and redirect chains on the agreed pages and lists what changed.',
+    'Sitemap discovery': 'Fetches the sitemap, checks that each listed URL responds and flags mismatches.',
+    'Page performance': 'Retests the agreed pages and compares them with earlier results.',
+    'Structured data validity': 'Validates markup on the agreed pages and flags new errors.',
+    'Images & alt text': 'Finds images without descriptions and drafts suggestions. You review whether each one is useful.',
+    'Page & query monitoring': 'Collects connected search data, compares agreed periods and flags changes for review.',
+    'Local search & maps': 'Repeats location-specific observations where a tracking source is set up, and dates each one.',
+    'Online store listings': 'Rechecks product markup and available Merchant Center issues, and flags new ones.',
+    'Language & country versions': 'Rechecks the links between language versions and flags breaks or mismatches.',
+    'Page basics': 'Rechecks titles, descriptions and headings on the agreed pages and flags new problems.',
+    'Internal links & site structure': 'Inspects crawlable links and prepares suggested linking opportunities. You review relevance and wording.',
+    'Content briefs & recommendations': 'Drafts a brief from the review evidence. You approve the changes and the wording.',
+    'Google AI observations': 'Repeats the agreed questions where checks are supported and records each dated answer.',
+    'A dated change record': "Adds each run's findings, decisions and changes to the record.",
+    'Monitoring & alerts': 'Reruns the agreed checks against the baseline and flags regressions.',
+    'Recurring summaries': 'Drafts the summary from the record. You review it before it is shared.',
+}
+
+def auto(t):
+    a = AUTO.get(t)
+    return f'<p class="au"><b>{icon("refresh", "bi")}Automates:</b> {E(a)}</p>' if a else ''
 
 TOTAL = 3 + len(AREAS)
 
@@ -169,14 +198,16 @@ def head(kicker, title, sub, ico):
             f'<header class="ph"><div><div class="kick">{E(kicker)}</div><h1>{E(title)}</h1>'
             f'<p class="lede">{E(sub)}</p></div><div class="ph-ico">{icon(ico, "ico-lg")}</div></header>')
 
-def grid_card(t, k, desc, out):
-    return (f'<div class="gc"><div class="gc-h"><span class="ci">{icon(CARD_ICON[t])}</span><h3>{E(t)}</h3></div>{badge(k)}<p class="d">{E(desc)}</p>'
-            f'<p class="o"><b>Output:</b> {E(out)}</p></div>')
+def grid_card(t, k, desc, out, inline=False):
+    # Two-column cards are wide enough to carry the label beside the title.
+    b = badge(k)
+    return (f'<div class="gc"><div class="gc-h"><span class="ci">{icon(CARD_ICON[t])}</span><h3>{E(t)}</h3>{b if inline else ""}</div>{"" if inline else b}<p class="d">{E(desc)}</p>'
+            f'{auto(t)}<p class="o"><b>Output:</b> {E(out)}</p></div>')
 
 def row_card(t, k, desc, out):
     return (f'<div class="rc"><div class="rc-h"><span class="ci">{icon(CARD_ICON[t])}</span><h3>{E(t)}</h3>{badge(k)}</div><div class="rc-g">'
             f'<div><div class="lab">Checks</div><p class="d">{E(desc)}</p></div>'
-            f'<div><div class="lab">You receive</div><p class="o">{E(out)}</p></div></div></div>')
+            f'<div><div class="lab">You receive</div><p class="o">{E(out)}</p></div></div>{auto(t)}</div>')
 
 def needs(a):
     note = f'<p class="nn">{E(a["note"])}</p>' if a.get('note') else ''
@@ -188,7 +219,7 @@ pages = []
 tiles = ''.join(
     f'<div class="ct">{icon(a["key"])}<div><h3>{E(a["name"])}</h3><p>{E(a["cover"])}</p></div></div>' for a in AREAS)
 legend = ''.join(f'<li>{badge(k)}<span>{E(t)}</span></li>' for k, t in [
-    ('R', 'configured checks can run again.'),
+    ('R', 'can run on an agreed schedule after setup and testing.'),
     ('D', 'prepare suggestions for a person to assess.'),
     ('H', 'judgment or validation is required.'),
     ('C', 'a check around a release, fix or redesign.'),
@@ -241,8 +272,11 @@ pages.append(f'''<section class="page">{head("How it works", "How a run works", 
 for i, a in enumerate(AREAS, start=3):
     if a['layout'] == 'rows':
         body = f'<div class="rows">{"".join(row_card(*it) for it in a["items"])}</div>'
+        if a.get('optional'):
+            body += ('<div class="opt-h">Optional, when relevant to your business</div>'
+                     f'<div class="grid2 opt">{"".join(grid_card(*it, inline=True) for it in a["optional"])}</div>')
     else:
-        body = f'<div class="{a["layout"]}">{"".join(grid_card(*it) for it in a["items"])}</div>'
+        body = f'<div class="{a["layout"]}">{"".join(grid_card(*it, inline=a["layout"] == "grid2") for it in a["items"])}</div>'
     pages.append(f'<section class="page">{head(a["n"] + " / Six areas", a["name"], a["sub"], a["key"])}'
                  f'{body}{needs(a)}{foot(i)}</section>')
 
@@ -252,7 +286,7 @@ pages.append(f'''<section class="page">{head("From check to action", "What a run
   <div class="steps">{steps}</div>
   <div class="needs"><div class="nl">Setup around your business</div>
     <p>Choose priority pages and outcomes. Connect the required data. Test the checks and handoffs. Agree a schedule and review process.</p>
-    <p class="nn">Some checks need a signed-in browser and an available device. The checks in this example were tested end to end; the first scheduled weekly run had not yet happened when this guide was prepared.</p></div>
+    <p class="nn">Some checks need a signed-in browser and an available device. The workflow was tested on my own website. Some checks remained partial or unavailable, and the first scheduled weekly run was still pending.</p></div>
   <div class="cta"><h2>Want these checks set up for your business?</h2>
     <p>Tell me your website, the tools you use and what you want to automate.</p>
     <a href="https://helpmemarketing.com/contact?entry=seo_automation#contact-form">Enquire about SEO automation &rarr;</a></div>
@@ -270,14 +304,14 @@ CSS = '''
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{font-family:Inter,Arial,sans-serif;color:var(--text);-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.page{width:8.5in;height:11in;padding:.5in .6in .75in;position:relative;overflow:hidden;background:var(--paper);break-after:page;page-break-after:always}
+.page{width:8.5in;height:11in;padding:.42in .6in .75in;position:relative;overflow:hidden;background:var(--paper);break-after:page;page-break-after:always}
 .page:last-child{break-after:auto}
 h1,h2,h3,p{margin:0}
 .kick{font-size:8.5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ter)}
 .kick.or{color:var(--cta)}
-.kick-top{font-size:8pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cta-ink);margin-bottom:18px}
-.ph{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}
-.ph h1{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:34pt;line-height:1.05;margin:6px 0 8px;letter-spacing:-.01em}
+.kick-top{font-size:8pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cta-ink);margin-bottom:12px}
+.ph{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.ph h1{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:31pt;line-height:1.05;margin:4px 0 6px;letter-spacing:-.01em}
 .lede{font-size:11pt;color:var(--muted)}
 .ph-ico{width:58px;height:58px;border-radius:14px;background:rgba(255,92,26,.10);color:var(--cta);display:flex;align-items:center;justify-content:center;flex:none}
 .ico-lg{width:32px;height:32px}
@@ -286,23 +320,29 @@ h1,h2,h3,p{margin:0}
 .b-draft{background:rgba(255,92,26,.12);color:var(--cta-ink)}
 .b-human{background:#fff;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
 .b-change{background:var(--obsidian);color:#fff}
-.grid3,.grid2{display:grid;gap:10px}
+.grid3,.grid2{display:grid;gap:8px}
 .grid3{grid-template-columns:repeat(3,1fr)}
 .grid2{grid-template-columns:repeat(2,1fr)}
-.gc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 14px 14px;border-top:3px solid var(--cta)}
+.gc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 13px 12px;border-top:3px solid var(--cta)}
 .gc h3{font-size:10.5pt;font-weight:650;margin-bottom:7px;line-height:1.25}
 .gc .badge{margin-bottom:8px}
 .d{font-size:8.6pt;line-height:1.45;color:var(--muted)}
 .o{font-size:8.6pt;line-height:1.45;color:var(--text);margin-top:4px}
 .gc .o b{font-weight:650}
-.rows{display:flex;flex-direction:column;gap:10px}
-.rc{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:0 12px 12px 0;padding:13px 16px 14px}
-.rc-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:9px}
+.rows{display:flex;flex-direction:column;gap:8px}
+.rc{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:0 12px 12px 0;padding:11px 16px 12px}
+.rc-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:7px}
 .rc-h h3{font-size:11pt;font-weight:650}
 .rc-g{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .lab{font-size:7.5pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ter);margin-bottom:3px}
 .rc .o{margin-top:0}
-.needs{margin-top:14px;background:#EFEDE7;border-radius:12px;padding:13px 16px}
+.au{font-size:8.4pt;line-height:1.42;color:var(--body);margin-top:5px}
+.au b{color:var(--mint)}
+.au b{font-weight:650}
+.rc .au{margin-top:6px;padding-top:6px;border-top:1px dashed var(--line)}
+.opt-h{margin:10px 0 6px;font-size:7.5pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ter)}
+.opt .gc{border-top-color:var(--line2);border-style:dashed;border-top-style:solid}
+.needs{margin-top:10px;background:#EFEDE7;border-radius:12px;padding:13px 16px}
 .nl{font-size:7.5pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cta-ink);margin-bottom:5px}
 .needs p{font-size:9.2pt;line-height:1.5;color:var(--body)}
 .needs .nn{font-size:8pt;color:var(--ter);margin-top:6px}
@@ -311,7 +351,7 @@ h1,h2,h3,p{margin:0}
 .ci{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(255,92,26,.10);color:var(--cta);display:inline-flex;align-items:center;justify-content:center}
 .ci .ico{width:15px;height:15px}
 .gc-h{display:flex;gap:9px;align-items:center;margin-bottom:8px}
-.gc-h h3{margin:0}
+.gc-h h3{margin:0;flex:1}
 .rc-h h3{flex:1}
 /* how it works */
 .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;counter-reset:f}
@@ -356,7 +396,7 @@ h1,h2,h3,p{margin:0}
 .ct p{font-size:8.8pt;color:#A3A3A3}
 .legend{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px}
 .legend li{display:flex;align-items:center;gap:10px;font-size:9.2pt;color:#D9D9D9}
-.legend .badge{min-width:124px;text-align:center}
+.legend .badge{min-width:150px;text-align:center}
 .cover .b-human{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
 .cover .b-change{background:#fff;color:var(--obsidian)}
 .cover .b-rep{background:rgba(0,212,170,.14);color:var(--mint-b)}
@@ -381,4 +421,4 @@ doc = f'''<!doctype html><html lang="en-CA"><head><meta charset="utf-8">
 <body>{"".join(pages)}</body></html>'''
 open(os.path.join(HERE, 'seo-growth-os-visual-guide.html'), 'w').write(doc)
 assert '—' not in doc
-print(f'{TOTAL} pages, {sum(len(a["items"]) for a in AREAS)} capabilities')
+print(f"{TOTAL} pages, {sum(len(a['items']) + len(a.get('optional', [])) for a in AREAS)} capabilities")
