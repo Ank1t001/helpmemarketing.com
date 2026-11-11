@@ -162,7 +162,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     <div class="pm-check" data-pm-checklist>
       <p class="pm-check-title">Quick self-check</p>
       <p class="pm-check-sub">Tick what&rsquo;s true for you today. Nothing is sent anywhere, and this isn&rsquo;t an audit.</p>
-      <ul class="pm-check-list"><li><label><input type="checkbox" data-pm-check data-advice="Check your website, Google Business Profile and directory listings for the same name, address, hours and services."> <span>Customers can easily find accurate information about my business online.</span></label></li><li><label><input type="checkbox" data-pm-check data-advice="Write a clear page for each main service that answers the questions customers ask, in plain words."> <span>My website clearly explains what I offer, who it&rsquo;s for and where I work.</span></label></li><li><label><input type="checkbox" data-pm-check data-advice="Add reviews, credentials, real examples and an About page that shows who is behind the business."> <span>Other sites, reviews or profiles back up what my website says.</span></label></li><li><label><input type="checkbox" data-pm-check data-advice="Write down five questions customers ask, then try them in Google and an AI assistant every month and note what comes up."> <span>I know which questions customers ask before they contact me.</span></label></li></ul>
+      <ul class="pm-check-list"><li><label><input type="checkbox" data-pm-check data-advice="Check whether your website, Google Business Profile and main listings show the same name, hours and services."> <span>Customers can easily find accurate information about my business online.</span></label></li><li><label><input type="checkbox" data-pm-check data-advice="Review whether each main service page says what you offer, who it&rsquo;s for and where you work."> <span>My website clearly explains what I offer, who it&rsquo;s for and where I work.</span></label></li><li><label><input type="checkbox" data-pm-check data-advice="Look at which reviews, profiles and outside mentions back up what your website says."> <span>Other sites, reviews or profiles back up what my website says.</span></label></li><li><label><input type="checkbox" data-pm-check data-advice="List a few questions customers ask before contacting you, then see what Google and an AI assistant show for them."> <span>I know which questions customers ask before they contact me.</span></label></li></ul>
       <div class="pm-check-result" aria-live="polite">Tick the statements that are true for you.</div>
     </div>
   </div>
@@ -222,7 +222,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   <div class="container">
     <p class="eyebrow">How I help</p>
     <h2 class="section-heading">What I help improve, and what you <em>receive</em>.</h2>
-    <p class="pm-note seoa-lead">Once the priority is clear, here&rsquo;s how I can help you work through it. Every project starts with a dated review of your search presence, and the scope is agreed first.</p>
+    <p class="pm-note seoa-lead">Once the priority is clear, here&rsquo;s how I can help you work through it. Every project starts with a dated review of your search presence. I can make the changes myself or work with your team or developer, and which one is agreed in the scope before work starts.</p>
     <div class="mr-table-wrap seoa-map">
       <table class="mr-table mr-steps">
         <caption class="seoa-cap">From what needs attention to what you receive</caption>
@@ -310,9 +310,9 @@ document.addEventListener('DOMContentLoaded', function () {
     out.textContent = '';
     if (!n) { out.textContent = 'Tick the statements that are true for you.'; return; }
     var head = document.createElement('p'); head.className = 'pm-check-head';
-    head.textContent = gaps.length ? 'You ticked ' + n + ' of ' + checks.length + '. What to look at, in order:' : 'You\u2019ve checked all four areas. That\u2019s a useful starting point. Try your customers\u2019 real questions in Google and an AI assistant to see how your business actually appears.';
+    head.textContent = gaps.length ? 'You ticked ' + n + ' of ' + checks.length + '. An unticked box doesn\u2019t mean something is wrong, only that it\u2019s worth checking:' : 'You\u2019ve checked all four areas. That\u2019s a useful starting point. Try your customers\u2019 real questions in Google and an AI assistant to see how your business actually appears.';
     out.appendChild(head);
-    if (gaps.length) { var ol = document.createElement('ol'); gaps.forEach(function (g) { var li = document.createElement('li'); li.textContent = g; ol.appendChild(li); }); out.appendChild(ol); }
+    if (gaps.length) { var ol = document.createElement('ul'); gaps.forEach(function (g) { var li = document.createElement('li'); li.textContent = g; ol.appendChild(li); }); out.appendChild(ol); }
   }
   checks.forEach(function (c) { c.addEventListener('change', update); });
 });
