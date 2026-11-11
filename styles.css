@@ -5976,15 +5976,10 @@ body.redesign-prototype [data-screen-label="ai-seo-agency"] .ai-cmp .ai-mock { f
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .cmp-mention { display: flex; align-items: center; gap: 8px; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .cmp-mention .ai-line { flex: 1; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .cmp-mention .cmp-chip { flex: none; height: 20px; line-height: 18px; font-size: 11px; }
-body.redesign-prototype [data-screen-label="ai-seo-agency"] #example .wk-link { display: inline-block; margin: 0; padding-top: 0; }
-body.redesign-prototype [data-screen-label="ai-seo-agency"] .gos-cmp { grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); gap: 0; align-items: stretch; }
-body.redesign-prototype [data-screen-label="ai-seo-agency"] .gos-arrow { display: flex; align-items: center; justify-content: center; color: var(--cta-text, var(--cta)); }
-body.redesign-prototype [data-screen-label="ai-seo-agency"] .gos-step { display: inline-grid; place-items: center; width: 20px; height: 20px; margin-right: 8px; border-radius: 50%; background: rgba(var(--cta-rgb, 255, 92, 26), 0.12); color: var(--cta-text, var(--cta)); font-size: 11px; font-weight: 700; letter-spacing: 0; }
-body.redesign-prototype [data-screen-label="ai-seo-agency"] .gos-cmp .ind2-card p.ind2-k { display: flex; align-items: center; }
-body.redesign-prototype [data-screen-label="ai-seo-agency"] .gos-txt { flex: 1; min-width: 0; font-size: 14px; color: var(--text-body); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-body.redesign-prototype [data-screen-label="ai-seo-agency"] .gos-foot { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-top: 16px; }
-body.redesign-prototype [data-screen-label="ai-seo-agency"] .gos-foot .pm-note.seoa-fine { margin: 0; }
-@media (max-width: 900px) { body.redesign-prototype [data-screen-label="ai-seo-agency"] .gos-cmp { grid-template-columns: minmax(0, 1fr); } body.redesign-prototype [data-screen-label="ai-seo-agency"] .gos-arrow { height: 32px; transform: rotate(90deg); } }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-gos .ind2-card { display: flex; flex-direction: column; align-items: flex-start; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-gos .ind2-card h3 { margin: 16px 0 0; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-gos .ind2-card p { margin: 8px 0 0; font-size: 15px; line-height: 1.6; color: var(--text-body); }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-gos .wk-link { display: inline-block; margin-top: auto; padding-top: 16px; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] :is(.ind2-card, .ind2-step, .pm-check, .ma-wizard, .seoa-result) { padding: 24px; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map { margin-top: 32px; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table { table-layout: fixed; }
@@ -6126,9 +6121,6 @@ body.redesign-prototype .cmp-src-k { margin-right: 2px; font-size: 12px; color: 
 body.redesign-prototype .cmp-chip { display: inline-block; min-width: 56px; height: 24px; padding: 0 10px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; line-height: 22px; color: var(--text-muted); }
 body.redesign-prototype .cmp-chip.is-you { border-color: rgba(var(--cta-rgb, 255, 92, 26), 0.35); background: rgba(var(--cta-rgb, 255, 92, 26), 0.08); color: var(--cta-text, var(--cta)); font-weight: 600; }
 @media (max-width: 720px) { body.redesign-prototype .cmp-chip { min-width: 40px; padding: 0 8px; } }
-body.redesign-prototype .gos-row { display: flex; align-items: center; gap: 10px; }
-body.redesign-prototype .gos-row .ai-line { flex: 1; }
-body.redesign-prototype .gos-row .ai-short { flex: 0 1 60%; }
 body.redesign-prototype .gos-chip { flex: none; width: 92px; box-sizing: border-box; white-space: nowrap; padding: 2px 8px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; line-height: 1.5; text-align: center; color: var(--text-muted); }
 body.redesign-prototype .gos-chip.gos-first { border-color: transparent; background: rgba(var(--cta-rgb, 255, 92, 26), 0.12); color: var(--cta-text, var(--cta)); font-weight: 600; }
 body.redesign-prototype .gos-chip.gos-live { border-color: transparent; background: color-mix(in srgb, var(--mint) 14%, transparent); color: var(--mint); font-weight: 600; }
