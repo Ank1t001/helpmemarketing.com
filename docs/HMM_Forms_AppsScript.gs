@@ -551,9 +551,12 @@ function sendSeoChecklist_(email, optedIn) {
     htmlBody: seoChecklistHtml_(optedIn), body: seoChecklistText_(optedIn), attachments: [blob] });
 }
 
-// Visual Guide email (founder copy, 2026-11-11): short delivery note, a pointer to page 1, then the setup offer.
-// The footer matches the visitor's newsletter choice; a request on its own never subscribes anyone.
+// Visual Guide email (founder copy and layout, 2026-11-11): light grey frame, white logo header, Obsidian banner,
+// white body, Warm Ivory setup block with one orange button, compact footer. All text is live text; the only image
+// is the logo (PNG, because Gmail and Outlook block SVG), with an alt text that reads as the brand name when images
+// are off. The footer matches the visitor's newsletter choice; a request on its own never subscribes anyone.
 var SEO_GUIDE_ENQUIRY_URL = SITE_URL + '/contact?entry=seo_automation#contact-form';
+var SEO_GUIDE_LOGO_URL = SITE_URL + '/assets/brand/email/hmm-logo-email.png';
 function seoGuideFooter_(optedIn) {
   return ['You requested this guide at helpmemarketing.com.',
     optedIn ? 'You also opted in to occasional SEO notes and updates. To unsubscribe, reply to this email with “unsubscribe”.'
@@ -561,58 +564,72 @@ function seoGuideFooter_(optedIn) {
     'HelpMeMarketing, Halton Hills, Ontario, Canada'];
 }
 function seoChecklistHtml_(optedIn) {
-  var font = 'Arial,Helvetica,sans-serif', bg = '#0E0E0E', card = '#1A1A1A', text = '#FFFFFF', body = '#D9D9D9',
-    small = '#A3A3A3', cta = '#FF5C1A', mint = '#00D4AA', border = 'rgba(255,255,255,0.10)';
+  var font = 'Arial,Helvetica,sans-serif', serif = 'Georgia,\'Times New Roman\',serif',
+    outer = '#EEEDEA', white = '#FFFFFF', obsidian = '#0E0E0E', ivory = '#F7F6F2', text = '#0E0E0E', body = '#3A3A3A',
+    muted = '#6B6B6B', cta = '#FF5C1A', line = '#E4E1DA';
   var p = function (html, pad) {
-    return '<tr><td style="font-family:' + font + ';font-size:16px;line-height:1.6;color:' + body + ';padding-bottom:' + (pad || 16) + 'px;">' + html + '</td></tr>';
+    return '<tr><td class="px" style="font-family:' + font + ';font-size:17px;line-height:1.65;color:' + body + ';padding:0 30px ' + (pad === undefined ? 18 : pad) + 'px 30px;">' + html + '</td></tr>';
   };
   var foot = seoGuideFooter_(optedIn);
   return (
 '<!DOCTYPE html>' +
 '<html lang="en"><head><meta charset="UTF-8">' +
-'<meta name="viewport" content="width=device-width,initial-scale=1"></head>' +
-'<body style="margin:0;padding:0;background:' + bg + ';">' +
-'<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:' + bg + ';">' +
-'Your five-page guide is attached. Start with the checks that matter to your business.</div>' +
-'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:' + bg + ';padding:32px 16px;">' +
-'<tr><td align="center">' +
-'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:' + card + ';border:1px solid ' + border + ';border-radius:14px;padding:32px;">' +
-'<tr><td style="font-family:' + font + ';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:' + mint + ';font-weight:bold;padding-bottom:12px;">' +
-'HelpMeMarketing &middot; SEO Growth OS</td></tr>' +
-'<tr><td style="font-family:' + font + ';font-size:26px;line-height:1.25;color:' + text + ';font-weight:bold;padding-bottom:20px;">' +
-'Your guide is attached.</td></tr>' +
-p('Hi,') +
-p('Thanks for requesting the SEO Growth OS Visual Guide.') +
-p('Inside, you&rsquo;ll find the website and search checks I can help automate, what you receive and where human review is needed.') +
-p('Start with &ldquo;Where should you start?&rdquo; on page 1. Find the problem closest to yours, then explore the relevant checks.', 28) +
-'<tr><td style="border-top:1px solid ' + border + ';padding-top:24px;font-family:' + font + ';font-size:18px;line-height:1.3;color:' + text + ';font-weight:bold;padding-bottom:10px;">' +
-'Want help setting this up?</td></tr>' +
-p('I can help connect your data, configure the checks and test a schedule around your website and goals.', 20) +
-'<tr><td style="padding-bottom:28px;">' +
-'<a href="' + SEO_GUIDE_ENQUIRY_URL + '" style="display:inline-block;font-family:' + font + ';font-size:15px;font-weight:bold;color:#0E0E0E;background:' + cta + ';border-radius:8px;padding:14px 24px;text-decoration:none;">' +
-'Enquire about SEO automation</a></td></tr>' +
-p('Thanks,<br>Ankit Kumar<br>HelpMeMarketing', 16) +
-'<tr><td style="font-family:' + font + ';font-size:13px;line-height:1.6;color:' + small + ';padding-bottom:24px;">' +
-'This guide explains the checks available. Your website has not been audited as part of this request.</td></tr>' +
-'<tr><td style="border-top:1px solid ' + border + ';padding-top:18px;font-family:' + font + ';font-size:12px;line-height:1.6;color:#8A8A8A;">' +
-foot.join('<br>') +
+'<meta name="viewport" content="width=device-width,initial-scale=1">' +
+'<meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light">' +
+'<title>Your SEO Growth OS Visual Guide</title>' +
+'<style>@media only screen and (max-width:600px){.px{padding-left:22px!important;padding-right:22px!important}' +
+'.ban{font-size:24px!important}.wrap{padding:12px 0!important}}</style></head>' +
+'<body style="margin:0;padding:0;background:' + outer + ';">' +
+'<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:' + outer + ';">' +
+'Your five-page guide is attached. Start with the challenge closest to yours.</div>' +
+'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:' + outer + ';">' +
+'<tr><td class="wrap" align="center" style="padding:32px 12px;">' +
+'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:' + white + ';">' +
+// 1. White header with the logo
+'<tr><td align="center" style="padding:28px 30px 24px 30px;background:' + white + ';">' +
+'<img src="' + SEO_GUIDE_LOGO_URL + '" width="140" height="64" alt="HelpMeMarketing" ' +
+'style="display:block;width:140px;height:auto;border:0;font-family:' + font + ';font-size:15px;line-height:20px;font-weight:bold;color:' + text + ';text-align:center;"></td></tr>' +
+// 2. Obsidian banner
+'<tr><td class="px" style="background:' + obsidian + ';padding:28px 30px;">' +
+'<div style="font-family:' + font + ';font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:bold;color:' + cta + ';padding-bottom:8px;">SEO Growth OS</div>' +
+'<div class="ban" style="font-family:' + serif + ';font-size:28px;line-height:1.25;color:' + white + ';">Your visual guide <span style="color:' + cta + ';font-style:italic;">is attached.</span></div>' +
 '</td></tr>' +
-'</table></td></tr></table></body></html>'
+// 3. White body with the approved copy
+'<tr><td style="height:30px;line-height:30px;font-size:0;">&nbsp;</td></tr>' +
+p('Hello,') +
+p('Thanks for your interest in SEO Growth OS. Your guide is attached.') +
+p('See how it brings together SEO audits, automation and growth planning, from finding issues to prioritising improvements and tracking progress.') +
+p('Start on page 1 with the challenge closest to yours, then explore what can be automated and what you receive.', 30) +
+// 4. Warm Ivory setup block
+'<tr><td class="px" align="center" style="background:' + ivory + ';padding:30px;border-top:1px solid ' + line + ';border-bottom:1px solid ' + line + ';">' +
+'<div style="font-family:' + serif + ';font-size:22px;line-height:1.3;color:' + text + ';padding-bottom:20px;">Want help setting it up for your business?</div>' +
+'<table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td style="border-radius:8px;background:' + cta + ';">' +
+'<a href="' + SEO_GUIDE_ENQUIRY_URL + '" style="display:inline-block;font-family:' + font + ';font-size:16px;font-weight:bold;color:' + obsidian + ';background:' + cta + ';border-radius:8px;padding:15px 28px;text-decoration:none;">' +
+'Enquire about SEO automation</a></td></tr></table></td></tr>' +
+// Signature
+'<tr><td style="height:30px;line-height:30px;font-size:0;">&nbsp;</td></tr>' +
+p('Ankit Kumar<br><span style="color:' + muted + ';">HelpMeMarketing</span>', 30) +
+'</table>' +
+// 5. Compact footer
+'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;">' +
+'<tr><td class="px" style="padding:20px 30px 8px 30px;font-family:' + font + ';font-size:12px;line-height:1.6;color:' + muted + ';text-align:center;">' +
+foot.join('<br>') + '<br>' +
+'<a href="' + SITE_URL + '/privacy" style="color:' + muted + ';text-decoration:underline;">Privacy policy</a>' +
+'</td></tr></table>' +
+'</td></tr></table></body></html>'
   );
 }
 
 function seoChecklistText_(optedIn) {
-  return ['Your guide is attached.', '',
-    'Hi,', '',
-    'Thanks for requesting the SEO Growth OS Visual Guide.', '',
-    'Inside, you’ll find the website and search checks I can help automate, what you receive and where human review is needed.', '',
-    'Start with “Where should you start?” on page 1. Find the problem closest to yours, then explore the relevant checks.', '',
-    'Want help setting this up?', '',
-    'I can help connect your data, configure the checks and test a schedule around your website and goals.', '',
+  return ['SEO GROWTH OS', 'Your visual guide is attached.', '',
+    'Hello,', '',
+    'Thanks for your interest in SEO Growth OS. Your guide is attached.', '',
+    'See how it brings together SEO audits, automation and growth planning, from finding issues to prioritising improvements and tracking progress.', '',
+    'Start on page 1 with the challenge closest to yours, then explore what can be automated and what you receive.', '',
+    'Want help setting it up for your business?',
     'Enquire about SEO automation: ' + SEO_GUIDE_ENQUIRY_URL, '',
-    'Thanks,', 'Ankit Kumar', 'HelpMeMarketing', '',
-    'This guide explains the checks available. Your website has not been audited as part of this request.', '', '---'
-  ].concat(seoGuideFooter_(optedIn)).join('\n');
+    'Ankit Kumar', 'HelpMeMarketing', '', '---'
+  ].concat(seoGuideFooter_(optedIn), ['Privacy policy: ' + SITE_URL + '/privacy']).join('\n');
 }
 
 /* ============================ helpers ============================ */

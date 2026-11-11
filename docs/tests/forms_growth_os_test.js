@@ -122,14 +122,16 @@ test('guide email, not opted in: new copy, page 1 pointer, enquiry link, footer 
   const m = env.messages[0];
   assert.strictEqual(m.subject, 'Your SEO Growth OS Visual Guide');
   for (const t of [m.htmlBody, m.body]) {
-    assert.ok(t.includes('Your guide is attached.'));
+    assert.ok(t.includes('Your guide is attached.') && t.includes('Your visual guide') && t.includes('Hello,'));
     assert.ok(t.includes('page 1'));
     assert.ok(t.includes('/contact?entry=seo_automation#contact-form'));
-    assert.ok(t.includes('Your website has not been audited as part of this request.'));
+    assert.ok(t.includes('/privacy'));
     assert.ok(t.includes('This request does not subscribe you to marketing updates.'));
     assert.ok(!t.includes('opted in') && !t.includes('off the list') && !t.includes('Help Me Marketing'));
   }
-  assert.ok(m.htmlBody.includes('Your five-page guide is attached. Start with the checks that matter to your business.'));
+  assert.ok(m.htmlBody.includes('Your five-page guide is attached.'));
+  assert.ok(m.htmlBody.includes('/assets/brand/email/hmm-logo-email.png') && m.htmlBody.includes('alt="HelpMeMarketing"'));
+  assert.strictEqual((m.htmlBody.match(/<a href="[^"]*contact/g) || []).length, 1);
   assert.strictEqual(rows(env, 'Subscribers').length, 0);
 });
 
