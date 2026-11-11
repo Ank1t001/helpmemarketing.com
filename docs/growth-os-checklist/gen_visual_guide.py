@@ -75,100 +75,74 @@ def badge(k):
 
 CONTACT = 'https://helpmemarketing.com/contact?entry=seo_automation#contact-form'
 
-# Each card: title, icon, label keys, optional tag, checks, automates, review, you receive, note
-def card(t, ic, labels, checks, receive, auto=None, review=None, tag=None, note=None):
-    return dict(t=t, ic=ic, labels=labels, checks=checks, receive=receive, auto=auto, review=review, tag=tag, note=note)
+# Each card: title, icon, remaining label keys (Draft + review or Human review only), description, you receive.
+# Scheduled check and On change are legend-only no longer: removed from the tiles (founder, 2026-11-11).
+def card(t, ic, labels, desc, receive, tag=None, note=None):
+    return dict(t=t, ic=ic, labels=labels, desc=desc, receive=receive, tag=tag, note=note)
 
 PAGES = [
     dict(kicker='Website health & search performance', title='Can people and search engines reach the right pages?', cards=[
-        card('Access, indexing & sitemaps', 'search', 'S',
-             'Status codes, robots directives, noindex, canonical URLs and sitemap inclusion.',
-             'Affected URLs, the issue on each and the next step.',
-             auto='Reruns the agreed URL checks and compares them with the last run. Public website signals are kept apart from Google’s recorded indexing status, which needs Search Console.'),
-        card('Links, redirects & website updates', 'link', 'SC',
-             'Broken links, redirect chains, and selected pages and journeys before and after a release.',
-             'Affected source and destination URLs, plus regressions found after a release.',
-             auto='Retests links and redirects on the agreed pages. Around a release, compares before and after.'),
-        card('Performance & media', 'gauge', 'SD',
-             'Lab speed on key pages, real-user data where Google has enough, missing image descriptions and media that slows pages.',
-             'Page-specific diagnostics, with lab and real-user data kept apart, and flagged images.',
-             auto='Retests the agreed pages against earlier results. Flags images without descriptions and drafts them.',
-             review='A person checks that each description is useful.'),
-        card('Structured data', 'code', 'SH',
-             'Whether markup is valid, and whether it matches the visible page and your business.',
-             'Page-specific findings and draft corrections for your developer.',
-             auto='Validates markup on the agreed pages and flags new errors.',
-             review='Accuracy against the page and business is checked by a person.'),
-        card('Search performance & opportunities', 'chart', 'SH',
-             'Page and query impressions, clicks, CTR and position across comparable periods. Search intent, competitor pages and backlinks.',
-             'Pages or opportunities to investigate, with the evidence behind each.',
-             auto='Collects connected search data, compares agreed periods and flags changes.',
-             review='Intent, competitor and backlink findings need interpretation. Backlinks are investigated, never auto-disavowed.'),
-        card('Local, store & international', 'globe', 'S',
-             'Local: Business Profile details and location searches. Store: product pages, product markup and Merchant Center issues. International: language and country versions.',
-             'Dated location observations, product or account issues, and affected URLs between versions.',
-             auto='Repeats supported observations and rechecks product markup and version links.',
+        card('Access, indexing & sitemaps', 'search', '',
+             'Rechecks page access, indexing directives, canonical URLs and sitemap inclusion.',
+             'Affected pages, issues and recommended next steps.'),
+        card('Links, redirects & website updates', 'link', '',
+             'Finds broken links and redirect chains, and checks for problems after updates.',
+             'Affected links and changes needing attention.'),
+        card('Performance & media', 'gauge', 'D',
+             'Checks page speed and missing image descriptions. Draft descriptions are reviewed for usefulness.',
+             'Performance findings and images to improve.'),
+        card('Structured data', 'code', 'H',
+             'Validates markup and flags errors. A person checks that it accurately describes your business.',
+             'Page-specific findings and draft corrections.'),
+        card('Search performance & opportunities', 'chart', 'H',
+             'Tracks page and query performance. Reviews search intent, competitors and backlinks.',
+             'Pages and opportunities to investigate, with supporting evidence.'),
+        card('Local, store & international', 'globe', '',
+             'Checks relevant local profiles, product listings and language or country versions.',
+             'Location observations, listing issues and affected pages.',
              tag='Only where it applies'),
     ]),
     dict(kicker='Content & AI visibility', title='Do your pages answer the questions customers ask?', cards=[
-        card('Page basics & content freshness', 'heading', 'SH',
-             'Titles, descriptions and headings. Customer questions, accuracy and outdated information.',
-             'Page-specific issues and sections to update, with the reason for each.',
-             auto='Rechecks titles, descriptions and headings on the agreed pages and flags new problems.',
-             review='Accuracy, freshness and wording are an editorial judgment.'),
+        card('Page basics & content freshness', 'heading', 'H',
+             'Rechecks titles, descriptions and headings. A person reviews accuracy, unanswered customer questions and outdated content.',
+             'Page-specific issues and sections to update, with reasons.'),
         card('Internal linking', 'sitemap', 'D',
-             'How priority pages connect, and where a relevant link would help visitors.',
-             'Source page, destination and suggested link wording.',
-             auto='Inspects crawlable links and prepares suggested additions.',
-             review='You review relevance and wording.'),
+             'Reviews how priority pages connect and suggests relevant links. You review the relevance and wording.',
+             'Source page, destination and suggested link wording.'),
         card('Content briefs', 'brief', 'D',
-             'The page’s purpose, the intended customer action and the evidence from the review.',
-             'A brief saying what to change, why, and how to verify it was done.',
-             auto='Drafts the brief from the available evidence.',
-             review='You approve the changes and wording.'),
+             'Drafts recommendations from the page\u2019s purpose and available evidence. You review and approve the proposed changes.',
+             'A brief explaining what to change, why and how to verify it.'),
         card('Location & service pages at scale', 'pin', 'H',
-             'Pages built from one template: useful differences, factual consistency, internal links and indexing directives.',
-             'Pages to improve, merge, link or keep out of the index, with the reason for each.',
-             review='Similarity is a starting point for review, not a pass mark. Nothing is published in bulk.',
+             'Reviews templated pages for useful differences, factual consistency, internal links and indexing directives.',
+             'Recommendations to improve, merge or manage the indexing of specific pages.',
              tag='Optional'),
         card('Answer suitability', 'quote', 'H',
-             'Clear answers to customer questions, accurate business information and evidence for claims.',
-             'Specific sections to clarify or strengthen.',
-             review='Suggestions can be drafted; clarity and accuracy are judged by a person.'),
-        card('AI mentions & citations', 'sparkle', 'SH',
-             'Selected Google AI answers and other assistant responses to agreed questions.',
-             'Question, platform, date, observed mention, citation and accuracy concerns.',
-             auto='Repeats supported Google AI observations on a schedule.',
-             review='Other assistants are checked in a browser or by hand. Accuracy is judged by a person.',
+             'Reviews whether pages clearly answer customer questions and support business claims with accurate information.',
+             'Specific sections to clarify or strengthen.'),
+        card('AI mentions & citations', 'sparkle', 'H',
+             'Records mentions and citations for agreed questions. Supported Google AI checks can repeat; other responses and accuracy need review.',
+             'The question, platform, date, mentions, citations and accuracy concerns.',
              note='AI answers vary; observations are recorded with their date and context.'),
     ]),
     dict(kicker='Measurement & progress', title='Are enquiries being measured, and is the work moving forward?', cards=[
         card('Conversion & enquiry journey', 'click', 'H',
-             'Offer clarity, calls to action, form usability and friction on phones and desktops.',
-             'Observed barriers, with recommendations or test ideas.',
-             review='A person walks the journey. Forms are submitted only with your permission.'),
+             'Reviews offer clarity, calls to action, forms and mobile usability. Form submissions require your permission.',
+             'Observed barriers, recommendations and test ideas.'),
         card('Events & consent', 'shield', 'H',
-             'Whether intended actions produce the expected events, and how tracking responds to consent choices.',
-             'What fires, what does not, and the gaps to fix.',
-             review='Configured tags are kept apart from behaviour observed in a test. Tests need your approval.'),
+             'Reviews whether customer actions trigger the expected events and how tracking responds to consent choices. Tests require approval.',
+             'Observed tracking behaviour and gaps to address.'),
         card('Real enquiries & data quality', 'database', 'H',
-             'Which actions count as a result, whether recorded leads match your business records, and test traffic, filters, time zones and reporting dates.',
-             'Discrepancies, and which figures can be relied on.',
-             review='Records are compared only with your permission.'),
+             'Reviews outcome definitions, lead records, test traffic, filters and reporting periods to identify misleading figures.',
+             'Discrepancies and an explanation of which figures are reliable.'),
         card('Priorities & draft actions', 'target', 'D',
-             'Recommendations consider the seriousness of the issue, the opportunity, strength of evidence, implementation risk, effort and dependencies.',
-             'What to address now, investigate, test or leave unchanged.',
-             auto='Combines related findings and drafts a prioritised plan.',
-             review='You decide what goes ahead.'),
-        card('Change verification & monitoring', 'checkc', 'CS',
-             'Whether approved changes are live, whether their acceptance checks pass and whether problems recur.',
-             'A confirmed status with evidence: live, partly live, not yet live or unable to verify. Business impact is assessed separately.',
-             auto='Rechecks observable changes and reruns the agreed checks against a baseline.'),
-        card('Change record & recurring summary', 'history', 'SD',
-             'New findings, decisions, completed work, unresolved items and approvals needed.',
-             'A concise update backed by a dated working record.',
-             auto='Adds each run to the record and drafts the summary.',
-             review='You review the summary before it is shared.'),
+             'Combines related findings and drafts priorities based on evidence, opportunity, severity, risk, effort and dependencies. You decide what proceeds.',
+             'What to address now, investigate, test or leave unchanged.'),
+        card('Change verification & monitoring', 'checkc', '',
+             'Rechecks approved changes and flags recurring problems. Implementation status and business impact are assessed separately.',
+             'Evidence showing what is live, partly live, outstanding or unverified.'),
+        card('Change record & recurring summary', 'history', 'D',
+             'Records findings, decisions and completed work, then drafts an update for your review.',
+             'A concise summary of progress, open issues and approvals needed.'),
     ]),
 ]
 
@@ -207,25 +181,18 @@ def para(key, cls, ic, text):
 def render_card(c):
     tag = f'<span class="tag">{E(c["tag"])}</span>' if c['tag'] else ''
     badges = ''.join(badge(k) for k in c['labels'])
-    out = [f'<div class="cd"><div class="cd-h"><span class="ci">{icon(c["ic"])}</span><h3>{E(c["t"])}</h3></div>'
-           f'<div class="cd-b">{badges}{tag}</div>',
-           para('Checks', 'k-chk', None, c['checks'])]
-    if c['auto']:
-        out.append(para('Automates', 'k-auto', 'refresh', c['auto']))
-    if c['review']:
-        out.append(para('Review', 'k-rev', 'eye', c['review']))
-    out.append(para('You receive', 'k-rec', None, c['receive']))
-    if c['note']:
-        out.append(f'<p class="cn">{E(c["note"])}</p>')
-    out.append('</div>')
-    return ''.join(out)
+    row = f'<div class="cd-b">{badges}{tag}</div>' if (badges or tag) else ''
+    note = f'<p class="cn">{E(c["note"])}</p>' if c['note'] else ''
+    return (f'<div class="cd"><div class="cd-h"><span class="ci">{icon(c["ic"])}</span><h3>{E(c["t"])}</h3></div>{row}'
+            f'<p class="cd-d">{E(c["desc"])}</p>'
+            f'<p class="k-rec"><b>You receive:</b> {E(c["receive"])}</p>{note}</div>')
 
 pages = []
 
 # Page 1: where should you start?
 rows = ''.join(f'<tr><td>{E(a)}</td><td><span class="st-ic">{icon(ic)}</span>{E(b)}</td></tr>' for a, b, ic in START)
 areas = ''.join(f'<div class="ar"><span class="ci">{icon(ic)}</span><div><h3>{E(t)}</h3><p>{E(d)}</p></div></div>' for ic, t, d in AREAS)
-legend = ''.join(f'<tr><td>{badge(k)}</td><td>{E(L[k][3])}</td></tr>' for k in 'SDHC')
+legend = ''.join(f'<tr><td>{badge(k)}</td><td>{E(L[k][3])}</td></tr>' for k in 'DH')
 pages.append(f'''<section class="page">
   <div class="intro">
     <div class="intro-top"><img class="logo" src="../../assets/brand/hmm-logo-full.svg" width="150" height="69" alt="HelpMeMarketing"><span>SEO Growth OS Visual Guide</span></div>
@@ -331,18 +298,19 @@ table{border-collapse:collapse;width:100%}
 /* card pages */
 .ph{margin-bottom:12px}
 .ph h1{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:21pt;line-height:1.15;margin-top:4px}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.cd{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--cta);border-radius:12px;padding:10px 13px 11px;break-inside:avoid}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.cd{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--cta);border-radius:12px;padding:18px 20px 19px;break-inside:avoid;display:flex;flex-direction:column}
 .cd-h{display:flex;gap:9px;align-items:center}
-.cd-h h3{font-size:11pt;font-weight:650;line-height:1.2}
-.cd-b{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 6px}
-.cd p{margin-top:4px;color:var(--body)}
+.cd-h h3{font-size:11.5pt;font-weight:650;line-height:1.25}
+.cd-b{display:flex;flex-wrap:wrap;gap:5px;margin:11px 0 0}
+.cd p{color:var(--body)}
+.cd-d{margin-top:11px;font-size:11pt;line-height:1.5}
 .cd p b{font-weight:650;color:var(--text);margin-right:2px}
 .k-auto b{color:var(--mint)!important}
 .k-rev b{color:var(--muted)!important}
-.k-rec{padding-top:5px;margin-top:6px!important;border-top:1px dashed var(--line)}
+.k-rec{padding-top:11px;margin-top:13px;border-top:1px solid var(--line);font-size:11pt;line-height:1.5}
 .k-rec b{color:var(--cta-ink)!important}
-.cn{font-size:8.5pt;color:var(--ter)!important;font-style:italic}
+.cn{margin-top:7px;font-size:8.5pt;color:var(--ter)!important;font-style:italic}
 /* page 5 */
 .flow{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
 .fl{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 8px 14px;text-align:center}
