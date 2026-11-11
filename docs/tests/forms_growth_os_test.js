@@ -4,7 +4,7 @@
 const fs = require('fs'), path = require('path'), vm = require('vm'), assert = require('assert');
 
 function load(opts) {
-  const sheets = {}, mails = [], fetches = [], attachments = [];
+  const sheets = {}, mails = [], fetches = [], attachments = [], messages = [];
   const sheet = name => sheets[name] || (sheets[name] = {
     rows: [],
     getLastRow() { return this.rows.length; },
@@ -21,7 +21,7 @@ function load(opts) {
     SpreadsheetApp: { getActiveSpreadsheet: () => ({ getSheetByName: n => sheets[n] || null, insertSheet: n => sheet(n) }) },
     LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) },
     ContentService: { MimeType: { JSON: 'json' }, createTextOutput: t => ({ text: t, setMimeType() { return this; } }) },
-    MailApp: { sendEmail: m => { if (opts.mailThrows) throw new Error('Service invoked too many times'); mails.push(m.to); attachments.push(m.attachments); }, getRemainingDailyQuota: () => 100 },
+    MailApp: { sendEmail: m => { if (opts.mailThrows) throw new Error('Service invoked too many times'); mails.push(m.to); attachments.push(m.attachments); messages.push(m); }, getRemainingDailyQuota: () => 100 },
     DriveApp: { getFileById: id => {
       if (opts.fileMissing) throw new Error('No item with the given ID could be found: ' + id);
       const mime = opts.mime || 'application/pdf';
@@ -35,7 +35,7 @@ function load(opts) {
   if (opts.fileId !== undefined) vm.runInContext('SEO_CHECKLIST_FILE_ID = ' + JSON.stringify(opts.fileId) + ';', ctx);
   else vm.runInContext("SEO_CHECKLIST_FILE_ID = 'test-checklist-id';", ctx);
   const post = body => JSON.parse(ctx.doPost({ postData: { contents: JSON.stringify(body) } }).text);
-  return { post, sheets, mails, fetches, attachments };
+  return { post, sheets, mails, fetches, attachments, messages };
 }
 
 const GOOD = { success: true, action: 'growth_os_download', hostname: 'helpmemarketing.com' };
@@ -114,6 +114,35 @@ test('Meta download reply carries no email field (no email is sent)', () => {
   const env = load({ secret: 'x', siteverify });
   const r = env.post({ ...base, product: 'meta', source: '/meta-growth-os', email: 'i@example.com' });
   assert.strictEqual(r.saved, 'lead'); assert.strictEqual(r.email, undefined);
+});
+
+test('guide email, not opted in: new copy, page 1 pointer, enquiry link, footer says no subscription', () => {
+  const env = load({ secret: 'x', siteverify });
+  env.post({ ...base, marketingConsent: false, email: 'g@example.com', 'cf-turnstile-response': 'good-token' });
+  const m = env.messages[0];
+  assert.strictEqual(m.subject, 'Your SEO Growth OS Visual Guide');
+  for (const t of [m.htmlBody, m.body]) {
+    assert.ok(t.includes('Your guide is attached.'));
+    assert.ok(t.includes('page 1'));
+    assert.ok(t.includes('/contact?entry=seo_automation#contact-form'));
+    assert.ok(t.includes('Your website has not been audited as part of this request.'));
+    assert.ok(t.includes('This request does not subscribe you to marketing updates.'));
+    assert.ok(!t.includes('opted in') && !t.includes('off the list') && !t.includes('Help Me Marketing'));
+  }
+  assert.ok(m.htmlBody.includes('Your five-page guide is attached. Start with the checks that matter to your business.'));
+  assert.strictEqual(rows(env, 'Subscribers').length, 0);
+});
+
+test('guide email, opted in: footer explains the opt-in and how to unsubscribe', () => {
+  const env = load({ secret: 'x', siteverify });
+  env.post({ ...base, marketingConsent: true, email: 'h@example.com', 'cf-turnstile-response': 'good-token' });
+  const m = env.messages[0];
+  for (const t of [m.htmlBody, m.body]) {
+    assert.ok(t.includes('You also opted in to occasional SEO notes and updates.'));
+    assert.ok(t.includes('unsubscribe'));
+    assert.ok(!t.includes('does not subscribe you'));
+  }
+  assert.strictEqual(rows(env, 'Subscribers').length, 1);
 });
 
 if (failed) { console.log(failed + ' failed'); process.exit(1); } else console.log('all passed');

@@ -34,8 +34,8 @@
  *      It creates the five new tabs with header rows and leaves Leads as it is.
  *   4. Run `testRouting`. It writes one test row to each tab (emails are skipped) and logs where
  *      each went. Check the tabs, then delete the rows marked TEST.
- *   5. Run `testEmails`. It sends the SEO Growth OS visual guide and a sample audit plan to your own
- *      address. Check both arrived.
+ *   5. Run `testEmails`. It sends the SEO Growth OS Visual Guide twice (not opted in, then opted in, so
+ *      you can check both footers) and a sample audit plan to your own address. Check all three arrived.
  *   6. Deploy → Manage deployments → edit the EXISTING deployment (pencil) → Version: New
  *      version → Deploy. Do not pick "New deployment": that makes a new URL.
  *   7. Tell Claude it is live. The site's other forms are then switched to this URL.
@@ -326,7 +326,7 @@ function addGrowthOs_(d, email) {
   var product = growthOsProduct_(d);
   var consent = d.marketingConsent === true || d.marketingConsent === 'true';
   // The SEO checklist is emailed as an attachment; the Meta bundle downloads on the page, so it gets no email.
-  var sent = product === 'SEO Growth OS' ? send_(function () { sendSeoChecklist_(email); }) : 'Not needed (downloads on the page)';
+  var sent = product === 'SEO Growth OS' ? send_(function () { sendSeoChecklist_(email, consent); }) : 'Not needed (downloads on the page)';
   tab_('Growth OS downloads').appendRow([new Date(), email, product, consent ? 'TRUE' : 'FALSE', consent ? new Date() : '',
     sent, pick_(d, 'referrer').slice(0, 300), pick_(d, 'userAgent').slice(0, 300)]);
   if (consent) addSubscriber_(email, product + (product === 'SEO Growth OS' ? ' visual guide' : ' download'), 'Yes, ticked the box');
@@ -545,60 +545,74 @@ function checklistBlob_() {
   return blob.setName(SEO_CHECKLIST_FILENAME);
 }
 
-function sendSeoChecklist_(email) {
+function sendSeoChecklist_(email, optedIn) {
   var blob = checklistBlob_();
   MailApp.sendEmail({ to: email, name: FROM_NAME, replyTo: REPLY_TO, subject: 'Your SEO Growth OS Visual Guide',
-    htmlBody: seoChecklistHtml_(), body: seoChecklistText_(), attachments: [blob] });
+    htmlBody: seoChecklistHtml_(optedIn), body: seoChecklistText_(optedIn), attachments: [blob] });
 }
 
-// Checklist email (2026-11-11). Same layout as the old bundle email; first person, no em dashes.
-function seoChecklistHtml_() {
-  var font = 'Arial,Helvetica,sans-serif', bg = '#0E0E0E', card = '#1A1A1A', text = '#FFFFFF', muted = '#999999',
-    cta = '#FF5C1A', mint = '#00D4AA', border = 'rgba(255,255,255,0.10)';
+// Visual Guide email (founder copy, 2026-11-11): short delivery note, a pointer to page 1, then the setup offer.
+// The footer matches the visitor's newsletter choice; a request on its own never subscribes anyone.
+var SEO_GUIDE_ENQUIRY_URL = SITE_URL + '/contact?entry=seo_automation#contact-form';
+function seoGuideFooter_(optedIn) {
+  return ['You requested this guide at helpmemarketing.com.',
+    optedIn ? 'You also opted in to occasional SEO notes and updates. To unsubscribe, reply to this email with “unsubscribe”.'
+            : 'This request does not subscribe you to marketing updates.',
+    'HelpMeMarketing, Halton Hills, Ontario, Canada'];
+}
+function seoChecklistHtml_(optedIn) {
+  var font = 'Arial,Helvetica,sans-serif', bg = '#0E0E0E', card = '#1A1A1A', text = '#FFFFFF', body = '#D9D9D9',
+    small = '#A3A3A3', cta = '#FF5C1A', mint = '#00D4AA', border = 'rgba(255,255,255,0.10)';
+  var p = function (html, pad) {
+    return '<tr><td style="font-family:' + font + ';font-size:16px;line-height:1.6;color:' + body + ';padding-bottom:' + (pad || 16) + 'px;">' + html + '</td></tr>';
+  };
+  var foot = seoGuideFooter_(optedIn);
   return (
 '<!DOCTYPE html>' +
 '<html lang="en"><head><meta charset="UTF-8">' +
 '<meta name="viewport" content="width=device-width,initial-scale=1"></head>' +
 '<body style="margin:0;padding:0;background:' + bg + ';">' +
+'<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:' + bg + ';">' +
+'Your five-page guide is attached. Start with the checks that matter to your business.</div>' +
 '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:' + bg + ';padding:32px 16px;">' +
 '<tr><td align="center">' +
 '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:' + card + ';border:1px solid ' + border + ';border-radius:14px;padding:32px;">' +
 '<tr><td style="font-family:' + font + ';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:' + mint + ';font-weight:bold;padding-bottom:12px;">' +
 'HelpMeMarketing &middot; SEO Growth OS</td></tr>' +
-'<tr><td style="font-family:' + font + ';font-size:26px;line-height:1.25;color:' + text + ';font-weight:bold;padding-bottom:16px;">' +
-'Your SEO Growth OS Visual Guide is attached.</td></tr>' +
-'<tr><td style="font-family:' + font + ';font-size:15px;line-height:1.6;color:' + muted + ';padding-bottom:20px;">' +
-'The PDF on this email sets out the recurring SEO work I can help automate: what each check looks at, what can run automatically, ' +
-'what you receive and what needs your review, with a real example from my own site.</td></tr>' +
-'<tr><td style="font-family:' + font + ';font-size:15px;line-height:1.6;color:' + muted + ';padding-bottom:24px;">' +
-'It is a guide, not an audit: nothing has been run on your website. If you would like these checks set up for your business, ' +
-'I can help connect your data, configure the checks and set a schedule around your website and goals.</td></tr>' +
-'<tr><td style="padding-bottom:26px;">' +
-'<a href="' + CONTACT_URL + '" style="display:inline-block;font-family:' + font + ';font-size:15px;font-weight:bold;color:#0E0E0E;background:' + cta + ';border-radius:8px;padding:14px 24px;text-decoration:none;">' +
+'<tr><td style="font-family:' + font + ';font-size:26px;line-height:1.25;color:' + text + ';font-weight:bold;padding-bottom:20px;">' +
+'Your guide is attached.</td></tr>' +
+p('Hi,') +
+p('Thanks for requesting the SEO Growth OS Visual Guide.') +
+p('Inside, you&rsquo;ll find the website and search checks I can help automate, what you receive and where human review is needed.') +
+p('Start with &ldquo;Where should you start?&rdquo; on page 1. Find the problem closest to yours, then explore the relevant checks.', 28) +
+'<tr><td style="border-top:1px solid ' + border + ';padding-top:24px;font-family:' + font + ';font-size:18px;line-height:1.3;color:' + text + ';font-weight:bold;padding-bottom:10px;">' +
+'Want help setting this up?</td></tr>' +
+p('I can help connect your data, configure the checks and test a schedule around your website and goals.', 20) +
+'<tr><td style="padding-bottom:28px;">' +
+'<a href="' + SEO_GUIDE_ENQUIRY_URL + '" style="display:inline-block;font-family:' + font + ';font-size:15px;font-weight:bold;color:#0E0E0E;background:' + cta + ';border-radius:8px;padding:14px 24px;text-decoration:none;">' +
 'Enquire about SEO automation</a></td></tr>' +
+p('Thanks,<br>Ankit Kumar<br>HelpMeMarketing', 16) +
+'<tr><td style="font-family:' + font + ';font-size:13px;line-height:1.6;color:' + small + ';padding-bottom:24px;">' +
+'This guide explains the checks available. Your website has not been audited as part of this request.</td></tr>' +
 '<tr><td style="border-top:1px solid ' + border + ';padding-top:18px;font-family:' + font + ';font-size:12px;line-height:1.6;color:#8A8A8A;">' +
-'You are getting this because you asked for the SEO Growth OS Visual Guide at ' + SITE_URL + '/seo-growth-os.<br>' +
-SENDER_POSTAL + '<br>' +
-'Prefer not to hear from me again? Reply with "unsubscribe" and you are off the list.' +
+foot.join('<br>') +
 '</td></tr>' +
 '</table></td></tr></table></body></html>'
   );
 }
 
-function seoChecklistText_() {
-  return [
-    'Your SEO Growth OS Visual Guide is attached.', '',
-    'The PDF on this email sets out the recurring SEO work I can help automate: what',
-    'each check looks at, what can run automatically, what you receive and what needs',
-    'your review, with a real example from my own site.', '',
-    'It is a guide, not an audit: nothing has been run on your website.',
-    'If you would like these checks set up for your business, I can help connect',
-    'your data, configure the checks and set a schedule around your website and goals.', '',
-    'Enquire about SEO automation: ' + CONTACT_URL, '', '---',
-    'You are getting this because you asked for the SEO Growth OS Visual Guide at',
-    SITE_URL + '/seo-growth-os.', SENDER_POSTAL,
-    'Prefer not to hear from me again? Reply with "unsubscribe" and you are off the list.'
-  ].join('\n');
+function seoChecklistText_(optedIn) {
+  return ['Your guide is attached.', '',
+    'Hi,', '',
+    'Thanks for requesting the SEO Growth OS Visual Guide.', '',
+    'Inside, you’ll find the website and search checks I can help automate, what you receive and where human review is needed.', '',
+    'Start with “Where should you start?” on page 1. Find the problem closest to yours, then explore the relevant checks.', '',
+    'Want help setting this up?', '',
+    'I can help connect your data, configure the checks and test a schedule around your website and goals.', '',
+    'Enquire about SEO automation: ' + SEO_GUIDE_ENQUIRY_URL, '',
+    'Thanks,', 'Ankit Kumar', 'HelpMeMarketing', '',
+    'This guide explains the checks available. Your website has not been audited as part of this request.', '', '---'
+  ].concat(seoGuideFooter_(optedIn)).join('\n');
 }
 
 /* ============================ helpers ============================ */
@@ -762,10 +776,11 @@ function testLeadSources() {
 // Step 5. Sends the SEO visual guide and a sample plan to your own address.
 function testEmails() {
   var me = Session.getActiveUser().getEmail();
-  sendSeoChecklist_(me);
+  sendSeoChecklist_(me, false);   // not opted in: footer says the request does not subscribe you
+  sendSeoChecklist_(me, true);    // opted in: footer explains how to unsubscribe
   MailApp.sendEmail({ to: me, replyTo: REPLY_TO, name: FROM_NAME, subject: 'Your marketing plan: Cut missed appointments (test)',
     body: 'YOUR MARKETING PLAN\nTest', htmlBody: planHtml_('YOUR MARKETING PLAN\nFrom the HelpMeMarketing marketing audit\n\nYOUR FIRST PRIORITY\nCut missed appointments\n\nYOUR FIRST ACTION\n1. Send a confirmation right after every booking.', AUDIT_URL + '#plan=buy.appointment~goal.convert~stage.active~a_fit.most~a_wait.week~a_how.online~a_finish.most~a_remind.none~a_noshow.some~who.self') });
-  Logger.log('Sent the SEO visual guide and a sample plan to ' + me);
+  Logger.log('Sent the SEO visual guide (both footer versions) and a sample plan to ' + me);
 }
 
 // Step 8, optional and once. Copies past rows from the old Growth OS sheet; opt-ins also go to Subscribers.
