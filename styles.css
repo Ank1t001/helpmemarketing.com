@@ -5973,6 +5973,18 @@ body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-cta-photo stro
   body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-cta-photo img { flex: none; width: 72px; height: 72px; aspect-ratio: 1; border-radius: 50%; object-position: 50% 20%; }
   body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-cta-photo figcaption { margin: 0; }
 }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-nowrap { white-space: nowrap; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .ind2-hero .ind2-hero-note { margin-top: 16px; font-size: 14px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-review { margin: 0; padding: 24px; border: 1px solid var(--border); border-radius: 20px; background: var(--bg-elevated); box-shadow: 0 30px 80px -40px rgba(0, 0, 0, 0.5); }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-review-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-review-head .ind2-k { margin: 0; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-review-tag { padding: 2px 10px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; color: var(--text-muted); }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-review-list { list-style: none; margin: 16px 0 0; padding: 0; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-review-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid var(--border); font-size: 15px; color: var(--text); }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-review-next { margin: 16px 0 0; padding: 14px 16px; border-radius: 12px; background: rgba(var(--cta-rgb, 255, 92, 26), 0.08); font-size: 15px; line-height: 1.5; color: var(--text-body); }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-review-next .seoa-h { display: block; margin-bottom: 4px; color: var(--cta-text, var(--cta)); }
+@media (max-width: 900px) { body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; } body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-review { max-width: 520px; } }
 @media (max-width: 720px) { body.redesign-prototype [data-screen-label="ai-seo-agency"] :is(.ind2-card, .ind2-step, .pm-check, .ma-wizard, .seoa-result) { padding: 20px; } body.redesign-prototype [data-screen-label="ai-seo-agency"] .final-cta-section .final-cta { padding: 32px 20px; } }
 @media (max-width: 900px) {
   body.redesign-prototype .ind2-strip { flex-direction: column; gap: 10px; }
