@@ -72,7 +72,7 @@
     }
     if (a.goal === 'ai') {
       reasons.push('Your main goal is ' + quote('goal', 'ai') + '.');
-      if (data.indexOf('ai_checks') === -1) reasons.push('You haven’t said you have earlier checks of AI answers about your business, so there is no record to compare against yet.');
+      if (data.indexOf('ai_checks') === -1) reasons.push('You haven’t indicated whether earlier AI visibility checks are available. Check for an existing record before creating your baseline.');
       return { key: 'ai_answers', reasons: reasons, conflict: conflict };
     }
     reasons.push('Your main goal is ' + quote('goal', a.goal) + '.');
