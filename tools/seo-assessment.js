@@ -198,18 +198,18 @@
     function finish() {
       var d = decide(answers), r = content(d.key, answers.action);
       last = { d: d, r: r }; helpSent = false;
-      var h = '<p class="ind2-k">Your answers suggest starting here</p>' +
+      var li = function (x) { return '<li>' + esc(x) + '</li>'; };
+      var h = '<p class="seoa-h seoa-kicker">Your answers suggest starting here</p>' +
         '<h3 class="seoa-title" tabindex="-1">' + esc(r.title) + '</h3>' +
-        '<div class="seoa-block"><p class="seoa-h">Why this comes first</p><ul class="pm-list">' +
-        d.reasons.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' +
+        '<div class="seoa-first"><p class="seoa-h">Your first action</p><p>' + esc(r.first) + '</p></div>' +
+        '<div class="seoa-block"><p class="seoa-h">Why this comes first</p><ul class="pm-list">' + d.reasons.map(li).join('') + '</ul>' +
         (d.conflict ? '<p class="seoa-conflict">' + esc(d.conflict) + '</p>' : '') + '</div>' +
-        '<div class="seoa-grid">' +
-        '<div class="seoa-block"><p class="seoa-h">What to check before making changes</p><p>' + esc(r.check) + '</p></div>' +
-        '<div class="seoa-block"><p class="seoa-h">Your first action</p><p>' + esc(r.first) + '</p></div>' +
-        '<div class="seoa-block"><p class="seoa-h">Then</p><ol class="pm-list">' + r.follow.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ol></div>' +
+        '<div class="seoa-steps3">' +
+        '<div class="seoa-block"><p class="seoa-h">Check before changing anything</p><p>' + esc(r.check) + '</p></div>' +
+        '<div class="seoa-block"><p class="seoa-h">Then</p><ol class="pm-list">' + r.follow.map(li).join('') + '</ol></div>' +
         '<div class="seoa-block"><p class="seoa-h">What to monitor</p><p>' + esc(r.monitor) + '</p></div></div>' +
         '<p class="pm-note seoa-small">' + esc(r.note) + '</p>' +
-        '<div class="seoa-block"><p class="seoa-h">What this assessment could not verify</p><ul class="pm-list">' + r.cannot.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' +
+        '<details class="seoa-cannot"><summary>What this assessment could not verify</summary><ul class="pm-list">' + r.cannot.map(li).join('') + '</ul></details>' +
         '<div class="seoa-actions"><button type="button" class="btn btn-primary" id="seoa-help">Get help with this</button>' +
         '<a class="ma-btn" href="/seo-growth-os" data-seoa-gos="result">Explore SEO Growth OS</a></div>' +
         '<div class="seoa-edit"><button type="button" class="ma-textbtn" id="seoa-edit">Edit my answers</button><button type="button" class="ma-textbtn" id="seoa-restart">Start again</button></div>' +
