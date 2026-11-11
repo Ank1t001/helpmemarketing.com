@@ -5984,6 +5984,14 @@ body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table 
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table thead th { padding-top: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table thead th:first-child, body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table th[scope="row"] { width: 28%; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] #help .pm-note.seoa-after { max-width: none; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-meas-h { display: flex; align-items: center; gap: 12px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-meas-h h3 { margin: 0; font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--text); }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-meas.is-no .seoa-ic-sm { background: rgba(var(--ink-rgb, 255, 255, 255), 0.06); color: var(--text-muted); }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-marks { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-marks li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; line-height: 1.5; color: var(--text-body); }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-marks svg { flex: none; margin-top: 3px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-meas.is-yes .seoa-marks svg { color: var(--mint); }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-meas.is-no .seoa-marks svg { color: var(--text-tertiary); }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-rowh { display: flex; align-items: flex-start; gap: 12px; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-ic-sm { flex: none; width: 32px; height: 32px; border-radius: 10px; margin: -4px 0; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-facts { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
