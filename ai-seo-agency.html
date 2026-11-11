@@ -314,13 +314,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var bar = el('span', 'seoa-sc-bar'); bar.setAttribute('aria-hidden', 'true');
     var fill = el('span', 'seoa-sc-fill'); fill.style.width = (n / checks.length * 100) + '%'; bar.appendChild(fill); head.appendChild(bar);
     out.appendChild(head);
-    var ul = el('ul', 'seoa-sc-areas');
-    checks.forEach(function (c) {
-      var li = el('li'); li.appendChild(el('span', '', c.getAttribute('data-area')));
-      li.appendChild(el('span', 'gos-chip' + (c.checked ? ' gos-live' : ''), c.checked ? 'In place' : 'Worth checking'));
-      ul.appendChild(li);
-    });
-    out.appendChild(ul);
     if (gaps.length) {
       out.appendChild(el('p', 'pm-check-head', 'An unticked box doesn’t mean something is wrong, only that it’s worth checking:'));
       var list = el('ul', 'seoa-sc-advice'); gaps.forEach(function (g) { list.appendChild(el('li', '', g)); }); out.appendChild(list);
