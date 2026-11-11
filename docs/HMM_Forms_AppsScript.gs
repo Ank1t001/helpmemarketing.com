@@ -100,7 +100,7 @@ var DRY_RUN = false;             // true only inside testRouting: rows are writt
 // { result: 'ok', saved: 'lead' } for a filed form, { result: 'ok', saved: 'spam', reason } when it went to the Spam tab,
 // { result: 'error' } when nothing could be written (the page then keeps the visitor's text and offers email).
 function doPost(e) {
-  var data = {}, saved = 'error', why = '';
+  var data = {}, saved = 'error', why = '', emailStatus = '';
   try {
     data = parseIncoming_(e);
     var form = formOf_(data);
@@ -125,7 +125,13 @@ function doPost(e) {
     lock.waitLock(20000);
     try {
       if (reason) { spam_(form, data, reason); saved = 'spam'; why = reason; }
-      else { var filed = route_(form, data); saved = filed === 'spam' ? 'spam' : 'lead'; }
+      else {
+        var filed = route_(form, data);
+        saved = filed === 'spam' ? 'spam' : 'lead';
+        // Checklist requests (2026-11-11) also report whether the email went out, so the page only says
+        // "check your inbox" when the mail service accepted it.
+        if (filed === 'lead_email_sent' || filed === 'lead_email_failed') emailStatus = filed === 'lead_email_sent' ? 'sent' : 'failed';
+      }
     } finally {
       lock.releaseLock();
     }
@@ -134,7 +140,8 @@ function doPost(e) {
     try { spam_(data.form || 'unknown', data, 'Script error: ' + String(err).slice(0, 200)); saved = 'spam'; why = 'Script error'; } catch (ignore) { saved = 'error'; }
   }
   if (saved === 'error') return jsonOut_({ result: 'error' });
-  return jsonOut_(saved === 'spam' ? { result: 'ok', saved: 'spam', reason: String(why).slice(0, 80) } : { result: 'ok', saved: 'lead' });
+  if (saved === 'spam') return jsonOut_({ result: 'ok', saved: 'spam', reason: String(why).slice(0, 80) });
+  return jsonOut_(emailStatus ? { result: 'ok', saved: 'lead', email: emailStatus } : { result: 'ok', saved: 'lead' });
 }
 
 // Open the /exec URL in a browser to confirm the deployment is live.
@@ -323,6 +330,8 @@ function addGrowthOs_(d, email) {
   tab_('Growth OS downloads').appendRow([new Date(), email, product, consent ? 'TRUE' : 'FALSE', consent ? new Date() : '',
     sent, pick_(d, 'referrer').slice(0, 300), pick_(d, 'userAgent').slice(0, 300)]);
   if (consent) addSubscriber_(email, product + (product === 'SEO Growth OS' ? ' checklist' : ' download'), 'Yes, ticked the box');
+  // The row is kept either way; the reply tells the page whether the checklist email was accepted.
+  if (product === 'SEO Growth OS') return sent === 'Sent' || sent === 'Skipped (test)' ? 'lead_email_sent' : 'lead_email_failed';
 }
 
 // One row per address: a repeat sign-up is ignored, not duplicated.
@@ -525,8 +534,19 @@ function planHtml_(text, url) {
     html + '<p style="margin:24px 0 0;font:13px/1.5 Arial,sans-serif;color:#666">' + esc_(planFooter_()).replace(/\n/g, '<br>') + '</p></div>';
 }
 
+// Throws (so send_ records "Failed" and the page shows the recovery message) when the file ID is still the
+// placeholder, the file is missing or not shared with the script, or it is not actually a PDF.
+function checklistBlob_() {
+  if (!SEO_CHECKLIST_FILE_ID || /PASTE/.test(SEO_CHECKLIST_FILE_ID)) throw new Error('Checklist file ID is not set');
+  var file = DriveApp.getFileById(SEO_CHECKLIST_FILE_ID);
+  if (file.getMimeType() !== 'application/pdf') throw new Error('Checklist file is not a PDF (' + file.getMimeType() + ')');
+  var blob = file.getBlob();
+  if (blob.getContentType() !== 'application/pdf') throw new Error('Checklist file content is not a PDF');
+  return blob.setName(SEO_CHECKLIST_FILENAME);
+}
+
 function sendSeoChecklist_(email) {
-  var blob = DriveApp.getFileById(SEO_CHECKLIST_FILE_ID).getBlob().setName(SEO_CHECKLIST_FILENAME);
+  var blob = checklistBlob_();
   MailApp.sendEmail({ to: email, name: FROM_NAME, replyTo: REPLY_TO, subject: 'Your SEO Growth OS checklist',
     htmlBody: seoChecklistHtml_(), body: seoChecklistText_(), attachments: [blob] });
 }
@@ -670,7 +690,7 @@ function setup() {
   Object.keys(TABS).forEach(function (name) { tab_(name); });
   MailApp.getRemainingDailyQuota();
   CacheService.getScriptCache().put('setup_check', '1', 60);
-  DriveApp.getFileById(SEO_CHECKLIST_FILE_ID).getName();   // fails until the checklist file ID is pasted in
+  checklistBlob_();   // fails until the checklist file ID is set and points at a real PDF
   checkTurnstileSecret();
   Logger.log('Ready. Tabs: ' + Object.keys(TABS).join(', '));
 }

@@ -4,7 +4,7 @@
 const fs = require('fs'), path = require('path'), vm = require('vm'), assert = require('assert');
 
 function load(opts) {
-  const sheets = {}, mails = [], fetches = [];
+  const sheets = {}, mails = [], fetches = [], attachments = [];
   const sheet = name => sheets[name] || (sheets[name] = {
     rows: [],
     getLastRow() { return this.rows.length; },
@@ -14,22 +14,28 @@ function load(opts) {
     setFrozenRows() {}
   });
   const ctx = {
-    console, JSON, Date, Math, String, Object, Array,
+    console: { log() {}, error() {}, warn() {} }, JSON, Date, Math, String, Object, Array,
     PropertiesService: { getScriptProperties: () => ({ getProperty: k => (k === 'TURNSTILE_SECRET' ? opts.secret : null) }) },
     UrlFetchApp: { fetch: (url, o) => { fetches.push(url); const r = opts.siteverify(o.payload.response);
       return { getResponseCode: () => 200, getContentText: () => JSON.stringify(r) }; } },
     SpreadsheetApp: { getActiveSpreadsheet: () => ({ getSheetByName: n => sheets[n] || null, insertSheet: n => sheet(n) }) },
     LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) },
     ContentService: { MimeType: { JSON: 'json' }, createTextOutput: t => ({ text: t, setMimeType() { return this; } }) },
-    MailApp: { sendEmail: m => mails.push(m.to), getRemainingDailyQuota: () => 100 },
-    DriveApp: { getFileById: () => ({ getBlob: () => ({ setName() { return this; } }) }) },
+    MailApp: { sendEmail: m => { if (opts.mailThrows) throw new Error('Service invoked too many times'); mails.push(m.to); attachments.push(m.attachments); }, getRemainingDailyQuota: () => 100 },
+    DriveApp: { getFileById: id => {
+      if (opts.fileMissing) throw new Error('No item with the given ID could be found: ' + id);
+      const mime = opts.mime || 'application/pdf';
+      return { getMimeType: () => mime, getBlob: () => ({ name: '', getContentType: () => opts.blobType || mime, setName(n) { this.name = n; return this; } }) };
+    } },
     Logger: { log() {} }, CacheService: { getScriptCache: () => ({ get() { return null; }, put() {}, remove() {} }) },
     Utilities: {}, Session: { getActiveUser: () => ({ getEmail: () => '' }) }
   };
   vm.createContext(ctx);
   vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'HMM_Forms_AppsScript.gs'), 'utf8'), ctx);
+  if (opts.fileId !== undefined) vm.runInContext('SEO_CHECKLIST_FILE_ID = ' + JSON.stringify(opts.fileId) + ';', ctx);
+  else vm.runInContext("SEO_CHECKLIST_FILE_ID = 'test-checklist-id';", ctx);
   const post = body => JSON.parse(ctx.doPost({ postData: { contents: JSON.stringify(body) } }).text);
-  return { post, sheets, mails, fetches };
+  return { post, sheets, mails, fetches, attachments };
 }
 
 const GOOD = { success: true, action: 'growth_os_download', hostname: 'helpmemarketing.com' };
@@ -67,10 +73,12 @@ test('token that fails verification: rejected with the /contact reason text', ()
   assert.strictEqual(env.mails.length, 0);
 });
 
-test('normal submission with a valid token: saved, bundle emailed, download and Subscribers rows written', () => {
+test('normal submission with a valid token: saved, checklist PDF emailed, reply says email sent', () => {
   const env = load({ secret: 'x', siteverify });
   const r = env.post({ ...base, email: 'e@example.com', 'cf-turnstile-response': 'good-token' });
-  assert.deepStrictEqual([r.result, r.saved], ['ok', 'lead']);
+  assert.deepStrictEqual([r.result, r.saved, r.email], ['ok', 'lead', 'sent']);
+  assert.strictEqual(env.attachments[0][0].name, 'HMM-SEO-Growth-OS-Checklist.pdf');
+  assert.strictEqual(rows(env, 'Growth OS downloads')[0][5], 'Sent');
   assert.deepStrictEqual(env.mails, ['e@example.com']);
   assert.strictEqual(rows(env, 'Growth OS downloads').length, 1); assert.strictEqual(rows(env, 'Subscribers').length, 1); assert.strictEqual(rows(env, 'Spam').length, 0);
 });
@@ -85,6 +93,27 @@ test('/contact unchanged: no token still rejected the same way', () => {
   const env = load({ secret: 'x', siteverify });
   const r = env.post({ form: 'contact', name: 'T', email: 'g@example.com', 'help_with[]': 'x' });
   assert.strictEqual(r.saved, 'spam'); assert.strictEqual(rows(env, 'Spam')[0][4], 'No Turnstile token');
+});
+
+const failCase = (name, opts, reasonRe) => test(name, () => {
+  const env = load({ secret: 'x', siteverify, ...opts });
+  const r = env.post({ ...base, email: 'h@example.com', marketingConsent: true, 'cf-turnstile-response': 'good-token' });
+  assert.deepStrictEqual([r.result, r.saved, r.email], ['ok', 'lead', 'failed']);
+  assert.strictEqual(env.mails.length, 0);
+  const row = rows(env, 'Growth OS downloads')[0];
+  assert.ok(row, 'request row kept'); assert.ok(reasonRe.test(row[5]), 'status column: ' + row[5]);
+  assert.strictEqual(rows(env, 'Subscribers').length, 1, 'consent still recorded');
+});
+failCase('checklist file ID still the placeholder: request kept, reply says email failed', { fileId: 'PASTE_CHECKLIST_PDF_FILE_ID_HERE' }, /Failed: .*file ID is not set/);
+failCase('checklist file missing or not shared: request kept, reply says email failed', { fileMissing: true }, /Failed: .*No item/);
+failCase('configured file is not a PDF (renamed zip): request kept, reply says email failed', { mime: 'application/zip' }, /Failed: .*not a PDF/);
+failCase('file says PDF but content is not: request kept, reply says email failed', { blobType: 'application/octet-stream' }, /Failed: .*content is not a PDF/);
+failCase('mail service refuses the email: request kept, reply says email failed', { mailThrows: true }, /Failed: .*too many times/);
+
+test('Meta download reply carries no email field (no email is sent)', () => {
+  const env = load({ secret: 'x', siteverify });
+  const r = env.post({ ...base, product: 'meta', source: '/meta-growth-os', email: 'i@example.com' });
+  assert.strictEqual(r.saved, 'lead'); assert.strictEqual(r.email, undefined);
 });
 
 if (failed) { console.log(failed + ' failed'); process.exit(1); } else console.log('all passed');

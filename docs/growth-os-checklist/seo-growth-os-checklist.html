@@ -34,6 +34,12 @@
   ul { margin: 6px 0 0; padding-left: 18px; }
   li { margin: 3px 0; }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .note2 { border-left-color: var(--muted); }
+  .closing { break-inside: avoid; page-break-inside: avoid; }
+  .blk-flow thead tr { break-after: avoid; page-break-after: avoid; }
+  .blk-flow h2, .closing h2 { margin-top: 22px; }
+  thead { display: table-header-group; }
+  .blk-flow h2, .blk-flow .sec-sub { break-after: avoid; page-break-after: avoid; }
   .foot { margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 9pt; color: var(--muted); }
   .cta { margin-top: 22px; padding: 14px 16px; background: var(--tint); border-radius: 10px; }
   .cta b { color: var(--ink); }
@@ -48,13 +54,15 @@
 <p class="lead">What the system checks, what each check looks at, the information it needs, and whether it can repeat on a schedule or needs a person to review it.</p>
 
 <p class="note"><b>This is a list of checks, not an audit.</b> Requesting it does not run anything on your website. Which checks apply depends on your business, the tools you connect and the data available. Website changes are always reviewed and approved by you before anything goes live.</p>
+<p class="note note2">This checklist describes what SEO Growth OS is designed to cover, including the checks and monitoring activities, the information they need and where a person needs to review them. Available checks and automation are confirmed during setup.</p>
 
 <p class="legend">
-  <span class="tag t-rep">Can repeat</span> can run again on a schedule once it is set up
+  <span class="tag t-rep">Can repeat</span> repeatable once the required tools, access and schedule are configured and tested; it does not mean every part runs unattended
   &nbsp;&nbsp;<span class="tag t-man">Manual review</span> needs a person to judge or approve
   &nbsp;&nbsp;<span class="tag t-evt">When needed</span> run around a specific event or request
 </p>
 
+<section class="blk-flow">
 <h2>1. Website health</h2>
 <p class="sec-sub">Is the website reachable, working and easy for search engines to read?</p>
 <table>
@@ -65,12 +73,15 @@
     <tr><td class="c">Sitemaps and discovery</td><td>Whether important pages are listed in your sitemap and reachable through links</td><td class="n">Your public website</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
     <tr><td class="c">Page speed</td><td>Lab tests on key pages, plus real-visitor speed data where Google has enough of it</td><td class="n">Your public website; Google's field data where available</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
     <tr><td class="c">Forms, navigation and devices</td><td>Whether key journeys, such as an enquiry or booking, work on phones and desktops</td><td class="n">Your public website; test submissions only with your permission</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
-    <tr><td class="c">Structured data</td><td>Whether page markup is valid and suits the type of page</td><td class="n">Your public website; drafts need your developer to review and test</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
-    <tr><td class="c">Images and alt text</td><td>Missing or unhelpful image descriptions, and media that slows pages down</td><td class="n">Your public website</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Structured data validity</td><td>Whether page markup is valid and free of errors</td><td class="n">Your public website</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Structured data accuracy</td><td>Whether the markup is accurate and suits the page; new or changed markup is drafted for your developer to review and test</td><td class="n">Your public website and your knowledge of the business</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+    <tr><td class="c">Images and alt text</td><td>Missing image descriptions and media that slows pages down are flagged automatically; whether a description is useful needs a person to judge</td><td class="n">Your public website</td><td class="r"><span class="tag t-rep">Can repeat</span> <span class="tag t-man">Manual review</span></td></tr>
     <tr><td class="c">Launch and redesign checks</td><td>Before-and-after comparison around a redesign, migration or release, to catch regressions</td><td class="n">Your public website; deployment details where available</td><td class="r"><span class="tag t-evt">When needed</span></td></tr>
   </tbody>
 </table>
+</section>
 
+<section class="blk-flow">
 <h2>2. Search performance</h2>
 <p class="sec-sub">Which pages and searches bring visibility and visits, and how is that changing?</p>
 <table>
@@ -80,12 +91,14 @@
     <tr><td class="c">Page and search match</td><td>Whether a page matches what people searching for it actually want</td><td class="n">Your public website and Search Console</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
     <tr><td class="c">Competitor and opportunity research</td><td>Which competitor pages appear for your topics, and where the gaps are</td><td class="n">Third-party search data, which may have its own cost</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
     <tr><td class="c">Backlink review</td><td>Who links to you and to competitors, investigated only when there is a reason to</td><td class="n">Third-party link data, which may have its own cost</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
-    <tr><td class="c">Local search and maps</td><td>For local and service-area businesses: profile details, categories and local visibility</td><td class="n">Your Google Business Profile</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
+    <tr><td class="c">Local search and maps</td><td>For local and service-area businesses: profile details, categories and local visibility</td><td class="n">Your Google Business Profile, plus location-specific search observations or a suitable tracking tool where required</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
     <tr><td class="c">Online store listings</td><td>For product businesses: product pages, product markup and Merchant Center issues</td><td class="n">Your public website; Merchant Center access</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
     <tr><td class="c">Language and country versions</td><td>For sites in more than one language or market: whether each version is set up correctly</td><td class="n">Your public website</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
   </tbody>
 </table>
+</section>
 
+<section class="blk-flow">
 <h2>3. Content</h2>
 <p class="sec-sub">Do your pages explain what you offer and answer the questions customers ask?</p>
 <table>
@@ -97,7 +110,9 @@
     <tr><td class="c">Draft recommendations and briefs</td><td>Suggested page changes and outlines for new or updated pages, prepared for your review</td><td class="n">The findings above; your approval before anything is published</td><td class="r"><span class="tag t-evt">When needed</span></td></tr>
   </tbody>
 </table>
+</section>
 
+<section class="blk-flow">
 <h2>4. AI visibility</h2>
 <p class="sec-sub">Can AI tools understand your pages, and does your business appear for the questions that matter?</p>
 <table>
@@ -105,10 +120,12 @@
   <tbody>
     <tr><td class="c">Answer suitability</td><td>Whether key pages give clear, direct answers that AI tools can understand and cite</td><td class="n">Your public website</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
     <tr><td class="c">Google AI visibility</td><td>Whether your business appears in Google's AI features for an agreed set of questions, recorded as dated observations</td><td class="n">An agreed question list; some tools may have their own cost</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
-    <tr><td class="c">Mentions in other AI tools</td><td>Whether other AI assistants mention or cite your business, and whether what they say is accurate</td><td class="n">An agreed question list</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
+    <tr><td class="c">Mentions in other AI tools</td><td>Whether other AI assistants mention or cite your business, and whether what they say is accurate</td><td class="n">An agreed question list, access to the selected AI tools, and dated responses and citations</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
   </tbody>
 </table>
+</section>
 
+<section class="blk-flow">
 <h2>5. Measurement</h2>
 <p class="sec-sub">Can the figures be trusted before anyone draws conclusions from them?</p>
 <table>
@@ -121,7 +138,9 @@
     <tr><td class="c">Data quality</td><td>Test traffic, filters, time zones and date ranges that can distort reports</td><td class="n">Google Analytics access</td><td class="r"><span class="tag t-man">Manual review</span></td></tr>
   </tbody>
 </table>
+</section>
 
+<section class="blk-flow">
 <h2>6. Progress</h2>
 <p class="sec-sub">What changed, what is still open, and what needs your approval?</p>
 <table>
@@ -133,7 +152,9 @@
     <tr><td class="c">Recurring summaries</td><td>Short updates on what changed, what remains unresolved and what needs approval</td><td class="n">The change record</td><td class="r"><span class="tag t-rep">Can repeat</span></td></tr>
   </tbody>
 </table>
+</section>
 
+<div class="closing">
 <div class="two">
   <div>
     <h2>How findings are organised</h2>
@@ -158,8 +179,9 @@
 <div class="cta">
   <b>Want these checks set up for your business?</b> I can help connect your data, configure the checks and set a schedule around your website and goals. Enquire at <a href="https://helpmemarketing.com/contact">helpmemarketing.com/contact</a>.
 </div>
+</div>
 
-<p class="foot">SEO Growth OS checklist &middot; HelpMeMarketing &middot; Ankit Kumar, Halton Hills, Ontario &middot; November 2026. Describes the checks the system is designed to run; availability depends on your setup and connected data.</p>
+<p class="foot">SEO Growth OS checklist &middot; HelpMeMarketing &middot; Ankit Kumar, Halton Hills, Ontario &middot; November 2026.</p>
 </div>
 </body>
 </html>
