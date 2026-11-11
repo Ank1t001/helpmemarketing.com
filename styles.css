@@ -5900,7 +5900,6 @@ body.redesign-prototype .pm-check-result ol { margin: 10px 0 0; padding-left: 20
 /* AI SEO page: guided SEO and AI visibility assessment, "What you receive" and the Growth OS steps (2026-11-11). Reuses the marketing audit's .ma-* wizard; spec in docs/HMM_Design_System.md. */
 body.redesign-prototype .seoa-lead { margin-top: 12px; }
 body.redesign-prototype .seoa .ma-assure { text-align: left; }
-body.redesign-prototype .seoa-num { font-family: var(--sans); font-size: 16px; font-weight: 600; }
 body.redesign-prototype .seoa { max-width: 760px; margin-top: 24px; }
 body.redesign-prototype .seoa-disclose { margin: 0 0 16px; font-size: 14px; color: var(--text-tertiary); }
 body.redesign-prototype .seoa-result { scroll-margin-top: 88px; padding: 24px 28px 28px; border: 1px solid var(--border); border-radius: 20px; background: var(--bg-elevated); }
@@ -5921,11 +5920,6 @@ body.redesign-prototype .seoa-summary { width: 100%; max-width: 100%; font-size:
 body.redesign-prototype .seoa-multi input { border-radius: 5px; }
 body.redesign-prototype .seoa-err { margin: 14px 0 0; }
 body.redesign-prototype .seoa-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
-body.redesign-prototype .seoa-steps .ind2-step h3 { margin-top: 14px; }
-body.redesign-prototype .seoa-example { margin-top: 24px; max-width: 760px; }
-body.redesign-prototype .seoa-dl { margin: 12px 0 0; display: grid; gap: 12px; }
-body.redesign-prototype .seoa-dl dt { font-size: 13px; font-weight: 600; color: var(--text-muted); }
-body.redesign-prototype .seoa-dl dd { margin: 2px 0 0; font-size: 15px; line-height: 1.55; color: var(--text-body); }
 @media (max-width: 720px) { body.redesign-prototype .seoa-grid { grid-template-columns: 1fr; } body.redesign-prototype .seoa-result { padding: 18px 16px 20px; border-radius: 16px; } body.redesign-prototype .seoa-title { font-size: 24px; } }
 /* AI SEO page spacing (2026-11-11): one rhythm on this page only. Heading to content 32px, heading to intro 12px,
    intro to content 32px, content to a following note 24px; cards pad 24px (20px at 720px and below). */
@@ -5935,7 +5929,6 @@ body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa { margin-top: 
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-disclose { margin: 0 0 32px; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .pm-note:not(.seoa-lead):not(.seoa-disclose):not(.seoa-small) { margin-top: 24px; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] #example .wk-link { display: inline-block; margin-top: 16px; padding-top: 0; }
-body.redesign-prototype [data-screen-label="ai-seo-agency"] #example .wk-link + .seoa-steps { margin-top: 32px; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] :is(.ind2-card, .ind2-step, .pm-check, .ma-wizard, .seoa-result) { padding: 24px; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map { margin-top: 32px; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table th, body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table td { padding: 16px 24px; }
