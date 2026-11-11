@@ -5936,6 +5936,11 @@ body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-disclose { mar
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .pm-note:not(.seoa-lead):not(.seoa-disclose):not(.seoa-small) { margin-top: 24px; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] #example .wk-link { display: inline-block; margin-top: 16px; padding-top: 0; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] :is(.ind2-card, .ind2-step, .pm-check, .ma-wizard, .seoa-result) { padding: 24px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map { margin-top: 32px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table th, body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table td { padding: 16px 24px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-cap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] a.seoa-inline { color: var(--cta-text, var(--cta)); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .pm-fitacc > p:last-child { margin: 16px 0 0; }
 @media (max-width: 720px) { body.redesign-prototype [data-screen-label="ai-seo-agency"] :is(.ind2-card, .ind2-step, .pm-check, .ma-wizard, .seoa-result) { padding: 20px; } body.redesign-prototype [data-screen-label="ai-seo-agency"] .final-cta-section .final-cta { padding: 32px 20px; } }
 @media (max-width: 900px) {
   body.redesign-prototype .ind2-strip { flex-direction: column; gap: 10px; }
