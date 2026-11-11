@@ -568,10 +568,10 @@ function seoChecklistHtml_() {
 '<tr><td style="font-family:' + font + ';font-size:26px;line-height:1.25;color:' + text + ';font-weight:bold;padding-bottom:16px;">' +
 'Your SEO Growth OS checklist is attached.</td></tr>' +
 '<tr><td style="font-family:' + font + ';font-size:15px;line-height:1.6;color:' + muted + ';padding-bottom:20px;">' +
-'The PDF on this email lists the checks SEO Growth OS can cover: what each one looks at, the information it needs, ' +
-'and whether it can repeat on a schedule or needs a person to review it.</td></tr>' +
+'The PDF on this email sets out the recurring SEO work I can help automate: what each check looks at, what can run automatically, ' +
+'what you receive and what needs your review, with a real example from my own site.</td></tr>' +
 '<tr><td style="font-family:' + font + ';font-size:15px;line-height:1.6;color:' + muted + ';padding-bottom:24px;">' +
-'It is a list of checks, not an audit: nothing has been run on your website. If you would like these checks set up for your business, ' +
+'It is a guide, not an audit: nothing has been run on your website. If you would like these checks set up for your business, ' +
 'I can help connect your data, configure the checks and set a schedule around your website and goals.</td></tr>' +
 '<tr><td style="padding-bottom:26px;">' +
 '<a href="' + CONTACT_URL + '" style="display:inline-block;font-family:' + font + ';font-size:15px;font-weight:bold;color:#0E0E0E;background:' + cta + ';border-radius:8px;padding:14px 24px;text-decoration:none;">' +
@@ -588,10 +588,10 @@ SENDER_POSTAL + '<br>' +
 function seoChecklistText_() {
   return [
     'Your SEO Growth OS checklist is attached.', '',
-    'The PDF on this email lists the checks SEO Growth OS can cover: what each one',
-    'looks at, the information it needs, and whether it can repeat on a schedule or',
-    'needs a person to review it.', '',
-    'It is a list of checks, not an audit: nothing has been run on your website.',
+    'The PDF on this email sets out the recurring SEO work I can help automate: what',
+    'each check looks at, what can run automatically, what you receive and what needs',
+    'your review, with a real example from my own site.', '',
+    'It is a guide, not an audit: nothing has been run on your website.',
     'If you would like these checks set up for your business, I can help connect',
     'your data, configure the checks and set a schedule around your website and goals.', '',
     'Enquire about SEO automation: ' + CONTACT_URL, '', '---',
