@@ -5927,6 +5927,16 @@ body.redesign-prototype .seoa-dl { margin: 12px 0 0; display: grid; gap: 12px; }
 body.redesign-prototype .seoa-dl dt { font-size: 13px; font-weight: 600; color: var(--text-muted); }
 body.redesign-prototype .seoa-dl dd { margin: 2px 0 0; font-size: 15px; line-height: 1.55; color: var(--text-body); }
 @media (max-width: 720px) { body.redesign-prototype .seoa-grid { grid-template-columns: 1fr; } body.redesign-prototype .seoa-result { padding: 18px 16px 20px; border-radius: 16px; } body.redesign-prototype .seoa-title { font-size: 24px; } }
+/* AI SEO page spacing (2026-11-11): one rhythm on this page only. Heading to content 32px, heading to intro 12px,
+   intro to content 32px, content to a following note 24px; cards pad 24px (20px at 720px and below). */
+body.redesign-prototype [data-screen-label="ai-seo-agency"] :is(.pm-check, .ind2-faq, .seoa) { margin-top: 32px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .pm-check { max-width: 760px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa { margin-top: 8px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-disclose { margin: 0 0 32px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] .pm-note:not(.seoa-lead):not(.seoa-disclose):not(.seoa-small) { margin-top: 24px; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] #example .wk-link { display: inline-block; margin-top: 16px; padding-top: 0; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] :is(.ind2-card, .ind2-step, .pm-check, .ma-wizard, .seoa-result) { padding: 24px; }
+@media (max-width: 720px) { body.redesign-prototype [data-screen-label="ai-seo-agency"] :is(.ind2-card, .ind2-step, .pm-check, .ma-wizard, .seoa-result) { padding: 20px; } body.redesign-prototype [data-screen-label="ai-seo-agency"] .final-cta-section .final-cta { padding: 32px 20px; } }
 @media (max-width: 900px) {
   body.redesign-prototype .ind2-strip { flex-direction: column; gap: 10px; }
   body.redesign-prototype .ind2-strip .ind2-step { display: flex; }
