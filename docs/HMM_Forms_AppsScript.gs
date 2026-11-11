@@ -34,8 +34,9 @@
  *      It creates the five new tabs with header rows and leaves Leads as it is.
  *   4. Run `testRouting`. It writes one test row to each tab (emails are skipped) and logs where
  *      each went. Check the tabs, then delete the rows marked TEST.
- *   5. Run `testEmails`. It sends the SEO Growth OS Visual Guide twice (not opted in, then opted in, so
- *      you can check both footers) and a sample audit plan to your own address. Check all three arrived.
+ *   5. Run `testEmails`. It sends the SEO Growth OS Visual Guide and a sample audit plan to your own
+ *      address. Check both arrived, and that the guide's Unsubscribe link opens a confirmation page
+ *      (do not press the button, or your own address goes on the Unsubscribes tab).
  *   6. Deploy → Manage deployments → edit the EXISTING deployment (pencil) → Version: New
  *      version → Deploy. Do not pick "New deployment": that makes a new URL.
  *   7. Tell Claude it is live. The site's other forms are then switched to this URL.
@@ -67,6 +68,7 @@ var TABS = {
   'Index downloads': ['Received', 'Email', 'Report', 'Cycle', 'Source tag', 'CSV email'],
   'Growth OS downloads': ['Received', 'Email', 'Product', 'Marketing consent', 'Consent timestamp', 'Bundle email', 'Referrer', 'User agent'],
   'Subscribers': ['Received', 'Email', 'Source', 'Consent'],
+  'Unsubscribes': ['Received', 'Email', 'Was on Subscribers', 'Source'],
   'Research unlocks': ['Last code sent', 'Email', 'Research', 'Status', 'Verified at', 'Codes sent', 'Source'],
   'Spam': ['Received', 'Form', 'Name', 'Email', 'Reason', 'Details']
 };
@@ -101,6 +103,7 @@ var DRY_RUN = false;             // true only inside testRouting: rows are writt
 // { result: 'error' } when nothing could be written (the page then keeps the visitor's text and offers email).
 function doPost(e) {
   var data = {}, saved = 'error', why = '', emailStatus = '';
+  if (e && e.parameter && e.parameter.action === 'unsubscribe-confirm') return unsubscribePage_(e.parameter.e, e.parameter.t, true);
   try {
     data = parseIncoming_(e);
     var form = formOf_(data);
@@ -144,8 +147,12 @@ function doPost(e) {
   return jsonOut_(emailStatus ? { result: 'ok', saved: 'lead', email: emailStatus } : { result: 'ok', saved: 'lead' });
 }
 
-// Open the /exec URL in a browser to confirm the deployment is live.
-function doGet() {
+// Open the /exec URL in a browser to confirm the deployment is live. An unsubscribe link (2026-11-11) opens a
+// confirmation page instead; the change happens only when the person presses the button, so link scanners that
+// open every URL in an email never unsubscribe anyone.
+function doGet(e) {
+  var q = (e && e.parameter) || {};
+  if (q.action === 'unsubscribe') return unsubscribePage_(q.e, q.t, false);
   return jsonOut_({ result: 'ok', message: 'HMM forms endpoint is live.' });
 }
 
@@ -324,12 +331,15 @@ function growthOsProduct_(d) {
 
 function addGrowthOs_(d, email) {
   var product = growthOsProduct_(d);
-  var consent = d.marketingConsent === true || d.marketingConsent === 'true';
+  // SEO guide requests always join the SEO notes list (founder, 2026-11-11): the form says so before sending, and
+  // every guide email carries an unsubscribe link. Meta downloads still follow their checkbox.
+  var consent = product === 'SEO Growth OS' || d.marketingConsent === true || d.marketingConsent === 'true';
   // The SEO checklist is emailed as an attachment; the Meta bundle downloads on the page, so it gets no email.
-  var sent = product === 'SEO Growth OS' ? send_(function () { sendSeoChecklist_(email, consent); }) : 'Not needed (downloads on the page)';
+  var sent = product === 'SEO Growth OS' ? send_(function () { sendSeoChecklist_(email); }) : 'Not needed (downloads on the page)';
   tab_('Growth OS downloads').appendRow([new Date(), email, product, consent ? 'TRUE' : 'FALSE', consent ? new Date() : '',
     sent, pick_(d, 'referrer').slice(0, 300), pick_(d, 'userAgent').slice(0, 300)]);
-  if (consent) addSubscriber_(email, product + (product === 'SEO Growth OS' ? ' visual guide' : ' download'), 'Yes, ticked the box');
+  if (consent && !hasUnsubscribed_(email)) addSubscriber_(email, product + (product === 'SEO Growth OS' ? ' visual guide' : ' download'),
+    product === 'SEO Growth OS' ? 'Guide request (notice on the form)' : 'Yes, ticked the box');
   // The row is kept either way; the reply tells the page whether the checklist email was accepted.
   if (product === 'SEO Growth OS') return sent === 'Sent' || sent === 'Skipped (test)' ? 'lead_email_sent' : 'lead_email_failed';
 }
@@ -545,32 +555,35 @@ function checklistBlob_() {
   return blob.setName(SEO_CHECKLIST_FILENAME);
 }
 
-function sendSeoChecklist_(email, optedIn) {
+function sendSeoChecklist_(email) {
   var blob = checklistBlob_();
+  var unsub = unsubscribeUrl_(email);
   MailApp.sendEmail({ to: email, name: FROM_NAME, replyTo: REPLY_TO, subject: 'Your SEO Growth OS Visual Guide',
-    htmlBody: seoChecklistHtml_(optedIn), body: seoChecklistText_(optedIn), attachments: [blob] });
+    htmlBody: seoChecklistHtml_(unsub), body: seoChecklistText_(unsub), attachments: [blob] });
 }
 
 // Visual Guide email (founder copy and layout, 2026-11-11): light grey frame, white logo header, Obsidian banner,
 // white body, Warm Ivory setup block with one orange button, compact footer. All text is live text; the only image
 // is the logo (PNG, because Gmail and Outlook block SVG), with an alt text that reads as the brand name when images
-// are off. Only an opted-in visitor gets a subscription line in the footer; a request on its own never subscribes anyone.
+// are off. Every guide request joins the SEO notes list, so every email says so and carries an Unsubscribe link.
 var SEO_GUIDE_ENQUIRY_URL = SITE_URL + '/contact?entry=seo_automation#contact-form';
 var SEO_GUIDE_LOGO_URL = SITE_URL + '/assets/brand/email/hmm-logo-email.png';
-function seoGuideFooter_(optedIn) {
-  // Not opted in: no subscription line (founder, 2026-11-11). Opted in: how to unsubscribe.
-  return ['You requested this guide at helpmemarketing.com.'].concat(
-    optedIn ? ['You also opted in to occasional SEO notes and updates. To unsubscribe, reply to this email with “unsubscribe”.'] : [],
-    ['HelpMeMarketing, Halton Hills, Ontario, Canada']);
+// Unsubscribe links (founder, 2026-11-11) point at this deployment's /exec URL, the same one every site form uses.
+var FORMS_EXEC_URL = 'https://script.google.com/macros/s/AKfycbzeefYKM_xZuJHIg9pjl0hTLo57v87Qfpb5DzwvikeyVY3_QdYHFd18zpzlfBsbALSp/exec';
+var UNSUBSCRIBE_NOTIFY = 'hello@helpmemarketing.com';   // gets one email per unsubscribe
+// Footer lines as plain text; the HTML and text builders add the Unsubscribe and Privacy policy links.
+function seoGuideFooter_() {
+  return ['You requested this guide at helpmemarketing.com and will receive occasional SEO notes and updates.',
+    'HelpMeMarketing, Halton Hills, Ontario, Canada'];
 }
-function seoChecklistHtml_(optedIn) {
+function seoChecklistHtml_(unsubUrl) {
   var font = 'Arial,Helvetica,sans-serif', serif = 'Georgia,\'Times New Roman\',serif',
     outer = '#EEEDEA', white = '#FFFFFF', obsidian = '#0E0E0E', ivory = '#F7F6F2', text = '#0E0E0E', body = '#3A3A3A',
     muted = '#6B6B6B', cta = '#FF5C1A', line = '#E4E1DA';
   var p = function (html, pad) {
     return '<tr><td class="px" style="font-family:' + font + ';font-size:17px;line-height:1.65;color:' + body + ';padding:0 30px ' + (pad === undefined ? 18 : pad) + 'px 30px;">' + html + '</td></tr>';
   };
-  var foot = seoGuideFooter_(optedIn);
+  var foot = seoGuideFooter_();
   return (
 '<!DOCTYPE html>' +
 '<html lang="en"><head><meta charset="UTF-8">' +
@@ -614,13 +627,15 @@ p('Ankit Kumar<br><span style="color:' + muted + ';">HelpMeMarketing</span>', 30
 '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;">' +
 '<tr><td class="px" style="padding:20px 30px 8px 30px;font-family:' + font + ';font-size:12px;line-height:1.6;color:' + muted + ';text-align:center;">' +
 foot.join('<br>') + '<br>' +
+'<a href="' + (unsubUrl || '#') + '" style="color:' + muted + ';text-decoration:underline;">Unsubscribe</a>' +
+'&nbsp;&nbsp;&middot;&nbsp;&nbsp;' +
 '<a href="' + SITE_URL + '/privacy" style="color:' + muted + ';text-decoration:underline;">Privacy policy</a>' +
 '</td></tr></table>' +
 '</td></tr></table></body></html>'
   );
 }
 
-function seoChecklistText_(optedIn) {
+function seoChecklistText_(unsubUrl) {
   return ['SEO GROWTH OS', 'Your visual guide is attached.', '',
     'Hello,', '',
     'Thanks for your interest in SEO Growth OS. Your guide is attached.', '',
@@ -629,7 +644,7 @@ function seoChecklistText_(optedIn) {
     'Want help setting it up for your business?',
     'Enquire about SEO automation: ' + SEO_GUIDE_ENQUIRY_URL, '',
     'Ankit Kumar', 'HelpMeMarketing', '', '---'
-  ].concat(seoGuideFooter_(optedIn), ['Privacy policy: ' + SITE_URL + '/privacy']).join('\n');
+  ].concat(seoGuideFooter_(), ['Unsubscribe: ' + (unsubUrl || ''), 'Privacy policy: ' + SITE_URL + '/privacy']).join('\n');
 }
 
 /* ============================ helpers ============================ */
@@ -670,6 +685,81 @@ function parseIncoming_(e) {
 }
 
 // Returns the tab, creating it with a bold, frozen header row the first time.
+/* ============================ unsubscribe ============================ */
+
+// A signed link per address, so nobody can unsubscribe someone else by editing the URL. The key is made once
+// and kept in Script Properties (UNSUBSCRIBE_KEY); it never appears in the repository.
+function unsubscribeKey_() {
+  var props = PropertiesService.getScriptProperties();
+  var k = props.getProperty('UNSUBSCRIBE_KEY');
+  if (!k) { k = Utilities.getUuid() + Utilities.getUuid(); props.setProperty('UNSUBSCRIBE_KEY', k); }
+  return k;
+}
+function unsubscribeToken_(email) {
+  var sig = Utilities.computeHmacSha256Signature(String(email).toLowerCase(), unsubscribeKey_());
+  return Utilities.base64EncodeWebSafe(sig).replace(/=+$/, '').slice(0, 32);
+}
+function unsubscribeUrl_(email) {
+  return FORMS_EXEC_URL + '?action=unsubscribe&e=' + encodeURIComponent(String(email).toLowerCase()) + '&t=' + unsubscribeToken_(email);
+}
+function hasUnsubscribed_(email) {
+  var sh = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Unsubscribes');
+  if (!sh || sh.getLastRow() < 2) return false;
+  var vals = sh.getRange(2, 2, sh.getLastRow() - 1, 1).getValues();
+  for (var i = 0; i < vals.length; i++) if (String(vals[i][0]).toLowerCase() === String(email).toLowerCase()) return true;
+  return false;
+}
+function unsubscribeValid_(email, token) {
+  return !!email && !!token && isEmail_(String(email)) && unsubscribeToken_(email) === String(token);
+}
+// Records the request, removes the address from Subscribers and emails UNSUBSCRIBE_NOTIFY. Safe to repeat.
+function unsubscribe_(email) {
+  email = String(email).toLowerCase();
+  var lock = LockService.getScriptLock();
+  lock.waitLock(20000);
+  var was = 'No', source = '';
+  try {
+    var sh = tab_('Subscribers'), last = sh.getLastRow();
+    if (last > 1) {
+      var vals = sh.getRange(2, 1, last - 1, 4).getValues();
+      for (var i = vals.length - 1; i >= 0; i--) {
+        if (String(vals[i][1]).toLowerCase() === email) { was = 'Yes'; source = String(vals[i][2]); sh.deleteRow(i + 2); }
+      }
+    }
+    tab_('Unsubscribes').appendRow([new Date(), email, was, source || 'SEO Growth OS guide email']);
+  } finally {
+    lock.releaseLock();
+  }
+  try {
+    MailApp.sendEmail({ to: UNSUBSCRIBE_NOTIFY, name: 'HMM forms', subject: 'Unsubscribe: ' + email,
+      body: email + ' used the unsubscribe link in the SEO Growth OS guide email.\n' +
+        'On the Subscribers tab: ' + (was === 'Yes' ? 'yes, removed (source: ' + source + ')' : 'no') + '.\n' +
+        'Logged on the Unsubscribes tab. Do not send them marketing email.' });
+  } catch (err) { console.error('Unsubscribe notice failed: ' + err); }
+}
+function unsubscribePage_(email, token, confirmed) {
+  var ok = unsubscribeValid_(email, token), body;
+  if (!ok) {
+    body = '<h1>This link is not valid</h1><p>Email <a href="mailto:hello@helpmemarketing.com" target="_top">Hello@helpmemarketing.com</a> and I will remove you by hand.</p>';
+  } else if (confirmed) {
+    unsubscribe_(email);
+    body = '<h1>You are unsubscribed</h1><p>' + esc_(email) + ' will not receive marketing email from HelpMeMarketing.</p>' +
+      '<p><a href="' + SITE_URL + '" target="_top">Back to helpmemarketing.com</a></p>';
+  } else {
+    body = '<h1>Unsubscribe?</h1><p>Stop marketing email from HelpMeMarketing to <b>' + esc_(email) + '</b>.</p>' +
+      '<form method="post" action="' + FORMS_EXEC_URL + '" target="_top">' +
+      '<input type="hidden" name="action" value="unsubscribe-confirm">' +
+      '<input type="hidden" name="e" value="' + esc_(email) + '"><input type="hidden" name="t" value="' + esc_(token) + '">' +
+      '<button type="submit">Unsubscribe</button></form>';
+  }
+  var html = '<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>' +
+    'body{margin:0;background:#EEEDEA;font-family:Arial,Helvetica,sans-serif;color:#0E0E0E}' +
+    '.c{max-width:520px;margin:48px auto;background:#fff;padding:32px 28px;border-top:4px solid #FF5C1A}' +
+    'h1{font-family:Georgia,serif;font-weight:normal;font-size:26px;margin:0 0 12px}p{font-size:16px;line-height:1.6;color:#3A3A3A}' +
+    'button{font:bold 16px Arial,Helvetica,sans-serif;background:#FF5C1A;color:#0E0E0E;border:0;border-radius:8px;padding:14px 26px;cursor:pointer}' +
+    'a{color:#B8400C}</style></head><body><div class="c">' + body + '</div></body></html>';
+  return HtmlService.createHtmlOutput(html).setTitle('Unsubscribe | HelpMeMarketing');
+}
 function tab_(name) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sh = ss.getSheetByName(name);
@@ -722,6 +812,7 @@ function setup() {
   MailApp.getRemainingDailyQuota();
   CacheService.getScriptCache().put('setup_check', '1', 60);
   checklistBlob_();   // fails until the checklist file ID is set and points at a real PDF
+  unsubscribeKey_();   // makes the unsubscribe signing key once
   checkTurnstileSecret();
   Logger.log('Ready. Tabs: ' + Object.keys(TABS).join(', '));
 }
@@ -793,11 +884,10 @@ function testLeadSources() {
 // Step 5. Sends the SEO visual guide and a sample plan to your own address.
 function testEmails() {
   var me = Session.getActiveUser().getEmail();
-  sendSeoChecklist_(me, false);   // not opted in: footer says the request does not subscribe you
-  sendSeoChecklist_(me, true);    // opted in: footer explains how to unsubscribe
+  sendSeoChecklist_(me);
   MailApp.sendEmail({ to: me, replyTo: REPLY_TO, name: FROM_NAME, subject: 'Your marketing plan: Cut missed appointments (test)',
     body: 'YOUR MARKETING PLAN\nTest', htmlBody: planHtml_('YOUR MARKETING PLAN\nFrom the HelpMeMarketing marketing audit\n\nYOUR FIRST PRIORITY\nCut missed appointments\n\nYOUR FIRST ACTION\n1. Send a confirmation right after every booking.', AUDIT_URL + '#plan=buy.appointment~goal.convert~stage.active~a_fit.most~a_wait.week~a_how.online~a_finish.most~a_remind.none~a_noshow.some~who.self') });
-  Logger.log('Sent the SEO visual guide (both footer versions) and a sample plan to ' + me);
+  Logger.log('Sent the SEO visual guide and a sample plan to ' + me);
 }
 
 // Step 8, optional and once. Copies past rows from the old Growth OS sheet; opt-ins also go to Subscribers.

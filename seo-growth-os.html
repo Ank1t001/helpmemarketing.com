@@ -318,9 +318,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .gate input[type=email]{width:100%;font-family:inherit;font-size:15px;color:var(--text);
   background:var(--bg-sunk);border:1px solid var(--border);border-radius:9px;padding:12px 13px}
 .sgos .gate input[type=email]:focus{outline:none;border-color:var(--mint)}
-.sgos .gate .consent{display:flex;gap:10px;align-items:flex-start;margin-top:15px}
-.sgos .gate .consent input{margin-top:2px;width:16px;height:16px;flex:none;accent-color:var(--cta)}
-.sgos .gate .consent span{font-size:12.5px;color:var(--text-muted);line-height:1.45}
+.sgos .gate .consent-note{margin:15px 0 0;font-size:12.5px;color:var(--text-muted);line-height:1.45}
 .sgos .gate .go{width:100%;margin-top:19px;font-family:inherit;font-size:16px;font-weight:800;
   color:#fff;background:var(--cta);border:0;border-radius:10px;min-height:50px;cursor:pointer;transition:.2s}
 .sgos .gate .go:hover{background:var(--cta-hover)}
@@ -611,16 +609,13 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
           <input type="text" id="gate-hp" name="hmm_trap" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore>
         </div>
 
-        <label class="consent">
-          <input type="checkbox" id="gate-consent">
-          <span>Send me occasional SEO notes and updates. Optional, and you can stop any time.</span>
-        </label>
+        <p class="consent-note">Requesting the guide also adds you to my occasional SEO notes and updates. Every email has an unsubscribe link.</p>
 
         <div class="ts-slot" id="gate-turnstile"></div>
 
         <button class="go" type="submit" id="gate-go">Send me the guide</button>
         <p class="err" id="gate-err"></p>
-        <p class="fine">I send the file and nothing else unless you tick the box. See the <a href="/privacy">privacy policy</a>.</p>
+        <p class="fine">See the <a href="/privacy">privacy policy</a> for how I use your email address.</p>
       </form>
     </div>
 
@@ -642,7 +637,6 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   var back    = document.querySelector('.gate-back');
   var form    = document.getElementById('gate-form');
   var email   = document.getElementById('gate-email');
-  var consent = document.getElementById('gate-consent');
   var hp      = document.getElementById('gate-hp');
   var go      = document.getElementById('gate-go');
   var err     = document.getElementById('gate-err');
@@ -729,7 +723,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       form: 'growth-os-download',
       product: 'seo',
       email: value,
-      marketingConsent: consent.checked,
+      marketingConsent: true,   // guide requests join the SEO notes list (founder, 2026-11-11); the form says so
       company_url_secondary: hp.value,
       source: '/seo-growth-os',
       referrer: document.referrer || '',
@@ -795,7 +789,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       if (window.dataLayer) {
         window.dataLayer.push({
           event: 'growth_os_download',
-          marketing_consent: consent.checked
+          marketing_consent: true
         });
       }
     }
