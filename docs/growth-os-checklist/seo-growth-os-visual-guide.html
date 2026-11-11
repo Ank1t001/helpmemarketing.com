@@ -3,13 +3,15 @@
 @font-face{font-family:Fraunces;font-weight:400 500;font-style:normal;src:url(../../assets/fonts/fraunces-latin.woff2) format("woff2")}
 @font-face{font-family:Fraunces;font-weight:400;font-style:italic;src:url(../../assets/fonts/fraunces-italic-latin.woff2) format("woff2")}
 @font-face{font-family:Inter;font-weight:400 700;src:url(../../assets/fonts/inter-latin.woff2) format("woff2")}
-:root{--obsidian:#0E0E0E;--elev:#1A1A1A;--paper:#F6F5F2;--card:#FFFFFF;--line:#ECEAE4;--line2:#D4D0C6;
+:root{--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--pad:16px 20px;--gap:16px;--r:12px;--obsidian:#0E0E0E;--elev:#1A1A1A;--paper:#F6F5F2;--card:#FFFFFF;--line:#ECEAE4;--line2:#D4D0C6;
  --text:#0E0E0E;--body:rgba(14,14,14,.82);--muted:#4A4A4A;--ter:#6B6B6B;--cta:#FF5C1A;--cta-ink:#B8400C;--mint:#007A62}
 @page{size:Letter;margin:0}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{font-family:Inter,Arial,sans-serif;color:var(--text);font-size:10pt;line-height:1.38;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.page{width:8.5in;height:11in;padding:.42in .55in .62in;position:relative;overflow:hidden;background:var(--paper);break-after:page;page-break-after:always}
+/* Spacing scale 4/8/12/16/24: same page margins, 24px between blocks, 12px from a heading to its block, 16px grid gaps, 16px 20px box padding, 12px radius. */
+.page{width:8.5in;height:11in;padding:.5in .55in .7in;position:relative;overflow:hidden;background:var(--paper);break-after:page;page-break-after:always;display:flex;flex-direction:column;gap:var(--s5)}
+.grp{display:flex;flex-direction:column;gap:var(--s3)}
 .page:last-child{break-after:auto}
 h1,h2,h3,p,ul{margin:0}
 .ico{width:18px;height:18px}
@@ -23,74 +25,74 @@ h1,h2,h3,p,ul{margin:0}
 .b-human{background:#fff;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
 .b-change{background:var(--obsidian);color:#fff}
 .tag{display:inline-block;font-size:7.5pt;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;border:1px dashed var(--ter);color:var(--muted)}
-.pf{position:absolute;left:.55in;right:.55in;bottom:.3in;display:flex;justify-content:space-between;border-top:1px solid var(--line2);padding-top:7px;font-size:8pt;color:var(--ter)}
+.pf{position:absolute;left:.55in;right:.55in;bottom:.35in;display:flex;justify-content:space-between;border-top:1px solid var(--line2);padding-top:var(--s2);font-size:8pt;color:var(--ter)}
 /* page 1 */
-.intro{background:var(--obsidian);color:#fff;border-radius:14px;padding:18px 22px 18px;margin-bottom:14px}
-.intro-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.intro{background:var(--obsidian);color:#fff;border-radius:var(--r);padding:20px}
+.intro-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--s2)}
 .intro-top span{font-size:8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cta)}
-.logo{width:92px;height:auto}
-.intro h1{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:30pt;line-height:1.05}
-.intro-sub{font-family:Fraunces,Georgia,serif;font-size:17pt;margin-top:4px}
+.logo{width:84px;height:auto}
+.intro h1{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:28pt;line-height:1.05}
+.intro-sub{font-family:Fraunces,Georgia,serif;font-size:17pt;margin-top:var(--s1)}
 .intro-sub em{color:var(--cta)}
-.intro-lede{font-size:10.5pt;color:#C7C7C7;margin-top:8px;max-width:5.6in}
-.sh{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:14.5pt;margin:12px 0 7px}
+.intro-lede{font-size:10.5pt;color:#C7C7C7;margin-top:var(--s2);max-width:5.6in}
+.sh{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:14.5pt;line-height:1.2}
 table{border-collapse:collapse;width:100%}
-.start{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.start th{text-align:left;font-size:8pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ter);padding:8px 14px;border-bottom:1px solid var(--line);background:#FBFAF7}
-.start td{padding:7px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
-.start tr:last-child td{border-bottom:0}
+.start,.legend{background:var(--card);border:1px solid var(--line);border-radius:var(--r);border-collapse:separate;border-spacing:0;overflow:hidden}
+.start th{text-align:left;font-size:8pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ter);padding:var(--s2) 20px;border-bottom:1px solid var(--line);background:#FBFAF7}
+.start td,.legend td{padding:var(--s2) 20px;border-bottom:1px solid var(--line);vertical-align:middle}
+.start tr:last-child td,.legend tr:last-child td{border-bottom:0}
 .start td:first-child{width:48%;color:var(--body)}
 .start td:last-child{font-weight:600}
-.st-ic{display:inline-flex;vertical-align:-4px;margin-right:8px;color:var(--cta)}
-.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.ar{display:flex;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 11px}
+.st-ic{display:inline-flex;vertical-align:-4px;margin-right:var(--s2);color:var(--cta)}
+.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.ar{display:flex;gap:var(--s3);align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s3) var(--s4)}
 .ar h3{font-size:10pt;font-weight:650}
 .ar p{font-size:8.5pt;color:var(--muted);line-height:1.3}
-.legend{background:var(--card);border:1px solid var(--line);border-radius:12px}
-.legend td{padding:5px 14px;border-bottom:1px solid var(--line);color:var(--body)}
-.legend tr:last-child td{border-bottom:0}
+.legend td{color:var(--body)}
 .legend td:first-child{width:180px}
-.scope{margin-top:10px;padding:10px 14px;border-left:3px solid var(--cta);background:#EFEDE7;border-radius:0 10px 10px 0;color:var(--body)}
+.scope{padding:var(--pad);border-left:3px solid var(--cta);background:#EFEDE7;border-radius:0 var(--r) var(--r) 0;color:var(--body)}
 /* card pages */
-.ph{margin-bottom:12px}
-.ph h1{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:21pt;line-height:1.15;margin-top:4px}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
-.cd{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--cta);border-radius:12px;padding:18px 20px 19px;break-inside:avoid;display:flex;flex-direction:column}
-.cd-h{display:flex;gap:9px;align-items:center}
+.ph{display:flex;flex-direction:column;gap:var(--s1)}
+.ph h1{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:21pt;line-height:1.15}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.cd{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--cta);border-radius:var(--r);padding:var(--pad);break-inside:avoid;display:flex;flex-direction:column}
+.cd-h{display:flex;gap:var(--s3);align-items:center}
 .cd-h h3{font-size:11.5pt;font-weight:650;line-height:1.25}
-.cd-b{display:flex;flex-wrap:wrap;gap:5px;margin:11px 0 0}
+.cd-b{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s3)}
 .cd p{color:var(--body)}
-.cd-d{margin-top:11px;font-size:11pt;line-height:1.5}
+.cd-d{margin-top:var(--s3);font-size:11pt;line-height:1.5}
 .cd p b{font-weight:650;color:var(--text);margin-right:2px}
 .k-auto b{color:var(--mint)!important}
 .k-rev b{color:var(--muted)!important}
-.k-rec{padding-top:11px;margin-top:13px;border-top:1px solid var(--line);font-size:11pt;line-height:1.5}
+.k-rec{padding-top:var(--s3);margin-top:var(--s3);border-top:1px solid var(--line);font-size:11pt;line-height:1.5}
 .k-rec b{color:var(--cta-ink)!important}
-.cn{margin-top:7px;font-size:8.5pt;color:var(--ter)!important;font-style:italic}
+.cn{margin-top:var(--s2);font-size:8.5pt;color:var(--ter)!important;font-style:italic}
 /* page 5 */
-.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
-.fl{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 8px 14px;text-align:center}
-.fl:not(:last-child)::after{content:"";position:absolute;right:-6px;top:30px;width:7px;height:7px;border-top:2px solid var(--cta);border-right:2px solid var(--cta);transform:rotate(45deg);background:var(--paper);z-index:1}
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--s3)}
+.fl{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 8px;text-align:center}
+.fl:not(:last-child)::after{content:"";position:absolute;right:-9px;top:28px;width:7px;height:7px;border-top:2px solid var(--cta);border-right:2px solid var(--cta);transform:rotate(45deg);background:var(--paper);z-index:1}
 .fi{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--obsidian);color:#fff;align-items:center;justify-content:center}
 .fl:last-child .fi{background:var(--cta)}
-.fn{display:block;font-size:7.5pt;font-weight:700;color:var(--ter);margin-top:4px}
-.fl h3{font-size:9.5pt;font-weight:650;line-height:1.2;margin-top:1px}
-.flow-note{margin:12px 0 26px;font-size:9.5pt;color:var(--cta-ink);text-align:center}
-.example{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--mint);border-radius:0 12px 12px 0;padding:16px 18px}
-.ex-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+.fn{display:block;font-size:7.5pt;font-weight:700;color:var(--ter);margin-top:var(--s2)}
+.fl h3{font-size:9.5pt;font-weight:650;line-height:1.2;margin-top:2px}
+.flow-note{font-size:9.5pt;color:var(--cta-ink);text-align:center}
+.example{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--mint);border-radius:0 var(--r) var(--r) 0;padding:var(--pad)}
+.ex-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--s2)}
 .nl{font-size:8.5pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mint)}
 .ex-date{font-size:8.5pt;color:var(--ter)}
-.example p{color:var(--body);margin-top:4px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:26px}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-.ph2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:13.5pt;margin-bottom:6px}
+.example p{color:var(--body)}
+.example p+p{margin-top:var(--s2)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--pad)}
+.ph2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:13.5pt;margin-bottom:var(--s3)}
 .panel ul{padding-left:17px;color:var(--body)}
-.panel li{margin-top:6px}
+.panel li+li{margin-top:var(--s2)}
 .panel li::marker{color:var(--cta)}
-.pn{margin-top:8px;font-size:9pt;color:var(--ter)}
-.cta{margin-top:26px;background:var(--obsidian);color:#fff;border-radius:12px;padding:22px 24px}
-.cta h2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:16pt;margin-bottom:4px}
-.cta p{color:#C7C7C7;margin-bottom:8px}
+.nw{white-space:nowrap}
+.pn{margin-top:var(--s3);font-size:9pt;color:var(--ter)}
+.cta{background:var(--obsidian);color:#fff;border-radius:var(--r);padding:20px}
+.cta h2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:16pt;margin-bottom:var(--s1)}
+.cta p{color:#C7C7C7;margin-bottom:var(--s3)}
 .cta a{color:var(--cta);font-weight:700;font-size:11pt;text-decoration:none}
 </style></head>
 <body><section class="page">
@@ -100,12 +102,12 @@ table{border-collapse:collapse;width:100%}
     <p class="intro-sub"><em>Find the checks your business needs.</em></p>
     <p class="intro-lede">Explore the website and search checks I can help automate, the recommendations they produce and where your review is needed.</p>
   </div>
-  <h2 class="sh">Where should you start?</h2>
-  <table class="start"><thead><tr><th>What you are experiencing</th><th>Start here</th></tr></thead><tbody><tr><td>Important pages rarely appear in search</td><td><span class="st-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/><path d="M7 12l2-2.5 2 1.5 2.5-3"/></svg></span>Search performance and indexing checks</td></tr><tr><td>People visit but few enquire</td><td><span class="st-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9l11 4-5 2-2 5z"/><path d="M5 3v3M3 5h3M8.5 4.5l-1.5 1.5M4.5 8.5L6 7"/></svg></span>Conversion and measurement review</td></tr><tr><td>Unsure whether AI tools mention your business</td><td><span class="st-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2 5.5L19.5 10.5 14 12.5 12 18l-2-5.5-5.5-2L10 8.5z"/><path d="M19 17l.7 1.6 1.6.7-1.6.7L19 21.6l-.7-1.6-1.6-.7 1.6-.7z"/></svg></span>AI visibility checks</td></tr><tr><td>Problems return after website updates</td><td><span class="st-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span>Change verification and monitoring</td></tr><tr><td>SEO findings pile up without action</td><td><span class="st-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M9 11l2 2 4-4M9 17h6"/></svg></span>Prioritised briefs and progress tracking</td></tr></tbody></table>
-  <h2 class="sh">Six areas</h2>
-  <div class="areas"><div class="ar"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18"/><path d="M6 6h.01M8.5 6h.01M11 6h.01"/><path d="M8.5 14l2.5 2.5 4.5-5"/></svg></span><div><h3>Website health</h3><p>Access, links, speed and markup.</p></div></div><div class="ar"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/><path d="M7 12l2-2.5 2 1.5 2.5-3"/></svg></span><div><h3>Search performance</h3><p>Visibility, intent and opportunities.</p></div></div><div class="ar"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 9h1M9 13h6M9 17h6"/></svg></span><div><h3>Content</h3><p>Page basics, links and briefs.</p></div></div><div class="ar"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 9h8M8 13h4"/><path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-5l-5 3v-3H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h12z"/><path d="M17 11.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z" fill="currentColor"/></svg></span><div><h3>AI visibility</h3><p>Answers, mentions and citations.</p></div></div><div class="ar"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><rect x="5" y="12" width="3" height="6" rx="1"/><rect x="10.5" y="8" width="3" height="10" rx="1"/><rect x="16" y="4" width="3" height="14" rx="1"/></svg></span><div><h3>Measurement</h3><p>Enquiries, events and data quality.</p></div></div><div class="ar"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><div><h3>Progress</h3><p>Priorities, verification and records.</p></div></div></div>
-  <h2 class="sh">How to read the labels</h2>
-  <table class="legend"><tr><td><span class="badge b-draft"><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>Draft + review</span></td><td>Prepares suggestions for a person to assess.</td></tr><tr><td><span class="badge b-human"><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Human review</span></td><td>Needs judgment or validation.</td></tr></table>
+  <div class="grp"><h2 class="sh">Where should you start?</h2>
+  <table class="start"><thead><tr><th>What you are experiencing</th><th>Start here</th></tr></thead><tbody><tr><td>Important pages rarely appear in search</td><td><span class="st-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/><path d="M7 12l2-2.5 2 1.5 2.5-3"/></svg></span>Search performance and indexing checks</td></tr><tr><td>People visit but few enquire</td><td><span class="st-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9l11 4-5 2-2 5z"/><path d="M5 3v3M3 5h3M8.5 4.5l-1.5 1.5M4.5 8.5L6 7"/></svg></span>Conversion and measurement review</td></tr><tr><td>Unsure whether AI tools mention your business</td><td><span class="st-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2 5.5L19.5 10.5 14 12.5 12 18l-2-5.5-5.5-2L10 8.5z"/><path d="M19 17l.7 1.6 1.6.7-1.6.7L19 21.6l-.7-1.6-1.6-.7 1.6-.7z"/></svg></span>AI visibility checks</td></tr><tr><td>Problems return after website updates</td><td><span class="st-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span>Change verification and monitoring</td></tr><tr><td>SEO findings pile up without action</td><td><span class="st-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M9 11l2 2 4-4M9 17h6"/></svg></span>Prioritised briefs and progress tracking</td></tr></tbody></table></div>
+  <div class="grp"><h2 class="sh">Six areas</h2>
+  <div class="areas"><div class="ar"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18"/><path d="M6 6h.01M8.5 6h.01M11 6h.01"/><path d="M8.5 14l2.5 2.5 4.5-5"/></svg></span><div><h3>Website health</h3><p>Access, links, speed and markup.</p></div></div><div class="ar"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/><path d="M7 12l2-2.5 2 1.5 2.5-3"/></svg></span><div><h3>Search performance</h3><p>Visibility, intent and opportunities.</p></div></div><div class="ar"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 9h1M9 13h6M9 17h6"/></svg></span><div><h3>Content</h3><p>Page basics, links and briefs.</p></div></div><div class="ar"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 9h8M8 13h4"/><path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-5l-5 3v-3H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h12z"/><path d="M17 11.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z" fill="currentColor"/></svg></span><div><h3>AI visibility</h3><p>Answers, mentions and citations.</p></div></div><div class="ar"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><rect x="5" y="12" width="3" height="6" rx="1"/><rect x="10.5" y="8" width="3" height="10" rx="1"/><rect x="16" y="4" width="3" height="14" rx="1"/></svg></span><div><h3>Measurement</h3><p>Enquiries, events and data quality.</p></div></div><div class="ar"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><div><h3>Progress</h3><p>Priorities, verification and records.</p></div></div></div></div>
+  <div class="grp"><h2 class="sh">How to read the labels</h2>
+  <table class="legend"><tr><td><span class="badge b-draft"><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>Draft + review</span></td><td>Prepares suggestions for a person to assess.</td></tr><tr><td><span class="badge b-human"><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Human review</span></td><td>Needs judgment or validation.</td></tr></table></div>
   <p class="scope">Checks depend on your website, connected tools and data. Automation is configured during setup, and you approve changes before anything is published.</p>
   <footer class="pf"><span>SEO Growth OS Visual Guide &middot; HelpMeMarketing</span><span>1 / 5</span></footer></section><section class="page">
   <header class="ph"><div class="kick">Website health &amp; search performance</div><h1>Can people and search engines reach the right pages?</h1></header>
@@ -118,8 +120,8 @@ table{border-collapse:collapse;width:100%}
   <div class="cards"><div class="cd"><div class="cd-h"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9l11 4-5 2-2 5z"/><path d="M5 3v3M3 5h3M8.5 4.5l-1.5 1.5M4.5 8.5L6 7"/></svg></span><h3>Conversion &amp; enquiry journey</h3></div><div class="cd-b"><span class="badge b-human"><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Human review</span></div><p class="cd-d">Reviews offer clarity, calls to action, forms and mobile usability. Form submissions require your permission.</p><p class="k-rec"><b>You receive:</b> Observed barriers, recommendations and test ideas.</p></div><div class="cd"><div class="cd-h"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Events &amp; consent</h3></div><div class="cd-b"><span class="badge b-human"><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Human review</span></div><p class="cd-d">Reviews whether customer actions trigger the expected events and how tracking responds to consent choices. Tests require approval.</p><p class="k-rec"><b>You receive:</b> Observed tracking behaviour and gaps to address.</p></div><div class="cd"><div class="cd-h"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span><h3>Real enquiries &amp; data quality</h3></div><div class="cd-b"><span class="badge b-human"><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Human review</span></div><p class="cd-d">Reviews outcome definitions, lead records, test traffic, filters and reporting periods to identify misleading figures.</p><p class="k-rec"><b>You receive:</b> Discrepancies and an explanation of which figures are reliable.</p></div><div class="cd"><div class="cd-h"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><h3>Priorities &amp; draft actions</h3></div><div class="cd-b"><span class="badge b-draft"><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>Draft + review</span></div><p class="cd-d">Combines related findings and drafts priorities based on evidence, opportunity, severity, risk, effort and dependencies. You decide what proceeds.</p><p class="k-rec"><b>You receive:</b> What to address now, investigate, test or leave unchanged.</p></div><div class="cd"><div class="cd-h"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span><h3>Change verification &amp; monitoring</h3></div><p class="cd-d">Rechecks approved changes and flags recurring problems. Implementation status and business impact are assessed separately.</p><p class="k-rec"><b>You receive:</b> Evidence showing what is live, partly live, outstanding or unverified.</p></div><div class="cd"><div class="cd-h"><span class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 8v4l3 2"/></svg></span><h3>Change record &amp; recurring summary</h3></div><div class="cd-b"><span class="badge b-draft"><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>Draft + review</span></div><p class="cd-d">Records findings, decisions and completed work, then drafts an update for your review.</p><p class="k-rec"><b>You receive:</b> A concise summary of progress, open issues and approvals needed.</p></div></div>
   <footer class="pf"><span>SEO Growth OS Visual Guide &middot; HelpMeMarketing</span><span>4 / 5</span></footer></section><section class="page">
   <header class="ph"><div class="kick">How it works & next step</div><h1>From a finding to a clear next action</h1></header>
-  <div class="flow"><div class="fl"><span class="fi"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M14 9l2 2"/></svg></span><span class="fn">1</span><h3>Brief &amp; access</h3></div><div class="fl"><span class="fi"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/><path d="M7 12l2-2.5 2 1.5 2.5-3"/></svg></span><span class="fn">2</span><h3>Collect evidence</h3></div><div class="fl"><span class="fi"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18"/><path d="M6 6h.01M8.5 6h.01M11 6h.01"/><path d="M8.5 14l2.5 2.5 4.5-5"/></svg></span><span class="fn">3</span><h3>Run the checks</h3></div><div class="fl"><span class="fi"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span class="fn">4</span><h3>Diagnose &amp; prioritise</h3></div><div class="fl"><span class="fi"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span><span class="fn">5</span><h3>Draft &amp; approve</h3></div><div class="fl"><span class="fi"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span><span class="fn">6</span><h3>Verify &amp; monitor</h3></div></div>
-  <p class="flow-note"><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.5-4.5L4 8"/><path d="M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.5 4.5L20 16"/><path d="M20 20v-4h-4"/></svg>The stages can span more than one run. Each run builds on the previous record, and not every finding leads to a change in the same run.</p>
+  <div class="grp"><div class="flow"><div class="fl"><span class="fi"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M14 9l2 2"/></svg></span><span class="fn">1</span><h3>Brief &amp; access</h3></div><div class="fl"><span class="fi"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/><path d="M7 12l2-2.5 2 1.5 2.5-3"/></svg></span><span class="fn">2</span><h3>Collect evidence</h3></div><div class="fl"><span class="fi"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18"/><path d="M6 6h.01M8.5 6h.01M11 6h.01"/><path d="M8.5 14l2.5 2.5 4.5-5"/></svg></span><span class="fn">3</span><h3>Run the checks</h3></div><div class="fl"><span class="fi"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span class="fn">4</span><h3>Diagnose &amp; prioritise</h3></div><div class="fl"><span class="fi"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span><span class="fn">5</span><h3>Draft &amp; approve</h3></div><div class="fl"><span class="fi"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span><span class="fn">6</span><h3>Verify &amp; monitor</h3></div></div>
+  <p class="flow-note"><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.5-4.5L4 8"/><path d="M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.5 4.5L20 16"/><path d="M20 20v-4h-4"/></svg>The stages can span more than one run. Each run builds on the previous record, and not every finding leads to a change in the same run.</p></div>
   <div class="example"><div class="ex-h"><span class="nl">An example from my own website</span><span class="ex-date">Process example, recorded 10 November 2026</span></div>
     <p>A run flagged a commercial page with limited search visibility. It checked indexing and internal links, then prepared a brief naming the pages to edit and the proposed link wording.</p>
     <p>The proposed change required approval. Confirming implementation and assessing later search performance are separate steps.</p></div>
@@ -133,7 +135,7 @@ table{border-collapse:collapse;width:100%}
       <li>Your website and priority outcomes.</li>
       <li>Access to the agreed data sources.</li>
       <li>Selected checks, a tested schedule and a review process.</li></ul>
-      <p class="pn">Some checks need paid tools or an available signed-in browser; requirements are confirmed during setup.</p></div>
+      <p class="pn">Some checks need paid tools or an available <span class="nw">signed-in</span> browser; requirements are confirmed during setup.</p></div>
   </div>
   <div class="cta"><h2>Want these checks set up for your business?</h2>
     <p>Tell me your website, the tools you use and what you want to automate.</p>
