@@ -159,8 +159,8 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     <h2 class="section-heading">How customers <em>discover</em> your business.</h2>
     <p class="pm-note seoa-lead">These questions matter because customers can discover your business through both search results and AI answers.</p>
     <div class="pm-two ai-cmp">
-      <div class="ind2-card"><p class="ind2-k">Google search</p><div class="ai-mock"><span class="ai-q"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/></svg> marketing agency near me</span><span class="ai-line"></span><span class="ai-line ai-short"></span><span class="ai-line"></span></div><p>Your business can appear in results that people click and explore.</p></div>
-      <div class="ind2-card"><p class="ind2-k">AI search</p><div class="ai-mock"><span class="ai-q"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg> How do I choose a marketing agency?</span><span class="ai-line"></span><span class="ai-line"></span><span class="ai-line ai-short"></span></div><p>An AI answer may mention or cite your business, sometimes without a website click.</p></div>
+      <div class="ind2-card"><p class="ind2-k">Google search</p><div class="ai-mock" aria-hidden="true"><span class="ai-q"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/></svg> marketing agency near me</span><span class="cmp-res"><span class="cmp-fav"></span><span class="ai-line cmp-t"></span><span class="ai-line cmp-u"></span></span><span class="cmp-res is-you"><span class="cmp-fav"></span><span class="cmp-you">Your business</span><span class="ai-line cmp-u"></span></span><span class="cmp-res"><span class="cmp-fav"></span><span class="ai-line cmp-t"></span><span class="ai-line cmp-u"></span></span></div><p>Your business can appear in results that people click and explore.</p></div>
+      <div class="ind2-card"><p class="ind2-k">AI search</p><div class="ai-mock" aria-hidden="true"><span class="ai-q"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg> How do I choose a marketing agency?</span><span class="ai-line"></span><span class="ai-line"></span><span class="ai-line"></span><span class="ai-line ai-short"></span><span class="cmp-src"><span class="cmp-src-k">Sources</span><span class="cmp-chip"></span><span class="cmp-chip is-you">Your business</span><span class="cmp-chip"></span></span></div><p>An AI answer may mention or cite your business, sometimes without a website click.</p></div>
     </div>
     <p class="pm-note">Illustrative search interfaces, not actual rankings or AI citations.</p>
   </div>
@@ -168,30 +168,37 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 
 <section class="content-section" id="assess">
   <div class="container">
-    <p class="eyebrow">Guided assessment</p>
-    <h2 class="section-heading">What should you improve first in <em>search</em>?</h2>
-    <p class="pm-note seoa-lead">Not sure where to start? Answer four questions to get a practical starting plan for your website.</p>
-    <div class="ma-scope seoa" id="seoa">
-      <p class="pm-note seoa-disclose">This guidance is based on your answers. It does not scan your website or verify your rankings.</p>
-      <noscript><p class="ma-note">The assessment needs JavaScript. You can still <a href="/contact#contact-form">tell me about your website</a> and I&rsquo;ll reply by email.</p></noscript>
-      <div class="seoa-start" id="seoa-start-box" hidden>
-        <button type="button" class="btn btn-primary" id="seoa-start">Find my starting point</button>
+    <div class="seoa-split">
+      <div class="seoa-intro">
+        <p class="eyebrow">Guided assessment</p>
+        <h2 class="section-heading">What should you improve first in <em>search</em>?</h2>
+        <p class="pm-note seoa-lead">Not sure where to start? Answer four questions to get a practical starting plan for your website.</p>
+        <ul class="ma-promise">
+          <li>Answer four quick questions about your website.</li>
+          <li>See which area to work on first, and why.</li>
+          <li>Get steps you can use yourself or send to me.</li>
+        </ul>
+        <p class="ma-meta">About 1 minute &middot; Free &middot; No email needed</p>
+        <p class="pm-note seoa-disclose">This guidance is based on your answers. It does not scan your website or verify your rankings.</p>
       </div>
-      <div class="ma-wizard is-hidden" id="seoa-wizard">
-        <div class="ma-bar" aria-hidden="true"><span class="ma-bar-fill" id="seoa-fill"></span></div>
-        <form class="ma-form" id="seoa-form" novalidate>
-          <p class="ma-count" id="seoa-count" aria-live="polite">Question 1 of 4</p>
-          <div id="seoa-step"></div>
-          <p class="ma-err seoa-err is-hidden" id="seoa-err" role="alert"></p>
-          <div class="ma-nav">
-            <button type="button" class="ma-textbtn" id="seoa-back"><span aria-hidden="true">&larr;</span> Back</button>
-            <button type="submit" class="btn btn-primary ma-go" id="seoa-next">Next</button>
-          </div>
-        </form>
+      <div class="ma-scope seoa" id="seoa">
+        <noscript><p class="ma-note">The assessment needs JavaScript. You can still <a href="/contact#contact-form">tell me about your website</a> and I&rsquo;ll reply by email.</p></noscript>
+        <div class="ma-wizard is-hidden" id="seoa-wizard">
+          <div class="ma-bar" aria-hidden="true"><span class="ma-bar-fill" id="seoa-fill"></span></div>
+          <form class="ma-form" id="seoa-form" novalidate>
+            <p class="ma-count" id="seoa-count" aria-live="polite">Question 1 of 4</p>
+            <div id="seoa-step"></div>
+            <p class="ma-err seoa-err is-hidden" id="seoa-err" role="alert"></p>
+            <div class="ma-nav">
+              <button type="button" class="ma-textbtn" id="seoa-back"><span aria-hidden="true">&larr;</span> Back</button>
+              <button type="submit" class="btn btn-primary ma-go" id="seoa-next">Next</button>
+            </div>
+          </form>
+        </div>
+        <div class="seoa-result is-hidden" id="seoa-result" tabindex="-1"></div>
+        <p class="seoa-live" id="seoa-live" aria-live="polite"></p>
+        <p class="ma-assure">Your answers stay in your browser. Nothing is sent unless you choose to send it.</p>
       </div>
-      <div class="seoa-result is-hidden" id="seoa-result" tabindex="-1"></div>
-      <p class="seoa-live" id="seoa-live" aria-live="polite"></p>
-      <p class="ma-assure">Your answers stay in your browser. Nothing is sent unless you choose to send it.</p>
     </div>
   </div>
 </section>

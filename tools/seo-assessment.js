@@ -143,7 +143,7 @@
   function init() {
     var box = document.getElementById('seoa'); if (!box) return;
     var $ = function (id) { return document.getElementById(id); };
-    var startBox = $('seoa-start-box'), startBtn = $('seoa-start'), wizard = $('seoa-wizard'), form = $('seoa-form');
+    var wizard = $('seoa-wizard'), form = $('seoa-form');
     var stepHost = $('seoa-step'), count = $('seoa-count'), fill = $('seoa-fill'), err = $('seoa-err');
     var backBtn = $('seoa-back'), nextBtn = $('seoa-next'), out = $('seoa-result'), live = $('seoa-live');
     var answers = {}, idx = 0, started = false, last = null, helpSent = false;
@@ -152,11 +152,8 @@
     function track(ev, data) { try { window.dataLayer = window.dataLayer || []; var o = { event: ev }; for (var k in data || {}) o[k] = data[k]; window.dataLayer.push(o); } catch (e) {} }
     function focusTop(el) { el.focus({ preventScroll: true }); var r = el.getBoundingClientRect(); if (r.top < 72 || r.top > window.innerHeight * 0.6) el.scrollIntoView({ block: 'start' }); }
 
-    startBox.hidden = false;
-    startBtn.addEventListener('click', function () {
-      if (!started) { started = true; track('seo_assess_start'); }
-      hide(startBox, true); startBox.hidden = true; hide(wizard, false); idx = 0; render(true);
-    });
+    // The questions are open on load, as on the marketing audit; the first answer counts as the start.
+    hide(wizard, false);
 
     function render(focus) {
       var q = QUESTIONS[idx], n = QUESTIONS.length, multi = !!q.multi, cur = answers[q.id];
@@ -177,6 +174,7 @@
     }
     stepHost.addEventListener('change', function (e) {
       var t = e.target, q = QUESTIONS[idx]; if (!t || t.name !== 'seoa-' + q.id) return;
+      if (!started) { started = true; track('seo_assess_start'); }
       if (!q.multi) { answers[q.id] = t.value; }
       else {
         var excl = q.opts.filter(function (o) { return o.exclusive; }).map(function (o) { return o.v; });
@@ -244,6 +242,7 @@
         answers = {}; last = null; hide(out, true); hide(wizard, false); idx = 0; render(true);
       }
     });
+    render(false);
     document.addEventListener('click', function (e) {
       var a = e.target.closest && e.target.closest('a[data-seoa-gos]');
       if (a) track('seo_assess_growth_os_click', { location: a.getAttribute('data-seoa-gos') });
