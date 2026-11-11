@@ -554,14 +554,14 @@ function sendSeoChecklist_(email, optedIn) {
 // Visual Guide email (founder copy and layout, 2026-11-11): light grey frame, white logo header, Obsidian banner,
 // white body, Warm Ivory setup block with one orange button, compact footer. All text is live text; the only image
 // is the logo (PNG, because Gmail and Outlook block SVG), with an alt text that reads as the brand name when images
-// are off. The footer matches the visitor's newsletter choice; a request on its own never subscribes anyone.
+// are off. Only an opted-in visitor gets a subscription line in the footer; a request on its own never subscribes anyone.
 var SEO_GUIDE_ENQUIRY_URL = SITE_URL + '/contact?entry=seo_automation#contact-form';
 var SEO_GUIDE_LOGO_URL = SITE_URL + '/assets/brand/email/hmm-logo-email.png';
 function seoGuideFooter_(optedIn) {
-  return ['You requested this guide at helpmemarketing.com.',
-    optedIn ? 'You also opted in to occasional SEO notes and updates. To unsubscribe, reply to this email with “unsubscribe”.'
-            : 'This request does not subscribe you to marketing updates.',
-    'HelpMeMarketing, Halton Hills, Ontario, Canada'];
+  // Not opted in: no subscription line (founder, 2026-11-11). Opted in: how to unsubscribe.
+  return ['You requested this guide at helpmemarketing.com.'].concat(
+    optedIn ? ['You also opted in to occasional SEO notes and updates. To unsubscribe, reply to this email with “unsubscribe”.'] : [],
+    ['HelpMeMarketing, Halton Hills, Ontario, Canada']);
 }
 function seoChecklistHtml_(optedIn) {
   var font = 'Arial,Helvetica,sans-serif', serif = 'Georgia,\'Times New Roman\',serif',

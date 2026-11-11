@@ -116,7 +116,7 @@ test('Meta download reply carries no email field (no email is sent)', () => {
   assert.strictEqual(r.saved, 'lead'); assert.strictEqual(r.email, undefined);
 });
 
-test('guide email, not opted in: new copy, page 1 pointer, enquiry link, footer says no subscription', () => {
+test('guide email, not opted in: new copy, page 1 pointer, enquiry link, no subscription line in the footer', () => {
   const env = load({ secret: 'x', siteverify });
   env.post({ ...base, marketingConsent: false, email: 'g@example.com', 'cf-turnstile-response': 'good-token' });
   const m = env.messages[0];
@@ -126,7 +126,7 @@ test('guide email, not opted in: new copy, page 1 pointer, enquiry link, footer 
     assert.ok(t.includes('page 1'));
     assert.ok(t.includes('/contact?entry=seo_automation#contact-form'));
     assert.ok(t.includes('/privacy'));
-    assert.ok(t.includes('This request does not subscribe you to marketing updates.'));
+    assert.ok(t.includes('You requested this guide at helpmemarketing.com.') && !t.includes('subscribe'));
     assert.ok(!t.includes('opted in') && !t.includes('off the list') && !t.includes('Help Me Marketing'));
   }
   assert.ok(m.htmlBody.includes('Your five-page guide is attached.'));
