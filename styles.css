@@ -5939,7 +5939,9 @@ body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table 
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table th, body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table td { padding: 20px 24px; }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table thead th { padding-top: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
 body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table thead th:first-child, body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table th[scope="row"] { width: 28%; }
-body.redesign-prototype [data-screen-label="ai-seo-agency"] #help .pm-tech { max-width: none; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] #help .pm-tech { max-width: none; border-bottom: 1px solid var(--border); }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] #help .pm-note.seoa-after { max-width: none; }
+body.redesign-prototype [data-screen-label="ai-seo-agency"] #help .seoa-after a { white-space: nowrap; }
 @media (max-width: 720px) {
   body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-table { table-layout: auto; }
   body.redesign-prototype [data-screen-label="ai-seo-agency"] .seoa-map .mr-steps tr { padding: 20px; }
