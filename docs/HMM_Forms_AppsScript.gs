@@ -79,7 +79,7 @@ var REPLY_TO = 'hello@helpmemarketing.com';
 var SENDER_POSTAL = 'Help Me Marketing, Halton Hills, Ontario, Canada';
 // The SEO Growth OS visual guide PDF in Drive (2026-11-11: replaces the bundle zip, which is no longer sent publicly).
 // Upload docs/growth-os-checklist/HMM-SEO-Growth-OS-Visual-Guide.pdf to Drive and paste its file ID here before deploying.
-var SEO_CHECKLIST_FILE_ID = 'PASTE_CHECKLIST_PDF_FILE_ID_HERE';
+var SEO_CHECKLIST_FILE_ID = '1itZqQlmPA9YcpAsuvaEwT21FefoyZxLB';   // HMM-SEO-Growth-OS-Visual-Guide.pdf, uploaded 2026-11-11 (approved build 2a9ba42)
 var SEO_CHECKLIST_FILENAME = 'HMM-SEO-Growth-OS-Visual-Guide.pdf';
 var RATE_LIMITS = { 'audit-plan': 5, 'growth-os-download': 3, 'index-download': 3 };  // per email address, per 24 hours
 var DAY_MS = 24 * 60 * 60 * 1000;
