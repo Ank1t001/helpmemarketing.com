@@ -6002,6 +6002,12 @@ body.redesign-prototype .ai-q svg { color: var(--cta-text, var(--cta)); flex: no
 body.redesign-prototype .ai-line { display: block; height: 8px; border-radius: 4px; background: rgba(var(--ink-rgb, 255, 255, 255), 0.1); }
 body.redesign-prototype .ai-short { width: 60%; }
 body.redesign-prototype .ai-cmp .ind2-card > p:last-child { margin: 0; font-size: 15px; color: var(--text-body); }
+body.redesign-prototype .gos-row { display: flex; align-items: center; gap: 10px; }
+body.redesign-prototype .gos-row .ai-line { flex: 1; }
+body.redesign-prototype .gos-row .ai-short { flex: 0 1 60%; }
+body.redesign-prototype .gos-chip { flex: none; width: 92px; box-sizing: border-box; white-space: nowrap; padding: 2px 8px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; line-height: 1.5; text-align: center; color: var(--text-muted); }
+body.redesign-prototype .gos-chip.gos-first { border-color: transparent; background: rgba(var(--cta-rgb, 255, 92, 26), 0.12); color: var(--cta-text, var(--cta)); font-weight: 600; }
+body.redesign-prototype .gos-chip.gos-live { border-color: transparent; background: color-mix(in srgb, var(--mint) 14%, transparent); color: var(--mint); font-weight: 600; }
 /* AI marketing page: outcome card under the two-part split (2026-10-12) */
 body.redesign-prototype .aim-outcome { margin-top: 16px; border-color: var(--cta); }
 /* AI tools page: input/output line and smaller secondary cards (2026-10-12) */
