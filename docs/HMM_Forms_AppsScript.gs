@@ -547,7 +547,7 @@ function checklistBlob_() {
 
 function sendSeoChecklist_(email) {
   var blob = checklistBlob_();
-  MailApp.sendEmail({ to: email, name: FROM_NAME, replyTo: REPLY_TO, subject: 'Your SEO Growth OS visual guide',
+  MailApp.sendEmail({ to: email, name: FROM_NAME, replyTo: REPLY_TO, subject: 'Your SEO Growth OS Visual Guide',
     htmlBody: seoChecklistHtml_(), body: seoChecklistText_(), attachments: [blob] });
 }
 
@@ -566,7 +566,7 @@ function seoChecklistHtml_() {
 '<tr><td style="font-family:' + font + ';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:' + mint + ';font-weight:bold;padding-bottom:12px;">' +
 'HelpMeMarketing &middot; SEO Growth OS</td></tr>' +
 '<tr><td style="font-family:' + font + ';font-size:26px;line-height:1.25;color:' + text + ';font-weight:bold;padding-bottom:16px;">' +
-'Your SEO Growth OS visual guide is attached.</td></tr>' +
+'Your SEO Growth OS Visual Guide is attached.</td></tr>' +
 '<tr><td style="font-family:' + font + ';font-size:15px;line-height:1.6;color:' + muted + ';padding-bottom:20px;">' +
 'The PDF on this email sets out the recurring SEO work I can help automate: what each check looks at, what can run automatically, ' +
 'what you receive and what needs your review, with a real example from my own site.</td></tr>' +
@@ -577,7 +577,7 @@ function seoChecklistHtml_() {
 '<a href="' + CONTACT_URL + '" style="display:inline-block;font-family:' + font + ';font-size:15px;font-weight:bold;color:#0E0E0E;background:' + cta + ';border-radius:8px;padding:14px 24px;text-decoration:none;">' +
 'Enquire about SEO automation</a></td></tr>' +
 '<tr><td style="border-top:1px solid ' + border + ';padding-top:18px;font-family:' + font + ';font-size:12px;line-height:1.6;color:#8A8A8A;">' +
-'You are getting this because you asked for the SEO Growth OS visual guide at ' + SITE_URL + '/seo-growth-os.<br>' +
+'You are getting this because you asked for the SEO Growth OS Visual Guide at ' + SITE_URL + '/seo-growth-os.<br>' +
 SENDER_POSTAL + '<br>' +
 'Prefer not to hear from me again? Reply with "unsubscribe" and you are off the list.' +
 '</td></tr>' +
@@ -587,7 +587,7 @@ SENDER_POSTAL + '<br>' +
 
 function seoChecklistText_() {
   return [
-    'Your SEO Growth OS visual guide is attached.', '',
+    'Your SEO Growth OS Visual Guide is attached.', '',
     'The PDF on this email sets out the recurring SEO work I can help automate: what',
     'each check looks at, what can run automatically, what you receive and what needs',
     'your review, with a real example from my own site.', '',
@@ -595,7 +595,7 @@ function seoChecklistText_() {
     'If you would like these checks set up for your business, I can help connect',
     'your data, configure the checks and set a schedule around your website and goals.', '',
     'Enquire about SEO automation: ' + CONTACT_URL, '', '---',
-    'You are getting this because you asked for the SEO Growth OS visual guide at',
+    'You are getting this because you asked for the SEO Growth OS Visual Guide at',
     SITE_URL + '/seo-growth-os.', SENDER_POSTAL,
     'Prefer not to hear from me again? Reply with "unsubscribe" and you are off the list.'
   ].join('\n');

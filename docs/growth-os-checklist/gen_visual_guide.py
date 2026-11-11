@@ -1,24 +1,18 @@
 #!/usr/bin/env python3
-"""Generates seo-growth-os-visual-guide.html (8 fixed Letter pages) in HMM brand colours.
+"""Generates seo-growth-os-visual-guide.html: the SEO Growth OS Visual Guide, 5 fixed US Letter pages in HMM colours.
 
-Content is the founder's Visual Guide draft of 11 Nov 2026. Edit the lists below, then render:
+Page 1: where to start (problem table, six areas, label legend, scope note).
+Pages 2 to 4: grouped cards, each with Checks, Automates (or Review for human work) and You receive.
+Page 5: how a run works, the 10 November 2026 process example, what you receive, setup and the enquiry link.
+Edit the lists below, never the HTML, then render:
   python3 docs/growth-os-checklist/gen_visual_guide.py
   NODE_PATH=$(npm root -g) node docs/growth-os-checklist/build_visual_guide.mjs
-Brand tokens follow docs/HMM_Color_System.md: Obsidian #0E0E0E, Signal Orange #FF5C1A
-(#B8400C for small text on light), Mint #007A62 on light, paper #F6F5F2, border #ECEAE4.
+Brand tokens follow docs/HMM_Color_System.md. No em dashes; first person singular; no capability count.
 """
 import html, os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 E = html.escape
-
-# Labels: key -> (text, css class)
-L = {
-    'R': ('Scheduled check', 'b-rep', 'refresh'),
-    'D': ('Draft + review', 'b-draft', 'pen'),
-    'H': ('Human review', 'b-human', 'eye'),
-    'C': ('On change', 'b-change', 'swap'),
-}
 
 # Tabler-style line icons (24px grid, stroke = currentColor)
 ICON = {
@@ -67,231 +61,219 @@ def icon(name, cls='ico'):
     return (f'<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" '
             f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICON[name]}</svg>')
 
+# Labels: key -> (text, css class, symbol, legend meaning)
+L = {
+    'S': ('Scheduled check', 'b-rep', 'refresh', 'Can run on an agreed schedule after setup and testing.'),
+    'D': ('Draft + review', 'b-draft', 'pen', 'Prepares suggestions for a person to assess.'),
+    'H': ('Human review', 'b-human', 'eye', 'Needs judgment or validation.'),
+    'C': ('On change', 'b-change', 'swap', 'Runs around an update, fix or redesign.'),
+}
+
 def badge(k):
-    t, c, i = L[k]
+    t, c, i, _ = L[k]
     return f'<span class="badge {c}">{icon(i, "bi")}{E(t)}</span>'
 
+CONTACT = 'https://helpmemarketing.com/contact?entry=seo_automation#contact-form'
+
+# Each card: title, icon, label keys, optional tag, checks, automates, review, you receive, note
+def card(t, ic, labels, checks, receive, auto=None, review=None, tag=None, note=None):
+    return dict(t=t, ic=ic, labels=labels, checks=checks, receive=receive, auto=auto, review=review, tag=tag, note=note)
+
+PAGES = [
+    dict(kicker='Website health & search performance', title='Can people and search engines reach the right pages?', cards=[
+        card('Access, indexing & sitemaps', 'search', 'S',
+             'Status codes, robots directives, noindex, canonical URLs and sitemap inclusion.',
+             'Affected URLs, the issue on each and the next step.',
+             auto='Reruns the agreed URL checks and compares them with the last run. Public website signals are kept apart from Google’s recorded indexing status, which needs Search Console.'),
+        card('Links, redirects & website updates', 'link', 'SC',
+             'Broken links, redirect chains, and selected pages and journeys before and after a release.',
+             'Affected source and destination URLs, plus regressions found after a release.',
+             auto='Retests links and redirects on the agreed pages. Around a release, compares before and after.'),
+        card('Performance & media', 'gauge', 'SD',
+             'Lab speed on key pages, real-user data where Google has enough, missing image descriptions and media that slows pages.',
+             'Page-specific diagnostics, with lab and real-user data kept apart, and flagged images.',
+             auto='Retests the agreed pages against earlier results. Flags images without descriptions and drafts them.',
+             review='A person checks that each description is useful.'),
+        card('Structured data', 'code', 'SH',
+             'Whether markup is valid, and whether it matches the visible page and your business.',
+             'Page-specific findings and draft corrections for your developer.',
+             auto='Validates markup on the agreed pages and flags new errors.',
+             review='Accuracy against the page and business is checked by a person.'),
+        card('Search performance & opportunities', 'chart', 'SH',
+             'Page and query impressions, clicks, CTR and position across comparable periods. Search intent, competitor pages and backlinks.',
+             'Pages or opportunities to investigate, with the evidence behind each.',
+             auto='Collects connected search data, compares agreed periods and flags changes.',
+             review='Intent, competitor and backlink findings need interpretation. Backlinks are investigated, never auto-disavowed.'),
+        card('Local, store & international', 'globe', 'S',
+             'Local: Business Profile details and location searches. Store: product pages, product markup and Merchant Center issues. International: language and country versions.',
+             'Dated location observations, product or account issues, and affected URLs between versions.',
+             auto='Repeats supported observations and rechecks product markup and version links.',
+             tag='Only where it applies'),
+    ]),
+    dict(kicker='Content & AI visibility', title='Do your pages answer the questions customers ask?', cards=[
+        card('Page basics & content freshness', 'heading', 'SH',
+             'Titles, descriptions and headings. Customer questions, accuracy and outdated information.',
+             'Page-specific issues and sections to update, with the reason for each.',
+             auto='Rechecks titles, descriptions and headings on the agreed pages and flags new problems.',
+             review='Accuracy, freshness and wording are an editorial judgment.'),
+        card('Internal linking', 'sitemap', 'D',
+             'How priority pages connect, and where a relevant link would help visitors.',
+             'Source page, destination and suggested link wording.',
+             auto='Inspects crawlable links and prepares suggested additions.',
+             review='You review relevance and wording.'),
+        card('Content briefs', 'brief', 'D',
+             'The page’s purpose, the intended customer action and the evidence from the review.',
+             'A brief saying what to change, why, and how to verify it was done.',
+             auto='Drafts the brief from the available evidence.',
+             review='You approve the changes and wording.'),
+        card('Location & service pages at scale', 'pin', 'H',
+             'Pages built from one template: useful differences, factual consistency, internal links and indexing directives.',
+             'Pages to improve, merge, link or keep out of the index, with the reason for each.',
+             review='Similarity is a starting point for review, not a pass mark. Nothing is published in bulk.',
+             tag='Optional'),
+        card('Answer suitability', 'quote', 'H',
+             'Clear answers to customer questions, accurate business information and evidence for claims.',
+             'Specific sections to clarify or strengthen.',
+             review='Suggestions can be drafted; clarity and accuracy are judged by a person.'),
+        card('AI mentions & citations', 'sparkle', 'SH',
+             'Selected Google AI answers and other assistant responses to agreed questions.',
+             'Question, platform, date, observed mention, citation and accuracy concerns.',
+             auto='Repeats supported Google AI observations on a schedule.',
+             review='Other assistants are checked in a browser or by hand. Accuracy is judged by a person.',
+             note='AI answers vary; observations are recorded with their date and context.'),
+    ]),
+    dict(kicker='Measurement & progress', title='Are enquiries being measured, and is the work moving forward?', cards=[
+        card('Conversion & enquiry journey', 'click', 'H',
+             'Offer clarity, calls to action, form usability and friction on phones and desktops.',
+             'Observed barriers, with recommendations or test ideas.',
+             review='A person walks the journey. Forms are submitted only with your permission.'),
+        card('Events & consent', 'shield', 'H',
+             'Whether intended actions produce the expected events, and how tracking responds to consent choices.',
+             'What fires, what does not, and the gaps to fix.',
+             review='Configured tags are kept apart from behaviour observed in a test. Tests need your approval.'),
+        card('Real enquiries & data quality', 'database', 'H',
+             'Which actions count as a result, whether recorded leads match your business records, and test traffic, filters, time zones and reporting dates.',
+             'Discrepancies, and which figures can be relied on.',
+             review='Records are compared only with your permission.'),
+        card('Priorities & draft actions', 'target', 'D',
+             'Recommendations consider the seriousness of the issue, the opportunity, strength of evidence, implementation risk, effort and dependencies.',
+             'What to address now, investigate, test or leave unchanged.',
+             auto='Combines related findings and drafts a prioritised plan.',
+             review='You decide what goes ahead.'),
+        card('Change verification & monitoring', 'checkc', 'CS',
+             'Whether approved changes are live, whether their acceptance checks pass and whether problems recur.',
+             'A confirmed status with evidence: live, partly live, not yet live or unable to verify. Business impact is assessed separately.',
+             auto='Rechecks observable changes and reruns the agreed checks against a baseline.'),
+        card('Change record & recurring summary', 'history', 'SD',
+             'New findings, decisions, completed work, unresolved items and approvals needed.',
+             'A concise update backed by a dated working record.',
+             auto='Adds each run to the record and drafts the summary.',
+             review='You review the summary before it is shared.'),
+    ]),
+]
+
+FLOW = [
+    ('key', 'Brief & access'), ('search', 'Collect evidence'), ('health', 'Run the checks'),
+    ('target', 'Diagnose & prioritise'), ('pen', 'Draft & approve'), ('checkc', 'Verify & monitor'),
+]
+
+START = [
+    ('Important pages rarely appear in search', 'Search performance and indexing checks', 'search'),
+    ('People visit but few enquire', 'Conversion and measurement review', 'click'),
+    ('Unsure whether AI tools mention your business', 'AI visibility checks', 'sparkle'),
+    ('Problems return after website updates', 'Change verification and monitoring', 'checkc'),
+    ('SEO findings pile up without action', 'Prioritised briefs and progress tracking', 'brief'),
+]
+
 AREAS = [
-    dict(n='01', key='health', name='Website health', cover='Find access and technical issues.',
-         sub='Spot problems before they become routine.', layout='grid3',
-         items=[
-            ('Crawl access & indexing', 'R', 'Robots rules, noindex, canonical URLs and status codes.', 'Flag affected URLs; Google indexing needs account evidence.'),
-            ('Broken links & redirects', 'R', 'Links that fail, plus redirects that take multiple hops.', 'A source-to-destination list for review and repair.'),
-            ('Sitemap discovery', 'R', 'Listed URLs, their reachability and sitemap consistency.', 'URLs to investigate or update in the sitemap.'),
-            ('Page performance', 'R', 'Lab speed checks and real-user data when available.', 'Page-specific diagnostics, with lab and field data separated.'),
-            ('Forms & mobile journeys', 'H', 'Navigation, enquiry paths and small-screen usability.', 'Observed barriers; submissions tested only with permission.'),
-            ('Structured data validity', 'R', 'Whether page markup parses and passes supported validation.', 'Validation findings tied to the affected page.'),
-            ('Structured data accuracy', 'H', 'Whether markup reflects the visible page and business.', 'Corrections or draft markup for developer review.'),
-            ('Images & alt text', 'D', 'Missing descriptions and media affecting page performance.', 'Flagged images; a person checks description usefulness.'),
-            ('Launch & redesign checks', 'C', 'Selected URLs and journeys before and after a release.', 'A comparison showing regressions and unresolved checks.'),
-         ],
-         needs='Public website; Search Console for Google indexing; lab and field performance sources where available.'),
-    dict(n='02', key='search', name='Search performance', cover='See where visibility changes.',
-         sub='Find the pages that deserve a closer look.', layout='grid2',
-         items=[
-            ('Page & query monitoring', 'R', 'Impressions, clicks, CTR and position over comparable periods.', 'Flag changes by page or query, with country filters agreed at setup.'),
-            ('Search intent review', 'H', 'Whether a page answers the need behind its search queries.', 'A recommendation to clarify, expand or refocus the page.'),
-            ('Competitor opportunities', 'H', 'Relevant competing pages and gaps in the topics covered.', 'Evidence-backed opportunities for your business to assess.'),
-            ('Backlink review', 'H', 'Who links to you and competitors; unusual patterns worth investigating.', 'Findings with source limits, not automatic disavow advice.'),
-            ('Local search & maps', 'R', 'Profile details and location-specific search observations where supported.', 'Dated observations for agreed services and locations.'),
-            ('Online store listings', 'R', 'Product pages, product markup and available Merchant Center issues.', 'Product or account issues to review with your store team.'),
-            ('Language & country versions', 'R', 'Hreflang relationships and consistency across relevant versions.', 'Affected URLs and configuration issues for review.'),
-         ],
-         needs='Search Console; relevant location, merchant, competitor or link data. Some sources have their own costs.'),
-    dict(n='03', key='content', name='Content', cover='Identify pages needing attention.',
-         sub='Turn a page-level finding into a useful brief.', layout='rows',
-         items=[
-            ('Page basics', 'R', 'Titles, descriptions, headings and links on selected pages.', 'A page-specific list of missing, conflicting or unclear elements.'),
-            ('Content quality & freshness', 'H', 'Customer questions, factual accuracy, relevance and outdated information.', 'Sections to clarify or update, with the reason for each recommendation.'),
-            ('Internal links & site structure', 'D', 'How priority pages connect and where relevant links could help visitors.', 'Suggested source page, destination and link wording for approval.'),
-            ('Content briefs & recommendations', 'D', 'Evidence from the review, page purpose and the intended customer action.', 'A draft brief with proposed changes, supporting evidence and acceptance checks.'),
-         ],
-         optional=[
-            ('Location & service pages at scale', 'H', 'Pages built from one template: useful differences between pages, factual consistency, internal links and indexing directives.', 'Pages to improve, merge, link or keep out of the index, with the reason for each.'),
-            ('Conversion review', 'H', 'Offer clarity, calls to action and enquiry friction on key pages.', 'Recommendations or test ideas, each with the reason behind it.'),
-         ],
-         needs='Public pages, business knowledge and connected search data where relevant. All proposed changes require review.'),
-    dict(n='04', key='ai', name='AI visibility', cover='Record mentions and citations.',
-         sub='Keep a dated record of what AI answers show.', layout='rows',
-         items=[
-            ('Answer suitability', 'H', 'Whether pages clearly answer customer questions and support business claims.', 'Recommendations to improve clarity, completeness and supporting evidence.'),
-            ('Google AI observations', 'R', 'Whether your business or pages appear in selected Google AI answers, where checks are supported.', 'The question, date, context and observed mentions or citations.'),
-            ('Other AI mentions & citations', 'H', 'Selected assistant responses: business mentions, cited pages and factual accuracy.', 'Dated responses and citations, with inaccuracies or omissions flagged.'),
-         ],
-         needs='Agreed questions, target locations and access to selected AI tools or observation sources. Availability varies.',
-         note='A repeated observation is not a fixed AI ranking or a promise of citation.'),
-    dict(n='05', key='measure', name='Measurement', cover='Check what the figures mean.',
-         sub='Understand whether recorded activity is useful.', layout='rows',
-         items=[
-            ('Define a meaningful result', 'H', 'Which actions count as enquiries, bookings, purchases or other business outcomes.', 'An agreed measurement definition before interpreting performance.'),
-            ('Check actual event behaviour', 'H', 'Whether the intended action produces the expected tracking event.', 'A distinction between configured tags and observed events; tests need approval.'),
-            ('Consent behaviour', 'H', 'What tracking does when a visitor accepts or declines consent.', 'Observed behaviour and gaps to review with the site owner.'),
-            ('Match leads to real records', 'H', 'Whether recorded enquiries align with available CRM, booking or sales records.', 'Discrepancies and evidence gaps, without treating every event as a customer.'),
-            ('Data quality', 'H', 'Test traffic, filters, time zones and date ranges that can distort comparisons.', 'Corrections to investigate before drawing conclusions from the numbers.'),
-         ],
-         needs='Analytics and tag access, agreed business outcomes, and enquiry or CRM records where permission is granted.'),
-    dict(n='06', key='progress', name='Progress', cover='Keep findings and changes connected.',
-         sub='Make the next run build on the last one.', layout='rows',
-         items=[
-            ('A dated change record', 'R', 'Findings, recommendations, decisions and changes from each run.', 'A persistent record showing what remains open and what changed.'),
-            ('Implementation verification', 'C', 'Whether an approved edit is live and meets its acceptance checks.', 'Live, partly live, not yet live or unable to verify, supported by evidence.'),
-            ('Monitoring & alerts', 'R', 'Agreed checks for regressions or notable changes against a suitable baseline.', 'Flagged changes with context; missing evidence is kept visible.'),
-            ('Recurring summaries', 'D', 'New findings, unresolved issues, completed work and decisions still needed.', 'A concise update and a prioritised action list for review.'),
-         ],
-         needs='The previous run, change history, agreed checks and approval records. Scheduling depends on the configured environment.'),
+    ('health', 'Website health', 'Access, links, speed and markup.'),
+    ('search', 'Search performance', 'Visibility, intent and opportunities.'),
+    ('content', 'Content', 'Page basics, links and briefs.'),
+    ('ai', 'AI visibility', 'Answers, mentions and citations.'),
+    ('measure', 'Measurement', 'Enquiries, events and data quality.'),
+    ('progress', 'Progress', 'Priorities, verification and records.'),
 ]
 
-STEPS = [
-    ('Find the signal', 'A commercial page had limited search visibility. The run flagged it for investigation.'),
-    ('Check the evidence', 'Indexing status and internal links were reviewed. Weak linking was treated as a hypothesis, not a proven cause.'),
-    ('Prepare the brief', 'The draft named the pages to edit and proposed clearer internal-link wording for approval.'),
-    ('Verify, then measure', 'The workflow separates confirming the edit is live from assessing later search performance. This example does not claim a ranking lift.'),
-]
-
-CARD_ICON = {
-    'Crawl access & indexing': 'search', 'Broken links & redirects': 'link', 'Sitemap discovery': 'sitemap',
-    'Page performance': 'gauge', 'Forms & mobile journeys': 'phone', 'Structured data validity': 'code',
-    'Structured data accuracy': 'checkc', 'Images & alt text': 'image', 'Launch & redesign checks': 'rocket',
-    'Page & query monitoring': 'chart', 'Search intent review': 'target', 'Competitor opportunities': 'users',
-    'Backlink review': 'link', 'Local search & maps': 'pin', 'Online store listings': 'cart',
-    'Language & country versions': 'globe', 'Page basics': 'heading', 'Content quality & freshness': 'refresh',
-    'Internal links & site structure': 'sitemap', 'Content briefs & recommendations': 'brief',
-    'Answer suitability': 'quote', 'Google AI observations': 'sparkle', 'Other AI mentions & citations': 'ai',
-    'Define a meaningful result': 'flag', 'Check actual event behaviour': 'click', 'Consent behaviour': 'shield',
-    'Match leads to real records': 'database', 'Data quality': 'filter', 'A dated change record': 'history',
-    'Implementation verification': 'checkc', 'Monitoring & alerts': 'bell', 'Recurring summaries': 'report',
-    'Location & service pages at scale': 'pin', 'Conversion review': 'click',
-}
-
-AUTO = {
-    'Crawl access & indexing': 'Repeats the agreed URL checks and compares the results with the previous run.',
-    'Broken links & redirects': 'Retests links and redirect chains on the agreed pages and lists what changed.',
-    'Sitemap discovery': 'Fetches the sitemap, checks that each listed URL responds and flags mismatches.',
-    'Page performance': 'Retests the agreed pages and compares them with earlier results.',
-    'Structured data validity': 'Validates markup on the agreed pages and flags new errors.',
-    'Images & alt text': 'Finds images without descriptions and drafts suggestions. You review whether each one is useful.',
-    'Page & query monitoring': 'Collects connected search data, compares agreed periods and flags changes for review.',
-    'Local search & maps': 'Repeats location-specific observations where a tracking source is set up, and dates each one.',
-    'Online store listings': 'Rechecks product markup and available Merchant Center issues, and flags new ones.',
-    'Language & country versions': 'Rechecks the links between language versions and flags breaks or mismatches.',
-    'Page basics': 'Rechecks titles, descriptions and headings on the agreed pages and flags new problems.',
-    'Internal links & site structure': 'Inspects crawlable links and prepares suggested linking opportunities. You review relevance and wording.',
-    'Content briefs & recommendations': 'Drafts a brief from the review evidence. You approve the changes and the wording.',
-    'Google AI observations': 'Repeats the agreed questions where checks are supported and records each dated answer.',
-    'A dated change record': "Adds each run's findings, decisions and changes to the record.",
-    'Monitoring & alerts': 'Reruns the agreed checks against the baseline and flags regressions.',
-    'Recurring summaries': 'Drafts the summary from the record. You review it before it is shared.',
-}
-
-def auto(t):
-    a = AUTO.get(t)
-    return f'<p class="au"><b>{icon("refresh", "bi")}Automates:</b> {E(a)}</p>' if a else ''
-
-TOTAL = 3 + len(AREAS)
+TOTAL = 2 + len(PAGES)
 
 def foot(i):
-    return (f'<footer class="pf"><span>HelpMeMarketing / SEO Growth OS</span>'
-            f'<span>{i:02d} / {TOTAL:02d}</span></footer>')
+    return (f'<footer class="pf"><span>SEO Growth OS Visual Guide &middot; HelpMeMarketing</span>'
+            f'<span>{i} / {TOTAL}</span></footer>')
 
-def head(kicker, title, sub, ico):
-    return (f'<div class="kick-top">HelpMeMarketing</div>'
-            f'<header class="ph"><div><div class="kick">{E(kicker)}</div><h1>{E(title)}</h1>'
-            f'<p class="lede">{E(sub)}</p></div><div class="ph-ico">{icon(ico, "ico-lg")}</div></header>')
+def para(key, cls, ic, text):
+    i = icon(ic, 'bi') if ic else ''
+    return f'<p class="{cls}"><b>{i}{key}</b> {E(text)}</p>'
 
-def grid_card(t, k, desc, out, inline=False):
-    # Two-column cards are wide enough to carry the label beside the title.
-    b = badge(k)
-    return (f'<div class="gc"><div class="gc-h"><span class="ci">{icon(CARD_ICON[t])}</span><h3>{E(t)}</h3>{b if inline else ""}</div>{"" if inline else b}<p class="d">{E(desc)}</p>'
-            f'{auto(t)}<p class="o"><b>Output:</b> {E(out)}</p></div>')
-
-def row_card(t, k, desc, out):
-    return (f'<div class="rc"><div class="rc-h"><span class="ci">{icon(CARD_ICON[t])}</span><h3>{E(t)}</h3>{badge(k)}</div><div class="rc-g">'
-            f'<div><div class="lab">Checks</div><p class="d">{E(desc)}</p></div>'
-            f'<div><div class="lab">You receive</div><p class="o">{E(out)}</p></div></div>{auto(t)}</div>')
-
-def needs(a):
-    note = f'<p class="nn">{E(a["note"])}</p>' if a.get('note') else ''
-    return f'<div class="needs"><div class="nl">What this needs</div><p>{E(a["needs"])}</p>{note}</div>'
+def render_card(c):
+    tag = f'<span class="tag">{E(c["tag"])}</span>' if c['tag'] else ''
+    badges = ''.join(badge(k) for k in c['labels'])
+    out = [f'<div class="cd"><div class="cd-h"><span class="ci">{icon(c["ic"])}</span><h3>{E(c["t"])}</h3></div>'
+           f'<div class="cd-b">{badges}{tag}</div>',
+           para('Checks', 'k-chk', None, c['checks'])]
+    if c['auto']:
+        out.append(para('Automates', 'k-auto', 'refresh', c['auto']))
+    if c['review']:
+        out.append(para('Review', 'k-rev', 'eye', c['review']))
+    out.append(para('You receive', 'k-rec', None, c['receive']))
+    if c['note']:
+        out.append(f'<p class="cn">{E(c["note"])}</p>')
+    out.append('</div>')
+    return ''.join(out)
 
 pages = []
 
-# Cover
-tiles = ''.join(
-    f'<div class="ct">{icon(a["key"])}<div><h3>{E(a["name"])}</h3><p>{E(a["cover"])}</p></div></div>' for a in AREAS)
-legend = ''.join(f'<li>{badge(k)}<span>{E(t)}</span></li>' for k, t in [
-    ('R', 'can run on an agreed schedule after setup and testing.'),
-    ('D', 'prepare suggestions for a person to assess.'),
-    ('H', 'judgment or validation is required.'),
-    ('C', 'a check around a release, fix or redesign.'),
-])
-pages.append(f'''<section class="page cover">
-  <div class="cv-top"><img class="logo" src="../../assets/brand/hmm-logo-full.svg" width="150" height="69" alt="HelpMeMarketing"><span class="kick">Visual guide</span></div>
-  <h1 class="cv-h">SEO Growth OS</h1>
-  <p class="cv-sub">Know what is checked.<br><em>See what can be automated.</em></p>
-  <p class="cv-lede">A practical guide to recurring checks, draft recommendations and progress tracking for your website.</p>
-  <div class="ctiles">{tiles}</div>
-  <div class="kick or">How to read this guide</div>
-  <ul class="legend">{legend}</ul>
-  <p class="cv-fine">Available checks and automation are confirmed during setup. Tools, access and schedules must be configured and tested. This guide is not an audit of your website.</p>
-</section>''')
-
-FLOW = [
-    ('key', 'Brief & access', 'Your goals, priority pages and the tools you connect.'),
-    ('search', 'Collect evidence', 'Website, search and analytics data, each dated.'),
-    ('health', 'Run the checks', 'Selected checks across the six areas.'),
-    ('target', 'Diagnose & prioritise', 'Shared causes combined; each fix weighed.'),
-    ('pen', 'Draft & approve', 'Briefs, links and markup prepared for your approval.'),
-    ('checkc', 'Verify & monitor', 'Confirm it is live, then watch for change.'),
-]
-DIMS = [('flag', 'Severity'), ('chart', 'Opportunity'), ('eye', 'Evidence'), ('shield', 'Risk'), ('gauge', 'Effort & readiness')]
-GROUPS = ['Urgent verified issues', 'Low-risk evidenced improvements', 'Larger planned improvements',
-          'Experiments with a decision rule', 'Investigations blocked by data', 'Defer or leave unchanged']
-RECEIVE = [
-    ('report', 'A plain-language report', 'Status and coverage for each area, findings and next actions.'),
-    ('folder', 'A working record', 'Evidence, findings, decisions and changes, kept between runs.'),
-    ('checkc', 'An acceptance check', 'Every recommendation says how to confirm it was done.'),
-]
-flow = ''.join(f'<div class="fl"><span class="fn">{n}</span><span class="fi">{icon(ic)}</span><h3>{E(t)}</h3><p>{E(d)}</p></div>'
-               for n, (ic, t, d) in enumerate(FLOW, start=1))
-dims = ''.join(f'<div class="dm">{icon(ic)}<span>{E(t)}</span></div>' for ic, t in DIMS)
-groups = ''.join(f'<li><span class="gn">{n}</span>{E(g)}</li>' for n, g in enumerate(GROUPS, start=1))
-recv = ''.join(f'<div class="rv"><span class="ci">{icon(ic)}</span><div><h3>{E(t)}</h3><p>{E(d)}</p></div></div>' for ic, t, d in RECEIVE)
-pages.append(f'''<section class="page">{head("How it works", "How a run works", "Six stages, from your brief to a verified change. The next run starts from the last.", "refresh")}
-  <div class="flow">{flow}</div>
-  <div class="loop">{icon("refresh", "bi")}Repeat on an agreed schedule, or around a release</div>
-  <div class="two">
-    <div class="panel"><div class="nl">How each fix is weighed</div>
-      <div class="dims">{dims}</div>
-      <p class="pn">Each dimension is judged on its own. There is no single combined score.</p></div>
-    <div class="panel"><div class="nl">Then grouped by what to do next</div><ol class="groups">{groups}</ol></div>
+# Page 1: where should you start?
+rows = ''.join(f'<tr><td>{E(a)}</td><td><span class="st-ic">{icon(ic)}</span>{E(b)}</td></tr>' for a, b, ic in START)
+areas = ''.join(f'<div class="ar"><span class="ci">{icon(ic)}</span><div><h3>{E(t)}</h3><p>{E(d)}</p></div></div>' for ic, t, d in AREAS)
+legend = ''.join(f'<tr><td>{badge(k)}</td><td>{E(L[k][3])}</td></tr>' for k in 'SDHC')
+pages.append(f'''<section class="page">
+  <div class="intro">
+    <div class="intro-top"><img class="logo" src="../../assets/brand/hmm-logo-full.svg" width="150" height="69" alt="HelpMeMarketing"><span>SEO Growth OS Visual Guide</span></div>
+    <h1>SEO Growth OS</h1>
+    <p class="intro-sub"><em>Find the checks your business needs.</em></p>
+    <p class="intro-lede">Explore the website and search checks I can help automate, the recommendations they produce and where your review is needed.</p>
   </div>
-  <div class="nl gap">What you receive</div>
-  <div class="recv">{recv}</div>
-  {foot(2)}</section>''')
+  <h2 class="sh">Where should you start?</h2>
+  <table class="start"><thead><tr><th>What you are experiencing</th><th>Start here</th></tr></thead><tbody>{rows}</tbody></table>
+  <h2 class="sh">Six areas</h2>
+  <div class="areas">{areas}</div>
+  <h2 class="sh">How to read the labels</h2>
+  <table class="legend">{legend}</table>
+  <p class="scope">Checks depend on your website, connected tools and data. Automation is configured during setup, and you approve changes before anything is published.</p>
+  {foot(1)}</section>''')
 
-for i, a in enumerate(AREAS, start=3):
-    if a['layout'] == 'rows':
-        body = f'<div class="rows">{"".join(row_card(*it) for it in a["items"])}</div>'
-        if a.get('optional'):
-            body += ('<div class="opt-h">Optional, when relevant to your business</div>'
-                     f'<div class="grid2 opt">{"".join(grid_card(*it, inline=True) for it in a["optional"])}</div>')
-    else:
-        body = f'<div class="{a["layout"]}">{"".join(grid_card(*it, inline=a["layout"] == "grid2") for it in a["items"])}</div>'
-    pages.append(f'<section class="page">{head(a["n"] + " / Six areas", a["name"], a["sub"], a["key"])}'
-                 f'{body}{needs(a)}{foot(i)}</section>')
+for n, pg in enumerate(PAGES, start=2):
+    cards = ''.join(render_card(c) for c in pg['cards'])
+    pages.append(f'''<section class="page">
+  <header class="ph"><div class="kick">{E(pg["kicker"])}</div><h1>{E(pg["title"])}</h1></header>
+  <div class="cards">{cards}</div>
+  {foot(n)}</section>''')
 
-steps = ''.join(f'<div class="st"><span class="sn">{n:02d}</span><div><h3>{E(t)}</h3><p>{E(d)}</p></div></div>'
-                for n, (t, d) in enumerate(STEPS, start=1))
-pages.append(f'''<section class="page">{head("From check to action", "What a run gives you", "A real example from my own website, recorded on 10 November 2026.", "run")}
-  <div class="steps">{steps}</div>
-  <div class="needs"><div class="nl">Setup around your business</div>
-    <p>Choose priority pages and outcomes. Connect the required data. Test the checks and handoffs. Agree a schedule and review process.</p>
-    <p class="nn">Some checks need a signed-in browser and an available device. The workflow was tested on my own website. Some checks remained partial or unavailable, and the first scheduled weekly run was still pending.</p></div>
+# Page 5: how it works and next step
+flow = ''.join(f'<div class="fl"><span class="fi">{icon(ic)}</span><span class="fn">{i}</span><h3>{E(t)}</h3></div>'
+               for i, (ic, t) in enumerate(FLOW, start=1))
+pages.append(f'''<section class="page">
+  <header class="ph"><div class="kick">How it works & next step</div><h1>From a finding to a clear next action</h1></header>
+  <div class="flow">{flow}</div>
+  <p class="flow-note">{icon("refresh", "bi")}The stages can span more than one run. Each run builds on the previous record, and not every finding leads to a change in the same run.</p>
+  <div class="example"><div class="ex-h"><span class="nl">An example from my own website</span><span class="ex-date">Process example, recorded 10 November 2026</span></div>
+    <p>A run flagged a commercial page with limited search visibility. It checked indexing and internal links, then prepared a brief naming the pages to edit and the proposed link wording.</p>
+    <p>The proposed change required approval. Confirming implementation and assessing later search performance are separate steps.</p></div>
+  <div class="two">
+    <div class="panel"><h2 class="ph2">{icon("report", "ico-s")}What you receive</h2><ul>
+      <li>A clear report with findings and priorities.</li>
+      <li>Draft briefs or recommendations for review.</li>
+      <li>A dated record of decisions and changes.</li>
+      <li>A way to verify each recommended change.</li></ul></div>
+    <div class="panel"><h2 class="ph2">{icon("key", "ico-s")}What setup needs</h2><ul>
+      <li>Your website and priority outcomes.</li>
+      <li>Access to the agreed data sources.</li>
+      <li>Selected checks, a tested schedule and a review process.</li></ul>
+      <p class="pn">Some checks need paid tools or an available signed-in browser; requirements are confirmed during setup.</p></div>
+  </div>
   <div class="cta"><h2>Want these checks set up for your business?</h2>
     <p>Tell me your website, the tools you use and what you want to automate.</p>
-    <a href="https://helpmemarketing.com/contact?entry=seo_automation#contact-form">Enquire about SEO automation &rarr;</a></div>
-  <p class="fine">Scope: designed capabilities, selected and validated during setup. No automatic publishing, guaranteed rankings or overall score. This guide does not include the underlying skill files.</p>
-  <p class="fine">Basis: approved SEO Growth OS documentation and my own run record, 10 November 2026. Guide prepared 11 November 2026.</p>
+    <a href="{CONTACT}">Enquire about SEO automation &rarr;</a></div>
   {foot(TOTAL)}</section>''')
 
 CSS = '''
@@ -299,126 +281,98 @@ CSS = '''
 @font-face{font-family:Fraunces;font-weight:400;font-style:italic;src:url(../../assets/fonts/fraunces-italic-latin.woff2) format("woff2")}
 @font-face{font-family:Inter;font-weight:400 700;src:url(../../assets/fonts/inter-latin.woff2) format("woff2")}
 :root{--obsidian:#0E0E0E;--elev:#1A1A1A;--paper:#F6F5F2;--card:#FFFFFF;--line:#ECEAE4;--line2:#D4D0C6;
- --text:#0E0E0E;--body:rgba(14,14,14,.8);--muted:#4A4A4A;--ter:#6B6B6B;--cta:#FF5C1A;--cta-ink:#B8400C;--mint:#007A62;--mint-b:#00D4AA}
+ --text:#0E0E0E;--body:rgba(14,14,14,.82);--muted:#4A4A4A;--ter:#6B6B6B;--cta:#FF5C1A;--cta-ink:#B8400C;--mint:#007A62}
 @page{size:Letter;margin:0}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{font-family:Inter,Arial,sans-serif;color:var(--text);-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.page{width:8.5in;height:11in;padding:.42in .6in .75in;position:relative;overflow:hidden;background:var(--paper);break-after:page;page-break-after:always}
+body{font-family:Inter,Arial,sans-serif;color:var(--text);font-size:10pt;line-height:1.38;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:8.5in;height:11in;padding:.42in .55in .62in;position:relative;overflow:hidden;background:var(--paper);break-after:page;page-break-after:always}
 .page:last-child{break-after:auto}
-h1,h2,h3,p{margin:0}
-.kick{font-size:8.5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ter)}
-.kick.or{color:var(--cta)}
-.kick-top{font-size:8pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cta-ink);margin-bottom:12px}
-.ph{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
-.ph h1{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:31pt;line-height:1.05;margin:4px 0 6px;letter-spacing:-.01em}
-.lede{font-size:11pt;color:var(--muted)}
-.ph-ico{width:58px;height:58px;border-radius:14px;background:rgba(255,92,26,.10);color:var(--cta);display:flex;align-items:center;justify-content:center;flex:none}
-.ico-lg{width:32px;height:32px}
-.badge{display:inline-block;font-size:7pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px;white-space:nowrap}
+h1,h2,h3,p,ul{margin:0}
+.ico{width:18px;height:18px}
+.ico-s{width:17px;height:17px;color:var(--cta);vertical-align:-3px;margin-right:6px}
+.bi{width:10px;height:10px;vertical-align:-1px;margin-right:4px;stroke-width:2.2}
+.ci{flex:none;width:30px;height:30px;border-radius:8px;background:rgba(255,92,26,.11);color:var(--cta);display:inline-flex;align-items:center;justify-content:center}
+.kick{font-size:8.5pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cta-ink)}
+.badge{display:inline-block;font-size:7.5pt;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;white-space:nowrap}
 .b-rep{background:rgba(0,122,98,.11);color:var(--mint)}
 .b-draft{background:rgba(255,92,26,.12);color:var(--cta-ink)}
 .b-human{background:#fff;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
 .b-change{background:var(--obsidian);color:#fff}
-.grid3,.grid2{display:grid;gap:8px}
-.grid3{grid-template-columns:repeat(3,1fr)}
-.grid2{grid-template-columns:repeat(2,1fr)}
-.gc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 13px 12px;border-top:3px solid var(--cta)}
-.gc h3{font-size:10.5pt;font-weight:650;margin-bottom:7px;line-height:1.25}
-.gc .badge{margin-bottom:8px}
-.d{font-size:8.6pt;line-height:1.45;color:var(--muted)}
-.o{font-size:8.6pt;line-height:1.45;color:var(--text);margin-top:4px}
-.gc .o b{font-weight:650}
-.rows{display:flex;flex-direction:column;gap:8px}
-.rc{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:0 12px 12px 0;padding:11px 16px 12px}
-.rc-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:7px}
-.rc-h h3{font-size:11pt;font-weight:650}
-.rc-g{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.lab{font-size:7.5pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ter);margin-bottom:3px}
-.rc .o{margin-top:0}
-.au{font-size:8.4pt;line-height:1.42;color:var(--body);margin-top:5px}
-.au b{color:var(--mint)}
-.au b{font-weight:650}
-.rc .au{margin-top:6px;padding-top:6px;border-top:1px dashed var(--line)}
-.opt-h{margin:10px 0 6px;font-size:7.5pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ter)}
-.opt .gc{border-top-color:var(--line2);border-style:dashed;border-top-style:solid}
-.needs{margin-top:10px;background:#EFEDE7;border-radius:12px;padding:13px 16px}
-.nl{font-size:7.5pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cta-ink);margin-bottom:5px}
-.needs p{font-size:9.2pt;line-height:1.5;color:var(--body)}
-.needs .nn{font-size:8pt;color:var(--ter);margin-top:6px}
-.pf{position:absolute;left:.6in;right:.6in;bottom:.4in;display:flex;justify-content:space-between;border-top:1px solid var(--line2);padding-top:8px;font-size:7.5pt;color:var(--ter);letter-spacing:.04em}
-.bi{width:10px;height:10px;vertical-align:-1.5px;margin-right:4px;stroke-width:2.2}
-.ci{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(255,92,26,.10);color:var(--cta);display:inline-flex;align-items:center;justify-content:center}
-.ci .ico{width:15px;height:15px}
-.gc-h{display:flex;gap:9px;align-items:center;margin-bottom:8px}
-.gc-h h3{margin:0;flex:1}
-.rc-h h3{flex:1}
-/* how it works */
-.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;counter-reset:f}
-.fl{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 14px}
-.fl:not(:nth-child(3n))::after{content:"";position:absolute;right:-9px;top:30px;width:8px;height:8px;border-top:2px solid var(--cta);border-right:2px solid var(--cta);transform:rotate(45deg);background:var(--paper)}
-.fn{position:absolute;top:10px;right:12px;font-size:8pt;font-weight:700;color:var(--ter)}
-.fi{display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--obsidian);color:#fff;align-items:center;justify-content:center;margin-bottom:8px}
-.fi .ico{width:18px;height:18px}
+.tag{display:inline-block;font-size:7.5pt;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;border:1px dashed var(--ter);color:var(--muted)}
+.pf{position:absolute;left:.55in;right:.55in;bottom:.3in;display:flex;justify-content:space-between;border-top:1px solid var(--line2);padding-top:7px;font-size:8pt;color:var(--ter)}
+/* page 1 */
+.intro{background:var(--obsidian);color:#fff;border-radius:14px;padding:18px 22px 18px;margin-bottom:14px}
+.intro-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.intro-top span{font-size:8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cta)}
+.logo{width:92px;height:auto}
+.intro h1{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:30pt;line-height:1.05}
+.intro-sub{font-family:Fraunces,Georgia,serif;font-size:17pt;margin-top:4px}
+.intro-sub em{color:var(--cta)}
+.intro-lede{font-size:10.5pt;color:#C7C7C7;margin-top:8px;max-width:5.6in}
+.sh{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:14.5pt;margin:12px 0 7px}
+table{border-collapse:collapse;width:100%}
+.start{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.start th{text-align:left;font-size:8pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ter);padding:8px 14px;border-bottom:1px solid var(--line);background:#FBFAF7}
+.start td{padding:7px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+.start tr:last-child td{border-bottom:0}
+.start td:first-child{width:48%;color:var(--body)}
+.start td:last-child{font-weight:600}
+.st-ic{display:inline-flex;vertical-align:-4px;margin-right:8px;color:var(--cta)}
+.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ar{display:flex;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 11px}
+.ar h3{font-size:10pt;font-weight:650}
+.ar p{font-size:8.5pt;color:var(--muted);line-height:1.3}
+.legend{background:var(--card);border:1px solid var(--line);border-radius:12px}
+.legend td{padding:5px 14px;border-bottom:1px solid var(--line);color:var(--body)}
+.legend tr:last-child td{border-bottom:0}
+.legend td:first-child{width:180px}
+.scope{margin-top:10px;padding:10px 14px;border-left:3px solid var(--cta);background:#EFEDE7;border-radius:0 10px 10px 0;color:var(--body)}
+/* card pages */
+.ph{margin-bottom:12px}
+.ph h1{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:21pt;line-height:1.15;margin-top:4px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.cd{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--cta);border-radius:12px;padding:10px 13px 11px;break-inside:avoid}
+.cd-h{display:flex;gap:9px;align-items:center}
+.cd-h h3{font-size:11pt;font-weight:650;line-height:1.2}
+.cd-b{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 6px}
+.cd p{margin-top:4px;color:var(--body)}
+.cd p b{font-weight:650;color:var(--text);margin-right:2px}
+.k-auto b{color:var(--mint)!important}
+.k-rev b{color:var(--muted)!important}
+.k-rec{padding-top:5px;margin-top:6px!important;border-top:1px dashed var(--line)}
+.k-rec b{color:var(--cta-ink)!important}
+.cn{font-size:8.5pt;color:var(--ter)!important;font-style:italic}
+/* page 5 */
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.fl{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 8px 14px;text-align:center}
+.fl:not(:last-child)::after{content:"";position:absolute;right:-6px;top:30px;width:7px;height:7px;border-top:2px solid var(--cta);border-right:2px solid var(--cta);transform:rotate(45deg);background:var(--paper);z-index:1}
+.fi{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--obsidian);color:#fff;align-items:center;justify-content:center}
 .fl:last-child .fi{background:var(--cta)}
-.fl h3{font-size:10.5pt;font-weight:650;margin-bottom:3px}
-.fl p{font-size:8.6pt;line-height:1.4;color:var(--muted)}
-.loop{margin:9px 0 14px;font-size:8.5pt;font-weight:600;color:var(--cta-ink);text-align:center;border:1px dashed var(--line2);border-radius:999px;padding:6px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 14px}
-.dims{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:4px 0 8px}
-.dm{display:flex;align-items:center;gap:7px;font-size:8.8pt;font-weight:600;background:var(--paper);border-radius:8px;padding:6px 8px}
-.dm .ico{width:15px;height:15px;color:var(--cta)}
-.pn{font-size:8pt;color:var(--ter);line-height:1.4}
-.groups{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:5px}
-.groups li{display:flex;align-items:center;gap:8px;font-size:8.8pt}
-.gn{flex:none;width:18px;height:18px;border-radius:50%;background:var(--obsidian);color:#fff;font-size:7.5pt;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
-.groups li:first-child .gn{background:var(--cta)}
-.groups li:last-child .gn{background:var(--line2);color:var(--text)}
-.gap{margin-top:14px}
-.recv{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.rv{display:flex;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 13px}
-.rv h3{font-size:10pt;font-weight:650;margin-bottom:3px}
-.rv p{font-size:8.4pt;line-height:1.4;color:var(--muted)}
-/* cover */
-.cover{background:var(--obsidian);color:#fff}
-.cv-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
-.cv-top .kick{color:var(--cta)}
-.logo{width:120px;height:auto}
-.cv-h{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:46pt;line-height:1;letter-spacing:-.01em}
-.cv-sub{font-family:Fraunces,Georgia,serif;font-size:22pt;line-height:1.25;margin-top:14px}
-.cv-sub em{font-style:italic;color:var(--cta)}
-.cv-lede{font-size:11pt;line-height:1.55;color:#B3B3B3;margin:18px 0 34px;max-width:5.2in}
-.ctiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:34px}
-.ct{display:flex;gap:12px;align-items:flex-start;background:var(--elev);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
-.ct .ico{width:26px;height:26px;color:var(--cta);flex:none;margin-top:1px}
-.ct h3{font-size:11pt;font-weight:650;margin-bottom:3px}
-.ct p{font-size:8.8pt;color:#A3A3A3}
-.legend{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px}
-.legend li{display:flex;align-items:center;gap:10px;font-size:9.2pt;color:#D9D9D9}
-.legend .badge{min-width:150px;text-align:center}
-.cover .b-human{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
-.cover .b-change{background:#fff;color:var(--obsidian)}
-.cover .b-rep{background:rgba(0,212,170,.14);color:var(--mint-b)}
-.cover .b-draft{background:rgba(255,92,26,.18);color:#FF8A5C}
-.cv-fine{position:absolute;left:.6in;right:.6in;bottom:.5in;font-size:8pt;line-height:1.5;color:#8A8A8A;border-top:1px solid rgba(255,255,255,.12);padding-top:10px}
-/* run page */
-.steps{display:flex;flex-direction:column;gap:9px}
-.st{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-.sn{flex:none;width:34px;height:34px;border-radius:50%;background:var(--obsidian);color:#fff;font-weight:700;font-size:10pt;display:flex;align-items:center;justify-content:center}
-.st:last-child .sn{background:var(--cta)}
-.st h3{font-size:11pt;font-weight:650;margin-bottom:3px}
-.st p{font-size:9pt;line-height:1.45;color:var(--muted)}
-.cta{margin-top:14px;background:var(--obsidian);color:#fff;border-radius:12px;padding:18px 20px}
-.cta h2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:16pt;margin-bottom:5px}
-.cta p{font-size:9.2pt;color:#B3B3B3;margin-bottom:9px}
-.cta a{color:var(--cta);font-weight:700;font-size:10pt;text-decoration:none}
-.fine{font-size:7.8pt;line-height:1.5;color:var(--ter);margin-top:9px}
+.fn{display:block;font-size:7.5pt;font-weight:700;color:var(--ter);margin-top:4px}
+.fl h3{font-size:9.5pt;font-weight:650;line-height:1.2;margin-top:1px}
+.flow-note{margin:12px 0 26px;font-size:9.5pt;color:var(--cta-ink);text-align:center}
+.example{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--mint);border-radius:0 12px 12px 0;padding:16px 18px}
+.ex-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+.nl{font-size:8.5pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mint)}
+.ex-date{font-size:8.5pt;color:var(--ter)}
+.example p{color:var(--body);margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:26px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.ph2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:13.5pt;margin-bottom:6px}
+.panel ul{padding-left:17px;color:var(--body)}
+.panel li{margin-top:6px}
+.panel li::marker{color:var(--cta)}
+.pn{margin-top:8px;font-size:9pt;color:var(--ter)}
+.cta{margin-top:26px;background:var(--obsidian);color:#fff;border-radius:12px;padding:22px 24px}
+.cta h2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:16pt;margin-bottom:4px}
+.cta p{color:#C7C7C7;margin-bottom:8px}
+.cta a{color:var(--cta);font-weight:700;font-size:11pt;text-decoration:none}
 '''
 
 doc = f'''<!doctype html><html lang="en-CA"><head><meta charset="utf-8">
-<title>SEO Growth OS visual guide | HelpMeMarketing</title><style>{CSS}</style></head>
+<title>SEO Growth OS Visual Guide | HelpMeMarketing</title><style>{CSS}</style></head>
 <body>{"".join(pages)}</body></html>'''
 open(os.path.join(HERE, 'seo-growth-os-visual-guide.html'), 'w').write(doc)
 assert '—' not in doc
-print(f"{TOTAL} pages, {sum(len(a['items']) + len(a.get('optional', [])) for a in AREAS)} capabilities")
+print(f'{TOTAL} pages')
