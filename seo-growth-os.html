@@ -27,7 +27,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 <meta name="description" content="Explore SEO Growth OS for SEO audits, recurring checks and growth planning. Request the PDF overview or get help with setup for your business.">
 <link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css?v=20261112d">
+<link rel="stylesheet" href="/styles.css?v=20261112e">
 <link rel="canonical" href="https://helpmemarketing.com/seo-growth-os">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta property="og:type" content="website">
@@ -100,12 +100,9 @@ w.addEventListener(e,load,{once:true,passive:true});});
 <script src="/site.js" defer></script>
 <style>
 .sgos{--bg:#0E0E0E; --bg-elevated:#1A1A1A; --bg-sunk:#141414;
-    
     --text:#FFFFFF; --text-muted:#999999; --text-tertiary:#8A8A8A;
-    
     --cta:#FF5C1A; --cta-hover:#FF7038; --mint:#00D4AA;
     --mint-dim:rgba(0,212,170,.12);
-    
     --border:rgba(255,255,255,.08); --grid-line:rgba(255,255,255,.025);
     --orange-glow:rgba(255,92,26,.12);}
 .sgos *{margin:0;padding:0;box-sizing:border-box}
@@ -207,9 +204,6 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .ti-core{color:var(--mint);background:var(--mint-dim)}
 .sgos .ti-cond{color:var(--cta-text,var(--cta));background:var(--orange-glow)}
 .sgos .ti-key{color:var(--text-tertiary);background:var(--bg-sunk)}
-.sgos .legend{border-top:1px dashed var(--border);margin-top:18px;padding-top:13px;font-size:12.5px;color:var(--text-muted);
-          display:flex;gap:20px;flex-wrap:wrap}
-.sgos .legend b{font-weight:800}
 .sgos .three{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:26px}
 .sgos .three .c{background:var(--bg-elevated);border:1px solid var(--border);border-radius:12px;padding:16px}
 .sgos .three .lab{font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
@@ -228,9 +222,6 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .cta:hover{background:var(--cta-hover);text-decoration:none;transform:translateY(-2px);
              box-shadow:0 8px 22px rgba(255,92,26,.28)}
 .sgos .ctarow{display:flex;gap:11px;flex-wrap:wrap;align-items:stretch;margin-top:26px}
-.sgos .cta2{display:inline-flex;align-items:center;justify-content:center;min-height:52px;font-size:15.5px;font-weight:700;
-        line-height:1;color:var(--text);background:transparent;border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:0 24px;transition:.25s}
-.sgos .cta2:hover{border-color:var(--mint);color:var(--mint);text-decoration:none}
 .sgos .ctanote{font-size:12px;color:var(--text-tertiary);margin-top:11px;letter-spacing:.02em}
 .sgos .tgl{display:flex;gap:6px;background:var(--bg-sunk);border:1px solid var(--border);border-radius:10px;
        padding:4px;margin:16px 0 4px;width:fit-content}
@@ -240,42 +231,20 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .stack.oob .tool[data-t="connect"]{opacity:.26;filter:saturate(.35)}
 .sgos .stack.oob .grp[data-only="connect"]{opacity:.26;filter:saturate(.35)}
 .sgos .tool{position:relative}
-.sgos .mx{border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:20px}
-.sgos .mxr{display:grid;grid-template-columns:1fr 122px 122px;align-items:center;gap:10px;
-       padding:11px 16px;border-top:1px solid var(--border);font-size:13.5px}
-.sgos .mxr:first-child{border-top:0;background:var(--bg-elevated);font-size:12px;letter-spacing:.14em;
-       text-transform:uppercase;font-weight:700;color:var(--text-tertiary)}
-.sgos .mxr .q{color:var(--text-muted)}
-.sgos .smm{display:none}
-.sgos .mxr:first-child .c{font-size:inherit;font-weight:700;letter-spacing:inherit}
-.sgos .mxr .c{text-align:center;font-weight:700;font-size:14px}
-.sgos .mxr .c svg{width:14px;height:14px;color:var(--mint);vertical-align:middle}
 .sgos .sp-top{margin-top:14px}
 .sgos input{color:var(--text)}
-.sgos .lg-in{color:var(--mint)}
-.sgos .lg-conn{color:var(--cta-text,var(--cta))}
-.sgos .lg-note{color:var(--text-tertiary)}
 .sgos .ctarow.is-center{justify-content:center}
 .sgos .yes{color:var(--mint)}
 .sgos .no{color:var(--text-tertiary);opacity:.5}
 .sgos .part{color:var(--cta-text,var(--cta));font-size:12px;font-weight:700;letter-spacing:.04em}
-.sgos .mxfoot{background:var(--bg-elevated);padding:15px 16px;border-top:1px solid var(--border);
-          display:flex;justify-content:space-between;align-items:center;gap:13px;flex-wrap:wrap}
-.sgos .mxfoot .cta2{min-height:44px;font-size:14px}
 @media(max-width:960px){
 .sgos .stagerow{grid-template-columns:repeat(3,1fr)}
 .sgos .three{grid-template-columns:1fr}
 }
-.sgos .tgl button:focus-visible,.sgos .copy:focus-visible,.sgos .cta:focus-visible,.sgos .cta2:focus-visible,.sgos select:focus-visible,.sgos a:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+.sgos .tgl button:focus-visible,.sgos .copy:focus-visible,.sgos .cta:focus-visible,.sgos select:focus-visible,.sgos a:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
 @media(max-width:680px){
-.sgos .mxr{grid-template-columns:1fr 62px 62px;gap:6px;padding:11px 12px;font-size:12.5px}
-.sgos .mxr:first-child{font-size:10px;letter-spacing:.08em;padding:11px 12px}
-.sgos .mxr:first-child .c{text-align:center;font-size:10px}
-.sgos .lgm{display:none}
-.sgos .smm{display:inline}
-.sgos .mxfoot{padding:14px 13px}
 .sgos .ctarow{flex-direction:column;align-items:stretch}
-.sgos .cta,.sgos .cta2{justify-content:center}
+.sgos .cta{justify-content:center}
 .sgos h1{font-size:40px}
 .sgos h2{font-size:28px}
 .sgos .stagerow{grid-template-columns:repeat(2,1fr)}
@@ -289,7 +258,6 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos pre{background:#f6f6f6;color:#222}
 .sgos .cta,.sgos .copy{display:none}
 }
-
 /* download gate */
 .sgos .gate-back{position:fixed;inset:0;background:rgba(0,0,0,.74);z-index:9998;
   opacity:0;visibility:hidden;transition:.2s}
@@ -325,11 +293,9 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .gate.sent .done{display:block}
 .sgos .gate .done .tick{width:40px;height:40px;border-radius:50%;background:var(--mint-dim);
   color:var(--mint);display:grid;place-items:center;font-size:20px;font-weight:800;margin-bottom:14px}
-
 /* site-integration overrides */
 .sgos .wrap{max-width:1240px;padding:34px 32px 80px}
 @media(max-width:900px){.sgos .wrap{padding-left:20px;padding-right:20px}}
-
 </style>
 </head>
 <body class="redesign-prototype">
@@ -454,38 +420,16 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 
 <section class="sec" id="questions">
   <div class="eyebrow">Questions it can answer</div>
-  <h2>What can be checked from your website, and what needs more data?</h2>
-  <p class="sub">Some checks use your public website. Others need data from your analytics, search accounts or tracking tools. To compare changes over time, earlier results are needed too.</p>
-  <details class="gos-details">
-    <summary>Explore the questions and data requirements</summary>
-    <div class="gos-details-body">
-  <div class="legend">
-    <span><b class="lg-in">Website only</b>: uses your public pages.</span>
-    <span><b class="lg-conn">With connected data</b>: uses the relevant accounts or tools.</span>
-    <span><b class="lg-conn">Needs earlier results</b>: compares with a previous record.</span>
-    <span><b class="lg-conn">Needs relevant data</b>: requires a specific data source, which may have a separate cost.</span>
+  <h2>What would you like to know about your SEO?</h2>
+  <p class="sub">Explore the questions SEO Growth OS can help you investigate.</p>
+  <div class="gos-faq">
+    <details class="gos-details"><summary>What should I improve first?</summary><div class="gos-details-body"><p>Get priorities based on the issues found, supporting evidence and your business goals. Connected search and analytics data help put those findings in context.</p></div></details>
+    <details class="gos-details"><summary>Why are important pages getting little search traffic?</summary><div class="gos-details-body"><p>Investigate page access, indexing, content and internal links alongside available search data to identify possible causes.</p></div></details>
+    <details class="gos-details"><summary>Are AI answers mentioning my business?</summary><div class="gos-details-body"><p>Check selected questions for mentions, links to your website and accuracy. Repeat supported checks to compare results over time.</p></div></details>
+    <details class="gos-details"><summary>Did my website update introduce any problems?</summary><div class="gos-details-body"><p>Compare the agreed pages and enquiry steps before and after an update to flag changes that need attention.</p></div></details>
+    <details class="gos-details"><summary>What changed after I made improvements?</summary><div class="gos-details-body"><p>Compare search visibility, visits and recorded enquiries with earlier results. This shows changes over time without assuming the update caused them.</p></div></details>
   </div>
-
-  <div class="mx">
-    <div class="mxr"><div>The question a client actually asks</div><div class="c"><span class="lgm">Website only</span><span class="smm">Website</span></div><div class="c"><span class="lgm">With connected data</span><span class="smm">Connected</span></div></div>
-    <div class="mxr"><div class="q">Which issues were found on the pages checked?</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
-    <div class="mxr"><div class="q">Is my structured data valid, and is any relevant markup missing?</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
-    <div class="mxr"><div class="q">Can search engines and AI tools access my pages, and is the content clear?</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
-    <div class="mxr"><div class="q">What should I fix first, and in what order?</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
-    <div class="mxr"><div class="q">Did the checked pages or enquiry steps change after an update?</div><div class="c part"><span class="lgm">Needs earlier results</span><span class="smm">Earlier run</span></div><div class="c part"><span class="lgm">Needs earlier results</span><span class="smm">Earlier run</span></div></div>
-    <div class="mxr"><div class="q">What could be limiting this page&rsquo;s search visibility?</div><div class="c part">Partly</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
-    <div class="mxr"><div class="q">Which searches does my website appear for, and in what positions?</div><div class="c no">–</div><div class="c yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Tabler ti-check --><path d="M5 12l5 5l10 -10"/></svg></div></div>
-    <div class="mxr"><div class="q">What changed in search traffic and recorded enquiries after the update?</div><div class="c no">–</div><div class="c part"><span class="lgm">Needs earlier results</span><span class="smm">Earlier run</span></div></div>
-    <div class="mxr"><div class="q">For which searches do competitors appear ahead of me?</div><div class="c no">–</div><div class="c part"><span class="lgm">Needs relevant data</span><span class="smm">Data source</span></div></div>
-    <div class="mxr"><div class="q">Who links to my competitors but not to me?</div><div class="c no">–</div><div class="c part"><span class="lgm">Needs relevant data</span><span class="smm">Data source</span></div></div>
-    <div class="mxr"><div class="q">Do my pages pass Google&rsquo;s Core Web Vitals checks for real visitors?</div><div class="c no">–</div><div class="c part"><span class="lgm">Needs relevant data</span><span class="smm">Data source</span></div></div>
-    <div class="mxr"><div class="q">How have AI mentions and links to my website changed for the questions checked?</div><div class="c no">–</div><div class="c part"><span class="lgm">Needs earlier results</span><span class="smm">Earlier run</span></div></div>
-    <div class="mxfoot gos-mxfoot">
-      <a class="cta2" href="/contact?entry=seo_automation#contact-form">Need help with setup?</a>
-    </div>
-  </div>
-    </div>
-  </details>
+  <p class="gos-faq-note">I&rsquo;ll confirm which accounts, tools and earlier results are needed during setup.</p>
 </section>
 
 <section class="sec" id="trust">
