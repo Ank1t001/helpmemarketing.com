@@ -85,13 +85,13 @@ def card(t, ic, labels, desc, receive, tag=None, note=None):
 PAGES = [
     dict(kicker='Tracking & reporting', title='Can the numbers in Ads Manager be trusted?', cards=[
         card('Pixel & Conversions API', 'shield', '',
-             'Checks that the pixel and Conversions API send the expected events, and that no event is counted twice.',
-             'Events with gaps or duplicates, and how to fix them.'),
+             'Checks which events the pixel and Conversions API send, and flags missing or duplicate events. Some checks need Events Manager access.',
+             'Tracking findings and proposed corrections, with any untested events marked unverified.'),
         card('Event match quality', 'key', '',
              'Reviews how well events are matched to the people who took the action, and which details are missing.',
              'Match quality by event and what to add.'),
         card('Conversion goal', 'target', 'H',
-             'Compares the event each campaign optimises toward with the result you care about. A person confirms whether a difference is intended.',
+             'Compares the action each campaign optimises toward with the result that matters to your business. A person confirms whether a difference is intended.',
              'Mismatches between campaign goals and your business goal.'),
         card('Columns & attribution windows', 'report', 'H',
              'Checks whether your reporting columns and attribution settings show the real picture, and flags comparisons across different windows.',
@@ -107,23 +107,23 @@ PAGES = [
     ]),
     dict(kicker='Creative, structure & audience', title='Where is budget being lost?', cards=[
         card('Creative performance', 'image', '',
-             'Tracks how well each ad holds attention and what it produces, comparing like with like before averaging.',
-             'Ads to keep, refresh or test against.'),
-        card('Creative fatigue', 'refresh', '',
-             'Flags ads whose results decline as the same people see them more often.',
-             'Ads showing fatigue and when it started.'),
+             'Reviews how each ad attracts attention and generates responses, comparing like with like before averaging.',
+             'Ads to investigate, refresh or test.'),
+        card('Possible creative fatigue', 'refresh', 'H',
+             'Looks for ads whose results decline week by week while similar ads hold. Other causes, such as audience or delivery changes, are checked alongside it.',
+             'Ads showing possible fatigue, with the evidence and when the change began.'),
         card('Creative briefs', 'brief', 'D',
              'Drafts briefs from the diagnosis: the hook, structure, timings and claims to verify. You approve each brief before production.',
              'A brief an editor can work from.'),
-        card('Campaign structure & learning phase', 'sitemap', '',
-             'Flags ad sets stuck in the learning phase and structures that spread budget too thinly.',
-             'Consolidation options, with the learning reset each one causes.'),
+        card('Campaign structure & learning status', 'sitemap', '',
+             'Reviews campaign organisation, delivery and learning status, and structures that may spread budget too thinly.',
+             'Structure options, with any expected learning reset and its risks explained.'),
         card('Budget split', 'gauge', 'H',
              'Reviews how budget is spread across campaigns and audiences. Budgets are never changed without your approval.',
              'Where budget is concentrated or spread thin.'),
-        card('Audience overlap & exclusions', 'users', '',
-             'Checks saturation, overlap between ad sets and missing exclusions.',
-             'Overlapping audiences and exclusions to add.'),
+        card('Audiences & delivery', 'users', '',
+             'Reviews audience settings, exclusions, saturation and potential overlap where the available data supports it.',
+             'Audience findings and proposed tests.'),
     ]),
     dict(kicker='After the click & progress', title='Do the ads bring customers, and is the work moving forward?', cards=[
         card('Funnel & post-click', 'click', 'H',
@@ -134,40 +134,41 @@ PAGES = [
              'Campaigns compared by customers and value, not just leads.',
              tag='Optional'),
         card('Priorities & draft actions', 'target', 'D',
-             'Groups findings by cause as broken, missing or underperforming, and ranks them by impact, effort and confidence. You decide what proceeds.',
-             'What to fix now, test or leave unchanged.'),
+             'Connects related findings by cause and ranks them by impact, effort and the strength of the evidence. You decide what proceeds.',
+             'What to fix, test, investigate or leave unchanged.'),
         card('Change preparation', 'pen', 'D',
-             'Prepares each approved change as a draft. Anything built in the account is built paused and confirmed one item at a time.',
+             'Drafts recommendations, briefs and tracking specifications. Where supported, new campaigns and ad sets are prepared paused until you approve them.',
              'Drafted changes ready for your approval.'),
-        card('Drift monitoring', 'checkc', '',
-             'Rechecks the account against a baseline and flags changes, without judging results inside the learning phase or on small samples.',
-             'What changed since the last run and what needs attention.'),
+        card('Verification & monitoring', 'checkc', '',
+             'Checks that approved changes work as intended, then repeats agreed checks against a baseline, accounting for learning status and sample size.',
+             'Verified changes, unresolved issues and what changed since the last run.'),
         card('Change record & progress summary', 'history', 'D',
              'Records findings, decisions and completed work, then drafts an update for your review.',
              'A concise summary of progress, open issues and approvals needed.'),
     ]),
 ]
 
-FLOW = [
-    ('key', 'Check connections'), ('flag', 'Confirm your goals'), ('health', 'Run the checks'),
-    ('target', 'Diagnose & prioritise'), ('pen', 'Draft & approve'), ('checkc', 'Monitor & report'),
+STAGES = [
+    ('Establish the starting point', ['Understand your business', 'Check access and data', 'Verify tracking']),
+    ('Find and plan improvements', ['Audit the account', 'Diagnose the problems', 'Prioritise the work']),
+    ('Prepare, verify and monitor', ['Prepare changes', 'Verify approved changes', 'Monitor and report']),
 ]
 
 START = [
-    ('Ads Manager and your sales do not match', 'Tracking and reporting checks', 'shield'),
-    ('Your cost per result keeps rising', 'Creative and structure checks', 'chart'),
-    ('Ads stop working after a few weeks', 'Creative fatigue checks', 'refresh'),
-    ('Plenty of leads, but few become customers', 'Lead quality and post-click review', 'click'),
-    ('Account changes keep causing new problems', 'Drift monitoring and change records', 'checkc'),
+    ('Ads Manager and your sales do not match', 'Tracking, attribution and reporting', 'shield'),
+    ('Your cost per result keeps rising', 'Creative, structure, audience and tracking', 'chart'),
+    ('Ads seem to stop working after a few weeks', 'Creative and audience checks', 'refresh'),
+    ('Plenty of leads, but few become customers', 'Customer journey and lead quality', 'click'),
+    ('Account changes keep causing new problems', 'Change verification and monitoring', 'checkc'),
 ]
 
 AREAS = [
-    ('shield', 'Tracking', 'Pixel, Conversions API and events.'),
-    ('image', 'Creative', 'Attention, results and fatigue.'),
-    ('sitemap', 'Structure', 'Learning phase and budget split.'),
-    ('users', 'Audience', 'Overlap, saturation and exclusions.'),
-    ('report', 'Reporting', 'Columns and attribution windows.'),
-    ('click', 'After the click', 'Lead quality and customer value.'),
+    ('shield', 'Tracking & conversions', 'Events, duplicates, goals.'),
+    ('image', 'Creative performance', 'Attention and responses.'),
+    ('sitemap', 'Structure & budgets', 'Delivery and learning.'),
+    ('users', 'Audiences & delivery', 'Exclusions and overlap.'),
+    ('report', 'Reporting & attribution', 'Metrics and windows.'),
+    ('click', 'Customer journey & value', 'Outcomes after the click.'),
 ]
 
 TOTAL = 2 + len(PAGES)
@@ -203,8 +204,8 @@ pages.append(f'''<section class="page">
     <p class="intro-lede">Explore the Meta ad account checks I can help automate, the recommendations they produce and where your review is needed.</p>
   </div>
   <div class="grp"><h2 class="sh">Where should you start?</h2>
-  <table class="start"><thead><tr><th>What you are experiencing</th><th>Start here</th></tr></thead><tbody>{rows}</tbody></table></div>
-  <div class="grp"><h2 class="sh">Six areas</h2>
+  <table class="start"><thead><tr><th>What you are experiencing</th><th>Where to look first</th></tr></thead><tbody>{rows}</tbody></table></div>
+  <div class="grp"><h2 class="sh">Six specialist areas</h2>
   <div class="areas">{areas}</div></div>
   <div class="grp"><h2 class="sh">How to read the labels</h2>
   <table class="legend">{legend}</table></div>
@@ -219,25 +220,27 @@ for n, pg in enumerate(PAGES, start=2):
   {foot(n)}</section>''')
 
 # Page 5: how it works and next step
-flow = ''.join(f'<div class="fl"><span class="fi">{icon(ic)}</span><span class="fn">{i}</span><h3>{E(t)}</h3></div>'
-               for i, (ic, t) in enumerate(FLOW, start=1))
+flow = ''.join(f'<div class="frow"><div class="frow-h">{E(g)}</div>' +
+               ''.join(f'<div class="fs"><span class="fn">{gi * 3 + si + 1}</span><h3>{E(t)}</h3></div>' for si, t in enumerate(steps)) + '</div>'
+               for gi, (g, steps) in enumerate(STAGES))
 pages.append(f'''<section class="page">
   <header class="ph"><div class="kick">How it works & next step</div><h1>From a finding to a clear next action</h1></header>
-  <div class="grp"><div class="flow">{flow}</div>
-  <p class="flow-note">{icon("refresh", "bi")}The stages can span more than one run. Each run builds on the previous record, and not every finding leads to a change in the same run.</p></div>
+  <div class="grp"><div class="flow3">{flow}</div>
+  <p class="flow-note">{icon("refresh", "bi")}Each stage builds on the evidence before it. Checks repeat on an agreed schedule, and proposed changes come to you for approval.</p></div>
   <div class="example"><div class="ex-h"><span class="nl">How the checks stay honest</span></div>
-    <p>Results are judged only once tracking is checked. If the wrong pixel may be connected or events are counted twice, the run says so before anything else.</p>
-    <p>A data source that is not connected is marked as unchecked, never estimated, and nothing is judged inside the learning phase or below roughly fifty conversions.</p></div>
+    <p>Tracking problems are identified before affected results are used to judge performance, and a data source that is not connected is marked as unchecked, never estimated.</p>
+    <p>Performance recommendations account for learning status, sample size and conversion delays. Proposed changes need your approval, and implemented changes are checked and recorded.</p></div>
   <div class="two">
     <div class="panel"><h2 class="ph2">{icon("report", "ico-s")}What you receive</h2><ul>
       <li>A clear report with findings and priorities.</li>
       <li>Draft briefs or recommendations for review.</li>
       <li>A dated record of decisions and changes.</li>
-      <li>A way to verify each recommended change.</li></ul></div>
+      <li>Verification of each approved change.</li></ul></div>
     <div class="panel"><h2 class="ph2">{icon("key", "ico-s")}What setup needs</h2><ul>
       <li>Access to your Meta ad account, or exported reports.</li>
       <li>Your goals and what a result is worth to you.</li>
-      <li>Your CRM or store, where results should be checked against customers.</li></ul>
+      <li>Your CRM or store, where results should be checked against customers.</li>
+      <li>A Google Drive folder for the account record.</li></ul>
       <p class="pn">Requirements are confirmed during setup, before the first run.</p></div>
   </div>
   <div class="cta"><h2>Want these checks set up for your ad account?</h2>
@@ -314,7 +317,13 @@ table{border-collapse:collapse;width:100%}
 .k-rec b{color:var(--cta-ink)!important}
 .cn{margin-top:var(--s2);font-size:8.5pt;color:var(--ter)!important;font-style:italic}
 /* page 5 */
-.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--s3)}
+.flow3{display:flex;flex-direction:column;gap:var(--s2)}
+.frow{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:var(--s2);align-items:stretch}
+.frow-h{display:flex;align-items:center;padding:0 var(--s3);border-radius:var(--r);background:var(--obsidian);color:#fff;font-weight:650;font-size:9.5pt;line-height:1.25}
+.frow:last-child .frow-h{background:var(--cta);color:var(--obsidian)}
+.fs{display:flex;align-items:center;gap:var(--s2);background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:10px var(--s3)}
+.fs .fn{flex:none;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin:0;background:rgba(255,92,26,.12);color:var(--cta-ink);font-size:8.5pt}
+.fs h3{font-size:9.5pt;font-weight:650;line-height:1.25}
 .fl{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 8px;text-align:center}
 .fl:not(:last-child)::after{content:"";position:absolute;right:-9px;top:28px;width:7px;height:7px;border-top:2px solid var(--cta);border-right:2px solid var(--cta);transform:rotate(45deg);background:var(--paper);z-index:1}
 .fi{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--obsidian);color:#fff;align-items:center;justify-content:center}
