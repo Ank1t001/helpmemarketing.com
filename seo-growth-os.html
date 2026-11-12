@@ -27,7 +27,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 <meta name="description" content="Explore SEO Growth OS for SEO audits, recurring checks and growth planning. Request the PDF overview or get help with setup for your business.">
 <link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css?v=20261112j">
+<link rel="stylesheet" href="/styles.css?v=20261112l">
 <link rel="canonical" href="https://helpmemarketing.com/seo-growth-os">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta property="og:type" content="website">
@@ -81,7 +81,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
       "name":"SEO Growth OS",
       "serviceType":"Search Engine Optimisation",
       "provider":{"@id":"https://helpmemarketing.com/#org"},
-      "description":"An SEO automation service built on SEO Growth OS, which brings SEO audits, growth planning and ongoing monitoring into one system: connected data, automated recurring checks, prioritised recommendations and progress tracking, set up for your business. Recommended changes are reviewed and approved before anything goes live.",
+      "description":"An SEO automation service built on SEO Growth OS, which brings SEO audits, AI visibility and ongoing monitoring into one clear growth plan: connected data, automated recurring checks, prioritised recommendations and progress tracking, set up for your business. Recommended changes are reviewed and approved before anything goes live.",
       "hasOfferCatalog":{
         "@type":"OfferCatalog",
         "name":"How SEO Growth OS automation is set up",
@@ -108,8 +108,7 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos *{margin:0;padding:0;box-sizing:border-box}
 .sgos{overflow-x:hidden;overflow-x:clip;color:var(--text);font-family:'Inter',-apple-system,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
 .sgos .wrap{max-width:1040px;margin:0 auto;padding:0 22px 48px;position:relative}
-.sgos .wrap>section+section{margin-top:48px}
-@media(max-width:720px){.sgos .wrap>section+section,.sgos .sec{margin-top:32px}}
+.sgos .wrap>section+section{margin-top:0}
 .sgos .caption-lead{text-align:left;font-size:15.5px;margin:0 0 4px}
 .sgos a{color:var(--mint);text-decoration:none}
 .sgos a:hover{text-decoration:underline}
@@ -126,11 +125,12 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos h1{font-family:'Fraunces',Georgia,serif;font-size:64px;font-weight:400;margin:0 0 20px;letter-spacing:-.02em;line-height:1.05} /* canon H1 */
 .sgos .lede{font-size:16.5px;color:var(--text-muted);max-width:690px}
 .sgos .lede b{color:var(--text);font-weight:600}
-.sgos .sec{margin-top:48px}
+.sgos .sec{margin-top:0;padding:64px 0}
 .sgos .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--text-muted);margin-bottom:12px} /* canonical eyebrow; Mint is a functional colour, not a label colour */
 .sgos .eyebrow.t{color:var(--text-muted)}
 .sgos h2{font-family:'Fraunces',Georgia,serif;font-size:40px;font-weight:400;letter-spacing:-.015em;line-height:1.1;margin-bottom:12px} /* canon H2 */
-.sgos .sub{font-size:14.5px;color:var(--text-muted);max-width:730px}
+.sgos .sub{font-size:17px;line-height:1.6;color:var(--text-muted);max-width:720px}
+@media(max-width:720px){.sgos .sub{font-size:16px}.sgos .sec{padding:48px 0}}
 .sgos .stagerow{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin-top:22px}
 .sgos .st{background:var(--bg-elevated);border:1px solid var(--border);border-radius:11px;padding:12px 11px;
       display:flex;flex-direction:column;transition:.25s}
@@ -294,8 +294,9 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .gate .done .tick{width:40px;height:40px;border-radius:50%;background:var(--mint-dim);
   color:var(--mint);display:grid;place-items:center;font-size:20px;font-weight:800;margin-bottom:14px}
 /* site-integration overrides */
-.sgos .wrap{max-width:1240px;padding:34px 32px 40px}
+.sgos .wrap{max-width:1240px;padding:24px 32px 0}
 @media(max-width:900px){.sgos .wrap{padding-left:20px;padding-right:20px}}
+@media(max-width:720px){.sgos .wrap{padding-top:16px}}
 </style>
 </head>
 <body class="redesign-prototype">
@@ -343,7 +344,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       <div class="hero-text">
         <p class="eyebrow">SEO Growth OS</p>
         <h1 class="hero-headline">Automate your routine SEO checks. <em>Know what needs attention.</em></h1>
-        <p class="hero-subtitle">SEO Growth OS brings SEO audits, growth planning and ongoing monitoring into one system. I can help set it up for your business, connecting your data and automating recurring checks so you spend less time gathering information and know what to improve next.</p>
+        <p class="hero-subtitle">SEO Growth OS brings SEO audits, AI visibility and ongoing monitoring into one clear growth plan.</p>
         <div class="hero-ctas gos-hero-ctas">
           <div class="gos-guide-cta">
             <a class="btn btn-primary" href="/contact" data-gate-open>Request the PDF overview &rarr;</a>
@@ -406,7 +407,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </section>
 
-<section class="sec" id="receive">
+<section class="sec gos-band" id="receive">
   <div class="eyebrow">What you receive</div>
   <h2>What you receive after a run.</h2>
   <p class="sub">Findings, priorities and a clear plan for what comes next. Depending on the agreed scope, your outputs can include:</p>
@@ -436,7 +437,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   </div>
 </section>
 
-<section class="sec" id="trust">
+<section class="sec gos-band" id="trust">
   <div class="eyebrow">Why this is different</div>
   <h2>Clear evidence. Practical next steps. You stay in control.</h2>
   <p class="sub">I use SEO Growth OS on my own website to review how people find HelpMeMarketing, investigate gaps in search visibility and plan what to improve next. Here&rsquo;s how one finding became a proposed action.</p>
