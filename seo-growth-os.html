@@ -219,13 +219,6 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .three .big{font-size:14.5px;font-weight:700;margin-bottom:7px;line-height:1.4}
 .sgos .three .big i{font-style:normal;color:var(--mint)}
 .sgos .three p{font-size:12.5px;color:var(--text-muted);line-height:1.5}
-.sgos .dlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:8px;margin-top:18px}
-.sgos .d{background:var(--bg-elevated);border:1px solid var(--border);border-radius:10px;padding:12px 13px}
-.sgos .d .n{font-size:13.5px;font-weight:700;margin-bottom:3px}
-.sgos .d .w{font-size:12px;color:var(--text-muted);line-height:1.45}
-.sgos .why .r{border-top:1px solid var(--border);padding:15px 0}
-.sgos .why h3{font-family:'Fraunces',Georgia,serif;font-size:20px;font-weight:500;letter-spacing:-.01em;margin-bottom:4px}
-.sgos .why p{font-size:13.5px;color:var(--text-muted);max-width:790px}
 .sgos .closer{margin-top:56px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:16px;padding:36px 30px;text-align:center}
 .sgos .closer h2{font-size:40px;font-weight:400;letter-spacing:-.015em;line-height:1.1;margin-bottom:12px}
 .sgos .closer h2 i{font-style:italic;font-weight:400;color:var(--cta-text,var(--cta))} /* canon heading accent; Mint is functional, not a brand accent */
@@ -269,8 +262,6 @@ w.addEventListener(e,load,{once:true,passive:true});});
 .sgos .mxfoot{background:var(--bg-elevated);padding:15px 16px;border-top:1px solid var(--border);
           display:flex;justify-content:space-between;align-items:center;gap:13px;flex-wrap:wrap}
 .sgos .mxfoot .cta2{min-height:44px;font-size:14px}
-.sgos .mxfoot .t{font-size:13px;color:var(--text-muted);max-width:520px}
-.sgos .mxfoot .t b{color:var(--text)}
 @media(max-width:960px){
 .sgos .stagerow{grid-template-columns:repeat(3,1fr)}
 .sgos .three{grid-template-columns:1fr}
@@ -387,14 +378,23 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
         <p class="eyebrow">SEO Growth OS</p>
         <h1 class="hero-headline">Automate your routine SEO checks. <em>Know what needs attention.</em></h1>
         <p class="hero-subtitle">SEO Growth OS helps you repeat website and search checks, identify priorities and track changes. I can help connect your data and configure the checks around your business, so you spend less time collecting information and know what to review next.</p>
-        <div class="hero-ctas">
+        <div class="hero-ctas gos-hero-ctas">
           <a class="btn btn-primary" href="/contact?entry=seo_automation#contact-form">Enquire about SEO automation &rarr;</a>
-          <a class="btn btn-outline" href="/contact" data-gate-open>Request the visual guide</a>
+          <div class="gos-guide-cta">
+            <a class="btn btn-outline" href="/contact" data-gate-open>Request the visual guide</a>
+            <p class="hero-note">Five-page PDF covering the checks, automation and what you receive.</p>
+          </div>
         </div>
-        <p class="hero-note">The visual guide is a five-page PDF covering the checks, automation and what you receive.</p>
       </div>
-      <div class="hero-visual svc-hero-visual">
-        <img class="hero-image svc-hero-image" src="/assets/growth-os/seo.webp" srcset="/assets/growth-os/seo-704.webp 704w, /assets/growth-os/seo.webp 1056w" sizes="(max-width: 900px) calc(100vw - 40px), 522px" alt="Three interlocking gears driving a staircase of ranking bars toward a magnifier, drawn in glowing orange particles" width="1056" height="591" loading="eager" fetchpriority="high" decoding="async">
+      <div class="hero-visual gos-run-visual">
+        <div class="gos-run" role="group" aria-labelledby="gos-run-h">
+          <p class="gos-run-label" id="gos-run-h">What a run produces</p>
+          <ol class="gos-run-list">
+            <li><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></span><div><strong>Findings</strong><span>What needs attention</span></div></li>
+            <li><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 6h9M11 12h9M12 18h8"/><path d="M4 16a2 2 0 1 1 4 0c0 .6-.3 1-.6 1.3L4 20h4"/><path d="M6 10V4L4 6"/></svg></span><div><strong>Priorities</strong><span>What to work on next</span></div></li>
+            <li><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span><div><strong>Progress</strong><span>What changed and what remains open</span></div></li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
@@ -407,50 +407,61 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
   <div class="eyebrow">What it checks</div>
   <h2>Six areas it can cover.</h2>
   <p class="sub">Explore the checks, what can repeat automatically and where your review is needed.</p>
-  <div class="mr-table-wrap gos-map">
-    <table class="mr-table mr-steps">
-      <thead><tr><th scope="col">Area</th><th scope="col">Examples of checks</th><th scope="col">What can be automated</th></tr></thead>
-      <tbody><tr><th scope="row">Website health</th><td data-label="Examples of checks">Broken links, page access and indexing signals</td><td data-label="What can be automated">Repeat configured checks and flag changes</td></tr><tr><th scope="row">Search performance</th><td data-label="Examples of checks">Which pages and searches bring visibility and visits</td><td data-label="What can be automated">Collect available data and compare reporting periods</td></tr><tr><th scope="row">Content</th><td data-label="Examples of checks">Unanswered customer questions and pages needing review</td><td data-label="What can be automated">Organise findings and prepare draft recommendations</td></tr><tr><th scope="row">AI visibility</th><td data-label="Examples of checks">Mentions, citations and accuracy for selected questions</td><td data-label="What can be automated">Repeat supported AI visibility checks and record mentions and citations by date</td></tr><tr><th scope="row">Measurement</th><td data-label="Examples of checks">Whether enquiry tracking works and reported enquiries match your records</td><td data-label="What can be automated">Mostly manual review; tracking can be rechecked after changes</td></tr><tr><th scope="row">Progress</th><td data-label="Examples of checks">What changed, what remains unresolved and what needs approval</td><td data-label="What can be automated">Maintain a change record and prepare recurring summaries</td></tr></tbody>
-    </table>
+  <div class="gos-areas">
+    <article class="gos-area"><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18"/><path d="M8.5 14l2.5 2.5 4.5-5"/></svg></span><h3>Website health</h3><p>Broken links, page access and indexing signals.</p><p class="gos-auto"><b>Automation:</b> Repeat configured checks and flag changes.</p></article>
+    <article class="gos-area"><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/><path d="M7 12l2-2.5 2 1.5 2.5-3"/></svg></span><h3>Search performance</h3><p>Which pages and searches bring visibility and visits.</p><p class="gos-auto"><b>Automation:</b> Collect available data and compare reporting periods.</p></article>
+    <article class="gos-area"><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 9h1M9 13h6M9 17h6"/></svg></span><h3>Content</h3><p>Unanswered customer questions and pages needing review.</p><p class="gos-auto"><b>Automation:</b> Organise findings and prepare draft recommendations.</p></article>
+    <article class="gos-area"><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9h8M8 13h4"/><path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-5l-5 3v-3H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h12z"/></svg></span><h3>AI visibility</h3><p>Mentions, citations and accuracy for selected questions.</p><p class="gos-auto"><b>Automation:</b> Repeat supported AI visibility checks and record mentions and citations by date.</p></article>
+    <article class="gos-area"><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><rect x="5" y="12" width="3" height="6" rx="1"/><rect x="10.5" y="8" width="3" height="10" rx="1"/><rect x="16" y="4" width="3" height="14" rx="1"/></svg></span><h3>Measurement</h3><p>Whether enquiry tracking works and reported enquiries match your records.</p><p class="gos-auto"><b>Automation:</b> Mostly manual review; tracking can be rechecked after changes.</p></article>
+    <article class="gos-area"><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 8v4l3 2"/></svg></span><h3>Progress</h3><p>What changed, what remains unresolved and what needs approval.</p><p class="gos-auto"><b>Automation:</b> Maintain a change record and prepare recurring summaries.</p></article>
   </div>
   <p class="sub gos-after">Explore the checks and automation across six areas. <button type="button" class="gos-textbtn" data-gate-open>Request the visual guide</button></p>
 </section>
 
-<section class="sec" id="how">
+<section class="sec gos-band" id="how">
   <div class="eyebrow">How the automation works</div>
   <h2>Configure the checks. Repeat them on an agreed schedule.</h2>
-  <ol class="ind2-journey ind2-journey-4 gos-steps"><li class="ind2-step"><span class="ind2-ic gos-n" aria-hidden="true">1</span><h3>Connect your data</h3><p>Agree which sources are needed, then connect the available accounts and tools.</p></li><li class="ind2-step"><span class="ind2-ic gos-n" aria-hidden="true">2</span><h3>Configure and test</h3><p>Choose the checks that fit your website and goals, then test the first run.</p></li><li class="ind2-step"><span class="ind2-ic gos-n" aria-hidden="true">3</span><h3>Review the findings</h3><p>See what needs attention, the supporting evidence and any changes proposed for approval.</p></li><li class="ind2-step"><span class="ind2-ic gos-n" aria-hidden="true">4</span><h3>Repeat and compare</h3><p>Run the agreed checks again and record what changed, what remains open and what needs review.</p></li></ol>
+  <ol class="gos-flow">
+    <li><span class="gos-num" aria-hidden="true">1</span><h3>Connect your data</h3><p>Agree which sources are needed, then connect the available accounts and tools.</p></li>
+    <li><span class="gos-num" aria-hidden="true">2</span><h3>Configure and test</h3><p>Choose the checks that fit your website and goals, then test the first run.</p></li>
+    <li><span class="gos-num" aria-hidden="true">3</span><h3>Review the findings</h3><p>See what needs attention, the supporting evidence and any changes proposed for approval.</p></li>
+    <li><span class="gos-num" aria-hidden="true">4</span><h3>Repeat and compare</h3><p>Run the agreed checks again and record what changed, what remains open and what needs review.</p></li>
+  </ol>
 </section>
 
-<section class="sec">
+<section class="sec" id="receive">
   <div class="eyebrow">What you receive</div>
   <h2>What you receive after a run.</h2>
   <p class="sub">A clear record of what was checked, what needs attention and what to do next. Depending on the agreed scope, this can include:</p>
-  <div class="dlist">
-    <div class="d"><div class="n">Checks and findings</div><div class="w">What was checked, what was found and what still needs evidence.</div></div>
-    <div class="d"><div class="n">Issues to address</div><div class="w">Problems grouped by their likely cause, with affected pages and supporting evidence.</div></div>
-    <div class="d"><div class="n">Priorities</div><div class="w">What to address now, investigate further or leave unchanged.</div></div>
-    <div class="d"><div class="n">Work plan</div><div class="w">What to work on now, next and later, based on your capacity.</div></div>
-    <div class="d"><div class="n">Content briefs</div><div class="w">What to update, why it matters and what a writer needs to prepare it.</div></div>
-    <div class="d"><div class="n">Structured data drafts</div><div class="w">Suggested markup for your developer to review and test.</div></div>
-    <div class="d"><div class="n">Change record</div><div class="w">What changed, what was verified and which problems returned.</div></div>
-    <div class="d"><div class="n">Progress summary</div><div class="w">Completed work, unresolved issues and decisions needed from you.</div></div>
+  <div class="gos-groups">
+    <div class="gos-group"><h3><span class="gos-gnum" aria-hidden="true">1</span>Understand what needs attention</h3><dl><div><dt>Checks and findings</dt><dd>What was checked, what was found and what still needs evidence.</dd></div><div><dt>Issues to address</dt><dd>Problems grouped by their likely cause, with affected pages and supporting evidence.</dd></div></dl></div>
+    <div class="gos-group"><h3><span class="gos-gnum" aria-hidden="true">2</span>Decide what to do next</h3><dl><div><dt>Priorities</dt><dd>What to address now, investigate further or leave unchanged.</dd></div><div><dt>Work plan</dt><dd>What to work on now, next and later, based on your capacity.</dd></div></dl></div>
+    <div class="gos-group"><h3><span class="gos-gnum" aria-hidden="true">3</span>Prepare the work</h3><dl><div><dt>Content briefs</dt><dd>What to update, why it matters and what a writer needs to prepare it.</dd></div><div><dt>Structured data drafts</dt><dd>Suggested markup for your developer to review and test.</dd></div></dl></div>
+    <div class="gos-group"><h3><span class="gos-gnum" aria-hidden="true">4</span>Track what changed</h3><dl><div><dt>Change record</dt><dd>What changed, what was verified and which problems returned.</dd></div><div><dt>Progress summary</dt><dd>Completed work, unresolved issues and decisions needed from you.</dd></div></dl></div>
   </div>
 </section>
 
-<section class="sec">
+<section class="sec gos-proof" id="example">
   <div class="eyebrow">A real example</div>
   <h2>An example from my own website.</h2>
   <div class="gos-example">
     <p class="gos-example-label">Process example, 10 November 2026</p>
-    <p>A run flagged a commercial page with limited search visibility. It checked indexing and internal links, then prepared a brief naming the pages to edit and the proposed link wording.</p>
+    <ol class="gos-stages">
+      <li><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/><path d="M7 12l2-2.5 2 1.5 2.5-3"/></svg></span><span class="gos-stage-k">Finding</span><span class="gos-stage-v">Limited search visibility on a commercial page</span></li>
+      <li><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15l6-6"/><path d="M11 6l.5-.5a5 5 0 0 1 7 7L18 13"/><path d="M13 18l-.5.5a5 5 0 0 1-7-7L6 11"/></svg></span><span class="gos-stage-k">Investigation</span><span class="gos-stage-v">Indexing and internal links</span></li>
+      <li><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M9 11l2 2 4-4M9 17h6"/></svg></span><span class="gos-stage-k">Output</span><span class="gos-stage-v">A brief naming the pages to edit and the proposed link wording</span></li>
+    </ol>
     <p>The proposed change required approval. Checking implementation and measuring later search performance are separate steps.</p>
   </div>
 </section>
 
-<section class="sec">
+<section class="sec" id="questions">
   <div class="eyebrow">Questions it can answer</div>
   <h2>What needs a connection, and what doesn&rsquo;t.</h2>
+  <p class="sub">Public website checks show what can be observed on the pages reviewed. Performance and comparison checks need the relevant data, and change checks need an earlier record.</p>
+  <details class="gos-details">
+    <summary>Explore the questions and data requirements</summary>
+    <div class="gos-details-body">
   <div class="legend">
     <span><b class="lg-in">Website</b>: needs only your public website</span>
     <span><b class="lg-conn">Connect</b>: needs access to a data source first</span>
@@ -472,24 +483,23 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     <div class="mxr"><div class="q">Who links to my competitors but not to me?</div><div class="c no">–</div><div class="c part"><span class="lgm">Needs relevant data</span><span class="smm">Data source</span></div></div>
     <div class="mxr"><div class="q">Are my real-world Core Web Vitals actually passing?</div><div class="c no">–</div><div class="c part"><span class="lgm">Needs relevant data</span><span class="smm">Data source</span></div></div>
     <div class="mxr"><div class="q">How have mentions and citations changed for the questions checked?</div><div class="c no">–</div><div class="c part"><span class="lgm">Needs earlier results</span><span class="smm">Earlier run</span></div></div>
-    <div class="mxfoot">
-      <div class="t"><b>Public website checks show what can be observed on the pages reviewed.</b> Performance and comparison checks need the relevant data, and change checks need an earlier record.</div>
+    <div class="mxfoot gos-mxfoot">
       <a class="cta2" href="/contact?entry=seo_automation#contact-form">Enquire about SEO automation</a>
     </div>
   </div>
-
+    </div>
+  </details>
 </section>
 
-<!-- ── WHY ───────────────────────────────────────────── -->
-<section class="sec">
+<section class="sec" id="trust">
   <div class="eyebrow">Why this is different</div>
   <h2>Why you can trust the output.</h2>
-  <div class="why sp-top">
-    <div class="r"><h3>Findings backed by evidence.</h3><p>Recommendations show what was observed and where the evidence came from. Missing information is marked clearly.</p></div>
-    <div class="r"><h3>Clear next steps.</h3><p>Each recommendation explains what to change and how to check whether it was implemented correctly.</p></div>
-    <div class="r"><h3>A record you can return to.</h3><p>Findings, decisions and verified changes stay in a dated record, so future reviews can build on earlier work.</p></div>
-    <div class="r"><h3>AI visibility with context.</h3><p>Mentions and citations are recorded for selected questions, platforms and dates. Repeated checks help show patterns over time.</p></div>
-    <div class="r"><h3>You stay in control.</h3><p>I agree the scope with you and flag what needs review. Website changes require your approval before publication.</p></div>
+  <div class="gos-trust">
+    <div class="gos-trust-r"><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M12 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v4"/><circle cx="16.5" cy="17.5" r="2.5"/><path d="M18.5 19.5L21 22"/></svg></span><div><h3>Findings backed by evidence</h3><p>Recommendations show what was observed and where the evidence came from. Missing information is marked clearly.</p></div></div>
+    <div class="gos-trust-r"><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5L5 7l2.5-2.5M3.5 11.5L5 13l2.5-2.5M3.5 17.5L5 19l2.5-2.5"/><path d="M11 6h9M11 12h9M11 18h9"/></svg></span><div><h3>Clear next steps</h3><p>Each recommendation explains what to change and how to check whether it was implemented correctly.</p></div></div>
+    <div class="gos-trust-r"><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 8v4l3 2"/></svg></span><div><h3>A record you can return to</h3><p>Findings, decisions and verified changes stay in a dated record, so future reviews can build on earlier work.</p></div></div>
+    <div class="gos-trust-r"><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 5.5 5.5 2-5.5 2L12 18l-2-5.5-5.5-2 5.5-2z"/></svg></span><div><h3>AI visibility with context</h3><p>Mentions and citations are recorded for selected questions, platforms and dates. Repeated checks help show patterns over time.</p></div></div>
+    <div class="gos-trust-r"><span class="gos-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><h3>You stay in control</h3><p>I agree the scope with you and flag what needs review. Website changes require your approval before publication.</p></div></div>
   </div>
 </section>
 
@@ -499,20 +509,20 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 <section class="content-section gos-paths">
   <div class="container">
     <div class="pm-two">
-      <div class="ind2-card"><h3>See what it checks</h3><p>Explore the checks and what you receive, in a five-page PDF. Requesting it does not run an audit of your website.</p><button type="button" class="btn btn-outline" data-gate-open>Request the visual guide</button></div>
-      <div class="ind2-card"><h3>Have it set up for you</h3><p>Tell me about your website, the tools you already use and what you want to automate or keep track of. I&rsquo;ll reply personally.</p><a class="btn btn-primary" href="/contact?entry=seo_automation#contact-form">Enquire about SEO automation &rarr;</a></div>
+      <div class="ind2-card"><h3>Explore the visual guide</h3><p>Explore the checks and what you receive, in a five-page PDF. Requesting it does not run an audit of your website.</p><button type="button" class="btn btn-outline" data-gate-open>Request the visual guide</button></div>
+      <div class="ind2-card gos-path-main"><h3>Get help with setup</h3><p>Tell me about your website, the tools you already use and what you want to automate or keep track of. I&rsquo;ll reply personally.</p><a class="btn btn-primary" href="/contact?entry=seo_automation#contact-form">Enquire about SEO automation &rarr;</a></div>
     </div>
   </div>
 </section>
 
-<section class="final-cta-section">
+<section class="gos-final-section">
   <div class="container">
-    <div class="final-cta">
-      <h2 class="section-heading">What SEO work would you like to <em>automate</em>?</h2>
-      <p class="subhead">Tell me about your website, the tools you use and the checks you want to repeat. I&rsquo;ll help you work out what can be automated and what needs review.</p>
-      <div class="final-cta-actions">
-        <a class="btn btn-primary" href="/contact?entry=seo_automation#contact-form">Enquire about SEO automation &rarr;</a>
+    <div class="gos-final">
+      <div>
+        <h2>What SEO work would you like to <em>automate</em>?</h2>
+        <p>Tell me about your website, the tools you use and the checks you want to repeat. I&rsquo;ll help you work out what can be automated and what needs review.</p>
       </div>
+      <a class="btn btn-primary" href="/contact?entry=seo_automation#contact-form">Enquire about SEO automation &rarr;</a>
     </div>
   </div>
 </section>
