@@ -139,9 +139,9 @@ PAGES = [
         card('Change preparation', 'pen', 'D',
              'Drafts recommendations, briefs and tracking specifications. Where supported, new campaigns and ad sets are prepared paused until you approve them.',
              'Drafted changes ready for your approval.'),
-        card('Verification & monitoring', 'checkc', '',
-             'Checks that approved changes work as intended, then repeats agreed checks against a baseline, accounting for learning status and sample size.',
-             'Verified changes, unresolved issues and what changed since the last run.'),
+        card('Rechecks & monitoring', 'checkc', '',
+             'Rechecks the affected settings and results after an approved change, then repeats agreed checks against a baseline, accounting for learning status and sample size.',
+             'Recheck results, unresolved issues and what changed since the last run.'),
         card('Change record & progress summary', 'history', 'D',
              'Records findings, decisions and completed work, then drafts an update for your review.',
              'A concise summary of progress, open issues and approvals needed.'),
@@ -151,7 +151,7 @@ PAGES = [
 STAGES = [
     ('Establish the starting point', ['Understand your business', 'Check access and data', 'Verify tracking']),
     ('Find and plan improvements', ['Audit the account', 'Diagnose the problems', 'Prioritise the work']),
-    ('Prepare, verify and monitor', ['Prepare changes', 'Verify approved changes', 'Monitor and report']),
+    ('Prepare, verify and monitor', ['Prepare changes', 'Recheck approved changes', 'Monitor and report']),
 ]
 
 START = [
@@ -159,7 +159,7 @@ START = [
     ('Your cost per result keeps rising', 'Creative, structure, audience and tracking', 'chart'),
     ('Ads seem to stop working after a few weeks', 'Creative and audience checks', 'refresh'),
     ('Plenty of leads, but few become customers', 'Customer journey and lead quality', 'click'),
-    ('Account changes keep causing new problems', 'Change verification and monitoring', 'checkc'),
+    ('Account changes keep causing new problems', 'Rechecks and change monitoring', 'checkc'),
 ]
 
 AREAS = [
@@ -201,7 +201,7 @@ pages.append(f'''<section class="page">
     <div class="intro-top"><img class="logo" src="../../assets/brand/hmm-logo-full.svg" width="150" height="69" alt="HelpMeMarketing"><span>Meta Growth OS PDF overview</span></div>
     <h1>Meta Growth OS</h1>
     <p class="intro-sub"><em>Find what is holding your Meta ads back.</em></p>
-    <p class="intro-lede">Explore the Meta ad account checks I can help automate, the recommendations they produce and where your review is needed.</p>
+    <p class="intro-lede">Explore how Meta Growth OS identifies tracking issues, finds performance gaps and prioritises what needs attention.</p>
   </div>
   <div class="grp"><h2 class="sh">Where should you start?</h2>
   <table class="start"><thead><tr><th>What you are experiencing</th><th>Where to look first</th></tr></thead><tbody>{rows}</tbody></table></div>
@@ -229,13 +229,13 @@ pages.append(f'''<section class="page">
   <p class="flow-note">{icon("refresh", "bi")}Each stage builds on the evidence before it. Checks repeat on an agreed schedule, and proposed changes come to you for approval.</p></div>
   <div class="example"><div class="ex-h"><span class="nl">How the checks stay honest</span></div>
     <p>Tracking problems are identified before affected results are used to judge performance, and a data source that is not connected is marked as unchecked, never estimated.</p>
-    <p>Performance recommendations account for learning status, sample size and conversion delays. Proposed changes need your approval, and implemented changes are checked and recorded.</p></div>
+    <p>Performance recommendations account for learning status and sample size. Proposed changes need your approval, and implemented changes are rechecked and recorded.</p></div>
   <div class="two">
     <div class="panel"><h2 class="ph2">{icon("report", "ico-s")}What you receive</h2><ul>
       <li>A clear report with findings and priorities.</li>
       <li>Draft briefs or recommendations for review.</li>
       <li>A dated record of decisions and changes.</li>
-      <li>Verification of each approved change.</li></ul></div>
+      <li>A follow-up check on each approved change.</li></ul></div>
     <div class="panel"><h2 class="ph2">{icon("key", "ico-s")}What setup needs</h2><ul>
       <li>Access to your Meta ad account, or exported reports.</li>
       <li>Your goals and what a result is worth to you.</li>
