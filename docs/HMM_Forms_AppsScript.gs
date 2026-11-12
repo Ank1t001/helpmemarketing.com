@@ -82,7 +82,7 @@ var SENDER_POSTAL = 'Help Me Marketing, Halton Hills, Ontario, Canada';
 // The SEO Growth OS visual guide PDF in Drive (2026-11-11: replaces the bundle zip, which is no longer sent publicly).
 // Upload docs/growth-os-checklist/HMM-SEO-Growth-OS-Visual-Guide.pdf to Drive and paste its file ID here before deploying.
 var SEO_CHECKLIST_FILE_ID = '1itZqQlmPA9YcpAsuvaEwT21FefoyZxLB';   // HMM-SEO-Growth-OS-Visual-Guide.pdf, uploaded 2026-11-11 (approved build 2a9ba42)
-var SEO_CHECKLIST_FILENAME = 'HMM-SEO-Growth-OS-Visual-Guide.pdf';
+var SEO_CHECKLIST_FILENAME = 'HMM-SEO-Growth-OS-PDF-Overview.pdf';   // attachment name only; the Drive file keeps its own name
 var RATE_LIMITS = { 'audit-plan': 5, 'growth-os-download': 3, 'index-download': 3 };  // per email address, per 24 hours
 var DAY_MS = 24 * 60 * 60 * 1000;
 var INDEX_REPORTS = { 'gta-medspa': 'GTA MedSpa Index', 'hair-loss': 'Hair Loss Index', 'instagram': 'Real Estate Index (Instagram)', 'realestate-index': 'Real Estate Index' };
@@ -558,7 +558,7 @@ function checklistBlob_() {
 function sendSeoChecklist_(email) {
   var blob = checklistBlob_();
   var unsub = unsubscribeUrl_(email);
-  MailApp.sendEmail({ to: email, name: FROM_NAME, replyTo: REPLY_TO, subject: 'Your SEO Growth OS Visual Guide',
+  MailApp.sendEmail({ to: email, name: FROM_NAME, replyTo: REPLY_TO, subject: 'Your SEO Growth OS PDF overview',
     htmlBody: seoChecklistHtml_(unsub), body: seoChecklistText_(unsub), attachments: [blob] });
 }
 
@@ -573,7 +573,7 @@ var FORMS_EXEC_URL = 'https://script.google.com/macros/s/AKfycbzeefYKM_xZuJHIg9p
 var UNSUBSCRIBE_NOTIFY = 'hello@helpmemarketing.com';   // gets one email per unsubscribe
 // Footer lines as plain text; the HTML and text builders add the Unsubscribe and Privacy policy links.
 function seoGuideFooter_() {
-  return ['You requested this guide at helpmemarketing.com and will receive occasional SEO notes and updates.',
+  return ['You requested this PDF overview at helpmemarketing.com and will receive occasional SEO notes and updates.',
     'HelpMeMarketing, Halton Hills, Ontario, Canada'];
 }
 function seoChecklistHtml_(unsubUrl) {
@@ -589,12 +589,12 @@ function seoChecklistHtml_(unsubUrl) {
 '<html lang="en"><head><meta charset="UTF-8">' +
 '<meta name="viewport" content="width=device-width,initial-scale=1">' +
 '<meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light">' +
-'<title>Your SEO Growth OS Visual Guide</title>' +
+'<title>Your SEO Growth OS PDF overview</title>' +
 '<style>@media only screen and (max-width:600px){.px{padding-left:22px!important;padding-right:22px!important}' +
 '.ban{font-size:24px!important}.wrap{padding:12px 0!important}}</style></head>' +
 '<body style="margin:0;padding:0;background:' + outer + ';">' +
 '<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:' + outer + ';">' +
-'Your five-page guide is attached. Start with the challenge closest to yours.</div>' +
+'Your five-page PDF overview is attached. Start with the challenge closest to yours.</div>' +
 '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:' + outer + ';">' +
 '<tr><td class="wrap" align="center" style="padding:32px 12px;">' +
 '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:' + white + ';">' +
@@ -605,12 +605,12 @@ function seoChecklistHtml_(unsubUrl) {
 // 2. Obsidian banner
 '<tr><td class="px" style="background:' + obsidian + ';padding:28px 30px;">' +
 '<div style="font-family:' + font + ';font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:bold;color:' + cta + ';padding-bottom:8px;">SEO Growth OS</div>' +
-'<div class="ban" style="font-family:' + serif + ';font-size:28px;line-height:1.25;color:' + white + ';">Your visual guide <span style="color:' + cta + ';font-style:italic;">is attached.</span></div>' +
+'<div class="ban" style="font-family:' + serif + ';font-size:28px;line-height:1.25;color:' + white + ';">Your PDF overview <span style="color:' + cta + ';font-style:italic;">is attached.</span></div>' +
 '</td></tr>' +
 // 3. White body with the approved copy
 '<tr><td style="height:30px;line-height:30px;font-size:0;">&nbsp;</td></tr>' +
 p('Hello,') +
-p('Thanks for your interest in SEO Growth OS. Your guide is attached.') +
+p('Thanks for your interest in SEO Growth OS. Your PDF overview is attached.') +
 p('See how it brings together SEO audits, automation and growth planning, from finding issues to prioritising improvements and tracking progress.') +
 p('Start on page 1 with the challenge closest to yours, then explore what can be automated and what you receive.', 30) +
 // 4. Warm Ivory setup block
@@ -636,9 +636,9 @@ foot.join('<br>') + '<br>' +
 }
 
 function seoChecklistText_(unsubUrl) {
-  return ['SEO GROWTH OS', 'Your visual guide is attached.', '',
+  return ['SEO GROWTH OS', 'Your PDF overview is attached.', '',
     'Hello,', '',
-    'Thanks for your interest in SEO Growth OS. Your guide is attached.', '',
+    'Thanks for your interest in SEO Growth OS. Your PDF overview is attached.', '',
     'See how it brings together SEO audits, automation and growth planning, from finding issues to prioritising improvements and tracking progress.', '',
     'Start on page 1 with the challenge closest to yours, then explore what can be automated and what you receive.', '',
     'Want help setting it up for your business?',

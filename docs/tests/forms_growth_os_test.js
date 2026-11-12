@@ -80,7 +80,7 @@ test('normal submission with a valid token: saved, checklist PDF emailed, reply 
   const env = load({ secret: 'x', siteverify });
   const r = env.post({ ...base, email: 'e@example.com', 'cf-turnstile-response': 'good-token' });
   assert.deepStrictEqual([r.result, r.saved, r.email], ['ok', 'lead', 'sent']);
-  assert.strictEqual(env.attachments[0][0].name, 'HMM-SEO-Growth-OS-Visual-Guide.pdf');
+  assert.strictEqual(env.attachments[0][0].name, 'HMM-SEO-Growth-OS-PDF-Overview.pdf');
   assert.strictEqual(rows(env, 'Growth OS downloads')[0][5], 'Sent');
   assert.deepStrictEqual(env.mails, ['e@example.com']);
   assert.strictEqual(rows(env, 'Growth OS downloads').length, 1); assert.strictEqual(rows(env, 'Subscribers').length, 1); assert.strictEqual(rows(env, 'Spam').length, 0);
@@ -123,9 +123,9 @@ test('guide email: approved copy, enquiry link, logo, footer with subscription l
   const env = load({ secret: 'x', siteverify });
   env.post({ ...base, marketingConsent: false, email: 'g@example.com', 'cf-turnstile-response': 'good-token' });
   const m = env.messages[0];
-  assert.strictEqual(m.subject, 'Your SEO Growth OS Visual Guide');
+  assert.strictEqual(m.subject, 'Your SEO Growth OS PDF overview');
   for (const t of [m.htmlBody, m.body]) {
-    assert.ok(t.includes('Your guide is attached.') && t.includes('Your visual guide') && t.includes('Hello,'));
+    assert.ok(t.includes('Your PDF overview is attached.') && t.includes('Your PDF overview') && t.includes('Hello,'));
     assert.ok(t.includes('page 1'));
     assert.ok(t.includes('/contact?entry=seo_automation#contact-form'));
     assert.ok(t.includes('/privacy'));

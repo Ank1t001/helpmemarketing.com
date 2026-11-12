@@ -555,16 +555,16 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
 
 </div>
 
-<!-- SEO Growth OS visual guide request (was the bundle download until 2026-11-11) -->
+<!-- SEO Growth OS PDF overview request (the visual guide PDF) (was the bundle download until 2026-11-11) -->
 <div class="sgos">
   <div class="gate-back" data-gate-close></div>
   <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-h">
     <button class="x" type="button" aria-label="Close" data-gate-close>&times;</button>
 
     <div class="form">
-      <div class="lab">SEO Growth OS Visual Guide</div>
-      <h3 id="gate-h">Where should I send the guide?</h3>
-      <p class="n">Get the five-page guide to SEO Growth OS, including the checks, automation and what you receive.</p>
+      <div class="lab">SEO Growth OS PDF overview</div>
+      <h3 id="gate-h">Where should I send the PDF overview?</h3>
+      <p class="n">Get the five-page PDF overview of SEO Growth OS, including the checks, automation and what you receive.</p>
 
       <form id="gate-form" data-turnstile-sitekey="0x4AAAAAAFKhXJ31AZeh2wp1" novalidate>
         <label class="f" for="gate-email">Email address</label>
@@ -576,11 +576,11 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
           <input type="text" id="gate-hp" name="hmm_trap" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore>
         </div>
 
-        <p class="consent-note">Requesting the guide also adds you to my occasional SEO notes and updates. Every email has an unsubscribe link.</p>
+        <p class="consent-note">Requesting the PDF overview also adds you to my occasional SEO notes and updates. Every email has an unsubscribe link.</p>
 
         <div class="ts-slot" id="gate-turnstile"></div>
 
-        <button class="go" type="submit" id="gate-go">Send me the guide</button>
+        <button class="go" type="submit" id="gate-go">Send me the PDF overview</button>
         <p class="err" id="gate-err"></p>
         <p class="fine">See the <a href="/privacy">privacy policy</a> for how I use your email address.</p>
       </form>
@@ -589,7 +589,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     <div class="done">
       <div class="tick">&#10003;</div>
       <h3>Check your inbox.</h3>
-      <p class="n">The guide is on its way to <b id="gate-sent-to"></b>. It arrives as a PDF attachment, so give it a moment. If it has not landed in a few minutes, check spam or <a href="/contact">tell me</a>.</p>
+      <p class="n">The PDF overview is on its way to <b id="gate-sent-to"></b>. It arrives as a PDF attachment, so give it a moment. If it has not landed in a few minutes, check spam or <a href="/contact">tell me</a>.</p>
       <button class="go" type="button" data-gate-close>Close</button>
     </div>
   </div>
@@ -682,7 +682,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     }
 
     if (GATE_URL.indexOf('PASTE_') === 0) {
-      fail('The guide is not wired up yet. Email Hello@helpmemarketing.com and I will send it over.');
+      fail('The PDF overview is not wired up yet. Email Hello@helpmemarketing.com and I will send it over.');
       return;
     }
 
@@ -717,7 +717,7 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       // A visitor Turnstile wants to check by hand must tick the box first. If Turnstile failed to load,
       // the request is sent without a token and the forms script files it on the Spam tab, not lost.
       if (ts.key && !ts.token && ts.interactive) {
-        go.disabled = false; go.textContent = 'Send me the guide';
+        go.disabled = false; go.textContent = 'Send me the PDF overview';
         fail('Please tick the \u201cVerify you are human\u201d box, then press Send again.');
         return;
       }
@@ -730,24 +730,24 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
       }).then(function(r){ return r.json(); }).then(function(j){
         if (!j || j.result !== 'ok' || (j.saved !== 'lead' && j.saved !== 'spam')) throw new Error('not saved');
         resetTurnstile();
-        go.disabled = false; go.textContent = 'Send me the guide';
+        go.disabled = false; go.textContent = 'Send me the PDF overview';
         if (j.saved === 'spam') {
           // Filed on the Spam tab: no checklist email was sent, so never show the "sent" panel.
-          fail('I need to check this request by hand. Email Hello@helpmemarketing.com and I will send the guide.');
+          fail('I need to check this request by hand. Email Hello@helpmemarketing.com and I will send the PDF overview.');
           return;
         }
         if (j.email !== 'sent') {
           // The request is saved, but the mail service did not accept the checklist email (or an older script
           // replied without saying). Never claim it is on its way.
-          fail('Your request is saved, but the guide email did not go out. I will send it to you by hand, or you can email Hello@helpmemarketing.com.');
+          fail('Your request is saved, but the PDF overview email did not go out. I will send it to you by hand, or you can email Hello@helpmemarketing.com.');
           return;
         }
         done();
       });
     }).catch(function(){
       resetTurnstile();
-      go.disabled = false; go.textContent = 'Send me the guide';
-      fail('The guide could not be sent. Please try again, or email Hello@helpmemarketing.com and I will send it over.');
+      go.disabled = false; go.textContent = 'Send me the PDF overview';
+      fail('The PDF overview could not be sent. Please try again, or email Hello@helpmemarketing.com and I will send it over.');
     });
 
     function done(){
