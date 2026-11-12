@@ -6303,13 +6303,8 @@ body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-paths .ind2-car
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-paths .ind2-card h3 { margin: 0; }
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-paths .ind2-card p { margin: 8px 0 20px; font-size: 15px; line-height: 1.6; color: var(--text-body); }
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-paths .ind2-card .btn { margin-top: auto; }
+body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-paths { padding-bottom: 72px; }
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-paths .gos-path-main { border-color: rgba(255, 92, 26, 0.55); box-shadow: 0 0 0 1px rgba(255, 92, 26, 0.25); }
-body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-final-section { padding: 0 0 72px; }
-body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-final { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 32px; border: 1px solid var(--border); border-radius: 16px; background: var(--bg-elevated); }
-body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-final h2 { margin: 0 0 4px; font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 400; line-height: 1.2; letter-spacing: -.01em; }
-body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-final h2 em { font-style: italic; color: var(--cta); }
-body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-final p { margin: 0; max-width: 620px; font-size: 15px; line-height: 1.6; color: var(--text-muted); }
-body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-final .btn { flex: none; }
 @media (max-width: 900px) {
   body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-areas { grid-template-columns: repeat(2, 1fr); }
   body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-flow { grid-template-columns: repeat(2, 1fr); }
@@ -6328,7 +6323,5 @@ body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-final .btn { fl
   body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-stages li:not(:last-child)::after { top: auto; bottom: -13px; right: auto; left: 28px; transform: rotate(135deg); }
   body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-details > summary { padding: 16px 20px; }
   body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-details-body { padding: 0 16px 16px; }
-  body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-final { flex-direction: column; align-items: flex-start; padding: 24px 20px; }
-  body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-final h2 { font-size: 24px; }
-  body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-final-section { padding-bottom: 48px; }
+  body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-paths { padding-bottom: 48px; }
 }
