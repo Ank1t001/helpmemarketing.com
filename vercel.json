@@ -187,6 +187,11 @@
       "statusCode": 301
     },
     {
+      "source": "/meta-growth-os.zip",
+      "destination": "/meta-growth-os",
+      "statusCode": 301
+    },
+    {
       "source": "/servicess/brand-acceleration",
       "destination": "/services/branding-social",
       "statusCode": 301
