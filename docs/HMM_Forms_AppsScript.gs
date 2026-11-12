@@ -11,7 +11,7 @@
  *   audit-plan           Audit                 /tools/marketing-audit, "Email my plan" (emails the plan)
  *   audit-feedback       Audit                 /tools/marketing-audit, "Do you know what to do next?"
  *   index-download       Index downloads       /gta-medspa-index, /hair-loss-index, /realestate-index (emails the CSV since 2026-11-03)
- *   growth-os-download   Growth OS downloads   /seo-growth-os (emails the bundle), /meta-growth-os
+ *   growth-os-download   Growth OS downloads   /seo-growth-os (emails the visual guide PDF), /meta-growth-os
  *   subscribe            Subscribers           /blog newsletter, the audit's "Subscribe to updates"
  *   research-code        Research unlocks      /business-spend-index, /realestate-index, "Read the full case study" (emails a 6-digit code)
  *   research-verify      Research unlocks      the same form, second step (checks the code; marks the row Verified)
@@ -34,8 +34,9 @@
  *      It creates the five new tabs with header rows and leaves Leads as it is.
  *   4. Run `testRouting`. It writes one test row to each tab (emails are skipped) and logs where
  *      each went. Check the tabs, then delete the rows marked TEST.
- *   5. Run `testEmails`. It sends the SEO Growth OS bundle and a sample audit plan to your own
- *      address. Check both arrived.
+ *   5. Run `testEmails`. It sends the SEO Growth OS Visual Guide and a sample audit plan to your own
+ *      address. Check both arrived, and that the guide's Unsubscribe link opens a confirmation page
+ *      (do not press the button, or your own address goes on the Unsubscribes tab).
  *   6. Deploy → Manage deployments → edit the EXISTING deployment (pencil) → Version: New
  *      version → Deploy. Do not pick "New deployment": that makes a new URL.
  *   7. Tell Claude it is live. The site's other forms are then switched to this URL.
@@ -67,6 +68,7 @@ var TABS = {
   'Index downloads': ['Received', 'Email', 'Report', 'Cycle', 'Source tag', 'CSV email'],
   'Growth OS downloads': ['Received', 'Email', 'Product', 'Marketing consent', 'Consent timestamp', 'Bundle email', 'Referrer', 'User agent'],
   'Subscribers': ['Received', 'Email', 'Source', 'Consent'],
+  'Unsubscribes': ['Received', 'Email', 'Was on Subscribers', 'Source'],
   'Research unlocks': ['Last code sent', 'Email', 'Research', 'Status', 'Verified at', 'Codes sent', 'Source'],
   'Spam': ['Received', 'Form', 'Name', 'Email', 'Reason', 'Details']
 };
@@ -77,8 +79,10 @@ var AUDIT_URL = SITE_URL + '/tools/marketing-audit';
 var FROM_NAME = 'HelpMeMarketing';
 var REPLY_TO = 'hello@helpmemarketing.com';
 var SENDER_POSTAL = 'Help Me Marketing, Halton Hills, Ontario, Canada';
-var SEO_ZIP_FILE_ID = '1-ctzBnCzEve1LEpl0wpS_TTgCKOzD02X';   // the SEO Growth OS bundle in Drive
-var SEO_ZIP_FILENAME = 'seo-growth-os.zip';
+// The SEO Growth OS visual guide PDF in Drive (2026-11-11: replaces the bundle zip, which is no longer sent publicly).
+// Upload docs/growth-os-checklist/HMM-SEO-Growth-OS-Visual-Guide.pdf to Drive and paste its file ID here before deploying.
+var SEO_CHECKLIST_FILE_ID = '1itZqQlmPA9YcpAsuvaEwT21FefoyZxLB';   // HMM-SEO-Growth-OS-Visual-Guide.pdf, uploaded 2026-11-11 (approved build 2a9ba42)
+var SEO_CHECKLIST_FILENAME = 'HMM-SEO-Growth-OS-Visual-Guide.pdf';
 var RATE_LIMITS = { 'audit-plan': 5, 'growth-os-download': 3, 'index-download': 3 };  // per email address, per 24 hours
 var DAY_MS = 24 * 60 * 60 * 1000;
 var INDEX_REPORTS = { 'gta-medspa': 'GTA MedSpa Index', 'hair-loss': 'Hair Loss Index', 'instagram': 'Real Estate Index (Instagram)', 'realestate-index': 'Real Estate Index' };
@@ -88,7 +92,7 @@ var INDEX_CSV = { 'realestate-index': { url: SITE_URL + '/assets/index/real-esta
 // Turnstile action per protected form. 'contact' is also accepted from the audit form until its page
 // change (action 'audit_help') is live; it can be removed after that.
 var TURNSTILE_ACTIONS = { 'contact': ['contact'], 'audit-help': ['audit_help', 'contact'], 'research-code': ['research_unlock'],
-  'growth-os-download': ['growth_os_download'] };   // SEO bundle only (d2, 2026-11-10); see spamReason_
+  'growth-os-download': ['growth_os_download'] };   // SEO checklist only (was the bundle until 2026-11-11; d2, 2026-11-10); see spamReason_
 var TURNSTILE_HOSTS = ['helpmemarketing.com', 'www.helpmemarketing.com'];   // production only, never localhost
 var DRY_RUN = false;             // true only inside testRouting: rows are written, no email is sent
 
@@ -98,7 +102,8 @@ var DRY_RUN = false;             // true only inside testRouting: rows are writt
 // { result: 'ok', saved: 'lead' } for a filed form, { result: 'ok', saved: 'spam', reason } when it went to the Spam tab,
 // { result: 'error' } when nothing could be written (the page then keeps the visitor's text and offers email).
 function doPost(e) {
-  var data = {}, saved = 'error', why = '';
+  var data = {}, saved = 'error', why = '', emailStatus = '';
+  if (e && e.parameter && e.parameter.action === 'unsubscribe-confirm') return unsubscribePage_(e.parameter.e, e.parameter.t, true);
   try {
     data = parseIncoming_(e);
     var form = formOf_(data);
@@ -123,7 +128,13 @@ function doPost(e) {
     lock.waitLock(20000);
     try {
       if (reason) { spam_(form, data, reason); saved = 'spam'; why = reason; }
-      else { var filed = route_(form, data); saved = filed === 'spam' ? 'spam' : 'lead'; }
+      else {
+        var filed = route_(form, data);
+        saved = filed === 'spam' ? 'spam' : 'lead';
+        // Checklist requests (2026-11-11) also report whether the email went out, so the page only says
+        // "check your inbox" when the mail service accepted it.
+        if (filed === 'lead_email_sent' || filed === 'lead_email_failed') emailStatus = filed === 'lead_email_sent' ? 'sent' : 'failed';
+      }
     } finally {
       lock.releaseLock();
     }
@@ -132,11 +143,16 @@ function doPost(e) {
     try { spam_(data.form || 'unknown', data, 'Script error: ' + String(err).slice(0, 200)); saved = 'spam'; why = 'Script error'; } catch (ignore) { saved = 'error'; }
   }
   if (saved === 'error') return jsonOut_({ result: 'error' });
-  return jsonOut_(saved === 'spam' ? { result: 'ok', saved: 'spam', reason: String(why).slice(0, 80) } : { result: 'ok', saved: 'lead' });
+  if (saved === 'spam') return jsonOut_({ result: 'ok', saved: 'spam', reason: String(why).slice(0, 80) });
+  return jsonOut_(emailStatus ? { result: 'ok', saved: 'lead', email: emailStatus } : { result: 'ok', saved: 'lead' });
 }
 
-// Open the /exec URL in a browser to confirm the deployment is live.
-function doGet() {
+// Open the /exec URL in a browser to confirm the deployment is live. An unsubscribe link (2026-11-11) opens a
+// confirmation page instead; the change happens only when the person presses the button, so link scanners that
+// open every URL in an email never unsubscribe anyone.
+function doGet(e) {
+  var q = (e && e.parameter) || {};
+  if (q.action === 'unsubscribe') return unsubscribePage_(q.e, q.t, false);
   return jsonOut_({ result: 'ok', message: 'HMM forms endpoint is live.' });
 }
 
@@ -178,7 +194,7 @@ function spamReason_(form, d) {
     if (form === 'research-code' && isDisposable_(pick_(d, 'email'))) return 'Disposable email domain';
   }
   // The Meta Growth OS page downloads on the page, sends no email and carries no Turnstile widget, so only the
-  // SEO bundle, which is emailed, needs a token (d2, 2026-11-10).
+  // SEO checklist, which is emailed, needs a token (d2, 2026-11-10).
   if (form === 'growth-os-download' && growthOsProduct_(d) !== 'SEO Growth OS') return '';
   if (TURNSTILE_ACTIONS[form]) return turnstileReason_(form, d);
   return '';
@@ -254,7 +270,7 @@ function leadSource_(form, d) {
   if (form === 'audit-help') return /^fast$/.test(pick_(d, 'client_signal')) ? 'marketing audit | signal fast' : 'marketing audit';
   var parts = ['contact form', pick_(d, 'contact_intent') === 'review' ? 'free review' : 'general'];
   var entry = pick_(d, 'entry_point');
-  if (/^(home_hero|home_final|home_journey|work_final|industry_(healthcare|finance|dtc|saas)_(hero|final)|research_(hub|gta_medspa|gta_medspa_help|business_spend)|direct)$/.test(entry)) parts.push('entry ' + entry);
+  if (/^(home_hero|home_final|home_journey|work_final|industry_(healthcare|finance|dtc|saas)_(hero|final)|research_(hub|gta_medspa|gta_medspa_help|business_spend)|seo_automation|ai_seo_setup|direct)$/.test(entry)) parts.push('entry ' + entry);
   ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) {
     var v = pick_(d, k).replace(/[^\w.\-]/g, '').slice(0, 60);
     if (v) parts.push(k.replace('utm_', '') + ' ' + v);
@@ -315,12 +331,17 @@ function growthOsProduct_(d) {
 
 function addGrowthOs_(d, email) {
   var product = growthOsProduct_(d);
-  var consent = d.marketingConsent === true || d.marketingConsent === 'true';
-  // The SEO bundle is emailed as an attachment; the Meta bundle downloads on the page, so it gets no email.
-  var sent = product === 'SEO Growth OS' ? send_(function () { sendSeoBundle_(email); }) : 'Not needed (downloads on the page)';
+  // SEO guide requests always join the SEO notes list (founder, 2026-11-11): the form says so before sending, and
+  // every guide email carries an unsubscribe link. Meta downloads still follow their checkbox.
+  var consent = product === 'SEO Growth OS' || d.marketingConsent === true || d.marketingConsent === 'true';
+  // The SEO checklist is emailed as an attachment; the Meta bundle downloads on the page, so it gets no email.
+  var sent = product === 'SEO Growth OS' ? send_(function () { sendSeoChecklist_(email); }) : 'Not needed (downloads on the page)';
   tab_('Growth OS downloads').appendRow([new Date(), email, product, consent ? 'TRUE' : 'FALSE', consent ? new Date() : '',
     sent, pick_(d, 'referrer').slice(0, 300), pick_(d, 'userAgent').slice(0, 300)]);
-  if (consent) addSubscriber_(email, product + ' download', 'Yes, ticked the box');
+  if (consent && !hasUnsubscribed_(email)) addSubscriber_(email, product + (product === 'SEO Growth OS' ? ' visual guide' : ' download'),
+    product === 'SEO Growth OS' ? 'Guide request (notice on the form)' : 'Yes, ticked the box');
+  // The row is kept either way; the reply tells the page whether the checklist email was accepted.
+  if (product === 'SEO Growth OS') return sent === 'Sent' || sent === 'Skipped (test)' ? 'lead_email_sent' : 'lead_email_failed';
 }
 
 // One row per address: a repeat sign-up is ignored, not duplicated.
@@ -523,61 +544,107 @@ function planHtml_(text, url) {
     html + '<p style="margin:24px 0 0;font:13px/1.5 Arial,sans-serif;color:#666">' + esc_(planFooter_()).replace(/\n/g, '<br>') + '</p></div>';
 }
 
-function sendSeoBundle_(email) {
-  var blob = DriveApp.getFileById(SEO_ZIP_FILE_ID).getBlob().setName(SEO_ZIP_FILENAME);
-  MailApp.sendEmail({ to: email, name: FROM_NAME, replyTo: REPLY_TO, subject: 'Your SEO Growth OS download',
-    htmlBody: seoBundleHtml_(), body: seoBundleText_(), attachments: [blob] });
+// Throws (so send_ records "Failed" and the page shows the recovery message) when the file ID is still the
+// placeholder, the file is missing or not shared with the script, or it is not actually a PDF.
+function checklistBlob_() {
+  if (!SEO_CHECKLIST_FILE_ID || /PASTE/.test(SEO_CHECKLIST_FILE_ID)) throw new Error('Checklist file ID is not set');
+  var file = DriveApp.getFileById(SEO_CHECKLIST_FILE_ID);
+  if (file.getMimeType() !== 'application/pdf') throw new Error('Checklist file is not a PDF (' + file.getMimeType() + ')');
+  var blob = file.getBlob();
+  if (blob.getContentType() !== 'application/pdf') throw new Error('Checklist file content is not a PDF');
+  return blob.setName(SEO_CHECKLIST_FILENAME);
 }
 
-// Same email as the old Growth OS script, word for word.
-function seoBundleHtml_() {
-  var font = 'Arial,Helvetica,sans-serif', bg = '#0E0E0E', card = '#1A1A1A', text = '#FFFFFF', muted = '#999999',
-    cta = '#FF5C1A', mint = '#00D4AA', border = 'rgba(255,255,255,0.10)';
+function sendSeoChecklist_(email) {
+  var blob = checklistBlob_();
+  var unsub = unsubscribeUrl_(email);
+  MailApp.sendEmail({ to: email, name: FROM_NAME, replyTo: REPLY_TO, subject: 'Your SEO Growth OS Visual Guide',
+    htmlBody: seoChecklistHtml_(unsub), body: seoChecklistText_(unsub), attachments: [blob] });
+}
+
+// Visual Guide email (founder copy and layout, 2026-11-11): light grey frame, white logo header, Obsidian banner,
+// white body, Warm Ivory setup block with one orange button, compact footer. All text is live text; the only image
+// is the logo (PNG, because Gmail and Outlook block SVG), with an alt text that reads as the brand name when images
+// are off. Every guide request joins the SEO notes list, so every email says so and carries an Unsubscribe link.
+var SEO_GUIDE_ENQUIRY_URL = SITE_URL + '/contact?entry=seo_automation#contact-form';
+var SEO_GUIDE_LOGO_URL = SITE_URL + '/assets/brand/email/hmm-logo-email.png';
+// Unsubscribe links (founder, 2026-11-11) point at this deployment's /exec URL, the same one every site form uses.
+var FORMS_EXEC_URL = 'https://script.google.com/macros/s/AKfycbzeefYKM_xZuJHIg9pjl0hTLo57v87Qfpb5DzwvikeyVY3_QdYHFd18zpzlfBsbALSp/exec';
+var UNSUBSCRIBE_NOTIFY = 'hello@helpmemarketing.com';   // gets one email per unsubscribe
+// Footer lines as plain text; the HTML and text builders add the Unsubscribe and Privacy policy links.
+function seoGuideFooter_() {
+  return ['You requested this guide at helpmemarketing.com and will receive occasional SEO notes and updates.',
+    'HelpMeMarketing, Halton Hills, Ontario, Canada'];
+}
+function seoChecklistHtml_(unsubUrl) {
+  var font = 'Arial,Helvetica,sans-serif', serif = 'Georgia,\'Times New Roman\',serif',
+    outer = '#EEEDEA', white = '#FFFFFF', obsidian = '#0E0E0E', ivory = '#F7F6F2', text = '#0E0E0E', body = '#3A3A3A',
+    muted = '#6B6B6B', cta = '#FF5C1A', line = '#E4E1DA';
+  var p = function (html, pad) {
+    return '<tr><td class="px" style="font-family:' + font + ';font-size:17px;line-height:1.65;color:' + body + ';padding:0 30px ' + (pad === undefined ? 18 : pad) + 'px 30px;">' + html + '</td></tr>';
+  };
+  var foot = seoGuideFooter_();
   return (
 '<!DOCTYPE html>' +
 '<html lang="en"><head><meta charset="UTF-8">' +
-'<meta name="viewport" content="width=device-width,initial-scale=1"></head>' +
-'<body style="margin:0;padding:0;background:' + bg + ';">' +
-'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:' + bg + ';padding:32px 16px;">' +
-'<tr><td align="center">' +
-'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:' + card + ';border:1px solid ' + border + ';border-radius:14px;padding:32px;">' +
-'<tr><td style="font-family:' + font + ';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:' + mint + ';font-weight:bold;padding-bottom:12px;">' +
-'HMM &middot; Search Growth, Engineered</td></tr>' +
-'<tr><td style="font-family:' + font + ';font-size:26px;line-height:1.25;color:' + text + ';font-weight:bold;padding-bottom:16px;">' +
-'Your SEO Growth OS is attached.</td></tr>' +
-'<tr><td style="font-family:' + font + ';font-size:15px;line-height:1.6;color:' + muted + ';padding-bottom:20px;">' +
-'The bundle is the zip on this email: 32 skills, a README, and a SETUP file. ' +
-'Unzip it, open SETUP.md, and it will walk you through installing the skills and running the first audit. ' +
-'It runs on your own machine. Nothing is sent to us.</td></tr>' +
-'<tr><td style="font-family:' + font + ';font-size:15px;line-height:1.6;color:' + muted + ';padding-bottom:24px;">' +
-'Start with the six-node command in the README. Point it at your own site, and it will produce a health score, ' +
-'a root-cause gap inventory, and a ranked roadmap before it touches anything.</td></tr>' +
-'<tr><td style="padding-bottom:26px;">' +
-'<a href="' + CONTACT_URL + '" style="display:inline-block;font-family:' + font + ';font-size:15px;font-weight:bold;color:#ffffff;background:' + cta + ';border-radius:8px;padding:14px 24px;text-decoration:none;">' +
-'Need help with setup? Book a call</a></td></tr>' +
-'<tr><td style="border-top:1px solid ' + border + ';padding-top:18px;font-family:' + font + ';font-size:12px;line-height:1.6;color:#8A8A8A;">' +
-'You are getting this because you asked for the SEO Growth OS download at ' + SITE_URL + '/seo-growth-os.<br>' +
-SENDER_POSTAL + '<br>' +
-'Prefer not to hear from us again? Reply with "unsubscribe" and you are off the list.' +
+'<meta name="viewport" content="width=device-width,initial-scale=1">' +
+'<meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light">' +
+'<title>Your SEO Growth OS Visual Guide</title>' +
+'<style>@media only screen and (max-width:600px){.px{padding-left:22px!important;padding-right:22px!important}' +
+'.ban{font-size:24px!important}.wrap{padding:12px 0!important}}</style></head>' +
+'<body style="margin:0;padding:0;background:' + outer + ';">' +
+'<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:' + outer + ';">' +
+'Your five-page guide is attached. Start with the challenge closest to yours.</div>' +
+'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:' + outer + ';">' +
+'<tr><td class="wrap" align="center" style="padding:32px 12px;">' +
+'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:' + white + ';">' +
+// 1. White header with the logo
+'<tr><td align="center" style="padding:28px 30px 24px 30px;background:' + white + ';">' +
+'<img src="' + SEO_GUIDE_LOGO_URL + '" width="140" height="64" alt="HelpMeMarketing" ' +
+'style="display:block;width:140px;height:auto;border:0;font-family:' + font + ';font-size:15px;line-height:20px;font-weight:bold;color:' + text + ';text-align:center;"></td></tr>' +
+// 2. Obsidian banner
+'<tr><td class="px" style="background:' + obsidian + ';padding:28px 30px;">' +
+'<div style="font-family:' + font + ';font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:bold;color:' + cta + ';padding-bottom:8px;">SEO Growth OS</div>' +
+'<div class="ban" style="font-family:' + serif + ';font-size:28px;line-height:1.25;color:' + white + ';">Your visual guide <span style="color:' + cta + ';font-style:italic;">is attached.</span></div>' +
 '</td></tr>' +
-'</table></td></tr></table></body></html>'
+// 3. White body with the approved copy
+'<tr><td style="height:30px;line-height:30px;font-size:0;">&nbsp;</td></tr>' +
+p('Hello,') +
+p('Thanks for your interest in SEO Growth OS. Your guide is attached.') +
+p('See how it brings together SEO audits, automation and growth planning, from finding issues to prioritising improvements and tracking progress.') +
+p('Start on page 1 with the challenge closest to yours, then explore what can be automated and what you receive.', 30) +
+// 4. Warm Ivory setup block
+'<tr><td class="px" align="center" style="background:' + ivory + ';padding:30px;border-top:1px solid ' + line + ';border-bottom:1px solid ' + line + ';">' +
+'<div style="font-family:' + serif + ';font-size:22px;line-height:1.3;color:' + text + ';padding-bottom:20px;">Want help setting it up for your business?</div>' +
+'<table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td style="border-radius:8px;background:' + cta + ';">' +
+'<a href="' + SEO_GUIDE_ENQUIRY_URL + '" style="display:inline-block;font-family:' + font + ';font-size:16px;font-weight:bold;color:' + obsidian + ';background:' + cta + ';border-radius:8px;padding:15px 28px;text-decoration:none;">' +
+'Enquire about SEO automation</a></td></tr></table></td></tr>' +
+// Signature
+'<tr><td style="height:30px;line-height:30px;font-size:0;">&nbsp;</td></tr>' +
+p('Ankit Kumar<br><span style="color:' + muted + ';">HelpMeMarketing</span>', 30) +
+'</table>' +
+// 5. Compact footer
+'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;">' +
+'<tr><td class="px" style="padding:20px 30px 8px 30px;font-family:' + font + ';font-size:12px;line-height:1.6;color:' + muted + ';text-align:center;">' +
+foot.join('<br>') + '<br>' +
+'<a href="' + (unsubUrl || '#') + '" style="color:' + muted + ';text-decoration:underline;">Unsubscribe</a>' +
+'&nbsp;&nbsp;&middot;&nbsp;&nbsp;' +
+'<a href="' + SITE_URL + '/privacy" style="color:' + muted + ';text-decoration:underline;">Privacy policy</a>' +
+'</td></tr></table>' +
+'</td></tr></table></body></html>'
   );
 }
 
-function seoBundleText_() {
-  return [
-    'Your SEO Growth OS is attached.', '',
-    'The bundle is the zip on this email: 32 skills, a README, and a SETUP file.',
-    'Unzip it, open SETUP.md, and it will walk you through installing the skills',
-    'and running the first audit. It runs on your own machine. Nothing is sent to us.', '',
-    'Start with the six-node command in the README. Point it at your own site, and',
-    'it will produce a health score, a root-cause gap inventory, and a ranked',
-    'roadmap before it touches anything.', '',
-    'Need help with setup? Book a call: ' + CONTACT_URL, '', '---',
-    'You are getting this because you asked for the SEO Growth OS download at',
-    SITE_URL + '/seo-growth-os.', SENDER_POSTAL,
-    'Prefer not to hear from us again? Reply with "unsubscribe" and you are off the list.'
-  ].join('\n');
+function seoChecklistText_(unsubUrl) {
+  return ['SEO GROWTH OS', 'Your visual guide is attached.', '',
+    'Hello,', '',
+    'Thanks for your interest in SEO Growth OS. Your guide is attached.', '',
+    'See how it brings together SEO audits, automation and growth planning, from finding issues to prioritising improvements and tracking progress.', '',
+    'Start on page 1 with the challenge closest to yours, then explore what can be automated and what you receive.', '',
+    'Want help setting it up for your business?',
+    'Enquire about SEO automation: ' + SEO_GUIDE_ENQUIRY_URL, '',
+    'Ankit Kumar', 'HelpMeMarketing', '', '---'
+  ].concat(seoGuideFooter_(), ['Unsubscribe: ' + (unsubUrl || ''), 'Privacy policy: ' + SITE_URL + '/privacy']).join('\n');
 }
 
 /* ============================ helpers ============================ */
@@ -618,6 +685,81 @@ function parseIncoming_(e) {
 }
 
 // Returns the tab, creating it with a bold, frozen header row the first time.
+/* ============================ unsubscribe ============================ */
+
+// A signed link per address, so nobody can unsubscribe someone else by editing the URL. The key is made once
+// and kept in Script Properties (UNSUBSCRIBE_KEY); it never appears in the repository.
+function unsubscribeKey_() {
+  var props = PropertiesService.getScriptProperties();
+  var k = props.getProperty('UNSUBSCRIBE_KEY');
+  if (!k) { k = Utilities.getUuid() + Utilities.getUuid(); props.setProperty('UNSUBSCRIBE_KEY', k); }
+  return k;
+}
+function unsubscribeToken_(email) {
+  var sig = Utilities.computeHmacSha256Signature(String(email).toLowerCase(), unsubscribeKey_());
+  return Utilities.base64EncodeWebSafe(sig).replace(/=+$/, '').slice(0, 32);
+}
+function unsubscribeUrl_(email) {
+  return FORMS_EXEC_URL + '?action=unsubscribe&e=' + encodeURIComponent(String(email).toLowerCase()) + '&t=' + unsubscribeToken_(email);
+}
+function hasUnsubscribed_(email) {
+  var sh = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Unsubscribes');
+  if (!sh || sh.getLastRow() < 2) return false;
+  var vals = sh.getRange(2, 2, sh.getLastRow() - 1, 1).getValues();
+  for (var i = 0; i < vals.length; i++) if (String(vals[i][0]).toLowerCase() === String(email).toLowerCase()) return true;
+  return false;
+}
+function unsubscribeValid_(email, token) {
+  return !!email && !!token && isEmail_(String(email)) && unsubscribeToken_(email) === String(token);
+}
+// Records the request, removes the address from Subscribers and emails UNSUBSCRIBE_NOTIFY. Safe to repeat.
+function unsubscribe_(email) {
+  email = String(email).toLowerCase();
+  var lock = LockService.getScriptLock();
+  lock.waitLock(20000);
+  var was = 'No', source = '';
+  try {
+    var sh = tab_('Subscribers'), last = sh.getLastRow();
+    if (last > 1) {
+      var vals = sh.getRange(2, 1, last - 1, 4).getValues();
+      for (var i = vals.length - 1; i >= 0; i--) {
+        if (String(vals[i][1]).toLowerCase() === email) { was = 'Yes'; source = String(vals[i][2]); sh.deleteRow(i + 2); }
+      }
+    }
+    tab_('Unsubscribes').appendRow([new Date(), email, was, source || 'SEO Growth OS guide email']);
+  } finally {
+    lock.releaseLock();
+  }
+  try {
+    MailApp.sendEmail({ to: UNSUBSCRIBE_NOTIFY, name: 'HMM forms', subject: 'Unsubscribe: ' + email,
+      body: email + ' used the unsubscribe link in the SEO Growth OS guide email.\n' +
+        'On the Subscribers tab: ' + (was === 'Yes' ? 'yes, removed (source: ' + source + ')' : 'no') + '.\n' +
+        'Logged on the Unsubscribes tab. Do not send them marketing email.' });
+  } catch (err) { console.error('Unsubscribe notice failed: ' + err); }
+}
+function unsubscribePage_(email, token, confirmed) {
+  var ok = unsubscribeValid_(email, token), body;
+  if (!ok) {
+    body = '<h1>This link is not valid</h1><p>Email <a href="mailto:hello@helpmemarketing.com" target="_top">Hello@helpmemarketing.com</a> and I will remove you by hand.</p>';
+  } else if (confirmed) {
+    unsubscribe_(email);
+    body = '<h1>You are unsubscribed</h1><p>' + esc_(email) + ' will not receive marketing email from HelpMeMarketing.</p>' +
+      '<p><a href="' + SITE_URL + '" target="_top">Back to helpmemarketing.com</a></p>';
+  } else {
+    body = '<h1>Unsubscribe?</h1><p>Stop marketing email from HelpMeMarketing to <b>' + esc_(email) + '</b>.</p>' +
+      '<form method="post" action="' + FORMS_EXEC_URL + '" target="_top">' +
+      '<input type="hidden" name="action" value="unsubscribe-confirm">' +
+      '<input type="hidden" name="e" value="' + esc_(email) + '"><input type="hidden" name="t" value="' + esc_(token) + '">' +
+      '<button type="submit">Unsubscribe</button></form>';
+  }
+  var html = '<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>' +
+    'body{margin:0;background:#EEEDEA;font-family:Arial,Helvetica,sans-serif;color:#0E0E0E}' +
+    '.c{max-width:520px;margin:48px auto;background:#fff;padding:32px 28px;border-top:4px solid #FF5C1A}' +
+    'h1{font-family:Georgia,serif;font-weight:normal;font-size:26px;margin:0 0 12px}p{font-size:16px;line-height:1.6;color:#3A3A3A}' +
+    'button{font:bold 16px Arial,Helvetica,sans-serif;background:#FF5C1A;color:#0E0E0E;border:0;border-radius:8px;padding:14px 26px;cursor:pointer}' +
+    'a{color:#B8400C}</style></head><body><div class="c">' + body + '</div></body></html>';
+  return HtmlService.createHtmlOutput(html).setTitle('Unsubscribe | HelpMeMarketing');
+}
 function tab_(name) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sh = ss.getSheetByName(name);
@@ -669,7 +811,8 @@ function setup() {
   Object.keys(TABS).forEach(function (name) { tab_(name); });
   MailApp.getRemainingDailyQuota();
   CacheService.getScriptCache().put('setup_check', '1', 60);
-  DriveApp.getFileById(SEO_ZIP_FILE_ID).getName();
+  checklistBlob_();   // fails until the checklist file ID is set and points at a real PDF
+  unsubscribeKey_();   // makes the unsubscribe signing key once
   checkTurnstileSecret();
   Logger.log('Ready. Tabs: ' + Object.keys(TABS).join(', '));
 }
@@ -738,13 +881,13 @@ function testLeadSources() {
   });
 }
 
-// Step 5. Sends the SEO bundle and a sample plan to your own address.
+// Step 5. Sends the SEO visual guide and a sample plan to your own address.
 function testEmails() {
   var me = Session.getActiveUser().getEmail();
-  sendSeoBundle_(me);
+  sendSeoChecklist_(me);
   MailApp.sendEmail({ to: me, replyTo: REPLY_TO, name: FROM_NAME, subject: 'Your marketing plan: Cut missed appointments (test)',
     body: 'YOUR MARKETING PLAN\nTest', htmlBody: planHtml_('YOUR MARKETING PLAN\nFrom the HelpMeMarketing marketing audit\n\nYOUR FIRST PRIORITY\nCut missed appointments\n\nYOUR FIRST ACTION\n1. Send a confirmation right after every booking.', AUDIT_URL + '#plan=buy.appointment~goal.convert~stage.active~a_fit.most~a_wait.week~a_how.online~a_finish.most~a_remind.none~a_noshow.some~who.self') });
-  Logger.log('Sent the SEO bundle and a sample plan to ' + me);
+  Logger.log('Sent the SEO visual guide and a sample plan to ' + me);
 }
 
 // Step 8, optional and once. Copies past rows from the old Growth OS sheet; opt-ins also go to Subscribers.
