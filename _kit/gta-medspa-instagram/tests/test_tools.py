@@ -413,7 +413,7 @@ class UrlMigration(unittest.TestCase):
         root = KIT.parent.parent
         v = json.loads((root / "vercel.json").read_text())
         old = [r for r in v["redirects"] if "gta-medspa" in r["source"]]
-        self.assertEqual(old, [{"source": "/gta-medspa-index", "destination": "/medspa-index", "permanent": True}])  # exact path only
+        self.assertEqual(old, [{"source": "/gta-medspa-index", "destination": "/medspa-index", "statusCode": 301}])  # exact path only, 301 since 2026-11-10 (SEO d6)
         self.assertFalse([r for r in v["redirects"] + v["rewrites"] if r["source"].startswith("/(") and "gta-medspa" in r.get("destination", "")])
         self.assertTrue((root / "gta-medspa-index/edition-001.html").exists() and (root / "gta-medspa-index/edition-002.html").exists())
         for rel in ("medspa-marketing-research.html", "hmm-index.html", "work.html", "ai-tools.html", "medspa-index.html"):
