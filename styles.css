@@ -6243,8 +6243,6 @@ body.redesign-prototype .ix-card .wk-tool-links { margin-top: 0; padding-top: 16
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-ic { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 40px; height: 40px; border-radius: 10px; background: var(--orange-glow, rgba(255, 92, 26, 0.10)); color: var(--cta); }
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-ic svg { width: 20px; height: 20px; }
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-hero-ctas { align-items: flex-start; }
-body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-guide-cta { display: flex; flex-direction: column; gap: 8px; }
-body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-guide-cta .hero-note { margin: 0; max-width: 260px; line-height: 1.5; }
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-run { padding: 24px; border: 1px solid var(--border); border-radius: 16px; background: var(--bg-elevated); }
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-run-label { margin: 0 0 16px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-run-list { display: flex; flex-direction: column; gap: 16px; margin: 0; padding: 0; list-style: none; }
@@ -6304,6 +6302,9 @@ body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-trust-r { displ
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-trust-r:first-child { border-top: 0; padding-top: 0; }
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-trust h3 { margin: 0 0 4px; font-size: 18px; }
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-trust p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--text-muted); }
+/* Exception to the CTA colour rule (founder request, 2026-11-12): on /seo-growth-os the visual guide is the primary action, so the enquiry buttons (.gos-secondary, still linking to /contact) use the outline style. Outranks the rule's (0,3,2) selector. */
+body.redesign-prototype [data-screen-label="seo-growth-os"] a.btn.btn-outline.gos-secondary[href^="/contact"] { background: transparent; color: var(--text); border: 1px solid var(--border-strong, var(--border)); box-shadow: none; }
+body.redesign-prototype [data-screen-label="seo-growth-os"] a.btn.btn-outline.gos-secondary[href^="/contact"]:hover { background: var(--bg-elevated); border-color: var(--cta); color: var(--text); }
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-paths .ind2-card { display: flex; flex-direction: column; align-items: flex-start; padding: 24px; }
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-paths .ind2-card h3 { margin: 0; }
 body.redesign-prototype [data-screen-label="seo-growth-os"] .gos-paths .ind2-card p { margin: 8px 0 20px; font-size: 15px; line-height: 1.6; color: var(--text-body); }
