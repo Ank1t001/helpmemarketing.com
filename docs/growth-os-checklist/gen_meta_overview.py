@@ -148,9 +148,9 @@ PAGES = [
         card('Change preparation', 'pen', 'D',
              'Drafts recommendations, briefs and tracking specifications. Where supported, new campaigns and ad sets are prepared paused until you approve them.',
              'Drafted changes ready for your approval.'),
-        card('Baseline & monitoring', 'checkc', '',
-             'Records a baseline and an indicator to watch once each approved change is live, then compares later runs, allowing for learning status and sample size.',
-             'What changed since the baseline and what needs attention.'),
+        card('Verification & monitoring', 'checkc', '',
+             'Checks that each approved change took effect, records a baseline and an indicator to watch, then compares later runs.',
+             'Which changes are verified, what changed since the baseline and what needs attention.'),
         card('Change record & progress summary', 'history', 'D',
              'Records findings, decisions and completed work, then drafts an update for your review.',
              'A concise summary of progress, open issues and approvals needed.'),
@@ -162,7 +162,7 @@ STAGE_ICONS = ['flag', 'key', 'shield', 'health', 'search', 'target', 'pen', 'ch
 STAGES = [
     ('Establish the starting point', ['Understand your business', 'Check access and data', 'Verify tracking']),
     ('Find and plan improvements', ['Audit the account', 'Diagnose the problems', 'Prioritise the work']),
-    ('Prepare, verify and monitor', ['Prepare changes', 'Baseline approved changes', 'Monitor and report']),
+    ('Prepare, verify and monitor', ['Prepare changes', 'Verify approved changes', 'Monitor and report']),
 ]
 
 START = [
@@ -255,13 +255,13 @@ pages.append(f'''<section class="page">
   <p class="flow-note">{icon("refresh", "bi")}Each stage builds on the evidence before it. Checks repeat on an agreed schedule, and proposed changes come to you for approval.</p></div>
   <div class="example"><div class="ex-h"><span class="nl">{icon("shield", "bi")}How the checks stay honest</span></div>
     <p>Tracking problems are identified before affected results are used to judge performance, and a data source that is not connected is marked as unchecked, never estimated.</p>
-    <p>Performance recommendations account for learning status and sample size. Proposed changes need your approval, and each one is recorded with a baseline once it is live.</p></div>
+    <p>Performance recommendations account for learning status and sample size. Proposed changes need your approval, and each one is checked once it is live, then recorded with a baseline.</p></div>
   <div class="two">
     <div class="panel"><h2 class="ph2">{icon("report", "ico-s")}What you receive</h2><ul class="il">
       <li><span class="li-i">{icon("report", "bi")}</span>A clear report with findings and priorities.</li>
       <li><span class="li-i">{icon("brief", "bi")}</span>Draft briefs or recommendations for review.</li>
       <li><span class="li-i">{icon("history", "bi")}</span>A dated record of decisions and changes.</li>
-      <li><span class="li-i">{icon("checkc", "bi")}</span>A baseline and an indicator to watch for each approved change.</li></ul></div>
+      <li><span class="li-i">{icon("checkc", "bi")}</span>A verification result, baseline and indicator to watch for each approved change.</li></ul></div>
     <div class="panel"><h2 class="ph2">{icon("key", "ico-s")}What setup needs</h2><ul class="il">
       <li><span class="li-i">{icon("key", "bi")}</span>Access to your Meta ad account, or exported reports.</li>
       <li><span class="li-i">{icon("target", "bi")}</span>Your goals and what a result is worth to you.</li>
