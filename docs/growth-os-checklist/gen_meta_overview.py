@@ -139,9 +139,9 @@ PAGES = [
         card('Change preparation', 'pen', 'D',
              'Drafts recommendations, briefs and tracking specifications. Where supported, new campaigns and ad sets are prepared paused until you approve them.',
              'Drafted changes ready for your approval.'),
-        card('Rechecks & monitoring', 'checkc', '',
-             'Rechecks the affected settings and results after an approved change, then repeats agreed checks against a baseline, accounting for learning status and sample size.',
-             'Recheck results, unresolved issues and what changed since the last run.'),
+        card('Baseline & monitoring', 'checkc', '',
+             'Records a baseline once approved changes are live, with an indicator to watch for each, then compares later runs against it, accounting for learning status and sample size.',
+             'What changed since the baseline and what needs attention.'),
         card('Change record & progress summary', 'history', 'D',
              'Records findings, decisions and completed work, then drafts an update for your review.',
              'A concise summary of progress, open issues and approvals needed.'),
@@ -151,7 +151,7 @@ PAGES = [
 STAGES = [
     ('Establish the starting point', ['Understand your business', 'Check access and data', 'Verify tracking']),
     ('Find and plan improvements', ['Audit the account', 'Diagnose the problems', 'Prioritise the work']),
-    ('Prepare, verify and monitor', ['Prepare changes', 'Recheck approved changes', 'Monitor and report']),
+    ('Prepare, verify and monitor', ['Prepare changes', 'Baseline approved changes', 'Monitor and report']),
 ]
 
 START = [
@@ -159,7 +159,7 @@ START = [
     ('Your cost per result keeps rising', 'Creative, structure, audience and tracking', 'chart'),
     ('Ads seem to stop working after a few weeks', 'Creative and audience checks', 'refresh'),
     ('Plenty of leads, but few become customers', 'Customer journey and lead quality', 'click'),
-    ('Account changes keep causing new problems', 'Rechecks and change monitoring', 'checkc'),
+    ('Account changes keep causing new problems', 'Change monitoring against a baseline', 'checkc'),
 ]
 
 AREAS = [
@@ -229,13 +229,13 @@ pages.append(f'''<section class="page">
   <p class="flow-note">{icon("refresh", "bi")}Each stage builds on the evidence before it. Checks repeat on an agreed schedule, and proposed changes come to you for approval.</p></div>
   <div class="example"><div class="ex-h"><span class="nl">How the checks stay honest</span></div>
     <p>Tracking problems are identified before affected results are used to judge performance, and a data source that is not connected is marked as unchecked, never estimated.</p>
-    <p>Performance recommendations account for learning status and sample size. Proposed changes need your approval, and implemented changes are rechecked and recorded.</p></div>
+    <p>Performance recommendations account for learning status and sample size. Proposed changes need your approval, and each one is recorded with a baseline once it is live.</p></div>
   <div class="two">
     <div class="panel"><h2 class="ph2">{icon("report", "ico-s")}What you receive</h2><ul>
       <li>A clear report with findings and priorities.</li>
       <li>Draft briefs or recommendations for review.</li>
       <li>A dated record of decisions and changes.</li>
-      <li>A follow-up check on each approved change.</li></ul></div>
+      <li>A baseline and an indicator to watch for each approved change.</li></ul></div>
     <div class="panel"><h2 class="ph2">{icon("key", "ico-s")}What setup needs</h2><ul>
       <li>Access to your Meta ad account, or exported reports.</li>
       <li>Your goals and what a result is worth to you.</li>
