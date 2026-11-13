@@ -84,7 +84,7 @@ var SENDER_POSTAL = 'Help Me Marketing, Halton Hills, Ontario, Canada';
 var SEO_CHECKLIST_FILE_ID = '1itZqQlmPA9YcpAsuvaEwT21FefoyZxLB';   // HMM-SEO-Growth-OS-Visual-Guide.pdf, uploaded 2026-11-11 (approved build 2a9ba42)
 var SEO_CHECKLIST_FILENAME = 'HMM-SEO-Growth-OS-PDF-Overview.pdf';
 // The Meta Growth OS PDF overview in Drive (2026-11-12: replaces the skills zip that downloaded on the page).
-var META_OVERVIEW_FILE_ID = '11XvOU8dutCIT3KAJbMEPHrSsb14eqYuw';   // HMM-Meta-Growth-OS-PDF-Overview.pdf (PR #44); replace the file by uploading a new version, so the ID stays
+var META_OVERVIEW_FILE_ID = '11ikUZtMuM7M984XSKprJwjhF6zZSIQ9Q';   // HMM-Meta-Growth-OS-PDF-Overview.pdf (PR #44); replace the file by uploading a new version, so the ID stays
 var META_OVERVIEW_FILENAME = 'HMM-Meta-Growth-OS-PDF-Overview.pdf';   // attachment name only; the Drive file keeps its own name
 var RATE_LIMITS = { 'audit-plan': 5, 'growth-os-download': 3, 'index-download': 3 };  // per email address, per 24 hours
 var DAY_MS = 24 * 60 * 60 * 1000;
