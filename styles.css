@@ -2472,6 +2472,8 @@ body.blog-dark .blog-content .cost-hero-plus { font-size: 24px; font-weight: 500
 }
 /* Cost guide spacing scale (2026-11-13): 56px before each H2 (40 at 720), 40px before H3s, 24px between blocks (20 at 720); margins collapse in the article's block flow. */
 body.blog-dark .cost-guide .hero-zone { row-gap: 32px; }
+body.blog-dark article.blog-content.cost-guide h2 { padding-top: 0; }
+body.blog-dark article.blog-content.cost-guide h2::before { content: none; }
 body.blog-dark .cost-guide .cost-hero { margin-top: 0; }
 body.blog-dark .cost-guide .hero-zone { margin-bottom: 0; }
 body.blog-dark article.blog-content.cost-guide > p,
