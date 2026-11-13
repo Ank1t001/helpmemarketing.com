@@ -1,6 +1,6 @@
 # HMM Blog Template V2 — Master Reference
 
-**Version:** 2.9 (D-hybrid sticky TOC sidebar)
+**Version:** 2.11 (D-hybrid sticky TOC sidebar)
 **First shipped:** Commit `2430e84`, May 5 2026, on `/blog/healthcare-marketing-channels`
 **Purpose:** Single source of truth for writing new blogs and retrofitting existing ones to V2 architecture.
 
@@ -1839,6 +1839,7 @@ When uncertain about a pattern, view that blog's source as the canonical impleme
 | Version | Date | Changes |
 |---|---|---|
 | 2.0 | May 5 2026 | Initial V2 template (D-hybrid sticky TOC sidebar). Replaces V1 (2-column body-layout with right-column visuals). |
+| 2.11 | Nov 13 2026 | Cost guide rebuild (/blog/digital-marketing-cost): new optional components in the blog region of `styles.css`, `p.post-answer` (direct answer paragraph, 18px, full text colour), `nav.post-jump` ("On this page" pill links after the answer), `ul.svc-facts` and `ul.source-list` (labelled fact lists and a dated source list), `.comparison-table.stack-sm` (three-plus column tables become labelled cards at 720px and below; each `td` carries `data-label`; two-column tables stay as tables), and article-level H3s (`article.blog-content > h3`) on Fraunces 22/500 with 36px above. Pricing claims cite their source inline, beside the figure. |
 | 2.10 | Oct 8 2026 | Approved: voice moves from "you" + "we" to first person ("I" + "you") for a one-person agency (Section B, Card 2, proposed author bio). Full rules in Content Rules Section 1.5. |
 | 2.9 | Sep 18 2026 | Hero image `srcset`: the hero renders at 760px in the article column (1344 stays the desktop candidate) but 358px on phones and 314px in blog index cards, so every post gains a `[slug]-hero-720.webp` (720 wide, q80, 214KB for all 14) and both the post hero and the index card carry a two-candidate `srcset` with a `sizes` hint. Template markup, Part 6 spec table and workflow updated |
 | 2.8 | Sep 17 2026 | Hero image storage: the 2K PNG masters (12.1MB across 14 posts) served only `og:image`, `twitter:image` and schema `image`; replaced by `[slug]-og.jpg` 1200x630 q80 (732KB for all 14) with `og:image:width`/`height` meta added to every post. Page image stays the 1344-wide webp. PNGs removed from the repo; masters stay local. Template head, schema, hero markup, Part 6 spec table and workflow updated |
