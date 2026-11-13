@@ -2470,6 +2470,56 @@ body.blog-dark .blog-content .cost-hero-plus { font-size: 24px; font-weight: 500
   body.blog-dark .blog-content .cost-hero-plus { font-size: 18px; line-height: 1; }
   body.blog-dark .cost-hero-item { padding: 10px 14px; }
 }
+/* Cost guide spacing scale (2026-11-13): 56px before each H2 (40 at 720), 40px before H3s, 24px between blocks (20 at 720); margins collapse in the article's block flow. */
+body.blog-dark .cost-guide .hero-zone { row-gap: 32px; }
+body.blog-dark .cost-guide .cost-hero { margin-top: 0; }
+body.blog-dark .cost-guide .hero-zone { margin-bottom: 0; }
+body.blog-dark article.blog-content.cost-guide > p,
+body.blog-dark article.blog-content.cost-guide > ul,
+body.blog-dark article.blog-content.cost-guide > .table-section,
+body.blog-dark article.blog-content.cost-guide > .takeaways,
+body.blog-dark article.blog-content.cost-guide > .toc-mobile,
+body.blog-dark article.blog-content.cost-guide > .rule-of-thumb,
+body.blog-dark article.blog-content.cost-guide > .audit-card,
+body.blog-dark article.blog-content.cost-guide > .dark-cta { margin-top: 0; margin-bottom: 24px; }
+body.blog-dark article.blog-content.cost-guide > h2, body.blog-dark article.blog-content.cost-guide > h2:first-of-type { margin-top: 56px; margin-bottom: 16px; }
+body.blog-dark article.blog-content.cost-guide > h3 { margin-top: 40px; margin-bottom: 12px; }
+body.blog-dark article.blog-content.cost-guide > ul.svc-facts { margin-bottom: 12px; }
+body.blog-dark article.blog-content.cost-guide > ul.svc-facts + .rule-of-thumb { margin-top: 24px; }
+body.blog-dark article.blog-content.cost-guide > .blog-faq,
+body.blog-dark article.blog-content.cost-guide > .related-and-cta,
+body.blog-dark article.blog-content.cost-guide > .author-bio { margin-top: 56px; }
+body.blog-dark .cost-guide .table-section { padding: 28px; }
+body.blog-dark .cost-guide .table-section > h2 { margin-top: 0; margin-bottom: 12px; }
+body.blog-dark .cost-guide .table-section > h3 { margin: 32px 0 8px; }
+body.blog-dark .cost-guide .table-section > p { margin-bottom: 16px; }
+body.blog-dark .cost-guide .table-section > .table-scroll + p { margin-top: 16px; margin-bottom: 0; }
+body.blog-dark .cost-guide .table-section > .table-scroll { margin: 0; }
+body.blog-dark .cost-guide .table-section > .table-scroll > table { margin: 0; }
+body.blog-dark .cost-guide .table-section > :last-child { margin-bottom: 0; }
+body.blog-dark .cost-guide .rule-of-thumb { padding: 16px 20px; }
+body.blog-dark .cost-guide .audit-card { padding: 28px; }
+body.blog-dark .cost-guide .dark-cta { padding: 28px; }
+@media (max-width: 720px) {
+  body.blog-dark article.blog-content.cost-guide > p,
+  body.blog-dark article.blog-content.cost-guide > ul,
+  body.blog-dark article.blog-content.cost-guide > .table-section,
+  body.blog-dark article.blog-content.cost-guide > .takeaways,
+  body.blog-dark article.blog-content.cost-guide > .toc-mobile,
+  body.blog-dark article.blog-content.cost-guide > .rule-of-thumb,
+  body.blog-dark article.blog-content.cost-guide > .audit-card,
+  body.blog-dark article.blog-content.cost-guide > .dark-cta { margin-bottom: 20px; }
+  body.blog-dark article.blog-content.cost-guide > h2, body.blog-dark article.blog-content.cost-guide > h2:first-of-type { margin-top: 40px; }
+  body.blog-dark article.blog-content.cost-guide > h3 { margin-top: 32px; }
+  body.blog-dark article.blog-content.cost-guide > .blog-faq,
+  body.blog-dark article.blog-content.cost-guide > .related-and-cta,
+  body.blog-dark article.blog-content.cost-guide > .author-bio { margin-top: 40px; }
+  body.blog-dark .cost-guide .table-section,
+  body.blog-dark .cost-guide .audit-card,
+  body.blog-dark .cost-guide .dark-cta { padding: 20px 16px; }
+  body.blog-dark .cost-guide .comparison-table.stack-sm tr { margin-bottom: 10px; }
+  body.blog-dark .cost-guide .comparison-table.stack-sm td { padding: 6px 14px; }
+}
 body.blog-dark .blog-content ul.svc-facts, body.blog-dark .blog-content ul.source-list { padding-left: 20px; }
 body.blog-dark .blog-content ul.svc-facts li, body.blog-dark .blog-content ul.source-list li { margin-bottom: 8px; }
 body.blog-dark .blog-content ul.svc-facts strong { color: var(--text); }
