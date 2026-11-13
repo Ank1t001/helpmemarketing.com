@@ -86,10 +86,27 @@ test('normal submission with a valid token: saved, checklist PDF emailed, reply 
   assert.strictEqual(rows(env, 'Growth OS downloads').length, 1); assert.strictEqual(rows(env, 'Subscribers').length, 1); assert.strictEqual(rows(env, 'Spam').length, 0);
 });
 
-test('Meta Growth OS download (no widget on that page): still saved without a token, no email', () => {
+test('Meta Growth OS request without a token: rejected like SEO, no email', () => {
   const env = load({ secret: 'x', siteverify });
   const r = env.post({ ...base, product: 'meta', source: '/meta-growth-os', email: 'f@example.com' });
-  assert.strictEqual(r.saved, 'lead'); assert.strictEqual(env.mails.length, 0); assert.strictEqual(env.fetches.length, 0);
+  assert.strictEqual(r.saved, 'spam'); assert.strictEqual(rows(env, 'Spam')[0][4], 'No Turnstile token'); assert.strictEqual(env.mails.length, 0);
+});
+
+test('Meta Growth OS request with a valid token: Meta PDF emailed, joins Subscribers, reply says sent', () => {
+  const env = load({ secret: 'x', siteverify });
+  const r = env.post({ ...base, product: 'meta', source: '/meta-growth-os', marketingConsent: false, email: 'm@example.com', 'cf-turnstile-response': 'good-token' });
+  assert.deepStrictEqual([r.result, r.saved, r.email], ['ok', 'lead', 'sent']);
+  assert.strictEqual(env.attachments[0][0].name, 'HMM-Meta-Growth-OS-PDF-Overview.pdf');
+  const m = env.messages[0];
+  assert.strictEqual(m.subject, 'Your Meta Growth OS PDF overview');
+  for (const x of [m.htmlBody, m.body]) {
+    assert.ok(x.includes('Thanks for your interest in Meta Growth OS. Your PDF overview is attached.'));
+    assert.ok(x.includes('/contact?entry=meta_automation#contact-form') && x.includes('Enquire about Meta ads automation'));
+    assert.ok(x.includes('occasional marketing notes and updates') && x.includes('action=unsubscribe&e=m%40example.com&t='));
+    assert.ok(!/SEO/.test(x), 'no SEO wording in the Meta email');
+  }
+  assert.strictEqual(rows(env, 'Growth OS downloads')[0][2], 'Meta Growth OS');
+  assert.strictEqual(rows(env, 'Subscribers')[0][2], 'Meta Growth OS PDF overview');
 });
 
 test('/contact unchanged: no token still rejected the same way', () => {
@@ -112,12 +129,6 @@ failCase('checklist file missing or not shared: request kept, reply says email f
 failCase('configured file is not a PDF (renamed zip): request kept, reply says email failed', { mime: 'application/zip' }, /Failed: .*not a PDF/);
 failCase('file says PDF but content is not: request kept, reply says email failed', { blobType: 'application/octet-stream' }, /Failed: .*content is not a PDF/);
 failCase('mail service refuses the email: request kept, reply says email failed', { mailThrows: true }, /Failed: .*too many times/);
-
-test('Meta download reply carries no email field (no email is sent)', () => {
-  const env = load({ secret: 'x', siteverify });
-  const r = env.post({ ...base, product: 'meta', source: '/meta-growth-os', email: 'i@example.com' });
-  assert.strictEqual(r.saved, 'lead'); assert.strictEqual(r.email, undefined);
-});
 
 test('guide email: approved copy, enquiry link, logo, footer with subscription line, Unsubscribe and Privacy links', () => {
   const env = load({ secret: 'x', siteverify });

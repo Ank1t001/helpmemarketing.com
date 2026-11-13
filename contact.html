@@ -325,11 +325,15 @@ height="0" width="0" class="gtm-ns"></iframe></noscript>
     var LABEL={general:'Send my enquiry',review:'Request my free marketing review'};
     var q=new URLSearchParams(location.search);
     function clean(v,re){v=(v||'').trim();return re.test(v)?v:'';}
-    var entry=clean(q.get('entry'),/^(home_hero|home_final|home_journey|work_final|industry_(healthcare|finance|dtc|saas)_(hero|final)|research_(hub|gta_medspa|gta_medspa_help|business_spend)|seo_automation|ai_seo_setup)$/)||'direct';
+    var entry=clean(q.get('entry'),/^(home_hero|home_final|home_journey|work_final|industry_(healthcare|finance|dtc|saas)_(hero|final)|research_(hub|gta_medspa|gta_medspa_help|business_spend)|seo_automation|ai_seo_setup|meta_automation)$/)||'direct';
     // SEO automation enquiries (2026-11-12): a more relevant prompt for the open "need" field.
     if(entry==='seo_automation'){var hl=document.querySelector('label[for="cf-help"]'),ht=document.getElementById('cf-help');
       if(hl)hl.textContent='Tell me what you would like to automate';
       if(ht)ht.setAttribute('placeholder','For example: recurring website checks, search performance reporting, AI visibility checks or tracking changes after website updates.');}
+    // Meta ads automation enquiries (2026-11-12): the same prompt with Meta ads examples.
+    if(entry==='meta_automation'){var ml=document.querySelector('label[for="cf-help"]'),mt=document.getElementById('cf-help');
+      if(ml)ml.textContent='Tell me what you would like to automate';
+      if(mt)mt.setAttribute('placeholder','For example: tracking checks, creative fatigue alerts, weekly account reports or checks after campaign changes.');}
     var utm={};['utm_source','utm_medium','utm_campaign'].forEach(function(k){var v=clean(q.get(k),/^[\w.\-]{1,60}$/);if(v)utm[k]=v;});
     var landing='';try{landing=sessionStorage.getItem('hmm_landing')||'';}catch(e){}
     function modeFromUrl(){return new URLSearchParams(location.search).get('intent')==='review'?'review':'general';}

@@ -83,15 +83,18 @@ def card(t, ic, labels, desc, receive, tag=None, note=None):
     return dict(t=t, ic=ic, labels=labels, desc=desc, receive=receive, tag=tag, note=note)
 
 PAGES = [
-    dict(kicker='Tracking & reporting', title='Can the numbers in Ads Manager be trusted?', cards=[
+    dict(kicker='Tracking & reporting', title='Can the numbers in Ads Manager be trusted?',
+         diagram=('How a result is recorded', [('click', 'Ad click', ''), ('globe', 'Website or form', ''),
+                  ('shield', 'Pixel & Conversions API', 'checked'), ('key', 'Events Manager', 'checked'), ('report', 'Ads Manager report', 'checked')]),
+         cards=[
         card('Pixel & Conversions API', 'shield', '',
-             'Checks that the pixel and Conversions API send the expected events, and that no event is counted twice.',
-             'Events with gaps or duplicates, and how to fix them.'),
+             'Checks which events the pixel and Conversions API send, and flags missing or duplicate events. Some checks need Events Manager access.',
+             'Tracking findings and proposed corrections, with any untested events marked unverified.'),
         card('Event match quality', 'key', '',
              'Reviews how well events are matched to the people who took the action, and which details are missing.',
              'Match quality by event and what to add.'),
         card('Conversion goal', 'target', 'H',
-             'Compares the event each campaign optimises toward with the result you care about. A person confirms whether a difference is intended.',
+             'Compares the action each campaign optimises toward with the result that matters to your business. A person confirms whether a difference is intended.',
              'Mismatches between campaign goals and your business goal.'),
         card('Columns & attribution windows', 'report', 'H',
              'Checks whether your reporting columns and attribution settings show the real picture, and flags comparisons across different windows.',
@@ -105,69 +108,78 @@ PAGES = [
              'Findings with the unverified checks clearly labelled.',
              tag='Only where it applies'),
     ]),
-    dict(kicker='Creative, structure & audience', title='Where is budget being lost?', cards=[
+    dict(kicker='Creative, structure & audience', title='Where is budget being lost?',
+         diagram=('Where the budget goes', [('gauge', 'Budget', 'checked'), ('sitemap', 'Campaigns', 'checked'),
+                  ('users', 'Ad sets & audiences', 'checked'), ('image', 'Ads & creative', 'checked'), ('chart', 'Results', '')]),
+         cards=[
         card('Creative performance', 'image', '',
-             'Tracks how well each ad holds attention and what it produces, comparing like with like before averaging.',
-             'Ads to keep, refresh or test against.'),
-        card('Creative fatigue', 'refresh', '',
-             'Flags ads whose results decline as the same people see them more often.',
-             'Ads showing fatigue and when it started.'),
+             'Reviews how each ad attracts attention and generates responses, comparing like with like before averaging.',
+             'Ads to investigate, refresh or test.'),
+        card('Possible creative fatigue', 'refresh', 'H',
+             'Looks for ads whose results decline week by week while similar ads hold. Other causes, such as audience or delivery changes, are checked alongside it.',
+             'Ads showing possible fatigue, with the evidence and when the change began.'),
         card('Creative briefs', 'brief', 'D',
              'Drafts briefs from the diagnosis: the hook, structure, timings and claims to verify. You approve each brief before production.',
              'A brief an editor can work from.'),
-        card('Campaign structure & learning phase', 'sitemap', '',
-             'Flags ad sets stuck in the learning phase and structures that spread budget too thinly.',
-             'Consolidation options, with the learning reset each one causes.'),
+        card('Campaign structure & learning status', 'sitemap', '',
+             'Reviews campaign organisation, delivery and learning status, and structures that may spread budget too thinly.',
+             'Structure options, with any expected learning reset and its risks explained.'),
         card('Budget split', 'gauge', 'H',
              'Reviews how budget is spread across campaigns and audiences. Budgets are never changed without your approval.',
              'Where budget is concentrated or spread thin.'),
-        card('Audience overlap & exclusions', 'users', '',
-             'Checks saturation, overlap between ad sets and missing exclusions.',
-             'Overlapping audiences and exclusions to add.'),
+        card('Audiences & delivery', 'users', '',
+             'Reviews audience settings, exclusions, saturation and potential overlap where the available data supports it.',
+             'Audience findings and proposed tests.'),
     ]),
-    dict(kicker='After the click & progress', title='Do the ads bring customers, and is the work moving forward?', cards=[
+    dict(kicker='After the click & progress', title='Do the ads bring customers, and is the work moving forward?',
+         diagram=('From click to customer', [('click', 'Click', 'meta'), ('quote', 'Enquiry or order', 'meta'),
+                  ('filter', 'Qualified', 'own'), ('users', 'Customer', 'own'), ('chart', 'Value', 'own')]),
+         cards=[
         card('Funnel & post-click', 'click', 'H',
-             'Reviews what happens after the click, using your funnel stages described in your own words.',
+             'Reviews what happens after the click, using the funnel stages you describe.',
              'Where people drop off between the click and becoming a customer.'),
         card('Lead quality & customer value', 'database', 'H',
              'Connects leads or orders to outcomes from your CRM or store to show which campaigns produce customers.',
              'Campaigns compared by customers and value, not just leads.',
              tag='Optional'),
         card('Priorities & draft actions', 'target', 'D',
-             'Groups findings by cause as broken, missing or underperforming, and ranks them by impact, effort and confidence. You decide what proceeds.',
-             'What to fix now, test or leave unchanged.'),
+             'Connects related findings by cause and ranks them by impact, effort and the strength of the evidence. You decide what proceeds.',
+             'What to fix, test, investigate or leave unchanged.'),
         card('Change preparation', 'pen', 'D',
-             'Prepares each approved change as a draft. Anything built in the account is built paused and confirmed one item at a time.',
+             'Drafts recommendations, briefs and tracking specifications. Where supported, new campaigns and ad sets are prepared paused until you approve them.',
              'Drafted changes ready for your approval.'),
-        card('Drift monitoring', 'checkc', '',
-             'Rechecks the account against a baseline and flags changes, without judging results inside the learning phase or on small samples.',
-             'What changed since the last run and what needs attention.'),
+        card('Baseline & monitoring', 'checkc', '',
+             'Records a baseline and an indicator to watch once each approved change is live, then compares later runs, allowing for learning status and sample size.',
+             'What changed since the baseline and what needs attention.'),
         card('Change record & progress summary', 'history', 'D',
              'Records findings, decisions and completed work, then drafts an update for your review.',
              'A concise summary of progress, open issues and approvals needed.'),
     ]),
 ]
 
-FLOW = [
-    ('key', 'Check connections'), ('flag', 'Confirm your goals'), ('health', 'Run the checks'),
-    ('target', 'Diagnose & prioritise'), ('pen', 'Draft & approve'), ('checkc', 'Monitor & report'),
+STAGE_ICONS = ['flag', 'key', 'shield', 'health', 'search', 'target', 'pen', 'checkc', 'report']
+
+STAGES = [
+    ('Establish the starting point', ['Understand your business', 'Check access and data', 'Verify tracking']),
+    ('Find and plan improvements', ['Audit the account', 'Diagnose the problems', 'Prioritise the work']),
+    ('Prepare, verify and monitor', ['Prepare changes', 'Baseline approved changes', 'Monitor and report']),
 ]
 
 START = [
-    ('Ads Manager and your sales do not match', 'Tracking and reporting checks', 'shield'),
-    ('Your cost per result keeps rising', 'Creative and structure checks', 'chart'),
-    ('Ads stop working after a few weeks', 'Creative fatigue checks', 'refresh'),
-    ('Plenty of leads, but few become customers', 'Lead quality and post-click review', 'click'),
-    ('Account changes keep causing new problems', 'Drift monitoring and change records', 'checkc'),
+    ('Ads Manager and your sales do not match', 'Tracking, attribution and reporting', 'shield'),
+    ('Your cost per result keeps rising', 'Creative, structure, audience and tracking', 'chart'),
+    ('Ads seem to stop working after a few weeks', 'Creative and audience checks', 'refresh'),
+    ('Plenty of leads, but few become customers', 'Customer journey and lead quality', 'click'),
+    ('Account changes keep causing new problems', 'Change monitoring against a baseline', 'checkc'),
 ]
 
 AREAS = [
-    ('shield', 'Tracking', 'Pixel, Conversions API and events.'),
-    ('image', 'Creative', 'Attention, results and fatigue.'),
-    ('sitemap', 'Structure', 'Learning phase and budget split.'),
-    ('users', 'Audience', 'Overlap, saturation and exclusions.'),
-    ('report', 'Reporting', 'Columns and attribution windows.'),
-    ('click', 'After the click', 'Lead quality and customer value.'),
+    ('shield', 'Tracking & conversions', 'Events, duplicates, goals.'),
+    ('image', 'Creative performance', 'Attention and responses.'),
+    ('sitemap', 'Structure & budgets', 'Delivery and learning.'),
+    ('users', 'Audiences & delivery', 'Exclusions and overlap.'),
+    ('report', 'Reporting & attribution', 'Metrics and windows.'),
+    ('click', 'Customer journey & value', 'Outcomes after the click.'),
 ]
 
 TOTAL = 2 + len(PAGES)
@@ -179,6 +191,20 @@ def foot(i):
 def para(key, cls, ic, text):
     i = icon(ic, 'bi') if ic else ''
     return f'<p class="{cls}"><b>{i}{key}</b> {E(text)}</p>'
+
+# Diagram node marks: checked = a check in this section looks here; meta / own = where the step is visible.
+MARK = {'checked': ('Checked here', 'm-chk'), 'meta': ('Meta reports it', 'm-meta'), 'own': ('Your records show it', 'm-own')}
+
+def render_diagram(d):
+    title, nodes = d
+    out = []
+    for i, (ic, label, mark) in enumerate(nodes):
+        if i:
+            out.append('<span class="dg-ar" aria-hidden="true"></span>')
+        out.append(f'<div class="dg-n {MARK[mark][1] if mark else ""}"><span class="dg-i">{icon(ic)}</span><span class="dg-t">{E(label)}</span></div>')
+    used = [k for k in MARK if any(n[2] == k for n in nodes)]
+    key = ''.join(f'<span class="dg-k {MARK[k][1]}"><i></i>{E(MARK[k][0])}</span>' for k in used)
+    return f'<figure class="dg"><figcaption><b>{E(title)}</b>{key}</figcaption><div class="dg-row">{"".join(out)}</div></figure>'
 
 def render_card(c):
     tag = f'<span class="tag">{E(c["tag"])}</span>' if c['tag'] else ''
@@ -200,11 +226,11 @@ pages.append(f'''<section class="page">
     <div class="intro-top"><img class="logo" src="../../assets/brand/hmm-logo-full.svg" width="150" height="69" alt="HelpMeMarketing"><span>Meta Growth OS PDF overview</span></div>
     <h1>Meta Growth OS</h1>
     <p class="intro-sub"><em>Find what is holding your Meta ads back.</em></p>
-    <p class="intro-lede">Explore the Meta ad account checks I can help automate, the recommendations they produce and where your review is needed.</p>
+    <p class="intro-lede">Explore how Meta Growth OS identifies tracking issues, finds performance gaps and prioritises what needs attention.</p>
   </div>
   <div class="grp"><h2 class="sh">Where should you start?</h2>
-  <table class="start"><thead><tr><th>What you are experiencing</th><th>Start here</th></tr></thead><tbody>{rows}</tbody></table></div>
-  <div class="grp"><h2 class="sh">Six areas</h2>
+  <table class="start"><thead><tr><th>What you are experiencing</th><th>Where to look first</th></tr></thead><tbody>{rows}</tbody></table></div>
+  <div class="grp"><h2 class="sh">Six specialist areas</h2>
   <div class="areas">{areas}</div></div>
   <div class="grp"><h2 class="sh">How to read the labels</h2>
   <table class="legend">{legend}</table></div>
@@ -215,29 +241,32 @@ for n, pg in enumerate(PAGES, start=2):
     cards = ''.join(render_card(c) for c in pg['cards'])
     pages.append(f'''<section class="page">
   <header class="ph"><div class="kick">{E(pg["kicker"])}</div><h1>{E(pg["title"])}</h1></header>
+  {render_diagram(pg["diagram"])}
   <div class="cards">{cards}</div>
   {foot(n)}</section>''')
 
 # Page 5: how it works and next step
-flow = ''.join(f'<div class="fl"><span class="fi">{icon(ic)}</span><span class="fn">{i}</span><h3>{E(t)}</h3></div>'
-               for i, (ic, t) in enumerate(FLOW, start=1))
+flow = ''.join(f'<div class="frow"><div class="frow-h">{E(g)}</div>' +
+               ''.join(f'<div class="fs"><span class="fsi">{icon(STAGE_ICONS[gi * 3 + si])}<span class="fn">{gi * 3 + si + 1}</span></span><h3>{E(t)}</h3></div>' for si, t in enumerate(steps)) + '</div>'
+               for gi, (g, steps) in enumerate(STAGES))
 pages.append(f'''<section class="page">
   <header class="ph"><div class="kick">How it works & next step</div><h1>From a finding to a clear next action</h1></header>
-  <div class="grp"><div class="flow">{flow}</div>
-  <p class="flow-note">{icon("refresh", "bi")}The stages can span more than one run. Each run builds on the previous record, and not every finding leads to a change in the same run.</p></div>
-  <div class="example"><div class="ex-h"><span class="nl">How the checks stay honest</span></div>
-    <p>Results are judged only once tracking is checked. If the wrong pixel may be connected or events are counted twice, the run says so before anything else.</p>
-    <p>A data source that is not connected is marked as unchecked, never estimated, and nothing is judged inside the learning phase or below roughly fifty conversions.</p></div>
+  <div class="grp"><div class="flow3">{flow}</div>
+  <p class="flow-note">{icon("refresh", "bi")}Each stage builds on the evidence before it. Checks repeat on an agreed schedule, and proposed changes come to you for approval.</p></div>
+  <div class="example"><div class="ex-h"><span class="nl">{icon("shield", "bi")}How the checks stay honest</span></div>
+    <p>Tracking problems are identified before affected results are used to judge performance, and a data source that is not connected is marked as unchecked, never estimated.</p>
+    <p>Performance recommendations account for learning status and sample size. Proposed changes need your approval, and each one is recorded with a baseline once it is live.</p></div>
   <div class="two">
-    <div class="panel"><h2 class="ph2">{icon("report", "ico-s")}What you receive</h2><ul>
-      <li>A clear report with findings and priorities.</li>
-      <li>Draft briefs or recommendations for review.</li>
-      <li>A dated record of decisions and changes.</li>
-      <li>A way to verify each recommended change.</li></ul></div>
-    <div class="panel"><h2 class="ph2">{icon("key", "ico-s")}What setup needs</h2><ul>
-      <li>Access to your Meta ad account, or exported reports.</li>
-      <li>Your goals and what a result is worth to you.</li>
-      <li>Your CRM or store, where results should be checked against customers.</li></ul>
+    <div class="panel"><h2 class="ph2">{icon("report", "ico-s")}What you receive</h2><ul class="il">
+      <li><span class="li-i">{icon("report", "bi")}</span>A clear report with findings and priorities.</li>
+      <li><span class="li-i">{icon("brief", "bi")}</span>Draft briefs or recommendations for review.</li>
+      <li><span class="li-i">{icon("history", "bi")}</span>A dated record of decisions and changes.</li>
+      <li><span class="li-i">{icon("checkc", "bi")}</span>A baseline and an indicator to watch for each approved change.</li></ul></div>
+    <div class="panel"><h2 class="ph2">{icon("key", "ico-s")}What setup needs</h2><ul class="il">
+      <li><span class="li-i">{icon("key", "bi")}</span>Access to your Meta ad account, or exported reports.</li>
+      <li><span class="li-i">{icon("target", "bi")}</span>Your goals and what a result is worth to you.</li>
+      <li><span class="li-i">{icon("database", "bi")}</span>Your CRM or store, where results should be checked against customers.</li>
+      <li><span class="li-i">{icon("folder", "bi")}</span>A Google Drive folder for the account record.</li></ul>
       <p class="pn">Requirements are confirmed during setup, before the first run.</p></div>
   </div>
   <div class="cta"><h2>Want these checks set up for your ad account?</h2>
@@ -303,18 +332,42 @@ table{border-collapse:collapse;width:100%}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
 .cd{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--cta);border-radius:var(--r);padding:var(--pad);break-inside:avoid;display:flex;flex-direction:column}
 .cd-h{display:flex;gap:var(--s3);align-items:center}
-.cd-h h3{font-size:11.5pt;font-weight:650;line-height:1.25}
+.cd-h h3{font-size:11pt;font-weight:650;line-height:1.25}
 .cd-b{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s3)}
 .cd p{color:var(--body)}
-.cd-d{margin-top:var(--s3);font-size:11pt;line-height:1.5}
+.cd-d{margin-top:10px;font-size:11pt;line-height:1.44}
 .cd p b{font-weight:650;color:var(--text);margin-right:2px}
 .k-auto b{color:var(--mint)!important}
 .k-rev b{color:var(--muted)!important}
-.k-rec{padding-top:var(--s3);margin-top:var(--s3);border-top:1px solid var(--line);font-size:11pt;line-height:1.5}
+.k-rec{padding-top:10px;margin-top:10px;border-top:1px solid var(--line);font-size:11pt;line-height:1.44}
 .k-rec b{color:var(--cta-ink)!important}
 .cn{margin-top:var(--s2);font-size:8.5pt;color:var(--ter)!important;font-style:italic}
+/* diagram strip (pages 2 to 4): caption and key left, five nodes right */
+.page:has(.dg){gap:var(--s3)}
+.dg{margin:0;display:flex;align-items:center;gap:var(--s4);background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s2) var(--s4)}
+.dg figcaption{flex:0 0 1.3in;display:flex;flex-direction:column;gap:3px}
+.dg figcaption b{font-size:7.5pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ter);line-height:1.3;margin-bottom:2px}
+.dg-k{display:flex;align-items:center;gap:5px;font-size:7.5pt;color:var(--muted);line-height:1.2}
+.dg-k i{flex:none;width:9px;height:9px;border-radius:50%}
+.dg-row{flex:1;display:flex;align-items:center;min-width:0}
+.dg-n{flex:1 1 auto;display:flex;align-items:center;gap:6px;min-width:0}
+.dg-i{flex:none;width:26px;height:26px;border-radius:50%;background:#EFEDE7;color:var(--muted);display:inline-flex;align-items:center;justify-content:center}
+.dg-i .ico{width:15px;height:15px}
+.dg-t{font-size:8pt;font-weight:650;line-height:1.2}
+.m-chk .dg-i,.dg-k.m-chk i{background:var(--mint);color:#fff}
+.m-meta .dg-i,.dg-k.m-meta i{background:var(--obsidian);color:#fff}
+.m-own .dg-i,.dg-k.m-own i{background:var(--cta);color:var(--obsidian)}
+.dg-ar{flex:0 0 16px;height:2px;background:var(--line2);margin:0 4px;position:relative}
+.dg-ar::after{content:"";position:absolute;right:0;top:-3px;width:6px;height:6px;border-top:2px solid var(--line2);border-right:2px solid var(--line2);transform:rotate(45deg)}
 /* page 5 */
-.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--s3)}
+.flow3{display:flex;flex-direction:column;gap:var(--s2)}
+.frow{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:var(--s2);align-items:stretch}
+.frow-h{display:flex;align-items:center;padding:0 var(--s3);border-radius:var(--r);background:var(--obsidian);color:#fff;font-weight:650;font-size:9.5pt;line-height:1.25}
+.frow:last-child .frow-h{background:var(--cta);color:var(--obsidian)}
+.fs{display:flex;align-items:center;gap:var(--s2);background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:10px var(--s3)}
+.fsi{flex:none;position:relative;width:30px;height:30px;border-radius:8px;background:rgba(255,92,26,.11);color:var(--cta);display:inline-flex;align-items:center;justify-content:center}
+.fs .fn{position:absolute;top:-6px;right:-6px;width:15px;height:15px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin:0;background:var(--obsidian);color:#fff;font-size:6.5pt;font-weight:700}
+.fs h3{font-size:9.5pt;font-weight:650;line-height:1.25}
 .fl{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 8px;text-align:center}
 .fl:not(:last-child)::after{content:"";position:absolute;right:-9px;top:28px;width:7px;height:7px;border-top:2px solid var(--cta);border-right:2px solid var(--cta);transform:rotate(45deg);background:var(--paper);z-index:1}
 .fi{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--obsidian);color:#fff;align-items:center;justify-content:center}
@@ -324,6 +377,7 @@ table{border-collapse:collapse;width:100%}
 .flow-note{font-size:9.5pt;color:var(--cta-ink);text-align:center}
 .example{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--mint);border-radius:0 var(--r) var(--r) 0;padding:var(--pad)}
 .ex-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--s2)}
+.nl .bi{width:11px;height:11px}
 .nl{font-size:8.5pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mint)}
 .ex-date{font-size:8.5pt;color:var(--ter)}
 .example p{color:var(--body)}
@@ -334,6 +388,10 @@ table{border-collapse:collapse;width:100%}
 .panel ul{padding-left:17px;color:var(--body)}
 .panel li+li{margin-top:var(--s2)}
 .panel li::marker{color:var(--cta)}
+.panel ul.il{list-style:none;padding-left:0}
+.il li{display:flex;gap:var(--s2);align-items:flex-start}
+.li-i{flex:none;width:20px;height:20px;border-radius:6px;background:rgba(255,92,26,.11);color:var(--cta);display:inline-flex;align-items:center;justify-content:center;margin-top:-1px}
+.li-i .bi{width:12px;height:12px;margin:0;vertical-align:0}
 .nw{white-space:nowrap}
 .pn{margin-top:var(--s3);font-size:9pt;color:var(--ter)}
 .cta{background:var(--obsidian);color:#fff;border-radius:var(--r);padding:20px}
