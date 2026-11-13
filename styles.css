@@ -2452,13 +2452,24 @@ body.blog-dark .table-source {
 
 /* Cost guide components (2026-11-13): answer paragraph, jump links, fact lists, phone card tables. Spec: docs/HMM_Design_System.md "Cost guide rebuild". */
 body.blog-dark article.blog-content p.post-answer { font-size: 18px; line-height: 1.6; color: var(--text); }
-body.blog-dark .post-jump { margin: 24px 0 32px; padding: 16px 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-elevated); }
-body.blog-dark .post-jump-label { display: block; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
-body.blog-dark .post-jump ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-body.blog-dark .blog-content .post-jump li { margin: 0; padding: 0; font-size: 14px; }
-body.blog-dark .blog-content .post-jump li::before { content: none; }
-body.blog-dark .post-jump a { display: inline-block; padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px; color: var(--text); text-decoration: none; }
-body.blog-dark .post-jump a:hover, body.blog-dark .post-jump a:focus-visible { border-color: var(--cta); color: var(--cta-text, var(--cta)); }
+/* Cost guide hero graphic: Warm Ivory break palette (Colour System section 5), scoped to this figure */
+body.blog-dark .cost-hero { --break-bg: #F8F4ED; --break-text: #0E0E0E; --break-muted: #4A4A4A; --break-line: #E6DFD3; --break-card: #FFFFFF; background: var(--break-bg); border: 1px solid var(--break-line); border-radius: 16px; padding: 28px 32px; margin: 24px 0 0; display: block; min-height: 0; }
+body.blog-dark .cost-hero-title { font-family: 'Fraunces', Georgia, serif; font-size: 24px; font-weight: 500; line-height: 1.25; color: var(--break-text); margin: 0 0 20px; }
+body.blog-dark .cost-hero-row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 12px; }
+body.blog-dark .blog-content .cost-hero-row li { margin: 0; padding: 0; }
+body.blog-dark .blog-content .cost-hero-row li::before { content: none; }
+body.blog-dark .cost-hero-item { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; row-gap: 2px; align-items: center; background: var(--break-card); border: 1px solid var(--break-line); border-radius: 12px; padding: 14px 16px; }
+body.blog-dark .cost-hero-ic { grid-row: span 2; width: 40px; height: 40px; border-radius: 10px; background: rgba(255, 92, 26, 0.12); color: var(--cta); display: inline-flex; align-items: center; justify-content: center; }
+body.blog-dark .cost-hero-name { font-size: 16px; font-weight: 600; color: var(--break-text); line-height: 1.3; }
+body.blog-dark .cost-hero-desc { font-size: 13px; color: var(--break-muted); line-height: 1.4; }
+body.blog-dark .blog-content .cost-hero-plus { font-size: 24px; font-weight: 500; color: var(--cta); text-align: center; }
+@media (max-width: 900px) {
+  body.blog-dark .cost-hero { padding: 20px; }
+  body.blog-dark .cost-hero-title { font-size: 20px; margin-bottom: 14px; }
+  body.blog-dark .cost-hero-row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  body.blog-dark .blog-content .cost-hero-plus { font-size: 18px; line-height: 1; }
+  body.blog-dark .cost-hero-item { padding: 10px 14px; }
+}
 body.blog-dark .blog-content ul.svc-facts, body.blog-dark .blog-content ul.source-list { padding-left: 20px; }
 body.blog-dark .blog-content ul.svc-facts li, body.blog-dark .blog-content ul.source-list li { margin-bottom: 8px; }
 body.blog-dark .blog-content ul.svc-facts strong { color: var(--text); }
@@ -2474,7 +2485,6 @@ body.blog-dark article.blog-content > h3 { font-family: 'Fraunces', Georgia, ser
   body.blog-dark .comparison-table.stack-sm td::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 2px; }
   body.blog-dark .comparison-table.stack-sm td:first-child { font-size: 17px; }
   body.blog-dark .comparison-table.stack-sm td:first-child::before { content: none; }
-  body.blog-dark .post-jump { padding: 14px 16px; }
 }
 
 /* Table scroll wrapper (2026-09-09).. History and rationale: docs/HMM_Blog_Template_V2_Master_Reference.md and docs/HMM_Design_System.md. */
