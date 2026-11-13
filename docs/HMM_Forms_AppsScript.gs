@@ -845,6 +845,13 @@ function setup() {
   Logger.log('Ready. Tabs: ' + Object.keys(TABS).join(', '));
 }
 
+// Run any time (2026-11-13): checks that the Meta PDF overview can be read from Drive, without sending an email
+// or counting toward the daily request limit. The log shows the file size, or the exact error that stops the email.
+function testMetaPdf() {
+  var b = checklistBlob_(META_OVERVIEW_FILE_ID, META_OVERVIEW_FILENAME);
+  Logger.log(META_OVERVIEW_FILE_ID + ' OK, ' + b.getBytes().length + ' bytes');
+}
+
 // Run any time: tells you whether TURNSTILE_SECRET is set and whether Cloudflare accepts it. A dummy
 // token must fail as invalid-input-response (secret good), not invalid-input-secret (secret wrong).
 function checkTurnstileSecret() {
