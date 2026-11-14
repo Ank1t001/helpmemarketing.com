@@ -2501,6 +2501,7 @@ body.blog-dark .cost-guide .table-section > .table-scroll > table { margin: 0; }
 body.blog-dark .cost-guide .table-section > :last-child { margin-bottom: 0; }
 body.blog-dark .cost-guide .rule-of-thumb { padding: 16px 20px; }
 body.blog-dark .cost-guide .table-section > h3:first-child { margin-top: 0; }
+@media (min-width: 721px) { body.blog-dark .cost-guide td[data-label="Estimated budget (CAD)"] { white-space: nowrap; } }
 body.blog-dark article.blog-content.cost-guide > .table-section:has(> #published-examples) { margin-top: 56px; }
 @media (max-width: 720px) { body.blog-dark article.blog-content.cost-guide > .table-section:has(> #published-examples) { margin-top: 40px; } }
 body.blog-dark article.blog-content.cost-guide > p.svc-links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 4px; }
