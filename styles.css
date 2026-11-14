@@ -889,14 +889,6 @@ section.alt { background: var(--gray-surface); }
   margin: 40px 0 16px;
   position: relative;
 }
-.blog-content h2::before {
-  content: "";
-  display: block;
-  width: 32px;
-  height: 2px;
-  background: var(--gold);
-  margin-bottom: 16px;
-}
 .blog-content h2 em {
   font-style: italic;
   color: var(--gold);
@@ -2084,26 +2076,15 @@ body.blog-dark .takeaways li::before {
   border-radius: 50%;
 }
 
-/* ============= PROSE (h2 with orange accent rule, p, a, strong) ============= */
+/* ============= PROSE (h2, p, a, strong; H2 accent rule removed 2026-11-14, founder) ============= */
 body.blog-dark article.blog-content h2 {
   font-family: 'Fraunces', Georgia, serif;
   font-size: 28px;
   font-weight: 500; /* 600 was never loaded (site ships Fraunces 400/500) and rendered faux-bold */
   color: var(--text);
   letter-spacing: -0.01em;
-  margin: 30px 0 20px; /* 30 + 18 padding = 48px above every H2 */
+  margin: 48px 0 20px;
   position: relative;
-  padding-top: 18px;
-}
-body.blog-dark article.blog-content h2::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 36px;
-  height: 2px;
-  background: var(--cta);
-  border-radius: 1px;
 }
 body.blog-dark article.blog-content h2:first-of-type {
   margin-top: 0; /* takeaways card carries the 30px gap below it */
@@ -2472,8 +2453,6 @@ body.blog-dark .blog-content .cost-hero-plus { font-size: 24px; font-weight: 500
 }
 /* Cost guide spacing scale (2026-11-13): 56px before each H2 (40 at 720), 40px before H3s, 24px between blocks (20 at 720); margins collapse in the article's block flow. */
 body.blog-dark .cost-guide .hero-zone { row-gap: 32px; }
-body.blog-dark article.blog-content.cost-guide h2 { padding-top: 0; }
-body.blog-dark article.blog-content.cost-guide h2::before { content: none; }
 body.blog-dark .cost-guide .cost-hero { margin-top: 0; }
 body.blog-dark .cost-guide .hero-zone { margin-bottom: 0; }
 body.blog-dark article.blog-content.cost-guide > p,
@@ -3082,7 +3061,7 @@ body.blog-dark .author-line > span:not(.dot) ~ span:not(.dot)::before {
 @media (max-width: 900px) {
   body.blog-dark article.blog-content h2 {
     font-size: 24px;
-    margin-top: 30px;
+    margin-top: 48px;
   }
 }
 

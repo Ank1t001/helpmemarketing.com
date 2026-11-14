@@ -271,7 +271,7 @@ The reference blog implementing all V2 patterns is:
 - See Part 1 Section B of master reference for full list
 
 ### Visual hierarchy
-- H2: Fraunces 28px / 500 weight / var(--text) / 36px Signal Orange (var(--cta)) accent rule above, 48px above and 20px below
+- H2: Fraunces 28px / 500 weight / var(--text), 48px above and 20px below, no accent rule (the orange rule above each H2 was removed from every post on 2026-11-14, founder)
 - Body copy: var(--text-body) (78% white, Colour System Decision 13) for paragraphs, list items and FAQ answers; var(--text-muted) for subtitles, captions and meta
 - Pull quotes: Fraunces italic 20px, Signal Orange (var(--cta)) left border, 8% orange tint (rgba(255,92,26,0.08)), radius 0 12px 12px 0
 - Diagram titles: canonical eyebrow (Inter 13px uppercase, var(--text-muted)); icons are inline Tabler SVGs, never emoji

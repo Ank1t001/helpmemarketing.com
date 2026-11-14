@@ -1,6 +1,6 @@
 # HMM Blog Template V2 — Master Reference
 
-**Version:** 2.12 (D-hybrid sticky TOC sidebar)
+**Version:** 2.13 (D-hybrid sticky TOC sidebar)
 **First shipped:** Commit `2430e84`, May 5 2026, on `/blog/healthcare-marketing-channels`
 **Purpose:** Single source of truth for writing new blogs and retrofitting existing ones to V2 architecture.
 
@@ -677,7 +677,7 @@ Use `var(--navy)`, `var(--gold)`, etc. throughout. Don't hardcode hex values for
 
 | Element | Live value |
 |---|---|
-| `article.blog-content h2` | Fraunces 28px / 500, 24px at ≤900; 30px margin-top + 18px accent padding = 48px above, 20px below; 36px Signal Orange rule |
+| `article.blog-content h2` | Fraunces 28px / 500, 24px at ≤900; 48px margin-top (also at ≤900), 20px below; no accent rule (removed 2026-11-14) |
 | `.blog-faq-title` | Fraunces 28px / 500 |
 | `.takeaways h3`, `.related-section h3`, `.dark-cta h4` | Fraunces 20px / 500 |
 | `.final-cta h3` | Fraunces 26px / 500 |
@@ -1839,6 +1839,7 @@ When uncertain about a pattern, view that blog's source as the canonical impleme
 | Version | Date | Changes |
 |---|---|---|
 | 2.0 | May 5 2026 | Initial V2 template (D-hybrid sticky TOC sidebar). Replaces V1 (2-column body-layout with right-column visuals). |
+| 2.13 | Nov 14 2026 | H2 accent rule retired on every post (founder): the 36px Signal Orange line above each `article.blog-content` H2 and the unused legacy gold `.blog-content h2::before` are deleted. Spacing kept: 48px above every H2 as plain margin (was 30px margin + 18px padding; the mobile 30px margin becomes 48px). The cost guide's own override is gone, as it is now the default. |
 | 2.12 | Nov 13 2026 | `nav.post-jump` retired (removed from the cost guide, CSS deleted). New optional hero variant `figure.cost-hero`: a compact HTML graphic on the Warm Ivory break palette (scoped tokens) in place of the hero image, used on /blog/digital-marketing-cost. |
 | 2.11 | Nov 13 2026 | Cost guide rebuild (/blog/digital-marketing-cost): new optional components in the blog region of `styles.css`, `p.post-answer` (direct answer paragraph, 18px, full text colour), `nav.post-jump` ("On this page" pill links after the answer), `ul.svc-facts` and `ul.source-list` (labelled fact lists and a dated source list), `.comparison-table.stack-sm` (three-plus column tables become labelled cards at 720px and below; each `td` carries `data-label`; two-column tables stay as tables), and article-level H3s (`article.blog-content > h3`) on Fraunces 22/500 with 36px above. Pricing claims cite their source inline, beside the figure. |
 | 2.10 | Oct 8 2026 | Approved: voice moves from "you" + "we" to first person ("I" + "you") for a one-person agency (Section B, Card 2, proposed author bio). Full rules in Content Rules Section 1.5. |
